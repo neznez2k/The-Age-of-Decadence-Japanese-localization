@@ -1,0 +1,179 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_pavola_met == false</string>
+      <string>aod.pc_member_guards &amp;&amp; aod.npc_paullus_met &amp;&amp; aod.npc_pavola_met != 2</string>
+    </conditions>
+    <links>
+      <int>0</int>
+      <int>3</int>
+    </links>
+    <dlg_name>NPC_Pavola_02</dlg_name>
+    <def_link>2</def_link>
+    <def_speaker_name>Pavola</def_speaker_name>
+    <def_portrait>Pavola</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>An observant person could deduce much about Legatus Pavola by his rank and posting. Maadoran was the last place where troubles are expected, which means that the legatus’ abilities weren’t needed elsewhere, which means they weren’t needed at all. At the same time, it was an important post, which could only be given to a reliable officer accustomed to carrying out orders quickly and efficiently, without ever questioning them. Finally, both the rank and the posting suggested that Pavola was a performance-oriented officer who knew how to keep his superiors happy – an often overlooked trait but vital for one’s advancement.
+
+Unfortunately, that part of his life is over now.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_pavola_met = 1;</string>
+        <string>addJournalChar(pavola);</string>
+        <string>dlgTeleportTo(69, 67, 0, W);</string>
+        <string>dlgCam(-60, 45, 6, 4400);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Approach.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You must be &lt;charname&gt;,” says Pavola. “I've heard of you."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“How did you end up in Caer-Tor?”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.global_ganezzar_completed &amp;&amp; aod.ending_gnz_IG_joins_HC</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Nothing at the moment.” Leave.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What do you want, &lt;charname&gt;?” asks Pavola.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(69, 67, 0, W);</string>
+        <string>dlgCam(-60, 45, 6, 4400);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What happened in Maadoran?”</text>
+          <def_link>4</def_link>
+          <checkOnAppear>aod.npc_pavola_met != 2</checkOnAppear>
+          <checksOnClick>
+            <string>aod.global_ganezzar_completed &amp;&amp; aod.ending_gnz_IG_joins_HC</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Nothing at the moment.” Leave.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It's good to see a familiar face,” says Pavola, looking happy to see you.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(69, 67, 0, W);</string>
+        <string>dlgCam(-60, 45, 6, 4400);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What happened in Maadoran?"</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.global_ganezzar_completed &amp;&amp; aod.ending_gnz_IG_joins_HC</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Gaelius made a deal with the fucking Ordu, if you can believe it. So he no longer needs us which means he no longer fears us. Paullus did nothing - as always - so we had no choice but to pack up and leave," Pavola says bitterly.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_pavola_met = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Paullus made a deal with that fucking lunatic Meru and attacked the Aurelian army that was besieging Ganezzar. We're lucky we managed to leave Maadoran before the news reached the city."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_pavola_met = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(-60, 45, 20, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

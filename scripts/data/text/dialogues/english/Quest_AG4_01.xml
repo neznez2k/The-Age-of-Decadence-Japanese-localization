@@ -1,0 +1,1188 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_AG4_temple_fight</string>
+      <string>aod.quest_AG4_lookBrickwordDialogue</string>
+      <string>aod.quest_AG4_fightSlumsDialogue</string>
+    </conditions>
+    <links>
+      <int>21</int>
+      <int>65</int>
+      <int>62</int>
+    </links>
+    <dlg_name>Quest_AG4_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You arrive at the infamous Maadoran Slums, greeted only by an oppressive silence settling around you. Filth-clad figures pay you little notice as they paw through refuse piled against dilapidated buildings, yet you can feel hostile eyes watching you from the shadows.
+
+You're keenly aware that even the Guard have long since chalked this place up as a loss. Their patrol routes avoid the squalid maze of collapsed buildings and make-shift shelters. The only authority in here is the Thieves Guild.
+
+You can just make out their headquarters in the distance – the shattered dome of the High Temple, an everlasting mockery that serves as a reminder of this district’s fall from its former grandeur.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ag5_getQuest = true;</string>
+        <string>aod.npc_darista_gotWork = false;</string>
+        <string>dlgAddItemlist(dirty_tunic);</string>
+        <string>dlgUnequipArmor();</string>
+        <string>dlgEquipItem(515);</string>
+        <string>HideWeapons();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[impersonate]Enter the Slums.</text>
+          <def_link>69</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.disguise &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>You need a guide.</text>
+          <def_link>90</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>createByCharMarker("CM_AG4_Beggar");</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You do your best to blend in, making yourself indistinguishable from the beggars occupying the entrance to the Slums. Muttering something under your breath and stopping a few times to pick a few bits and pieces from nearby piles of refuse, you make your way past several groups of armed men – the enforcers of the Thieves Guild.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Entrance_02);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>rwd_civil(AG4_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Make your way to the old temple.</text>
+          <def_link>81</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Enforcer</speaker_name>
+      <npc_text>[failure]You do your best to blend in, making yourself look indistinguishable from the beggars occupying the entrance to the Slums. Muttering something under your breath and stopping a few times to pick a few bits and pieces from nearby piles of refuse, you attempt to make your way past several groups of armed men – the enforcers of the Thieves Guild.
+
+“Hey, you, come here!” says one of the enforcers. “Show me your face.”
+
+“I know all the Boatmen in this city,” says another. “&lt;He/She&gt; isn’t one of them. Must be another poor soul who didn’t make it in the city and ended up here. Give &lt;him/her&gt; a few weeks and &lt;he/she&gt;’ll look like &lt;he/she&gt;’s been born here.”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Entrance_01);</string>
+        <string>createByCharMarker("CM_AG4_Beggar");</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>You've learned that your impersonate skills leave much to be desired. Walk away.</text>
+          <def_link>68</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>69</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Using the once golden dome of the temple as a beacon, you navigate the dirty, junk-filled streets and alleys without much trouble. Few people pay attention to beggars crawling around like maggots in a rotten pie. Unfortunately, as you get closer to the temple, you run into another group of the guild’s thugs who don’t seem to be discriminating against the beggars.
+
+“Does &lt;he/she&gt; look like a beggar to you?” asks one of the thugs.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_TemplePath_01);</string>
+        <string>hideWeapons();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[impersonate][charisma]Fake fear and desperation.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.disguise + aod.cha) &gt;= 12</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>81</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Faking fear, you approach the men and start mumbling something about money and hard times. Your performance is convincing enough to earn you a coin. The way ahead of you is clear.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(1);</string>
+        <string>rwd_civil(AG4_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Make your way to the old temple.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Faking fear, you approach the men and start mumbling something about money and hard times. Your performance only draws more suspicions – the thieves exchange glances, pull out knives, and spread around you.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - outside the temple</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_AG4_fightSlumsDialogue = true;</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetZoom(10);</string>
+        <string>addEnemyToParty(1, Quest_AG4_Enforcers);</string>
+        <string>aod.fight_AG4_Outside = true;</string>
+        <string>aod.quest_ag4_phase2c = true;</string>
+        <string>aod.death_AG4 = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - slums</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Leave for the temple?</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Make your way to the old temple.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Look around some more.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>62</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You are standing in a small, dirty room that serves as a refuge for the beggars. Men and women are sprawled upon filthy bedrolls or sitting against the walls and staring into nothing.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_AG4_fightSlumsDialogue = false;</string>
+        <string>dlgTeleportToMarker(TM_TempleEntrance);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgHideNPCs();</string>
+        <string>dlgCam(220, 45, 10, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Look around.</text>
+          <def_link>66</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - inside the temple</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_AG4_lookBrickwordDialogue = true;</string>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>aod.quest_ag4_phase3a = true;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>66</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The doorways leading into the temple were bricked shut a long time ago.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Examine the brickwork.</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>12</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Sit and wait.</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Look around some more.</text>
+          <def_link>66</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>65</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[perception success]You notice the telltale signs of a frequently used door. It looks like it hasn’t been maintained in years. You give the door a push and it slowly opens inwards.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go in.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You examine the brickwork, yet find nothing out of the ordinary.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Sit and wait.</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You find a place that looks slightly cleaner than the rest and sit down. Accustomed to people coming and going – or knowing better than to show interest, the beggars don’t spare you a look.
+
+Twenty minutes later a man storms in, walking to one of the bricked doorways, pushes it open, and disappears inside.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>createByCharMarker("CM_Quest_AG4_Thief_06");</string>
+        <string>dlgTeleportToMarker(TM_Temple_Wait);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Follow him.</text>
+          <def_link>63</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You step through the doorway, finding yourself in a large hall - the likes of which are seen only in fairy tales. A large throne carved of precious wood is standing among piles of gold and treasure chests. Old paintings, ancient tapestries, ceremonial swords decorated with gems displayed carelessly, showing disregard to the prized possessions of others.
+
+A man sitting on the throne discusses something with three men standing before him. Noticing you, he winces with irritation and gestures to his men to have you dealt with. Embarrassed and angry, two of them turn around and take steps towards you. “Get the fuck out of here!” one yells. “Are you deaf?”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Temple_01);</string>
+        <string>VCO_Brickwork.setActive(false);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>TempleBlackCover.IsRenderEnabled = false;</string>
+        <string>dlgShowNPCs();</string>
+        <string>dlgCam(340, 40, 9, 5003);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>41</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity][critical strike]Wait for them to come closer before attempting to take them out.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>ownsSmallDagger() &amp;&amp; aod.dex &gt;= 9 &amp;&amp; aod.critical_strike &gt;= 6</string>
+            <string>ownsSmallDagger() &amp;&amp; aod.dex &gt;= 5 &amp;&amp; aod.critical_strike &gt;= 4</string>
+            <string>ownsSmallDagger()</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>18</int>
+            <int>19</int>
+            <int>20</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You step through the doorway, finding yourself in a large hall - the likes of which are seen only in fairy tales. A large throne carved of precious wood is standing among piles of gold and treasure chests. Old paintings, ancient tapestries, ceremonial swords decorated with gems displayed carelessly, showing disregard to the prized possessions of others.
+
+A man sitting on the throne discusses something with four men standing before him. Noticing you, he winces with irritation and gestures to his men to have you dealt with. Embarrassed and angry, two of them turn around and take steps towards you. “Get the fuck out of here!” one yells. “Are you deaf?”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Temple_01);</string>
+        <string>VCO_Brickwork.setActive(false);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>TempleBlackCover.IsRenderEnabled = false;</string>
+        <string>dlgShowNPCs();</string>
+        <string>dlgTeleportToMarker(TM_ExtraThief, 5005);</string>
+        <string>addCharToParty(5005, "Quest_AG4_Temple", "fighter");</string>
+        <string>dlgCam(340, 40, 9, 5003);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>41</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity][critical strike]Wait for them to come closer before attempting to take them out.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>ownsSmallDagger() &amp;&amp; aod.dex &gt;= 9 &amp;&amp; aod.critical_strike &gt;= 6</string>
+            <string>ownsSmallDagger() &amp;&amp; aod.dex &gt;= 5 &amp;&amp; aod.critical_strike &gt;= 4</string>
+            <string>ownsSmallDagger()</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>18</int>
+            <int>19</int>
+            <int>20</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>63</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Unfortunately, you don’t have a suitable dagger.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>41</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - temple</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_AG4_temple_fight = true;</string>
+        <string>addEnemyToParty(1, Quest_AG4_Temple);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetAnimation(anim_sit_chair_00_00, 0, 4000);</string>
+        <string>aod.death_AG4 = true;</string>
+        <string>setCharacterInvincible(4000, 1);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>41</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success][dexterity success]The first thief reaches you first. He tries to push you away and that’s when you strike. Grabbing his arm, you bury your dagger in his armpit. You pull it out, slashing the other man’s throat in the same fluid motion. Both men fall together, adding a crimson tint to the golden glow of the hall.</npc_text>
+      <onLoadScripts>
+        <string>equipDaggerCS();</string>
+        <string>dlgSetAnimation(anim_death_forward04, 0.95, 5002);</string>
+        <string>dlgSetAnimation(anim_death_forward01, 0.95, 5003);</string>
+        <string>dlgKillCharacter(5002);</string>
+        <string>dlgKillCharacter(5003);</string>
+        <string>dlgCsRepTrain(2);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetCombatAnimation(1);</string>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+        <string>schedule(200, 0, sfxPlayOnce, csSuccessBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Finish the job.</text>
+          <def_link>41</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success][dexterity failure]The first thief reaches you first. He tries to push you away and that’s when you strike. Grabbing his arm, you bury your dagger in his armpit. You pull it out and slash in the direction of the other man, but he’s too fast for you.</npc_text>
+      <onLoadScripts>
+        <string>equipDaggerCS();</string>
+        <string>dlgSetAnimation(anim_death_forward01, 0.95, 5003);</string>
+        <string>dlgKillCharacter(5003);</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetCombatAnimation(5002);</string>
+        <string>dlgSetCombatAnimation(1);</string>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+        <string>schedule(200, 0, sfxPlayOnce, csMissSwingAir01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Finish the job.</text>
+          <def_link>41</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]The first thief reaches you first. He tries to push you away and that’s when you strike. Your dagger flashes out, but rings off one of the studs on the man’s armor. If not for bad luck, you’d have no luck at all.</npc_text>
+      <onLoadScripts>
+        <string>equipDaggerCS();</string>
+        <string>dlgSetCombatAnimation(5002);</string>
+        <string>dlgSetCombatAnimation(5003);</string>
+        <string>dlgSetCombatAnimation(1);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>sfxPlayOnce(csMissSwingMetal01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Looks like you’ll have to kill them the old fashioned way.</text>
+          <def_link>41</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>As the last man goes down, dead or dying, you glance at Levir. He watches the fight without any emotions, as if it was a staged battle, played for the amusement of bored patrons.
+
+Hamza arrives a few minutes later. He stands near the entrance for a moment, observing the carnage, then gives you a measured nod of approval, bars the door and turns to Levir.</npc_text>
+      <onLoadScripts>
+        <string>aod.aod.quest_AG4_temple_fight = false;</string>
+        <string>dlgTeleportToMarker(TM_Hamza_01, 4610);</string>
+        <string>dlgSetAnimation(anim_sit_chair_00_00, 0, 4000);</string>
+        <string>dlgTeleportToMarker(TM_Temple_02);</string>
+        <string>dlgCam(340, 40, 7, 4000);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Hamza</portrait>
+      <speaker_name>Hamza</speaker_name>
+      <npc_text>“Sorry about your men,” says Hamza, as if apologizing for broken furniture.
+
+“That’s what they’re here for,” replies Levir casually. “Just don’t make it a habit.”
+
+“Gaelius wants the gold,” says Hamza after a pause. “Nothing personal.”
+
+“Didn’t think it was,” says Levir. “Take whatever you need and be on your way.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Hamza</portrait>
+      <speaker_name>Hamza</speaker_name>
+      <npc_text>Hamza sighs and looks at you. “Did you see anyone else? Are you the only one who made it?”
+
+“Of course &lt;he/she&gt; is the only one who made it,” says Levir. “I know every Boatman – let’s just say I don’t like surprises, and neither do my men. &lt;He/She&gt; managed to slip by because &lt;he/she&gt; is new. That was clever of you, Hamza, but apparently not clever enough.”
+
+“I made it,” says Hamza grimly. “Maybe –”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>24</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Levir</portrait>
+      <speaker_name>Levir</speaker_name>
+      <npc_text>“Make no mistake, Hamza. You were let in,” interrupts Levir with a patronizing smile. “Like the guest of honor, which, I suppose, you are. My men know better than to insult notable citizens such as yourself. Just as they know better than to let anyone walk out carrying anything that doesn’t belong to them.
+
+“So, as you can see, it’s just you, me, and all that gold, Hamza,” chuckles Levir. “All yours, until you decide to leave.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Hamza</portrait>
+      <speaker_name>Hamza</speaker_name>
+      <npc_text>Hamza sighs again, with the reluctance of a man forced to do something he doesn’t want to as he gives Levir a hard look.
+
+“I know about the tunnel. One of my men could find hidden doors with his eyes closed, but I guess he’s lying dead in some ditch now. I don’t suppose you want to tell me where it is.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>67</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Levir</portrait>
+      <speaker_name>Levir</speaker_name>
+      <npc_text>“Is there anything else I can do for you while I’m at it?” inquires Levir. “You have balls, Hamza. I’ll give you that. You come to my house, kill my men, take my gold, and even ask me to help you escape.
+
+“Spare me the speech. I can read it on your face. If you want to kill me, kill me and be done with it. I’ll die knowing that you’ll never make it out of here alive. Believe it or not, it’s a very comforting thought.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Look around.</text>
+          <def_link>64</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>67</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - look around</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgTeleportToMarker(TM_Hamza_02, 4610);</string>
+        <string>dlgSetAmbientAnimation(4610);</string>
+        <string>setRtsCam();</string>
+        <string>aod.quest_ag4_phase3b = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>64</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Beggar</speaker_name>
+      <npc_text>You walk away slowly, moving from one pile of refuse to another and feigning interest in still edible bits and pieces. A beggar digging through one of the piles stops and gives you a hard look.
+
+“Think you fooled them, don’t you?” asks the beggar in a hoarse voice.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Beggar_01);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Don’t know what you mean, friend.”</text>
+          <def_link>71</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>68</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Beggar</speaker_name>
+      <npc_text>You move from one pile of refuse to another, feigning interest in still edible bits and pieces. A beggar digging through one of the piles stops and gives you a hard look.
+
+“Think you fooled them, don’t you?” asks the beggar in a hoarse voice.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Beggar_01);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Don’t know what you mean, friend.”</text>
+          <def_link>71</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>90</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Beggar</speaker_name>
+      <npc_text>“Sure you don’t. Never had to beg, eh? Had everything handed to ya? Well, I don’t give a fuck what you want here, *friend*, so don’t be so jumpy. It’s what I want that occupies my thoughts lately.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What *do* you want?”</text>
+          <def_link>72</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>71</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Beggar</speaker_name>
+      <npc_text>“A fresh cut of meat cooked over hot coals. Been ages since I’ve had it. Red wine. You know, when it has this rich taste that tells you it hasn’t been watered down yet. I bet you do, don’t you? And a woman. A clean woman to keep my bed warm, so I guess I’ll need a bed too.
+
+“Well, tell you what, ‘friend’. Instead of asking you to fetch me the meat, then the wine and a woman, how about you give me five hundred coins and then you can be on your way, free as a fucking bird?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Why would I do that?”</text>
+          <def_link>73</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>72</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Beggar</speaker_name>
+      <npc_text>“Didn’t I treat you with fucking respect? Then why are you playing dumb here, insulting my mental acumen? You pay me, I say nothing to nobody. Fuck, you pay me and I’ll even help you get where you need to be and smooth things over with the guild’s boys. You keep playing dumb and I’ll sell you for some reward money. There has to be some, right?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>89</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Pay him 500 imperials.</text>
+          <def_link>74</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 500</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading success]“I only have two hundred.”</text>
+          <def_link>80</def_link>
+          <checkOnAppear>aod.trading &gt;= 3 &amp;&amp; dlgGetMoney() &gt;= 200</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[critical strike]Kill him.</text>
+          <def_link>77</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>ownsSmallDagger() &amp;&amp; aod.critical_strike &gt;= 3</string>
+            <string>ownsSmallDagger()</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>76</int>
+            <int>75</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[body count]“Now, listen here, ‘friend’. You will take me to the temple and help me avoid detection. If you even look at anyone funny, I’ll gut you like a fish and you will die slowly and painfully.”</text>
+          <def_link>79</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(bodycount) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>78</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>73</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Beggar</speaker_name>
+      <npc_text>[failure]“Bull-shit!” says the beggar, smiling widely and displaying a row of broken, yellow teeth. “Try to kill me and the guild’s boys will be on you in no time.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>89</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Pay him 500 imperials.</text>
+          <def_link>74</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 500</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading success]“I only have two hundred.”</text>
+          <def_link>80</def_link>
+          <checkOnAppear>aod.trading &gt;= 3 &amp;&amp; dlgGetMoney() &gt;= 200</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[critical strike]Kill him.</text>
+          <def_link>77</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>ownsSmallDagger() &amp;&amp; aod.critical_strike &gt;= 3</string>
+            <string>ownsSmallDagger()</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>76</int>
+            <int>75</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>79</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Beggar</speaker_name>
+      <npc_text>Unfortunately, you don’t have a suitable dagger.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>89</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Pay him 500 imperials.</text>
+          <def_link>74</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 500</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading success]“I only have two hundred.”</text>
+          <def_link>80</def_link>
+          <checkOnAppear>aod.trading &gt;= 3 &amp;&amp; dlgGetMoney() &gt;= 200</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[body count]“Now, listen here, ‘friend’. You will take me to the temple and help me avoid detection. If you even look at anyone funny, I’ll gut you like a fish and you will die slowly and painfully.”</text>
+          <def_link>79</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(bodycount) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>78</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>77</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Enforcer</speaker_name>
+      <npc_text>[failure]You stab the beggar, aiming for the throat, but your blade hits the collar bone, causing him to scream in pain and rage. With nothing left to lose, you grab the beggar by the throat and stab him a few more times to shut him up.
+
+Breathing heavily, you turn around and see the Thieves Guild’s enforcers standing a few feet away.
+
+“You’re in a lot of trouble now,” says one of them. “Drop your weapon and turn around. Slowly.”</npc_text>
+      <onLoadScripts>
+        <string>equipDaggerCS();</string>
+        <string>dlgSetAnimation(anim_death_forward01, 0.95, 5006);</string>
+        <string>dlgKillCharacter(5006);</string>
+        <string>dlgChangeRep(bodycount, 1);</string>
+        <string>dlgTeleportToMarker(TM_EntranceEnforcer_01, 5007);</string>
+        <string>dlgTeleportToMarker(TM_EntranceEnforcer_02, 5008);</string>
+        <string>dlgTeleportToMarker(TM_EntranceEnforcer_03, 5009);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Better kill them too now.</text>
+          <def_link>88</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>75</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Enforcer</speaker_name>
+      <npc_text>Seeing that things didn't work out as he planned, the beggar starts screaming for help. With nothing left to lose, you grab the beggar by the throat and put a permanent end to his sufferings. Breathing heavily, you turn around and see the Thieves Guild’s enforcers standing a few feet away.
+
+“You’re in a lot of trouble now,” says one of them. “Drop your weapon and turn around. Slowly.”</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAnimation(anim_death_forward01, 0.95, 5006);</string>
+        <string>dlgKillCharacter(5006);</string>
+        <string>dlgChangeRep(bodycount, 1);</string>
+        <string>dlgTeleportToMarker(TM_EntranceEnforcer_01, 5007);</string>
+        <string>dlgTeleportToMarker(TM_EntranceEnforcer_02, 5008);</string>
+        <string>dlgTeleportToMarker(TM_EntranceEnforcer_03, 5009);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Better kill them too now.</text>
+          <def_link>88</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>89</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - entrance</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetZoom(10);</string>
+        <string>addEnemyToParty(1, Quest_AG4_Entrance);</string>
+        <string>aod.fight_AG4_entrance = true;</string>
+        <string>aod.quest_ag4_phase2a = true;</string>
+        <string>aod.quest_AG4_totalFailure = true;</string>
+        <string>aod.death_AG4 = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>88</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Beggar</speaker_name>
+      <npc_text>“Look at you,” says the beggar, accepting the money and quickly hiding it somewhere. “Must be nice being rich, eh? Well, don’t just stand there, let’s go.”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-500);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Make your way to the old temple.</text>
+          <def_link>84</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>74</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Beggar</speaker_name>
+      <npc_text>“I’m a reasonable man,” says your new friend, accepting the money and quickly hiding it somewhere. “Let’s go.”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-200);</string>
+        <string>aod.quest_AG4_beggar_pissed = true;</string>
+        <string>dlgChangeMoney(200, 5006);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Make your way to the old temple.</text>
+          <def_link>84</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>80</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You smile, pat the beggar on the back and stab him between the ribs, straight at the heart. You put his arm around your neck and drag him inside the house, pretending that you’re walking a drunken friend home.</npc_text>
+      <onLoadScripts>
+        <string>equipDaggerCS();</string>
+        <string>dlgCsKillNeck(5006);</string>
+        <string>dlgKillCharacter(5006);</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCsRepTrain(1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Make your way to the old temple.</text>
+          <def_link>81</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>76</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Beggar</speaker_name>
+      <npc_text>[success]“Take it easy, friend,” says the beggars stepping back. “I was just kidding about the money. Of course, I’ll help you. Let’s go.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_AG4_beggar_pissed = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Make your way to the old temple.</text>
+          <def_link>84</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>78</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Using the once golden dome of the temple as a beacon, you navigate the dirty, junk-filled streets and alleys without much trouble. Few people pay attention to beggars crawling around like maggots in a rotten pie. Unfortunately, as you get closer to the temple, you run into another group of the guild’s thugs who don’t seem to be discriminating against the beggars.
+
+“Does &lt;he/she&gt; look like a beggar to you?” asks one of the thugs.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Beggar_02, 5006);</string>
+        <string>dlgTeleportToMarker(TM_Enforcer_PC_01);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Let your new friend do the talking.</text>
+          <def_link>86</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_AG4_beggar_pissed</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>85</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>84</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Beggar</speaker_name>
+      <npc_text>“Your eyes are as sharp as ever, Masud,” says the beggar. “&lt;He/She&gt; aint one of us. Bet you a coin, &lt;he/she&gt; didn’t live hand to mouth a day in &lt;his/her&gt; life. &lt;He/She&gt;’s all yours.”</npc_text>
+      <onLoadScripts>
+        <string>addCharToParty(5006, "Quest_AG4_Enforcers", "fighter");</string>
+        <string>dlgRotateToChar(1, 5000);</string>
+        <string>dlgRotateToChar(1, 5006);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>85</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Beggar</speaker_name>
+      <npc_text>“You an expert on beggars all of sudden, Masud?” says the beggar, spitting. “We have business a few blocks down, so quit wasting my time here.”
+
+“What business?” asks Masud, his attention on the beggar, not you.
+
+“Porcia’s roof is leaking again. Figured that fixing it would get us a bowl of pottage. Are we done now?”
+
+The thugs step aside letting you go.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go to the temple.</text>
+          <def_link>87</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>86</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Beggar</speaker_name>
+      <npc_text>“You did right by me, friend, so I did right by you,” says the beggar. “Don’t get caught, eh?”</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go inside.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>87</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,415 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.mdn_slumsAttacked</string>
+      <string>aod.mdn_destroyed</string>
+    </conditions>
+    <links>
+      <int>3</int>
+      <int>0</int>
+    </links>
+    <dlg_name>END_XP_Desert_Antidas</dlg_name>
+    <def_link>1</def_link>
+    <def_speaker_name>Decanus</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>Your journey is surprisingly uneventful. The storm cloud hanging above the ruins of Maadoran provides a perfect cover and keeps the raiders as far away as possible.</npc_text>
+      <onLoadScripts>
+        <string>apmsPlayMusic(custom, 11, 1);</string>
+        <string>setWindowImage(end_mdn_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Travel further north.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>Your journey is surprisingly uneventful. The riots in Maadoran keep what's left of the Aurelian guards busy trying to get the city under control. They have no interest in travelers anymore.</npc_text>
+      <onLoadScripts>
+        <string>apmsPlayMusic(custom, 11, 1);</string>
+        <string>setWindowImage(end_mdn_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Travel further north.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>Your journey takes a turn for the worse when you get closer to Maadoran. One of the Aurelian patrols spots you and gives chase. You try to lose them during the night but their trackers know this stretch of the desert better than anyone and follow your trail unerringly.
+
+“Five men,” says Dellar, squinting at the horizon. “What do they want with us?”</npc_text>
+      <onLoadScripts>
+        <string>spawnGroupCMs(XP_Desert_HA);</string>
+        <string>spawnGroupCMs(XP_Desert_HD);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Let’s find out.” Make a camp and wait for the patrol to catch up.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Can you handle them?”</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>“I can try,” says Dellar. “Either way I’ll buy you enough time to get away.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Good luck.” Continue your journey to the temple with Antidas.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“On second thought, let’s deal with them together.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - trip 2</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>sd(END_XP_Hellgate);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - trip 2 - lost Dellar</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.npc_dellar_dead = true;</string>
+        <string>sd(END_XP_Hellgate);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Oddly enough, the soldiers approach you with caution as if they expect you to attack without warning.
+
+“Get on the ground, now!” shouts the Decanus.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_PC_HA);</string>
+        <string>dlgTeleportToMarker(TM_Antidas_HA, 9301);</string>
+        <string>dlgTeleportToMarker(TM_Dellar_HA, 9300);</string>
+        <string>dlgCam(180, 40, 10, 9200);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What’s going on?”</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Watch your tone when addressing Lord Antidas of House Daratan.”</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Antidas? This fucking buffoon? Get on the fucking ground NOW!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What’s going on?”</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion][charisma]“Clearly, there is a misunderstanding. We can discuss it in a civilized manner or ...”</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It’s your last warning. Get on the fucking ground NOW!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][charisma]“Clearly, there is a misunderstanding. We can discuss it in a civilized manner or ...”</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>addCharToParty(1, XP_Desert_HD, fighter);</string>
+        <string>addEnemyParty(XP_Desert_HA, XP_Desert_HD);</string>
+        <string>addEnemyParty(XP_Desert_HD, XP_Desert_HA);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Or what?” the Decanus asks contemptuously.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Or I’ll take the leash off Dellar and he’ll kill you where you stand. He’s been itching to do it ever since he’s spotted you.”</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.cha) &gt;= 12</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>12</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“Maybe he really is Dellar and maybe he isn’t,” says the Decanus, not taking his eyes off him, “but the odds aren’t in your favor.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“He won’t be able to kill all of us,” says the Decanus. He doesn’t sound very certain.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]“You’re probably right. He will only kill you and two, maybe three other idiots foolish enough to attack him first. The survivors will honor your memory by telling the stories of your gruesome and painful death.”</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 14</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Somehow your words only strengthen the Decanus’ resolve.
+
+“It’s your last warning. Get on the fucking ground NOW!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Well, maybe there’s no need for violence here,” says the Decanus, taking his first steps toward pacifism.
+
+“You don’t seem to be like the others anyway.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“The others?”</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave before he changes his mind.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"It started a couple of weeks ago. We saw people leaving the city, just marching straight out into the wasteland, and not on the road but due north. They carried nothing with them but the clothes on their backs.
+
+"The guards laughed at first. If a bunch of nobodies decided to take the desert air with the raiders and scorpions, and gods only know what else, good luck to them. It was good sport betting on how long a drover or a seamstress would survive with no weapons, no gear, not even a canteen.
+
+"But then entire families began to leave, again with no baggage, no carts. With evening coming down, we finally decided to stop and question them. Their faces looked wrong to me, slack, and their eyes dull as if they'd been drugged. Every man and woman claimed they had heard a Call, just those words. They had heard a Call, in their heads I guess, dropped everything, and started heading north."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What happened then?”</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Well... That's when it all went to shit. The Centurion decided to close the gates and ask his superiors for advice but the crowd just went mad when they began to catch on that the gate was about to be shut. These people, these peasants and carpenters, whores and tinkers, they fought like beasts. In the time it takes to flip a coin they went mad, swarming us and clawing with their bare hands like feral creatures. We assembled in a defensive formation, and smartly, or we would have been overrun right then.
+
+"I wasn't afraid for my life, not yet, but I was thinking of the investigation afterwards, of the garrison commander's questions when he found a dozen armed guards standing over a hundred slaughtered, unarmed civilians. Can you picture it? 'No sir, we had no choice, sir! They just ran onto our spears, sir! We are all uninjured but for a few scratches, sir, gods be praised! Yes, it certainly IS a mystery, sir!' The Centurion was thinking along the same lines when he amended his order to close the gates. We stepped back and let them through."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“How did you end up chasing people across the desert?”</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“New orders are to deny more people, especially fighting age men, to whoever or whatever is sending out this Call. House Aurelian doesn’t like ... uncertainty. Anyway, seeing as you’re not raving mad, you're free to go on your way.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave before he changes his mind.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,1205 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_mg6_talkToSenna &amp;&amp; aod.quest_mg6_sennaMet == false</string>
+      <string>aod.npc_senna_met == false</string>
+      <string>aod.npc_senna_met &amp;&amp; aod.quest_HA2_Senna == 1</string>
+    </conditions>
+    <links>
+      <int>18</int>
+      <int>0</int>
+      <int>48</int>
+    </links>
+    <dlg_name>NPC_Senna_01</dlg_name>
+    <def_link>35</def_link>
+    <def_speaker_name>Senna</def_speaker_name>
+    <def_portrait>Senna</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Lord Senna has served three Lords of House Aurelian – a fact attesting to his ability to make himself indispensable and a character of unwavering loyalty. While he was indeed a very capable administrator, which explained the former, he was an extremely cautious man, who had a tendency to label all risks unnecessary, which explained the latter. Yet, after more than forty years of service he became less and less satisfied with the role of a servant and thus, more open to the idea of taking risks.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_senna_met = true;</string>
+        <string>addJournalChar(senna);</string>
+        <string>dlgCam(75, 45, 6, 4210);</string>
+        <string>if(aod.npc_senna_atThePalace == 0) dlgTeleportToMarker(TM_Talk_Senna_PC);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Greet him.</text>
+          <def_link>47</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_senna_atThePalace</string>
+            <string>aod.quest_hd3_talkToSenna</string>
+            <string>aod.quest_HA2_Senna == 1</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>35</int>
+            <int>37</int>
+            <int>48</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“How may I be of service?” asks Senna, his voice showing neither the desire to be of service nor any interest in your problems.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_senna_met = true;</string>
+        <string>aod.jnl_mg4b_phase2a = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’m working for master Strabos. He seeks your wisdom and opinion on certain subjects.”</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>47</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Your master gives me too much credit. What does he wish to know?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Lord Gaelius’ days are numbered. Will you support Serenas as his successor?”</text>
+          <def_link>2</def_link>
+          <checkOnAppear>aod.etiquette &lt; 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[etiquette success]“Since Lord Gaelius doesn’t have an heir, my master can’t help but wonder if Lord Serenas would make a suitable replacement, should something happen to Lord Gaelius.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear>aod.etiquette &gt;= 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Lord Senna raises his eyebrow at the way you approached the subject and smiles slightly.
+
+“I’m Lord Gaelius’ loyal subject,” he says in the same casual tone, sounding neither offended nor particularly loyal. “Out of respect for your master, I shall assume that your question was mostly theoretical and won't mention it to my liege.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[intelligence success][streetwise]“My apologies, I misspoke. I meant to say that Lord Gaelius is a mere mortal, unfortunately, and that sooner or later the question of succession will have to be raised. In my opinion, sooner is always better than later, when it comes to such things.”</text>
+          <def_link>9</def_link>
+          <checkOnAppear>aod.int &gt;= 7</checkOnAppear>
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Your master’s concerns for the fate of the city are touching. I hope he doesn’t lose too much sleep over them. As for the matter of succession, there are many suitable candidates. Should the unthinkable happen, they will all be considered. Isn’t that what’s best for the city?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Which candidate would you support, my lord?”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It’s hard to say right now. There are so many things to consider.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[charisma]“Very true. In these matters, mistakes could be very costly.”</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.cha &gt;= 9</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>10</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“It does appear to be an important quality, doesn’t it?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“And who’s better to guide our new liege to greatness than you, my lord?”</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“You must choose your words more carefully, &lt;charname&gt;. A lesser man might have interpreted your words as a veiled threat.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[etiquette][streetwise]"How fortunate that I'm not sharing my thoughts with a lesser man then, my Lord. I can speak freely, knowing that you understand and share my concerns."</text>
+          <def_link>32</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.etiquette) &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>33</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"I'm glad you feel this way, &lt;master/mistress&gt; &lt;charname&gt;. Now, If you’ll excuse me, it appears that I have a previous engagement."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>32</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"And what are your concerns?" inquires Senna, feigning boredom.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’m only looking for what’s best for the city, my lord.”</text>
+          <def_link>12</def_link>
+          <checkOnAppear>aod.etiquette &lt; 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[etiquette success][persuasion]“I’m only looking for what’s best for the city, my lord. Perhaps, a council made of important and respected people such as yourself, advising our liege would eliminate any chance of hastened decisions.”</text>
+          <def_link>32</def_link>
+          <checkOnAppear>aod.etiquette &gt;= 5</checkOnAppear>
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[etiquette success][persuasion]“Why, the candidate, of course. A man destined to rule this great city should possess a lot of qualities, but I believe that it is the willingness to listen to well-meant counsel that will set him apart from all others.”</text>
+          <def_link>32</def_link>
+          <checkOnAppear>aod.etiquette &gt;= 4</checkOnAppear>
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>33</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Quite so. After all, the future Lord of House Aurelian will hold the fate of the entire city in his hands.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Too much power for one man, perhaps?”</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“These are treacherous words, &lt;charname&gt;,” observes Senna calmly.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’m only looking for what’s best for the city, my lord.”</text>
+          <def_link>12</def_link>
+          <checkOnAppear>aod.etiquette &lt; 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[etiquette success][persuasion]“I’m only looking for what’s best for the city, my lord. Perhaps, a council made of important and respected people such as yourself, advising our liege would eliminate any chance of hastened decisions.”</text>
+          <def_link>32</def_link>
+          <checkOnAppear>aod.etiquette &gt;= 5</checkOnAppear>
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[etiquette success][persuasion]“I’m only looking for what’s best for the city, my lord. A man destined to rule this great city should possess a lot of qualities, but I believe that it is the willingness to listen to well-meant counsel that will set him apart from all others.”</text>
+          <def_link>32</def_link>
+          <checkOnAppear>aod.etiquette &gt;= 4</checkOnAppear>
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It’s very reassuring to hear that. Now if you’ll excuse me, it appears that I have a previous engagement.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Well, if you put it this way, how can I refuse my sacred duty to this city? Tell master Strabos that he can count on my support – should the unthinkable happen, of course.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_MG4_sennaSupport = true;</string>
+        <string>aod.jnl_mg4b_phase2b = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgCam(75, 45, 12, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“&lt;Master/Mistress&gt; &lt;charname&gt;. What a pleasant surprise,” says Senna in his usual manner, looking neither pleased nor surprised.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg6_sennaMet = true;</string>
+        <string>dlgCam(75, 45, 6, 4210);</string>
+        <string>dlgTeleportToMarker(TM_Talk_Senna_PC);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I must say that I’m impressed by the speed with which you secured your position.”</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Lord Senna bows his head slightly, accepting the compliment, but doesn’t say anything.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Serenas says you run the city now.”</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Well, I *am* qualified, if this is your concern...”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You know very well what my master’s concerns are.”</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’ve done what Strabos asked of me, have I not? I helped him put Serenas on the throne. What more does he want from me? To secure him a position as well? Let’s be reasonable here.
+
+“I’m aware, of course, that Strabos – due to his inexperience in matters of the court – had certain expectations, but that’s his problem, not mine.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What can you offer?”</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Why should I offer anything?” asks Senna looking truly surprised.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[intelligence success][persuasion]“Because we bring money to the table and running a city this size isn’t cheap.”</text>
+          <def_link>23</def_link>
+          <checkOnAppear>aod.int &gt;= 8</checkOnAppear>
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>25</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][trading]“Because you don’t want to leave your future allies wondering whether they’ll get screwed like Strabos. It's bad for business.”</text>
+          <def_link>24</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.trading) &gt;= 12</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>25</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Have you forgotten already what happened to Gaelius?”</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“I can always raise taxes.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“If only it was that simple. Raise taxes and the revenues will soon dwindle. I assure you, one can be inexperienced in matters of the court and yet be very, very useful.”</text>
+          <def_link>27</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>28</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“I don’t have a habit of rewarding incompetence.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]“Strabos is skilled where it counts - managing people and money. He doesn’t know the ways of the court, but does he really need to? Do you need a courtier or a capable administrator you can rely on?”</text>
+          <def_link>27</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>28</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Very well. I’ll make Strabos a magistratus, but make sure he understands that he serves me first, his own interests second.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg6_sennaShared = true;</string>
+        <string>aod.jnl_mg6_phase2f = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Point taken,” says Senna dryly. “Very well. I’ll make Strabos a magistratus, but make sure he understands that he serves me first, his own interests second.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg6_sennaShared = true;</string>
+        <string>aod.jnl_mg6_phase2f = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>28</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Gaelius let it happen. He knew that Strabos was scheming and plotting, yet he’d done nothing. The very notion of some lowborn trader as his adversary amused him. He was ready to fight armies, yet he was slain by his own servant who slipped him poison. Ironic, isn’t it?
+
+“Yet what’s even more ironic is that your master thinks that buying Gaelius’ servant somehow made him a man to be reckoned with, a man to fear. Is that what you think too, &lt;charname&gt;?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Dare to go against him and you will find out.”</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“My apologies, my lord. I was out of line.”</text>
+          <def_link>36</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>26</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“Give my regards to your master,” says Senna, letting you know that the conversation is over.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_MG6_sennaFailure = true;</string>
+        <string>aod.jnl_mg6_phase2g = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>27</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Give my regards to your master,” says Senna, letting you know that the conversation is over.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_MG6_sennaFailure = true;</string>
+        <string>aod.jnl_mg6_phase2g = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>36</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Senna nods to one of his servants, who promptly opens hidden doors, letting in a detachment of the Imperial Guards.
+
+“A ‘good faith’ loan from Legatus Pavola. It’s always good to be prepared. Farewell, &lt;charname&gt;. Your master will be joining you soon. Now, if you’ll excuse me, I do detest violence.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>30</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>29</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The guards wait until lord Senna leaves the room before advancing. You try to fight, but you don’t stand a chance. The first sword thrust ends your struggle and the second, your life.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Didn't see *that* coming...</text>
+          <def_link>31</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>30</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>31</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“How may I be of service?”</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(75, 45, 6, 4210);</string>
+        <string>if(aod.npc_senna_atThePalace == 0) dlgTeleportToMarker(TM_Talk_Senna_PC);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Lorenza asked me to kill you.”</text>
+          <def_link>41</def_link>
+          <checkOnAppear>aod.quest_hd3_lorenzaKillSenna &amp;&amp; aod.quest_hd3_active &amp;&amp; aod.npc_senna_talkedLorenzaKillYou == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Lorenza Calani sends her regards.” Cut his throat.</text>
+          <def_link>42</def_link>
+          <checkOnAppear>aod.quest_hd3_lorenzaKillSenna &amp;&amp; aod.quest_hd3_active</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Serenas wants to clean up the Slums, but you seem to be against it. Why?”</text>
+          <def_link>44</def_link>
+          <checkOnAppear>aod.quest_hd4_active &amp;&amp; aod.npc_senna_talkedAttackSlums == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Nothing at the moment." Leave.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>35</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You’ll have to excuse me, Praetor,” says Senna, gesturing at the guards around him. “After what happened to Lord Gaelius, they don’t want to take any chances. The Legatus insists that I move to the palace, so today’s my last day at home.
+
+“Now, how may I be of service?” His voice shows neither the desire to be of service nor any interest in your problems.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“The relationship between House Aurelian and House Daratan has been strained for a very long time. Lord Gaelius’ passing is most unfortunate, yet it gives us an opportunity to turn over a new leaf.”</text>
+          <def_link>38</def_link>
+          <checkOnAppear>aod.quest_hd3_active</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Serenas wants to clean up the Slums, but you seem to be against it. Why?”</text>
+          <def_link>44</def_link>
+          <checkOnAppear>aod.quest_hd4_active &amp;&amp; aod.npc_senna_talkedAttackSlums == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>37</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Meaning what?” asks Senna sternly. “Has your Lord gotten tired of acting the fool? Has he finally given up? I find that hard to believe, considering the purpose of your visit to our city.
+
+“If your Lord truly desires peace, you can assure him that it is not our intention to wage war against Teron,” says Senna with disdain. “He should put his mind toward rebuilding Teron, rather than eyeing what doesn’t belong to him. Should his effort prove to be genuine, I can assure you that the leaf will be turned and the past will be forgotten. Then and only then will Antidas be welcome here.”</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_HD3b_phase2 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“You blame Antidas then?”</text>
+          <def_link>39</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>38</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Whom else should I blame?” asks Senna, looking truly surprised. “Antidas’ been waging his war against us ever since his father died. He might have won too, but he counted so much on divine intervention that he disregarded caution. Fortunately for us, he has spent all his strength and never recovered it.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What about the mine?”</text>
+          <def_link>40</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>39</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What about it? As far as I know, the mine was abandoned and no claim had been laid. Gaelius sent a symbolic garrison to put Antidas’ mind at ease, but we all know how that worked out. Truly, no good deed ever goes unpunished, so don’t ask me to do any.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Lorenza asked me to kill you.”</text>
+          <def_link>41</def_link>
+          <checkOnAppear>aod.quest_hd3_lorenzaKillSenna</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Lorenza Calani sends her regards.” Cut his throat.</text>
+          <def_link>42</def_link>
+          <checkOnAppear>aod.quest_hd3_lorenzaKillSenna</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>40</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Why are you telling me that? I’m not interested in her petty schemes, and I don’t have a habit of rewarding those who entertain such offers in hope of getting better ones. Get out!”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_senna_talkedLorenzaKillYou = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill him.</text>
+          <def_link>42</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>41</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You slash Senna's throat open and whirl around to deal with his guards.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_hd3_reportSennaDead = true;</string>
+        <string>dlgSetAnimation(anim_death_aimed_head, 0.95, 4210);</string>
+        <string>dlgKillCharacter(4210);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addParty(SennaGuardHD3, 0);</string>
+        <string>addCharToParty(4215, SennaGuardHD3, fighter);</string>
+        <string>addCharToParty(4216, SennaGuardHD3, fighter);</string>
+        <string>addCharToParty(4217, SennaGuardHD3, fighter);</string>
+        <string>dlgSetCombatAnimation(1);</string>
+        <string>dlgSetCombatAnimation(4215);</string>
+        <string>dlgSetCombatAnimation(4216);</string>
+        <string>dlgSetCombatAnimation(4217);</string>
+        <string>aod.npc_senna_dead = true;</string>
+        <string>aod.fight_sennaHD3 = true;</string>
+        <string>VCO_ExitSenna.setActive(false);</string>
+        <string>VCO_EnterSenna.setActive(false);</string>
+        <string>aod.pc_rep_killedSenna = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>43</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>42</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Senna's guards</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addEnemyToParty(1, SennaGuardHD3);</string>
+        <string>aod.jnl_HD3a_phase3 = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>43</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Lord Serenas is inexperienced in many aspects of governing a city like Maadoran, let alone House Aurelian, which reigned supreme for centuries. This is why he has advisors, whose job it is to help him avoid blunders and costly mistakes until such time as he’s able to govern without assistance.
+
+“I don’t appreciate when outsiders meddle in our affairs, so I’m going to ask to stop whatever it is that you’re doing, or you will be back where you started – locked in a room facing execution.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_senna_talkedAttackSlums = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“You didn’t answer my question.”</text>
+          <def_link>45</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(aurelian) &gt; 0</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>46</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>44</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[aurelian reputation failure]“Good bye, Praetor.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>45</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[aurelian reputation success]“A city of this size is bound to have an undesirable element. At the moment this element is contained within the Slums and kept in line by Levir and his men – an arrangement most beneficial to the city.
+
+“Let’s assume that we’ll reclaim the district and throw them out. Where would they go? To the other districts, of course, spreading this ‘disease’ throughout the city and weakening it. Instead, we should accept the reality, no matter how unpleasant it may be, and make the best use of tools available to us. Tools such as Levir.
+
+“He wants to take the Slums off our hands and he’s willing to offer concessions. In time he will be a lord in all but name and then, when he has something to lose, he will be brought into the fold, perhaps, even given a title. This is the right way to do it.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>46</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Thank you for seeing me on such a short notice,” says Senna. “I won’t waste your time and get straight to business. I know what Lord Gaelius has asked you to do. It troubles me.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_HA2_Senna = 2;</string>
+        <string>dlgCam(75, 45, 6, 4210);</string>
+        <string>dlgTeleportToMarker(TM_Talk_Senna_PC);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Rumors spread fast in Maadoran.”</text>
+          <def_link>49</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>48</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“We’re talking about bringing an Ordu army to Maadoran. Such a thing can’t be planned in full secrecy. Too many people are involved.
+
+“I myself had a conversation with Lord Gaelius about it a few weeks ago, but I must admit that I failed to convince him of his folly. Now it's up to you.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What do you want from me? I’m just a messenger.”</text>
+          <def_link>50</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>49</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“We both know that you’re more than that, &lt;master/mistress&gt; &lt;charname&gt;. Lord Gaelius has a reason to trust in your abilities, otherwise he wouldn’t have sent you. This task is too important to him to be entrusted to ‘just a messenger’.
+
+“As for what I want, I thought it would have been obvious. I want you to make sure that the Ordu stay on the other side of the Harran pass. You think you can handle it?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“And what about Gaelius?”</text>
+          <def_link>51</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Why would I betray Gaelius’ trust?”</text>
+          <def_link>52</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_antidas_dead</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>34</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’ll think about it.”</text>
+          <def_link>53</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>50</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Lord Gaelius will never know. The Ordu aren’t the most reliable allies, so all you have to do is tell him that they’ve changed their mind or were never serious about it to begin with.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_senna_talkedWhatAboutGaelius = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Why would I betray Gaelius’ trust?”</text>
+          <def_link>52</def_link>
+          <checkOnAppear>aod.npc_senna_talkedGaeliusTrust == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.npc_antidas_dead</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>34</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’ll think about it.”</text>
+          <def_link>53</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>51</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Do you want to serve Lord Gaelius or merely do what he asks without questioning it? Serving your lord means protecting his interests and preventing him from making mistakes, behind his back if you have to.
+
+“Lord Gaelius has more men than Meru and Antidas combined, yet he has convinced himself that he needs more. He’s a good statesman, but he doesn’t understand the Ordu. He thinks that they are like any other people – throw them a bone and they will lick his hands and bark at his enemies.
+
+“They are savages who respect and fear nothing but strength. They won’t bow to a statesman and do his bidding, but Lord Gaelius is too blind to see it. Mark my words, it will *not* end well.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_senna_talkedGaeliusTrust = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“And what should I tell Gaelius?”</text>
+          <def_link>51</def_link>
+          <checkOnAppear>aod.npc_senna_talkedWhatAboutGaelius == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’ll think about it.”</text>
+          <def_link>53</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>52</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Do you want to serve Lord Gaelius or merely do what he asks without questioning it? Serving your lord means protecting his interests and preventing him from making mistakes, behind his back if you have to.
+
+“Lord Gaelius has more men than Meru and Antidas had combined, yet he has convinced himself that he needs more. He’s a good statesman, but he doesn’t understand the Ordu. He thinks that they are like any other people – throw them a bone and they will lick his hands and bark at his enemies.
+
+“They are savages who respect and fear nothing but strength. They won’t bow to a statesman and do his bidding, but Lord Gaelius is too blind to see it. Mark my words, it will *not* end well.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_senna_talkedGaeliusTrust = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“And what should I tell Gaelius?”</text>
+          <def_link>51</def_link>
+          <checkOnAppear>aod.npc_senna_talkedWhatAboutGaelius == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’ll think about it.”</text>
+          <def_link>53</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>34</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“That’s all I ask,” says Senna, passing you a document. It says, “The bearer of this letter has acted under my orders and for the good of the realm,” signed by Legatus Pavola.
+
+“It’s your ticket back,” explains Senna. “It won’t help you get through the pass, because we’d rather not take any chances, but should you manage to slip through and do your duty, this letter will let you back into the civilized society.”</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(2200, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[perception success]“We?”</text>
+          <def_link>54</def_link>
+          <checkOnAppear>aod.per &gt;= 7</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What stops you from giving Pavola my name?”</text>
+          <def_link>55</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>53</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“This city is far older than House Aurelian, so it shouldn't surprise you that many lords serve Maadoran first and House Aurelian second.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What stops you from giving Pavola my name?”</text>
+          <def_link>55</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Take the letter and leave.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>54</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“This is not how such games are played,” says Senna patronizingly. “I serve this city first and foremost. Pavola serves Caer-Tor. We do have some common interests, which makes such letters useful, yet passing him this information will only embolden the Guards and present them with an opportunity to do something foolish.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Take the letter and leave.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>55</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

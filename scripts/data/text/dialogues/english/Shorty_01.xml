@@ -1,0 +1,235 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_mg2_joinedIG &amp;&amp; aod.quest_ig3_metShorty == false</string>
+      <string>isQuestAdded(IG3_PostPalace)</string>
+    </conditions>
+    <links>
+      <int>4</int>
+      <int>10</int>
+    </links>
+    <dlg_name>Shorty_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Shorty</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Carrinas wants to see you. He's at the palace now, planning his next move."</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Shorty_01);</string>
+        <string>dlgTeleportTo(242, 61, 0, E);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Can I get anything before I go?"</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"How's the armor? Good? Take good care of it, and it will take good care of you."</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Shorty_01);</string>
+        <string>dlgTeleportTo(242, 61, 0, E);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I will. Can I get anything else?"</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You can get whatever you want, if you have the coin."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Show me what you have."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Maybe later then."</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>TRADE</npc_text>
+      <onLoadScripts>
+        <string>dlgTradeWithMe("Shorty");</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Still in one piece? That's the spirit, merchant. We might make a soldier out of you yet. Let me get you better armor first." He gives you an iron Lorica Segmentata.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ig3_metShorty = true;</string>
+        <string>useCameraBookmark(NPC_Shorty_01);</string>
+        <string>dlgTeleportTo(242, 61, 0, E);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Thanks."</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Steel would be better."</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Steel armor requires the Commander's order."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[trading]"How about the Emperors' order? Don't they get a say?" Roll a coin decorated with the visage of one of the emperors across your knuckles.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.trading &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Alright, give me the iron one."</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"Sorry, &lt;charname&gt;. No can do."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Alright, give me the iron one."</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"It's gonna cost you 250 imperials."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay him.</text>
+          <def_link>9</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 250</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Never mind. Give me the iron one."</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - got iron armor</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgAddItemlist(quest_ig3_ironArmor);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - got steel armor</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgChangeMoney(-250);</string>
+        <string>dlgAddItemlist(quest_ig3_steelArmor);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

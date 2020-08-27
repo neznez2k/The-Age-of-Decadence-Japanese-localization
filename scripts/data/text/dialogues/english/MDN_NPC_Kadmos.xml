@@ -1,0 +1,192 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_kadmos_met &amp;&amp; aod.npc_kadmos_killed == false</string>
+    </conditions>
+    <links>
+      <int>9651</int>
+    </links>
+    <dlg_name>MDN_NPC_Kadmos</dlg_name>
+    <def_link>9649</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You see a drunken man yelling at the patrons and waving around his spear. Accustomed to his outbursts, the patrons seem to be ignoring him. You couldn’t help but notice that it’s a damn good spear, steel, custom-made.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Kadmos_PC);</string>
+        <string>dlgCam(170, 45, 6, 550);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Nice spear.”</text>
+          <def_link>9650</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Walk away.</text>
+          <def_link>9652</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9649</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Patron</speaker_name>
+      <npc_text>“Nice spear?! Ha! This spear had made me the champion of the fucking arena back when the title meant something!” He shoves the spear in your face, presumably for closer look.
+
+“Just ignore him,” says one of the patrons. “Kadmos is always like that when he starts drinking.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_kadmos_met = true;</string>
+        <string>dlgRotateToChar(1, 550);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Was he really a champion?”</text>
+          <def_link>9653</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9650</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Kadmos</speaker_name>
+      <npc_text>“You again? The fuck you want here?”</npc_text>
+      <onLoadScripts>
+        <string>dlgRotateToChar(1, 550);</string>
+        <string>dlgTeleportToMarker(TM_Kadmos_PC);</string>
+        <string>dlgCam(170, 45, 6, 550);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Provoke Kadmos.</text>
+          <def_link>9654</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9652</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9651</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Kadmos_NPC, 550);</string>
+        <string>dlgCam(200, 45, 10);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9652</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Patron</speaker_name>
+      <npc_text>“Hard to believe, eh?” says the patron. “You should have seen him ten years ago when he was in his prime. Now he’s a pale shadow of what he once was.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Provoke Kadmos.</text>
+          <def_link>9654</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9652</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9653</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Pretending to leave, you bump into Kadmos and shove him out of your way.
+
+“Watch it!” yells Kadmos, looking pissed. “You spilled my drink. You’re lucky I’m –”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Lucky you don’t remember how to hold that spear anymore?”</text>
+          <def_link>9655</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9654</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Kadmos</speaker_name>
+      <npc_text>Kadmos stares at you drunkenly as the words sink in. Slowly, a smile spreads across his face and for a moment there you see that lethal spearman who ruled the arena ten years ago. Then the moment’s gone and all you see is a drunkard, swaying on unsteady legs.
+
+“You and me,” says Kadmos. “My final performance!”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_kadmos_killed = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight Kadmos.</text>
+          <def_link>9656</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9655</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_NPC_01, 550);</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_PC_01);</string>
+        <string>dlgSetAttitude(550, 1, -10);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+        <string>aod.fight_kadmos = 1;</string>
+        <string>dlgcam(225,45,15,1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9656</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

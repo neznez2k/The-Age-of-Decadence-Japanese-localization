@@ -1,0 +1,484 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_tiresias_met</string>
+    </conditions>
+    <links>
+      <int>9658</int>
+    </links>
+    <dlg_name>Filler_NPC_Tiresias</dlg_name>
+    <def_link>9657</def_link>
+    <def_speaker_name>Tiresias</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>As you enter a small, dimly-lit house near the market square, the voices and shouts coming from the market fade away. It’s filled with shelves and boxes, leaving very little space for anything else. Parchments, manuscripts piled in heaps, odd mechanical devices, tools and bottles of dry ink occupy every available surface. Thick dust and cobwebs in the corners suggest that the house hasn’t been cleaned in a very long time.
+
+An old man in a worn-out robe is pacing around the table and other natural obstacles, searching for something. His wrinkled, prune-like face speaks of decades spent under a scorching sun. Although the old man moves around his house with apparent ease, you notice that he’s relying on his hands to navigate past the obstacles rather than on his failing eyesight.</npc_text>
+      <onLoadScripts>
+        <string>setWindowImage(npc_filler_tiresias);</string>
+        <string>aod.npc_tiresias_met = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Approach.</text>
+          <def_link>9658</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9657</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Sensing your presence, the old loremaster stops and forces his face into something resembling a smile.
+
+“Am I expecting you?” he asks, struggling to remember.</npc_text>
+      <onLoadScripts>
+        <string>setWindowImage(npc_filler_tiresias);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Who are you?”</text>
+          <def_link>9659</def_link>
+          <checkOnAppear>aod.npc_tiresias_met == 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]“I’m here to pick up that, uh, thing.”</text>
+          <def_link>9660</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 7 &amp;&amp; aod.npc_tiresias_duped == false &amp;&amp; aod.npc_tiresias_met == 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I'm here for the lessons.”</text>
+          <def_link>9663</def_link>
+          <checkOnAppear>aod.npc_tiresias_taught == false &amp;&amp; aod.npc_tiresias_met == 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9665</def_link>
+          <checkOnAppear>aod.npc_tiresias_met == 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9658</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’m Tiresias, a humble scholar. There are those who call me a sage,” says the man with pride, “but I make no claims to such distinction. What can I do for you, my friend?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_tiresias_met = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“A scholar?”</text>
+          <def_link>9661</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9659</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Thing? Which thing?” The loremaster mumbles something irritably. “Wait, you’re Marcus’ &lt;boy/girl&gt;, aren’t you? Why didn’t you say so in the first place?”
+
+He gives you a large power tube, carefully wrapped in padded cloth.</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(1610, 1);</string>
+        <string>aod.npc_tiresias_duped = true;</string>
+        <string>rwd_civil(Tiresias_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Is there something you can teach me, master?”</text>
+          <def_link>9663</def_link>
+          <checkOnAppear>aod.npc_tiresias_taught == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9665</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9660</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The past has always fascinated me. Ever since I’ve heard my first tale about the War with the demons, I knew what I wanted to be. I spent my whole life digging in the ruins. Oh the sights I’ve seen... Sadly, they were too much for my poor eyes and I was forced to settle down. Now I make a living trading bits and pieces of my knowledge for a few coins.” He looks at you meaningfully.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’d like to learn something from you, master Tiresias.” Give him 10 imperials.</text>
+          <def_link>9662</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]“I’m here to pick up that, uh, thing.”</text>
+          <def_link>9660</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 7 &amp;&amp; aod.npc_tiresias_duped == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9665</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9661</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Tiresias jingles your coins in his palm then returns them to you.
+
+“You must have mistaken me for a beggar,” he says with pride. “If you wish to partake in my wisdom and expand your horizons, I’d expect at least five hundred imperials and not a coin less!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 500 coins.</text>
+          <def_link>9669</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 500</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgChangeMoney(-500);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][charisma]“I’ve traveled far just to hear you speak, o great sage. I wish I had a thousand coins so I could give them to you, but I spent what little I had to come here. I beg of you not to turn me away, master.”</text>
+          <def_link>9664</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.cha &gt;= 7 &amp;&amp; aod.streetwise &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9666</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9662</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“If you wish to partake in my wisdom and expand your horizons, I’d expect at least five hundred imperials and not a coin less!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 500 coins.</text>
+          <def_link>9669</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 500</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgChangeMoney(-500);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][charisma]“I’ve traveled far just to hear you speak, o great sage. I wish I had a thousand coins so I could give them to you, but I spent what little I had to come here. I beg of you not to turn me away, master.”</text>
+          <def_link>9664</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.cha &gt;= 7 &amp;&amp; aod.streetwise &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9666</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9663</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“Alas, my sight has faded now and teaching has become increasingly more difficult. I’d suggest to find a younger loremaster, if you really are in need of a teacher.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9665</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9664</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9665</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“A paying customer... well, these are hard times and I can’t deny that even a few extra coins would be more than welcome. I’ll make an exception for you and take half of my usual fee.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 250 coins.</text>
+          <def_link>9669</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 250</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgChangeMoney(-250);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9665</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9666</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Without skipping a bit, Tiresias gives you an anecdote-filled lecture on how to appraise relicts and artefacts, detect forgeries, trace genealogical trees, and make birth charts and charms for noble clients.
+
+The lecture gives you an insight into Lore, Etiquette, and Streetwise.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_tiresias_taught = true;</string>
+        <string>increaseSkillsTiresias(15);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What else can you tell me?”</text>
+          <def_link>9670</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9669</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Absent-mindedly, Tiresias shuffles the manuscripts on his desk as if searching for a worthy topic.
+
+“I assume you’ve heard many tales about the Great War that toppled the Old Empire. Every fool tells his own tale and thinks it’s the truth and nothing but. These tales differ widely but one thing is constant – the War breaks out, the Qantari demons enter the fray, then the High Lords make their appearance on the battlefield of history. When the War is over, both the demons and High Lords disappear, leaving no traces but tales and myths.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“The High Lords came to our aid because we couldn’t defeat the Demons on our own. Everyone knows that.”</text>
+          <def_link>9671</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“How convenient.”</text>
+          <def_link>9676</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9665</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9670</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“And how do they know it, pray tell?” asks Tiresias. “Our understanding of what happened during the War is based on the accounts that are as varied as the tales you hear today. To put it simply, nobody knows what happened back then but the storytellers and late historians want to answer the most common questions: What happened? Why did the Empire fall? Who is to blame?
+
+“It’s human nature to blame someone else and since the Qantari aren’t here to defend themselves, they make a perfect villain and scapegoat.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Are you saying they didn’t start the War?”</text>
+          <def_link>9672</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9671</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Indeed,” nods Tiresias. “Our understanding of what happened during the War is based on the accounts that are as varied as the tales you hear today. To put it simply, nobody knows what happened back then but the storytellers and late historians want to answer the most common questions: What happened? Why did the Empire fall? Who is to blame?
+
+“It’s human nature to blame someone else and since the Qantari aren’t here to defend themselves, they make a perfect villain and scapegoat.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Are you saying they didn’t start the War?”</text>
+          <def_link>9672</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9676</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’m saying that nobody knows what happened,” says the old loremaster. “In my humble opinion, the references to supernatural beings or arcane forces made their way into the chronicles many years after the War to make the tales more fanciful. Personally, I prefer to keep to facts and use the ‘Lectio Facilior’ method, when appropriate.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Lectio facilior?”</text>
+          <def_link>9673</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9665</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9672</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It means ‘the easier choice’ and it’s a suggestion: when facing several possible interpretations of an event described in texts or manuscripts, a wise researcher should prefer the less complex interpretatio, the one that introduces less out-of-context or fictional elements while maintaining wholeness and coherency of the story.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“The Qantari demons and the High Lords are mentioned too often to be nothing but fiction. You cannot deny their existence simply because it doesn't fit into your big picture.”</text>
+          <def_link>9674</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What's your explanation then?”</text>
+          <def_link>9677</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9673</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You can’t prove that gods or demons do exist, as well I cannot confute it. It’s a matter of faith or beliefs, not rational reasoning.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What about the machines? It is said the Gods taught the Magi, gave them the tools and the knowledge to build them.”</text>
+          <def_link>9675</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9674</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Anything but these metaphysic assertions, well beyond the laws of the material world. You can’t prove that gods or demons do exist, as well I cannot confute it. It’s a matter of faith or beliefs, not rational reasoning.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What about the machines? It is said the Gods taught the Magi, gave them the tools and the knowledge to build them.”</text>
+          <def_link>9675</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9677</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Alas, we lost so much... knowledge, technology, arts, culture... History doesn’t proceed in a straight line, my friend. Like ripples in a pond after you’ve thrown in a stone or waves in the sea, civilizations start from humble villages, grow stronger reaching their top, then wither and fade, just like men and women do. Peaks and pits: a never-ending cycle, always similar, never the same... but I’m digressing again.
+
+”I’m not denying anything, my friend: quite the opposite. Technology did reach astounding levels; the fact that now we are often unable even to understand its use is actually our greatest failure but, again, it’s mankind we are referring to, nor gods nor demons. We once reached the peak of our civilization, looking beyond the horizon, whereas now we are only able to see the bottom of the pit, where we are living now. Yet fear not, my friend: I’m confident that someday things will change for the better, even if I’m well aware that I won’t be there to witness.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9665</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9675</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

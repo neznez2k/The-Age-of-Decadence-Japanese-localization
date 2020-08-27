@@ -1,0 +1,398 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Quest_HealingMachine_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You follow Lorenza’s man to a derelict house, then down to the cellar and into an old passageway, leading into a network of even older catacombs. At some point, the man stops and puts out his torch, pointing at a faint light some distance away.</npc_text>
+      <onLoadScripts>
+        <string>setWindowImage("mdn_catacomb_healing_01");</string>
+        <string>dlgTeleportToMarker(TM_NPC_Lorenza_01, 5100);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Lorenza_02, 5101);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go towards the light.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You come as close as you can without risking being detected, then stop and observe.
+
+You see a large sarcophagus, standing in the middle of a large chamber lit by torches. The chamber itself is plain and doesn’t seem to have a clearly discernible purpose. Most likely the sarcophagus was brought here for safe-keeping and then forgotten. The sarcophagus itself is a misshapen rectangular container, made of grey metal, with strange cylindrical extensions sticking out at odd angles.
+
+You hear footsteps and see Levir entering the chamber, followed by a young woman.</npc_text>
+      <onLoadScripts>
+        <string>setWindowImage();</string>
+        <string>dlgcam(140,40,9, 4000);</string>
+        <string>aod.mdn_healingMachine = true;</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Are you sure?” asks Levir, his voice strangely anxious.
+
+“I checked everything several times,” replies the woman. “I followed my father’s notes to the letter.”
+
+“Are you certain that we can’t test it?” asks Levir. “I’ve waited a long time for this moment, but I’ve never thought that I’d have to trust this machine blindly. What if...” He doesn’t continue.
+
+“You saw the research,” says the woman without any empathy. “A jar contains a single dose and we only have one. I wouldn’t be surprised, if it’s all that’s left.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“But you’re certain that it will cure me?” says Levir, looking straight at her as if trying to see any signs of uncertainty in her eyes.
+
+“Yes,” says the woman without any hesitation. “The machine’s curative properties are well documented. It works on a level unseen to the human eye and thus well beyond the capabilities of our best healers. Whatever it is that causes you to cough blood will be removed, the damage done to your organs healed.”
+
+“Alright,” says Levir calmly. “Let’s do it.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Take a closer look. You’ll have to deal with Levir first, of course.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.pc_member_commercium</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>11</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Looks like Levir needs it more than you do. Leave the catacombs.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING - go to Ganezzar</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>SS_start("MDN_ending", "switchMission(\"Ganezzar.mis\");");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Levir</portrait>
+      <speaker_name>Levir</speaker_name>
+      <npc_text>Levir notices you the moment you step out of the shadows. He steps in front of the woman as if shielding her and glances to his left. Almost immediately, two thugs appear out of the darkness of another tunnel.
+
+“Whoever you're, there's nothing for you here,” says Levir, “so you best be on your way.”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_PC_Lorenza_01);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Lorenza_03, 5101);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Lorenza_04, 5100);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgRotateToChar(1, 4000);</string>
+        <string>dlgCam(45, 40, 12, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I was just curious.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Levir</portrait>
+      <speaker_name>Levir</speaker_name>
+      <npc_text>“Curiosity can be a dangerous thing. Kills a lot of cats, apparently.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“It’s nothing personal, Levir.”</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[critical strike]“Alright, I’m leaving.” Lunge at the closest thug.</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Alright, I’m leaving.” Leave the catacombs.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>[failure]Anticipating your attack, the thug moves to the side, stabbing you as you open up.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeCharacterHP(-10);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Lorenza_05, 5101);</string>
+        <string>dlgRotateToChar(5101);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(45, 40, 8, 1);</string>
+        <string>dlgSetCombatAnimation(5101);</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>sfxPlayOnce(csMissSwingAir01);</string>
+        <string>schedule(250, 0, sfxPlayOnce, csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>[success]Anticipating your attack, the thug tries to move to the side, but you’re too fast for him and your dagger catches him, sinking in to the hilt.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_NPC_Lorenza_05, 5101);</string>
+        <string>dlgSetAnimation(anim_death_back00, 0.95, 5101);</string>
+        <string>dlgKillCharacter(5101);</string>
+        <string>dlgRotateToChar(5101);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(45, 40, 8, 1);</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Levir</portrait>
+      <speaker_name>Levir</speaker_name>
+      <npc_text>Levir notices you the moment you step out of the shadows. He steps in front of the woman as if shielding her and glances to his left. Almost immediately, two thugs appear out of the darkness of another tunnel.
+
+“There is nothing here for you, &lt;charname&gt;,” says Levir, “so you best be on your way.”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_PC_Lorenza_01);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Lorenza_03, 5101);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Lorenza_04, 5100);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgRotateToChar(1, 4000);</string>
+        <string>dlgCam(45, 40, 12, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I was just curious.”</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Levir</portrait>
+      <speaker_name>Levir</speaker_name>
+      <npc_text>“Curiosity can be a dangerous thing, &lt;charname&gt;. Kills a lot of cats, apparently.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“It’s nothing personal, Levir.”</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[critical strike]“Alright, I’m leaving.” Lunge at the closest thug.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>10</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Alright, I’m leaving.” Leave the catacombs.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Levir</portrait>
+      <speaker_name>Levir</speaker_name>
+      <npc_text>“It never is, is it?” He nods and his men step forward.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addEnemyToParty(1, HealingMachine_Thieves);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Levir</portrait>
+      <speaker_name>Levir</speaker_name>
+      <npc_text>[failure]Anticipating your attack, the thug moves to the side, stabbing you as you open up.
+
+“As you can see, I’ve learned my lessons,” says Levir with a smile.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeCharacterHP(-10);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_NPC_Lorenza_05, 5101);</string>
+        <string>dlgRotateToChar(5101);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(45, 40, 8, 1);</string>
+        <string>dlgSetCombatAnimation(5101);</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>sfxPlayOnce(csMissSwingAir01);</string>
+        <string>schedule(250, 0, sfxPlayOnce, csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Levir</portrait>
+      <speaker_name>Levir</speaker_name>
+      <npc_text>[success]Anticipating your attack, the thug tries to move to the side, but you’re too fast for him and your dagger catches him, sinking in to the hilt.
+
+“I told you &lt;he/she&gt;’s fast!” curses Levir.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_NPC_Lorenza_05, 5101);</string>
+        <string>dlgSetAnimation(anim_death_back00, 0.95, 5101);</string>
+        <string>dlgKillCharacter(5101);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgRotateToChar(5101);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(45, 40, 8, 1);</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

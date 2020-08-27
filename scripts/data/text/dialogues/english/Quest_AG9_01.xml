@@ -1,0 +1,627 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_ag9_status == 2</string>
+    </conditions>
+    <links>
+      <int>7478</int>
+    </links>
+    <dlg_name>Quest_AG9_01</dlg_name>
+    <def_link>7459</def_link>
+    <def_speaker_name>Hamza</def_speaker_name>
+    <def_portrait>Hamza</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>You enter the house and listen for any movement. Nothing.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(225, 45, 7, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Explore.</text>
+          <def_link>7460</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_darista_dead</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7461</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7459</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“&lt;charname&gt;?” says Hamza with relief, lowering his blade. Two more men step out from the shadows. The Maadoran crew.
+
+“What are you doing here?”</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_MeetHamza);</string>
+        <string>dlgCam(85, 40, 7, 4611);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Just stopped by. Didn’t think I’ll find anybody here.”</text>
+          <def_link>7463</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7460</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“&lt;charname&gt;?” asks Hamza, lowering his blade. Two more men step out from the shadows. The Maadoran crew.
+
+“You have a lot to answer for, &lt;boy/girl&gt;. Best say your prayers, if you know any.”</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_MeetHamza);</string>
+        <string>dlgCam(85, 40, 7, 4611);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>7462</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7461</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addEnemyToParty(1, AG9_hamza);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.quest_ag9_status = 2;</string>
+        <string>aod.fight_ag9_guild = 1;</string>
+        <string>aod.jnl_AG9 = 1;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>7462</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“That’s the idea,” says Hamza. “It’s the last place anyone will look for us.
+
+“I’m glad I ran into you. You’ve been here a while and we can use your help.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What do you need?”</text>
+          <def_link>7464</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7463</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’m here to kill Meru,” says Hamza. “Whatever the cost. I have two men with me – couldn’t bring more without attracting too much attention.
+
+“Can you get us into the castle? Glabrio talks big but I don’t trust him.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Sure, I can get you in.” [Take him to the castle]</text>
+          <def_link>7467</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[critical strike]Kill Hamza then deal with his men.</text>
+          <def_link>7470</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex == 10 &amp;&amp; aod.critical_strike == 10</string>
+            <string>aod.critical_strike &gt;= 9</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7477</int>
+            <int>7471</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity][critical strike]Kill the sidekicks first, then deal with Hamza.</text>
+          <def_link>7472</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.dex + aod.critical_strike) &gt;= 18 &amp;&amp; aod.dodge &lt; 8</string>
+            <string>(aod.dex + aod.critical_strike) &gt;= 18 &amp;&amp; aod.dodge &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7475</int>
+            <int>7476</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Trust to be told, Hamza, I’m working for Meru now. You’re trespassing, but I’m going to let you walk. For old times’ sake.”</text>
+          <def_link>7465</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What about Faelan? I thought he was helping you.”</text>
+          <def_link>7468</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Why do you want Meru dead?”</text>
+          <def_link>7469</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7464</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Killing our brethren isn’t enough for you?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_GNZhamza_asked_meru = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Sure, I can get you in.” [Take him to the castle]</text>
+          <def_link>7467</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[critical strike]Kill Hamza then deal with his men.</text>
+          <def_link>7470</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex == 10 &amp;&amp; aod.critical_strike == 10</string>
+            <string>aod.critical_strike &gt;= 9</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7477</int>
+            <int>7471</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity][critical strike]Kill the sidekicks first, then deal with Hamza.</text>
+          <def_link>7472</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.dex + aod.critical_strike) &gt;= 18 &amp;&amp; aod.dodge &lt; 8</string>
+            <string>(aod.dex + aod.critical_strike) &gt;= 18 &amp;&amp; aod.dodge &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7475</int>
+            <int>7476</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Trust to be told, Hamza, I’m working for Meru now. You’re trespassing, but I’m going to let you walk. For old times’ sake.”</text>
+          <def_link>7465</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What about Faelan? I thought he was helping you.”</text>
+          <def_link>7468</def_link>
+          <checkOnAppear>aod.npc_GNZhamza_asked_faelan == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7469</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Why would he? If Faelan were any more devoted, he would be licking his master’s boots. So can you get us in or not?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_GNZhamza_asked_faelan = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Sure, I can get you in.” [Take him to the castle]</text>
+          <def_link>7467</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[critical strike]Kill Hamza then deal with his men.</text>
+          <def_link>7470</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex == 10 &amp;&amp; aod.critical_strike == 10</string>
+            <string>aod.critical_strike &gt;= 9</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7477</int>
+            <int>7471</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity][critical strike]Kill the sidekicks first, then deal with Hamza.</text>
+          <def_link>7472</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.dex + aod.critical_strike) &gt;= 18 &amp;&amp; aod.dodge &lt; 8</string>
+            <string>(aod.dex + aod.critical_strike) &gt;= 18 &amp;&amp; aod.dodge &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7475</int>
+            <int>7476</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Trust to be told, Hamza, I’m working for Meru now. You’re trespassing, but I’m going to let you walk. For old times’ sake.”</text>
+          <def_link>7465</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Why do you want Meru dead?”</text>
+          <def_link>7469</def_link>
+          <checkOnAppear>aod.npc_GNZhamza_asked_meru == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7468</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Hamza nods and looks away like a man who learned to expect and accept bad news.
+
+“You know I can’t do it,” he says quietly.</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(AG9_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“That’s your choice.”</text>
+          <def_link>7466</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7465</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It is,” nods Hamza. “Well, I appreciate the warning. Honor is a rare thing these days.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>7462</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7466</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start AG9_02</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>switchMission("Quest_AG9_02.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>7467</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Hamza moves the moment you strike as if he knew it was coming.
+
+“Like that, eh?”</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_CS_01);</string>
+        <string>sfxPlayOnce(csMissSwingAir01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>7462</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7470</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Hamza moves the moment you strike as if he knew it was coming, but you were a split-second faster. The blade bites deep, although for an experienced fighter the wound is merely an inconvenience.
+
+“Like that, eh?”</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgChangeCharacterHP(-20, 4611);</string>
+        <string>dlgTeleportToMarker(TM_CS_01);</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>7462</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7471</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success][dexterity success]Even a few years ago you'd have never caught Hamza by surprise, but that was then and this is now. Hamza moves a second too late and by that time your blade's already done its work.
+
+He reverses his dagger for a throw but his strength is leaving him and he falls down without saying a word.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>killRandomDeathPosition(4611);</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>dlgTeleportToMarker(TM_CS_01);</string>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>7462</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7477</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You lunge at the nearest Boatman, dropping your defense but for a moment. This moment is all that Hamza needs – his blade sinks deep, skewering your kidney and putting an end to your exploits.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_CS_01);</string>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Your own medicine has a very bitter taste.</text>
+          <def_link>7473</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7472</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>7473</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[critical strike success][dodge failure]The Boatman next to you dies instantly – he was too close, too relaxed, and worst of all, he didn’t see it coming. When you’re on the job, it’s always coming.
+
+The second Boatman wastes a few seconds admiring the blood spraying from his partner’s opened throat and thus moves a few seconds too late. In this business it’s a fatal mistake. You open his artery and down he goes, out of sight, out of mind.
+
+You turn to face Hamza – a few seconds too late – and recoil as he strikes. The blade parts flesh, looking for vital spots but finds none and withdraws, leaving you weakened but alive.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeCharacterHP(-20);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>killRandomDeathPosition(8250);</string>
+        <string>killRandomDeathPosition(8251);</string>
+        <string>dlgCsRepTrain(2);</string>
+        <string>dlgTeleportToMarker(TM_CS_02);</string>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+        <string>schedule(250, 0, sfxPlayOnce, csSuccessBody01);</string>
+        <string>schedule(500, 0, sfxPlayOnce, csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>7462</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7475</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[critical strike success][dodge success]The Boatman next to you dies instantly – he was too close, too relaxed, and worst of all, he didn’t see it coming. When you’re on the job, it’s always coming.
+
+The second Boatman wastes a few seconds admiring the blood spraying from his partner’s opened throat and thus moves a few seconds too late. In this business it’s a fatal mistake. You open his artery and down he goes, out of sight, out of mind.
+
+Keenly aware of Hamza, you dance away before the body hits the ground, narrowly avoiding his blade. Hamza curses and steps back, eyeing you angrily.</npc_text>
+      <onLoadScripts>
+        <string>killRandomDeathPosition(8250);</string>
+        <string>killRandomDeathPosition(8251);</string>
+        <string>dlgCsRepTrain(2);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_CS_02);</string>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+        <string>schedule(250, 0, sfxPlayOnce, csSuccessBody01);</string>
+        <string>schedule(500, 0, sfxPlayOnce, csMissSwingAir01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>7462</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7476</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Varro</portrait>
+      <speaker_name>Varro</speaker_name>
+      <npc_text>“Is it done?” asks Varro when you return to the castle.</npc_text>
+      <onLoadScripts>
+        <string>setWindowImage(npc_varro_01);</string>
+        <string>aod.jnl_AG9 = 3;</string>
+        <string>rwd_reputation(AG9_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I killed Hamza and two others.”</text>
+          <def_link>7479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7478</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Varro</portrait>
+      <speaker_name>Varro</speaker_name>
+      <npc_text>“Hamza was a good man,” says Varro with genuine regret. “He would have been a guildmaster if he wasn't so stubborn.
+
+“Since you've shown much promise, you'll serve me as my second-in-command. Together we’ll eradicate heresy in this city, bring forth a new age, and if all goes well, even make it to retirement.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(AG9_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What constitutes heresy?”</text>
+          <def_link>7480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7479</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Varro</portrait>
+      <speaker_name>Varro</speaker_name>
+      <npc_text>“Meru’s loremasters are debating this very subject as we speak. Suffice to say that anyone who opposes Meru is a heretic who should be shown the errors of his way.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What about the siege?”</text>
+          <def_link>7482</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7480</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Varro</portrait>
+      <speaker_name>Varro</speaker_name>
+      <npc_text>“Meru made a deal with the Imperial Guards. They should be here in a day or two. Without the Legatus the Aurelian army won’t stand a chance.
+
+“When the dust settles, start hiring future inquisitors. We’ll need at least twenty men to start. Make sure they can hold their own in a fight.”</npc_text>
+      <onLoadScripts>
+        <string>setAchievement("ACH_INQUISITOR");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait until the dust settles.</text>
+          <def_link>7483</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7482</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.gnz_underSiege = false;</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>sd(GNZ_Siege_03);</string>
+        <string>aod.ending_GNZ_faction_AG = 1;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>7483</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

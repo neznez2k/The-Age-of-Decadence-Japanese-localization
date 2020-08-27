@@ -1,0 +1,328 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_veteranBeggar_paid</string>
+    </conditions>
+    <links>
+      <int>13</int>
+    </links>
+    <dlg_name>NPC_veteranBeggar_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Beggar</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Show kindness to a veteran, good &lt;master/mistress&gt;!” barks a scowling beggar when you come too close. “A coin or two is all I ask. Come on, we both know you can afford it.”</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(315, 45, 8, 6130);</string>
+        <string>dlgTeleportToMarker(TM_VeteranBeggar_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Give him 5 imperials.</text>
+          <def_link>2</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Walk away.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Much obliged,” says the beggar, offering a practiced military salute.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-5);</string>
+        <string>aod.npc_veteranBeggar_paid = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Are you really a veteran?”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Walk away.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Thanks for your kindness, good &lt;master/mistress&gt;,” says the beggar, offering a practiced military salute.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(315, 45, 8, 6130);</string>
+        <string>dlgTeleportToMarker(TM_VeteranBeggar_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Are you really a veteran?”</text>
+          <def_link>4</def_link>
+          <checkOnAppear>aod.npc_veteranBeggar_story == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’d like to hear your story.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear>aod.npc_veteranBeggar_talked == false &amp;&amp; aod.npc_veteranBeggar_story</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Walk away.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Antidas’ finest,” says the man with a bitter smile. “Yeah, wrong side, I know, but it’s hard to tell them apart beforehand. Every lord makes it sound like his cause is righteous and his side is going to come out the winner, but in the end it always comes to a roll of the dice.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“How did you end up here?”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It’s a long story. You sure you have time for it?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_veteranBeggar_story = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’d like to hear it.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Never mind then.” Walk away.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Alright. So, yeah, I served Antidas, but it was more than a job for me. I took the oath and meant every word, gods help me. I didn’t believe any of the ‘Antidas, the last emperor!’ bullshit that the court poet always went on about. For me, what mattered was that Antidas actually gave a shit.
+
+“I'd worked for the Commercium years before, so I knew how rich bastards can treat you, but Antidas was different. He'd actually spend time with his men. He said the prophecy wasn't just about him, that we were all part of it, and that the words themselves were just empty blather without good men to back them up and follow his lead. We were the foundation upon which the House was built, he said. Fine words, though I know it must sound like so much horseshit coming from me.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_veteranBeggar_talked = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Keep listening.</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Walk away.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Things were really gearing up by the time I'd joined. His father had left him the throne less than a year prior, you see, so Antidas was chomping at the bit to get things rolling, considering how cautious and miserly his father had been. He spent a lot of gold on payroll so his recruiters could compete with the Imperial Guards, and began outfitting his men in armor of the grand old Imperial style.
+
+“Pretty soon the common folk took House Daratan for the real descendant of the Empire, while the so called ‘Imperial’ Guard took the role of a shameful pretender staffed by ill-armored lepers. The ranks began to swell, and in a little over half a year, Antidas was ready to stake his claim.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Keep listening.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Walk away.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Luck favored Antidas. The Ordu had begun a huge push to the south, and Gaelius had to bleed his own legions to beef up the Guards to the north. Gaelius knew it would risk the legitimacy of the Charter if he did nothing but spend his time with some Bactrian belly dancers, while the Guards died defending his backyard from the greatest threat since the Qantari, so he didn't have much choice in this matter.
+
+“That whole mess took Gaelius' carefully arranged game board and threw it into the Abyss, and Antidas was poised to exploit the situation. He sent his uncle to Ganezzar to sell Meru on a joint attack against Gaelius. He gave him a hundred soldiers and guess who was in charge of that entourage? Yours truly. Meru’s mind was soft like clay, easy to mold, and the deal was struck within a week. Soon after, we were ready to march to war.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Keep listening.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Walk away.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“With Gaelius fighting a war on three sides, the Daratan front had become his soft underbelly. This was still Aurelian though and Daratan was still the weakest House, so there was no certain outcome. Nonetheless, Antidas belted Gaelius with everything he had. I don't know whether tactics or numbers won that first battle, but we absolutely bled those bastards!
+
+“House Daratan had accomplished a decisive victory, the first in decades, but all Antidas did was salute his men and walk the battlefield as calmly as if he were enjoying a stroll in the garden. He wanted it to seem as though this was all a matter of course. It must have taken a godly effort to hold in the pride he felt, and as for us, hell, we didn't even bother trying.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What happened then?”</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Well, it all went to shit, of course, but you already know that, don’t you? Things went well enough during the first month after the initial attack. Aurelian withdrew, Daratan advanced. Then one day we got word from the northeast that Meru had suddenly withdrawn his troops from the field. They hadn't been routed; they'd just completely ditched the war! Antidas didn’t know what to think. Had Meru been bribed by Gaelius? Had he lost his nerve?
+
+“It turns out Meru hadn't lost his nerve, just his whole fucking mind. I brought Antidas’ uncle to Ganezzar again and he didn't even greet us when we walked into his court, but instead began a crazed oration. It was like we were listening to a totally different man. He spoke of gods, he spoke of revelations, he spoke of the people, and he ultimately just spewed out a mess of the most impassioned insanity I'd ever heard.
+
+“At first we hoped it was nothing but an act to cover Meru's real doubts about the war and so the uncle stayed into the night to discuss it with him further. When he finally came out of the palace, his skin white as gypsum. I tried to fish out some of the details, but he the only thing he said was, “Gods help us, he actually believes every word. It's all over...” And so it was.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Just like that?”</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It was the turning point marking the end of Antidas’ good fortune. The Imperial Guards ambushed and decimated the Ordu and suddenly Gaelius was free to give Antidas the attention he deserved. Of course, we didn’t see it this way back then as Antidas had us convinced that the prophecy was coming true and nothing could stop him. Except, Gaelius’ legions, of course,” laughs the beggar, the laugh turning into a violent cough that stops him for a moment.
+
+“Wiraz,” he says finally as if the name still invoked pain. “It was a disaster. Complete and utter fucking disaster. If Antidas didn’t run, he would have lost everything there. When we got back to Teron he practically barricaded himself in his compound and that was the last I saw of him. No more speeches, no more heart to hearts, no more talks about prophecies.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So, how did you end up here?”</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Tell you the truth, I just couldn’t stomach staying in Teron, pretending like nothing happened. Don’t know how Antidas could handle it. Maybe he’s a tougher bastard that I thought. For a while, we thought that he was just laying low, biding his time and waiting for the right opportunity. Turned out, there was no opportunity. He sent an expedition to look for some temple in the wasteland as if that was his main concern and nothing else mattered.
+
+“Of course, his luck being what it is, he lost most men he sent on that fool’s errand and didn’t find any temple. Between you and me, I wouldn’t be surprised if it exists only in his addled mind.
+
+“I left shortly after. Thought I’d come and see Maadoran, see the city that so many men died for. You know what, I don’t think it was worth it. Anyway, my throat’s getting dry, so it’s time to go and water it. Take care of yourself, stranger.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

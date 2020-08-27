@@ -1,0 +1,583 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.tsq_camilla_insideHouse</string>
+      <string>aod.tsq_camilla_failedStw</string>
+    </conditions>
+    <links>
+      <int>21</int>
+      <int>18</int>
+    </links>
+    <dlg_name>TSQ_Camilla</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>A well-dressed woman opens the door and looks at you quizzically. You can’t help but notice her rings and necklace. Stones like these are bound to fetch a good price.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(187, 163, 0, E);</string>
+        <string>dlgTeleportTo(188, 163, 0, W, 2210);</string>
+        <string>useCameraBookmark(TSQ_Camilla_cam_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise success]“Lady Anthea, I presume? I’m happy to inform you that Lord Gaelius has agreed. You’re expected to arrive in Maadoran within a fortnight.”</text>
+          <def_link>1</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Wait till the dark and pay her a visit.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You're standing in front of the house of Lady Camilla. You doubt that she would want to talk to you again.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(187, 163, 0, E);</string>
+        <string>useCameraBookmark(TSQ_Camilla_cam_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait till the dark and pay her a visit.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Camilla</speaker_name>
+      <npc_text>“You have the privilege of addressing Lady Camilla Domitia Planca.” Before she closes the door, her curiosity gets the better of her. “You were saying something about Lord Gaelius and Maadoran?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][impersonate]“You are not Lady Anthea? A thousand apologies! Please tell me I can count on your discretion. It’s a highly sensitive matter involving the most noble of Houses.”</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.disguise) &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Camilla</speaker_name>
+      <npc_text>[failure]Your performance isn’t good enough to make her bite. She dismisses you with a wave of her hand and slams the door in your face.</npc_text>
+      <onLoadScripts>
+        <string>aod.tsq_camilla_failedStw = true;</string>
+        <string>dlgTeleportTo(192, 163, 0, W, 2210);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Camilla</speaker_name>
+      <npc_text>[success]“My lips are sealed,” says Camilla, her eyes sparkling with interest, “but only if you tell me more.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Well, I suppose it’s hardly a secret that Lord Gaelius has certain, let’s say, difficulties with his nephew. He thinks that what the young man needs is a good wife, a woman of proper standing and qualities to keep him from troubles.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Camilla</speaker_name>
+      <npc_text>“It’s very true,” nods Camilla. “Do continue.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][etiquette]“My master, a personal friend and confidante of Lord Gaelius, was asked to find such a lady, a lady who’s suitable enough to marry into the Aurelian family. Not an easy task as there are so many things to consider. In the end, he has chosen Lady Anthea, although it’s clear to me now that had he met you, he would have changed his mind very quickly.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.etiquette) &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Camilla</speaker_name>
+      <npc_text>[failure]“You don’t have the look of someone who serves men of such high standing and influence.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][charisma]“Why, thank you. It took me quite a while to find the right look. It’s not easy to blend in here – no offense, my dear.”</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 3 &amp;&amp; aod.cha &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Camilla</speaker_name>
+      <npc_text>[failure]Your tone falters and your words fail to have the desired effect. Camilla dismisses you with a gesture and slams the door in your face.</npc_text>
+      <onLoadScripts>
+        <string>aod.tsq_camilla_failedStw = true;</string>
+        <string>dlgTeleportTo(192, 163, 0, W, 2210);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Camilla</speaker_name>
+      <npc_text>[success]“It’s just occurred to me that since you haven’t spoken to this Anthea woman yet, perhaps it’s not too late to arrange a meeting between me and your Lord. After all, it’s only fair that he considers all candidates. I can’t say that I’ve ever heard about this Anthea, so she can’t possibly be of good breeding, can she?”</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(TRN_Camilla_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Alas, as I mentioned, my master has already discussed the lady in question with Lord Gaelius. It would be costly and embarrassing for him to raise the subject again.”</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Camilla</speaker_name>
+      <npc_text>“I am a lady of means,” says Camilla with dignity. “I will certainly not let something as trivial as money stand in the way of bigger opportunities.”
+
+She removes her rings and the string of gemstones and hands them over to you.</npc_text>
+      <onLoadScripts>
+        <string>aod.tsq_camilla_complete = true;</string>
+        <string>dlgAddItem(2003, 6);</string>
+        <string>dlgAddItem(1300, 2);</string>
+        <string>VCO_Camilla_05.setActive(false);</string>
+        <string>rwd_quest(TRN_Camilla_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I will be in touch, Lady Camilla.” Leave.</text>
+          <def_link>24</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Camilla gone</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgDeleteCharacter(2210);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Camilla goes inside</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportTo(192, 163, 0, W, 2210);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - back to day</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>TeronDayTime();</string>
+        <string>dlgTeleportTo(184, 164, 0, SW, 7300);</string>
+        <string>dlgTeleportTo(183, 163, 0, NE, 7310);</string>
+        <string>dlgTeleportTo(199, 184, 0, N, 2151);</string>
+        <string>dlgTeleportTo(187, 163, 0, W);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>As it gets darker, a small detachment of Daratan guards arrives and sets up a ‘camp’ in the area. After dealing with a few drunks and beggars, the guards split: some are left in front of the entrances to the wealthy households, some begin patrolling the neighbourhood.</npc_text>
+      <onLoadScripts>
+        <string>TeronNightTime();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>dlgTeleportTo(114, 175, 0, E, 7300);</string>
+        <string>dlgTeleportTo(115, 175, 0, E, 7310);</string>
+        <string>dlgTeleportTo(188, 162, 0, W, 2151);</string>
+        <string>useCameraBookmark(TSQ_Camilla_cam_03);</string>
+        <string>dlgTeleportTo(170, 141, 0, N);</string>
+        <string>dlgTeleportTo(192, 163, 0, W, 2210);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[sneak]Take a closer look.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.sneak &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>12</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]One of the guards notices you skulking around and alerts the others. You quickly retreat into a nearby alley.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(209, 136, 0, W);</string>
+        <string>useCameraBookmark(TSQ_Camilla_cam_04);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You circle around the villa staying far away from the guards, until you find a good spot, protected by shadows. Even though the walls are in good shape, there are plenty of footholds.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(196, 155, 0, N);</string>
+        <string>useCameraBookmark(TSQ_Camilla_cam_05);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[strength][dexterity]Climb to the roof and get inside the villa.</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>climbingCheck(15, 0)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[throwing]Use the rope with the grappling hook.</text>
+          <def_link>20</def_link>
+          <checkOnAppear>dlgOwnsItem(2125)</checkOnAppear>
+          <checksOnClick>
+            <string>aod.throwing &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>19</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You throw the rope several times, but somehow the hook fails to catch. You must be really bad at it.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[strength][dexterity]Climb to the roof and get inside the villa.</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>climbingCheck(15, 0)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You throw the rope and get the grappling hook exactly where you want it. You can climb up without much effort now.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[strength][dexterity]Climb to the roof and get inside the villa.</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>climbingCheck(12, 1)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Your clumsy attempt to get to the roof attracts the guards’ attention, forcing you to retreat to a nearby alley.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(209, 136, 0, W);</string>
+        <string>useCameraBookmark(TSQ_Camilla_cam_04);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]It doesn’t take you long to get to the roof. Suddenly, the moon comes out of the clouds, making your silhouette clearly visible. Holding your breath and praying that nobody looks up, you drop down into the villa’s courtyard.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(195, 163, 0, E);</string>
+        <string>useCameraBookmark(TSQ_Camilla_cam_01);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgDeleteCharacter(2210);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[sneak]Look for valuables.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.sneak &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>16</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You become one with the darkness – not a &lt;man/woman&gt; born of a woman but a shifting shadow – and begin to explore the house. A loud scream tells you that perhaps you’ve overestimated your abilities a little bit. The guards will be here any moment.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.tsq_camilla_complete = true;</string>
+        <string>VCO_Camilla_05.setActive(false);</string>
+        <string>dlgTeleportTo(202, 163, 0, W);</string>
+        <string>useCameraBookmark(TSQ_Camilla_cam_06);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>This situation clearly calls for a tactical retreat.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - explore the house</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>aod.tsq_camilla_insideHouse = true;</string>
+        <string>VCO_Camilla_01.setActive(true);</string>
+        <string>VCO_Camilla_02.setActive(true);</string>
+        <string>VCO_Camilla_03.setActive(true);</string>
+        <string>VCO_Camilla_04.setActive(true);</string>
+        <string>VCO_Camilla_05.setActive(false);</string>
+        <string>rwd_civil(Sneak);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Are you sure you want to leave?</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(202, 163, 0, E);</string>
+        <string>useCameraBookmark(TSQ_Camilla_cam_06);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Yes.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>No.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - back to day from house</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>TeronDayTime();</string>
+        <string>dlgTeleportTo(184, 164, 0, SW, 7300);</string>
+        <string>dlgTeleportTo(183, 163, 0, NE, 7310);</string>
+        <string>dlgTeleportTo(199, 184, 0, N, 2151);</string>
+        <string>dlgTeleportTo(187, 163, 0, W);</string>
+        <string>aod.tsq_camilla_complete = true;</string>
+        <string>VCO_Camilla_05.setActive(false);</string>
+        <string>VCO_Camilla_01.setActive(false);</string>
+        <string>VCO_Camilla_02.setActive(false);</string>
+        <string>VCO_Camilla_03.setActive(false);</string>
+        <string>VCO_Camilla_04.setActive(false);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>22</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

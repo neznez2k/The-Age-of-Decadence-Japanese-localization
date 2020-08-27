@@ -1,0 +1,1069 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_hd2_guardsDoor</string>
+      <string>aod.quest_hd2_lookAround</string>
+      <string>aod.quest_hd2_carrinasFailure</string>
+    </conditions>
+    <links>
+      <int>1862</int>
+      <int>1851</int>
+      <int>1838</int>
+    </links>
+    <dlg_name>Quest_HD2_02</dlg_name>
+    <def_link>1809</def_link>
+    <def_speaker_name>Carrinas</def_speaker_name>
+    <def_portrait>Carrinas</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>You approach the entrance to the barracks. "State your business," demands one of the guards.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(216, 57, 0, E);</string>
+        <string>useCameraBookmark(Quest_MG2_Cam_04);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"My business is with your Commander. Tell him that &lt;charname&gt; of House Daratan requires ten minutes of his time."</text>
+          <def_link>1810</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Nothing for now." Leave.</text>
+          <def_link>1831</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1809</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Take &lt;him/her&gt; in," shrugs one of the guards. The other man takes you to the Commander's office. The office is simple: a bed, a table with papers, a soldier's chest. Something tells you that the chest contains nothing but armor and basic supplies.
+
+"&lt;Master/Mistress&gt; &lt;charname&gt;! Are you here about the caravan? Let me assure you that we're doing everything in our power –"</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(Quest_MG2_Cam_05);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(232, 55, 1, N, 1120);</string>
+        <string>dlgTeleportTo(232, 56, 1, S);</string>
+        <string>aod.quest_hd2_talkCarrinas = false;</string>
+        <string>apmsStopMusic(2); apmsPlayMusic(custom, 1, 1);</string>
+        <string>addJournalChar(carrinas);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"To take over? I know."</text>
+          <def_link>1811</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1810</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>If Carrinas is surprised, he doesn't show it. "What can I do for you then?" As he speaks several guardsmen enter the room and take positions around you.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportTo(231, 57, 1, SE, 1610);</string>
+        <string>dlgTeleportTo(233, 57, 1, SW, 1130);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[impersonate][etiquette]"I bring greetings from my Lord Gaelius. Greetings and a promise of much needed assistance."</text>
+          <def_link>1812</def_link>
+          <checkOnAppear>aod.quest_hd2_envoySohrab</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.disguise + aod.etiquette) &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1814</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]"I've lost faith in Lord Antidas. I'm leaving tonight but it occurred to me that I don't have to leave empty-handed. One of your men has betrayed you and tried to warn Antidas. Fortunately for both of us, he handed the proof to me, instead of Dellar."</text>
+          <def_link>1813</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1819</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Antidas knows what you're planning. The Boatmen are waiting for you at the inn."</text>
+          <def_link>1843</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1811</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"I thought you served Antidas."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]"I've lost faith in Lord Antidas. His domain is dwindling, while Lord Gaelius' domain and influence are growing. I daresay I'm not the first to look for a more suitable master."</text>
+          <def_link>1813</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1814</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[charisma]"I thought you served Caer-Tor."</text>
+          <def_link>1826</def_link>
+          <checkOnAppear>aod.cha &gt;= 7</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1812</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"Antidas must be getting really desperate if he expects me to fall for this." Carrinas turns his head to his guard to give an order.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_hd2_carrinasFailure = true;</string>
+        <string>addParty(hd2Barracks, 0);</string>
+        <string>addCharToParty(1120, hd2Barracks, fighter);</string>
+        <string>addCharToParty(1130, hd2Barracks, fighter);</string>
+        <string>addCharToParty(1610, hd2Barracks, fighter);</string>
+        <string>delCharTag(TeronKeyNPC, 1120);</string>
+        <string>delCharTag(TeronKeyNPC, 1130);</string>
+        <string>delCharTag(TeronKeyNPC, 1610);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[critical strike]Things are about to get ugly. This is your chance to end it with a single strike.</text>
+          <def_link>1842</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>ownsSmallDagger() &amp;&amp; aod.critical_strike &gt;= 5</string>
+            <string>ownsSmallDagger() &amp;&amp; aod.critical_strike &gt;= 4</string>
+            <string>ownsSmallDagger() &amp;&amp; aod.critical_strike &lt; 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1835</int>
+            <int>1836</int>
+            <int>1837</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Prepare to defend yourself and most likely to die.</text>
+          <def_link>1834</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1813</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Let's say I believe you. Gaelius has bought better men than you. What does he want from me? I don't need his gold or his assistance."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]"That's where you're mistaken, Commander. The word is out and Antidas is ready. House Aurelian can easily tip the scales and ensure an easy victory."</text>
+          <def_link>1813</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1815</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[impersonate][streetwise]"Unless you're willing to fight two Houses at the same time, I suggest you reconsider. Lord Gaelius doesn't take kindly to spurning his help."</text>
+          <def_link>1813</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.disguise + aod.streetwise) &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1828</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1814</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"You have a point there. Well, let's say I believe you. Gaelius has bought better men than you. What does he want from me? I don't need his gold or his assistance."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]"That's where you're mistaken, Commander. The word is out and Antidas is ready. House Aurelian can easily tip the scales and ensure an easy victory."</text>
+          <def_link>1813</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1815</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1826</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"At what cost?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'm just a messenger, Commander. I was asked to arrange a meeting between you and a Lord Gaelius' envoy, who, I'm sure, will be more than happy to answer all your questions and put your mind at ease."</text>
+          <def_link>1816</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1815</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Then maybe he shouldn't try to force it down my throat!"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'm just a messenger, Commander. I was asked to arrange a meeting between you and a Lord Gaelius' envoy, who, I'm sure, will be more than happy to answer all your questions and put your mind at ease."</text>
+          <def_link>1816</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1828</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Who's the envoy?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Master Sohrab. I'm sure you've heard of him."</text>
+          <def_link>1817</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1816</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Sohrab? Why did he send a loremaster?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I can't say, but I assume there is a reason. Master Sohrab will be waiting for you at the inn after dark. I'm sure you understand why he couldn't approach you directly."</text>
+          <def_link>1818</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1817</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"It will change soon," mutters Carrinas. "I'll see you at the inn then."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_hd2_envoySohrabSuccess = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait for Commander Carrinas at the inn.</text>
+          <def_link>1824</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1818</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"How fortunate, indeed. Maybe too fortunate?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]"Do you really think that each and every one of your men is willing to die for your glory? Half of them would jump ship given an opportunity, but that's your problem, not mine. I just want to get paid."</text>
+          <def_link>1813</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1820</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]"All things come to those who wait and I've waited for the right opportunity for a long time. Not everyone's in it for the glory, Carrinas. Some of us just want to get paid."</text>
+          <def_link>1813</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1820</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1819</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"And why should I pay you?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]"Because if you don't, Antidas will be ready when you come and the outcome will be very, very different."</text>
+          <def_link>1813</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1821</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]"Weren't you listening? You have traitors in your camp. Who knows how wide the conspiracy is and how far it goes? I'm giving you an opportunity to find out. Unless you like surprises and getting stabbed in the back when you least expect."</text>
+          <def_link>1813</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1821</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1820</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"How much?" growls Carrinas.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Two thousand imperials. Tonight, at the inn."</text>
+          <def_link>1822</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]"One thousand imperials. It's worth a lot more, but I'd rather ask for less and walk away with the money, than ask for more and end up dead."</text>
+          <def_link>1823</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1821</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Gods help you if you're wasting my time."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Tonight at the inn, Commander." Leave.</text>
+          <def_link>1824</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1822</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You're very shrewd for a praetor, &lt;charname&gt;."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_hd2_askedLess = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Tonight at the inn, Commander." Leave.</text>
+          <def_link>1824</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1823</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"What happened?" asks Dellar impatiently.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>dlgTeleportTo(170, 187, 0, N);</string>
+        <string>dlgSetZoom(8);</string>
+        <string>useCameraBookmark(NPC_Dellar_Cam_01);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_hd2_talkToSohrab = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"He will meet me at the inn tonight."</text>
+          <def_link>1830</def_link>
+          <checkOnAppear>aod.quest_hd2_carrinasFailure == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1824</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"Good. Get ready and talk to me before you go."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_hd2_readyForInn = true;</string>
+        <string>aod.jnl_hd2 = 2;</string>
+        <string>rwd_civil(HD2_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1829</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1830</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - dialogue Dellar</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportTo(167, 163, 0, S);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1829</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - dialogue barracks</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportTo(202, 55, 0, E);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1831</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - barracks</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addEnemyToParty(1, hd2Barracks);</string>
+        <string>setRtsCam();</string>
+        <string>$RTSCamera.setXYAngle(45); $RTSCamera.setYZAngle(45); $RTSCamera.setZoom(10); $RTSCamera.lookAtPC();</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1834</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]The attack catches Carrinas off guard. He sees the movement and tries to step back and block the blade with his bracer. Fortunately for you, he is a split second too late and your dagger slashes his neck open. Carrinas stumbles, looking at you in disbelief, and goes down, gasping for air.</npc_text>
+      <onLoadScripts>
+        <string>equipDaggerCS();</string>
+        <string>dlgSetAnimation(anim_death_aimed_head, 0.99, 1120);</string>
+        <string>dlgSetCombatAnimation(1);</string>
+        <string>dlgKillCharacter(1120);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>sfxPlayOnce(csSuccessMetal01);</string>
+        <string>dlgCsRepTrain(1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill his men.</text>
+          <def_link>1834</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1835</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]The attack lacks speed and precision. Carrinas manages to step back and block the blade with his bracer, which pushes your dagger up, drawing a bloody line on his face.
+
+Carrinas screams in pain, holding his hand to his eye, while his men rush forward, embarrassed and eager to wash their dishonour with your blood.</npc_text>
+      <onLoadScripts>
+        <string>equipDaggerCS();</string>
+        <string>dlgChangeCharacterHP(-30, 1120);</string>
+        <string>dlgSetAnimation(anim_death_aimed_head, 0.15, 1120);</string>
+        <string>dlgSetCombatAnimation(1);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>sfxPlayOnce(csMissSwingMetal01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Prepare to defend yourself.</text>
+          <def_link>1834</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1836</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]The attack is too slow. Carrinas steps away effortlessly and draws his sword. "Kill the assassin," he orders his men as he moves forward.</npc_text>
+      <onLoadScripts>
+        <string>equipDaggerCS();</string>
+        <string>dlgSetCombatAnimation(1);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>sfxPlayOnce(csMissSwingAir01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Prepare to defend yourself and most likely to die.</text>
+          <def_link>1834</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1837</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>For the first time in your life you can't believe that you're still alive. Not many people can boast of killing an Imperial Guards Commander and his guards in his own fort. Dead or alive, you're a legend now, although the Imperial Guards - notorious for holding grudges - will certainly try to make you a dead legend.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(232, 56, 1, S);</string>
+        <string>$RTSCamera.setXYAngle(45);</string>
+        <string>$RTSCamera.setYZAngle(45);</string>
+        <string>$RTSCamera.setZoom(15);</string>
+        <string>$RTSCamera.lookAtPC();</string>
+        <string>aod.quest_hd2_lookAround = true;</string>
+        <string>VCO_HD2Carrinas_01.setActive(true);</string>
+        <string>VCO_HD2Carrinas_02.setActive(true);</string>
+        <string>aod.quest_hd2_carrinasFailure = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Look around before leaving.</text>
+          <def_link>1852</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1838</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>“Is everything alright, Commander?” a concerned voice asks from the other side of the door. “Commander?”
+
+“Let’s break down the door,” suggests another voice. Several new voices chime in enthusiastically. Something slams into the door, but the lock holds. For now.
+
+You’d better get out while you can - before the crowd gets in and hacks you to pieces. Unfortunately, your only option at this point is the window.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(235, 55, 1, E);</string>
+        <string>aod.quest_hd2_guardsDoor = true;</string>
+        <string>useCameraBookmark(Quest_HD2_cam_07);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Jump into a courtyard full of guards. They will be pleasantly surprised to see you.</text>
+          <def_link>1853</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Not yet. You still have a moment or two.</text>
+          <def_link>1852</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1851</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>The door won’t last much longer. It’s time to get out.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(235, 55, 1, E);</string>
+        <string>useCameraBookmark(Quest_HD2_cam_07);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Jump into a courtyard full of guards. They will be pleasantly surprised to see you.</text>
+          <def_link>1853</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Not yet. You still have a moment or two.</text>
+          <def_link>1852</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1862</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>You land heavily, the guards turning around in disbelief. There is no time to stand around.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(224, 56, 0, W);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>useCameraBookmark(Quest_HD2_cam_05);</string>
+        <string>dlgSetCombatAnimation(1);</string>
+        <string>dlgTeleportTo(222, 57, 0, E, 1340);</string>
+        <string>dlgTeleportTo(222, 55, 0, E, 1341);</string>
+        <string>dlgSetCombatAnimation(1340);</string>
+        <string>dlgSetCombatAnimation(1341);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Run!</text>
+          <def_link>1854</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgHasShieldEquipped() &amp;&amp; aod.block &gt;= 3</string>
+            <string>aod.dodge &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1857</int>
+            <int>1856</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1853</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>[failure]You push one guard out of the way, turning around to face the other guard, but a sword swing nearly takes your head off, biting deep into your shoulder. Bleeding heavily, you punch the guard in the face, breaking his nose, and dart to the gate, save from the crossbowmen for a moment.
+
+You know that they are waiting and the bolts are loaded with your name on them, but you’re already outstayed your welcome.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeCharacterHP(-20);</string>
+        <string>dlgTeleportTo(212, 57, 0, NW);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>useCameraBookmark(Quest_HD2_cam_04);</string>
+        <string>dlgSetRunAnimation(1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[dexterity]Make a run for it.</text>
+          <def_link>1855</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1859</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1854</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>[dodge success]You push one guard out of the way, dodge a sword swing to your head, and dart to the gate, save from the crossbowmen for a moment.
+
+You know that they are waiting and the bolts are loaded with your name on them, but you’re already outstayed your welcome.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(212, 57, 0, NW);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>useCameraBookmark(Quest_HD2_cam_04);</string>
+        <string>dlgSetRunAnimation(1);</string>
+        <string>sfxPlayOnce(csMissSwingMetal01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[dexterity]Make a run for it.</text>
+          <def_link>1858</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1859</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1856</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>[block success]You push one guard out of the way, block a sword swing to your head, and dart to the gate, save from the crossbowmen for a moment.
+
+You know that they are waiting and the bolts are loaded with your name on them, but you’re already outstayed your welcome.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(212, 57, 0, NW);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>useCameraBookmark(Quest_HD2_cam_04);</string>
+        <string>dlgSetRunAnimation(1);</string>
+        <string>sfxPlayOnce(csMissSwingShield01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[dexterity]Make a run for it.</text>
+          <def_link>1858</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1859</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1857</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>[failure]You turn around and run as fast as you can. For a second you think that you've made it and then a bolt hits you between the shoulder blades, the impact throwing you to the ground. You try to get up but you’ve already lost a lot of blood and get weaker with every heartbeat. By the time you muster up enough strength, another bolt finds its target, nailing you to the ground and ending your struggle.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportTo(213, 74, 0, N);</string>
+        <string>useCameraBookmark(Quest_HD2_cam_06);</string>
+        <string>dlgSetAnimation(anim_death_forward04, 0.85);</string>
+        <string>dlgUnequipSlot(6);</string>
+        <string>dlgUnequipSlot(7);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Rest in peace.</text>
+          <def_link>1860</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1855</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>[failure]You turn around and run as fast as you can. For a second you think that you've made it and then a bolt hits you between the shoulder blades, the impact throwing you to the ground. Cursing, you roll to the side just as another bolt hits the spot you were just lying on a second ago, and dart into a nearby alley.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeCharacterHP(-20);</string>
+        <string>dlgTeleportTo(205, 83, 0, W);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgStealthPose(1);</string>
+        <string>useCameraBookmark(Quest_HD2_cam_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1839</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1858</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>[success]You turn around and run, changing your direction randomly to throw off the aim of the crossbowmen. Several bolts whizz by you, failing to find the target, as you dart into a nearby alley.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(205, 83, 0, W);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetRunAnimation(1);</string>
+        <string>useCameraBookmark(Quest_HD2_cam_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1839</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1859</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1860</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - look around</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1852</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"You've outdone yourself this time, &lt;charname&gt;. You have all the grace of a fucking elephant in a porcelain shop. Our House is implicated in the death of the Imperial Guards Commander. The Imperial Guards won't rest until they have your head, so I'd avoid them like a plague, if I were you."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>dlgTeleportTo(170, 187, 0, N);</string>
+        <string>dlgSetZoom(8);</string>
+        <string>useCameraBookmark(NPC_Dellar_Cam_01);</string>
+        <string>rwd_reputation(HD2_02);</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>dlgTeleportTo(217, 57, 0, W, 1340);</string>
+        <string>dlgTeleportTo(217, 54, 0, W, 1341);</string>
+        <string>aod.global_teron_MG_ag = 1;</string>
+        <string>aod.jnl_hd2 = 7;</string>
+        <string>rwd_quest(HD2_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"So, what now?"</text>
+          <def_link>1840</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1839</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"The old man said you know what you have to do. Good luck, &lt;charname&gt;. You're going to need it."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go to Maadoran.</text>
+          <def_link>1841</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1840</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - walk around town</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.ending_town_05 = true;</string>
+        <string>setAchievement("ACH_TERON_HD");</string>
+        <string>dlgTeleportToMarker(TM_Map_Palace);</string>
+        <string>setRtsCam();</string>
+        <string>TRN_daratanFort();</string>
+        <string>aod.global_trn_crisisActive = 0;</string>
+        <string>apmsPlayMusic(custom, 13, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1841</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>Good idea, too bad you don't have a dagger.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Prepare to defend yourself and most likely to die.</text>
+          <def_link>1834</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1842</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Why are you telling me all this?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"If you can't beat them, join them. Antidas can't beat you."</text>
+          <def_link>1844</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1843</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Indeed. And what do you bring to the table, other than your loyalty?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Only a captain goes down with his ship. The rest of us aren't burdened with –"</text>
+          <def_link>1845</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1844</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>" – honor?" asks Carrinas, then waves his hand dismissively.</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_hd2 = 6;</string>
+        <string>remQuest(HD2a);</string>
+        <string>PCmemberIG();</string>
+        <string>PC_Traitor();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>1850</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1845</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start IG3</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.quest_hd2_joinedIG = true;</string>
+        <string>apmsStartDialogue(quest_ig3);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1850</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

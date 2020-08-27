@@ -1,0 +1,1485 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_tg3_foughtMercs</string>
+      <string>aod.quest_tg2_foughtMercs</string>
+    </conditions>
+    <links>
+      <int>55</int>
+      <int>25</int>
+    </links>
+    <dlg_name>Quest_TG3_03</dlg_name>
+    <def_link>63</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You walk through the gate, leaving Teron and its troubles behind. Your troubles, however, are far from over. The road up ahead is blocked. By the looks of it, Linos didn't put much faith into Daratan's guards and called in reinforcements to get the job done right. You can't see the standards in the darkness, but you're almost certain that it's the same mercenary company that was guarding the gold. They will be more than eager to remove the stain from their reputation and get back on the payroll.
+
+The mercenaries have set their camp some distance away, near the fork in the road, but they've left a man to keep an eye on the gate.</npc_text>
+      <onLoadScripts>
+        <string>Move_Gate_Merc();</string>
+        <string>dlgCam(225, 45, 8, 1973);</string>
+        <string>setTravelingAllowed(1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Approach the guard.</text>
+          <def_link>65</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[sneak][critical strike]Take him out. Quietly.</text>
+          <def_link>67</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.sneak + aod.critical_strike) &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>68</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>If you have to fight your way through, might as well start now.</text>
+          <def_link>48</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>63</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]The guard sees you coming a mile away. When you strike, he dances away and yells for help.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_CS_LoneMerc_1);</string>
+        <string>equipDaggerCS();</string>
+        <string>dlgSetAnimation(anim_fast_1h, 0.75);</string>
+        <string>dlgSetAnimation(anim_washit_back, 0.75, 1973);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>48</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>67</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Like an apparition, you materialize out of thin air behind the guard and cut his throat. He dies before his body hits the ground.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_CS_LoneMerc_1);</string>
+        <string>equipDaggerCS();</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>dlgSetAnimation(anim_death_back00, 0.99, 1973);</string>
+        <string>dlgUnequipHands(1973);</string>
+        <string>dlgKillCharacter(1973);</string>
+        <string>aod.quest_tg3_fight = true;</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>sfxPlayOnce(csSuccessMetal01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[sneak]Disappear into the night.</text>
+          <def_link>19</def_link>
+          <checkOnAppear>aod.quest_tg3_mobLeaderParty == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.sneak &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>20</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>21</def_link>
+          <checkOnAppear>aod.quest_tg3_mobLeaderParty</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>68</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>The guard gets up, raising a hand. "I'm sorry to delay you but we're looking for some thieves. Perhaps you can help us. If you'd stop at that camp up ahead..." His tone is friendly but firm.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_TalkMerc);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to the camp.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_tg3_mobLeaderParty</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>69</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[critical strike]Take him out.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>If you have to fight your way through, might as well start now.</text>
+          <def_link>48</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>65</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Cursing, the mob leader turns around and heads back to town.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgDeleteCharacter(1955);</string>
+        <string>aod.quest_tg3_mobLeaderParty = 0;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_tg2_foughtMercs</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>26</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>69</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"No problem at all," you tell the guard with a disarming smile, walking toward him. "We're always happy to –," your attack is clumsy, ringing off his armor instead of opening his throat. The guard stumbles back, yelling for help.</npc_text>
+      <onLoadScripts>
+        <string>equipDaggerCS();</string>
+        <string>dlgSetAnimation(anim_fast_1h, 0.75);</string>
+        <string>dlgSetAnimation(anim_washit_back, 0.75, 1973);</string>
+        <string>dlgTeleportToMarker(TM_CS_LoneMerc_2);</string>
+        <string>sfxPlayOnce(csMissSwingMetal01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>48</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"No problem at all," you tell the guard with a disarming smile, walking towards him. "We're always happy to –," your attack catches the guard by surprise and he dies before he has a chance to pull out his sword.</npc_text>
+      <onLoadScripts>
+        <string>equipDaggerCS();</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>dlgTeleportToMarker(TM_CS_LoneMerc_2);</string>
+        <string>dlgSetAnimation(anim_death_back00, 0.99, 1973);</string>
+        <string>dlgUnequipHands(1973);</string>
+        <string>dlgKillCharacter(1973);</string>
+        <string>aod.quest_tg3_fight = true;</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>sfxPlayOnce(csSuccessMetal01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[sneak]Disappear into the night.</text>
+          <def_link>19</def_link>
+          <checkOnAppear>aod.quest_tg3_mobLeaderParty == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.sneak &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>20</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>21</def_link>
+          <checkOnAppear>aod.quest_tg3_mobLeaderParty</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mob Leader</speaker_name>
+      <npc_text>"I'll take my gold now," says the mob leader, looking at the guard's body thoughtfully. "I've done my end of the bargain. You're through the gate." He's on guard; even if he expects you to honour the deal, he's ready for everything.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgSetCombatAnimation(1955);</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>dlgRotateToChar(1955);</string>
+        <string>aod.quest_tg3_mobLeaderParty = 0;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Attack him.</text>
+          <def_link>51</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"A deal's a deal. Here is your crate."</text>
+          <def_link>22</def_link>
+          <checkOnAppear>aod.quest_tg2_crates &gt;= 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mob Leader</speaker_name>
+      <npc_text>"I'd think twice if I was you, friend," he points at the mercenary camp. "We go at it, the mercs will be here before you know it. Might lose more than a crate then."
+
+"Just how much gold are we talking about?" asks Lucius carefully.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>dlgRotateToChar(1, 1110);</string>
+        <string>dlgRotateToChar(1110);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"A crate. I had no choice."</text>
+          <def_link>52</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>51</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Lucius</speaker_name>
+      <npc_text>"That's expensive help you've hired, &lt;charname&gt;," says Lucius. "Cado won't be happy, I can tell you that much, but we have other problems to worry about now. Pay the man and let's get going."</npc_text>
+      <onLoadScripts>
+        <string>dlgRotateToChar(1955);</string>
+        <string>dlgRotateToChar(1995, 1110);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I can't do that." Attack the mob leader.</text>
+          <def_link>50</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Alright. A deal's a deal. Here is your crate."</text>
+          <def_link>53</def_link>
+          <checkOnAppear>aod.quest_tg2_crates &gt;= 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>52</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mob Leader</speaker_name>
+      <npc_text>"Leave it on the ground and walk away," says the man knowing better than to turn his back on you.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg2_crates --;</string>
+        <string>rwd_reputation(TG3_04);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[sneak]Disappear into the night.</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.sneak &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>20</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>53</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mob Leader</speaker_name>
+      <npc_text>The man visibly relaxes and lowers his hammer. "Good luck," he says after a long pause, then picks up his crate, and walks back to the gate.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg2_crates --;</string>
+        <string>rwd_reputation(TG3_04);</string>
+        <string>dlgCarryBox(1955);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[sneak]Disappear into the night.</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.sneak &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>20</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[critical strike]Now is the time to kill him.</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>24</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You lunge at the mob leader, but the timing is off and you merely wound him. He whirls around; the crate with gold smashes into your face and blurs your vision. You see a flash of metal and suddenly pain erupts in your chest, drowning your screams and attempts to draw air. You die before your body hits the ground.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgSetAnimation(anim_death_crit_xbow, 0.8);</string>
+        <string>dlgEquipItem(134, 0, 1955);</string>
+        <string>dlgSetAnimation(anim_power_2h, 0.25, 1955);</string>
+        <string>sc1955.setMeshHidden(i_box, true);</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+        <string>schedule(250, 0, sfxPlayOnce, csSuccessBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Rest in peace.</text>
+          <def_link>54</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You lunge the moment the mob leader turns around, clapping your hand over the man's mouth as you ram your dagger between his ribs, then gently lower his body to the ground.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg2_crates ++;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>rwd_reputation(TG3_05);</string>
+        <string>sc1955.setMeshHidden(i_box, true);</string>
+        <string>dlgSetAnimation(anim_death_back00, 0.99, 1955);</string>
+        <string>dlgKillCharacter(1955);</string>
+        <string>dlgStealthPose(1);</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>aod.quest_tg3_fight = true;</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[sneak]Disappear into the night.</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.sneak &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>20</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>none</speaker_name>
+      <npc_text>[failure]You and your men move slowly, taking every precaution, but suddenly angry shouts break the silence, marking your failure.</npc_text>
+      <onLoadScripts>
+        <string>if(aod.quest_tg3_mobLeaderParty &amp;&amp; isAlive(1955)) dlgDeleteCharacter(1955);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>Move_Merc_Sneak();</string>
+        <string>Move_Merc_Fight_Sneak();</string>
+        <string>dlgSetCombatAnimation(1972);</string>
+        <string>dlgSetCombatAnimation(1974);</string>
+        <string>dlgSetCombatAnimation(1975);</string>
+        <string>dlgSetCombatAnimation(1976);</string>
+        <string>dlgSetCombatAnimation(1977);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>none</speaker_name>
+      <npc_text>[success]You and your men move slowly, taking every precaution. The first steps are the hardest. You constantly expect to hear shouts from the mercenary camp, but the night remains silent and you keep moving forward. Soon you enter the safety of the forest, as the mercenaries would hardly follow you there in the middle of the night.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>Move_Merc_Sneak();</string>
+        <string>if(aod.quest_tg3_mobLeaderParty &amp;&amp; isAlive(1955)) dlgDeleteCharacter(1955);</string>
+        <string>dlgSetStealthWalkAnimation(1);</string>
+        <string>dlgSetStealthWalkAnimation(1110);</string>
+        <string>dlgSetStealthWalkAnimation(1983);</string>
+        <string>if(isAlive(1961)) dlgSetStealthWalkAnimation(1961);</string>
+        <string>if(isAlive(1962)) dlgSetStealthWalkAnimation(1962);</string>
+        <string>if(isAlive(1963)) dlgSetStealthWalkAnimation(1963);</string>
+        <string>dlgCam(315, 45, 10, 1);</string>
+        <string>rwd_civil(Sneak);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to Maadoran.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>You enter the camp, slowly parting the line of mercenaries watching your arrival and moving forward until you reach their leader - a man whose weather hardened face is covered with poorly stitched scars and mercenary tattoos, creating a monstrous mask.
+
+"What's in the cart?" Before you can answer, you realize that the question isn't directed at you. One of the mercenaries reaches for the closest crate.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>Move_Merc_Camp();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way through.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"You must like your enemies powerful." Show him the Imperial Guards mandate.</text>
+          <def_link>5</def_link>
+          <checkOnAppear>aod.quest_tg1_igStoleMandate || aod.quest_tg1_igForgeryPoor || aod.quest_tg1_igForgeryGood</checkOnAppear>
+          <checksOnClick>
+            <string>aod.quest_tg1_igForgeryPoor</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]"The gold is in the cart. If even a single coin goes missing, Antidas will have your heads."</text>
+          <def_link>6</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>"Is that so?" The leader takes the mandate and looks at it from different angles. "Looks real." He ponders the issue some more.
+
+"I have no beef with the Guards, and I don't want to cause offense, but your men don't look like any Guards I've seen. Thus, asking for an explanation is certainly within my rights."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"None of your fucking business."</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[impersonate][streetwise]"I'm sure you know that Commander Carrinas was cowardly assassinated and our barracks attacked this very night. I was ordered to take all the documents and bring them to Maadoran. Your assistance in this matter will not be overlooked."</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.disguise + aod.streetwise) &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>11</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>"Is that so?" The leader takes the mandate and looks at it from different angles. "There is something odd about it. Let's open the crates and take a look."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'm sorry that our mandate fails to meet your fucking approval, but that doesn't mean that your apes can help themselves to the Imperial Guards' property." Turning to your men, "Kill the first idiot who touches anything."</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>"You have the arrogance of the Guards, I'll give you that. Open the crates."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Tell your men to kill the first man who touches anything.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>[failure]"Good story. Some of it may even be true. Open the crates."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Tell your men to kill the first man who touches anything.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>[success]"Alright. You're free to leave."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg3_talk = true;</string>
+        <string>rwd_civil(TG3_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to Maadoran.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>The leader frowns, his scars and tattoos shift into a new tribal pattern. "Be reasonable. We're looking for the stolen gold. Let us make sure you don't have it and you can be on your way."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[impersonate][streetwise]"Son, we're the fucking army. We aren't in business of satisfying curiosities and being good neighbours. Someone stole your gold? Guard it better next time.
+
+"Now, we both know that if you set your apes on us, they will be hunted down and nailed to trees before the month is over, so do yourself a favour and stand aside."</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.disguise + aod.streetwise) &gt;= 6</string>
+            <string>aod.cha &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+            <int>72</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>[failure]Unfortunately, your delivery is lacking. The leader's eyes harden while one side of his mouth goes up forming a smirk.
+
+"Kill them."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>[charisma success]"Alright, alright. Like I said, I have no beef with the Guards. What are you waiting for, let them go," he barks at his men.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg3_talk = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to Maadoran.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>72</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>[success]"Alright, alright. Like I said, I have no beef with the Guards. What are you waiting for, let them go," he barks at his men.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg3_talk = true;</string>
+        <string>rwd_civil(TG3_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to Maadoran.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>"Antidas?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]"Did you really think that some 'thieves' took it? Is that what Linos told you?"</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>16</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>[failure]"You think we were born yesterday? Chop them to pieces!"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>[success]"Linos told us to take the gold to Antidas. Now you tell me that it was Antidas who stole it. You think we were born yesterday?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]"The gold was a payment for the attack on the Imperial Guards. The problem is, Antidas couldn't take it openly. Staging an 'attack' was the only way. Linos should have told you, instead of putting you and your men at risk."</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>17</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Linos says we owe him half of what was taken."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Well, you know his type. They think that everyone around them is stupid."</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>"Yes," growls the mercenary. "I know his type. You're free to go. It's between me and Linos now."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg3_talk = true;</string>
+        <string>rwd_civil(TG3_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to Maadoran.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg3_foughtMercs = true;</string>
+        <string>dlgFinish();</string>
+        <string>addEnemyParty(tg3_mercs, tg3_thieves);</string>
+        <string>addEnemyParty(tg3_thieves, tg3_mercs);</string>
+        <string>setRtsCam();</string>
+        <string>aod.quest_tg3_fight = true;</string>
+        <string>aod.gameplay_questTG3_fight = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(340, 45, 15, 1);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - lone guard and approach</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_tg3_foughtMercs = true;</string>
+        <string>addEnemyParty(tg3_mercs, tg3_thieves);</string>
+        <string>addEnemyParty(tg3_thieves, tg3_mercs);</string>
+        <string>setRtsCam();</string>
+        <string>aod.quest_tg3_fight = true;</string>
+        <string>aod.gameplay_questTG3_fight = true;</string>
+        <string>Move_Merc_Fight_Gate();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(340, 45, 15, 1);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>48</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - mob leader and approach</npc_text>
+      <onLoadScripts>
+        <string>removeCharFromParty(1955);</string>
+        <string>addCharToParty(1955, tg3_mercs, fighter);</string>
+        <string>aod.quest_tg3_foughtMercs = true;</string>
+        <string>dlgFinish();</string>
+        <string>addEnemyParty(tg3_mercs, tg3_thieves);</string>
+        <string>addEnemyParty(tg3_thieves, tg3_mercs);</string>
+        <string>setRtsCam();</string>
+        <string>aod.quest_tg3_fight = true;</string>
+        <string>aod.gameplay_questTG3_fight = true;</string>
+        <string>Move_Merc_Fight_Gate();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(340, 45, 15, 1);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>50</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - 3 mercs and approach</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_tg3_foughtMercs = true;</string>
+        <string>addEnemyParty(tg3_mercs, tg3_thieves);</string>
+        <string>addEnemyParty(tg3_thieves, tg3_mercs);</string>
+        <string>setRtsCam();</string>
+        <string>aod.quest_tg3_fight = true;</string>
+        <string>aod.gameplay_questTG3_fight = true;</string>
+        <string>Move_Merc_Fight_Gate();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(340, 45, 15, 1);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>49</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Aziz</speaker_name>
+      <npc_text>END - Aziz</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>Aziz_End();</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>apmsStartDialogue(Quest_TG3_Ending);</string>
+        <string>dlgFadeLongToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You walk through the gate, leaving Teron and its troubles behind. Your troubles, however, are far from over. The road up ahead is blocked. By the looks of it, Linos didn't put much faith into Daratan's guards and called in reinforcements to get the job done right. You can't see the standards in the darkness, but you're almost certain it's the same mercenary company that was guarding the gold. They will be more than eager to remove the stain from their reputation and get back on the payroll.
+
+The mercenaries have set their camp some distance away, near the fork in the road, but they've left three men to keep an eye on the gate. The men are decked in heavy armor and look like they mean business. The mercenaries have underestimated the threat once, but they aren't about to make the same mistake again.</npc_text>
+      <onLoadScripts>
+        <string>delCharTag(TeronKeyNPC, 1110);</string>
+        <string>Move_Gate_Merc();</string>
+        <string>dlgCam(225, 45, 8, 1973);</string>
+        <string>dlgTeleportToMarker(TM_Merc_Gate_01, 1975);</string>
+        <string>dlgTeleportToMarker(TM_Merc_Gate_02, 1976);</string>
+        <string>setTravelingAllowed(1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Approach the mercenaries.</text>
+          <def_link>70</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>If you have to fight, might as well start now.</text>
+          <def_link>49</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>"Come with us," says one of the mercs in a tone that rules out any other options.
+
+"If you aren't the ones we're looking for, you have nothing to worry about."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_TalkMerc);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(225, 45, 8, 1973);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Follow them to the camp.</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_tg3_mobLeaderParty</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>69</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>If you have to fight, might as well start now.</text>
+          <def_link>49</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>70</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>You enter the camp, slowly parting the line of mercenaries watching your arrival and moving forward until you reach their leader - a man whose weather hardened face is covered with poorly stitched scars and mercenary tattoos, creating a monstrous mask.
+
+"What's in the cart?" Before you can answer, you realize that the question isn't directed at you. One of the mercenaries reaches for one of the crates.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>Move_Merc_Camp();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way through.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"You must like your enemies powerful." Show him the Imperial Guards mandate.</text>
+          <def_link>27</def_link>
+          <checkOnAppear>aod.quest_tg1_igStoleMandate || aod.quest_tg1_igForgeryPoor || aod.quest_tg1_igForgeryGood</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]"The gold is in the cart. If even a single coin goes missing, Antidas will have your heads."</text>
+          <def_link>32</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intimidate]"You've already lost six men. Has it taught you nothing? How many more should I kill until you get the message?"</text>
+          <def_link>38</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(combat) &gt;= 3</string>
+            <string>dlgGetRep(bodycount) &gt;= 12</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>44</int>
+            <int>44</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>26</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>"Six of my men were killed!" barks the leader, his face a mask of pure hatred. "You think I care about some paper?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"You better start caring then, because you're fucking with the Imperial Guards now. Unless you're eager to lose the rest of your men."</text>
+          <def_link>28</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>27</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>"You have the arrogance of the Guards, I'll give you that. Open the crates."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Tell your men to kill the first man who touches anything.</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>28</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>The leader frowns, his scars and tattoos shift into a new tribal pattern. "Be reasonable. We're looking for the stolen gold. Let us make sure you don't have it and you can be on your way."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[impersonate][streetwise]"Son, we're the fucking army. We aren't in business of satisfying curiosities and being good neighbours. Someone stole your gold? Guard it better next time.
+
+"Now, we both know that if you set your apes on us, they will be hunted down and nailed to trees before the month is over, so do yourself a favour and stand aside."</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.disguise + aod.streetwise) &gt;= 6</string>
+            <string>aod.cha &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+            <int>72</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>29</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>"Antidas?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]"Did you really think that some 'thieves' took it? Is that what Linos told you?"</text>
+          <def_link>33</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>34</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>32</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>[failure]"You think we were born yesterday? Chop them to pieces!"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>33</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>[success]"Linos told us to take the gold to Antidas. Now you tell me that it was Antidas who stole it. You think we were born yesterday?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]"The gold was a payment for the attack on the Imperial Guards. The problem is, Antidas couldn't take it openly. Staging an 'attack' was the only way. Linos should have told you, instead of putting you and your men at risk."</text>
+          <def_link>33</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>35</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>34</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>[success]"Linos says we owe him half of what was taken."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Well, you know his type. They think that everyone around them is stupid."</text>
+          <def_link>36</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>35</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>"Yes," growls the mercenary. "I know his type. It's between me and Linos now, but you still owe me the blood money.
+
+"Give me one crate and we'll call it even. Antidas is a reasonable man; I'm sure you'll find the right words to make him understand."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Give him a crate.</text>
+          <def_link>37</def_link>
+          <checkOnAppear>aod.quest_tg2_crates &gt;= 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"And things were going so well..." Fight your way out.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading]"I can't give you a crate, for it's not mine to give. However, I can pay you a fair blood price for every man you've lost."</text>
+          <def_link>38</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.trading &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>39</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>36</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The mercenaries take a crate from the cart and let you go.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg2_crates --;</string>
+        <string>aod.quest_tg3_talk = true;</string>
+        <string>rwd_civil(TG3_04);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to Maadoran.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>37</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>[failure]The leader's eyes harden. "Kill them! Kill them all."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>38</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>[success]The leader nods, perhaps too fast. Looks like all he wanted to is to save face and make a few coins. "Six men, two hundred each. Twelve hundred altogether."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 1,200 imperials.</text>
+          <def_link>41</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 1200</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading]"Two hundred each? If they were worth half as much, they would still be alive! I'll pay you six hundred."</text>
+          <def_link>42</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.trading &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>43</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I don't have that much."</text>
+          <def_link>40</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>39</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>The leader's eyes harden. "Then why are you wasting my time? Kill them all!"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>40</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The leader takes the gold and gives his men the order to let you pass.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg3_talk = true;</string>
+        <string>rwd_civil(TG3_04);</string>
+        <string>if(aod.quest_tg3_mercGold800) dlgChangeMoney(-800);</string>
+        <string>if(aod.quest_tg3_mercGold800 == false) dlgChangeMoney(-1200);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to Maadoran.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>41</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>[failure]"Don't push me. I gave you as much as I could."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 1,200 imperials.</text>
+          <def_link>41</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 1200</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I don't have that much."</text>
+          <def_link>40</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>42</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>[success]"Eight hundred. I won't take any less."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg3_mercGold800 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 800 imperials.</text>
+          <def_link>41</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 800</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I don't have that much."</text>
+          <def_link>40</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>43</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]The leader stares at you for a while, then turns around and walks away without saying a word.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg3_talk = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to Maadoran.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>44</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>54</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You take a moment to observe the carnage. The mercenaries are dead. Neither the Commercium, nor the mercenary company will be too happy about it, but you will worry about it later. The path to Maadoran is clear and that's what matters now.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go to Maadoran.</text>
+          <def_link>12</def_link>
+          <checkOnAppear>aod.quest_tg3_mobLeaderParty == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>21</def_link>
+          <checkOnAppear>aod.quest_tg3_mobLeaderParty</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Search the bodies for anything valuable.</text>
+          <def_link>71</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>55</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>71</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

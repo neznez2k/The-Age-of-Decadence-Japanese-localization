@@ -1,0 +1,130 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_abyss_foundText</string>
+    </conditions>
+    <links>
+      <int>4490</int>
+    </links>
+    <dlg_name>Quest_Abyss_04_Perception</dlg_name>
+    <def_link>4488</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]The chamber is empty. Einar had seen to that, selling whatever priceless equipment could be moved for a handful of coins. If there is anything of value left, it must be well hidden. Where would one hide something in an empty room? Your keen gaze comes to rest on the numerous cracks in the walls.
+
+One by one, you inspect every crack and opening, uncovering centuries of dust and insects, and one interesting item: several scrolls rolled into a tube. Unfortunately, the scrolls were not carefully sealed and time has not been kind to them. They fall apart in your hands, leaving you with nothing but fragments.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_abyss_foundText = true;</string>
+        <string>VCO_Perception_01.setCursorText("[lore]Try to decipher what you can.");</string>
+        <string>VCO_Perception_02.setActive(0);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lore]Try to decipher what you can.</text>
+          <def_link>4489</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lore &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4490</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4488</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]The language is unknown to you.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4505</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4489</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“...something went very wrong here. Athazor is gone, yet the host retains his abilities and continues to manifest them. The range appears to be vastly reduced – it is down to about a mile now – and the manifestations are weak and random, but the implications are interesting. All this time, we’ve been operating under the assumption that the abilities are not transferable...”</npc_text>
+      <onLoadScripts>
+        <string>if(aod.quest_abyss_readText == false) addLore(10);</string>
+        <string>VCO_Perception_01.setCursorText("Read the fragments again.");</string>
+        <string>aod.quest_abyss_readText = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Read another fragment.</text>
+          <def_link>4491</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4490</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“We’ve disabled three transformers to induce a coma, yet the manifestations remain, leading to speculation that Galath – or what was once Galath – does not control, nor even understand, his new abilities. Like a newborn’s mind in control of an adult body, he is unaware of what he can do, yet he is still able to haphazardly control it with his mental impulses. Given time...”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Read another fragment.</text>
+          <def_link>4492</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4491</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“No decision has been made yet. I cannot blame them after what happened in Al-Akia, and yet... we have a tremendous opportunity here, one more and more likely to slip away the longer Galath remains in a coma. Even now we cannot know for sure he will awaken again. The wards on his body require a lot of power. It is uncertain how long he can survive on the amount of energy we are supplying...”
+
+The rest of the contents are illegible, but what you have discovered is definitely interesting. According to legends, one of the three High Lords was able to shape reality to his will. Could this Galath-Athazor, this freakish hybrid of man and some unknown other, be the Dreamer Gla'ath-Zor to whom the histories referred?</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4505</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4492</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4505</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

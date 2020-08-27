@@ -1,0 +1,579 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_mdnTraderArtefact_met</string>
+    </conditions>
+    <links>
+      <int>481</int>
+    </links>
+    <dlg_name>MDN_Trader_Artefacts</dlg_name>
+    <def_link>478</def_link>
+    <def_speaker_name>Merchant</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Welcome to Marcus Cornelius Arvina’s House of Curio! Looking for anything in particular? Protection against the evil eye is always in high demand. Copper bracelets to increase your energy and improve well-being? Good luck charms? You can never have too many of those, I assure you! In fact, if you buy two, I’ll give you the third for free!”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_mdnTraderArtefact_met = true;</string>
+        <string>dlgTeleportToMarker(TM_DLG_TraderCurio);</string>
+        <string>dlgCam(170, 40, 6, 6107);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Browse the wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Do you have anything special?”</text>
+          <def_link>484</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'm looking for some parts..."</text>
+          <def_link>493</def_link>
+          <checkOnAppear>aod.SRS_generator_identified &amp;&amp; aod.npc_curio_bought_part == false &amp;&amp; aod.SRS_generator_fixedValve == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>478</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>TRADE</npc_text>
+      <onLoadScripts>
+        <string>dlgTradeWithMe("The House of Curio");</string>
+        <string>dlgCam(300, 40, 15);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>479</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgCam(300, 40, 15);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>480</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Looking for anything in particular?"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_TraderCurio);</string>
+        <string>dlgCam(170, 40, 6, 6107);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Browse the wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Do you have anything special?”</text>
+          <def_link>484</def_link>
+          <checkOnAppear>aod.npc_TraderCurio_asked_astro == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Do you still have that astrolabus?”</text>
+          <def_link>487</def_link>
+          <checkOnAppear>aod.npc_TraderCurio_asked_astro &amp;&amp; aod.npc_TraderCurio_bought_astro == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Do you still have that power tube?”</text>
+          <def_link>490</def_link>
+          <checkOnAppear>aod.npc_TraderCurio_bought_astro &amp;&amp; aod.npc_TraderCurio_bought_tube == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'm looking for some parts..."</text>
+          <def_link>493</def_link>
+          <checkOnAppear>aod.SRS_generator_identified &amp;&amp; aod.npc_curio_bought_part == false &amp;&amp; aod.SRS_generator_fixedValve == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>481</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What kind of House of Curio would it be if I didn’t?” asks the trader sounding almost insulted. He pulls a small golden device out of his sleeve and shows it to you.
+
+“Ever seen anything like this? It’s an astrolabus,” says the trader, whispering the name carefully as if afraid to be overheard. “Everything else I sell? The quality is debatable, but this? This, my friend, is the real deal. As real as it gets. This little amulet draws its power from the Sun. I hope I don’t have to explain what that means.
+
+“I bought it from one of them funny hats and you know what he told me? “Neither sword nor arrow shall touch ye, Marcus!” That's what he told me, word for word. I figured a mighty artifact like that is worth at least five hundred coins. What do you say, stranger? You figure your life is worth five hundred coins?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_TraderCurio_asked_astro = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setWindowImage(item_astrolabe);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 500 imperials.</text>
+          <def_link>485</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 500</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading success]“I'll give you 250 and only because I like shiny things.”</text>
+          <def_link>486</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 250 &amp;&amp; aod.trading &gt;= 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I can't afford it.” Browse other wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>484</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Right here, waiting for you. I assume you have the money? Five hundred, if I recall correctly.”</npc_text>
+      <onLoadScripts>
+        <string>setWindowImage(item_astrolabe);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 500 imperials.</text>
+          <def_link>485</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 500</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading success]“I'll give you 250 and only because I like shiny things.”</text>
+          <def_link>486</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 250 &amp;&amp; aod.trading &gt;= 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I can't afford it.” Browse other wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>487</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Thank you, kind &lt;master/mistress&gt;. I assure you it’s worth every coin!
+
+“Wait! How about this magic tube? None of that power of the Sun nonsense, but good ol’ fashioned magic. As magical as it gets. Truth be told, I was keeping it for myself – you never know when a little bit of magic might come in handy, but if you want it, it’s yours. For a thousand coins, to keep math simple.”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-500);</string>
+        <string>dlgAddItem(2105,1);</string>
+        <string>aod.npc_TraderCurio_bought_astro = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setWindowImage(item_tube);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Any idea what it does?”</text>
+          <def_link>489</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>485</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I'll take it!
+
+“How about this magic tube? None of that power of the Sun nonsense, but good ol’ fashioned magic. As magical as it gets. Truth be told, I was keeping it for myself – you never know when a little bit of magic might come in handy, but if you want it, it’s yours. For a thousand coins, to keep math simple.”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-250);</string>
+        <string>dlgAddItem(2105,1);</string>
+        <string>aod.npc_TraderCurio_bought_astro = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setWindowImage(item_tube);</string>
+        <string>rwd_civil(Trading);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Any idea what it does?”</text>
+          <def_link>489</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>486</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Anything you want, my friend! They don’t call it magic for nothing, do they? It gives you enough light in the dark, cures most maladies, increases your longevity, protects you against the evil eye, wards off evil spirits... Do you see now what a valuable thing it is? Why, I should be asking for twice as much!”</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setWindowImage();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 1,000 imperials.</text>
+          <def_link>492</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 1000</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading success]“I can't go higher than 800, but if you don't want it...”</text>
+          <def_link>491</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 800 &amp;&amp; aod.trading &gt;= 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I can't afford it.” Browse other wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>489</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Right here, waiting for you. I assume you have the money? One thousand imperials, if I recall correctly.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 1,000 imperials.</text>
+          <def_link>492</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 1000</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading success]“I can't go higher than 800, but if you don't want it...”</text>
+          <def_link>491</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 800 &amp;&amp; aod.trading &gt;= 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I can't afford it.” Browse other wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>490</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You drive a hard bargain, my friend. The magic tube is yours now.”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-800);</string>
+        <string>dlgAddItem(1600,1);</string>
+        <string>aod.npc_TraderCurio_bought_tube = true;</string>
+        <string>rwd_civil(Trading);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Browse the wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>491</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Excellent! The magic tube is yours now.”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-1000);</string>
+        <string>dlgAddItem(1600,1);</string>
+        <string>aod.npc_TraderCurio_bought_tube = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Browse the wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>492</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Parts, eh? A rare commodity these days, but I might have something for you. What do you need?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"An air valve."</text>
+          <def_link>494</def_link>
+          <checkOnAppear>aod.SRS_generator_fixedInjector == false &amp;&amp; dlgOwnsItem(2201) == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"An oil injector."</text>
+          <def_link>495</def_link>
+          <checkOnAppear>aod.npc_curio_noOilInjector == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Maybe later." Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>493</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Why, it's your lucky day, friend. This amazing, multi-purpose, one of a kind air valve-looking piece of history can be yours for a token sum of one hundred imperials."</npc_text>
+      <onLoadScripts>
+        <string>setWindowImage(item_airvalve);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 100 imperials.</text>
+          <def_link>497</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 100</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"How about an oil injector?"</text>
+          <def_link>495</def_link>
+          <checkOnAppear>aod.npc_curio_noOilInjector == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Maybe later." Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>494</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Pleasure doing business with you. Anything else?"</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(2201, 1);</string>
+        <string>dlgChangeMoney(-100);</string>
+        <string>aod.npc_curio_bought_part = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setWindowImage();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"How about an oil injector?"</text>
+          <def_link>495</def_link>
+          <checkOnAppear>aod.npc_curio_noOilInjector == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Nothing at the moment." Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>497</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Sounds fancy. Regretfully, I don't have anything that even remotely fits this description."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_curio_noOilInjector = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setWindowImage();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"How about an air valve?"</text>
+          <def_link>494</def_link>
+          <checkOnAppear>aod.SRS_generator_fixedInjector == false &amp;&amp; dlgOwnsItem(2201) == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>495</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

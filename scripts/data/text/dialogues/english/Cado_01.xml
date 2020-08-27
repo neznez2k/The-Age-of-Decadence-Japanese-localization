@@ -1,0 +1,2276 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.pc_background_praetor &amp;&amp; aod.pc_member_daratan</string>
+      <string>aod.quest_mg1_sign_document</string>
+      <string>aod.pc_member_thieves</string>
+      <string>aod.npc_cado_met == false &amp;&amp; aod.pc_member_none</string>
+      <string>aod.pc_member_guards</string>
+      <string>aod.pc_member_assassins</string>
+    </conditions>
+    <links>
+      <int>864</int>
+      <int>800</int>
+      <int>834</int>
+      <int>860</int>
+      <int>897</int>
+      <int>898</int>
+    </links>
+    <dlg_name>Cado_01</dlg_name>
+    <def_link>819</def_link>
+    <def_speaker_name>Cado</def_speaker_name>
+    <def_portrait>Cado</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Do I know you?"</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_cado_met = true;</string>
+        <string>useCameraBookmark(NPC_Cado_Cam_01);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Cado);</string>
+        <string>addJournalChar(cado);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I need a job."</text>
+          <def_link>861</def_link>
+          <checkOnAppear>aod.pc_member_none</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Sorry to bother you." Leave.</text>
+          <def_link>815</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>860</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You're too ugly to wait tables."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[steal]Impress Cado.</text>
+          <def_link>862</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.steal &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>863</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>815</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>861</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You try to pick a pocket of one of Cado's thugs but fail spectacularly. You get roughed up and thrown out.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_cado_tryJob = true;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(137, 67, 0, S);</string>
+        <string>useCameraBookmark(Quest_MG2_Cam_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>815</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>862</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You turn around, bumping into one of Cado's thugs and feigning fear. The thug smiles, you apologize, then throw Cado the thug's leather purse.
+
+"Not bad," says Cado. "Not bad at all. Alright, I'll give you a chance to prove yourself.
+
+"We lifted an ore shipment from the Commercium last week, but the traders don't want to let it go. Too many questions are being asked by people I've never seen before, so I've made the arrangements with our friends in Maadoran. Your job is to make sure that the guards at the gate will look the other way."</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(Steal);</string>
+        <string>aod.pc_member_thieves = true;</string>
+        <string>aod.npc_cado_tryJob = true;</string>
+        <string>aod.pc_member_none = false;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>addQuest(TG1);</string>
+        <string>dlgAddRank(40);</string>
+        <string>remQuest(Job);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Sure thing." Leave.</text>
+          <def_link>856</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>863</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What do you want?"</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Cado_Cam_01);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Cado);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[steal]Impress Cado.</text>
+          <def_link>862</def_link>
+          <checkOnAppear>aod.npc_cado_tryJob == false &amp;&amp; aod.pc_member_none</checkOnAppear>
+          <checksOnClick>
+            <string>aod.steal &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>863</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>815</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>819</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"How goes the battle, soldier? Wine? Hashish? Carnal pleasures? Relax, will you? You are amongst friends here."</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Cado_Cam_01);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Cado);</string>
+        <string>addJournalChar(cado);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>815</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>897</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Business or pleasure, Boatman?" You hear the sound of knives leaving sheaths. "Relax, boys, it's a joke. &lt;He/She&gt; isn't here to kill anyone. Everyone needs a stiff drink every now and then."</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Cado_Cam_01);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Cado);</string>
+        <string>addJournalChar(cado);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>815</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>898</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Ah, my new recruit. What brings you here?"</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Cado_Cam_01);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Cado);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Explain the situation.</text>
+          <def_link>801</def_link>
+          <checkOnAppear>aod.quest_mg2_cado &amp;&amp; aod.quest_mg2_finished == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"How much were you asking for the armor?"</text>
+          <def_link>805</def_link>
+          <checkOnAppear>aod.quest_mg2_cado_no_money &amp;&amp; aod.quest_mg2_finished == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Nothing right now." Leave.</text>
+          <def_link>815</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>800</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I see... So, what can I do for you?"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_cado = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I need to get inside. Can you get me in?"</text>
+          <def_link>802</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>801</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"It's your lucky day, &lt;charname&gt;. Then again, when you work with us, every day is your lucky day.
+
+"We stopped a messenger last week. Usually we don't mess with the Guards – why look for troubles? – but he was plainly dressed, so..." Cado shrugs. "He put up a fight and ended up with a bolt in his back. He didn't have much on him: a handful of coins and this rather pompously written "cease and desist, until further notice" document." He gives you a scroll with wooden rollers and several stamps.
+
+"Apparently, Carrinas' superiors in Caer-Tor aren't very happy with his activities and feel that he's moving too fast. They are sending Gnaeus Laenas – yes, that Laenas – to evaluate the situation and put a leash on Carrinas, if necessary. Or assist him if the situation merits it."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>803</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>802</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Carrinas would be a fool to pay attention to this letter or even to Laenas himself, but," Cado chuckles, "the rank and file should be appropriately intimidated if you play your part right."
+
+He throws you the scroll. "It's all yours."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_cado_help = true;</string>
+        <string>dlgAddItem(2140, 1);</string>
+        <string>dlgAddTextBoxMessage("You got a scroll from Cado");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"My gratitude."</text>
+          <def_link>804</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>803</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You'd have to look the part, of course. If you don't have the armor, I can give you a special price. Interested?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I already have one."</text>
+          <def_link>814</def_link>
+          <checkOnAppear>dlgGetItemsCount(423) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"How much?"</text>
+          <def_link>805</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>804</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"100 imperials."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2b_phase2 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Here is the money."</text>
+          <def_link>806</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 100</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading]"Looks dusty, but I guess few people would want to buy one of these. How about 65 imperials?"</text>
+          <def_link>807</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 65 &amp;&amp; aod.quest_mg2_cado_trading == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.trading &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>808</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]"I thought we were on the same team now?"</text>
+          <def_link>809</def_link>
+          <checkOnAppear>aod.quest_mg2_cado_streetwise == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>810</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I don't have the money right now."</text>
+          <def_link>811</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>805</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Good. Now let me give you a few pointers. I don't think you'd pass for a soldier, but you don't need to. You're a courier, a traveling scribe, basically. This writ is a powerful document and everything about you should display that power and arrogance. Let me show you..." Cado's instantly transformed from a confident, laid-back guildmaster accustomed to giving orders into a man with a borrowed power, who's finally got a chance to push people around for a change.</npc_text>
+      <onLoadScripts>
+        <string>increaseDisguiseSkills(10);</string>
+        <string>dlgAddTextBoxMessage("You gain some insight into the art of impersonating.");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Thanks." Leave.</text>
+          <def_link>815</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>814</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"My gratitude." He gives you're the armor with the Imperial Guards insignia.
+
+"Now let me give you a few pointers. I don't think you'd pass for a soldier, but you don't need to. You're a courier, a traveling scribe, basically. This writ is a powerful document and everything about you should display that power and arrogance. Let me show you..." Cado's instantly transformed from a confident, laid-back guildmaster accustomed to giving orders into a man with a borrowed power, who's finally got a chance to push people around for a change.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-100);</string>
+        <string>rwd_training(Cado);</string>
+        <string>dlgAddTextBoxMessage("You gain some insight into the art of impersonating.");</string>
+        <string>dlgAddItem(423, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Thanks." Take the armor and leave.</text>
+          <def_link>812</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>806</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"I'm not in a hurry to sell it."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_cado_trading = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Here is the money."</text>
+          <def_link>806</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 100</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]"I thought we were on the same team now?"</text>
+          <def_link>809</def_link>
+          <checkOnAppear>aod.quest_mg2_cado_streetwise == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>810</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I don't have the money right now."</text>
+          <def_link>811</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>807</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Done." He gives you're the armor with the Imperial Guards insignia.
+
+"Now let me give you a few pointers. I don't think you'd pass for a soldier, but you don't need to. You're a courier, a traveling scribe, basically. This writ is a powerful document and everything about you should display that power and arrogance. Let me show you..." Cado's instantly transformed from a confident, laid-back guildmaster accustomed to giving orders into a man with a borrowed power, who's finally got a chance to push people around for a change.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-65);</string>
+        <string>dlgAddTextBoxMessage("You gain some insight into the art of impersonating.");</string>
+        <string>rwd_training(Cado);</string>
+        <string>dlgAddItem(423, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Thanks." Take the armor and leave.</text>
+          <def_link>812</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>808</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"Doesn't mean everything I have is yours now, does it?"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_cado_streetwise = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Here is the money."</text>
+          <def_link>806</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 100</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading]"Looks dusty, but I guess few people would want to buy one of these. How about 65 imperials?"</text>
+          <def_link>807</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 65 &amp;&amp; aod.quest_mg2_cado_trading == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.trading &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>808</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I don't have the money right now."</text>
+          <def_link>811</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>809</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Alright. This one is on the house, but don't expect me to foot your bill every time you need something." He gives you're the armor with the Imperial Guards insignia.
+
+"Now let me give you a few pointers. I don't think you'd pass for a soldier, but you don't need to. You're a courier, a traveling scribe, basically. This writ is a powerful document and everything about you should display that power and arrogance. Let me show you..." Cado's instantly transformed from a confident, laid-back guildmaster accustomed to giving orders into a man with a borrowed power, who's finally got a chance to push people around for a change.</npc_text>
+      <onLoadScripts>
+        <string>rwd_training(Cado);</string>
+        <string>dlgAddTextBoxMessage("You gain some insight into the art of impersonating.");</string>
+        <string>dlgAddItem(423, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Thanks." Take the armor and leave.</text>
+          <def_link>812</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>810</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Come back when you do."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>813</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>811</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - leave with armor</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_cado = false;</string>
+        <string>aod.quest_mg2_cado_finished = true;</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>if(aod.quest_mg2_cado_no_money) aod.quest_mg2_cado_no_money = false;</string>
+        <string>aod.quest_mg2b_phase3 = true;</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>812</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - leave without money nor armor</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_cado_no_money = true;</string>
+        <string>aod.quest_mg2_cado = false;</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>813</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetZoom(10);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>815</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"It's gonna cost you. Seven hundred should cover it."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Here is the money."</text>
+          <def_link>824</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 700</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion]"You're not getting the big picture, Cado. The raiders are moving in on our territory. Is Teron big enough to support us AND them? Unless we get rid of them fast, soon there will be nothing left for us to take."</text>
+          <def_link>825</def_link>
+          <checkOnAppear>aod.quest_teronRaider_cadoPersFail == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>829</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading]"Seven hundred? Isn't it forbidden for one thief to rob another? Five hundred, Cado. That's all I have."</text>
+          <def_link>826</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 500 &amp;&amp; aod.quest_teronRaider_cadoTradFail == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.trading &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>830</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[steal success]Conjure a gold coin out of nowhere, run it through your fingers, and then make it disappear. "A favour for a favour?"</text>
+          <def_link>827</def_link>
+          <checkOnAppear>aod.steal &gt;= 3 &amp;&amp; aod.quest_teronRaider_cadoGoblet == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I don't have that much." Leave.</text>
+          <def_link>815</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>823</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Aziz!" calls Cado. "I have a job for you. &lt;charname&gt; is very concerned about some raiders. Have a chat with them, will you?"
+
+Aziz nods and turns to you. "Let's go."</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-700);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take Aziz to the raiders.</text>
+          <def_link>828</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>824</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"If they decide to stay, *then* we'll deal with them. Most likely they're just passing through."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_teronRaider_cadoPersFail = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Here is the money."</text>
+          <def_link>824</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 700</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading]"Seven hundred? Isn't it forbidden for one thief to rob another? Five hundred, Cado. That's all I have."</text>
+          <def_link>826</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 500 &amp;&amp; aod.quest_teronRaider_cadoTradFail == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.trading &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>830</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[steal success]Conjure a gold coin out of nowhere, run it through your fingers, and then make it disappear. "A favour for a favour?"</text>
+          <def_link>827</def_link>
+          <checkOnAppear>aod.steal &gt;= 3 &amp;&amp; aod.quest_teronRaider_cadoGoblet == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>815</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>825</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"You have a point there. Aziz!" calls Cado. "I have a job for you. &lt;charname&gt; is very concerned about some raiders. Have a chat with them, will you?"
+
+Aziz nods and turns to you. "Let's go."</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(BanditCamp_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take Aziz to the raiders.</text>
+          <def_link>828</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>829</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"Then go "find" some more. Don't you claim to be a thief, &lt;charname&gt;?"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_teronRaider_cadoTradFail = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Here is the money."</text>
+          <def_link>824</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 700</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion]"You're not getting the big picture, Cado. The raiders are moving in on our territory. Is Teron big enough to support us AND them? Unless we get rid of them fast, soon there will be nothing left for us to take."</text>
+          <def_link>825</def_link>
+          <checkOnAppear>aod.quest_teronRaider_cadoPersFail == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>829</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[steal success]Conjure a gold coin out of nowhere, run it through your fingers, and then make it disappear. "A favour for a favour?"</text>
+          <def_link>827</def_link>
+          <checkOnAppear>aod.steal &gt;= 3 &amp;&amp; aod.quest_teronRaider_cadoGoblet == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>815</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>826</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Alright, alright. Five hundred it is then. Aziz!" calls Cado. "I have a job for you. &lt;charname&gt; is very concerned about some raiders. Have a chat with them, will you?"
+
+Aziz nods and turns to you. "Let's go."</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(BanditCamp_03);</string>
+        <string>dlgChangeMoney(-500);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take Aziz to the raiders.</text>
+          <def_link>828</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>830</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Why not? I've heard rumors that Master Belios has an old golden goblet. Beautiful work. I'd say it's worth a lot more than seven hundred, but if you prefer to pay me this way... Bring me the goblet and I'll take care of the raiders for you."</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(Steal);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to Master Belios' house.</text>
+          <def_link>831</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>827</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Amazing, simply amazing." Cado puts the goblet down and pours some wine in it.
+
+"Aziz!" calls Cado. "I have a job for you. &lt;charname&gt; is very concerned about some raiders. Have a chat with them, will you?"
+
+Aziz nods and turns to you. "Let's go."</npc_text>
+      <onLoadScripts>
+        <string>dlgRemoveItem(2150, 1);</string>
+        <string>rwd_reputation(TG_Cado_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take Aziz to the raiders.</text>
+          <def_link>828</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>833</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - camp</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>apmsStartDialogue(TBC_AzizAmbush);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>828</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Belios</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_teronRaider_cadoGoblet = true;</string>
+        <string>apmsstartdialogue(quest_teron_goblet);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>831</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What is it, &lt;charname&gt;?"</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Cado_Cam_01);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Cado);</string>
+        <string>dlgSetAmbientAnimation();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I'm ready."</text>
+          <def_link>847</def_link>
+          <checkOnAppear>aod.quest_tg2_getReady</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Let's get the gold out now."</text>
+          <def_link>857</def_link>
+          <checkOnAppear>aod.quest_tg3_talkAboutTg3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I could use your help with the raiders."</text>
+          <def_link>823</def_link>
+          <checkOnAppear>aod.quest_teronRaider_finished == false &amp;&amp; aod.quest_teronRaider_cadoInvolvement</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Here is the goblet."</text>
+          <def_link>833</def_link>
+          <checkOnAppear>aod.quest_teronRaider_finished == false &amp;&amp; aod.quest_teronRaider_cadoGoblet &amp;&amp; dlgGetItemsCount(2150) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Do you have anything for me?"</text>
+          <def_link>855</def_link>
+          <checkOnAppear>aod.quest_tg1_askAboutJob</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I've bribed the guards. They'll let our shipment through."</text>
+          <def_link>835</def_link>
+          <checkOnAppear>aod.quest_tg1_guardsBribed &amp;&amp; aod.quest_tg1_finished == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I've made a deal with the watch commander. The first shipment is free, all following shipments will cost us 15%."</text>
+          <def_link>836</def_link>
+          <checkOnAppear>aod.quest_tg1_flaviusMadeDeal &amp;&amp; aod.quest_tg1_finished == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'm going to forge the mandate."</text>
+          <def_link>837</def_link>
+          <checkOnAppear>aod.quest_tg1_igTryForging &amp;&amp; aod.quest_tg1_pathTaken == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.npc_feng_fledTeron</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>895</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"The Imperial Guards have a special shipping mandate. The gate guards can't even touch their shipments."</text>
+          <def_link>839</def_link>
+          <checkOnAppear>aod.quest_tg1_igKnowInfo &amp;&amp; aod.quest_tg1_pathTaken == false &amp;&amp; aod.quest_tg1_finished == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I borrowed the mandate." Show it to him.</text>
+          <def_link>840</def_link>
+          <checkOnAppear>aod.quest_tg1_igStoleMandate &amp;&amp; aod.quest_tg1_finished == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What did you want to talk about? Did you take care of the ore shipment?"</text>
+          <def_link>853</def_link>
+          <checkOnAppear>aod.quest_tg2_talkAboutTg2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Where does the name "Forty Thieves" come from?"</text>
+          <def_link>874</def_link>
+          <checkOnAppear>aod.npc_cado_fortyThieves == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"About the gold shipment..."</text>
+          <def_link>887</def_link>
+          <checkOnAppear>aod.quest_tg2_getReady == false &amp;&amp; aod.quest_tg2_talkedAboutTg2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Nothing for now." Leave.</text>
+          <def_link>815</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>834</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Sure. Remember that ore shipment we lifted last week? It must disappear. Tonight. Too many questions are being asked by people I've never seen before. I've made the arrangements with our friends in Maadoran. Make sure that the guards at the gate will look the other way."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg1_askAboutJob = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Sure." Leave.</text>
+          <def_link>856</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>855</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start TG1</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg1_talkToGuards = true;</string>
+        <string>assignDialogue(quest_tg1_01, 1891);</string>
+        <string>assignDialogue(quest_tg1_01, 1890);</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>aod.quest_tg1_phase2 = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>856</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Simple, but effective. Go rest for the night, we'll take care of things now. Come see me in the morning."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg1_phase4a = true;</string>
+        <string>rwd_reputation(TG1_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>852</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>835</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I'm impressed, &lt;charname&gt;. Our previous arrangement cost us 18 points and wasn't nearly as good.
+
+"Go rest for the night, we'll take care of things now. Come see me in the morning."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg1_phase4b = true;</string>
+        <string>rwd_reputation(TG1_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>852</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>836</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Did you get the document?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[lore success]"I've handled enough documents. I can assure you that my fake will look more intimidating than the original."</text>
+          <def_link>843</def_link>
+          <checkOnAppear>aod.lore &gt;= 2 &amp;&amp; aod.quest_tg1_fengGotDocument == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Yes, here it is."</text>
+          <def_link>843</def_link>
+          <checkOnAppear>aod.quest_tg1_fengGotDocument</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Not yet."</text>
+          <def_link>844</def_link>
+          <checkOnAppear>aod.quest_tg1_fengGotDocument == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>837</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Without an original document? Are you sure it's a good idea?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[lore success]"I've handled enough documents. I can assure you that my fake will look more intimidating than the original."</text>
+          <def_link>843</def_link>
+          <checkOnAppear>aod.lore &gt;= 2 &amp;&amp; aod.quest_tg1_fengGotDocument == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Let me think it through." Leave.</text>
+          <def_link>815</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>895</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Then what are you waiting for? Go get it."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>815</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>844</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Alright. Do it."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go to the guild study.</text>
+          <def_link>842</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>843</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - forge the mandate</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_tg1_forgeMandate = true;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>apmsstartdialogue(quest_tg1_02);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>842</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Is there a point to your tale?"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg1_igKnowInfo = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I borrowed it." Show him the mandate.</text>
+          <def_link>840</def_link>
+          <checkOnAppear>aod.quest_tg1_igStoleMandate</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I think I can forge one."</text>
+          <def_link>841</def_link>
+          <checkOnAppear>aod.quest_tg1_igStoleMandate == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>839</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Cado looks at the mandate in disbelief, then slaps you on the back and laughs. "Bold, &lt;charname&gt;, bold! That must be quite a tale!
+
+"Now go rest for the night, we'll take care of things now. Come see me in the morning."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg1_phase4c = true;</string>
+        <string>rwd_reputation(TG1_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>852</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>840</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You *think* you can forge one? What if you're wrong and we learn it the hard way, losing shipments and men?"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg1_igTryForging = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I can forge one."</text>
+          <def_link>845</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>841</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What do you have in mind?"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_TG1_documentFengStart = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"We need to make it look real. I'd say that any document bearing Antidas' signature and the Daratan seal will do the trick."</text>
+          <def_link>846</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_feng_fledTeron</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>894</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>845</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Talk to Feng. If someone has what we need that would be Antidas' own loremaster."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg1c_phase2 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>815</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>846</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Too bad Feng's gone. We could have used his help here."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg1c_phase4 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lore success]"I've handled enough documents. I can assure you that my fake will look more intimidating than the original."</text>
+          <def_link>843</def_link>
+          <checkOnAppear>aod.lore &gt;= 2 &amp;&amp; aod.quest_tg1_fengGotDocument == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>815</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>894</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Are you sure you have everything you need? It's going to be a long night."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Yes, I'm sure."</text>
+          <def_link>848</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_tg2_trapsAmbush</string>
+            <string>aod.quest_tg2_disguiseAmbush</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>849</int>
+            <int>850</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Since it's going to be a 'long night', maybe you should finish all your other tasks first.</text>
+          <def_link>815</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>847</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Good luck, &lt;charname&gt;."</npc_text>
+      <onLoadScripts>
+        <string>tg2_createGoldAmbush();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to the ambush site.</text>
+          <def_link>851</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>848</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Here is the powder you wanted. We paid good coin for it, so you better know what you're doing."</npc_text>
+      <onLoadScripts>
+        <string>tg2_createGoldAmbush();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to the ambush site.</text>
+          <def_link>851</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>849</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Cado gestures and one of his men brings you a rich robe. "Lucius has several crates of them. Might as well put one to good use. Good luck, &lt;charname&gt;."</npc_text>
+      <onLoadScripts>
+        <string>tg2_createGoldAmbush();</string>
+        <string>dlgAddItemlist(blackMerchantRobe);</string>
+        <string>dlgUnequipEverything();</string>
+        <string>dlgEquipItem(505, 20);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to the ambush site.</text>
+          <def_link>851</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>850</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start TG2</npc_text>
+      <onLoadScripts>
+        <string>TeronNightTime();</string>
+        <string>dlgFinish();</string>
+        <string>useCameraBookmark(quest_tg2_ambush_01);</string>
+        <string>apmsstartdialogue(quest_tg2_02);</string>
+        <string>dlgTeleportTo(78, 111, 0, W);</string>
+        <string>dlgFadeLongToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>851</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - rest until next day</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>aod.quest_tg2_talkAboutTg2 = true;</string>
+        <string>aod.quest_tg1_finished = true;</string>
+        <string>rwd_quest(TG1_01);</string>
+        <string>setRtsCam();</string>
+        <string>remQuest(TG1a);</string>
+        <string>remQuest(TG1b);</string>
+        <string>remQuest(TG1c);</string>
+        <string>remQuest(TG1d);</string>
+        <string>addQuest(TG2);</string>
+        <string>aod.quest_tg2_phase1 = true;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>852</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Forget about the ore." Cado can hardly contain his smile. "I have something far, far better for you to do. Wait here."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg2_talkAboutTg2 = false;</string>
+        <string>aod.quest_tg2_talkedAboutTg2 = true;</string>
+        <string>aod.quest_tg2_phase1a = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait.</text>
+          <def_link>854</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>853</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Cado is back with Aziz and Lucius, the guild enforcers.
+
+"Remember our recent conversation? Linos is ready to pay to make his problem with the Imperial Guards go away. Guess who the money is going to? Lord Antidas." Cado laughs like a man who can't believe his luck. "Imagine a fortune in gold slowly travelling through the streets under the cover of darkness. The gods are smiling on us today."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_tg2_shipmentInfo = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"A fortune in gold?"</text>
+          <def_link>877</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"At night? They will ship it at night?"</text>
+          <def_link>878</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What's the plan?"</text>
+          <def_link>879</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>854</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Do you think you can buy Antidas with a handful of coins?"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg2_fortune = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"At night? They will ship it at night?"</text>
+          <def_link>878</def_link>
+          <checkOnAppear>aod.quest_tg2_night == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What's the plan?"</text>
+          <def_link>879</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>877</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Linos wouldn't want to advertise that his guild is backing up Antidas and has something to do with the attack on the Imperial Guards. Such things are usually kept quiet. Very, very quiet."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg2_night = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"A fortune in gold?"</text>
+          <def_link>877</def_link>
+          <checkOnAppear>aod.quest_tg2_fortune == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What's the plan?"</text>
+          <def_link>879</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>878</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Cado looks at Aziz questioningly.
+
+"We are men of the road, are we not?" says the guild's enforcer. "Let's lay an ambush, hitting them hard and fast. The gold will be heavily guarded, of course, but there is no gain without pain."
+
+Cado nods, then glances at you. "&lt;charname&gt;?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"We can try something tricky, but if it fails, we will lose the element of surprise and the shipment. Why take chances?"</text>
+          <def_link>880</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[traps success]"If we have enough black powder, I can rig up some fireworks. The survivors won't be able to put up much of a fight."</text>
+          <def_link>881</def_link>
+          <checkOnAppear>aod.traps &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intelligence success]"A direct attack *will* have consequences. The merchants guild will be bound to respond in kind. Maybe now would be a good time to use the paper you made Linos' man sign."</text>
+          <def_link>882</def_link>
+          <checkOnAppear>aod.int &gt;= 7</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>879</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Ambush it is then. Go get ready."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg2_getReady = true;</string>
+        <string>aod.quest_tg2_simpleAmbush = true;</string>
+        <string>aod.quest_tg2_phase2a = true;</string>
+        <string>remQuest(TG2a);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>815</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>880</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Lucius!" calls Cado. "Turn this town upside down, but get &lt;charname&gt; enough black powder to redecorate the entire district."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg2_getReady = true;</string>
+        <string>aod.quest_tg2_trapsAmbush = true;</string>
+        <string>aod.quest_tg2_phase2b = true;</string>
+        <string>remQuest(TG2a);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>815</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>881</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What do you have in mind?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[intelligence]"With the right credentials and approach, we can redirect the shipment to one of our safe houses. If we trick Linos' men into practically giving us the gold, then his wrath will be directed at them, not us. He will still go after the gold, of course, but it won't be 'personal'."</text>
+          <def_link>883</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>882</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I like it. I had different plans for Zenon's letter, but the gold shipment is too big of a prize. Use his signature," he says as he gives you a carefully tied scroll, "and forge an order redirecting the shipment."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[perception][lore]Forge a signed order redirecting the shipment to the safe house.</text>
+          <def_link>884</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per == 7 &amp;&amp; aod.lore &gt;= 3</string>
+            <string>aod.per &lt; 7 &amp;&amp; aod.lore &gt;= 4</string>
+            <string>aod.per &gt; 7 &amp;&amp; aod.lore &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>885</int>
+            <int>885</int>
+            <int>885</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>883</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Have you made any progress?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Let's ambush them. It's our best bet."</text>
+          <def_link>880</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[traps success]"If we have enough black powder, I can rig up some fireworks. The survivors won't be able to put up much of a fight."</text>
+          <def_link>881</def_link>
+          <checkOnAppear>aod.traps &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"About the ring..."</text>
+          <def_link>888</def_link>
+          <checkOnAppear>aod.quest_tg2_forgedLetter &amp;&amp; aod.quest_tg2_gotRing == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Show him the ring.</text>
+          <def_link>889</def_link>
+          <checkOnAppear>aod.quest_tg2_gotRing</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[perception][lore]Forge a signed order redirecting the shipment to the safe house.</text>
+          <def_link>884</def_link>
+          <checkOnAppear>aod.int &gt;= 7 &amp;&amp; aod.quest_tg2_forgedLetter == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.per == 7 &amp;&amp; aod.lore &gt;= 3</string>
+            <string>aod.per &lt; 7 &amp;&amp; aod.lore &gt;= 4</string>
+            <string>aod.per &gt; 7 &amp;&amp; aod.lore &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>885</int>
+            <int>885</int>
+            <int>885</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Nothing for now." Leave.</text>
+          <def_link>815</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>887</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You spend the better part of an hour practicing Zenon's handwriting and signature, then start writing an order redirecting the shipment and warning against delivering the cargo to the original destination. When the order is ready, you give it to Cado. He studies it for a while, comparing it to the original, then shakes his head.
+
+"It won't fool anyone. If we end up fighting anyway, then I'd rather have the element of surprise on our side."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I guess the ambush is the only option we have left."</text>
+          <def_link>880</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[traps success]"If we have enough black powder, I can rig up some fireworks. The survivors won't be able to put up much of a fight."</text>
+          <def_link>881</def_link>
+          <checkOnAppear>aod.traps &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Let me try again later." Leave.</text>
+          <def_link>815</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>884</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You spend the better part of an hour practicing Zenon's handwriting and signature, then start writing an order redirecting the shipment and warning against delivering the cargo to the original destination. When the order is ready, you give it to Cado. He studies it for a while, comparing it to the original, then nods in approval, returning the document to you.
+
+"I don't think it would be enough though. Those who are given power to speak with Linos' voice wear special rings. It would be nice to have one."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgCreateCharacter("商人", 1954, 1954, 139, 109, 0, W);</string>
+        <string>assignDialogue(quest_tg2_ring_01, 1954);</string>
+        <string>aod.quest_tg2_forgedLetter = true;</string>
+        <string>addQuest(TG2a);</string>
+        <string>aod.quest_tg2a_phase1 = true;</string>
+        <string>TG2_Beggar.setActive(true);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I'll go get the ring then."</text>
+          <def_link>815</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>885</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Did you get it?" asks Cado impatiently.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[impersonate]"I don't need the ring. Trust me, my orders won't be questioned."</text>
+          <def_link>890</def_link>
+          <checkOnAppear>aod.disguise &gt;= 3 &amp;&amp; aod.quest_tg2_gotRing == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"No, I couldn't get close enough."</text>
+          <def_link>893</def_link>
+          <checkOnAppear>aod.quest_tg2_gotRing == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Not yet, but I'm on it." Leave.</text>
+          <def_link>815</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>888</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Very well. Go get ready."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg2_getReady = true;</string>
+        <string>aod.quest_tg2_disguiseAmbush = true;</string>
+        <string>aod.quest_tg2_phase2c = true;</string>
+        <string>remQuest(TG2a);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>815</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>889</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"It's your funeral if you're wrong."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Just tell me where to re-direct the shipment."</text>
+          <def_link>892</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>890</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Take them to our old safe house. I'll get it ready."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg2_getReady = true;</string>
+        <string>aod.quest_tg2_disguiseAmbush = true;</string>
+        <string>aod.quest_tg2_phase2c = true;</string>
+        <string>remQuest(TG2a);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>815</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>892</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Forget about it then. We've wasted enough time on it already. Let's hit them hard and fast, like Aziz said."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I guess the ambush is the only option we have left."</text>
+          <def_link>880</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[traps success]"If we have enough black powder, I can rig up some fireworks. The survivors won't be able to put up much of a fight."</text>
+          <def_link>881</def_link>
+          <checkOnAppear>aod.traps &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>893</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Alright. There is mob out there looking for the gold, it will be hard to get past them. Good luck, &lt;charname&gt;."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg3_talkAboutTg3 = false;</string>
+        <string>aod.quest_tg3_phase2 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Flavius owes me a favor." Pay him a visit.</text>
+          <def_link>858</def_link>
+          <checkOnAppear>aod.quest_tg1_flaviusMadeDeal</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'll handle them."</text>
+          <def_link>859</def_link>
+          <checkOnAppear>aod.quest_tg1_flaviusMadeDeal == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>857</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start TG3 - Flavius</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>apmsstartdialogue(quest_tg3_01);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>858</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start TG3 - mob</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>apmsstartdialogue(quest_tg3_02);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>859</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"&lt;Master/Mistress&gt; &lt;charname&gt;," Cado bows his head slightly. "What brings you here?"</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Cado_Cam_01);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Cado);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Information. I'm about to have a conversation with Commander Carrinas. I'd like to impress him with my knowledge of his affairs."</text>
+          <def_link>865</def_link>
+          <checkOnAppear>aod.quest_hd2_CadoHelp &amp;&amp; aod.global_teron_fort_daratan == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'll help you with your problem. What's the issue?"</text>
+          <def_link>868</def_link>
+          <checkOnAppear>aod.quest_hd2_CadoHelpConsider</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I've solved your problem."</text>
+          <def_link>873</def_link>
+          <checkOnAppear>aod.quest_hd2_CadoHelpComplete &amp;&amp; aod.quest_hd2_gotDocumentFromCado == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Nothing for now." Leave.</text>
+          <def_link>815</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>864</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Trying to fuck him?"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_hd2_CadoHelp = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"In a manner of speaking."</text>
+          <def_link>866</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>865</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"These are hard times," sighs Cado. "I wish I could help, I really do, but I'm preoccupied with my own problems..." He looks at you meaningfully.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"And if I were to help?"</text>
+          <def_link>867</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>866</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"If you were to help?" asks Cado feigning surprise. "Then I'd make sure that you get whatever you need, my friend."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'm all ears."</text>
+          <def_link>868</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I don't have time for that, Cado." Leave.</text>
+          <def_link>870</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>867</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"As I was saying, these are hard times. People start losing respect for the old ways, for the traditions.
+
+"There is a gang in the shantytown that's giving us trouble. They don't have any respect for the old ways, for the traditions. I sent two men to talk some sense into them, but they didn't return. The word on the street is that they are working for a guard. One of yours.
+
+"So, in a sense, it's your problem. We don't want to have any misunderstandings with the old man, but someone should definitely handle it."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"How do I find them?"</text>
+          <def_link>869</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I don't have time for that, Cado." Leave.</text>
+          <def_link>870</def_link>
+          <checkOnAppear>aod.quest_hd2_CadoHelpConsider == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>868</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"From what I hear, they pretty much run the shantytown, so you won't have to look far. Take two of my men. They are handy with crossbows."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Make sure you have what I need when I return." Leave.</text>
+          <def_link>872</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>869</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - leave HD2 - consider it</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>aod.quest_hd2_CadoHelpConsider = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>870</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - leave HD2 - accepted</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>hd2_shantyTownGang();</string>
+        <string>aod.quest_hd2_shantyTownGangStart = true;</string>
+        <string>if(aod.quest_hd2_CadoHelpConsider) aod.quest_hd2_CadoHelpConsider = false;</string>
+        <string>aod.quest_hd2a_phase2 = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>872</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"My gratitude, &lt;charname&gt;. Allow me to repay your kindness." He gives you a scroll.
+
+"We stopped a messenger last week. Usually we don't mess with the Guards – why look for trouble? – but he was plainly dressed, so..." Cado shrugs. "He put up a fight and ended up with a bolt in his back. He didn't have much on him: a handful of coins and this rather pompously written "cease and desist, until further notice" document.
+
+"Apparently, Carrinas' superiors in Caer-Tor aren't thrilled with him and feel that he's moving too fast. They are sending Gnaeus Laenas – yes, that Laenas – to evaluate the situation and put a leash on Carrinas, if necessary. Or assist him if the situation merits it.
+
+"Is that what you were looking for?"</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(2140, 1);</string>
+        <string>tg3_deleteShantyTownGang();</string>
+        <string>aod.quest_hd2_gotDocumentFromCado = true;</string>
+        <string>rwd_reputation(HD2_04);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>aod.quest_hd2a_phase4 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"It will do." Pay Commander Carrinas a visit.</text>
+          <def_link>815</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>873</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Where does anything come from? The olden days. It's all about prestige. Everyone wants to show that we were *there*, that our blood is noble. As if anyone really cares.
+
+"The way the story goes, ours is the oldest profession. What one man has, be it jewels, gold, or a shiny stone, another man wants. Such is the way of the world. And as this world grew, so too did we. We banded together, wrote our own laws, chose our leaders. We created a society within a society. We had our wars, of course – some differences can only be resolved with blood. We grew until there was one man controlling each city and forty men controlling the shadow society of the Empire."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_cado_fortyThieves = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"What happened then?"</text>
+          <def_link>875</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>874</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"The War. Everything turned to shit. All we were left with was the name."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"What do you know about the war?"</text>
+          <def_link>876</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>875</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"The same thing everyone knows. There was a war with some devils from across the sea. That was the end of everything."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Can I ask you something else?"</text>
+          <def_link>834</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>876</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

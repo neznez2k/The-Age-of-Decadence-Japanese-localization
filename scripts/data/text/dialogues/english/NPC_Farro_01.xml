@@ -1,0 +1,362 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.pc_member_guards == 0</string>
+      <string>aod.npc_raenas_met == false</string>
+      <string>aod.npc_farro_met</string>
+    </conditions>
+    <links>
+      <int>13</int>
+      <int>12</int>
+      <int>11</int>
+    </links>
+    <dlg_name>NPC_Farro_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Farro</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“&lt;charname&gt;? The hero of the Harran’s pass? I thought you’d be taller,” smiles the centurion. “What brings you to our sleepy village?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_farro_met = true;</string>
+        <string>dlgTeleportToMarker(TM_DLG_Farro_NPC, 8009);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Farro_PC);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Raenas is giving me a hard time on account of Carrinas. He can’t make up his mind so he sent me to gather support amongst his officers.”</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_IG6_end_promisedSupplies</string>
+            <string>aod.quest_IG6_end_delayedAttack</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2</int>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Raenas takes things too seriously sometimes, but he's a good legatus and that's what counts. Still, you don’t have to worry about my vote. You’ve proven yourself at the pass and then some.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_CT01_votes = (aod.quest_CT01_votes + 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Thank you.” Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Can’t blame him for being cautious. We’ve been fighting the yellow menace for centuries and not for lack of anything better to do. Good men died to keep the bastards away from our cities and then you come and make some bullshit peace with them? Promise to arm them? What do you think they’ll do with all the weapons you’re planning to give them?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][trading]“Things change. Gaelius was the first to realize it and make a deal with the Ordu. If I didn’t offer them a better deal, he would have armed them and sent them against us.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.trading) &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion]“Exactly. We fought them for centuries and what changed? Nothing. We can’t defeat them so we might as well make peace with them and see if it works any better.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]“I wasn’t going to give them anything. I bought us enough time, that’s all. If I didn’t, the bastards would have overrun us.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Can’t blame him for being cautious. We’ve been fighting the yellow menace for centuries and not for lack of anything better to do. Good men died to keep the bastards away from our cities and then you come and make some bullshit peace with them? What do you think they’ll do with all the time you’ve gave them?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][trading]“Things change. Gaelius was the first to realize it and make a deal with the Ordu. If I didn’t offer them a better deal, he would have armed them and sent them against us.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.trading) &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion]“Exactly. We fought them for centuries and what changed? Nothing. We can’t defeat them so we might as well make peace with them and see if it works any better.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]“I wasn’t going to give them anything. I bought us enough time, that’s all. If I didn’t, the bastards would have overrun us.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“I don’t want to hear this shit, especially when I’m off duty. Go bother someone else.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“You think?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Why else did he make a deal with them? To keep them on his payroll and watch them grow fat?”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Hmm... I didn’t look at it that way. Alright, you've got my vote.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_CT01_votes = (aod.quest_CT01_votes + 1);</string>
+        <string>rwd_civil(IG_CT_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“And if it doesn’t?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“We can always go back to fighting them. What do we stand to lose?”</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I don’t know about you, &lt;charname&gt;, but where I come from, when your enemy is down, you finish him. You don’t give him time to heal his wounds and arm himself.
+
+“You asked me what we stand to lose? We stand to lose the advantage and without it, it’s just a numbers game.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]“This downed enemy would have overrun us at the pass and joined forces with Gaelius had I not talked them out of it. The game’s changed. If we don’t adapt to the new rules fast enough, we’ll lose, plain and simple.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>10</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]“I wasn’t going to give them anything. I bought us enough time, that’s all. If I didn’t, the bastards would have overrun us.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Why didn't you say so in the first place? Everyone thinks that you're some kind of fruitcake. I'll back you up with Raenas, but no more deals with the savages, alright?”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_CT01_votes = (aod.quest_CT01_votes + 1);</string>
+        <string>rwd_civil(IG_CT_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“It's hard to admit it but you might be right. Still, it's not your call to make. I'll back you up with Raenas, but no more deals with the savages, alright?”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_CT01_votes = (aod.quest_CT01_votes + 1);</string>
+        <string>rwd_civil(IG_CT_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Not now, &lt;charname&gt;. I have things to do and people to see.”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_Farro_NPC, 8009);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Farro_PC);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - bark Raenas not met</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>narratePhrase("Centurion Farro appears to be busy at the moment.");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What are you looking at?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,93 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>ALK_Complex_ImperialDoor</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>It's a heavy door leading to another section of the complex. It's locked but the mechanism seems awfully simple. If you have to guess, the former masters of this place relied on guards not locks.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[lockpick]Open it.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lockpick &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]The rusted lock puts up quite a fight but eventually surrenders and withdraws the bolts.</npc_text>
+      <onLoadScripts>
+        <string>ALK_OpenImperialDoor();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>rwd_civil(Lockpick);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go in.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]The rusted lock refuses to budge an inch.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,115 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>NPC_Iola_02</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Iola</def_speaker_name>
+    <def_portrait>Iola</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Do you have the money?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay her 2,500 imperials for a 'ride' in an ancient healing machine.</text>
+          <def_link>2</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 2500</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Not yet.” Leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“May I ask you a few questions?”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You may not. So, the money, do you have it?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay her 2,500 imperials for a 'ride' in an ancient healing machine.</text>
+          <def_link>2</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 2500</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Not yet.” Leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Excellent,” she says drily. “Let's go.”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-2500);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go into the catacombs.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start NPC_Iola_01</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.npc_iola_fromInn = 1;</string>
+        <string>sd(NPC_Iola_01);</string>
+        <string>dlgDeleteCharacter(4020);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

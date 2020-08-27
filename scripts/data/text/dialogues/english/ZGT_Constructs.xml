@@ -1,0 +1,201 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.zgt_constructs_disabled</string>
+    </conditions>
+    <links>
+      <int>9503</int>
+    </links>
+    <dlg_name>ZGT_Constructs</dlg_name>
+    <def_link>9497</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Three constructs are standing around the elevator. They appear to be deactivated but appearances can be deceiving.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[crafting]Try to disable them without triggering alarm.</text>
+          <def_link>9501</def_link>
+          <checkOnAppear>aod.zgt_constructs_disabled == 0 &amp;&amp; aod.zgt_elevator_open == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[traps][alchemy]Rig up some explosive charges, in case they decide to wake up.</text>
+          <def_link>9504</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetItemsCount(1815) &gt;= 3 || dlgGetItemsCount(210) &gt;= 3 || dlgGetItemsCount(211) &gt;= 3 || dlgGetItemsCount(212) &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9505</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave them alone.</text>
+          <def_link>9498</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9497</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The constructs are disabled.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave them alone.</text>
+          <def_link>9498</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9503</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9498</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Your clumsy attempt awakens the constructs, bringing them back to life. They don't appear to be grateful.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>9500</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9499</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addEnemyToParty(1, Constructs);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.zgt_constructs_killed = 1;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9500</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You open the chassis and stare at the complex gearwork for a while. Abandoning hopes to change the construct's programming, you focus all your effort on locating and disconnecting the core without awakening the construct who wouldn't take kindly such intrusion into his privacy.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>9499</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.crafting &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9502</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9501</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You manage to disconnect the core without awakening the construct. You repeat the process two more times, securing the area.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>rwd_civil(ZGT_01);</string>
+        <string>aod.zgt_constructs_disabled = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9498</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9502</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Unfortunately, you don't have enough black powder or bombs.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[crafting]Try to disable them without triggering alarm.</text>
+          <def_link>9501</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave them alone.</text>
+          <def_link>9498</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9504</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You set up the charges and step away. If the constructs move an inch, the charges will shred them to pieces.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>removeCharges(3);</string>
+        <string>aod.zgt_constructs_trap = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave them alone.</text>
+          <def_link>9498</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9505</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

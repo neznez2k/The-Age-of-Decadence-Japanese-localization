@@ -1,0 +1,361 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_clericus_met</string>
+    </conditions>
+    <links>
+      <int>5716</int>
+    </links>
+    <dlg_name>NPC_Clericus_01</dlg_name>
+    <def_link>5706</def_link>
+    <def_speaker_name>Clericus</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You’re too late,” says a man standing next to an empty stall when you approach him. “The caravan just left. It will take weeks before the next one is ready to depart.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_clericus_met = true;</string>
+        <string>dlgCam(25, 45, 8, 6120);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Clericus_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Where do you send caravans to?”</text>
+          <def_link>5709</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5706</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What can I do for you, my curious friend?”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_NPC_Clericus_01);</string>
+        <string>dlgCam(25, 45, 8, 6120);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“You mentioned Asmara and Cippur...”</text>
+          <def_link>5710</def_link>
+          <checkOnAppear>aod.npc_clericus_asked_asmara == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What can you tell me about Ganezzar?”</text>
+          <def_link>5712</def_link>
+          <checkOnAppear>aod.npc_clericus_asked_ganezzar == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What can you tell me about Caer-Tor?”</text>
+          <def_link>5714</def_link>
+          <checkOnAppear>aod.npc_clericus_asked_caertor == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You mentioned villages?”</text>
+          <def_link>5715</def_link>
+          <checkOnAppear>aod.npc_clericus_asked_villages == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Nothing at the moment.” Leave.</text>
+          <def_link>5708</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5716</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5708</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“These days? Mostly Ganezzar and Caer-Tor. Asmara and Cippur are gone, Teron’s about to join them. We need markets for our goods and the local goods to take back to cover the costs and turn some profit. There are a couple of mining villages that can make a trip there worthwhile but they’re an exception rather than the norm.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Asmara and Cippur?”</text>
+          <def_link>5710</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What can you tell me about Ganezzar?”</text>
+          <def_link>5712</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What can you tell me about Caer-Tor?”</text>
+          <def_link>5714</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You mentioned villages?”</text>
+          <def_link>5715</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I best be going now.” Leave.</text>
+          <def_link>5708</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5709</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The Imperial Guards took over Cippur two decades back and ran it into the ground. Asmara fell a few years ago. Two lordlings tore it apart after their father’s death. The way the story is told, the younger son gathered enough support and deposed his older brother, who somehow managed to escape, hired every mercenary company willing to fight for a cut of the action and returned to claim the throne.
+
+“The siege went on for years and by the time the town fell and the mercenary companies took what they considered a fair share, there wasn’t much left of it.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_clericus_asked_asmara = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Why didn’t the Imperial Guards step in?”</text>
+          <def_link>5711</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5710</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The Guards said that the Charter doesn’t allow them to interfere in the internal affair of the Houses, but the way I see it, the weaker the Houses, the stronger the Guards. At any rate, I don’t see them putting their asses on the line just to prop up some lordling.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What can you tell me about Ganezzar?”</text>
+          <def_link>5712</def_link>
+          <checkOnAppear>aod.npc_clericus_asked_ganezzar == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What can you tell me about Caer-Tor?”</text>
+          <def_link>5714</def_link>
+          <checkOnAppear>aod.npc_clericus_asked_caertor == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You mentioned villages?”</text>
+          <def_link>5715</def_link>
+          <checkOnAppear>aod.npc_clericus_asked_villages == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I best be going now.” Leave.</text>
+          <def_link>5708</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5711</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It’s a lovely town. It’s built in cascading levels around the castle that gave the town its name, so the view alone is worth the trip. The archways of the Lowtown becomes the walkways of the Skyport – it’s quite a sight, my friend. There is nothing like that left anymore. The locals are getting too obsessed with gods and worship, but maybe it’s better than being obsessed with money and power, eh? I find it rather charming, to be honest.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_clericus_asked_ganezzar = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“The Skyport?”</text>
+          <def_link>5713</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5712</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It’s one of the districts. The stories say that flying ships used to dock there and it does have these strange platforms but they could have been used for just about anything, if you ask me. Of course, flying ships and chariots make better story, so who am I to argue?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You mentioned Asmara and Cippur...”</text>
+          <def_link>5710</def_link>
+          <checkOnAppear>aod.npc_clericus_asked_asmara == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What can you tell me about Caer-Tor?”</text>
+          <def_link>5714</def_link>
+          <checkOnAppear>aod.npc_clericus_asked_caertor == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You mentioned villages?”</text>
+          <def_link>5715</def_link>
+          <checkOnAppear>aod.npc_clericus_asked_villages == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I best be going now.” Leave.</text>
+          <def_link>5708</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5713</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You’ve seen one military fort, you’ve seen them all. This one’s just much bigger than all the others combined, but they keep it simple – rows of barracks, granary, cookhouse, hospital, and the praetorium. This entire splendor is surrounded by walls to keep the Guards from running away in the middle of the night, no doubt.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_clericus_asked_caertor = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“You mentioned Asmara and Cippur...”</text>
+          <def_link>5710</def_link>
+          <checkOnAppear>aod.npc_clericus_asked_asmara == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What can you tell me about Ganezzar?”</text>
+          <def_link>5712</def_link>
+          <checkOnAppear>aod.npc_clericus_asked_ganezzar == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You mentioned villages?”</text>
+          <def_link>5715</def_link>
+          <checkOnAppear>aod.npc_clericus_asked_villages == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I best be going now.” Leave.</text>
+          <def_link>5708</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5714</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“They pop up here and there like mushrooms after a rain, but most don’t last. It’s hard to make it out on your own out there. They think they can grow some crops because they did it so well behind their shacks in the city, but a few acres field in the middle of nowhere is a different game.
+
+“First, it takes more water, for once, and water is fickle these days. One year you have enough to cover three fields, the next – barely enough for one. Second, there are a lot more birds and animals to watch for and guard your harvest against. Third, the rot. Once it starts spreading, you’re as good as done. My uncle was a farmer; always talking about the rot.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_clericus_asked_villages = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“You mentioned Asmara and Cippur...”</text>
+          <def_link>5710</def_link>
+          <checkOnAppear>aod.npc_clericus_asked_asmara == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What can you tell me about Ganezzar?”</text>
+          <def_link>5712</def_link>
+          <checkOnAppear>aod.npc_clericus_asked_ganezzar == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What can you tell me about Caer-Tor?”</text>
+          <def_link>5714</def_link>
+          <checkOnAppear>aod.npc_clericus_asked_caertor == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I best be going now.” Leave.</text>
+          <def_link>5708</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5715</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

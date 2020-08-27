@@ -1,0 +1,682 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_gnz_guide_paid</string>
+    </conditions>
+    <links>
+      <int>8232</int>
+    </links>
+    <dlg_name>GNZ_NPC_Guide_01</dlg_name>
+    <def_link>8218</def_link>
+    <def_speaker_name>Street hustler</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What’s your pleasure, friend?” asks a rat-faced man, mistaking your curiosity for buying interest. “Hashish? Mushrooms? Blue lotus? Henbane?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I need a guide.”</text>
+          <def_link>8219</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8218</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I can’t leave my corner, but for a few coins I can tell you all you need to know.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 10 imperials.</text>
+          <def_link>8221</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 10</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8220</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8219</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8220</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Appreciate that,” says the man, pocketing the money. “So what do you need to know?”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-10);</string>
+        <string>aod.npc_gnz_guide_paid = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Tell me about the city.”</text>
+          <def_link>8225</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Tell me about Lord Meru.”</text>
+          <def_link>8226</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Tell me about the local guilds.”</text>
+          <def_link>8235</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m looking for Gaius Laevinus.”</text>
+          <def_link>8233</def_link>
+          <checkOnAppear>aod.npc_domitius_met || aod.npc_abukar_mentionedLaevinus</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I need a good cartographer.”</text>
+          <def_link>8236</def_link>
+          <checkOnAppear>aod.npc_domitius_met == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m looking for Esdras, the trader.”</text>
+          <def_link>8234</def_link>
+          <checkOnAppear>aod.quest_ameriusHome_madeDeal</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8221</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Let’s see now... The Imperial Guards left a while ago and never came back. The Boatmen were put out of business, permanently. The Commercium is keeping their heads low. The faithful don’t seem to like them, which is bad for business in this city. Even the Forty Thieves are mindful of them.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_gnzGuide_asked_guilds = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Tell me about the city.”</text>
+          <def_link>8225</def_link>
+          <checkOnAppear>aod.npc_gnzGuide_asked_city == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Tell me about Lord Meru.”</text>
+          <def_link>8226</def_link>
+          <checkOnAppear>aod.npc_gnzGuide_asked_meru == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m looking for Gaius Laevinus.”</text>
+          <def_link>8233</def_link>
+          <checkOnAppear>aod.npc_domitius_met || aod.npc_abukar_mentionedLaevinus &amp;&amp; aod.npc_gnzGuide_asked_cart == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I need a good cartographer.”</text>
+          <def_link>8236</def_link>
+          <checkOnAppear>aod.npc_domitius_met == false &amp;&amp; aod.npc_gnzGuide_asked_cart == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m looking for Esdras, the trader.”</text>
+          <def_link>8234</def_link>
+          <checkOnAppear>aod.quest_ameriusHome_madeDeal &amp;&amp; aod.npc_gnzGuide_asked_esdras == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8220</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8235</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Esdras? He has a stall somewhere around the inn, near the stairs.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_gnzGuide_asked_esdras = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Tell me about the city.”</text>
+          <def_link>8225</def_link>
+          <checkOnAppear>aod.npc_gnzGuide_asked_city == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Tell me about Lord Meru.”</text>
+          <def_link>8226</def_link>
+          <checkOnAppear>aod.npc_gnzGuide_asked_meru == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Tell me about the local guilds.”</text>
+          <def_link>8235</def_link>
+          <checkOnAppear>aod.npc_gnzGuide_asked_guilds == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m looking for Gaius Laevinus.”</text>
+          <def_link>8233</def_link>
+          <checkOnAppear>aod.npc_domitius_met || aod.npc_abukar_mentionedLaevinus &amp;&amp; aod.npc_gnzGuide_asked_cart == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I need a good cartographer.”</text>
+          <def_link>8236</def_link>
+          <checkOnAppear>aod.npc_domitius_met == false &amp;&amp; aod.npc_gnzGuide_asked_cart == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8220</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8234</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The cartographer? He’s renting a room at the inn, if memory serves me right, but it won’t be long before he ends up here in Lowtown.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_gnzGuide_asked_cart = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Tell me about the city.”</text>
+          <def_link>8225</def_link>
+          <checkOnAppear>aod.npc_gnzGuide_asked_city == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Tell me about Lord Meru.”</text>
+          <def_link>8226</def_link>
+          <checkOnAppear>aod.npc_gnzGuide_asked_meru == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Tell me about the local guilds.”</text>
+          <def_link>8235</def_link>
+          <checkOnAppear>aod.npc_gnzGuide_asked_guilds == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m looking for Esdras, the trader.”</text>
+          <def_link>8234</def_link>
+          <checkOnAppear>aod.quest_ameriusHome_madeDeal &amp;&amp; aod.npc_gnzGuide_asked_esdras == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8220</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8233</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Gaius Laevinus is good with charts when he's sober. He’s renting a room at the inn, if memory serves me right, but it won’t be long before he ends up here in Lowtown.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_gnzGuide_asked_cart = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Tell me about the city.”</text>
+          <def_link>8225</def_link>
+          <checkOnAppear>aod.npc_gnzGuide_asked_city == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Tell me about Lord Meru.”</text>
+          <def_link>8226</def_link>
+          <checkOnAppear>aod.npc_gnzGuide_asked_meru == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Tell me about the local guilds.”</text>
+          <def_link>8235</def_link>
+          <checkOnAppear>aod.npc_gnzGuide_asked_guilds == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m looking for Esdras, the trader.”</text>
+          <def_link>8234</def_link>
+          <checkOnAppear>aod.quest_ameriusHome_madeDeal &amp;&amp; aod.npc_gnzGuide_asked_esdras == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8220</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8236</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What can I do for you, friend?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Tell me about the city.”</text>
+          <def_link>8225</def_link>
+          <checkOnAppear>aod.npc_gnzGuide_asked_city == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Tell me about Lord Meru.”</text>
+          <def_link>8226</def_link>
+          <checkOnAppear>aod.npc_gnzGuide_asked_meru == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Tell me about the local guilds.”</text>
+          <def_link>8235</def_link>
+          <checkOnAppear>aod.npc_gnzGuide_asked_guilds == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m looking for Gaius Laevinus.”</text>
+          <def_link>8233</def_link>
+          <checkOnAppear>aod.npc_domitius_met || aod.npc_abukar_mentionedLaevinus &amp;&amp; aod.npc_gnzGuide_asked_cart == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I need a good cartographer.”</text>
+          <def_link>8236</def_link>
+          <checkOnAppear>aod.npc_domitius_met == false &amp;&amp; aod.npc_gnzGuide_asked_cart == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m looking for Esdras, the trader.”</text>
+          <def_link>8234</def_link>
+          <checkOnAppear>aod.quest_ameriusHome_madeDeal &amp;&amp; aod.npc_gnzGuide_asked_esdras == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8220</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8232</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Ask away then,” says the man, jingling your coins in his pocket.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Tell me about the city.”</text>
+          <def_link>8225</def_link>
+          <checkOnAppear>aod.npc_gnzGuide_asked_city == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Tell me about Lord Meru.”</text>
+          <def_link>8226</def_link>
+          <checkOnAppear>aod.npc_gnzGuide_asked_meru == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Tell me about the local guilds.”</text>
+          <def_link>8235</def_link>
+          <checkOnAppear>aod.npc_gnzGuide_asked_guilds == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m looking for Gaius Laevinus.”</text>
+          <def_link>8233</def_link>
+          <checkOnAppear>aod.npc_domitius_met || aod.npc_abukar_mentionedLaevinus &amp;&amp; aod.npc_gnzGuide_asked_cart == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I need a good cartographer.”</text>
+          <def_link>8236</def_link>
+          <checkOnAppear>aod.npc_domitius_met == false &amp;&amp; aod.npc_gnzGuide_asked_cart == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m looking for Esdras, the trader.”</text>
+          <def_link>8234</def_link>
+          <checkOnAppear>aod.quest_ameriusHome_madeDeal &amp;&amp; aod.npc_gnzGuide_asked_esdras == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8220</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8231</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Brother Meru,” corrects the man. “He is no longer a lord but the First Acolyte, a servant of the Gods.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_gnzGuide_asked_meru = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Tell me about the city.”</text>
+          <def_link>8225</def_link>
+          <checkOnAppear>aod.npc_gnzGuide_asked_city == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Tell me about the local guilds.”</text>
+          <def_link>8235</def_link>
+          <checkOnAppear>aod.npc_gnzGuide_asked_guilds == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m looking for Gaius Laevinus.”</text>
+          <def_link>8233</def_link>
+          <checkOnAppear>aod.npc_domitius_met || aod.npc_abukar_mentionedLaevinus &amp;&amp; aod.npc_gnzGuide_asked_cart == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I need a good cartographer.”</text>
+          <def_link>8236</def_link>
+          <checkOnAppear>aod.npc_domitius_met == false &amp;&amp; aod.npc_gnzGuide_asked_cart == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m looking for Esdras, the trader.”</text>
+          <def_link>8234</def_link>
+          <checkOnAppear>aod.quest_ameriusHome_madeDeal &amp;&amp; aod.npc_gnzGuide_asked_esdras == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8220</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8226</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The city, eh?” says the man scratching his dirty face. “Well, uh, people say that the Magi built the castle, the hill it’s sitting on, and the docks for airships next to it. The docks needed warehouses and all kinds of tradesmen and the tradesmen needed accommodations, so folks started moving in and settling on the hill.
+
+“So the upper district is called Skyport and you don’t need to think hard to figure out why. The middle district is called the Temple. That’s where all the prosperous folks are. At the bottom,” he gestures around him, “is the heart of the city – Lowtown. It’s busy, dirty, crowded, but once you get used to it, you won’t want to live anywhere else.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_gnzGuide_asked_city = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What’s with the crosses?”</text>
+          <def_link>8228</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Wait, the Magi built the castle? I thought House Crassus did it.”</text>
+          <def_link>8229</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Airships?”</text>
+          <def_link>8230</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8225</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“That’s what they say,” shrugs the man. “At very least, these docks at the top of the hill were never built for proper ships, I can tell you that much.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_gnzGuide_asked_ships = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What’s with the crosses?”</text>
+          <def_link>8228</def_link>
+          <checkOnAppear>aod.npc_gnzGuide_asked_crosses == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Wait, the Magi built the castle? I thought House Crassus did it.”</text>
+          <def_link>8229</def_link>
+          <checkOnAppear>aod.npc_gnzGuide_asked_magi == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I have other questions.”</text>
+          <def_link>8231</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8230</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Way back when House Crassus and the Magi were pretty much the same thing,” says the man, pleased that he knows something you don't.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_gnzGuide_asked_magi = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What’s with the crosses?”</text>
+          <def_link>8228</def_link>
+          <checkOnAppear>aod.npc_gnzGuide_asked_crosses == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Airships?”</text>
+          <def_link>8230</def_link>
+          <checkOnAppear>aod.npc_gnzGuide_asked_ships == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I have other questions.”</text>
+          <def_link>8231</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8229</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The crosses? A reminder that no matter how bad your day is, someone has it way worse.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_gnzGuide_asked_crosses = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Wait, the Magi built the castle? I thought House Crassus did it.”</text>
+          <def_link>8229</def_link>
+          <checkOnAppear>aod.npc_gnzGuide_asked_magi == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Airships?”</text>
+          <def_link>8230</def_link>
+          <checkOnAppear>aod.npc_gnzGuide_asked_ships == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I have other questions.”</text>
+          <def_link>8231</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8228</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_scolopendra_met</string>
+    </conditions>
+    <links>
+      <int>1</int>
+    </links>
+    <dlg_name>MDN_Quest_BasilTG_Scolopendra</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You enter the house and stop, waiting for your eyes to get used to the darkness. The house is small and empty of any furniture. Or men wanting to talk to you, for that matter. While you wait, the door is locked behind. You hear the sound of hammers nailing the door shut. Lovely.
+
+You take another step and then you see *it* as it starts uncoiling. It’s a desert scolopendra – a very aggressive and poisonous centipede, preying on anything that walks or crawls. Its powerful legs are fast enough to outrun a man and its back plates are as hard as any armor. Its mouth, described by a notable loremaster with a flair for poetry, as a ‘terrible instrument of destruction’, has not only horn-covered jaws but also a pair of sharp and curved fangs injecting poison into the wounds as they tear into flesh.
+
+The scolopendra hisses and raises itself up, getting ready to strike.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_scolopendra_met = 1;</string>
+        <string>dlgCam(225, 45, 7, 262);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>What are you waiting for? Kill it!</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You enter the house and stop, waiting for your eyes to get used to the darkness. The house is small and empty of any furniture. Or men wanting to talk to you, for that matter. While you wait, the door is locked behind. You hear the sound of hammers nailing the door shut. Lovely.
+
+Something moves up ahead and you instantly recognize the faint scratching sound of centipede legs. The scolopendra hisses and raises itself up, getting ready to strike.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(225, 45, 7, 262);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>What are you waiting for? Kill it!</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetAttitude(262, 1, -10);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+        <string>dlgCam(260, 45, 16, 262);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

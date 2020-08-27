@@ -1,0 +1,600 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_domitius_met</string>
+    </conditions>
+    <links>
+      <int>21</int>
+    </links>
+    <dlg_name>NPC_Domitius_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Domitius</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Domitius</speaker_name>
+      <npc_text>You see a middle-aged man with a weathered face, half hidden by a scraggly beard. You ask if he's Domitius Ulpius and the man nods and steps back, letting you in.
+
+“What can I do for you, stranger?” asks Domitius tiredly.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_NPC_Domitius_01);</string>
+        <string>dlgCam(350, 45, 6, 4700);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Lord Antidas sent me to find the temple. You’re my first stop.”</text>
+          <def_link>1</def_link>
+          <checkOnAppear>aod.quest_MQ_findDomitius</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Abukar told me you were searching for the temple of Thor-Agoth a few years ago." Show him the map.</text>
+          <def_link>1</def_link>
+          <checkOnAppear>aod.quest_map_abukar == 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Nothing at the moment.” Leave.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Domitius</speaker_name>
+      <npc_text>“I don’t see how I can help you, since I never found it,” says the man cautiously.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_domitius_met = true;</string>
+        <string>aod.quest_MQ_findDomitius = false;</string>
+        <string>revealMapLocation("Ganezzar");</string>
+        <string>dlgAddTextBoxMessage("Ganezzar added to the map");</string>
+        <string>if(aod.mdn_hd_status == 1) aod.mdn_hd_status = 2;</string>
+        <string>if(aod.quest_map_abukar == 1) aod.quest_map_abukar = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“You know more than I do. At the very least, you can tell me where the temple is not.”</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Domitius</speaker_name>
+      <npc_text>“Well, I suppose it’s not really a secret. According to the map, the temple is somewhere north-east from Teron, but the map hasn’t been drawn to scale, so it’s almost impossible to pinpoint the exact location. What’s worse is the map’s been drawn before the war, so many places the map refers to are no longer there.
+
+“There were reports of a buried temple east of Maadoran, so that’s where we started. We set up camps and started combing the desert, looking for the signs of the temple. The problem is the desert never stays the same. Wind constantly shifts the sands, making dunes and moving them at will. Entire towns have been known to disappear under the shifting sands, so looking for a buried temple in a desert is like looking for a needle in a haystack. Still, we were optimistic, but that’s when the attacks came.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Attacks?”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Reports of a buried temple?”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Domitius</speaker_name>
+      <npc_text>“Several caravan masters reported seeing a buried complex emerging from the sand: the top of some pyramid surrounded by towers. They said it was pretty big, as big as Teron even.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_domitius_reports = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Do you believe them?”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Domitius</speaker_name>
+      <npc_text>“Their accounts were consistent and they had no reason to lie. At the same time, deserts often play tricks on one’s eyes, so perhaps they all saw what wasn’t there.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You mentioned attacks?”</text>
+          <def_link>5</def_link>
+          <checkOnAppear>aod.quest_domitius_attacks == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Go on.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Domitius</speaker_name>
+      <npc_text>“We were too close to Maadoran, too close for Gaelius’ comfort. I’m not sure what he thought we were doing there, but it’s very clear that he wanted us gone. At first, our scouts started disappearing, and then smaller camps came under attacks. After losing a third of our men and some gear, we were forced to pack up and leave.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_domitius_attacks = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“You mentioned a buried temple.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear>aod.quest_domitius_reports == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Go on.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Domitius</speaker_name>
+      <npc_text>“We kept moving north-east until we came to a dead river and the ruins of some dock. The riverbed was covered in fog. We could see the remains of some ships, but not much else. We lowered several men down there and sent them to look for a way up, but they didn’t return. Then we split our group in two, one went north to look for a way to cross the river, the other went south.
+
+“I was with the group that went north. We didn’t find a way across but we found something far more interesting – a temple carved into the face of a mountain. At first we even thought we'd found the temple, that the gods led us to it.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What happened then?”</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“We rushed inside. We really thought we'd found it, but we all knew what Antidas was after. Had the temple already been looted, it would have been worthless. We had to find something valuable to bring back, something that would have made us all rich men.
+
+“We had good loremasters with us – Antidas spared no gold getting the best men and they were worth every coin. They knew what to look for and what to do with it before any of us could even blink. They went through this temple like hounds following scent.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“They found hidden chambers and a moving platform to take us down to the lower levels. We thought we found the inner sanctum, but instead we found hell itself, under our very feet. I knew what it was the moment I saw it: Hellgate from the old stories. I begged the loremasters to leave it alone, but they were lost in the machines. I doubt they heard a word I said.
+
+“And so I left them to their fate. A few men went with me but most stayed there. When the ground shook, I knew the fools had awakened the machines. Then we heard the first screams... We knew better than to go back and try to save anyone.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Is that why you’ve never tried to find the temple again?”</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It changed something in me. I mean, we’ve all heard the stories about the olden days, but when they become real right before your eyes, you start thinking. What other stories are real? What if Gaelius is right to fear the artefacts? Maybe we really should lock them up and throw away the key?
+
+“I hope you never find it,” says Domitius quietly.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’ve heard about this place. A raider told me that he stumbled upon a place similar to what you described. He found nothing but skulls and bones there. None of his men made it out alive.”</text>
+          <def_link>7</def_link>
+          <checkOnAppear>aod.npc_esbenus_talkedAboutHellgate</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What about the other group, the one that went south?”</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Domitius</speaker_name>
+      <npc_text>“The same fate befell my men. It was probably their skulls and bones that he’d seen there.
+
+“With most of my men dead, we couldn’t continue even if we wanted to, but I can assure you that we’d lost our taste for adventure in that accursed place.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What about the other group, the one that went south?”</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Domitius</speaker_name>
+      <npc_text>“I’ve never heard from them again. I assume they are all dead, much like the rest of the expedition.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Do you remember where the temple in the mountains was?”</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Domitius</speaker_name>
+      <npc_text>“Somewhere north-east from here. A few weeks journey, maybe more. I wish I could be of more help, but my job was to keep us moving forward and secure the temple, not to fiddle with an astrolabe.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Whose job was it?”</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Gaius Laevinus. He was the best cartographer I’ve ever worked with, but I’m not sure he can help you much either. He was with me all the way and... it changed him too. He stayed with me for a year, mostly staring blankly and talking to himself, then went to Ganezzar.”</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_map_phase6 = true;</string>
+        <string>rwd_quest(MQ_Domitius_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Antidas mentioned the tower of Zamedi."</text>
+          <def_link>25</def_link>
+          <checkOnAppear>aod.quest_map_abukar == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What else can you tell me?”</text>
+          <def_link>10</def_link>
+          <checkOnAppear>aod.quest_map_abukar == 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Antidas wanted us to find a way in. I told him that we should stay clear of it but he didn't want to hear that."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What else can you tell me?”</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Domitius</speaker_name>
+      <npc_text>“I’ve often wondered about the map itself over the years. I’ve seen a fair number of them and none were made by a cartographer. My guess is that they were made by the temple’s acolytes. They did their best, but they didn’t really know what they were doing. My question is why? It’s almost as if they knew that something was coming and were told to make maps to ensure that the temple will be found one day.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Thank you for your help.” Leave.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_gaelius_talkedTemple || aod.npc_gaelius_dead || aod.npc_antidas_met == false</string>
+            <string>aod.pc_member_aurelian</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>22</int>
+            <int>23</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Praetor</speaker_name>
+      <npc_text>When you step outside, you’re immediately surrounded by the Aurelian guards. They aren’t hostile, at least not yet. A Praetor steps forward and gives you an appraising look.
+
+“Lord Gaelius desires the pleasure of your company,” he says formally. “It would be most unwise to refuse the invitation,” he adds after a pause.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Quest_Domitius_01);</string>
+        <string>createByCharMarker("CM_Dom_HA_Guard_02");</string>
+        <string>createByCharMarker("CM_Dom_HA_Guard_01");</string>
+        <string>createByCharMarker("CM_Dom_HA_Praetor");</string>
+        <string>createByCharMarker("CM_Dom_HA_Guard_03");</string>
+        <string>createByCharMarker("CM_Dom_HA_Guard_04");</string>
+        <string>DOOR_Domitius_01.close();</string>
+        <string>dlgCam(350, 45, 10, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to see Gaelius.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“And if I refuse?”</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Praetor</speaker_name>
+      <npc_text>When you step outside, you’re immediately surrounded by the Aurelian guards.
+
+"&lt;charname&gt;?" asks the Praetor looking surprised. "We were told to keep an eye on this house and take anyone who visits to Lord Gaelius directly. I'm sorry, but you have to come with us now."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Quest_Domitius_01);</string>
+        <string>createByCharMarker("CM_Dom_HA_Guard_02");</string>
+        <string>createByCharMarker("CM_Dom_HA_Guard_01");</string>
+        <string>createByCharMarker("CM_Dom_HA_Praetor");</string>
+        <string>createByCharMarker("CM_Dom_HA_Guard_03");</string>
+        <string>createByCharMarker("CM_Dom_HA_Guard_04");</string>
+        <string>DOOR_Domitius_01.close();</string>
+        <string>dlgCam(350, 45, 10, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to see Gaelius.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“And if I refuse?”</text>
+          <def_link>24</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Praetor</speaker_name>
+      <npc_text>“You’ll die. If not now, then later. His Lordship merely wishes to discuss an area of common interest with you. Had he wanted you dead, you’d be dead already.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Alright, let’s go see him.”</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m busy. Maybe some other time.”</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Praetor</speaker_name>
+      <npc_text>"What do you mean?" asks the Praetor, looking even more surprised. "Your Lord wants to see you, &lt;charname&gt;. You can't refuse."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Alright, let’s go see him.”</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m busy. Maybe some other time.”</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Praetor</speaker_name>
+      <npc_text>“Some other time, eh?” smiles the Praetor, shaking his head.
+
+“Should we try to take &lt;him/her&gt; alive?” asks one of his men.
+
+“Why bother?” says the Praetor, drawing his sword.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Kill them.</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addParty(DomHAGuards, 0);</string>
+        <string>addCharToParty(4710, DomHAGuards, fighter);</string>
+        <string>addCharToParty(4711, DomHAGuards, fighter);</string>
+        <string>addCharToParty(4712, DomHAGuards, fighter);</string>
+        <string>addCharToParty(4713, DomHAGuards, fighter);</string>
+        <string>addCharToParty(4714, DomHAGuards, fighter);</string>
+        <string>addEnemyToParty(1, DomHAGuards);</string>
+        <string>aod.fight_DomHAGuards = true;</string>
+        <string>DOOR_Domitius_01.lock();</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Gaelius</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.npc_gaelius_talkAntidasTemple = true;</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>dlgDeleteCharacter(4710);</string>
+        <string>dlgDeleteCharacter(4711);</string>
+        <string>dlgDeleteCharacter(4712);</string>
+        <string>dlgDeleteCharacter(4713);</string>
+        <string>dlgDeleteCharacter(4714);</string>
+        <string>sd(npc_gaelius_temple);</string>
+        <string>aod.npc_gaelius_fromDom = true;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What can I do for you, &lt;charname&gt;?”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_NPC_Domitius_01);</string>
+        <string>dlgCam(350, 45, 6, 4700);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgCam(350, 45, 10, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>22</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

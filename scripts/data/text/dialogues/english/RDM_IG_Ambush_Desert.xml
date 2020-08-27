@@ -1,0 +1,44 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>RDM_IG_Ambush_Desert</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You run into the Imperial Guards patroling the desert. As luck would have it, they have your description and since you're wanted dead or alive, the Guards decide that 'dead' will do just fine.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight for your life!</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addEnemyToParty(1, IG_Ambush_Desert);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+        <string>aod.fight_IG_Ambush_Desert = 1;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

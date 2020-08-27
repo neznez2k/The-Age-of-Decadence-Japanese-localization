@@ -1,0 +1,91 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>TBC_AzizAmbush</dlg_name>
+    <def_link>16</def_link>
+    <def_speaker_name>Esbenus</def_speaker_name>
+    <def_portrait>Esbenus</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Got the money?" asks the raiders' leader.
+
+Before you can say anything, Aziz steps forward. "There's been a misunderstanding." he says apologetically. "You didn't know that the domain of the Forty Thieves reaches this far, but now that you do, we'd appreciate it if you left the area without delay."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_teronBandit_phase4d = true;</string>
+        <string>setWindowImage(tbc_aziz_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"It would take more than one man to kick us out," threatens the raider.
+
+"I completely agree," says Aziz. Behind the raiders, four figures with crossbows step out from the shadows, take aim and fire in unison.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>79</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Aziz</speaker_name>
+      <npc_text>The raiders' leader falls down with a bolt in his neck. Two more raiders follow him. Judging by the way one of the raiders twitches on the ground, the bolts are poisoned.
+
+"As I was saying," continues Aziz as if nothing happened, "now that you do know whom you're dealing with, we'd appreciate it if you left the area without delay." This time his words meet no objections and one by one the raiders leave the camp.
+
+"You get the prisoner, we take the rest," says Aziz to you. "A small payment for the risks involved."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>setWindowImage(tbc_aziz_02);</string>
+        <string>aod.npc_esbenus_dead = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take the prisoner to Dellar.</text>
+          <def_link>109</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>79</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - take the prisioner to Dellar</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>apmsStartDialogue(TBC_DellarReport);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>109</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

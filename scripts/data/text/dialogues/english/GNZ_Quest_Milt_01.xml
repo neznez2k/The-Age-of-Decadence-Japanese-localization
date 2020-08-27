@@ -1,0 +1,415 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_gnz_milt_01 == 5</string>
+      <string>aod.quest_gnz_milt_01 == 6</string>
+    </conditions>
+    <links>
+      <int>9071</int>
+      <int>9080</int>
+    </links>
+    <dlg_name>GNZ_Quest_Milt_01</dlg_name>
+    <def_link>9063</def_link>
+    <def_speaker_name>Miltiades</def_speaker_name>
+    <def_portrait>Miltiades</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>Under the cover of darkness, the zealots move up the stairs and into the waiting arms of Darganus’ men and Miltiades’ thugs.</npc_text>
+      <onLoadScripts>
+        <string>setWindowImage(miltiades_night);</string>
+        <string>aod.gnz_startPosition_Darganus = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Find Miltiades.</text>
+          <def_link>9064</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9063</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Ready for some work?” asks Miltiades, rubbing his hands together.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You mean the zealots?”</text>
+          <def_link>9065</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9064</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Let the zealots have a bit of fun,” says Miltiades, his eyes shining with excitement. “I want you to kill Darganus for me.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Why?”</text>
+          <def_link>9066</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9065</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What do you mean why? We help Darganus now, what do we get for our trouble? Nothing but a pat on the back. Another week and we’ll be asked to move on. Why? Because that’s all you get for helping a local noble to kill some zealots for sport.
+
+“We need to improve the narrative, if you know what I mean. What if instead of helping Darganus to kill some zealots, we avenged his death and prevented a much bigger massacre. You have to admit, it’s a much better story and I can spin it for all it’s worth and then some.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So we kill him and blame his death on the zealots.”</text>
+          <def_link>9067</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9066</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Naturally. So let’s not waste any time because the zealots won’t last long. Darganus should be dead before the fight is over.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go to Darganus’ house.</text>
+          <def_link>9069</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_pancratius_attack == 1</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9077</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9067</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - warned or defended</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.gnz_startPosition_Temple = 1;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>switchMission("Ganezzar.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9068</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Darganus dead</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.gnz_startPosition_Darganus = 1;</string>
+        <string>switchMission("Ganezzar.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9082</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Darganus</portrait>
+      <speaker_name>Darganus</speaker_name>
+      <npc_text>“Is it over? Are we victorious?” asks Darganus.</npc_text>
+      <onLoadScripts>
+        <string>setWindowImage();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgCam(180, 40, 8, 9014);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>9070</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Miltiades sent me to kill you. I thought you should know that.”</text>
+          <def_link>9072</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9069</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Darganus</portrait>
+      <speaker_name>Darganus</speaker_name>
+      <npc_text>“But why?” asks Darganus in disbelief.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_gnz_milt_01 = 7;</string>
+        <string>aod.jnl_GNZ_Darganus_03 = 7;</string>
+        <string>rwd_quest(GNZ_Miltiades_04);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“It's a long story. Consider yourself warned.” Walk away.</text>
+          <def_link>9068</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9072</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_gnz_milt_01 = 5;</string>
+        <string>addEnemyToParty(1, DarganusParty);</string>
+        <string>aod.fight_darganus_miltiades = 1;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+        <string>aod.jnl_GNZ_Darganus_03 = 4;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9070</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Miltiades</portrait>
+      <speaker_name>Miltiades</speaker_name>
+      <npc_text>“Is it over? Are we victorious?” asks Darganus.
+
+At that very moment the door flies open and Miltiades stumbles in, breathing hard.
+
+“The zealots... they overran us... they'll be here soon.” He looks at you and nods, pointing at Darganus.</npc_text>
+      <onLoadScripts>
+        <string>setWindowImage();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>createByCharMarker("CM_Miltiades");</string>
+        <string>dlgCam(180, 40, 8, 9014);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill Darganus and his men, then deal with the zealots.</text>
+          <def_link>9081</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Who knows how many men that mad fuck sent? You need Darganus and his men.</text>
+          <def_link>9078</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9077</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Darganus</portrait>
+      <speaker_name>Darganus</speaker_name>
+      <npc_text>“The guards will be here soon enough,” says Darganus, trying to convince himself. “If we can hold them off long enough...”
+
+You hear loud noise coming from upstairs and Darganus goes up to investigate.</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_GNZ_Darganus_03 = 5;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait for the zealots to come.</text>
+          <def_link>9083</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9078</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Darganus - zealots later</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_gnz_milt_01 = 6;</string>
+        <string>addEnemyToParty(1, DarganusParty);</string>
+        <string>aod.fight_darganus_miltiades = 2;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_MiltiadesEscape, 9044);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+        <string>aod.jnl_GNZ_Darganus_03 = 3;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9081</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - zealots with Darganus' mercs</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>removeCharFromParty(9014);</string>
+        <string>dlgTeleportToMarker(TM_MiltiadesEscape, 9014);</string>
+        <string>addCharToParty(1, DarganusParty, fighter);</string>
+        <string>aod.quest_gnz_milt_01 = 6;</string>
+        <string>aod.fight_darganus_miltiades = 3;</string>
+        <string>createZealots();</string>
+        <string>addEnemyParty(DarganusParty, ZealotsParty);</string>
+        <string>addEnemyParty(ZealotsParty, DarganusParty);</string>
+        <string>schedule(250, 0, dlgStartCombat);</string>
+        <string>dlgTeleportToMarker(TM_MiltiadesEscape, 9044);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9083</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>You’re about to leave when Miltiades’ thugs show up dragging several bodies behind them – a proof the zealots were involved.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9073</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9071</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>There is a small crowd outside, mostly the local residents woken up by Miltiades’ thugs.
+
+“Friends,” says Miltiades, his eyes shining more than ever before. “It is with a heavy heart that I must tell you that lord Darganus – a man I loved like a brother – was cowardly killed when he tried to protect you and this great city.
+
+“However,” he smiles reassuringly, raising both hands, “his noble sacrifice wasn’t in vain. We stopped the zealots before they managed to overrun us but the fight isn’t over. I will honor my dying friend’s wish and watch over this city until it’s safe once again. I promise you that this tragedy will never happen again!”</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_GNZ_Darganus_03 = 4;</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait until the speech is over.</text>
+          <def_link>9074</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9073</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Miltiades plays the crowd like a magister of music. He asks them to take the fight to the zealots, orders his men to distribute blood-covered weapons, waits for the crowd’s enthusiasm to disappear and then offers a compromise – to hire more fighting men to keep the district safe. Of course, it won’t be cheap, but isn’t it better to pay a tidy yet very reasonable and definitely affordable amount of money than end up like good ol’ Darganus? Miltiades’ thugs ready present the hacked up corpse of the dearly departed and the deal is struck.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>9075</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9074</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Not bad for a day’s work,” says Miltiades, counting the proceeds. “Here is your cut. Five hundred imperials.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(GNZ_Miltiades_02);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setWindowImage(miltiades_night);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Now what?”</text>
+          <def_link>9076</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9075</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Now? I’ll make peace with the zealots and then make some friends in the upper districts,” says Miltiades, jingling the coin purse. “Everything’s under control, don’t worry.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9082</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9076</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Miltiades</portrait>
+      <speaker_name>Miltiades</speaker_name>
+      <npc_text>By the time the fight is over, the district is secured by the soldiers.
+
+“I asked you to stir up some shit, not to start a fucking war,” says Miltiades. “Next time think before you act, will ya? You know what, I think we bet on the wrong horse here. I’ll be in Lowtown if you need me.”</npc_text>
+      <onLoadScripts>
+        <string>setWindowImage(miltiades_night);</string>
+        <string>rwd_quest(GNZ_Miltiades_05);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9068</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9080</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

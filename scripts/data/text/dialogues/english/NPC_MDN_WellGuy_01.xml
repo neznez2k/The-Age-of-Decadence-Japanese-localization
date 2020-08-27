@@ -1,0 +1,233 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_wellguy_chamber</string>
+      <string>aod.npc_wellguy_talkedWell</string>
+      <string>aod.npc_wellguy_met &amp;&amp; aod.npc_wellguy_talkedWell == false</string>
+    </conditions>
+    <links>
+      <int>8</int>
+      <int>11</int>
+      <int>6</int>
+    </links>
+    <dlg_name>NPC_MDN_WellGuy_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>A dirty-looking local</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The man’s eyes light up with hope. “Want to make some easy money? I found something that nobody else did, but I can’t do it alone,” he says quickly, as if afraid that you’ll reconsider. “It’s the real deal, I swear!”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_wellguy_met = true;</string>
+        <string>dlgcam(125, 45, 8, 6121);</string>
+        <string>dlgTeleportToMarker(TM_WellGuy_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Easy money is my specialty, friend.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Not interested.” Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Down there,” says the man, pointing at the well. “It’s deep, deeper than you think. Dive deep enough and you’ll find a passage. It’s not long, about fifty yards. If you can hold your breath long enough, you’ll reach a chamber filled with treasure. We’ll split it 50/50. So, what do you say, are you in?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_wellguy_talkedWell = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“How can you be sure of that?”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Changed your mind? It's down there,” says the man, pointing at the well. “It’s deep, deeper than you think. Dive deep enough and you’ll find a passage. It’s not long, about fifty yards. If you can hold your breath long enough, you’ll reach a chamber filled with treasure. We’ll split it 50/50. So, what do you say, are you in?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_wellguy_talkedWell = true;</string>
+        <string>dlgcam(125, 45, 8, 6121);</string>
+        <string>dlgTeleportToMarker(TM_WellGuy_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“How can you be sure of that?”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“We saw Bassar knifing someone the other night. The man fell right in, so we figured that maybe, you know, he had something valuable on him. So, Menes dove right in, but didn’t find the body. Instead he found that passage I told you about.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So, where is he now?”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“He didn’t make it back,” says the man, avoiding eye contact. “He took a bag to haul back all the loot, dove again, and that was the last time I saw him. Lucky for you, eh? Get his share just for showing up. So, ready to dive?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Believe it or not, I don't have anything better to do at the moment.” Examine the well.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I changed my mind.” Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Do you have it?” asks the man anxiously. “Where is my cut?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Give him 100 imperials.</text>
+          <def_link>9</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 100</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Down there.” Walk away.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.mdn_theWell_cut</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Don't flash the gold,” whispers the man, quickly snatching the money from your hand and tucking it carefully in his robe. He glances around to make sure that nobody saw the transaction, then lets a wide grin run across his face.</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(MDN_Well_01);</string>
+        <string>dlgChangeMoney(-100);</string>
+        <string>aod.mdn_theWell_cut = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - walk away with money 1st time</npc_text>
+      <onLoadScripts>
+        <string>aod.mdn_theWell_cut = false;</string>
+        <string>narratePhrase("You leaves while keeping other man\'s cut.");</string>
+        <string>rwd_reputation(MDN_Well_02);</string>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - guy leaves</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgDeleteCharacter(6121);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - bark well</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>sayPhrase(6121, "It's down there!");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>11</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,296 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>HGR_ShipControl_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You're standing in front of the ship's control system - levers, tumblers, gauges, crystal semi-spheres, and half a dozen of small holes in a circular pattern. You don't need to be a loremaster to figure out that you need to insert something there. A missing part?</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Use the jellyfish artefact.</text>
+          <def_link>1</def_link>
+          <checkOnAppear>dlgGetItemsCount(2160) &gt;= 1</checkOnAppear>
+          <checksOnClick>
+            <string>aod.lore &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[lore failure]You carefully insert the jellyfish artefact into the slot and a low humming sound begins nearby. A row of miniature ghosts leap up from the console. Your teeth rattle in terror as they bow and gesticulate, appearing to beseech your help. One by one, they start bleeding, until they’ve turned crimson. You don’t need to be a loremaster to know the ship is cursed.
+
+You step back, one hand on your weapon, never taking your eyes off the haunted ship, until you’ve escaped the chamber.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[lore success]You carefully insert the jellyfish artefact into the slot. A low humming sound begins nearby, and a row of dim lights appears on the consoles. You give a start as several flickering, ghost-like images leap up from the consoles. One by one the bluish light of the figures turns red. The ship’s hull and systems are badly damaged.
+
+The weapons array is unsalvageable, but with a little luck and hard work you might get her up in the air one last time.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Use the Prayer to Air Elementals mantra to take the ship up in the air.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.HGR_hatchOpen == false</string>
+            <string>aod.ship_mantra_learned == false</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4</int>
+            <int>5</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You need to open the hangar hatch first.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Hmm... you don't seem to have this particular mantra in your collection of oddities.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[lore]Search your memory. After all, are you not the wisest of men?</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lore &gt;= 9</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>11</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You put your hands on the controls and conjure the air elementals, commanding them to possess the ship and do your bidding. The air elementals are fickle and might play along only to abandon you in midflight, watching your ship plummeting down in delight. To avoid it, you follow the ritual to the letter, warding off the ship against mischief and securing the tethers binding the elementals.
+
+Slowly, the ship rises up in the air. You order the elementals to turn it around and pull it forward.</npc_text>
+      <onLoadScripts>
+        <string>setAchievement("ACH_FLY");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take her to Ganezzar.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Take her to Maadoran.</text>
+          <def_link>12</def_link>
+          <checkOnAppear>aod.npc_gaelius_met &amp;&amp; aod.npc_gaelius_dead == false &amp;&amp; aod.mdn_destroyed == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Following your intuition, you pull some levers and the ship slowly - very, very slowly - rises up in the air. The noise is getting louder and the flickering red spreads at an alarming speed. Still, it's too late to turn back, so you push the levers forward and the ship follows your command.</npc_text>
+      <onLoadScripts>
+        <string>setAchievement("ACH_FLY");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take her to Ganezzar.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Take her to Maadoran.</text>
+          <def_link>8</def_link>
+          <checkOnAppear>aod.mdn_destroyed == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - crash</npc_text>
+      <onLoadScripts>
+        <string>dlgRemoveItem(2160, 1);</string>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.airship_crashed = 1;</string>
+        <string>sd(HGR_ShipCrash_01);</string>
+        <string>blockMapLocation("Hangar");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - take to Ganezzar</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.airship_ganezzar = 1;</string>
+        <string>blockMapLocation("Hangar");</string>
+        <string>dlgRemoveItem(2160, 1);</string>
+        <string>switchMission("Ganezzar.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - take to Maadoran</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>blockMapLocation("Hangar");</string>
+        <string>aod.airship_maadoran = 1;</string>
+        <string>dlgRemoveItem(2160, 1);</string>
+        <string>switchMission("Maadoran.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Nope. Nothing.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Want to wing it? As the old saying goes, if you can ride a horse, you can pilot an ancient flying battleship. Or something.</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"We beheld in the sky what appeared to us to be a mass of scarlet clouds resembling the fierce flames of a blazing fire. From that mass many blazing missiles flashed, and tremendous roars, like the noise of a thousand drums beaten at once. And from it fell many weapons winged with gold and thousands of thunderbolts, with loud explosions, and many hundreds of fiery wheels. Loud became the uproar of falling horses, slain by these missiles, and of mighty elephants struck by the explosions..."
+
+It's a rare mantra, dedicated to ancient flying chariots that were made of blessed iron and gifted with the power of the gods. The mantra contains detailed praying instructions that might persuade the air elementals to pull such a chariot as if they were horses.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>The chariot awaits. Do your thing.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone for now.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

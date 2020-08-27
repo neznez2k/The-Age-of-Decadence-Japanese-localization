@@ -1,0 +1,579 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_tg1_forgeMandate</string>
+    </conditions>
+    <links>
+      <int>12</int>
+    </links>
+    <dlg_name>Quest_TG1_02</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Cado</def_speaker_name>
+    <def_portrait>Cado</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>Cado's busy talking to a nervous, balding man in merchant robes.
+
+"Just sign this document outlining what we've just discussed, Zenon," says Cado, playing the role of a kind uncle. "You seem like an honest sort, but it's natural to have doubts and second thoughts, and this document will help you avoid certain ... temptations."
+
+The man glances around helplessly, but signs it in the end. They always do.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg1_cadoTalksMerchant = false;</string>
+        <string>useCameraBookmark(NPC_Cado_Cam_01);</string>
+        <string>dlgTeleportTo(137, 55, 0, E);</string>
+        <string>dlgTeleportTo(139, 54, 0, S, 1090);</string>
+        <string>aod.quest_tg1_guardsReconsider = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait for the man to leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"The merchants think they have a problem," explains Cado. "A hole in their ship, so to speak. Since they usually patch holes with money, I think we should stay close and observe. Zenon is Linos' man. His word carries some weight, and so does mine now," he carefully rolls the document and puts it away.
+
+"How did it go?"</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(125, 119, 0, S, 1090);</string>
+        <string>dlgTeleportTo(139, 54, 0, S);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I'm still working on it."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I've bribed the guards. They'll let our shipment through."</text>
+          <def_link>3</def_link>
+          <checkOnAppear>aod.quest_tg1_guardsBribed</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I've made a deal with the watch commander. The first shipment is free, all following shipments will cost us 15%."</text>
+          <def_link>4</def_link>
+          <checkOnAppear>aod.quest_tg1_flaviusMadeDeal</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"The Imperial Guards have a special shipping mandate. The gate guards can't even touch their shipments."</text>
+          <def_link>5</def_link>
+          <checkOnAppear>aod.quest_tg1_igKnowInfo &amp;&amp; aod.quest_tg1_pathTaken == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"The Imperial Guards have a special shipping mandate. The gate guards can't even touch their shipments."</text>
+          <def_link>5</def_link>
+          <checkOnAppear>aod.quest_tg1_igStoleMandate</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Cado shakes his head but says nothing.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Simple, but effective. Go rest for the night, we'll take care of things now. Come see me in the morning."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg1_phase4a = true;</string>
+        <string>rwd_reputation(TG1_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I'm impressed, &lt;charname&gt;. Our previous arrangement cost us 18 points and wasn't nearly as good. Go rest for the night, we'll take care of things now. Come see me in the morning."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg1_phase4b = true;</string>
+        <string>rwd_reputation(TG1_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Is there a point to your tale?"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg1_igKnowInfo = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I borrowed it." Show him the mandate.</text>
+          <def_link>6</def_link>
+          <checkOnAppear>aod.quest_tg1_igStoleMandate</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I think I can forge one."</text>
+          <def_link>7</def_link>
+          <checkOnAppear>aod.quest_tg1_igStoleMandate == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Cado looks at the mandate in disbelief, then slaps you on the back and laughs. "Bold, &lt;charname&gt;, bold! That must be quite a tale!
+
+"Now go rest for the night, we'll take care of things now. Come see me in the morning."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg1_phase4c = true;</string>
+        <string>rwd_reputation(TG1_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You *think* you can forge one? What if you're wrong and we learn it the hard way, losing the shipment and men?"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg1_igTryForging = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I can forge one."</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What do you have in mind?"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_TG1_documentFengStart = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"We need to make it look real. I'd say that any document bearing Antidas' signature and the Daratan seal will do the trick."</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_feng_fledTeron</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>23</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Talk to Feng. If someone has what we need that would be Antidas' own loremaster."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg1c_phase2 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Too bad Feng's gone. We could have used his help here."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg1c_phase4 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lore success]"I've handled enough documents. I can assure you that my fake will look more intimidating than the original."</text>
+          <def_link>24</def_link>
+          <checkOnAppear>aod.lore &gt;= 2 &amp;&amp; aod.quest_tg1_fengGotDocument == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Alright. Do it."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go to the guild study.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>You sit and start working on the fake mandate.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(134, 60, 1, S);</string>
+        <string>useCameraBookmark(location_tg_study_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Forge the mandate.</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lore &gt;= 3 &amp;&amp; aod.quest_tg1_fengGotDocument == false</string>
+            <string>aod.lore &lt; 3 &amp;&amp; aod.per &lt; 7 &amp;&amp; aod.quest_tg1_fengGotDocument</string>
+            <string>aod.lore &gt;= 3 &amp;&amp; aod.per &lt; 7 &amp;&amp; aod.quest_tg1_fengGotDocument</string>
+            <string>aod.lore &lt; 3 &amp;&amp; aod.per &gt;= 7 &amp;&amp; aod.quest_tg1_fengGotDocument</string>
+            <string>aod.lore &gt;= 3 &amp;&amp; aod.per &gt;= 7 &amp;&amp; aod.quest_tg1_fengGotDocument</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+            <int>15</int>
+            <int>16</int>
+            <int>17</int>
+            <int>18</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>You spend an hour turning a blank parchment into an official-looking document stating that the Imperial Guards are given free passage. You add a fancy looking seal as a finishing touch and give the scroll to the guildmaster.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(NPC_Cado_Cam_01);</string>
+        <string>dlgTeleportTo(139, 54, 0, S);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>You spend an hour turning a blank parchment into an official decree granting the Imperial Guards the right of free passage and requesting full cooperation from all Teron guilds and citizens. You add a fancy looking seal as a finishing touch and give the scroll to the guildmaster.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(139, 54, 0, S);</string>
+        <string>useCameraBookmark(NPC_Cado_Cam_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>You spend an hour turning a blank parchment into an official-looking document stating that the Imperial Guards are given free passage. You copy the Daratan seal and the signature of Lord Antidas as accurately as you can and give the scroll to the guildmaster.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(NPC_Cado_Cam_01);</string>
+        <string>dlgTeleportTo(139, 54, 0, S);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>You spend an hour turning a blank parchment into an official decree granting the Imperial Guards the right of free passage and requesting full cooperation from all Teron guilds and citizens. You copy the Daratan seal and the signature of Lord Antidas as accurately as you can and give the scroll to the guildmaster.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(139, 54, 0, S);</string>
+        <string>useCameraBookmark(NPC_Cado_Cam_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>You spend an hour turning a blank parchment into an official-looking document stating that the Imperial Guards are given free passage. You meticulously copy the Daratan seal and the signature of Lord Antidas and give the scroll to the guildmaster.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(NPC_Cado_Cam_01);</string>
+        <string>dlgTeleportTo(139, 54, 0, S);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>You spend an hour turning a blank parchment into an official decree granting the Imperial Guards the right of free passage and requesting full cooperation from all Teron guilds and citizens. You meticulously copy the Daratan seal and the signature of Lord Antidas and give the scroll to the guildmaster.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(NPC_Cado_Cam_01);</string>
+        <string>dlgTeleportTo(139, 54, 0, S);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"It's not good enough," says Cado after studying the document for a long time.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg1_igForgeryFailed = true;</string>
+        <string>if(aod.quest_tg1_fengGotDocument) {aod.quest_tg1_igTryForging = false; remQuest(TG1c);}</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I'll try to get the document from Feng."</text>
+          <def_link>9</def_link>
+          <checkOnAppear>aod.quest_tg1_fengGotDocument == false &amp;&amp; aod.npc_feng_fledTeron == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"It's not the best forgery I've ever seen, but it should work," says Cado after studying the document for a long time. "Well done, &lt;charname&gt;. Go rest for the night, we'll take care of things now. Come see me in the morning."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg1_igForgeryPoor = true;</string>
+        <string>aod.quest_tg1_igTryForging = false;</string>
+        <string>aod.quest_tg1_pathTaken = true;</string>
+        <string>aod.quest_tg1_phase4d = true;</string>
+        <string>rwd_reputation(TG1_04);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"&lt;charname&gt;, you're a real artist," says Cado after studying the document for a long time. "I dare say that this mandate is better than the real one. Why, Antidas himself would feel compelled to assist its bearer. Bravo!
+
+"Now go rest for the night, we'll take care of things now. Come see me in the morning."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg1_igForgeryGood = true;</string>
+        <string>aod.quest_tg1_igTryForging = false;</string>
+        <string>aod.quest_tg1_pathTaken = true;</string>
+        <string>aod.quest_tg1_phase4d = true;</string>
+        <string>rwd_civil(TG1_02);</string>
+        <string>rwd_reputation(TG1_05);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - rest</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg2_talkAboutTg2 = true;</string>
+        <string>aod.quest_tg1_finished = true;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>rwd_quest(TG1_01);</string>
+        <string>dlgTeleportTo(137, 55, 0, N);</string>
+        <string>setRtsCam();</string>
+        <string>remQuest(TG1a);</string>
+        <string>remQuest(TG1b);</string>
+        <string>remQuest(TG1c);</string>
+        <string>remQuest(TG1d);</string>
+        <string>addQuest(TG2);</string>
+        <string>aod.quest_tg2_phase1 = true;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>22</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

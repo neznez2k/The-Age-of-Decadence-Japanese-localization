@@ -1,0 +1,106 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Prospector_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Prospector</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Ah, decided to buy it after all? I knew I should have asked for more."</npc_text>
+      <onLoadScripts>
+        <string>dlgteleportto(189, 98, 0, E);</string>
+        <string>dlgteleportto(190, 98, 0, W, 1298);</string>
+        <string>useCameraBookmark(NPC_Prospector_Cam_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Here is the money." Pay him 500 imperials.</text>
+          <def_link>2</def_link>
+          <checkOnAppear>aod.quest_buyRespirator_500 &amp;&amp; dlgGetMoney() &gt;= 500</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Here is the money." Pay him 300 imperials.</text>
+          <def_link>2</def_link>
+          <checkOnAppear>aod.quest_buyRespirator_300 &amp;&amp; dlgGetMoney() &gt;= 300</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Here is the money." Pay him 200 imperials.</text>
+          <def_link>2</def_link>
+          <checkOnAppear>aod.quest_buyRespirator_200 &amp;&amp; dlgGetMoney() &gt;= 200</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Still thinking about it." Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Just like we agreed," nods the prospector after counting the money. He gives you the amulet and walks away.</npc_text>
+      <onLoadScripts>
+        <string>if(aod.quest_buyRespirator_500) dlgChangeMoney(-500);</string>
+        <string>if(aod.quest_buyRespirator_300) dlgChangeMoney(-300);</string>
+        <string>if(aod.quest_buyRespirator_200) dlgChangeMoney(-200);</string>
+        <string>dlgAddItem(901, 1);</string>
+        <string>aod.quest_ProspectorAmulet_phase2 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - get the artifact and leave</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgDeleteCharacter(1298);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

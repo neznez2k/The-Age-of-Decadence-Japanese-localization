@@ -1,0 +1,1685 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_ag2_joinedIG</string>
+      <string>aod.quest_ag2_final_fight</string>
+      <string>aod.quest_ag2_betrayal_combat</string>
+      <string>aod.quest_ag2_room</string>
+    </conditions>
+    <links>
+      <int>510</int>
+      <int>493</int>
+      <int>503</int>
+      <int>507</int>
+    </links>
+    <dlg_name>Quest_AG2</dlg_name>
+    <def_link>456</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Specks of dust drift silently through twin beams of light coming from two holes in the wall - the only illumination in this darkened room. Dias points at his crossbow and the holes.
+
+You look through one of the holes and see Carrinas talking to another man. You don't have a perfect shot, but you doubt that you would miss when you're this close. You are pretty sure that Dias won't. Carrinas is as good as dead now, which means ... a lot of things. It's time to make a decision.</npc_text>
+      <onLoadScripts>
+        <string>delCharTag(TeronKeyNPC, 1020);</string>
+        <string>delCharTag(TeronKeyNPC, 1030);</string>
+        <string>delCharTag(TeronKeyNPC, 1040);</string>
+        <string>delCharTag(TeronKeyNPC, 1050);</string>
+        <string>delCharTag(TeronKeyNPC, 1210);</string>
+        <string>dlgSetAnimation(anim_regular_xbow2h, 0.25);</string>
+        <string>dlgTeleportTo(82, 146, 0, W, 1020);</string>
+        <string>dlgTeleportTo(83, 149, 0, S, 1050);</string>
+        <string>dlgTeleportTo(81, 148, 0, S, 1210);</string>
+        <string>dlgTeleportTo(83, 143, 0, NW, 1040);</string>
+        <string>cheatHP();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait for Dias' sign and shoot Commander Carrinas.</text>
+          <def_link>458</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Shoot Dias instead to save Commander Carrinas' life.</text>
+          <def_link>457</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>456</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Dias aims his crossbow, looks at you and nods. You pull the trigger and your bolt hits Carrinas in the shoulder, spinning him around before Dias' bolt slams into his chest and throws him across the room. Wasting no time, Dias grabs the rope and jumps out of the window, sliding down.</npc_text>
+      <onLoadScripts>
+        <string>removeMissile();</string>
+        <string>dlgTeleportTo(81, 144, 0, N, 1030);</string>
+        <string>dlgSetAmbientAnimation(1030);</string>
+        <string>dlgSetAnimation(anim_death_back00, 0.95, 1120);</string>
+        <string>dlgSetAnimation(anim_washit_back, 0.1, 1430);</string>
+        <string>dlgSetCombatAnimation(1480);</string>
+        <string>dlgSetCombatAnimation(1475);</string>
+        <string>dlgKillCharacter(1120);</string>
+        <string>dlgUnloadWeapon();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>rwd_reputation(AG2_01);</string>
+        <string>sfxPlayOnce(AudioCsRangedBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Grab the rope and follow Dias.</text>
+          <def_link>459</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Put on the merchant robes and talk your way out.</text>
+          <def_link>465</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>458</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You land softly in the alley behind the inn when the guards raise the alarm. Several guards enter the alley from the side and move slowly searching for any signs of the assassins. Dias disappears into the darkness, moving soundlessly.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(quest_ag2_02);</string>
+        <string>dlgTeleportTo(64, 153, 0, NE);</string>
+        <string>dlgStealthPose(1);</string>
+        <string>dlgCreateCharacter("帝国衛兵", 1450, 1450, 66, 160, 0, S);</string>
+        <string>dlgCreateCharacter("帝国衛兵", 1470, 1470, 65, 161, 0, S);</string>
+        <string>dlgSetCombatAnimation(1450);</string>
+        <string>dlgSetCombatAnimation(1470);</string>
+        <string>dlgDeleteCharacter(1430);</string>
+        <string>dlgDeleteCharacter(1440);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[sneak]Attempt to sneak past the guards.</text>
+          <def_link>461</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.sneak &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>460</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>459</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You move as quietly as you can, but a sharp pain in your arm breaks your concentration. A pilum thrown by one of the soldiers tells you that you have been noticed and have no option but to run back to the guild.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(66, 152, 0, E);</string>
+        <string>dlgChangeCharacterHP(-10);</string>
+        <string>useCameraBookmark(quest_ag2_12);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Run back to the guild.</text>
+          <def_link>506</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>461</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Staying in the shadows and making no sound, you move like a ghost. The guards pass several feet from you without detecting your presence.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(quest_ag2_03);</string>
+        <string>dlgTeleportTo(74, 151, 0, SE);</string>
+        <string>dlgSetAnimation(anim_stealth_00, 0);</string>
+        <string>dlgTeleportTo(66, 152, 0, S, 1450);</string>
+        <string>dlgTeleportTo(65, 151, 0, S, 1470);</string>
+        <string>rwd_civil(Sneak);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>506</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>460</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>You finally reach the safety of the guild. Neleos smiles, welcoming you back, but the smile doesn't last long. You hear angry shouts in the alley behind you. Turning around, you see flaming arrows flying through the darkness toward your guild. Instantly, the roof catches fire, illuminating the alley. You see a group of Imperial Guards preparing to charge. A larger group approaches from the north.
+
+"Coltan, take Fulvio and &lt;charname&gt; and take care of the guards in the alley. We'll deal with the other group and keep them away from you."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_ag2_combat_alleyway = false;</string>
+        <string>useCameraBookmark(quest_ag2_04);</string>
+        <string>dlgTeleportTo(81, 146, 0, E);</string>
+        <string>if(isAlive(1450)) {dlgTeleportTo(70, 144, 0, E, 1450);}</string>
+        <string>if(isAlive(1470)) {dlgTeleportTo(70, 147, 0, E, 1470);}</string>
+        <string>if(isAlive(1480)) {dlgTeleportTo(71, 142, 0, E, 1480);}</string>
+        <string>dlgCreateCharacter("帝国衛兵", 1460, 1460, 71, 149, 0, E);</string>
+        <string>addParty(GuardsFinal, 0);</string>
+        <string>if(isAlive(1450)) {addCharToParty(1450, GuardsFinal, fighter);}</string>
+        <string>if(isAlive(1470)) {addCharToParty(1470, GuardsFinal, fighter);}</string>
+        <string>if(isAlive(1480)) {addCharToParty(1480, GuardsFinal, fighter);}</string>
+        <string>addCharToParty(1460, GuardsFinal, fighter);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>setPassability(78, 142, 0, 0);</string>
+        <string>setPassability(78, 141, 0, 0);</string>
+        <string>setPassability(78, 140, 0, 0);</string>
+        <string>setPassability(79, 140, 0, 0);</string>
+        <string>setPassability(80, 140, 0, 0);</string>
+        <string>aod.quest_ag2_room = false;</string>
+        <string>dlgSetAmbientAnimation();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Follow Coltan.</text>
+          <def_link>464</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>506</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You follow Coltan outside. The guards are advancing slowly, clearly expecting an ambush. Coltan glances at the heavy armor and replaces a standard bolt with an armor-piercing one.
+
+"Are you just going to stand there?" he asks calmly and pulls the trigger.</npc_text>
+      <onLoadScripts>
+        <string>ag2FireStart();</string>
+        <string>useCameraBookmark(quest_ag2_05);</string>
+        <string>addParty(AssassinsFinal, 0);</string>
+        <string>addCharToParty(1, AssassinsFinal, fighter);</string>
+        <string>addCharToParty(1210, AssassinsFinal, fighter);</string>
+        <string>addCharToParty(1050, AssassinsFinal, fighter);</string>
+        <string>dlgTeleportTo(77, 146, 0, W);</string>
+        <string>dlgTeleportTo(77, 148, 0, W, 1210);</string>
+        <string>dlgTeleportTo(78, 144, 0, W, 1050);</string>
+        <string>dlgEquipItem(161, 0, 1050);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>assignCombatScheme(hightrained, 1210);</string>
+        <string>assignCombatScheme(hightrained, 1050);</string>
+        <string>dlgSetCombatAnimation(1050);</string>
+        <string>dlgSetCombatAnimation(1210);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>478</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>464</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - final</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addEnemyParty(AssassinsFinal, GuardsFinal);</string>
+        <string>addEnemyParty(GuardsFinal, AssassinsFinal);</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportTo(1, 1, 0, N, 1020);</string>
+        <string>dlgTeleportTo(1, 2, 0, N, 1030);</string>
+        <string>dlgTeleportTo(1, 3, 0, N, 1040);</string>
+        <string>aod.quest_ag2_final_fight = true;</string>
+        <string>schedule(250, 0, dlgStartCombat);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.quest_ag2_phase2a = true;</string>
+        <string>aod.gameplay_questAG2_fight = true;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>478</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You put on the robes and get ready. The door flies wide open and the guards burst into the room. Judging by their expressions, they are not looking for justice; they are looking for blood. A lot of blood. Maybe you should have taken the window.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(quest_ag2_06);</string>
+        <string>dlgTeleportTo(61, 152, 1, W);</string>
+        <string>dlgUnequipEverything();</string>
+        <string>dlgEquipItem(505);</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>dlgTeleportTo(60, 152, 1, E, 1440);</string>
+        <string>dlgTeleportTo(60, 153, 1, SE, 1475);</string>
+        <string>dlgSetCombatAnimation(1440);</string>
+        <string>dlgSetCombatAnimation(1475);</string>
+        <string>dlgTeleportTo(60, 147, 1, E, 1480);</string>
+        <string>dlgSetAmbientAnimation(1480);</string>
+        <string>dlgSetAnimation(anim_washit_back, 0.1);</string>
+        <string>dlgDeleteCharacter(1430);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgCreateCharacter("帝国衛兵", 1450, 1450, 66, 160, 0, S);</string>
+        <string>dlgCreateCharacter("帝国衛兵", 1470, 1470, 65, 161, 0, S);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[impersonate]"Assassins! I saw them! They fled through the window. They were going to kill me! Thank you for coming to rescue me!"</text>
+          <def_link>466</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.disguise &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>469</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>465</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]The Guard runs you through with his sword, interrupting you mid-word. You die before you hit the floor.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAnimation(anim_death_brutal_1h, 0.95);</string>
+        <string>dlgSetAnimation(anim_power_sword1h_shield, 0.86, 1440);</string>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Rest in peace.</text>
+          <def_link>468</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>466</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]The Guard's sword stops an inch from your throat. "Who. Are. You?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[impersonate][charisma]"I'm a trader. I rented this room yesterday and then..."</text>
+          <def_link>470</def_link>
+          <checkOnAppear>aod.ag2_neleos_merchant == false</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.cha + aod.disguise) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>471</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[impersonate][charisma]"My name is Manius Cotta. I'm a caravan-master from Atrion. I came to Teron yester–" Break your voice and start weeping. "When they broke in, I was scared, so scared... I thought that..."</text>
+          <def_link>470</def_link>
+          <checkOnAppear>aod.ag2_neleos_merchant</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.cha + aod.disguise) &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>472</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>469</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]A downward slash nearly separates your head from the shoulder. You die before you hit the floor.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAnimation(anim_death_brutal_1h, 0.95);</string>
+        <string>dlgSetAnimation(anim_power_sword1h_shield, 0.86, 1440);</string>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Rest in peace.</text>
+          <def_link>468</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>470</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]The Guard lowers the sword and angrily pushes you away. He sends his men downstairs and leaves the room.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>dlgDeleteCharacter(1440);</string>
+        <string>dlgDeleteCharacter(1475);</string>
+        <string>rwd_civil(AG2_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Check on Carrinas.</text>
+          <def_link>473</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>471</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Check it out." One of the guards goes downstairs, while you wait with the sword at your throat. He comes back after what seems like a very long time and nods to the Centurion. The sword withdraws.
+
+The guards run downstairs, leaving you alone in the room.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>dlgDeleteCharacter(1440);</string>
+        <string>dlgDeleteCharacter(1475);</string>
+        <string>rwd_civil(AG2_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Check on Carrinas.</text>
+          <def_link>473</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>472</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The room is in disarray. Carrinas lies on his back with the bolts sticking out of his chest and shoulder. The man he was meeting with is long gone. There is a single guard waiting near the body.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(58, 146, 1, NE);</string>
+        <string>useCameraBookmark(quest_ag2_07);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[critical strike]Take him out without attracting any more attention.</text>
+          <def_link>474</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 4</string>
+            <string>aod.critical_strike &gt;= 3 &amp;&amp; aod.critical_strike &lt; 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>475</int>
+            <int>512</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>506</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>473</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Your attack catches the guard by surprise, as he clearly didn't expect anything from a &lt;man/woman&gt; who was just questioned and cleared. Unfortunately, you first strike falls short off the mark, glancing off the armor. Before you have a chance to correct your mistake, the guard's sword flashes out of its sheath and plunges into your chest. You die before you hit the floor.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(60, 146, 1, N);</string>
+        <string>dlgRotateToChar(1, 1480);</string>
+        <string>dlgSetAnimation(anim_death_forward01, 0.95);</string>
+        <string>dlgSetAnimation(anim_combat_1h_shield_00, 0.5, 1480);</string>
+        <string>sfxPlayOnce(csMissSwingMetal01);</string>
+        <string>schedule(200, 0, sfxPlayOnce, csSuccessBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Rest in peace.</text>
+          <def_link>468</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>474</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Your attack catches the guard by surprise, as he clearly didn't expect anything from a &lt;man/woman&gt; who was just questioned and cleared. Unfortunately, your attack lacks the necessary precision and fails to kill him outright. The guard rewards your clumsiness by slashing you across your chest. Bleeding, you strike the guard twice, instantly killing him, and catch his body when it starts toppling down.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(59, 147, 1, E);</string>
+        <string>dlgUnequipHands(1480);</string>
+        <string>dlgSetAnimation(anim_death_forward01, 0.95, 1480);</string>
+        <string>dlgSetAnimation(anim_combat_weaponless_00, 0.5);</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>sfxPlayOnce(csSuccessMetal01);</string>
+        <string>dlgChangeCharacterHP(-10);</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+        <string>schedule(200, 0, sfxPlayOnce, csSuccessSilence01);</string>
+        <string>schedule(400, 0, sfxPlayOnce, csSuccessMetal01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Explore and leave.</text>
+          <def_link>476</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>512</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Your attack catches the guard by surprise, as he clearly didn't expect anything from a &lt;man/woman&gt; who was just questioned and cleared. You strike him twice, instantly killing him, and catch his body when it starts toppling down.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(59, 147, 1, E);</string>
+        <string>dlgUnequipHands(1480);</string>
+        <string>dlgSetAnimation(anim_death_forward01, 0.95, 1480);</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>sfxPlayOnce(csSuccessMetal01);</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+        <string>schedule(200, 0, sfxPlayOnce, csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Explore and leave.</text>
+          <def_link>476</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>475</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>468</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>You finally reach the safety of the guild. Neleos smiles, welcoming you back, but the smile doesn't last long. You hear angry shouts in the alley behind you. Turning around, you see flaming arrows flying through the darkness toward your guild. Instantly, the roof catches fire, illuminating the alley. You see a group of Imperial Guards preparing to charge. A larger group approaches from the north.
+
+"Coltan, take Fulvio and &lt;charname&gt; and take care of the guards in the alley. We'll handle the rest."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ag2_combat_alleyway = false;</string>
+        <string>useCameraBookmark(quest_ag2_04);</string>
+        <string>dlgTeleportTo(81, 146, 0, E);</string>
+        <string>if(isAlive(1450)) {dlgTeleportTo(70, 144, 0, E, 1450);}</string>
+        <string>if(isAlive(1470)) {dlgTeleportTo(70, 147, 0, E, 1470);}</string>
+        <string>if(isAlive(1480)) {dlgTeleportTo(71, 142, 0, E, 1480);}</string>
+        <string>dlgCreateCharacter("帝国衛兵", 1460, 1460, 71, 149, 0, E);</string>
+        <string>addParty(GuardsFinal, 0);</string>
+        <string>if(isAlive(1450)) {addCharToParty(1450, GuardsFinal, fighter);}</string>
+        <string>if(isAlive(1470)) {addCharToParty(1470, GuardsFinal, fighter);}</string>
+        <string>if(isAlive(1480)) {addCharToParty(1480, GuardsFinal, fighter);}</string>
+        <string>addCharToParty(1460, GuardsFinal, fighter);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>setPassability(78, 142, 0, 0);</string>
+        <string>setPassability(78, 141, 0, 0);</string>
+        <string>setPassability(78, 140, 0, 0);</string>
+        <string>setPassability(79, 140, 0, 0);</string>
+        <string>setPassability(80, 140, 0, 0);</string>
+        <string>aod.quest_ag2_room = false;</string>
+        <string>dlgSetAmbientAnimation();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Follow Coltan.</text>
+          <def_link>464</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>507</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - loot the room</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_ag2_room = true;</string>
+        <string>apmsLootItemlist(quest_ag2_room);</string>
+        <string>dlgKillCharacter(1480);</string>
+        <string>dlgDeleteCharacter(1120);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>476</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carrinas</portrait>
+      <speaker_name>Carrinas</speaker_name>
+      <npc_text>You point the crossbow at Dias and shoot him almost point blank. The force of the impact throws his body against the wall, making plenty of noise. The guards posted outside barge in, their swords ready. You point at Dias' body, saying "assassin" and wait.
+
+You don't have to wait long. Carrinas walks in, surrounded by guards. He looks at the drilled holes, at the body and the crossbow with a steel bolt glinting in the light. Then he looks at you. "Why did you do it?"</npc_text>
+      <onLoadScripts>
+        <string>removeMissile();</string>
+        <string>useCameraBookmark(quest_ag2_06);</string>
+        <string>dlgUnloadWeapon();</string>
+        <string>dlgSetAnimation(anim_death_back03, 0.95, 1030);</string>
+        <string>dlgUnequipItem(161, 1030);</string>
+        <string>dlgTeleportTo(61, 152, 1, W);</string>
+        <string>dlgTeleportTo(60, 152, 1, E, 1120);</string>
+        <string>dlgTeleportTo(60, 151, 1, NE, 1440);</string>
+        <string>dlgTeleportTo(60, 153, 1, SE, 1475);</string>
+        <string>dlgSetCombatAnimation(1440);</string>
+        <string>dlgSetCombatAnimation(1475);</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>dlgChangeRep(bodycount, 1);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>rwd_reputation(AG2_04);</string>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+        <string>removePcMember();</string>
+        <string>aod.pc_AG_traitor = true;</string>
+        <string>PC_Traitor();</string>
+        <string>addJournalChar(carrinas);</string>
+        <string>dlgKillCharacter(1030);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I've decided that I'm on the wrong side of the upcoming fight."</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I figured you'd pay me more for saving your life than the guild would have paid me for taking it."</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>457</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carrinas</portrait>
+      <speaker_name>Carrinas</speaker_name>
+      <npc_text>"Why should I hire you? You've just killed your partner and betrayed your guild. You know what they say about traitors..."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"The Boatmen should have never accepted that contract in the first place. The way I see it, they betrayed me."</text>
+          <def_link>481</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>479</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carrinas</portrait>
+      <speaker_name>Carrinas</speaker_name>
+      <npc_text>"A mercenary? Pay him 1000 imperials." He says to one of his men and walks out.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(1000);</string>
+        <string>dlgAddTextBoxMessage("You gain 1000 imperials.");</string>
+        <string>rwd_quest(AG2_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave and wait for the morning.</text>
+          <def_link>483</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>480</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carrinas</portrait>
+      <speaker_name>Carrinas</speaker_name>
+      <npc_text>"Then help me finish it. Go back to the guild. My men will follow you, staying out of sight. Neleos doesn't know that the assassination has failed. He trusts you," Carrinas sneers, "so get close enough and kill him. Once he's down, my men will attack and the Boatmen will be finished. Once and for all.
+
+"Take this." He removes a vial on a chain from his neck and hands it to you. "It contains the magic of the old days. Drink it before you strike and you will move with the speed of lightning, striking your enemies down before they react. The effect doesn't last long though, but it will make a difference. Trust me."</npc_text>
+      <onLoadScripts>
+        <string>aod.ending_ag_03 = true;</string>
+        <string>aod.ending_agChoices = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Very well." Go back to the guild.</text>
+          <def_link>484</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>481</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING - mercenary</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>aod.global_teron_ag_burned = true;</string>
+        <string>tbd_ag_normal.IsRenderEnabled = false;</string>
+        <string>tbd_ag_burned.IsRenderEnabled = true;</string>
+        <string>tbd_door_assassin_01.setAllMeshesHidden(true);</string>
+        <string>setPassability(207, 104, 0, 0);</string>
+        <string>dlgteleportto(202, 104, 0, E);</string>
+        <string>textBox.addLine(" - The guild lies in ruins. Your betrayal won't be forgotten.");</string>
+        <string>setRtsCam();</string>
+        <string>AG2_Level.hideObjects();</string>
+        <string>AG2Fire.hideObjects();</string>
+        <string>terondaytime();</string>
+        <string>aod.quest_ag2_phase2b = true;</string>
+        <string>aod.ending_agChoices = true;</string>
+        <string>aod.ending_ag_04 = true;</string>
+        <string>aod.ending_town_01 = true;</string>
+        <string>dlgDeleteCharacter(1030);</string>
+        <string>StartTeronEnding();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>483</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING - suicide</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>dlgAddItemlist(quest_ag2_NS);</string>
+        <string>aod.global_teron_ag_burned = true;</string>
+        <string>tbd_ag_normal.IsRenderEnabled = false;</string>
+        <string>tbd_ag_burned.IsRenderEnabled = true;</string>
+        <string>tbd_door_assassin_01.setAllMeshesHidden(true);</string>
+        <string>setPassability(207, 104, 0, 0);</string>
+        <string>dlgteleportto(202, 104, 0, E);</string>
+        <string>textBox.addLine(" - The guild lies in ruins. Your betrayal won't be forgotten.");</string>
+        <string>setRtsCam();</string>
+        <string>AG2_Level.hideObjects();</string>
+        <string>AG2Fire.hideObjects();</string>
+        <string>terondaytime();</string>
+        <string>aod.quest_ag2_phase2d = true;</string>
+        <string>aod.ending_town_01 = true;</string>
+        <string>StartTeronEnding();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>508</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You return to the guild, pausing for a second and holding the vial Carrinas gave you. It's a rare thing and should be used wisely, if at all.
+
+With or without the vial, you won't last long against four assassins. The guards won't attack until Neleos is dead, so taking him out is your priority. The vial will greatly increase your chances to kill Neleos with one strike, but you'd have to drink it before you enter and you'd have time for one or two strikes at most. Alternatively, you can rely on your own skills to take Neleos out fast and drink the vial once the fighting starts to keep you alive until the cavalry shows up.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(76, 146, 0, E);</string>
+        <string>dlgDeleteCharacter(1430);</string>
+        <string>dlgDeleteCharacter(1480);</string>
+        <string>dlgUnequipItem(161);</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>useCameraBookmark(quest_ag2_08);</string>
+        <string>dlgDeleteCharacter(1030);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[dexterity][critical strike]Drink the vial before entering the guild, then attack Neleos without wasting any time.</text>
+          <def_link>486</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 7 &amp;&amp; aod.critical_strike &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>485</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Enter the guild, wait for a good opportunity and attack.</text>
+          <def_link>487</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>This is suicide. Just leave them to their fate.</text>
+          <def_link>508</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>484</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You kick the door open, moving in and attacking almost immediately. At first you're not sure that the vial worked, as you don't seem to be moving any faster. You strike several times in rapid succession testing Neleos' defences and notice that Neleos' reaction is a bit sluggish.
+
+He barely manages to dodge the first two attacks but fails to move in time to avoid the third one and the blade sinks to the hilt between his ribs. You pull the dagger out, slashing around in a quick, blurry motion. The blade connects with Fulvio's throat, opening it up and sending a fountain of blood into the air. Then everything speeds up, as the two bodies fall to the ground, and Agatai cautiously steps forward as Coltan lifts up his crossbow taking aim.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAnimation(anim_combat_weaponless_00, 0.5);</string>
+        <string>dlgSetAnimation(anim_death_forward03, 0.9, 1020);</string>
+        <string>dlgSetAnimation(anim_death_forward02, 0.9, 1210);</string>
+        <string>useCameraBookmark(quest_ag2_04);</string>
+        <string>dlgTeleportTo(81, 147, 0, N);</string>
+        <string>addParty(Assassins, 0);</string>
+        <string>addCharToParty(1040, Assassins, fighter);</string>
+        <string>addCharToParty(1050, Assassins, fighter);</string>
+        <string>dlgSetCombatAnimation(1040);</string>
+        <string>dlgSetCombatAnimation(1050);</string>
+        <string>dlgCsRepTrain(2);</string>
+        <string>dlgKillCharacter(1210);</string>
+        <string>dlgKillCharacter(1020);</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+        <string>schedule(150, 0, sfxPlayOnce, csSuccessBody01);</string>
+        <string>schedule(300, 0, sfxPlayOnce, csSuccessBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>490</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>485</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You kick the door open, moving in and attacking almost immediately. At first you're not sure that the vial worked, as you don't seem to be moving any faster. You strike several times in rapid succession testing Neleos' defences and notice that Neleos' reaction is a bit sluggish.
+
+Yet apparently even augmented by the old magic, your skills aren't good enough to catch him off guard. Neleos dodges the first two attacks but moves a bit too sluggishly to completely avoid the third one and the blade grazes his side, drawing the first blood. Then, everything speeds up and you prepare to fight for your life.</npc_text>
+      <onLoadScripts>
+        <string>ag2_ag_interior.setLightEnabled(true);</string>
+        <string>useCameraBookmark(quest_ag2_04);</string>
+        <string>dlgChangeCharacterHP(-25, 1020);</string>
+        <string>dlgTeleportTo(81, 146, 0, E);</string>
+        <string>addParty(Assassins, 0);</string>
+        <string>addCharToParty(1020, Assassins, fighter);</string>
+        <string>addCharToParty(1040, Assassins, fighter);</string>
+        <string>addCharToParty(1050, Assassins, fighter);</string>
+        <string>addCharToParty(1210, Assassins, fighter);</string>
+        <string>dlgSetAnimation(anim_combat_weaponless_00, 0.5);</string>
+        <string>dlgSetAnimation(anim_washit_back, 0.1, 1020);</string>
+        <string>dlgSetCombatAnimation(1210);</string>
+        <string>dlgSetCombatAnimation(1040);</string>
+        <string>dlgSetCombatAnimation(1050);</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>492</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>486</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>Neleos takes you aside, anxious to know what happened. It's a perfect opportunity to strike.</npc_text>
+      <onLoadScripts>
+        <string>ag2_ag_interior.setLightEnabled(true);</string>
+        <string>useCameraBookmark(quest_ag2_09);</string>
+        <string>dlgTeleportTo(81, 142, 0, N, 1020);</string>
+        <string>dlgTeleportTo(81, 143, 0, S);</string>
+        <string>dlgAddItemlist(quest_ag2_NS);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[critical strike]Attack.</text>
+          <def_link>488</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 5</string>
+            <string>aod.critical_strike &gt;= 4 &amp;&amp; aod.critical_strike &lt; 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>489</int>
+            <int>513</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>487</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Neleos' instinct tells him that something is wrong and he's ready for your attack when it comes. As your blade hits air, Neleos' dagger plunges into your abdomen, opening it up. You fall down onto your knees, feeling cold spreading out from your stomach. Above you, men fight and die, but it seems very distant and dream-like. You close your eyes and drift away.</npc_text>
+      <onLoadScripts>
+        <string>dlgEquipItem(102, 0, 1020);</string>
+        <string>dlgSetAnimation(anim_death_forward00, 0.95);</string>
+        <string>dlgSetAnimation(anim_combat_dagger_01, 0.25, 1020);</string>
+        <string>dlgSetAnimation(anim_regular_xbow2h, 0.25, 1040);</string>
+        <string>sfxPlayOnce(csMissSwingAir01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Rest in peace.</text>
+          <def_link>468</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>488</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Neleos' instinct tells him that something is wrong. While the warning comes too late to save him, it gives him enough time to react. As your blade sinks to the hilt between his ribs, his dagger bits into your own side. Bleeding, you pull the dagger out and he falls down, gasping for air.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAnimation(anim_combat_weaponless_00, 0.5);</string>
+        <string>dlgSetAnimation(anim_death_forward03, 0.9, 1020);</string>
+        <string>dlgKillCharacter(1020);</string>
+        <string>addParty(Assassins, 0);</string>
+        <string>addCharToParty(1040, Assassins, fighter);</string>
+        <string>addCharToParty(1050, Assassins, fighter);</string>
+        <string>addCharToParty(1210, Assassins, fighter);</string>
+        <string>dlgSetCombatAnimation(1040);</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>dlgChangeCharacterHP(-10);</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight the remaining assassins.</text>
+          <def_link>491</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>513</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Neleos' instinct tells him that something is wrong, but it's too late and the blade sinks to the hilt between his ribs. You pull the dagger out and he falls down, gasping for air.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAnimation(anim_combat_weaponless_00, 0.5);</string>
+        <string>dlgSetAnimation(anim_death_forward03, 0.9, 1020);</string>
+        <string>dlgKillCharacter(1020);</string>
+        <string>addParty(Assassins, 0);</string>
+        <string>addCharToParty(1040, Assassins, fighter);</string>
+        <string>addCharToParty(1050, Assassins, fighter);</string>
+        <string>addCharToParty(1210, Assassins, fighter);</string>
+        <string>dlgSetCombatAnimation(1040);</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight the remaining assassins.</text>
+          <def_link>491</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>489</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Agatai and Coltan</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ag2_betrayal_combat = true;</string>
+        <string>aod.quest_ag2_betrayer_ag = false;</string>
+        <string>addEnemyToParty(1, Assassins);</string>
+        <string>setRtsCam();</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>490</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - all assassins</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ag2_betrayal_combat = true;</string>
+        <string>aod.quest_ag2_betrayer_ag = false;</string>
+        <string>addEnemyToParty(1, Assassins);</string>
+        <string>setRtsCam();</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>492</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Agatai, Coltan and Fulvio</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ag2_betrayal_combat = true;</string>
+        <string>aod.quest_ag2_betrayer_ag = false;</string>
+        <string>addEnemyToParty(1, Assassins);</string>
+        <string>setRtsCam();</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>491</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>"I think it's safe to say that the guild is no longer off limits." His smile is back. It looks menacing. "They've broken the rules and there's no going back now. We're lucky that only a few enraged guards showed up tonight. Tomorrow they will come in full force to finish the job and we won't be able to stop them. We have no choice but to hit them first."
+
+"Hit them first?" Dias interrupts suddenly. "You want to hit their barracks? It's a suicide mission."</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(AG2_01);</string>
+        <string>aod.quest_ag2_final_fight = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Listen.</text>
+          <def_link>494</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>493</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>"Normally it would be," says Neleos, "but tonight is different. Their Commander died today, remember? Not only will they be caught off guard, but most men will be too drunk to hold a sword."
+
+"Why are you doing this, Neleos?" Looks like Dias decided to take a stand. "Sure, some guards took it a bit too far. It's unfortunate, but hardly worth declaring a war on the entire army.
+
+"Let it go, Neleos. Tomorrow will be a different day. The guards will wake up and face reality. Carrinas is gone and his plans are gone with him. His officers will be too busy fighting for the recently vacated position to attack us. Let bygones be bygones."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Listen.</text>
+          <def_link>495</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>494</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>"You're not a guildmaster yet, Dias, so don't act like one," snaps Neleos. "I too want to believe that tomorrow everything will go back to normal, but what if it doesn't? We'll be slaughtered like rats here, when the guards throw everything they have at us.
+
+"Truth be told, I didn't want to take this contract, but what's done is done. Now, we have to finish it. Are you with me?"
+
+Dias looks at Neleos for awhile, then nods reluctantly and steps aside. One by one, everyone signs up to follow Neleos to hell and hopefully back. Your turn.</npc_text>
+      <onLoadScripts>
+        <string>dlgRotateToChar(1, 1020);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I'm in."</text>
+          <def_link>500</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>isAlive(1050) &amp;&amp; isAlive(1210)</string>
+            <string>isDead(1050) &amp;&amp; isAlive(1210)</string>
+            <string>isAlive(1050) &amp;&amp; isDead(1210)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>499</int>
+            <int>498</int>
+            <int>501</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Sorry, Neleos. I've gone as far as I can with you."</text>
+          <def_link>496</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>495</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>Neleos is silent for a while then draws himself up straight.
+
+"&lt;charname&gt;, for refusing a necessary contract and thus failing the guild, you are no longer part of us. We withdraw our protection and are no longer your brothers. Leave... now."</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(AG2_02);</string>
+        <string>removePcMember();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>497</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>496</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING - left AG</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.global_teron_ag_burned = true;</string>
+        <string>tbd_ag_normal.IsRenderEnabled = false;</string>
+        <string>tbd_ag_burned.IsRenderEnabled = true;</string>
+        <string>tbd_door_assassin_01.setAllMeshesHidden(true);</string>
+        <string>setPassability(207, 104, 0, 0);</string>
+        <string>dlgteleportto(202, 104, 0, E);</string>
+        <string>setRtsCam();</string>
+        <string>AG2Fire.hideObjects();</string>
+        <string>AG2_Level.hideObjects();</string>
+        <string>terondaytime();</string>
+        <string>aod.ending_town_02 = true;</string>
+        <string>aod.ending_faction_AG = true;</string>
+        <string>StartTeronEnding();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>497</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>"Never had a doubt.
+
+"Here is the plan: we go in before dawn. Fulvio and &lt;charname&gt; will ambush the patrol and keep them busy, while Dias and Agatai will scale the walls and take out the guards patrolling the inner yard. Once the way is clear, we'll go in and remind everyone that an assassin isn't a street thug, but a messenger of Death and neither walls nor guards will protect a man marked for death."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ag3_fulvio_alive = true;</string>
+        <string>rwd_reputation(AG2_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Heal your wounds and follow Neleos to the barracks.</text>
+          <def_link>502</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Change your robes first.</text>
+          <def_link>477</def_link>
+          <checkOnAppear>dlgIsEquippedItem(505)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>498</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>"Never had a doubt.
+
+"Here is the plan: we go in before dawn. Coltan and &lt;charname&gt; will ambush the patrol and keep them busy, while Dias and Agatai will scale the walls and take out the guards patrolling the inner yard. Once the way is clear, we'll go in and remind everyone that an assassin isn't a street thug, but a messenger of Death and neither walls nor guards will protect a man marked for death."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ag3_coltan_alive = true;</string>
+        <string>rwd_reputation(AG2_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Heal your wounds and follow Neleos to the barracks.</text>
+          <def_link>505</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>501</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>"Never had a doubt.
+
+"Here is the plan: we go in before dawn. Fulvio, Coltan and &lt;charname&gt; will ambush the patrol and keep them busy, while Dias and Agatai will scale the walls and take out the guards patrolling the inner yard. Once the way is clear, we'll go in and remind everyone that an assassin isn't a street thug, but a messenger of Death and neither walls nor guards will protect a man marked for death."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ag3_fulvio_alive = true;</string>
+        <string>aod.quest_ag3_coltan_alive = true;</string>
+        <string>rwd_reputation(AG2_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Heal your wounds and follow Neleos to the barracks.</text>
+          <def_link>505</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>499</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>"Never had a doubt.
+
+"Here is the plan: we go in before dawn. &lt;charname&gt; will ambush the patrol and keep them busy, while Dias and Agatai will scale the walls and take out the guards patrolling the inner yard. Once the way is clear, we'll go in and remind everyone that an assassin isn't a street thug, but a messenger of Death and neither walls nor guards will protect a man marked for death."</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(AG2_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Heal your wounds and follow Neleos to the barracks.</text>
+          <def_link>502</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Change your robes first.</text>
+          <def_link>477</def_link>
+          <checkOnAppear>dlgIsEquippedItem(505)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>500</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Before heal your wounds and follow Neleos to the barracks you change your robes to:</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leather armor.</text>
+          <def_link>502</def_link>
+          <checkOnAppear>dlgOwnsItem(400)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgUnequipItem(505);</string>
+            <string>dlgEquipItem(400);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Reinforced leather armor.</text>
+          <def_link>502</def_link>
+          <checkOnAppear>dlgOwnsItem(401)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgUnequipItem(505);</string>
+            <string>dlgEquipItem(401);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leather Barbari armor.</text>
+          <def_link>502</def_link>
+          <checkOnAppear>dlgOwnsItem(402)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgUnequipItem(505);</string>
+            <string>dlgEquipItem(402);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Studded Barbari armor.</text>
+          <def_link>502</def_link>
+          <checkOnAppear>dlgOwnsItem(403)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgUnequipItem(505);</string>
+            <string>dlgEquipItem(403);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leather Numeri armor.</text>
+          <def_link>502</def_link>
+          <checkOnAppear>dlgOwnsItem(406)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgUnequipItem(505);</string>
+            <string>dlgEquipItem(406);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Studded Numeri armor.</text>
+          <def_link>502</def_link>
+          <checkOnAppear>dlgOwnsItem(407)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgUnequipItem(505);</string>
+            <string>dlgEquipItem(407);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Manica.</text>
+          <def_link>502</def_link>
+          <checkOnAppear>dlgOwnsItem(408)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgUnequipItem(505);</string>
+            <string>dlgEquipItem(408);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Auxiliary armor.</text>
+          <def_link>502</def_link>
+          <checkOnAppear>dlgOwnsItem(409)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgUnequipItem(505);</string>
+            <string>dlgEquipItem(409);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Phrygian armor.</text>
+          <def_link>502</def_link>
+          <checkOnAppear>dlgOwnsItem(410)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgUnequipItem(505);</string>
+            <string>dlgEquipItem(410);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leather Ordu armor.</text>
+          <def_link>502</def_link>
+          <checkOnAppear>dlgOwnsItem(411)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgUnequipItem(505);</string>
+            <string>dlgEquipItem(411);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Studded Ordu armor.</text>
+          <def_link>502</def_link>
+          <checkOnAppear>dlgOwnsItem(412)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgUnequipItem(505);</string>
+            <string>dlgEquipItem(412);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Lorica Segmentata.</text>
+          <def_link>502</def_link>
+          <checkOnAppear>dlgOwnsItem(413) || dlgOwnsItem(420) || dlgOwnsItem(423)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgUnequipItem(505);</string>
+            <string>if(dlgOwnsItem(423)) dlgEquipItem(423);</string>
+            <string>if(dlgOwnsItem(420)) dlgEquipItem(420);</string>
+            <string>if(dlgOwnsItem(413)) dlgEquipItem(413);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Lorica Musculata.</text>
+          <def_link>502</def_link>
+          <checkOnAppear>dlgOwnsItem(414)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgUnequipItem(505);</string>
+            <string>dlgEquipItem(414);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Praetorian armor.</text>
+          <def_link>502</def_link>
+          <checkOnAppear>dlgOwnsItem(415) || dlgOwnsItem(421)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgUnequipItem(505);</string>
+            <string>if(dlgOwnsItem(421)) dlgEquipItem(421);</string>
+            <string>if(dlgOwnsItem(415)) dlgEquipItem(415);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Lamellar Ordu armor.</text>
+          <def_link>502</def_link>
+          <checkOnAppear>dlgOwnsItem(416)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgUnequipItem(505);</string>
+            <string>dlgEquipItem(416);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Imperial armor.</text>
+          <def_link>502</def_link>
+          <checkOnAppear>dlgOwnsItem(417) || dlgOwnsItem(424)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgUnequipItem(505);</string>
+            <string>if(dlgOwnsItem(424)) dlgEquipItem(424);</string>
+            <string>if(dlgOwnsItem(417)) dlgEquipItem(417);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Lorica Hamata.</text>
+          <def_link>502</def_link>
+          <checkOnAppear>dlgOwnsItem(425)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgUnequipItem(505);</string>
+            <string>dlgEquipItem(425);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Stay dressed in the robes.</text>
+          <def_link>502</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>477</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start AG3</npc_text>
+      <onLoadScripts>
+        <string>dlgCureStat(all);</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>removeCharFromParty(1);</string>
+        <string>removeCharFromParty(1210);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>dlgFinish();</string>
+        <string>cheatHP();</string>
+        <string>aod.global_teron_ag_burned = true;</string>
+        <string>AG2_Level.hideObjects();</string>
+        <string>AG2Fire.hideObjects();</string>
+        <string>dlgteleportto(9, 14, 0, E);</string>
+        <string>if(isAlive(1210)) dlgteleportto(9, 11, 0, E, 1210);</string>
+        <string>tbd_ag_normal.IsRenderEnabled = false;</string>
+        <string>tbd_ag_burned.IsRenderEnabled = true;</string>
+        <string>tbd_door_assassin_01.setAllMeshesHidden(true);</string>
+        <string>setPassability(207, 104, 0, 0);</string>
+        <string>setRtsCam();</string>
+        <string>dlgCreateCharacter("Guard", 1490, 1490, 19, 15, 0, W);</string>
+        <string>dlgCreateCharacter("Guard", 1500, 1500, 19, 10, 0, W);</string>
+        <string>addParty(AG3GuardsFront, 0);</string>
+        <string>addCharToParty(1490, AG3GuardsFront, fighter);</string>
+        <string>addCharToParty(1500, AG3GuardsFront, fighter);</string>
+        <string>addParty(AssassinsAG3, 0);</string>
+        <string>if(isAlive(1210)) addCharToParty(1210, AssassinsAG3, fighter);</string>
+        <string>addCharToParty(1, AssassinsAG3, fighter);</string>
+        <string>addEnemyParty(AssassinsAG3, AG3GuardsFront);</string>
+        <string>addEnemyParty(AG3GuardsFront, AssassinsAG3);</string>
+        <string>aod.quest_ag3_first_fight = true;</string>
+        <string>if(isAlive(1210)) {dlgCureStat(all, 1210); cheatHP(1210);}</string>
+        <string>dlgAddItem(300, 10, 1210);</string>
+        <string>schedule(250, 0, dlgStartCombat);</string>
+        <string>AG3_Level.showObjects();</string>
+        <string>addQuest(AG3);</string>
+        <string>aod.gameplay_questAG3_fight = true;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>502</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carrinas</portrait>
+      <speaker_name>Carrinas</speaker_name>
+      <npc_text>You look at the dead bodies sprawled around you and the blood slowly spreading on the floor. The guards never showed up to back you up. Well, fuck them. You managed without them.
+
+You hear footsteps and Carrinas walks in, followed by the guards. "Not bad," he says with a smile, "not bad at all. I wanted to see how you'd handle a real fight. Everyone can shoot a man through a hole, but it takes guts to face several armed men openly and kill them all. That's what separates the Imperial Guards from assassins.
+
+"Welcome to the club, &lt;charname&gt;. Come and see me after you rest. We have a lot of work to do."</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAmbientAnimation(1440);</string>
+        <string>dlgSetAmbientAnimation(1475);</string>
+        <string>useCameraBookmark(quest_ag2_04);</string>
+        <string>dlgTeleportTo(82, 146, 0, W);</string>
+        <string>dlgTeleportTo(81, 146, 0, E, 1120);</string>
+        <string>dlgTeleportTo(80, 145, 0, E, 1440);</string>
+        <string>dlgTeleportTo(80, 147, 0, E, 1475);</string>
+        <string>rwd_quest(AG2_03);</string>
+        <string>aod.quest_ag2_phase2c = true;</string>
+        <string>rwd_reputation(AG2_05);</string>
+        <string>aod.quest_ag2_betrayal_combat = false;</string>
+        <string>PCmemberIG();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I will."</text>
+          <def_link>504</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>503</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - joined IG</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ag2_joinedIG = true;</string>
+        <string>aod.global_teron_ag_burned = true;</string>
+        <string>dlgFinish();</string>
+        <string>tbd_ag_normal.IsRenderEnabled = false;</string>
+        <string>tbd_ag_burned.IsRenderEnabled = true;</string>
+        <string>tbd_door_assassin_01.setAllMeshesHidden(true);</string>
+        <string>setPassability(207, 104, 0, 0);</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportTo(232, 55, 1, N, 1120);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgDeleteCharacter(1440);</string>
+        <string>dlgDeleteCharacter(1475);</string>
+        <string>ag2_ag_exit.setActive(true);</string>
+        <string>setObjectRenderState(OBJ_ag2_ag_exit, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>504</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go meet Carrinas</npc_text>
+      <onLoadScripts>
+        <string>dlgCureStat(all);</string>
+        <string>dlgFinish();</string>
+        <string>AG2Fire.hideObjects();</string>
+        <string>AG2_Level.hideObjects();</string>
+        <string>terondaytime();</string>
+        <string>cheatHP();</string>
+        <string>dlgTeleportTo(232, 56, 1, S);</string>
+        <string>useCameraBookmark(Quest_MG2_Cam_05);</string>
+        <string>apmsStartDialogue(quest_ig3);</string>
+        <string>dlgFadeLongToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>509</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>Coltan</speaker_name>
+      <npc_text>"Wait," says Coltan suddenly. He reaches inside his sash and produces a small vial. "I owe you my life and I'd like to repay the debt. Coat your weapons with this poison and wait for it to dry. It will give you the edge you'll need to walk away with your life. It's one of my best. I kept it for special customers." Coltan chuckles.
+
+"Good luck, &lt;charname&gt;."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>cheatHP();</string>
+        <string>dlgTeleportTo(67, 146, 0, W);</string>
+        <string>dlgTeleportTo(66, 146, 0, E, 1050);</string>
+        <string>useCameraBookmark(quest_ag2_11);</string>
+        <string>aod.ending_ag_05 = true;</string>
+        <string>aod.ending_agChoices = true;</string>
+        <string>dlgAddItemlist(Quest_AG2_Poison);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Thanks, Coltan." Go to the barracks.</text>
+          <def_link>502</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Change your robes first.</text>
+          <def_link>477</def_link>
+          <checkOnAppear>dlgIsEquippedItem(505)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>505</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Well, it looks like your work here is done. It's not exactly how you expected to part ways with the guild, but in the end one way is as good as any other.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(81, 146, 0, W);</string>
+        <string>useCameraBookmark(Quest_AG2_Cam_13);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go see what the new boss wants.</text>
+          <def_link>509</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Look around some more.</text>
+          <def_link>511</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>510</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>511</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

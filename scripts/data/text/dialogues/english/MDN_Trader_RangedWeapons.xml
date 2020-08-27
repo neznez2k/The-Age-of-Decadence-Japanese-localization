@@ -1,0 +1,548 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_mdnTraderRanged_met</string>
+    </conditions>
+    <links>
+      <int>481</int>
+    </links>
+    <dlg_name>MDN_Trader_RangedWeapons</dlg_name>
+    <def_link>478</def_link>
+    <def_speaker_name>The Fletcher</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Like to kill ‘em from afar? You’ve come to the right place then. Arrows, pila, chakrams – I have it all. Flying Hawk’s the name, aerial supremacy’s the game. Now, what can I get you?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_mdnTraderRanged_met = true;</string>
+        <string>dlgTeleportToMarker(TM_DLG_TraderFletcher);</string>
+        <string>dlgCam(195, 40, 7, 6105);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Browse the wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Do you have anything special?”</text>
+          <def_link>482</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Do you have any special schematics?"</text>
+          <def_link>488</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>478</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>TRADE</npc_text>
+      <onLoadScripts>
+        <string>dlgTradeWithMe("The Flying Hawk");</string>
+        <string>dlgCam(225, 45, 15);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>479</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgCam(225, 45, 15);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>480</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Looking for anything in particular?"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_TraderFletcher);</string>
+        <string>dlgCam(195, 40, 7, 6105);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Browse the wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Do you have anything special?”</text>
+          <def_link>482</def_link>
+          <checkOnAppear>aod.npc_TraderRanged_asked_bow == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Is your bow still for sale?”</text>
+          <def_link>487</def_link>
+          <checkOnAppear>aod.npc_TraderRanged_asked_bow &amp;&amp; aod.npc_TraderRanged_bought_bow == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Do you have any special schematics?"</text>
+          <def_link>488</def_link>
+          <checkOnAppear>aod.schematics_xbowsXtra == 0 || aod.schematics_xbowsScoped == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>481</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Gold’s burning a hole in your pocket, eh? If you’re dying to part with it, I can sell you my bow. It’s one of a kind, trust me. I made it myself, took my time with it too. Had to make sure it was done right, you see. Took me three years to dry the wood properly and get it into the right shape. It’s not a fancy looking bow but it will serve you right, if you have the skill to use it. Here, give it a try.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_TraderRanged_asked_bow = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setWindowImage(item_oldfaithful);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Try the bow.</text>
+          <def_link>483</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>482</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>It’s made neither of horn, ash nor yew, but of elm. It’s an ugly, unfinished-looking weapon, but astonishingly stiff, large and strong, and equally capable of use for long or short shooting.
+
+[Increased penetration and THC bonus]</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“How much?”</text>
+          <def_link>484</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>483</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Five hundred should do it.”</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setWindowImage();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 500 imperials.</text>
+          <def_link>485</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 500</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading success]“500 for a wooden bow? Are you mad? Take 400 and consider yourself lucky.”</text>
+          <def_link>486</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 400 &amp;&amp; aod.trading &gt;= 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I can't afford it.” Browse other wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Do you have any special schematics?"</text>
+          <def_link>488</def_link>
+          <checkOnAppear>aod.schematics_xbowsXtra == 0 || aod.schematics_xbowsScoped == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>484</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Still is. Can be yours for five hundred coins.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 500 imperials.</text>
+          <def_link>485</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 500</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading success]“500 for a wooden bow? Are you mad? Take 400 and consider yourself lucky.”</text>
+          <def_link>486</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 400 &amp;&amp; aod.trading &gt;= 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I can't afford it.” Browse other wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Do you have any special schematics?"</text>
+          <def_link>488</def_link>
+          <checkOnAppear>aod.schematics_xbowsXtra == 0 || aod.schematics_xbowsScoped == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>487</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“May it serve you well.”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-500);</string>
+        <string>aod.npc_TraderRanged_bought_bow = true;</string>
+        <string>dlgAddItemlist(Unique_OldFaithful);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Browse the wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Do you have any special schematics?"</text>
+          <def_link>488</def_link>
+          <checkOnAppear>aod.schematics_xbowsXtra == 0 || aod.schematics_xbowsScoped == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>485</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Alright. The bow is yours now. May it serve you well.”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-400);</string>
+        <string>dlgAddItemlist(Unique_OldFaithful);</string>
+        <string>aod.npc_TraderRanged_bought_bow = true;</string>
+        <string>rwd_civil(Trading);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Browse the wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Do you have any special schematics?"</text>
+          <def_link>488</def_link>
+          <checkOnAppear>aod.schematics_xbowsXtra == 0 || aod.schematics_xbowsScoped == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>486</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I might have a few. What do you have in mind?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Double and Repeating Crossbows - 100 gold.</text>
+          <def_link>492</def_link>
+          <checkOnAppear>aod.schematics_xbowsXtra == 0</checkOnAppear>
+          <checksOnClick>
+            <string>dlgGetMoney() &lt; 100</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>491</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Scoped Crossbows - 100 gold.</text>
+          <def_link>493</def_link>
+          <checkOnAppear>aod.schematics_xbowsScoped == 0</checkOnAppear>
+          <checksOnClick>
+            <string>dlgGetMoney() &lt; 100</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>491</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Show me something else."</text>
+          <def_link>481</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>488</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You don't have enough money. Come back when you do."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Browse the wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Do you have anything special?”</text>
+          <def_link>482</def_link>
+          <checkOnAppear>aod.npc_TraderRanged_asked_bow == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Is your bow still for sale?”</text>
+          <def_link>487</def_link>
+          <checkOnAppear>aod.npc_TraderRanged_asked_bow &amp;&amp; aod.npc_TraderRanged_bought_bow == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>491</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>(double and repeating crossbows) "Here you go. Anything else?"</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-100);</string>
+        <string>addXBowXtraSchematics();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Browse the wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Do you have anything special?”</text>
+          <def_link>482</def_link>
+          <checkOnAppear>aod.npc_TraderRanged_asked_bow == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Is your bow still for sale?”</text>
+          <def_link>487</def_link>
+          <checkOnAppear>aod.npc_TraderRanged_asked_bow &amp;&amp; aod.npc_TraderRanged_bought_bow == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Show me the schematics again."</text>
+          <def_link>488</def_link>
+          <checkOnAppear>aod.schematics_xbowsXtra == 0 || aod.schematics_xbowsScoped == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>492</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>(scoped crossbows) "Here you go. Anything else?"</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-100);</string>
+        <string>addXBowScopedSchematics();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Browse the wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Do you have anything special?”</text>
+          <def_link>482</def_link>
+          <checkOnAppear>aod.npc_TraderRanged_asked_bow == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Is your bow still for sale?”</text>
+          <def_link>487</def_link>
+          <checkOnAppear>aod.npc_TraderRanged_asked_bow &amp;&amp; aod.npc_TraderRanged_bought_bow == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Show me the schematics again."</text>
+          <def_link>488</def_link>
+          <checkOnAppear>aod.schematics_xbowsXtra == 0 || aod.schematics_xbowsScoped == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>493</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

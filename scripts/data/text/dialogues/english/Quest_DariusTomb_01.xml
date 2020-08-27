@@ -1,0 +1,124 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Quest_DariusTomb_01</dlg_name>
+    <def_link>3430</def_link>
+    <def_speaker_name>Raider</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>It takes you a while to find the tomb. If not for the campfire, you’d have missed it and gone further south. Only when you come closer do you notice a half-buried entrance on one side of an otherwise unremarkable hill. Somehow, you expected more.
+
+There are several well armed men sitting around the campfire. They look at you without any interest, but offer you a traditional desert welcome – water and rest for a weary traveller.
+
+“Where are you heading to?” asks one of the men.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_PC_OutsideTomb_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’m looking for an old tomb.”</text>
+          <def_link>3431</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3430</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You’ve found it then,” says the man and looks at you, as if expecting an answer to his unspoken question.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’m looking for an artefact.”</text>
+          <def_link>3432</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3431</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“There are no artefacts here,” says the man. “This place was stripped clean long before you were born, stranger.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Would you mind if I take a look?”</text>
+          <def_link>3434</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>You have a feeling that the raiders will only get in your way. Kill them.</text>
+          <def_link>3433</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3432</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - outside</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_dariusTomb_raidersDead = true;</string>
+        <string>addEnemyToParty(1, DariusTomb_Raiders);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_PC_OutsideTomb_02);</string>
+        <string>aod.death_darius_tomb = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3433</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The man exchanges glances with the others. “Sure, why not?” he says with a shrug. “I’ll go with you. We wouldn’t want the boys getting any ideas now, would we?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Enter the tomb.</text>
+          <def_link>3464</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3434</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - inside tomb</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgTeleportToMarker(TM_PC_InsideTomb_01);</string>
+        <string>dlgTeleportToMarker(TM_NPC_InsideTomb_01, 5045);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3464</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

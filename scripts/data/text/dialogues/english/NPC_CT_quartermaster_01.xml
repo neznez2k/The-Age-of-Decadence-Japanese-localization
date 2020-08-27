@@ -1,0 +1,357 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.pc_member_guards == 0</string>
+      <string>aod.npc_raenas_met == false</string>
+      <string>aod.npc_CT_qm_met</string>
+    </conditions>
+    <links>
+      <int>15</int>
+      <int>14</int>
+      <int>1</int>
+    </links>
+    <dlg_name>NPC_CT_quartermaster_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Quartermaster</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The local quartermaster is an angry-looking man with a crippled leg. Probably one of the reassigned soldiers. His face twitches when he sees you and he hobbles towards you, cursing you and your whore of a mother.
+
+“I’ve got nothing for you,” he says when he’s done cursing. “Will there be anything fucking else?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_CT_qm_met = true;</string>
+        <string>dlgTeleportToMarker(TM_DLG_QM_NPC, 8010);</string>
+        <string>dlgTeleportToMarker(TM_DLG_QM_PC);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Not very friendly, are you?”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What do you do around here?”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What do you want?”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_QM_NPC, 8010);</string>
+        <string>dlgTeleportToMarker(TM_DLG_QM_PC);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I'll take it.” Pay him 1,250 imperials.</text>
+          <def_link>8</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 1250 &amp;&amp; aod.npc_CT_qm_gotsteel == false &amp;&amp; aod.npc_CT_qm_convinced</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I'll take it.” Give him 100 pounds of steel.</text>
+          <def_link>13</def_link>
+          <checkOnAppear>dlgGetItemsCount(1400, 1, 0, 2) &gt;= 1000 &amp;&amp; aod.npc_CT_qm_gotsteel == false &amp;&amp; aod.npc_CT_qm_steel</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Friendly?” asks the quartermaster as if struggling to understand what you could possibly mean by that. “I swear, if this is a fucking joke...”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I need some blue steel.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Whatever Paullus tells me. You know what I don’t do? Listen to shit-for-brains centurions. Are you done wasting my time or do you have other questions?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I need some blue steel.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“And you expect me to give a fuck?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I can pay.”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Well, it ain’t a fucking store, &lt;son/girl&gt;.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[trading]“Everything is for sale. People who claim otherwise are simply waiting for a better offer.”</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.trading &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Really?” asks the quartermaster, raising a scar-crossed eyebrow. “Alright. Two fifty a pound then. I have five pounds set aside for a special occasion, but what's more special than a fool willing to pay double. So, what's it gonna be?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_CT_qm_convinced = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I'll take it.” Pay him 1,250 imperials.</text>
+          <def_link>8</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 1250</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion]“Blue steel is good for a legatus or dux, but you have an army to maintain. When the legions return from rotation, a few pounds of blue steel will be next to useless. Steel, on the other hand...”</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>12</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Forget about it.” Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“Let me worry about that. So, are you going to buy the ingots or not?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I'll take it.” Pay him 1,250 imperials.</text>
+          <def_link>8</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 1250</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Forget about it.” Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Steel? If the quality's good, I'll take it. A hundred pounds for five pounds of blue steel. It's a pretty good fucking deal and you know it.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_CT_qm_steel = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Deal.” Give him 100 pounds of steel.</text>
+          <def_link>13</def_link>
+          <checkOnAppear>dlgGetItemsCount(1400, 1, 0, 2) &gt;= 1000</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Forget about it.” Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“All yours. Now, get out of here, I wasted enough time on you already.”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-1250);</string>
+        <string>aod.npc_CT_qm_gotsteel = true;</string>
+        <string>dlgAddItemlist(CT_QM_BlueSteel);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“All yours. Now, get out of here, I wasted enough time on you already.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_CT_qm_gotsteel = true;</string>
+        <string>dlgRemoveItem(1400, 1000, 0, 1, 0, 2);</string>
+        <string>dlgAddItemlist(CT_QM_BlueSteel);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“Piss off.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - bark Raenas not met</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>sayPhrase(8010, "Whatever it is you want, it can wait.");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Imperial Guards only. Piss off.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

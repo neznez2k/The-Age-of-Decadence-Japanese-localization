@@ -1,0 +1,783 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_bernie_paid</string>
+      <string>aod.npc_bernie_killed_guards</string>
+    </conditions>
+    <links>
+      <int>8502</int>
+      <int>8504</int>
+    </links>
+    <dlg_name>GNZ_NPC_Berengarius_01</dlg_name>
+    <def_link>8489</def_link>
+    <def_speaker_name>Berengarius</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Welcome to my store,” says a soft-spoken man wearing a turban. “If you’re looking for gemstones, you’ve come to the right place. I’m Berengarius, an appraiser and a jeweler.”
+
+You notice that there are two guards in the store. “A necessary measure,” explains the storekeeper.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(280, 45, 6, 9017);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Bernie);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Browse the wares.</text>
+          <def_link>8490</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Are you with the Commercium?”</text>
+          <def_link>8491</def_link>
+          <checkOnAppear>aod.npc_bernie_asked_commercium == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Hector sent me.”</text>
+          <def_link>8494</def_link>
+          <checkOnAppear>aod.quest_hector_01 == 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Lord Darganus sent me.” Tell the guards to leave and explain the situation.</text>
+          <def_link>8510</def_link>
+          <checkOnAppear>aod.quest_darganus_01 == 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8492</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8489</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>TRADE</npc_text>
+      <onLoadScripts>
+        <string>dlgTradeWithMe("Berengarius Gems");</string>
+        <string>dlgCam(280, 45, 12);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8490</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgCam(280, 45, 12);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8492</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I used to work for them, yes,” says the man, “but things are different now.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_bernie_asked_commercium = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Do the zealots bother you?”</text>
+          <def_link>8493</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8491</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“They bother everyone, so now I pay the guards. No matter how you look at it, it’s still a better deal.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Browse the wares.</text>
+          <def_link>8490</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Hector sent me.”</text>
+          <def_link>8494</def_link>
+          <checkOnAppear>aod.quest_hector_01 == 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Lord Darganus sent me.” Tell the guards to leave and explain the situation.</text>
+          <def_link>8510</def_link>
+          <checkOnAppear>aod.quest_darganus_01 == 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8492</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8493</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The man’s face changes. He looks at the guards, then at you.
+
+“What does he want?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“He asked me to remind you of your duty to those less fortunate.”</text>
+          <def_link>8495</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8494</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I gave him *enough*,” says the man angrily.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Hector disagrees. He thinks it’s your duty to share your good fortune with the faithful. The Gods sees all, Bernie. I'm sure they will appreciate your generosity.”</text>
+          <def_link>8496</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8495</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You can shove your gods...,” the man snaps but catches himself in time, glancing at the guards.
+
+“I don’t owe Hector anything.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You do. I just didn’t convince you yet, but we’ll get to it, don’t you worry.”</text>
+          <def_link>8497</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You don't owe Hector anything. You owe to the faithful. Hector is merely acting on their behalf, for they are meek and humble.”</text>
+          <def_link>8497</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Shove my Gods? Tsk-tsk. I've seen worthier men crucified for much less.”</text>
+          <def_link>8497</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8496</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I have guards,” says the man, licking his suddenly dry lips.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[body count]“They will guard your tombstone tomorrow if you don’t pay Hector now.”</text>
+          <def_link>8498</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(bodycount) &gt;= 25</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8499</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]“You really think they can protect you? Protect your store? Your house? Your *family*? You aren’t thinking it through, Bernie, trust me.”</text>
+          <def_link>8498</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8499</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8497</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]For some reasons your word only harden the man's resolve.
+
+“Get &lt;him/her&gt;!” he screams suddenly, pointing at you. “Tear &lt;him/her&gt; apart!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>8501</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8498</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“It never ends, does it?” asks the man, giving up.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Bernie, here is a simple fact of life. You want to do business, you pay. You used to pay the Commercium. Now you pay the guards because you're afraid of Hector. Give Hector what he asks for and you won't have to worry about anything ever again.”</text>
+          <def_link>8500</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8499</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Five hundred imperials,” says the man flatly, handing you the money.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(500);</string>
+        <string>aod.quest_hector_01 = 2;</string>
+        <string>aod.npc_bernie_paid = true;</string>
+        <string>aod.jnl_GNZ_Hector_01 = 2;</string>
+        <string>rwd_civil(GNZ_Berengarius_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8492</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8500</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Of course, of course,” says the terrified man, giving you the money and a handful of gemstones.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(500);</string>
+        <string>dlgAddItem(2004, 3);</string>
+        <string>dlgAddItem(2003, 2);</string>
+        <string>dlgAddItem(2002, 1);</string>
+        <string>aod.quest_hector_01 = 2;</string>
+        <string>aod.npc_bernie_paid = true;</string>
+        <string>aod.jnl_GNZ_Hector_01 = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8508</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8507</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.npc_bernie_killed_guards = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addEnemyToParty(1, GNZ_Bernie);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+        <string>DOOR_Bernie.close();</string>
+        <string>DOOR_Bernie.lock();</string>
+        <string>aod.fight_bernieGuards = 1;</string>
+        <string>setCharacterInvincible(9017, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8501</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’ve already paid,” says Berengarius, a note of alarm in his voice.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(280, 45, 6, 9017);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Bernie);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Relax, Bernie. I’m just making sure that everything is ok and nobody’s bothering you.”</text>
+          <def_link>8503</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8502</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Everything’s good,” says the trader, not looking convinced by your evident concern for his well-being.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Browse the wares.</text>
+          <def_link>8490</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8492</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8503</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Please,” whispers the man, his eyes wide with fear. “I will pay! I swear! Anything!”</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(225, 45, 6, 9017);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Bernie_2);</string>
+        <string>dlgRotateToChar(1, 9017);</string>
+        <string>DOOR_Bernie.unlock();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Cut his throat as a lesson to others.</text>
+          <def_link>8521</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Of course, you will fucking pay. Was there ever any doubt? Hand over what you owe Hector and throw in something extra for my trouble.”</text>
+          <def_link>8507</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8504</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You watch him die, then go through his pockets.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(762);</string>
+        <string>dlgAddItem(2004, 3);</string>
+        <string>dlgAddItem(2003, 2);</string>
+        <string>dlgAddItem(2002, 1);</string>
+        <string>aod.quest_hector_01 = 3;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetAnimation(anim_death_back00, 0.95, 9017);</string>
+        <string>dlgKillCharacter(9017);</string>
+        <string>changeRep(bodycount, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8505</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8521</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - killed the trader</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8505</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What about the b-b-bodies?” asks the trader, pointing at them with a shaking hand.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Bernie, don't burden me with your problems. Bury them somewhere where they won't be disturbed. If anyone asks, you paid them and never saw them since.”</text>
+          <def_link>8509</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8508</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Berengarius gives you a sad look and sighs.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Smile, Bernie. You're still breathing.” Leave.</text>
+          <def_link>8492</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8509</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What if they send more men than you can handle?”</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_GNZ_Darganus_01 = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Then they kill us. I’ll die fighting so my death will be quick. Then they’ll torture you until you give them everything and then they torture you some more to be sure.”</text>
+          <def_link>8511</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You worry too much.”</text>
+          <def_link>8511</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8510</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Claudia</portrait>
+      <speaker_name>Claudia</speaker_name>
+      <npc_text>You spend the next few hours listening to Berengarius’ nearly endless complaints about the hardships of running a store. Eventually the Gods take pity on you and send in the zealots.
+
+They come after dark. A man and a woman.
+
+The man looks malnourished and ill. He’s brandishing a rusty sword and does his best to look tough, so he must be the ‘muscle’. The woman is clearly the brain of this operation. She looks hard, like someone who’s never had it easy and gotten quite used to it.
+
+“Lost your guards, Berengarius?” says the woman in a hoarse voice. “Got yourself a killer instead?” She looks at you and spits. Way to make friends.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>createByCharMarker("CM_Claudia_2");</string>
+        <string>createByCharMarker("CM_Old_Man_Claudia");</string>
+        <string>dlgTeleportToMarker(TM_DLG_Claudia);</string>
+        <string>setCharacterRendered(9019, 0);</string>
+        <string>setCharacterRendered(9018, 0);</string>
+        <string>dlgCam(80, 45, 6, 90321);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What do you want?”</text>
+          <def_link>8512</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_tycho_dead</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8522</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8511</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Claudia</portrait>
+      <speaker_name>Claudia</speaker_name>
+      <npc_text>“What I want?” asks the woman as if surprised by the question. “I want this fat fuck to spare some change. Why? You gonna kill me over a few coins?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Kill her and be done with it.</text>
+          <def_link>8513</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I haven’t decided yet.”</text>
+          <def_link>8514</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8512</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Claudia</portrait>
+      <speaker_name>Claudia</speaker_name>
+      <npc_text>“What I want?” asks the woman as if surprised by the question. “I want this fat fuck to spare some change. Why? You gonna kill me like you killed Tycho?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Kill her and be done with it.</text>
+          <def_link>8513</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I haven’t decided yet.”</text>
+          <def_link>8514</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8522</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>She sees it coming but doesn’t move away. Her eyes, full of contempt, are locked with yours until the very end.
+
+Her bodyguard throws the sword down and runs away.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_darganus_01 = 2;</string>
+        <string>dlgDeleteCharacter(9035);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetAnimation(anim_death_back03, 0.95, 90321);</string>
+        <string>dlgKillCharacter(90321);</string>
+        <string>changeRep(bodycount, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Return to Darganus.</text>
+          <def_link>8523</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8513</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - killed Claudia</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Map_MG);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>setCharacterRendered(9018, 1);</string>
+        <string>setCharacterRendered(9019, 1);</string>
+        <string>dlgCam(0, 45, 12);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8523</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Claudia</portrait>
+      <speaker_name>Claudia</speaker_name>
+      <npc_text>“Must be nice,” says the woman, her voice full of contempt, “to stand there and decide who lives and who dies. You kill me, you kill dozens of people down there who rely on the money I collect and bring every fucking day.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’ve seen how you collect. You threaten and extort and on occasions run men out of Ganezzar.”</text>
+          <def_link>8515</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8514</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Claudia</portrait>
+      <speaker_name>Claudia</speaker_name>
+      <npc_text>“Cry me a fucking river,” scoffs the woman. “There are people down there who haven’t eaten in days and you want me to worry that we ran some trader out of town? Good fucking riddance!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“There should be another way.”</text>
+          <def_link>8516</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8515</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Claudia</portrait>
+      <speaker_name>Claudia</speaker_name>
+      <npc_text>“There is,” nods the woman, her steel-grey eyes harden. “These men you feel sorry for can start giving a fuck about people who need food and medicine.
+
+“How about it, Berengarius? Want to come with me and take a look at how people live in Lowtown?”
+
+Berengarius shakes his head, terrified. He goes down there, he’ll probably end up on a cross in no time.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“He isn’t responsible for these people.”</text>
+          <def_link>8517</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8516</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Claudia</portrait>
+      <speaker_name>Claudia</speaker_name>
+      <npc_text>“Well, I say he is,” the woman says firmly. “So either do what you came here to do or get the fuck out of my way.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Kill her and be done with it.</text>
+          <def_link>8513</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Walk away.</text>
+          <def_link>8518</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8517</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Claudia</portrait>
+      <speaker_name>Claudia</speaker_name>
+      <npc_text>“This day is full of surprises,” says the woman. “Get your things, Berengarius, you're coming with me.”
+
+“Talk to Hector,” she says before leaving, “if you ever decide to get involved.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_darganus_01 = 3;</string>
+        <string>aod.jnl_GNZ_Darganus_01 = 3;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8520</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8518</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Berengarius gone</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgDeleteCharacter(9017);</string>
+        <string>dlgDeleteCharacter(9018);</string>
+        <string>dlgDeleteCharacter(9019);</string>
+        <string>dlgDeleteCharacter(90321);</string>
+        <string>dlgDeleteCharacter(9035);</string>
+        <string>dlgCam(280, 45, 12);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8520</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

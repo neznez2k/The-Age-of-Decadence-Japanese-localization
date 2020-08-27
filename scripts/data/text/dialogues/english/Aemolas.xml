@@ -1,0 +1,692 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.tsq_refugees_killed</string>
+      <string>aod.npc_aemolas_met</string>
+      <string>aod.tsq_refugees_normal</string>
+      <string>aod.tsq_refugees_tenfold</string>
+    </conditions>
+    <links>
+      <int>1939</int>
+      <int>1937</int>
+      <int>1928</int>
+      <int>1929</int>
+    </links>
+    <dlg_name>Aemolas</dlg_name>
+    <def_link>1928</def_link>
+    <def_speaker_name>Aemolas</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I've been waiting for you, my friend. Thanks to your generosity, my family is safe. It seems that there is a good demand for bronze armor. I've already got several orders, but repaying my debt to you comes first. Please accept this humble gift – the armor of my people. May it keep you safe."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_aemolas_met = true;</string>
+        <string>useCameraBookmark(NPC_Aemolas_cam_01);</string>
+        <string>dlgAddItemlist(AemolasGift);</string>
+        <string>aod.quest_aemolasGold_askAboutVillage = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"So, what happened to your village?"</text>
+          <def_link>1944</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"My gratitude, Aemolas."</text>
+          <def_link>1936</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1928</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I was wondering when you'd come. Thanks to you, my family is safe. It seems that there is a good demand for bronze armor. I've already got several orders, but repaying my debt to you comes first." He gives you a hundred and fifty imperials.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(150);</string>
+        <string>aod.npc_aemolas_met = true;</string>
+        <string>useCameraBookmark(NPC_Aemolas_cam_01);</string>
+        <string>aod.quest_aemolasGold_askAboutVillage = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take it and leave.</text>
+          <def_link>1936</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"So, what happened to your village?"</text>
+          <def_link>1944</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"You promised me fifteen hundred imperials."</text>
+          <def_link>1930</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1929</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I would have promised you fifteen thousand to protect my family, but now that they are safe –"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"You can't go back on your word now."</text>
+          <def_link>1931</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1930</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I'm an honourable man," shouts Aemolas, "but I won't let people like you take advantage of me. Take the money I gave you and go!"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Let it go.</text>
+          <def_link>1936</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Wait around and follow Aemolas to his house.</text>
+          <def_link>1932</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1931</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You again? What do you want from me?"</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(18, 227, 0, N, 2070);</string>
+        <string>dlgTeleportTo(18, 228, 0, S);</string>
+        <string>useCameraBookmark(TSQ_Refugees_cam_04);</string>
+        <string>dlgCreateCharacter("難民", 2071, 2075, 16, 225, 0, E);</string>
+        <string>dlgCreateCharacter("難民", 2073, 2076, 20, 225, 0, N);</string>
+        <string>dlgSetAnimation(anim_beg00_ambient_01, 0.99, 2075);</string>
+        <string>dlgSetAnimation(anim_idle00_ambient_01, 0.99, 2076);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"You owe me thirteen hundred and fifty imperials. A deal's a deal."</text>
+          <def_link>1933</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Nothing. Just stopping by."</text>
+          <def_link>1938</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1932</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You forced me to agree to your terms!"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"If I recall correctly, you were the one who said 'tenfold'. You better pay up, 'friend', or I'll take everything you have, including your women. I'm sure they can work your debt off at the inn in no time."</text>
+          <def_link>1934</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1933</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Aemolas' eyes bulge with fury. "We're done talking. I gave you your money. Now get out."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>1935</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1938</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1934</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addParty(TSQRefugeesParty, 0);</string>
+        <string>addCharToParty(2070, TSQRefugeesParty, fighter);</string>
+        <string>addCharToParty(2075, TSQRefugeesParty, fighter);</string>
+        <string>addCharToParty(2076, TSQRefugeesParty, fighter);</string>
+        <string>addEnemyToParty(1, TSQRefugeesParty);</string>
+        <string>setRtsCam();</string>
+        <string>aod.tsq_refugees_killed = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1935</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - normal</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>if(aod.npc_aemolas_gotSP == false) {rwd_quest(Aemolas_01); aod.npc_aemolas_gotSP = true;}</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1936</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - normal - think about</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>aod.quest_aemolasGold_willThink = true;</string>
+        <string>if(aod.npc_aemolas_gotSP == false) {rwd_quest(Aemolas_01); aod.npc_aemolas_gotSP = true;}</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1951</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - normal - accepted Aemolas Quest</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>aod.quest_aemolasGold_accepted = true;</string>
+        <string>aod.quest_aemolasGold_willThink = false;</string>
+        <string>if(aod.npc_aemolas_gotSP == false) {rwd_quest(Aemolas_01); aod.npc_aemolas_gotSP = true;}</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1953</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - from trade dialogue</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1943</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Do you want to take a look at my wares?"</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Aemolas_cam_01);</string>
+        <string>assignItemlist(aemolasMerchandise, 2070);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Sure."</text>
+          <def_link>1942</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Maybe later." Leave.</text>
+          <def_link>1943</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_aemolas_checkForHonor &amp;&amp; dlgGetRep(honor) &gt;= 1</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1947</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I've changed my mind. I'll get you your stash."</text>
+          <def_link>1952</def_link>
+          <checkOnAppear>aod.quest_aemolasGold_willThink</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"So, what happened to your village?"</text>
+          <def_link>1944</def_link>
+          <checkOnAppear>aod.quest_aemolasGold_askAboutVillage</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I found your stash."</text>
+          <def_link>1957</def_link>
+          <checkOnAppear>aod.quest_aemolas_gotmoney &amp;&amp; aod.quest_aemolas_goldGiven == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1937</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>TRADE</npc_text>
+      <onLoadScripts>
+        <string>dlgTradeWithMe("Aemolas");</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1942</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - left home</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportTo(137, 70, 0, N);</string>
+        <string>dlgTeleportTo(122, 90, 0, N, 2070);</string>
+        <string>dlgDeleteCharacter(2075);</string>
+        <string>dlgDeleteCharacter(2076);</string>
+        <string>if(aod.npc_aemolas_gotSP == false) {rwd_quest(Aemolas_01); aod.npc_aemolas_gotSP = true;}</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1938</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - left home after fight</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportTo(137, 70, 0, N);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>AemolasShop.hideObjects();</string>
+        <string>if(aod.global_teron_completed == false) {setGroupPassability(120, 88, 124, 88, 0, 1); setPassability(118, 88, 0, 1);}</string>
+        <string>if(aod.global_teron_completed) {setGroupPassability(33, 105, 37, 105, 0, 1); setGroupPassability(36, 104, 37, 104, 0, 1); setPassability(31, 105, 0, 1);}</string>
+        <string>aod.gameplay_aemolasShop = false;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1941</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>Ready to go?</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(TSQ_Refugees_cam_05);</string>
+        <string>dlgTeleportTo(19, 229, 0, N);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave the house.</text>
+          <def_link>1941</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Look around some more.</text>
+          <def_link>1936</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1939</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Raiders," says Aemolas. "It's getting really bad out there. The wasteland breeds this scum faster than ever before. Ten years ago we were able to fend for ourselves. Last year we spent more time fighting off raiders than farming. You just can't survive on your own anymore."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_aemolasGold_askAboutVillage = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"So, there is nothing left?"</text>
+          <def_link>1945</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1944</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"There are a few places here and there. If they are well defended, they have a chance, but for how long? Once raiders come, you start losing men and then it's only a matter of time. You need something that keeps raiders away."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"What would keep them away?"</text>
+          <def_link>1946</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1945</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I've heard of a place called Inferiae. Aptly named. In the old days the word meant sacrifice offered to the souls of dead heroes.
+
+"They say the village is built around a pit which connects this world with the one below. Some say it leads into Tartarus itself. I don't know if it's true or not, but I was told that raiders avoid Inferiae as if it were a plague.
+
+"The locals have a habit of throwing lone travelers down into the pit, to thank the souls below for their protection and blessings. Maybe it's their madness that keeps them safe, maybe it's the souls of those long gone. I tell you, &lt;charname&gt;, the wasteland can be a very strange place sometimes."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_aemolas_checkForHonor = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1936</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(honor) &gt;= 1</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1947</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1946</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[word of honor success]"Wait, &lt;charname&gt;... I need to talk to you about something.
+
+"When our settlement was attacked, the writing was already on the wall. We had less than twenty men left, most of them wounded from the previous attacks. It was a bad year for us. So, we grabbed what we could and ran. I'm not proud of it, but dying with the rest of them wouldn't have made any difference... My family comes first, principles second.
+
+"I had money. A lot of money. If you can get it for me, a third is yours."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_aemolas_checkForHonor = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Do you think it's still there?"</text>
+          <def_link>1948</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1947</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"The stash is well hidden, which is why I couldn't get to it in time. You need to know where to look. Give me your word and I'll tell you."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"You'd trust a stranger?"</text>
+          <def_link>1949</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1948</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I don't have a choice. I'm not going back there, so if I trust no one, my money is as good as gone. If I make a deal with you, I get a chance to get some money back. I asked around about you, &lt;charname&gt;. They say you keep your word, so that's good enough for me. So, do I have your word?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Sure, you have my word."</text>
+          <def_link>1952</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"How much is there?"</text>
+          <def_link>1954</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Too much risk. The place is probably crawling with raiders."</text>
+          <def_link>1950</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1949</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"If you change your mind..."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1951</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1950</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Let me mark the settlement on your map. The money is buried near the old well. Take two steps south and start digging."</npc_text>
+      <onLoadScripts>
+        <string>addQuest(AemolasGold);</string>
+        <string>revealMapLocation("Aemolas");</string>
+        <string>dlgAddTextBoxMessage("Aemolas Village added to the map");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1953</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1952</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"1,200 imperials. Keep 400, bring the rest to me. Do we have a deal?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Sure, you have my word."</text>
+          <def_link>1952</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intelligence success]"The wasteland has been kind to you, Aemolas."</text>
+          <def_link>1955</def_link>
+          <checkOnAppear>aod.int &gt;= 8 &amp;&amp; aod.streetwise &lt; 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]"The wasteland has been kind to you, Aemolas."</text>
+          <def_link>1955</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Too much risk. The place is probably crawling with raiders."</text>
+          <def_link>1950</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1954</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What are you saying?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'm saying there is more to this story than what you've told me."</text>
+          <def_link>1956</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1955</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I've told you all you need to know, &lt;charname&gt;. Are you in or are you out?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'm in."</text>
+          <def_link>1952</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'm out."</text>
+          <def_link>1950</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1956</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You're a &lt;man/woman&gt; of your word. Thank you. Here are your 400 imperials, as agreed."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_aemolas_goldGiven = true;</string>
+        <string>dlgChangeMoney(-800);</string>
+        <string>aod.jnl_AemolasGold = 1;</string>
+        <string>rwd_reputation(AemolasGold_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Take care of yourself, Aemolas." Leave.</text>
+          <def_link>1943</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1957</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

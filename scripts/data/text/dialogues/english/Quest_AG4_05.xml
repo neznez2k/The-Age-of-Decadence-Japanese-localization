@@ -1,0 +1,235 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_AG4_success</string>
+      <string>aod.quest_AG4_totalFailure</string>
+    </conditions>
+    <links>
+      <int>52</int>
+      <int>54</int>
+    </links>
+    <dlg_name>Quest_AG4_05</dlg_name>
+    <def_link>45</def_link>
+    <def_speaker_name>Darista</def_speaker_name>
+    <def_portrait>Darista</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I don’t see any gold in front of me,” says Darista, greeting you with a scowl on her face.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_AG_Hamza, 4610);</string>
+        <string>dlgTeleportToMarker(TM_AG_PC);</string>
+        <string>aod.quest_ag4_phase4a = true;</string>
+        <string>dlgCam(10, 45, 7, 4600);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“There was no gold.”</text>
+          <def_link>47</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Let Hamza explain.</text>
+          <def_link>46</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>45</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You stay silent and let Hamza explain what happened. Darista listens, the frown on her face getting deeper and deeper, then says, “Very well,” coldly dismissing both of you with a wave of her hand.</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(AG4_03);</string>
+        <string>rwd_quest(AG4_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>51</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>46</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“No?” asks Darista coldly. “I was assured that the gold was there.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“They knew it was too dangerous to keep it there and moved it this morning. There was nothing there save for some empty crates.”</text>
+          <def_link>48</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>49</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>47</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“I find that hard to believe, but let’s leave it at that for now.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(AG4_03);</string>
+        <string>rwd_quest(AG4_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>51</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>48</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“No breaks in this life,” sighs Darista. “Well, at least you’ve made it back, so I suppose that’s something.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(AG4_02);</string>
+        <string>rwd_quest(AG4_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>51</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>49</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Maadoran</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>if(aod.npc_gaelius_join_AG == false) addQuest(AG_WorkMDN);</string>
+        <string>aod.mdn_fromAG4 = true;</string>
+        <string>switchMission("Maadoran.mis");</string>
+        <string>dlgFadeLongToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>51</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Excellent work, Hamza, as always. Lord Gaelius will be pleased. How did &lt;charname&gt; do? Held &lt;his/her&gt; own?”
+
+“And then some,” says Hamza approvingly.
+
+“How many did we lose?” asks Darista.
+
+“Three men, including Lysander. He will be hard to replace,” says Hamza.
+
+“Plus everyone we sent to attack the Slums, although that was to be expected. No matter, with our cut of the gold, we can replace the losses in no time,” says Darista dismissively.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_AG_Hamza, 4610);</string>
+        <string>dlgTeleportToMarker(TM_AG_PC);</string>
+        <string>aod.quest_ag4_phase4b = true;</string>
+        <string>dlgCam(10, 45, 7, 4600);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait.</text>
+          <def_link>53</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>52</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Here is your pay, &lt;charname&gt;. Keep up the good work.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(AG4_01);</string>
+        <string>rwd_reputation(AG4_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>51</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>53</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Where is Hamza?” asks Darista impatiently.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_AG_PC);</string>
+        <string>aod.quest_ag4_phase2b = true;</string>
+        <string>dlgCam(10, 45, 7, 4600);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I don't know. I couldn't get to the temple.”</text>
+          <def_link>55</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>54</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Less than useless, are you? Well, at least you’re still alive, so I suppose that’s something.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(AG4_04);</string>
+        <string>rwd_quest(AG4_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>51</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>55</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

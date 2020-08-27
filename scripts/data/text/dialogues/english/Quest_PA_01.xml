@@ -1,0 +1,335 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_PA_robe</string>
+    </conditions>
+    <links>
+      <int>14</int>
+    </links>
+    <dlg_name>Quest_PA_01</dlg_name>
+    <def_link>10</def_link>
+    <def_speaker_name>Esdras</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Merc</speaker_name>
+      <npc_text>There are five of them. One is wearing the armor. Wouldn’t it be more practical to keep the damn thing in a chest?
+
+“You are not Esdras,” says the leader – an older, heavy-set man with droopy eyes. “I didn’t like that shifty fuck. I knew he would try something, but I didn’t think he would send one &lt;man/woman&gt;. How would you like a demonstration?”
+
+He nods and the man wearing the armor steps forward.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(155, 45, 9, 6501);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Merc</speaker_name>
+      <npc_text>There are five of them. One is wearing the armor. Wouldn’t it be more practical to keep the damn thing in a chest?
+
+“You are not Esdras,” says the leader – an older, heavy-set man with droopy eyes. “I didn’t like that shifty fuck. I knew he would try something, but I didn’t think he would send one &lt;man/woman&gt;. How would you like a demonstration?”
+
+He nods and the man wearing the armor steps forward.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(155, 45, 9, 6501);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Hold it, brother, if you want to live.”</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addEnemyToParty(1, PA_Mercenaries);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>“Who are you?” the leader asks cautiously, which is a good sign. Clearly, he’s well aware that robe-clad &lt;men/women&gt; can wield as much power – if not more – than armored knights.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][impersonate]“Do you know that buying or selling holy relics is forbidden? That it is, in fact, a crime of blasphemy punishable by death?”</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.disguise) &gt;= 14</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>17</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>[failure]“I’ve never heard of this law,” says the man. He doesn’t sound very convinced as Ganezzar does have a reputation when it comes to things of religious nature.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[lore][persuasion]“Ignorantia juris non excusat – ignorance of the law doesn’t excuse. Normally, those found guilty of the crime are blinded, drawn, and quartered, but I suppose I can pull a few strings and replace the punishment with beheading, but don’t ask me for any more favors.”</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.lore + aod.persuasion) &gt;= 12</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>22</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>[success]“We have no relics here, &lt;brother/sister&gt;,” says the man, gesturing around as if inviting you to take a look.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“And what about this armor?”</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>“What about it?” asks the man, feigning ignorance. “With respect, &lt;brother/sister&gt;, not every old armor is a relic.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[lore success]“It's the famed pre-War armor, forged from tempered blue steel and infused with raw Power harnessed from other planes.”</text>
+          <def_link>21</def_link>
+          <checkOnAppear>aod.lore &gt;= 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]“No? So I suppose that my eyes deceive me and this isn’t, in fact, the famed armor worn by the Temple Guards? Armor blessed by the Gods and infused with the divine breath?”</text>
+          <def_link>21</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 6</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“This one is and you know it.”</text>
+          <def_link>19</def_link>
+          <checkOnAppear>aod.lore &lt; 4 &amp;&amp; aod.streetwise &lt; 6</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>“I don’t know anything about it and I don’t think you do either.”
+
+It seems the conversation has run its course.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Kill them all. Yes, wearing nothing but a bathrobe.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave. This armor is probably broken anyway.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>[failure]“I'm tired of listening to this horseshit,” says the man, daring you to do your worst. It seems the conversation has run its course.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Kill them all. Yes, wearing nothing but a bathrobe.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave. This armor is probably broken anyway.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - warehouse</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>PAWarehouse_deleteMercs();</string>
+        <string>VCO_Ganezzar.setActive(1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - leave</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.gnz_startPosition_Gates = 1;</string>
+        <string>switchMission("Ganezzar.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>“Sounds expensive,” smiles the man.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]“The relic will be taken, one way or another. You will not be allowed to sell it for such an act is a sin of the worst kind or to leave the city with it. The only question is whether or not to take your lives with it as well.”</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 14</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>24</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“You can’t be serious!” protests the man. “I'm telling you, we didn't know!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]“The relic will be taken, one way or another. You will not be allowed to sell it for such an act is a sin of the worst kind or to leave the city with it. The only question is whether or not to take your lives with it as well.”</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 12</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>24</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“What if we willingly surrender it to you?” asks the man, his eyes alive with hope.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Such an act would definitely please the Gods and my brothers. I graciously accept.”</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The mercenary leader gestures and the man wearing the armor quickly removes it and passes it on to you.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>rwd_civil(PA_Warehouse);</string>
+        <string>dlgAddItem(2500, 1);</string>
+        <string>aod.item_PA_received = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Go with Gods, my children.” Leave.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>25</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

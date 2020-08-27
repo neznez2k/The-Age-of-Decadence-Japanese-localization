@@ -1,0 +1,333 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.teronInnTrader_suspicious</string>
+    </conditions>
+    <links>
+      <int>2882</int>
+    </links>
+    <dlg_name>TeronInnTrader</dlg_name>
+    <def_link>2870</def_link>
+    <def_speaker_name>Trader</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You look like you’re in the market for some fine clothing and armor! Am I right? Step right up and take a look."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_TeronInnTrader_PC);</string>
+        <string>dlgCam(45, 45, 8, 7505);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Browse his wares.</text>
+          <def_link>2872</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[steal]Lift the trader’s purse.</text>
+          <def_link>2873</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.steal &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2875</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[impersonate][streetwise]“Step right up, eh? Trading without a license is a serious crime.”</text>
+          <def_link>2874</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.disguise + aod.streetwise) &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2876</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[merchant][streetwise]“Step right up, eh? Trading without a license is a serious crime.”</text>
+          <def_link>2874</def_link>
+          <checkOnAppear>aod.pc_member_commercium</checkOnAppear>
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2876</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2871</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2870</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Do you want to buy something? If not...”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_TeronInnTrader_PC);</string>
+        <string>dlgCam(45, 45, 8, 7505);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Browse his wares.</text>
+          <def_link>2872</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2871</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2882</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2871</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>TRADE</npc_text>
+      <onLoadScripts>
+        <string>dlgTradeWithMe("Inn Trader");</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2872</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]The trader’s guard grabs your arm with a surprising speed and pushes you away.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.teronInnTrader_suspicious = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2871</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2873</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Faking an interest in his wares, you bump into the trader and cut his purse at the very same moment. Neither the distracted and hopeful trader nor his guard notice anything. You promise to think about buying something from him and walk away.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgChangeMoney(125);</string>
+        <string>aod.teronInnTrader_suspicious = true;</string>
+        <string>rwd_civil(Steal);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2871</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2875</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“Look, I don’t know who you are, but my papers are in orders. Signed by master Zenon himself. Now beat it.”</npc_text>
+      <onLoadScripts>
+        <string>aod.teronInnTrader_suspicious = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Show him the Commercium's ring.</text>
+          <def_link>2883</def_link>
+          <checkOnAppear>dlgIsEquippedItem(1335)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2871</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2874</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“I have the license! Right here. Signed by master Zenon –”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Master Zenon has been accused of taking bribes. He’s being interrogated as we speak. I have orders to round up every trader who dealt with Zenon and bring them for questioning.”</text>
+          <def_link>2877</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2876</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"But master Zenon..."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Master Zenon has been accused of taking bribes. He’s being interrogated as we speak. I have orders to round up every trader who dealt with Zenon and bring them for questioning.”</text>
+          <def_link>2877</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2883</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The trader’s face loses all color within seconds. “Isn’t there, uh... surely, there is... what if...” He looks at you pleadingly.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I understand. You seem like an honest sort, so the whole thing is probably a misunderstanding. Tell you what, I’ll issue you a new license and you won’t have to worry about anything.”</text>
+          <def_link>2878</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2877</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Oh, thank you!” The trader breathes with relief.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“One hundred imperials.”</text>
+          <def_link>2879</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2878</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“But I already paid. I told you that.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][charisma]“You paid a man who stole from the guild! For all I know you could be his accomplice!”</text>
+          <def_link>2880</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.cha) &gt;= 12</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2881</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2879</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“Something fishy is going on here. I think I’d rather go to master Linos to sort everything out.”</npc_text>
+      <onLoadScripts>
+        <string>aod.teronInnTrader_suspicious = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2871</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2880</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Alright, alright. Here is the money.”
+
+You accept the money, take his license, cross out Zenon’s name and sign the license with a flourish. Before the dumbstruck trader recovers, you hand him the license and make a quick exit.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(100);</string>
+        <string>aod.teronInnTrader_suspicious = true;</string>
+        <string>rwd_civil(TeronInnTrader_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2871</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2881</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

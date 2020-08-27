@@ -1,0 +1,159 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_ordu_poisoned</string>
+      <string>dlgownsitem(810) || dlgownsitem(812)</string>
+    </conditions>
+    <links>
+      <int>3525</int>
+      <int>3484</int>
+    </links>
+    <dlg_name>ORD_Well</dlg_name>
+    <def_link>3526</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>It's an old well, the only source of water for miles around. Too bad you don't have any poison.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_PC_Well_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>3524</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3526</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>You approach the well. It looks like it’s the only source of water for miles around and you just happen to have a vial of poison. The only problem is that you’re surrounded by people and a slight misstep will be the end of you. A very painful end, most likely.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_PC_Well_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[steal][sneak]Attempt to poison the well.</text>
+          <def_link>3485</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.steal + aod.sneak) &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3487</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>3524</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3484</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>[failure]You pull up a bucket of water and drink, holding the bucket with both hands. When you put the bucket down, you try to empty the vial with poison into it as inconspicuously as humanly possible, but a woman nearby sees it and starts yelling something in her language, pointing at you with her finger.
+
+Within moments, you’re stretched on the ground and large quantities of water are poured down your throat. When the Ordu are satisfied, they let you go and watch you with interest, exchanging quick comments.
+
+You feel a knot on your stomach and take a few uneasy steps. Suddenly, your legs give in and you drop on your knees. The knot in your stomach is growing bigger and bigger, making it difficult to breathe. You feel too dizzy even to sit and lie on your side, barely aware of where you are or what’s happening to you. It’s getting harder and harder to breathe and you feel very tired. You close your eyes and never open them again.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>removePoison();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Not exactly what you had in mind...</text>
+          <def_link>3486</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3485</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>[success]You pull up a bucket of water and drink, holding the bucket with both hands. When you put the bucket down, you manage to empty the vial with poison into it without anyone noticing and drop the bucket back down the well.
+
+You doubt that the poison would kill them, but it might weaken them and make the upcoming battle easier.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>removePoison();</string>
+        <string>aod.quest_ordu_poisoned = true;</string>
+        <string>rwd_civil(Steal);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3524</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3487</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3486</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3524</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The water is poisoned. You shouldn't stick around.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_PC_Well_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3524</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3525</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

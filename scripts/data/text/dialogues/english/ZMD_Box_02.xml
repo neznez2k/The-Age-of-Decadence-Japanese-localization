@@ -1,0 +1,120 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>ZMD_Box_02</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The box is filled with discarded devices. You pick up a heavy container and open it to find a thick metallic liquid inside. Suddenly, something inside moves and you quickly close the lid.
+
+Next, you examine a metal sphere. You flip a switch; the sphere buzzes and starts rising from your palm. When it hits the ceiling, it stops working and falls back into the box.
+
+The last item of interest is a large bronze cylinder with a hole on one end and a plexus of pipes with a small gauge on the other. Looking closely, you notice a socket for a power tube.</npc_text>
+      <onLoadScripts>
+        <string>dlgcam(15, 40, 10);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Insert a tube.</text>
+          <def_link>2</def_link>
+          <checkOnAppear>dlgGetItemsCount(1600) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You insert the tube, the cylinder vibrates, its inner parts move, the gauge comes to life and ... nothing happens. Trying to figure out what it does, you trigger something and the cylinder spits a bit of steam and a large metal nail, which goes deep into the wall. How interesting...
+
+You can probably make some adjustments and turn it into a handy bolt shooter. It won’t be very accurate, but you won’t have to waste much time reloading it.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[lore][crafting]Fashion yourself a new weapon.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.lore + aod.crafting) &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You fail miserably, but at least you manage to retrieve the power tube.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You take the device apart and proceed infusing this marvel of ancient engineering with modern ingenuity. When you’re done, you attach a wooden handle, load a bolt and pull the trigger. It’s not very accurate, but the device only needs a moment to get ready for the next shot.
+
+You shall call this powerful weapon the Bolter.</npc_text>
+      <onLoadScripts>
+        <string>dlgRemoveItem(1600,1);</string>
+        <string>dlgAddItem(167, 1);</string>
+        <string>VCO_box_02.setactive(false);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setWindowImage(item_bolter);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

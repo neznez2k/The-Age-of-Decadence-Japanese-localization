@@ -1,0 +1,290 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_mdnTraderRomanWeapons_met</string>
+    </conditions>
+    <links>
+      <int>481</int>
+    </links>
+    <dlg_name>MDN_Trader_RomanWeapons</dlg_name>
+    <def_link>478</def_link>
+    <def_speaker_name>Merchant</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Welcome to the Imperial Armory where you'll find only the noblest of weapons and designs. The purest lines! The most sacred geometries calculated by the Magi! Don't miss your chance to own a piece of history!"</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_mdnTraderRomanWeapons_met = true;</string>
+        <string>dlgTeleportToMarker(TM_DLG_TraderRoman);</string>
+        <string>dlgCam(165, 40, 7, 6102);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Browse the wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Do you have anything special?”</text>
+          <def_link>482</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>478</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>TRADE</npc_text>
+      <onLoadScripts>
+        <string>dlgTradeWithMe("The Imperial Armory");</string>
+        <string>dlgCam(155, 40, 15);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>479</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgCam(155, 40, 15);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>480</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"How may I serve you today?"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_TraderRoman);</string>
+        <string>dlgCam(165, 40, 7, 6102);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Browse the wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Do you have anything special?”</text>
+          <def_link>482</def_link>
+          <checkOnAppear>aod.romanTrader_asked_sword == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Do you still have that sword?”</text>
+          <def_link>487</def_link>
+          <checkOnAppear>aod.romanTrader_asked_sword &amp;&amp; aod.romanTrader_bought_sword == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>481</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Special? Yes! Of course!” exclaims the trader, producing a worn out box. He pushes it toward you and opens it, revealing a well-oiled, blue steel sword. It looks like a gladius but with a slightly narrower blade and a short, triangular tip.
+
+“Forged by Cattullus of Asmara – the greatest sword maker who’s ever lived! He was killed during the siege, but not before he slayed twenty men with this very sword. Twenty men! Maybe even more. Hell, probably *many* more! Forged in fire, tempered in blood. It’s a special weapon indeed, my friend, worthy of a great hero.
+
+“It’s not cheap, but I can’t ask for less than the sword is worth. To do otherwise would be an insult to the memory of master Cattullus, may he rest in peace.”</npc_text>
+      <onLoadScripts>
+        <string>aod.romanTrader_asked_sword = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setWindowImage(item_dreamweaver);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Try the sword.</text>
+          <def_link>483</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>482</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The sword is well made and easy to handle. Definitely the work of a master. The grinds are flawless and the balance is superb.
+
+[Exceptional THC Bonus: +20%]</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“How much?”</text>
+          <def_link>484</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>483</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Two thousand imperials.”</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setWindowImage();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 2000 imperials.</text>
+          <def_link>485</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 2000</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgChangeMoney(-2000);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading success]“I'll take it off your hands for 1500.”</text>
+          <def_link>485</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 1500 &amp;&amp; aod.trading &gt;= 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgChangeMoney(-1500);</string>
+            <string>aod.flagUsed = 1;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I can't afford it.” Browse other wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>484</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It's your lucky day, friend. Two thousand imperials and the sword is yours!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 2000 imperials.</text>
+          <def_link>485</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 2000</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgChangeMoney(-2000);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading success]“I'll take it off your hands for 1500.”</text>
+          <def_link>485</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 1500 &amp;&amp; aod.trading &gt;= 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgChangeMoney(-1500);</string>
+            <string>aod.flagUsed = 1;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I can't afford it.”</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>487</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Pleasure doing business with you. Do come again.”</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItemlist(Unique_Dreamweaver);</string>
+        <string>aod.romanTrader_bought_sword = true;</string>
+        <string>if(aod.flagUsed) {rwd_civil(Trading); aod.flagUsed = 0;}</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Browse the wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>485</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

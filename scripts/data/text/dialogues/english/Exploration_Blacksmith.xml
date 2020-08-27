@@ -1,0 +1,246 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.exploration_blacksmithInside</string>
+    </conditions>
+    <links>
+      <int>2859</int>
+    </links>
+    <dlg_name>Exploration_Blacksmith</dlg_name>
+    <def_link>2851</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>This window sure looks tempting. The blacksmith is busy hammering away at his anvil, presenting you with an opportunity to conduct a surprise inspection of his valuables. Of course, if he were to find you rummaging through his goods, he’d probably take it the wrong way. Not that there’s any other way to take it.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(exploration_BS_cam_01);</string>
+        <string>dlgTeleportToMarker(TM_BlacksmithExplore_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[dexterity]Get inside.</text>
+          <def_link>2852</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2853</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2857</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2851</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Your clumsy attempt to get in makes far too much noise and ends up attracting the attention of the blacksmith.</npc_text>
+      <onLoadScripts>
+        <string>aod.exploration_blacksmithFinished = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2857</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2852</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You look around and quickly climb through the window, closing the shutters behind you.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_BlacksmithExplore_02);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>useCameraBookmark(exploration_BS_cam_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[sneak]Look around.</text>
+          <def_link>2854</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.sneak &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2856</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2857</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2853</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You take a few steps, the floorboards creak, and the hammering stops. The blacksmith will be here any second.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Dive through the window.</text>
+          <def_link>2855</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2854</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You dive through the window and disappear in one of the alleys.</npc_text>
+      <onLoadScripts>
+        <string>aod.exploration_blacksmithFinished = true;</string>
+        <string>dlgTeleportToMarker(TM_BlacksmithExplore_03);</string>
+        <string>useCameraBookmark(exploration_BS_cam_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2857</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2855</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Stepping softly and listening to the sounds coming from outside, you move around the room, inspecting the blacksmith’s belongings.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_BlacksmithExplore_04);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Explore the house.</text>
+          <def_link>2858</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2856</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - outside</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportToMarker(TM_BlacksmithExplore_06);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2857</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - outside from inside</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportToMarker(TM_BlacksmithExplore_06);</string>
+        <string>aod.exploration_blacksmithInside = false;</string>
+        <string>blacksmithWindowInside.setActive(false);</string>
+        <string>blacksmithWindowOutside.setActive(true);</string>
+        <string>blacksmithInterior01.setActive(false);</string>
+        <string>blacksmithInterior02.setActive(false);</string>
+        <string>blacksmithInterior03.setActive(false);</string>
+        <string>blacksmithInterior04.setActive(false);</string>
+        <string>blacksmithInterior05.setActive(false);</string>
+        <string>blacksmithInterior06.setActive(false);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2860</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - explore the house</npc_text>
+      <onLoadScripts>
+        <string>aod.exploration_blacksmithInside = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>blacksmithWindowInside.setActive(true);</string>
+        <string>blacksmithWindowOutside.setActive(false);</string>
+        <string>blacksmithInterior01.setActive(true);</string>
+        <string>blacksmithInterior02.setActive(true);</string>
+        <string>blacksmithInterior03.setActive(true);</string>
+        <string>blacksmithInterior04.setActive(true);</string>
+        <string>blacksmithInterior05.setActive(true);</string>
+        <string>blacksmithInterior06.setActive(true);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2858</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Do you want to leave?</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(exploration_BS_cam_02);</string>
+        <string>dlgTeleportToMarker(TM_BlacksmithExplore_05);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2860</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Stay.</text>
+          <def_link>2858</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2859</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

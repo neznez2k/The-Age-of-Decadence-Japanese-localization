@@ -1,0 +1,303 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>TBC_DellarReport</dlg_name>
+    <def_link>1</def_link>
+    <def_speaker_name>Dellar</def_speaker_name>
+    <def_portrait>Dellar</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>You escort Tiberius back to Teron, all the way to the Daratan compound.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_teronRaider_finished = true;</string>
+        <string>aod.quest_teronRaider_talkToTiberius = false;</string>
+        <string>useCameraBookmark(NPC_Dellar_Cam_01);</string>
+        <string>finishedTeronBandits();</string>
+        <string>dlgUnequipHands(1);</string>
+        <string>setTravelingAllowed(true);</string>
+        <string>dlgTeleportToMarker(TM_Tiberius_PC_01);</string>
+        <string>createByCharMarker("CM_Tiberius_01");</string>
+        <string>aod.quest_teronRaider_complete = true;</string>
+        <string>setWindowImage(TRN_daratanPalace_01);</string>
+        <string>dlgTeleportTo(170, 189, 0, S, 1070);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Approach Dellar.</text>
+          <def_link>111</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_teronRaider_convincedAttack</string>
+            <string>aod.quest_teronRaider_ransomGiven &amp;&amp; (aod.npc_dellar_test || aod.npc_antidas_met == false)</string>
+            <string>aod.quest_teronRaider_ransomGiven &amp;&amp; (aod.npc_antidas_met || aod.npc_antidas_metInMg2)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>54</int>
+            <int>9</int>
+            <int>10</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I'll be damned," says Dellar with a note of respect in his voice. "How did you do it?"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_teronRaider_finished = true;</string>
+        <string>aod.gameplay_noTravel = false;</string>
+        <string>aod.quest_teronRaider_talkToTiberius = false;</string>
+        <string>useCameraBookmark(NPC_Dellar_Cam_01);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(170, 187, 0, N);</string>
+        <string>dlgTeleportToMarker(TM_Tiberius_01, 1910);</string>
+        <string>dlgUnequipHands(1);</string>
+        <string>setTravelingAllowed(true);</string>
+        <string>rwd_quest(BanditCamp_01);</string>
+        <string>rwd_reputation(BanditCamp_04);</string>
+        <string>setWindowImage();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I killed them all. Works for you?"</text>
+          <def_link>2</def_link>
+          <checkOnAppear>aod.quest_teronRaider_killedThemAll</checkOnAppear>
+          <checksOnClick>
+            <string>aod.npc_antidas_met &amp;&amp; aod.npc_dellar_test == false || aod.npc_antidas_metInMg2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3</int>
+          </linksOnClick>
+          <scriptsOnClick>
+            <string>aod.quest_teronBandit_phase4c = true;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I asked them nicely."</text>
+          <def_link>66</def_link>
+          <checkOnAppear>aod.quest_teronRaider_killedThemAll == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.npc_antidas_met &amp;&amp; aod.npc_dellar_test == false || aod.npc_antidas_metInMg2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>74</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>111</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I'm not complaining. Let's go see the old man now."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go meet Antidas.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I'm not complaining. Well done, &lt;charname&gt;."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"The power of please, eh? Well, let's go see the old man now."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go meet Antidas.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>66</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"The power of please, eh? Great job, &lt;charname&gt;."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>74</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Well done," says Dellar.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_teronRaider_finished = true;</string>
+        <string>aod.gameplay_noTravel = false;</string>
+        <string>aod.quest_teronRaider_talkToTiberius = false;</string>
+        <string>useCameraBookmark(NPC_Dellar_Cam_01);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(170, 187, 0, N);</string>
+        <string>rwd_quest(BanditCamp_02);</string>
+        <string>rwd_reputation(BanditCamp_05);</string>
+        <string>dlgTeleportToMarker(TM_Tiberius_01, 1910);</string>
+        <string>finishedTeronBandits();</string>
+        <string>dlgUnequipHands(1);</string>
+        <string>setTravelingAllowed(true);</string>
+        <string>if(aod.quest_teronRaider_killedThemAll) aod.quest_teronBandit_phase4c = true;</string>
+        <string>setWindowImage();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Well done," says Dellar. "Let's go see the old man now."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_teronRaider_finished = true;</string>
+        <string>aod.gameplay_noTravel = false;</string>
+        <string>aod.quest_teronRaider_talkToTiberius = false;</string>
+        <string>useCameraBookmark(NPC_Dellar_Cam_01);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(170, 187, 0, N);</string>
+        <string>rwd_quest(BanditCamp_02);</string>
+        <string>rwd_reputation(BanditCamp_05);</string>
+        <string>dlgTeleportToMarker(TM_Tiberius_01, 1910);</string>
+        <string>finishedTeronBandits();</string>
+        <string>dlgUnequipHands(1);</string>
+        <string>setTravelingAllowed(true);</string>
+        <string>if(aod.quest_teronRaider_killedThemAll) aod.quest_teronBandit_phase4c = true;</string>
+        <string>setWindowImage();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go meet Antidas.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"So, you did talk them into it? I'm impressed. I've heard about making friends with enemies of your enemies, but using one enemy to get rid of another? Now, that's something you don't see every day.
+
+"In fact, I'd like to see it with my own eyes."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(170, 187, 0, N);</string>
+        <string>dlgSetZoom(8);</string>
+        <string>useCameraBookmark(NPC_Dellar_Cam_01);</string>
+        <string>rwd_quest(BanditCamp_03);</string>
+        <string>rwd_reputation(BanditCamp_03);</string>
+        <string>dlgTeleportToMarker(TM_Tiberius_01, 1910);</string>
+        <string>finishedTeronBandits();</string>
+        <string>aod.quest_teronBandit_phase4e = true;</string>
+        <string>dlgAddRank(33);</string>
+        <string>setAchievement("ACH_MANIPULATOR");</string>
+        <string>setWindowImage();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Follow Dellar to the Aurelian outpost.</text>
+          <def_link>109</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>54</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go meet Antidas</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgDeleteCharacter(1910);</string>
+        <string>aod.npc_antidas_allowedToSeeHim = true;</string>
+        <string>apmsstartdialogue(antidas_02);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - leave</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(167, 163, 0, S);</string>
+        <string>setRtsCam();</string>
+        <string>dlgDeleteCharacter(1910);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go to the outpost</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>dlgDeleteCharacter(1910);</string>
+        <string>switchMission("Mining Outpost.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>109</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

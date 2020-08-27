@@ -1,0 +1,385 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_mdnTraderExotic_met</string>
+    </conditions>
+    <links>
+      <int>481</int>
+    </links>
+    <dlg_name>MDN_Trader_ExoticWeapons</dlg_name>
+    <def_link>478</def_link>
+    <def_speaker_name>Merchant</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Looking for something special? Curved swords, spiked pauldrons, that sort of things? Look no further for you're standing in what one day will be known as Exotic Emporium!"</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_mdnTraderExotic_met = true;</string>
+        <string>dlgCam(15, 40, 7, 6101);</string>
+        <string>dlgTeleportToMarker(TM_DLG_TraderExotic);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Browse the wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Do you have anything special?”</text>
+          <def_link>482</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Do you have any armor schematics?"</text>
+          <def_link>488</def_link>
+          <checkOnAppear>aod.schematics_exotic == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>478</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>TRADE</npc_text>
+      <onLoadScripts>
+        <string>dlgTradeWithMe("The Exotic Emporium");</string>
+        <string>dlgCam(15, 40, 15);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>479</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgCam(15, 40, 15);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>480</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Looking for anything in particular?"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_TraderExotic);</string>
+        <string>dlgCam(15, 40, 7, 6101);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Browse the wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Do you have anything special?”</text>
+          <def_link>482</def_link>
+          <checkOnAppear>aod.npc_TraderExotic_asked_axe == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Is the axe still for sale?”</text>
+          <def_link>487</def_link>
+          <checkOnAppear>aod.npc_TraderExotic_asked_axe &amp;&amp; aod.npc_TraderExotic_bought_axe == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Do you have any armor schematics?"</text>
+          <def_link>488</def_link>
+          <checkOnAppear>aod.schematics_exotic == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>481</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Every item you see here is special, chosen with care and deliberation,” says the trader, raising his eyebrow at the ignorance he’s just witnessed. “Then again, some of my customers expect only the best and are willing to pay a hefty premium for quality that can’t be described as anything other than exceptional.”
+
+He pulls out a richly decorated axe and shoves it in your face, inviting you to admire the craftsmanship up close. “It is the finest weapon ever created. You can spend the rest of your life looking for a finer axe and you’ll not find it. Yes, it’s steel, but don’t turn away so quickly. It is the purest steel, tempered to perfection in the rarest oils. It’s a warrior’s weapon, made to wreak havoc with every swing of the blade.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_TraderExotic_asked_axe = true;</string>
+        <string>setWindowImage(item_pendulum);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Try the axe.</text>
+          <def_link>483</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>482</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>It’s truly one of the finest axes you’ve ever held. Whoever made it definitely knew their way around a blade. The blade has both a primary and secondary bevel. The primary bevel is established well up the axe head to facilitate deep cuts, while the edge bevel is slightly blunter to prevent the edge from folding, chipping, or dulling quickly.
+
+[Additional THC and Hardness bonuses]</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“How much?”</text>
+          <def_link>484</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>483</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Regretfully, I can't accept less than six hundred.”</npc_text>
+      <onLoadScripts>
+        <string>setWindowImage();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 600 imperials.</text>
+          <def_link>485</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 600</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading success]“600 is too much. I can get a good steel axe for less than 400 these days. Still, the quality is worth a little extra, so I'll give you 500 for it. Do we have a deal?”</text>
+          <def_link>486</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 500 &amp;&amp; aod.trading &gt;= 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What else do you have?"</text>
+          <def_link>481</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>484</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It is. Regretfully, I can't accept less than six hundred.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 600 imperials.</text>
+          <def_link>485</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 600</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading success]“600 is too much. I can get a good steel axe for less than 400 these days. Still, the quality is worth a little extra, so I'll give you 500 for it. Do we have a deal?”</text>
+          <def_link>486</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 500 &amp;&amp; aod.trading &gt;= 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What else do you have?"</text>
+          <def_link>481</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>487</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Excellent! I look forward to your next visit.”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-600);</string>
+        <string>aod.npc_TraderExotic_bought_axe = true;</string>
+        <string>dlgAddItemlist(Unique_Pendulum);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"What else do you have?"</text>
+          <def_link>481</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>485</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Many thanks. I look forward to your next visit.”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-500);</string>
+        <string>dlgAddItemlist(Unique_Pendulum);</string>
+        <string>aod.npc_TraderExotic_bought_axe = true;</string>
+        <string>rwd_civil(Trading);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"What else do you have?"</text>
+          <def_link>481</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>486</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"If you're interested in Ordu helmets, the barbari or numeri armors, I can sell you the schematics for 75 coins. It's a good deal, trust me."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'll take them." Pay 75 coins.</text>
+          <def_link>489</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 75</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What else do you have?"</text>
+          <def_link>481</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>488</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Pleasure doing business with you."</npc_text>
+      <onLoadScripts>
+        <string>addExoticArmorSchematics();</string>
+        <string>dlgChangeMoney(-75);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"What else do you have?"</text>
+          <def_link>481</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>489</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,139 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>MDN_Sky_MagusTower_Elevator</dlg_name>
+    <def_link>6072</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Do you want to leave the minaret?</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Yes.</text>
+          <def_link>6081</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>No.</text>
+          <def_link>6090</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6072</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6090</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The elevator takes you all the way down, but the moment you step off, it goes up and disappears from view. You leave the minaret and go into the street.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6083</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.pc_aug_eye</string>
+            <string>aod.mdn_HA_destroyed</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6082</int>
+            <int>6091</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6081</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Just as you’re about to leave, your new eye whirs to life and suddenly you see what looks like a shimmering mirage: a floating hub high above the city, connected to the spires via long walkways. Then the eye goes dead and the vision disappears.
+
+Is that where the magus tried to get to before he succumbed to his wounds?</npc_text>
+      <onLoadScripts>
+        <string>addLore(24);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6083</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.mdn_HA_destroyed</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6091</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6082</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The city is still in chaos and the Imperial Guards are working overtime trying to restore order by blocking streets with barricades and crucifying those who resist. You doubt it's going to end well.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave the city while you can.</text>
+          <def_link>6092</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6091</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Maadoran</npc_text>
+      <onLoadScripts>
+        <string>aod.mdn_fromSkyTower = 1;</string>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>switchMission("Maadoran.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6083</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - desert</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>switchMission("RDM_DesertRoad_01.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6092</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

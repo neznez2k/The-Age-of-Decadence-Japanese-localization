@@ -1,0 +1,331 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Quest_AG4_03</dlg_name>
+    <def_link>26</def_link>
+    <def_speaker_name>Levir</def_speaker_name>
+    <def_portrait>Levir</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What pearl of wisdom would you like to share with me, my out-of-town friend?”</npc_text>
+      <onLoadScripts>
+        <string>addJournalChar(levir);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“You’re taking it surprisingly well.”</text>
+          <def_link>27</def_link>
+          <checkOnAppear>aod.quest_ag4_levirWell == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][trading]“We need this gold. You don’t. You were a wealthy man long before the Teron branch dumped it on you and made it your problem. There must be something we can offer you to work this out amicably.”</text>
+          <def_link>52</def_link>
+          <checkOnAppear>aod.quest_ag4_levirFail == false &amp;&amp; aod.quest_ag4_levirOffer == false</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.streetwise + aod.trading) &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>29</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion]“You can’t keep Antidas’ gold. We both know that. If we don’t take it today, someone will come for it tomorrow. More of your men will die. Is it worth it?”</text>
+          <def_link>28</def_link>
+          <checkOnAppear>aod.quest_ag4_levirFail == false &amp;&amp; aod.quest_ag4_levirOffer == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>30</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[word of honor]“Alright, we have a deal.”</text>
+          <def_link>51</def_link>
+          <checkOnAppear>aod.quest_ag4_levirOffer</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>40</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>26</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“A long time ago, I learned that emotions only cloud one’s judgement. I’m not thrilled about all this,” Levir gestures around him, “if that’s what you’re asking. Unfortunately, it appears that I can’t kill master Hamza just by staring at him angrily, so I guess I’ll have to wait and see what transpires.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ag4_levirWell = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][trading]“We need this gold. You don’t. You were a wealthy man long before the Teron branch dumped it on you and made it your problem. There must be something we can offer you to work this out amicably.”</text>
+          <def_link>52</def_link>
+          <checkOnAppear>aod.quest_ag4_levirFail == false</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.streetwise + aod.trading) &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>29</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion]“You can’t keep Antidas’ gold. We both know that. If we don’t take it today, someone will come for it tomorrow. More of your men will die. Is it worth it?”</text>
+          <def_link>28</def_link>
+          <checkOnAppear>aod.quest_ag4_levirFail == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>30</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[word of honor]“Alright, we have a deal.”</text>
+          <def_link>51</def_link>
+          <checkOnAppear>aod.quest_ag4_levirOffer</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>40</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>27</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“Where I come from, you don’t let anyone take anything from you,” says Levir with sudden pride. “No matter what the cost might be.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][trading]“We need this gold. You don’t. You were a wealthy man long before the Teron branch dumped it on you and made it your problem. There must be something we can offer you to work this out amicably.”</text>
+          <def_link>29</def_link>
+          <checkOnAppear>(aod.streetwise + aod.trading) &gt;= 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>53</def_link>
+          <checkOnAppear>(aod.streetwise + aod.trading) &lt; 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>28</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“Where I come from, you don’t let anyone take anything from you,” says Levir with sudden pride. “No matter what the cost might be.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]“You can’t keep Antidas’ gold. We both know that. If we don’t take it today, someone will come for it tomorrow. More of your men will die. Is it worth it?”</text>
+          <def_link>30</def_link>
+          <checkOnAppear>aod.persuasion &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>53</def_link>
+          <checkOnAppear>aod.persuasion &lt; 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>52</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Almost like you’re doing me a favor, eh?” Levir looks at the bodies of his men sprawled out on the floor. “What do you offer?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What do you want?”</text>
+          <def_link>31</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>29</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“So, Gaelius gets the gold and you get the glory. What do I get out of it?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What do you want?”</text>
+          <def_link>31</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>30</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Good question. Until today I thought that I had everything, but apparently I was mistaken.
+
+“I know!” Levir snaps his fingers dramatically. “I would like to buy your services for one day. The price is Antidas’ Hoard. I trust it will be sufficient.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What do you need me for?”</text>
+          <def_link>32</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>31</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I haven’t decided yet, but I’m sure I could think of something,” says Levir. The smirk on his face tells you that he already knows exactly what he needs you for.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ag4_levirOffer = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[word of honor]“Alright, we have a deal.”</text>
+          <def_link>51</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Forget about it.”</text>
+          <def_link>33</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>32</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Well, don't say I didn’t try,” says Levir, losing his interest in the conversation.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ag4_levirFail = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>40</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>33</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Suddenly, the door flies open and armed men burst into the hall. They glance at the dead bodies of their comrades, then at Levir, waiting for orders.
+
+“Take the gold and go. As for our deal, I'll send for you when the time comes. Be ready.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ag4_dealWithLevir = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Return to Darista.</text>
+          <def_link>38</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>51</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go back to AG</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.quest_AG4_success = true;</string>
+        <string>sd(quest_AG4_05);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>38</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - in the guild</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>40</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - leave after failure</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>aod.quest_ag4_levirFail = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>53</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

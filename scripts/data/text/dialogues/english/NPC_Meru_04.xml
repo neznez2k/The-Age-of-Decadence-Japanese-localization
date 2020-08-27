@@ -1,0 +1,354 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_meru_praetorOffer == 2</string>
+    </conditions>
+    <links>
+      <int>4</int>
+    </links>
+    <dlg_name>NPC_Meru_04</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Meru</def_speaker_name>
+    <def_portrait>Meru</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“As you can see, Praetor, I’ve been very open with you,” says Meru with false humility. “I’ve answered your questions truthfully and now it’s my turn to ask. Having seen what you’ve seen, having heard what you’ve heard, would you open your heart to the Gods and embrace the Truth? Would you serve the Gods and do Their bidding or would you rather kneel before the false lords?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_meru_praetorOffer = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][charisma]"There are rumors that you found your faith in the depths of your castle. What's there, brother? What did you find?"</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.cha) &gt;= 12</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>11</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I wish to serve the Gods, brother.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I need time to process what I saw.”</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - return to Ganezzar</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.gnz_startPosition_castleExterior = true;</string>
+        <string>switchMission("Ganezzar.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start HC Al-Akia</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.alk_HC1 = 1;</string>
+        <string>aod.jnl_HC_AlAkia = 2;</string>
+        <string>switchMission("Al-Akia.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"Only a true believer can stand before the Gods," says Meru, slowly shaking his head. "You aren't ready."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_meru_praetorStarRoom = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I wish to serve the Gods, brother.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I need time to process what I saw.”</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Very well," says Meru with a strange smile. "Come with me, &lt;brother/sister&gt;."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_meru_praetorStarRoom = 1;</string>
+        <string>rwd_civil(HD4_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Follow Meru.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start Star Room</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.gnz_starRoom_meruIntro = 1;</string>
+        <string>switchMission("Ganezzar Star Room.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Then take your time, &lt;brother/sister&gt;,” says Meru, barely concealing his disappointment. “Pray that it won’t be too late.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_meru_join = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Then take me to Al-Akia,” Meru says firmly.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_meru_takeHimAlAkia = 1;</string>
+        <string>aod.npc_meru_join = 2;</string>
+        <string>aod.jnl_HC_AlAkia = 1;</string>
+        <string>if(aod.jnl_HD_AlAkiaFate == 1) aod.jnl_HD_AlAkiaFate = 6;</string>
+        <string>if(isQuestAdded(HD_GNZ_Siege)) {addQuest(HD_AlAkiaFate); aod.jnl_HD_AlAkiaFate = 6;}</string>
+        <string>if(aod.npc_meru_praetorOffer == 1) aod.npc_meru_praetorOffer = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Why me? Surely you have hundreds of loyal servants.”</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What's in Al-Akia?”</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What about Faelan?”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It is the birthplace of the Gods, a place where the divine spirit was made flesh. I’ll offer myself to the Gods and pray for them to accept my sacrifice.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_meru04_askedALK = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Why me? Surely you have hundreds of loyal servants.”</text>
+          <def_link>8</def_link>
+          <checkOnAppear>aod.npc_meru04_askedMe == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What about Faelan?”</text>
+          <def_link>6</def_link>
+          <checkOnAppear>aod.npc_meru04_askedFaelan == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Now *that* is something you don't see every day. Take Meru to Al-Akia.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I need time to prepare." Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>theLevelInfo.levelname $= "Ganezzar Star Room"</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>20</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“His powers are wondrous but they have limits. The Gods have chosen you, not Faelan, &lt;brother/sister&gt;.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_meru04_askedFaelan = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Why me? Surely you have hundreds of loyal servants.”</text>
+          <def_link>8</def_link>
+          <checkOnAppear>aod.npc_meru04_askedMe == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What's in Al-Akia?”</text>
+          <def_link>7</def_link>
+          <checkOnAppear>aod.npc_meru04_askedALK == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Alright, let’s go to Al-Akia.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I need time to prepare." Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>theLevelInfo.levelname $= "Ganezzar Star Room"</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>20</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The Gods have chosen you for a reason, &lt;brother/sister&gt;. Have faith in Their plan.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_meru04_askedMe = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What's in Al-Akia?”</text>
+          <def_link>7</def_link>
+          <checkOnAppear>aod.npc_meru04_askedALK == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What about Faelan?”</text>
+          <def_link>6</def_link>
+          <checkOnAppear>aod.npc_meru04_askedFaelan == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Alright, let’s go to Al-Akia.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I need time to prepare." Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>theLevelInfo.levelname $= "Ganezzar Star Room"</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>20</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

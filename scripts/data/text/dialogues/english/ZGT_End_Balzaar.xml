@@ -1,0 +1,313 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>ZGT_End_Balzaar</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Balzaar</def_speaker_name>
+    <def_portrait>Balzaar_3</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The body that hosts the god Balzaar looks less human with each passing day. The skin has turned glossy and hairless, stretched tight over his skull, and the eyes have become bigger, washed black and unblinking, like those of some bottom-dwelling sea creature, never meant to look on daylight.
+
+He sits more comfortably than ever Meru did in his old seat, as if his form were boneless and melding itself to the shape of the throne. The guards are gone, unnecessary now, and the great hall filled with kneeling worshipers. Their mumbles and prayers can be heard at all hours. To listen to that idiotic drone too long could drive one mad.
+
+Balzaar himself seems to gaze upon them with divine indifference, or perhaps he looks past them with those empty eyes, to some starry reach now lost.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_Balzaar);</string>
+        <string>dlgCam(15, 40, 6, 8032);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“At an end your rule is and not short enough it was!”</text>
+          <def_link>1</def_link>
+          <checkOnAppear>aod.npc_agathoth_dead == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Agathoth is dead.”</text>
+          <def_link>12</def_link>
+          <checkOnAppear>aod.npc_agathoth_dead</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Balzaar's burning eyes fix on you and your ribs tightens as if squeezed by an invisible hand. The pressure is slowly increasing; you struggle to inhale but your lungs will not obey. A sharp pain in your chest – your heart is about to fail!
+
+At that moment something deep and overwhelming rises within you, an alien hate the likes of which you have never known. You fill your lungs as it pushes back against the invisible vise around your chest, and then it reaches outward, along the same psychic bridge Balzaar used against you.
+
+Powerless against Agathoth himself, Balzaar strikes back at the vessel instead. The pressure intensifies.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[constitution]Must. Hold. On.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.con &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Fuck it, use the Divine Spear.</text>
+          <def_link>11</def_link>
+          <checkOnAppear>dlgOwnsItem(2230)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Your heart explodes and without Agathoth's support, your body drops to the floor. Balzaar slumps in place, breathing heavily, and nearly falls to the floor himself. He survived the first round but the battle is far from over.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD - gods battle</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You have taken the worst a god could dish out, yet cling to life with the tenacity of a cockroach. As quickly as they are torn apart, your organs mend themselves, but the crippling pain pushes the limits of what any human being can endure.
+
+A black blot is crowding your vision. You are lost, disoriented, reality is slipping away when the attack mercifully stops.
+
+Balzaar is slumped in the throne, unconscious.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetAmbientAnimation(8032);</string>
+        <string>dlgSetAnimation(anim_death_forward01, 0.95, 8032);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Finish it.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>You or Agathoth – you’re not certain who pulls the strings now – approach the throne. Your hand grabs Balzaar by the throat and slams his head against the throne with inhuman strength again and again and again.
+
+When the alien rage is spent, you are left to study your trembling, bloodied hands. Balzaar’s head is nothing more than a smashed egg, brain matter splashed everywhere. The worshipers stare at you, bewildered, waiting for some sign of what will come next.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>The guards clatter into the room with a shout, but draw up short at the sight of their ruined master. They will not be reasoned with and you’re too weak to fight...</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>BalzaarPraying.hideobjects();</string>
+        <string>createGuards();</string>
+        <string>dlgCam(175, 40, 8, 9105);</string>
+        <string>dlgRotateToChar(9105);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Use Agathoth’s Gift.</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>You reach out to the nearest guard with your mind, the same technique Balzaar used to attack you. His heart beats quickly in your hand, fearful but strong, alive. You squeeze it and the man goes down without a sound.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>killRandomDeathPosition(9105);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Order the guards to kneel.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>“Kneel,” you say, imitating Agathoth’s best imperious tone, a master addressing his slaves. The nervous squawk you actually produce is not enough to intimidate a palace guard however.
+
+But the alien power rises again and lashes out at the guards. The room swims out of focus a moment, and you casually rest a hand on the throne to keep from falling to your knees yourself. How much of your life force did this display of power burn? A few years you guess, spent in the blink of an eye.
+
+The guards do kneel now, so terrified they dare not raise their eyes. Pulling on Balzaar's arm, you shift the corpse from the throne and slouch down in the bloody gobbets left behind. It has been a very long day...</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Throne);</string>
+        <string>dlgCam(0, 40, 8);</string>
+        <string>dlgSetAnimation(anim_sit_chair_00_00, 0, 1);</string>
+        <string>dlgUnequipHands(1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING - killed Balzaar</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.ending_agathoth = 5;</string>
+        <string>SS_start("temple_ending", "disconnect();");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING - nuked Ganezzar</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.ending_nuke = 1;</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>SS_start("temple_ending", "disconnect();");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Rise, my most favorite slave. From now on you carry my favor and speak with my voice. None shall defy you.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I live to serve you, Lord.”</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Go to those who call themselves lords and strike them down. All men are equal before me for all are my slaves.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“How shall I strike them down, Lord?”</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“My word is law even when spoken by a slave.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Thy will be done, Lord.”</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING - Balzaar rules supreme</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.ending_balzaar = 1;</string>
+        <string>SS_start("temple_ending", "disconnect();");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>15</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

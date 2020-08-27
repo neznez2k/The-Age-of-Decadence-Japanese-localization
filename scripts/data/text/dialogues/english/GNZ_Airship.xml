@@ -1,0 +1,263 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_meru_dead</string>
+      <string>aod.npc_meru_met</string>
+    </conditions>
+    <links>
+      <int>8293</int>
+      <int>8285</int>
+    </links>
+    <dlg_name>GNZ_Airship</dlg_name>
+    <def_link>8284</def_link>
+    <def_speaker_name>Meru</def_speaker_name>
+    <def_portrait>Meru</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You’re standing in front of Lord Meru. He is dressed in the eastern manner and has an aura of humility and piousness about him, although you can’t say whether he is a humble and pious man or merely wants to come across as one.
+
+His guards stand behind him, clearly alarmed by the sight of the ship looming over them.
+
+“It’s been a long time since a ship docked in Ganezzar,” says Meru calmly.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Start_Airship_Meru_PC);</string>
+        <string>aod.airship_ganezzar = 3;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“The ship is yours, my Lord.”</text>
+          <def_link>8286</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8284</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You’re standing in front of Meru, the First Acolyte. His guards stand behind him, clearly alarmed by the sight of the ship looming over them.
+
+“It’s been a long time since a ship docked in Ganezzar,” says Meru calmly. “You've conjured up quite a miracle, &lt;master/mistress&gt; &lt;charname&gt;.”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Start_Airship_Meru_PC);</string>
+        <string>aod.airship_ganezzar = 3;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“The ship is yours, Brother.”</text>
+          <def_link>8287</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8285</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Marcus</speaker_name>
+      <npc_text>You’re standing in front of Marcus Sidonius Fabianus, the Second Acolyte. His guards stand behind him, clearly alarmed by the sight of the ship looming over them.
+
+“What is the meaning of this?” inquires Marcus.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Start_Airship_Meru_PC);</string>
+        <string>aod.airship_ganezzar = 3;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"The ship is my gift to the good people of Ganezzar."</text>
+          <def_link>8294</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8293</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Marcus</speaker_name>
+      <npc_text>“We thank you for your generosity, &lt;brother/sister&gt;. Maybe the blessing of the Gods be upon you.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(Airship_01);</string>
+        <string>if(aod.gnz_newLeader $= Fabianus) rwd_reputation(Airship_HC);</string>
+        <string>if(aod.gnz_newLeader $= Centurion) rwd_reputation(Airship_IG);</string>
+        <string>if(aod.gnz_newLeader $= Hagnon || aod.gnz_newLeader $= Maseus) rwd_reputation(Airship_HA);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8290</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8294</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“There are no lords here, &lt;brother/sister&gt;. Are we not all equal in the Gods’ eyes? We’re measured only by our devotion and faith.
+
+"Now, tell me about the ship,” says Meru. “Is it operational?”</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(Airship_01);</string>
+        <string>rwd_reputation(Airship_HC);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“It's badly damaged. It can be repaired, if you have skilled loremasters specializing in engine works and thaumaturgy, but it would take months if not years.”</text>
+          <def_link>8288</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.gnz_underSiege</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8289</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8286</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You humble me,” says Meru, looking at the ship. “Is it operational?”</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(Airship_01);</string>
+        <string>rwd_reputation(Airship_HC);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“It's badly damaged. It can be repaired, if you have skilled loremasters specializing in engine works and thaumaturgy, but it would take months if not years.”</text>
+          <def_link>8288</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.gnz_underSiege</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8289</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8287</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Regardless of its state, we're grateful for restoring this symbol of our city to its rightful place.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8290</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8288</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“We don't have months,” says Meru, gesturing at the Aurelian camp beyond the walls. “When I saw the ship I hoped that it can be used against our enemies.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“And that's exactly what the Aurelians are thinking now. Can you arrange a meeting with their commander?”</text>
+          <def_link>8292</def_link>
+          <checkOnAppear>aod.npc_hagnon_dead == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“And that's exactly what the Aurelians are thinking now. It will weaken their resolve.”</text>
+          <def_link>8291</def_link>
+          <checkOnAppear>aod.npc_hagnon_dead</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“It's a miracle it's still airworthy.” Leave.</text>
+          <def_link>8291</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8289</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Meru_Throne, 8000);</string>
+        <string>dlgSetAnimation(anim_sit_chair_00_00, 0, 8000);</string>
+        <string>dlgTeleportTo(147, 143, 0, S, 81101);</string>
+        <string>dlgTeleportTo(151, 143, 0, S, 81102);</string>
+        <string>dlgTeleportToMarker(TM_Marcus_Corner, 9021);</string>
+        <string>if(aod.gnz_newLeader $= Fabianus) {dlgTeleportToMarker(TM_Meru_Throne, 9021); dlgSetAnimation(anim_sit_chair_00_00, 0, 9021);}</string>
+	<string>setTravelingAllowed(true);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8290</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The Gods sent us a sign and made their will known amongst the people.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8290</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8291</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Send a messenger to the Legatus,” Meru says to one of his men. “Tell him we wish to offer him an opportunity to withdraw, should he so desire.”</npc_text>
+      <onLoadScripts>
+        <string>aod.airship_ganezzar = 4;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go talk to the Legatus.</text>
+          <def_link>8290</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8292</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

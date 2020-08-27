@@ -1,0 +1,599 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_ig1_recruits</string>
+      <string>aod.quest_ig1_loot</string>
+      <string>aod.quest_ig1_fight &amp;&amp; isAlive(1514) &amp;&amp; isAlive(1515)</string>
+      <string>aod.quest_ig1_fight &amp;&amp; (isAlive(1514) || isAlive(1515))</string>
+    </conditions>
+    <links>
+      <int>13</int>
+      <int>24</int>
+      <int>21</int>
+      <int>22</int>
+    </links>
+    <dlg_name>Quest_IG1</dlg_name>
+    <def_link>2</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You go inside and join two other recruits, patiently waiting in the training yard.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAnimation(anim_ambient_weaponless_00, 0);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Centurion</speaker_name>
+      <npc_text>When two more recruits show up, the guards close the gate and take their positions. The door leading into the main building opens and a Centurion steps out into the training yard.
+
+He inspects the recruts in silence, shaking his head every now and then. "I suppose we can't expect better quality from a shithole like Teron, can we?" asks the Centurion addressing nobody in particular.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgCreateCharacter("Recruit", 1512, 1512, 221, 52, 0, N);</string>
+        <string>dlgCreateCharacter("Recruit", 1513, 1513, 224, 52, 0, N);</string>
+        <string>dlgTeleportTo(222, 54, 0, S, 1130);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Centurion</speaker_name>
+      <npc_text>"Listen up, you apes. Lucky for you, you have finally made the right choice. It is the only choice a fighting man can make - to join the Imperial Guards. We are the backbone of the Empire. For more than a thousand years, we've been making real fighters out of local scum whose idea of a good fight is to backstab someone. Of course, you boys set a new low standard for 'local scum', but our Commander needs some new faces for a mission you are about to get.
+
+"A trading caravan from Maadoran will arrive today. When the caravan reaches the gate, it will stay there for a few hours until the bean counters estimate the cargo and negotiate the levies. At this point, you will attack from the outside. Dressed as raiders. Do you understand the orders?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Yes." Put on the raiders gear and get ready to move.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Why do we have to act like raiders attacking our own people?"</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Centurion</speaker_name>
+      <npc_text>"I do not think that you are grasping the nature of our relationship just yet. We are the army. We tell you what to do and you do it in a fast and efficient manner without – I repeat, without – asking idiotic questions to satisfy your thirst for knowledge. If you like to question everything, do it elsewhere.
+
+"So, one more time. Dress as raiders – you'll be given the gear shortly. Then, move into position, wait for the caravan to arrive, attack, and once sufficient casualties are inflicted, fall back. Are you clear?"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(222, 53, 0, SE, 1130);</string>
+        <string>dlgRotateToChar(1130);</string>
+        <string>useCameraBookmark(quest_IG1_cam_03);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Yes." Put on the raiders gear and get ready to move.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"It's not what I had in mind when I signed up. I want out."</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Centurion</speaker_name>
+      <npc_text>"I'm disappointed." The Centurion gestures to someone behind you. "Throw &lt;him/her&gt; outside in the morning." A heavy blow brings you down onto your knees. You fall down and let the darkness claim you.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(quest_IG1_cam_03);</string>
+        <string>dlgTeleportTo(223, 52, 0, N);</string>
+        <string>dlgCreateCharacter("Guard", 1520, 1520, 223, 51, 0, N);</string>
+        <string>dlgTeleportTo(223, 51, 0, N, 1520);</string>
+        <string>dlgTeleportTo(222, 52, 0, E, 1510);</string>
+        <string>dlgTeleportTo(220, 52, 0, E, 1511);</string>
+        <string>dlgTeleportTo(224, 52, 0, W, 1512);</string>
+        <string>dlgTeleportTo(221, 52, 0, E, 1513);</string>
+        <string>dlgSetAnimation(anim_fast_1h_shield, 0.6, 1520);</string>
+        <string>dlgSetAnimation(anim_death_aimed_torso, 0.73);</string>
+        <string>dlgSetAnimation(anim_dodge_back, 0.1, 1510);</string>
+        <string>dlgSetAnimation(anim_dodge_back, 0.13, 1512);</string>
+        <string>dlgSetAnimation(anim_ambient_2h_05, 0.6, 1130);</string>
+        <string>dlgSetAnimation(anim_getready_weaponless, 0.4, 1513);</string>
+        <string>dlgSetAnimation(anim_getready_weaponless, 0.3, 1511);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>...</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You wake up in the cemetery in the morning. Your head is throbbing with pain, but at least you're alive.
+
+*The Imperial Guards reputation lost*</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgChangeCharacterHP(-10);</string>
+        <string>dlgTeleportTo(222, 73, 0, S);</string>
+        <string>dlgSetAnimation(anim_death_aimed_torso, 0.98);</string>
+        <string>useCameraBookmark(quest_IG1_cam_05);</string>
+        <string>dlgDeleteCharacter(1510);</string>
+        <string>dlgDeleteCharacter(1511);</string>
+        <string>dlgDeleteCharacter(1512);</string>
+        <string>dlgDeleteCharacter(1513);</string>
+        <string>dlgDeleteCharacter(1520);</string>
+        <string>dlgDeleteCharacter(1521);</string>
+        <string>dlgTeleportTo(93, 44, 1, E, 1130);</string>
+        <string>dlgUnequipSlot(6);</string>
+        <string>dlgUnequipSlot(7);</string>
+        <string>rwd_reputation(IG1_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Get up and leave.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - IG questline finished</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.pc_rejected_IG1 = true;</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgSetAmbientAnimation();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>It takes you a while to circle around the town. By the time you get to the gate, the caravan is already there. Slaves are unloading the crates, while the merchants are negotiating the levies with the guards sent to inspect the merchandise.
+
+One of the slaves notices you and yells, "Raiders!", pointing in your direction. The merchants drop everything and run for the gate, followed by the slaves. The guards and the mercenaries move forward, ready to meet you. Two men in your group split and go after the merchants, leaving you the 'easy' targets to deal with.</npc_text>
+      <onLoadScripts>
+        <string>dlgCreateCharacter("商人", 1220, 1220, 23, 46, 0, SE);</string>
+        <string>dlgCreateCharacter("Caravan Guard", 1230, 1230, 29, 44, 0, SE);</string>
+        <string>dlgCreateCharacter("Caravan Guard", 1240, 1240, 30, 41, 0, E);</string>
+        <string>dlgCreateCharacter("ダラタンの衛兵", 1250, 1250, 28, 40, 0, E);</string>
+        <string>dlgCreateCharacter("ダラタンの衛兵", 1260, 1260, 27, 42, 0, E);</string>
+        <string>dlgCreateCharacter("Raider", 1514, 1514, 41, 39, 0, W);</string>
+        <string>dlgCreateCharacter("Raider", 1515, 1515, 41, 37, 0, W);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(quest_IG1_cam_06);</string>
+        <string>dlgAddItemlist(quest_ig1_equipment);</string>
+        <string>dlgEquipItem(1050);</string>
+        <string>dlgTeleportTo(42, 38, 0, W);</string>
+        <string>addParty(IG1Raiders, 0);</string>
+        <string>addCharToParty(1514, "IG1Raiders", "fighter");</string>
+        <string>addCharToParty(1515, "IG1Raiders", "fighter");</string>
+        <string>addCharToParty(1, "IG1Raiders", "fighter");</string>
+        <string>addParty(IG1Merchants, 0);</string>
+        <string>addCharToParty(1220, "IG1Merchants", "fighter");</string>
+        <string>addCharToParty(1230, "IG1Merchants", "fighter");</string>
+        <string>addCharToParty(1240, "IG1Merchants", "fighter");</string>
+        <string>addCharToParty(1250, "IG1Merchants", "fighter");</string>
+        <string>addCharToParty(1260, "IG1Merchants", "fighter");</string>
+        <string>aod.pc_member_none = false;</string>
+        <string>aod.pc_member_guards = true;</string>
+        <string>setTravelingAllowed(false);</string>
+        <string>dlgDeleteCharacter(1510);</string>
+        <string>dlgDeleteCharacter(1511);</string>
+        <string>dlgDeleteCharacter(1512);</string>
+        <string>dlgDeleteCharacter(1513);</string>
+        <string>dlgDeleteCharacter(1520);</string>
+        <string>dlgDeleteCharacter(1521);</string>
+        <string>remQuest(Job);</string>
+        <string>dlgShowWeapons();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Prepare for the fight.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - merchants</npc_text>
+      <onLoadScripts>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_ig1_fight = true;</string>
+        <string>aod.quest_ig1_attack = false;</string>
+        <string>addEnemyParty(IG1Raiders, IG1Merchants);</string>
+        <string>addEnemyParty(IG1Merchants, IG1Raiders);</string>
+        <string>aod.gameplay_questIG1_fight = true;</string>
+        <string>dlgFinish();</string>
+        <string>setCombatAllowed(true);</string>
+        <string>dlgCam(60, 45, 15);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Are you ready to return to the barracks?</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(quest_IG1_cam_04);</string>
+        <string>dlgTeleportTo(22, 42, 0, S);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Yes.</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Not yet.</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Hey, &lt;charname&gt;! Wait for us!" You glance back and see the recruits who went after the merchants. They're seemingly enjoying the life of an Imperial Guard - thus far. Just another day of protecting the good people of Teron.
+
+As they get closer, you hear shouts coming from the town. Very soon, this place will be swarming with Daratan guards. You best not be here when they come looking for blood and vengeance.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(quest_IG1_cam_09);</string>
+        <string>dlgCreateCharacter("Recruit", 1516, 1516, 27, 42, 0, SW);</string>
+        <string>dlgCreateCharacter("Recruit", 1517, 1517, 27, 40, 0, NW);</string>
+        <string>dlgSetCharacterHP(20, 1516);</string>
+        <string>dlgSetCharacterHP(20, 1517);</string>
+        <string>ig1ringfight.showobjects();</string>
+        <string>aod.quest_ig1_fight = false;</string>
+        <string>dlgTeleportTo(26, 41, 0, E);</string>
+        <string>dlgFadeLongToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go back to the Imperial Guards barracks.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’m out,” says one of the recruits. “If I wanted to rob caravans, I would have joined the raiders.” He throws down a blood-covered weapon and walks away. The other recruit follows him.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(26, 41, 0, E);</string>
+        <string>dlgTeleportTo(27, 41, 0, W, 1514);</string>
+        <string>dlgTeleportTo(28, 42, 0, W, 1515);</string>
+        <string>useCameraBookmark(quest_IG1_cam_09);</string>
+        <string>removeCharFromParty(1);</string>
+        <string>removeCharFromParty(1514);</string>
+        <string>removeCharFromParty(1515);</string>
+        <string>aod.quest_ig1_fight = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Search the battlefield.</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’m out,” says the other recruit. “If I wanted to rob caravans, I would have joined the raiders.” He throws down a blood-covered weapon and walks away.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(26, 41, 0, E);</string>
+        <string>useCameraBookmark(quest_IG1_cam_09);</string>
+        <string>removeCharFromParty(1);</string>
+        <string>removeCharFromParty(1514);</string>
+        <string>removeCharFromParty(1515);</string>
+        <string>aod.quest_ig1_fight = false;</string>
+        <string>if(isAlive(1514)) dlgTeleportTo(27, 41, 0, W, 1514);</string>
+        <string>if(isAlive(1515)) dlgTeleportTo(27, 41, 0, W, 1515);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Search the battlefield.</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - loot the battlefield</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>if(isAlive(1514)) dlgDeleteCharacter(1514);</string>
+        <string>if(isAlive(1515)) dlgDeleteCharacter(1515);</string>
+        <string>aod.quest_ig1_loot = true;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - look around some more</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Centurion</speaker_name>
+      <npc_text>"Good job. The merchants just left. They begged us to do everything in our power to protect Teron. Helping citizens in need is what the Imperial Guards are all about, so we *will* do everything in our power, and power is something we don't lack.
+
+"There is one little problem though. The merchants said that two raiders got away, so we need to produce two bodies they will recognize. In other words, we can take only one of you in. Whoever kills the other two first, gets the job. Feel free to start anytime."</npc_text>
+      <onLoadScripts>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>dlgTeleportTo(222, 52, 0, N);</string>
+        <string>dlgTeleportTo(222, 54, 0, S, 1130);</string>
+        <string>IG1_Caravan_Level.hideObjects();</string>
+        <string>useCameraBookmark(quest_IG1_cam_08);</string>
+        <string>quest_ig1_createRingBlock();</string>
+        <string>dlgTeleportTo(221, 52, 0, N, 1516);</string>
+        <string>dlgTeleportTo(223, 52, 0, N, 1517);</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>setCombatAllowed(false);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Kill the other two?"</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Alright." Fight.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Centurion</speaker_name>
+      <npc_text>"Is something wrong with your hearing, &lt;boy/girl&gt;? What we have here are three farmers who think that they can be soldiers. We need one new recruit and two bodies to show the merchants. It really doesn't get any simpler than this, does it?" The Centurion turns to one the guards holding a crossbow. "Count to three and shoot someone. I don't have all day."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - recruits</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ig1_back = false;</string>
+        <string>aod.quest_ig1_recruits = true;</string>
+        <string>dlgTeleportTo(229, 53, 1, S, 1130);</string>
+        <string>dlgSetAttitude(1516, 1517, -10);</string>
+        <string>dlgSetAttitude(1516, 1, -10);</string>
+        <string>dlgSetAttitude(1517, 1516, -10);</string>
+        <string>dlgSetAttitude(1517, 1, -10);</string>
+        <string>setRtsCam();</string>
+        <string>dlgSetZoom(10);</string>
+        <string>aod.gameplay_questIG1_fight = true;</string>
+        <string>dlgTeleportTo(222, 53, 0, S);</string>
+        <string>dlgTeleportTo(224, 52, 0, W, 1517);</string>
+        <string>dlgTeleportTo(220, 52, 0, E, 1516);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Centurion</speaker_name>
+      <npc_text>You look at the dead bodies sprawled around you and the blood slowly spreading on the ground. An unfortunate turn of events, but better them than you.
+
+"Well, well, well..." The Centurion signals and the other guards start stripping the bodies of their armor and weapons. "To be honest, I thought it was going to be the other guy, but I like surprises. Welcome to the Imperial Guards, the only home you'll ever need. Go inside and see Shorty about some armor. He's our quartermaster. Rest and report back to me."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ig1_recruits = false;</string>
+        <string>aod.pc_member_guards = true;</string>
+        <string>dlgTeleportTo(222, 54, 0, S, 1130);</string>
+        <string>dlgTeleportTo(222, 52, 0, N);</string>
+        <string>useCameraBookmark(Quest_IG1_cam_02);</string>
+        <string>quest_ig1_deleteRingBlock();</string>
+        <string>addQuest(IG1);</string>
+        <string>aod.quest_ig1_phase1 = true;</string>
+        <string>dlgAddRank(37);</string>
+        <string>rwd_quest(IG1_01);</string>
+        <string>rwd_reputation(IG1_01);</string>
+        <string>setAchievement("ACH_LEGIONARY");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I will." Leave.</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"No spoils of war for the victor?"</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Centurion</speaker_name>
+      <npc_text>"You're a soldier now, not a looter. We give you what you need, as for the spoils, don't worry, we'll put them to good use."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Shorty</speaker_name>
+      <npc_text>"Ah, the new recruit. Welcome to the family." Shorty gives you new armor and your pay.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(225, 54, 0, W, 1130);</string>
+        <string>dlgTeleportTo(242, 61, 0, E);</string>
+        <string>useCameraBookmark(NPC_Shorty_01);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>dlgAddItemlist(quest_ig1_reward);</string>
+        <string>dlgEquipItem(413);</string>
+        <string>dlgEquipItem(1051);</string>
+        <string>dlgChangeMoney(100);</string>
+        <string>aod.quest_ig1_complete = true;</string>
+        <string>ig1ringfight.hideobjects();</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Thanks." Go rest and heal yourself.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>cheatHP();</string>
+        <string>dlgCureStat(all);</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>addQuest(IG2);</string>
+        <string>aod.quest_ig2_phase1 = true;</string>
+        <string>dlgTeleportTo(234, 49, 0, N);</string>
+        <string>dlgSetZoom(10);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>20</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

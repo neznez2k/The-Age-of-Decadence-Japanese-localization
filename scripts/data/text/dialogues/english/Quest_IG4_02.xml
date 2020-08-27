@@ -1,0 +1,206 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Quest_IG4_02</dlg_name>
+    <def_link>27</def_link>
+    <def_speaker_name>Pavola</def_speaker_name>
+    <def_portrait>Pavola</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Report!”</npc_text>
+      <onLoadScripts>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportToMarker(TM_Dialogue_Pavola_PC_01);</string>
+        <string>dlgCam(255, 45, 6, 4400);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Tell him what you learned from Strabos.</text>
+          <def_link>44</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>27</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“So much for peace and quiet,” groans Pavola. “You're leaving in the morning. Take one squad and go to the pass. I’ll send several pigeons with the orders to lock the pass tight and wait for your arrival.
+
+“I’m putting you in charge, &lt;charname&gt;. Your orders are to hold the pass against the Ordu no matter the cost, even if you’re the last &lt;man/woman&gt; standing.
+
+“See the quartermaster before you go. I’ll instruct him accordingly. Dismissed!”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_pavola_reportStrabos = false;</string>
+        <string>aod.quest_IG5_sentToQM = true;</string>
+        <string>aod.quest_ig4_phase4 = true;</string>
+        <string>addQuest(IG5);</string>
+        <string>rwd_quest(IG4_01);</string>
+        <string>revealMapLocation("ThePass");</string>
+        <string>dlgAddTextBoxMessage("The Pass added to the map");</string>
+        <string>aod.quest_IG5_getPassIntro = true;</string>
+        <string>rwd_reputation(IG4_05);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"What about Strabos? I gave him my word that we'll protect him."</text>
+          <def_link>43</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Rest till morning.</text>
+          <def_link>47</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>44</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Fuck him. He made his own bed, let him lie in it."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]"Are you going to miss a chance to put the Boatmen back in their place? Strabos deserves what's coming to him, but if we let the Boatmen kill him, we'll send the wrong message. After all, he did come to you for help."</text>
+          <def_link>45</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>46</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion]"Whether or not he deserves what's coming to him, Strabos is a good ally and we need him. If we let the Boatmen kill him, we'll stand alone against House Aurelian and the Boatmen."</text>
+          <def_link>45</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>46</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Rest till morning.</text>
+          <def_link>47</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>43</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"I don't have time for this shit," Pavola says impatiently. "You have your orders, soldier."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Rest till morning.</text>
+          <def_link>47</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>45</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"You have a point there," admits Pavola. "Alright, I'll send a few good men. After all, he did prove to be useful."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Rest till morning.</text>
+          <def_link>48</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>46</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Strabos is dead," says Pavola when he sees you in the morning. "They sent Hamza to kill him, so consider yourself lucky that you weren't there.
+
+"Now, you have your orders, so I'd expect you to leave without delay. Is that understood?"</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(IG4_02);</string>
+        <string>aod.npc_strabos_dead = true;</string>
+        <string>dlgFadeLongToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>49</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>47</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"We lost two men last night, but that fuck fat is still alive," says Pavola when he sees you in the morning. "Next time keep your bright ideas to yourself.
+
+"You have your orders, so I expect you to leave without delay. Is that understood?"</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(IG4_03);</string>
+        <string>aod.npc_strabos_survived = true;</string>
+        <string>dlgFadeLongToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>49</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>48</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(255, 45, 12, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>49</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,1644 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_TG4_leaveGuild</string>
+      <string>aod.quest_TG4_usePavillion</string>
+      <string>aod.quest_TG4_plazaExplore</string>
+    </conditions>
+    <links>
+      <int>3488</int>
+      <int>3485</int>
+      <int>3481</int>
+    </links>
+    <dlg_name>Quest_TG4_01</dlg_name>
+    <def_link>3430</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You reach the trading plaza and find a good observation spot, obscured by shadows. You watch the plaza, looking for signs of anything out of the ordinary, but see nothing save for three half-asleep guards patrolling the area. The guild hasn’t been robbed in ages, so the guards have fallen into routine, slowly circling around the plaza.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_levir_reportTG4 = true;</string>
+        <string>aod.jnl_tg4_phase2 = true;</string>
+        <string>useCameraBookmark(CAM_Intro);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[sneak]Slip inside the temple.</text>
+          <def_link>3432</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.sneak &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3434</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[sneak][critical strike]Take them out.</text>
+          <def_link>3435</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.critical_strike + aod.sneak) &gt;= 8</string>
+            <string>(aod.critical_strike + aod.sneak) &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3437</int>
+            <int>3436</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3483</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3430</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go back to Maadoran</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.npc_levir_reportTG4 = false;</string>
+        <string>aod.jnl_tg4_phase2 = false;</string>
+        <string>aod.quest_tg4_backToLevir = true;</string>
+        <string>switchMission("Maadoran.mis");</string>
+        <string>dlgFadeLongToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3483</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Despite your best effort to move like a shadow, one of the guards stops and looks in your direction. You freeze, hoping that he won’t see you, but the guard shatters your hopes by yelling, “I think I see someone!” and pulling out his sword.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_SneakFailure);</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>3433</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Run away.</text>
+          <def_link>3467</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3432</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT 1</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_TG4_plazaExplore = true;</string>
+        <string>addEnemyToParty(1, Quest_TG4_Guards);</string>
+        <string>dlgDeleteCharacter(5023);</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.fight_TG4_outside = true;</string>
+        <string>aod.death_TG4 = true;</string>
+        <string>dlgCam(270, 45, 12, 1);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3433</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You watch the guards for a while, moving around and looking for a weak spot. Eventually you find one, proving once again that all comes to those who wait. You wait for the guards to turn around and quickly cross the open area, reaching the door.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DoorOutside);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgStealthPose(1);</string>
+        <string>dlgCam(10, 45, 7, 1);</string>
+        <string>rwd_civil(Sneak);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lockpick][dexterity]Pick the lock before the guards see you.</text>
+          <def_link>3491</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.lockpick + aod.dex) &gt;= 14</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3489</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3434</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You manage to unlock the door in record time and slip inside without anyone noticing.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_AG4_guardsAlive = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>rwd_civil(Lockpick);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>3446</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3489</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You fiddle with the lock until one of the guards sees you and yells, pointing in your direction.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetCombatAnimation(1);</string>
+        <string>dlgRotateToChar(5020);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>3433</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Run away.</text>
+          <def_link>3467</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3491</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You lunge at the first guard when he gets closer, but he senses your presence and whirls around just in time to meet your attack.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_CS_PC_01);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgCam(190, 45, 8, 1);</string>
+        <string>sfxPlayOnce(csMissSwingAir01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>3433</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3435</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You wait for the guard to pass your hiding spot, then get behind him and strike, aiming for the neck. Your blade sinks in deep, but doesn’t kill the guard outright. He whirls around, slashing madly and croaking for help, then slumps down.
+
+Pain shoots through your arm – the bastard managed to reach you. You don’t have time to deal with it as the other two guards are almost upon you.</npc_text>
+      <onLoadScripts>
+        <string>setRtsCam();</string>
+        <string>dlgSetAnimation(anim_death_forward01, 0.95, 5020);</string>
+        <string>dlgTeleportToMarker(TM_CS_PC_01);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgChangeCharacterHP(-10);</string>
+        <string>dlgKillCharacter(5020);</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>dlgCam(190, 45, 8, 1);</string>
+        <string>dlgHideWeapons();</string>
+        <string>sfxPlayOnce(csSuccessMetal01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>3433</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3436</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You wait for the guard to pass your hiding spot, then quickly get behind him and ram your dagger into his neck. The guard slumps down and your drag his body into the shadows.
+
+The other guard notices the disappearance of his partner and walks toward the place he saw him last, alert and ready for anything.</npc_text>
+      <onLoadScripts>
+        <string>setRtsCam();</string>
+        <string>dlgSetAnimation(anim_death_forward03, 0.95, 5020);</string>
+        <string>dlgTeleportToMarker(TM_CS_PC_01);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgKillCharacter(5020);</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>dlgStealthPose(1);</string>
+        <string>dlgCam(190, 45, 8, 1);</string>
+        <string>sfxPlayOnce(csSuccessMetal01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[critical strike][sneak]Kill him.</text>
+          <def_link>3438</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.critical_strike + aod.sneak) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3439</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>3433</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3437</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You wait until the guard is almost upon you, but by then it’s too late. You lunge at him, but he easily deflects your attack and brings down his axe. The strike doesn’t have enough power to kill you, but it cuts deep enough to weaken you.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_CS_NPC_01, 5021);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgChangeCharacterHP(-15);</string>
+        <string>dlgTeleportToMarker(TM_CS_PC_02);</string>
+        <string>sfxPlayOnce(csMissSwingShield01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>3433</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3438</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You throw a few pebbles to distract the guard’s attention momentarily and lunge at him the moment he turns his head. His eyes catch the movement and he raises his axe, but it’s too late and you’re already on him. You both go down; his axe is useless in such close combat, whereas your dagger is anything but. You strike the guard rapidly until he stops moving and get up tiredly.
+
+The sounds of the struggle alerted the last guard. A seasoned mercenary, he doesn’t rush into the darkness but stands in the light, waiting for you.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_CS_NPC_01, 5021);</string>
+        <string>dlgSetAnimation(anim_death_forward02, 0.95, 5021);</string>
+        <string>dlgTeleportToMarker(TM_CS_PC_02);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_CS_NPC_02, 5022);</string>
+        <string>dlgKillCharacter(5021);</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>dlgCam(45, 45, 9, 5022);</string>
+        <string>dlgSetCombatAnimation(5022);</string>
+        <string>sfxPlayOnce(csSuccessMetal01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>3433</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[critical strike][bow]On the plus side, the light makes him a perfect target. Take him out.</text>
+          <def_link>3440</def_link>
+          <checkOnAppear>dlgOwnsBow() &amp;&amp; dlgOwnsMissile(1)</checkOnAppear>
+          <checksOnClick>
+            <string>aod.bow &gt;= 4 &amp;&amp; aod.critical_strike &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3442</int>
+          </linksOnClick>
+          <scriptsOnClick>
+            <string>removeMissile();</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[critical strike][crossbow]On the plus side, the light makes him a perfect target. Take him out.</text>
+          <def_link>3440</def_link>
+          <checkOnAppear>(dlgOwnsXbow() || dlgOwnsItem(165) || dlgOwnsItem(166)) &amp;&amp; dlgOwnsMissile(1)</checkOnAppear>
+          <checksOnClick>
+            <string>aod.crossbow &gt;= 4 &amp;&amp; aod.critical_strike &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3443</int>
+          </linksOnClick>
+          <scriptsOnClick>
+            <string>removeMissile();</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[critical strike][throwing]On the plus side, the light makes him a perfect target. Take him out.</text>
+          <def_link>3440</def_link>
+          <checkOnAppear>dlgOwnsThrowing()</checkOnAppear>
+          <checksOnClick>
+            <string>aod.throwing &gt;= 4 &amp;&amp; aod.critical_strike &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3441</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3439</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You aim is off the mark – all you achieved was pissing the guard off and telling him where you’re hiding. The guard swears, promising to do rather unpleasant things to you, and charges at you.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>3433</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3440</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]It’s a perfect throw. You hit the guard in the right eye and he goes down, without as much as a moan.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAnimation(anim_death_forward01, 0.95, 5022);</string>
+        <string>aod.quest_TG4_plazaExplore = true;</string>
+        <string>aod.quest_TG4_killedCS = true;</string>
+        <string>VCO_EnterGuild.setActive(true);</string>
+        <string>Exit_EnterGuild.isRenderEnabled = true;</string>
+        <string>dlgKillCharacter(5022);</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>sfxPlayOnce(AudioCsRangedBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Check the bodies, then go inside the building.</text>
+          <def_link>3482</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3441</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]It’s a perfect shot. The arrow sinks into his right eye, killing the guard instantly.</npc_text>
+      <onLoadScripts>
+        <string>removeMissile();</string>
+        <string>dlgSetAnimation(anim_death_forward01, 0.95, 5022);</string>
+        <string>aod.quest_TG4_plazaExplore = true;</string>
+        <string>aod.quest_TG4_killedCS = true;</string>
+        <string>Exit_EnterGuild.isRenderEnabled = true;</string>
+        <string>VCO_EnterGuild.setActive(true);</string>
+        <string>dlgKillCharacter(5022);</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>sfxPlayOnce(AudioCsRangedBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Check the bodies, then go inside the building.</text>
+          <def_link>3482</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3442</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]It’s a perfect shot. The bolt sinks into his right eye, killing the guard instantly.</npc_text>
+      <onLoadScripts>
+        <string>removeMissile();</string>
+        <string>dlgSetAnimation(anim_death_forward01, 0.95, 5022);</string>
+        <string>aod.quest_TG4_plazaExplore = true;</string>
+        <string>aod.quest_TG4_killedCS = true;</string>
+        <string>Exit_EnterGuild.isRenderEnabled = true;</string>
+        <string>VCO_EnterGuild.setActive(true);</string>
+        <string>dlgKillCharacter(5022);</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>sfxPlayOnce(AudioCsRangedBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Check the bodies, then go inside the building.</text>
+          <def_link>3482</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3443</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Enter the building?</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DoorOutside);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Yes.</text>
+          <def_link>3444</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_TG4_killedCS</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3446</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Not yet.</text>
+          <def_link>3482</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3481</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - look around</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3482</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You enter the merchants guild. With the exception of the pavilion Levir told you about, it’s a fairly standard trading house – stalls, crates with goods, ledgers tracking daily sales, and such. Of the merchant who was supposed to be here, there is no sign. Either she took a day off or ran away when the fight started.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_InsideAlone);</string>
+        <string>VCO_EnterGuild.setActive(false);</string>
+        <string>Exit_EnterGuild.isRenderEnabled = false;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgCam(45, 45, 8, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Examine the pavilion.</text>
+          <def_link>3445</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3444</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The pavilion is locked in place. The device operating it is the most complex gear mechanism you’ve ever seen. You see dozens of interlocked gears disappearing into a narrow shaft in the floor. It appears that the largest gear is locked and you need a hand crank to unlock it and set the gears in motion.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Pavillion);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgCam(10, 45, 8, 1);</string>
+        <string>dlgSetAmbientAnimation();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Use the crank.</text>
+          <def_link>3466</def_link>
+          <checkOnAppear>aod.quest_TG4_gotCrank</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[crafting][lockpick]Unlock the mechanism.</text>
+          <def_link>3464</def_link>
+          <checkOnAppear>aod.quest_TG4_gotCrank == false</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.lockpick + aod.crafting) &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3465</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[perception]Look for the crank.</text>
+          <def_link>3468</def_link>
+          <checkOnAppear>aod.quest_TG4_gotCrank == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.per &gt;= 8</string>
+            <string>aod.per &gt;= 6 &amp;&amp; aod.steal &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3469</int>
+            <int>3486</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Return to Levir empty handed.</text>
+          <def_link>3467</def_link>
+          <checkOnAppear>aod.quest_TG4_gotCrank == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3445</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The pavilion is locked in place. The device operating it is the most complex gear mechanism you’ve ever seen. You see dozens of interlocked gears disappearing into a narrow shaft in the floor. It appears that the largest gear is locked and you need a hand crank to unlock it and set the gears in motion.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Pavillion);</string>
+        <string>Exit_Pavillion.isRenderEnabled = false;</string>
+        <string>dlgCam(10, 45, 8, 1);</string>
+        <string>dlgSetAmbientAnimation();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Use the crank.</text>
+          <def_link>3466</def_link>
+          <checkOnAppear>aod.quest_TG4_gotCrank</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[crafting][lockpick]Unlock the mechanism.</text>
+          <def_link>3464</def_link>
+          <checkOnAppear>aod.quest_TG4_gotCrank == false</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.lockpick + aod.crafting) &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3465</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[perception]Look for the crank.</text>
+          <def_link>3468</def_link>
+          <checkOnAppear>aod.quest_TG4_gotCrank == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.per &gt;= 8</string>
+            <string>aod.per &gt;= 6 &amp;&amp; aod.steal &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3469</int>
+            <int>3486</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Return to Levir empty handed.</text>
+          <def_link>3467</def_link>
+          <checkOnAppear>aod.quest_TG4_gotCrank == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Look around.</text>
+          <def_link>3482</def_link>
+          <checkOnAppear>aod.quest_TG4_usePavillion &amp;&amp; aod.quest_TG4_gotCrank == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3485</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Merchant</speaker_name>
+      <npc_text>You enter the merchants guild. With the exception of the pavilion Levir told you about, it’s a fairly standard trading house – stalls, crates with goods, ledgers tracking daily sales, and such. A woman is going over one of the ledgers, taking notes and checking the merchandise.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_LockpickInside);</string>
+        <string>VCO_EnterGuild.setActive(false);</string>
+        <string>Exit_EnterGuild.isRenderEnabled = false;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgCam(30, 45, 8, 5023);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I hope everything is in order.”</text>
+          <def_link>3447</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[sneak][critical strike]Knock her out.</text>
+          <def_link>3492</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.sneak + aod.critical_strike) &gt;= 8</string>
+            <string>aod.quest_AG4_guardsAlive == false</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3493</int>
+            <int>3494</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3446</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]The woman darts away and screams. The guards’ response time is nearly flawless – they rush inside from different directions, eager to prove that they are good for something.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgDeleteCharacter(5023);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Guard_01, 5020);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Guard_02, 5021);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Guard_03, 5022);</string>
+        <string>dlgTeleportToMarker(TM_PC_Merchant_01);</string>
+        <string>dlgSetCombatAnimation(1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>3463</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3492</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]The woman darts away and screams. No matter – the guards are dead and nobody's coming. You watch her running away, then turn to the pavilion.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgDeleteCharacter(5023);</string>
+        <string>dlgTeleportToMarker(TM_PC_Merchant_01);</string>
+        <string>dlgSetAmbientAnimation(1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Examine the pavilion.</text>
+          <def_link>3445</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3494</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You hit the woman hard enough to knock her out. She won’t be too happy about it when she wakes up, but at least she’ll live and you won’t have to worry about her in the meantime.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetAnimation(anim_death_back00, 0.95, 5023);</string>
+        <string>dlgHideWeapons();</string>
+        <string>dlgTeleportToMarker(TM_CS_Merchant);</string>
+        <string>setCharacterInvincible(5023, 1);</string>
+        <string>sfxPlayOnce(csSuccessKnockBody01);</string>
+        <string>rwd_civil(Sneak);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Examine the pavilion.</text>
+          <def_link>3445</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3493</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Merchant</speaker_name>
+      <npc_text>She looks up, instantly alarmed. “Where are the guards?”</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(30, 45, 8, 5023);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_PC_Merchant_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Dead. Would you like to join them?”</text>
+          <def_link>3448</def_link>
+          <checkOnAppear>aod.quest_AG4_guardsAlive == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Outside, still walking around the building. It’s a thankless job, but someone has to do it.”</text>
+          <def_link>3458</def_link>
+          <checkOnAppear>aod.quest_AG4_guardsAlive</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3447</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Merchant</speaker_name>
+      <npc_text>She shakes her head, speechless and terrified.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Then give me the key and I’ll let you live.”</text>
+          <def_link>3449</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3448</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Merchant</speaker_name>
+      <npc_text>“How do I know you’re going to keep your word?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[word of honor success]“My name is &lt;charname&gt;. Perhaps, you’ve heard of me.”</text>
+          <def_link>3450</def_link>
+          <checkOnAppear>dlgGetRep(honor) &gt;= 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[body count]“If you don't give me the key, I'll definitely kill you. So, tell me, what do you find more appealing: a certain death or a chance to live?”</text>
+          <def_link>3454</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(bodycount) &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3451</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3449</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Merchant</speaker_name>
+      <npc_text>The woman goes pale. “The one who stole Antidas’ Hoard? They say you’re a cold-blooded killer.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Do they also say that I keep my word?”</text>
+          <def_link>3451</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3450</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Merchant</speaker_name>
+      <npc_text>The woman nods.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Then give me the goddamn key before I change my mind.”</text>
+          <def_link>3453</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3451</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The woman leads you to a cabinet filled with scrolls, takes one, removes the wooden rod from one of them and gives it to you. The rod ends with a decorative metal head that looks precisely like something that can be inserted into the gear mechanism.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_TG4_gotCrank = true;</string>
+        <string>aod.quest_TG4_honor = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Keep your word and let the witness live. After all, your infamy won't spread itself.</text>
+          <def_link>3455</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Word or no word, you can’t let her live.</text>
+          <def_link>3456</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3453</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Merchant</speaker_name>
+      <npc_text>“I don't know where it is, I swear,” says the woman quickly.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Knock her out.</text>
+          <def_link>3455</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>She just had to be a hero. Kill her.</text>
+          <def_link>3456</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3454</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The woman leads you to a cabinet filled with scrolls, takes one, removes the wooden rod from one of them and gives it to you. The rod ends with a decorative metal head that looks precisely like something that can be inserted into the gear mechanism.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_TG4_gotCrank = true;</string>
+        <string>if(aod.flagUsed) {rwd_civil(TG4_01); aod.flagUsed = 0;}</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Knock her out.</text>
+          <def_link>3455</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Kill her.</text>
+          <def_link>3456</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3462</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You hit the woman hard enough to knock her out. She won’t be too happy about it, when she wakes up, but at least she’ll live and you won’t have to worry about her in the meantime.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetAnimation(anim_death_back00, 0.95, 5023);</string>
+        <string>dlgHideWeapons();</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>setCharacterInvincible(5023, 1);</string>
+        <string>sfxPlayOnce(csSuccessKnockBody01);</string>
+        <string>if(aod.quest_TG4_honor) rwd_reputation(TG4_Honor_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to the pavilion.</text>
+          <def_link>3445</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3455</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>She sees it in your eyes and tries to protest, but you strike before she can say anything. She falls into your arms and you lower her body to the floor.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAnimation(anim_death_back00, 0.95, 5023);</string>
+        <string>dlgTeleportToMarker(TM_CS_Merchant);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgKillCharacter(5023);</string>
+        <string>changeRep(bodycount, 1);</string>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+        <string>if(aod.quest_TG4_honor) rwd_reputation(TG4_Honor_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to the pavilion.</text>
+          <def_link>3445</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3456</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Merchant</speaker_name>
+      <npc_text>She regains some of her confidence. “I’ll call them for help, if you don’t leave right now.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“Go ahead. It’ll be the last sound you’ll ever make, so make it memorable.”</text>
+          <def_link>3459</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3461</int>
+          </linksOnClick>
+          <scriptsOnClick>
+            <string>if(aod.streetwise &gt;= 3) aod.flagUsed = 1;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[body count]“Make a sound and I’ll cut your fucking throat.”</text>
+          <def_link>3460</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(bodycount) &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3461</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3458</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Merchant</speaker_name>
+      <npc_text>[failure]“You wouldn’t dare,” says the woman, careful not to raise her voice too much.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]“Don’t bet your life on it. I came here for a reason, and I won’t let something as trivial as your life stand in the way.”</text>
+          <def_link>3460</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3461</int>
+          </linksOnClick>
+          <scriptsOnClick>
+            <string>if(aod.persuasion &gt;= 3) aod.flagUsed = 1;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+      </answers>
+      <UID>3459</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]The woman nods, then suddenly darts away and screams. The guards’ response time is nearly flawless – they rush inside from different directions, eager to prove that they are good for something.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgDeleteCharacter(5023);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Guard_01, 5020);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Guard_02, 5021);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Guard_03, 5022);</string>
+        <string>dlgTeleportToMarker(TM_PC_Merchant_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>3463</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3460</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Merchant</speaker_name>
+      <npc_text>[success]“What do you want?” asks the woman, terrified.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I want the key. Now.”</text>
+          <def_link>3462</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3461</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT 2 - inside</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addEnemyToParty(1, Quest_TG4_Guards);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>aod.quest_TG4_usePavillion = true;</string>
+        <string>aod.fight_TG4_inside = true;</string>
+        <string>aod.quest_AG4_guardsAlive = false;</string>
+        <string>aod.death_TG4 = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3463</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You try to unlock the gear, but fail miserably.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Use the crank.</text>
+          <def_link>3466</def_link>
+          <checkOnAppear>aod.quest_TG4_gotCrank</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[perception]Look for the crank.</text>
+          <def_link>3468</def_link>
+          <checkOnAppear>aod.quest_TG4_failPerception == false &amp;&amp; aod.quest_TG4_gotCrank == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.per &gt;= 8</string>
+            <string>aod.per &gt;= 6 &amp;&amp; aod.steal &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3469</int>
+            <int>3486</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Return to Levir empty handed.</text>
+          <def_link>3467</def_link>
+          <checkOnAppear>aod.quest_TG4_gotCrank == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3464</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]All your life you were a firm believer that what one man locked, another could unlock, if &lt;he/she&gt; is clever enough. You set to work, probing and boring holes for easy access and making necessary adjustments. It takes you almost an hour, but in the end the locking mechanism is bared open and gutted, replaced by a crude, but ingenious, if primitive, way of operating the pavilion.</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(Lockpick);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go down.</text>
+          <def_link>3470</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3465</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You insert the rod into the gear mechanism and push it forward, forcing the gear into position. The pavilion is now unlocked and can be taken down.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go down.</text>
+          <def_link>3470</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3466</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - failed</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.npc_levir_reportTG4 = true;</string>
+        <string>aod.jnl_tg4_phase4 = true;</string>
+        <string>aod.quest_tg4_backToLevir = true;</string>
+        <string>switchMission("Maadoran.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3467</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You look everywhere, but fail to find the key.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_TG4_failPerception = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[crafting][lockpick]Unlock the mechanism.</text>
+          <def_link>3464</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.lockpick + aod.crafting) &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3465</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Return to Levir empty handed.</text>
+          <def_link>3467</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3468</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You take your time, checking everything thoroughly, even the ledger scrolls. One of the rods holding the scrolls comes loose and you notice that it ends with a decorative metal head that looks precisely like something that can be inserted into a gear mechanism. Congratulations – you’ve found the key.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_TG4_gotCrank = true;</string>
+        <string>dlgTeleportToMarker(TM_FoundCrank);</string>
+        <string>dlgCam(45, 45, 8, 1);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to the pavilion.</text>
+          <def_link>3445</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3469</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[stealing success]You would have missed it, but you stole plenty of things to know where people hide keys to their valuables. Granted, the ledger scrolls weren't you first choice or even the second, but they were on the list.
+
+One of the rods holding the scrolls comes loose and you notice that it ends with a decorative metal head that looks precisely like something that can be inserted into a gear mechanism. Congratulations – you’ve found the key.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_TG4_gotCrank = true;</string>
+        <string>dlgTeleportToMarker(TM_FoundCrank);</string>
+        <string>dlgCam(45, 45, 8, 1);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>rwd_civil(Steal);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to the pavilion.</text>
+          <def_link>3445</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3486</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start exploration</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_entranceBasement);</string>
+        <string>narratePhrase("You are standing in a small chamber, lit by several strange round lamps mounted on rusted metal walls.&lt;nlo&gt;Whatever purpose the chamber once had has been long forgotten – now it holds nothing but rows of wooden chests and shelves,&lt;nlo&gt;which contrast greatly with the superior craftsmanship of the walls and the lamps.");</string>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>aod.quest_tg4_reachedBasement = true;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3470</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You find the chest with the artefacts without any difficulty. It’s reinforced with black lead, but left unlocked. Inside, there are several compartments, one for each artefact. The artefacts are wrapped in linen, but you can see the glow emanating from some of them through the fabric. Suddenly, you feel light-headed and nauseated. You find the jar, take it, and close the chest.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_TG4_gotJar = true;</string>
+        <string>aod.jnl_tg4_phase3 = true;</string>
+        <string>dlgAddItem(2165, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Examine other chests.</text>
+          <def_link>3473</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Examine the shelves.</text>
+          <def_link>3472</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Return to Levir.</text>
+          <def_link>3476</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3471</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Scrolls, scrolls, and more scrolls. You open one scroll – endless columns of numbers. You open another – a dossier on Gaelius’ father, now redundant, but kept dutifully in case he decides to come back from the dead. You never know...</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Examine the chests.</text>
+          <def_link>3471</def_link>
+          <checkOnAppear>aod.quest_TG4_gotJar == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Examine other chests.</text>
+          <def_link>3473</def_link>
+          <checkOnAppear>aod.quest_TG4_gotJar</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Return to Levir.</text>
+          <def_link>3476</def_link>
+          <checkOnAppear>aod.quest_TG4_gotJar</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3472</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You open one of the chests. It's filled with gold. You remember Levir’s warning not to touch anything but the artefact, but he isn’t here, is he?</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Help yourself.</text>
+          <def_link>3474</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per &gt;= 7</string>
+            <string>aod.traps &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3475</int>
+            <int>3480</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Return to Levir.</text>
+          <def_link>3476</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3473</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[perception failure]You start shoving coins in your pocket, enjoying every minute of it, when something underneath the chest clicks, releasing some kind of fume. You draw a breath and suddenly your throat closes up. You try to draw another breath, but no air gets through.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(42);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave while you can.</text>
+          <def_link>3477</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_AG4_guardsAlive</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3478</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3474</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[perception success]Suddenly, you notice that the chests are sitting on what appear to be pressure plates, perforated with tiny holes. The pressure plates are expertly made and fit the floor pattern perfectly.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>How bad can it be? Help yourself to some of that gold.</text>
+          <def_link>3484</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Return to Levir.</text>
+          <def_link>3476</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3475</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[traps success]Suddenly, you notice that the chests are sitting on what appear to be pressure plates, perforated with tiny holes. The pressure plates are expertly made and fit the floor pattern perfectly.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>How bad can it be? Help yourself to some of that gold.</text>
+          <def_link>3484</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Return to Levir.</text>
+          <def_link>3476</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3480</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You start shoving coins in your pocket, enjoying every minute of it, when something underneath the chest clicks, releasing some kind of fume. You draw a breath and suddenly your throat closes up. You try to draw another breath, but no air gets through.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(42);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave while you can.</text>
+          <def_link>3477</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_AG4_guardsAlive</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3478</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3484</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Levir</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.npc_levir_reportTG4 = true;</string>
+        <string>aod.quest_tg4_backToLevir = true;</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>switchMission("Maadoran.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3476</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Fighting for breath, you crawl into the pavilion, push the lever, and pass out. When you regain your conscience, you’re lying on the cold floor, fortunately alone and undisturbed. Groaning, you get up – your head is pounding and you’re a bit dizzy and disoriented.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMaxHp(-5);</string>
+        <string>dlgTeleportToMarker(TM_PavillionPoison);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgCam(260, 45, 6, 1);</string>
+        <string>dlgSetAnimation(anim_death_forward00, 0.95, 1);</string>
+        <string>dlgHideWeapons();</string>
+        <string>dlgAddTextBoxMessage("5 max HP lost");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Return to Levir.</text>
+          <def_link>3476</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3477</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Fighting for breath, you crawl into the pavilion, push the lever, and pass out. When you regain your conscience, you’re surrounded by several guards engaged in a lively debate. One guard suggests turning you into the Commercium, while the other two are of the opinion that killing you and taking the money you stole is a much better idea.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMaxHp(-5);</string>
+        <string>dlgTeleportToMarker(TM_PavillionPoison);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_NPC_GuardPoison_01, 5020);</string>
+        <string>dlgTeleportToMarker(TM_NPC_GuardPoison_02, 5021);</string>
+        <string>dlgTeleportToMarker(TM_NPC_GuardPoison_03, 5022);</string>
+        <string>dlgSetAnimation(anim_death_forward00, 0.95, 1);</string>
+        <string>dlgHideWeapons();</string>
+        <string>dlgAddTextBoxMessage("5 max HP lost");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>What are you waiting for? Kill ‘em all.</text>
+          <def_link>3479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3478</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT 3</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addEnemyToParty(1, Quest_TG4_Guards);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>aod.fight_TG4_poison = true;</string>
+        <string>aod.quest_TG4_leaveGuild = true;</string>
+        <string>aod.death_TG4 = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3479</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Return to Levir?</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_exitGuild);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Yes.</text>
+          <def_link>3476</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_TG4_killedCS</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3446</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Not yet.</text>
+          <def_link>3482</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3488</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

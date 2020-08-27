@@ -1,0 +1,296 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Vardanis_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Vardanis</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I'm alive!" yells Vardanis in disbelief. "Alive! I bet Cado didn't expect it, did he? Fucking bastard!"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(67, 175, 0, W, 1185);</string>
+        <string>dlgTeleportTo(66, 175, 0, E);</string>
+        <string>useCameraBookmark(vignette_thug_ambush_01);</string>
+        <string>aod.vignette_vardanis_20 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Escort him back to the inn.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"My rate has just gone up."</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What is this? Blackmail? You did what you were hired to do, no more, no less. You get twenty a day, but I'm a fair man, so let's make it forty."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Twenty a day, plus fifty per body. One hundred and twenty. If you want to be fair."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You're worse than Cado. Fifty and not a coin more."</npc_text>
+      <onLoadScripts>
+        <string>aod.vignette_vardanis_20 = false;</string>
+        <string>aod.vignette_vardanis_50 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Fine." Escort him back to the inn.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Looks like I owe Cado an apology." Attack.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]"You're alive because of me, but it's an easy to fix the problem, if you catch my drift."</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"You wouldn't dare!"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Kill him.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Escort him back to the inn.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Alright, alright! Take your fucking money!"</npc_text>
+      <onLoadScripts>
+        <string>aod.vignette_vardanis_50 = false;</string>
+        <string>aod.vignette_vardanis_120 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Escort him back to the inn.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>removeCharFromParty(1185);</string>
+        <string>dlgSetAttitude(1185, 1, -10);</string>
+        <string>setRtsCam();</string>
+        <string>dlgSetZoom(10);</string>
+        <string>aod.gameplay_vardanis_fight = 2;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Innkeeper</speaker_name>
+      <npc_text>"What happened?" asks the innkeeper.</npc_text>
+      <onLoadScripts>
+        <string>if(aod.vignette_vardanis_20) dlgChangeMoney(20);</string>
+        <string>if(aod.vignette_vardanis_50) dlgChangeMoney(50);</string>
+        <string>if(aod.vignette_vardanis_120) dlgChangeMoney(120);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgteleportto(188, 98, 0, N);</string>
+        <string>dlgteleportto(188, 100, 0, S, 1180);</string>
+        <string>useCameraBookmark(NPC_innkeeper_cam_01);</string>
+        <string>dlgDeleteCharacter(1185);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>rwd_quest(vignetteMercenary);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Almost died making some easy money. Got any more jobs for me?"</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Innkeeper</speaker_name>
+      <npc_text>"The Imperial Guards are recruiting. Might be just the place for you."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Might be. Do you know a good loremaster?"</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Innkeeper</speaker_name>
+      <npc_text>"Talk to Feng."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Rest and go pay Feng a visit.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Rest and go to the Imperial Guards fort.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Rest for the night.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go to Feng</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportTo(159, 72, 0, N);</string>
+        <string>TeronDayTime();</string>
+        <string>dlgCureStat(all);</string>
+        <string>cheatHP();</string>
+        <string>if(aod.professionID == 6) {remQuest(VignetteMercenary); setAchievement("ACH_MERCENARY");}</string>
+        <string>aod.global_teron_vignette = false;</string>
+        <string>if(aod.professionID == 5) {remQuest(VignetteDrifter); setAchievement("ACH_DRIFTER");}</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go to IG</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportTo(204, 56, 0, E);</string>
+        <string>TeronDayTime();</string>
+        <string>dlgCureStat(all);</string>
+        <string>cheatHP();</string>
+        <string>if(aod.professionID == 6) {remQuest(VignetteMercenary); setAchievement("ACH_MERCENARY");}</string>
+        <string>if(aod.professionID == 5) {remQuest(VignetteDrifter); setAchievement("ACH_DRIFTER");}</string>
+        <string>aod.global_teron_vignette = false;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>TeronDayTime();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgCureStat(all);</string>
+        <string>cheatHP();</string>
+        <string>if(aod.professionID == 6) {remQuest(VignetteMercenary); setAchievement("ACH_MERCENARY");}</string>
+        <string>if(aod.professionID == 5) {remQuest(VignetteDrifter); setAchievement("ACH_DRIFTER");}</string>
+        <string>aod.global_teron_vignette = false;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>12</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

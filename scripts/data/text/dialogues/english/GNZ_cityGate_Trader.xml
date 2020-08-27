@@ -1,0 +1,264 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.gnz_cityGate_trader_amulet == 2</string>
+      <string>aod.gnz_cityGate_trader_amulet == 1</string>
+    </conditions>
+    <links>
+      <int>12</int>
+      <int>11</int>
+    </links>
+    <dlg_name>GNZ_cityGate_Trader</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Trader</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Unless you’re one of the ‘faithful’, friend, you might as well turn around,” says a gap-toothed man, giving you his best smile. “The good people of Ganezzar don’t want the unbelievers polluting their fair city with their presence.”</npc_text>
+      <onLoadScripts>
+        <string>aod.gnz_cityGate_trader_amulet = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Are the gates closed then?”</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The gates are wide open but without one of these,” he displays a rough-looking pendant in the shape of a snake biting its own tail, “you won’t make it past the first vacant cross, if you know what I mean.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What is it?”</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What is it?” asks the man, truly surprised by your ignorance. “It’s the mark of House Crassus. The great serpent Araborus whose awakening will herald the end of this world and the beginning of a new one!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Ouroboros?”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“That’s what I said, didn’t I? So if you want to escape his fiery breath and enter the new world *and* this holy city, you can buy this amulet for one low price of 10 imperials. I should be charging more, but I refuse to make a profit on your personal salvation.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’ll buy the amulet if you answer my questions.” Give him 10 coins.</text>
+          <def_link>4</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 10</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Some other time maybe.” Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Changed your mind?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’ll buy the amulet if you answer my questions.” Give him 10 coins.</text>
+          <def_link>4</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 10</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Some other time maybe.” Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It will be my pleasure,” the man says reassuringly, giving you the amulet.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-10);</string>
+        <string>aod.gnz_cityGate_trader_amulet = 2;</string>
+        <string>dlgAddItem(905, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“So what’s all this nonsense about the locals turning the unbelievers away?”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.mdn_destroyed</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“They do take this new creed seriously, that’s for sure. They burned down the Boatmen’s guild and slaughtered every man inside, so I'd take them seriously too if I were you. Watch what you say or better yet keep your mouth shut, unless you want to end up on a cross.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“They killed all Boatmen? What about the other guilds?”</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Can’t blame them after what happened to Maadoran. They say it was the wickedness of the unbelievers that brought the Gods’ Wrath on their heads like a hammer. Nobody wants their city to be next, not because of some infidels hiding in their midst.
+
+“The Boatmen, the Guards, the Merchants – they’ve been hunted down and killed like dogs. The zealots don’t want to take any chances, so take my advice and embrace the True Faith, if you haven’t already.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The merchants are keeping a very low profile. Not a good time to be in the money changing business for them. The Guards are doing what they do best – looking the other way. The thieves went underground like rats.
+
+“The word is, they are staying away from the zealots. If you’re one of the ‘faithful’, you can walk around at night and nobody will dare touching you, because come the morning, the mob will be there looking for those who wronged you in any way. Keep that in mind, friend.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What does Meru say about it?”</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Officially, Meru says the attacks must stop and that all citizens are equal in his eyes for he’s a brother to all of them. Unofficially? Well, I wouldn’t know about that, but I suspect that he’s happy as a pig.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Brother?”</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You didn’t hear about it? Apparently, he is a lord no longer. He’s Brother Meru now. Of course, our new brother still rules Ganezzar from his castle and the mob has accepted him as their leader, so Meru’s stronger than ever.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Anything else I can do for you, friend?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

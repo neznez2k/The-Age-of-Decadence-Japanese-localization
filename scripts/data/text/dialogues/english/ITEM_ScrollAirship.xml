@@ -1,0 +1,97 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>ITEM_ScrollAirship</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>It's a scroll from Antidas' collection.</npc_text>
+      <onLoadScripts>
+        <string>setWindowImage(item_airshipScroll);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lore]Read it.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lore &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Unfortunately, the language is unfamiliar.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]The scroll is written in an ancient script attributed to the Magi and those who served them.
+
+"We beheld in the sky what appeared to us to be a mass of scarlet clouds resembling the fierce flames of a blazing fire. From that mass many blazing missiles flashed, and tremendous roars, like the noise of a thousand drums beaten at once. And from it fell many weapons winged with gold and thousands of thunderbolts, with loud explosions, and many hundreds of fiery wheels. Loud became the uproar of falling horses, slain by these missiles, and of mighty elephants struck by the explosions..."
+
+It's a rare mantra, dedicated to ancient flying chariots that were made of blessed iron and gifted with the power of the gods. The mantra contains detailed praying instructions that might persuade the air elementals to pull such a chariot as if they were horses.</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(2156, 1);</string>
+        <string>aod.ship_mantra_learned = true;</string>
+        <string>dlgRemoveItem(2155, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

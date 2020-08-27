@@ -1,0 +1,96 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Exploration_Blacksmith_Chest</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>A reinforced chest. Locked.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_BlacksmithExplore_07);</string>
+        <string>$RTSCamera.lookAtPC();</string>
+        <string>useCameraBookmark(exploration_BS_cam_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lockpick]Open it.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lockpick &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You pull out a lockpick and probe the lock gently. It responds to your attention like a farmer’s daughter and surrenders instantly. Inside you find a well oiled axe. The craftsmanship is superb. The blacksmith must have acquired it elsewhere and used it as a ‘prototype’, copying the blade pattern and the grinds.</npc_text>
+      <onLoadScripts>
+        <string>aod.exploration_blacksmithChest = true;</string>
+        <string>dlgAddItemlist(TSQ_Blacksmith_Chest);</string>
+        <string>rwd_civil(Lockpick);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take it and close the chest.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You try to open it, but it remains locked, taunting you with promises of riches.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

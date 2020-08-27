@@ -1,0 +1,130 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>HGR_Soldiers_02</dlg_name>
+    <def_link>8</def_link>
+    <def_speaker_name>Decanus</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Where are the engineers?” asks the Decanus when you crawl to the surface. He looks alarmed; clearly they've all heard the sounds of the fight and the cries of the dying engineers.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“They are dead! Dead! That thing got them! We must get out of here, quick!”</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>19</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Kill Them.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“Right,” says the Decanus. “The *thing* got them. Get &lt;him/her&gt;, boys!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way out.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Calm down! What thing?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]“They opened the door! I told them not to but they thought there was treasure down there. I heard screams and then I saw it! A Qantari demon in the flesh! All teeth and claws, reeking of evil! If it gets out, we’re all dead!”</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 14</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>20</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]The Decanus’ face goes white and he makes a quick sign to ward off evil.
+
+“What should we do?”</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(HGR_04);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Return to Maadoran. I’ll go to Ganezzar and warn the locals.”</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - soldiers</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addEnemyToParty(1, HGR_Soldiers);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.hgr_soldiers_status = 2;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.hgr_soldiers_status = 3;</string>
+        <string>dlgDeleteCharacter(6300);</string>
+        <string>dlgDeleteCharacter(6301);</string>
+        <string>dlgDeleteCharacter(6302);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>13</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

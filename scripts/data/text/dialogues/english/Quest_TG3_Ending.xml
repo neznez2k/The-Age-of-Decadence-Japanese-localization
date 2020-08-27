@@ -1,0 +1,91 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Quest_TG3_Ending</dlg_name>
+    <def_link>55</def_link>
+    <def_speaker_name>Aziz</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Aziz</speaker_name>
+      <npc_text>Aziz is waiting for you at the edge of the forest. "Glad you made it, &lt;charname&gt;. For a moment there, I thought you might be in trouble."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg3_phase3 = true;</string>
+        <string>aod.global_teron_completed = true;</string>
+        <string>aod.global_teronTG_complete = true;</string>
+        <string>aod.global_trn_crisisActive = 0;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Cado sent you?"</text>
+          <def_link>46</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>55</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Aziz</speaker_name>
+      <npc_text>Aziz nods. "The cargo's too valuable to leave unattended. No offense."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"What about Cado?"</text>
+          <def_link>47</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>46</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Aziz</speaker_name>
+      <npc_text>"What about him? He'll lay low for now - won't be the first time, but the guild will be up and running before you know it."</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(TG3_01);</string>
+        <string>rwd_reputation(TG3_01);</string>
+        <string>if(aod.quest_tg3_talk &amp;&amp; aod.quest_tg3_fight == false) {dlgAddRank(23); setAchievement("ACH_SILVER_TONGUED");}</string>
+        <string>if(aod.quest_tg3_talk == false &amp;&amp; aod.quest_tg3_fight) {dlgAddRank(25); dlgChangeRep(combat, 1); setAchievement("ACH_KILLER_OF_MEN");}</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Let's go then."</text>
+          <def_link>45</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>47</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING</npc_text>
+      <onLoadScripts>
+        <string>tg3_aziz_prop_01.isRenderEnabled = false;</string>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.ending_town_02 = true;</string>
+        <string>aod.ending_faction_TG = true;</string>
+        <string>aod.mdn_thief_start = true;</string>
+        <string>setAchievement("ACH_TERON_TG");</string>
+        <string>StartTeronEnding();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>45</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

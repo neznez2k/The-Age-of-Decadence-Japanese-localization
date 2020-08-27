@@ -1,0 +1,201 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Quest_TG2_Ring_02</dlg_name>
+    <def_link>1129</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You approach the merchants' guild. Judging by the beggars patiently waiting around the entrance, the top brass isn't in yet.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(quest_tg2_ring_01);</string>
+        <string>dlgSetZoom(min);</string>
+        <string>dlgTeleportTo(136, 99, 0, N);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[impersonate]Join the beggars and wait for your chance.</text>
+          <def_link>1130</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.disguise &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1132</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1135</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1129</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You rub some dirt on your face and move into one of the best begging spots, pushing the competition out of the way. Eventually, a high-ranking merchant shows up, frowning when he sees the beggars. Seizing the opportunity, you step in front of him and tell him what you believe to be a very sad story. Unfortunately, your acting leaves much to be desired, and with a look of disgust the merchant pushes you away and enters the guild.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgAddItemlist(dirty_tunic);</string>
+        <string>dlgEquipItem(500, 100);</string>
+        <string>dlgCreateCharacter("商人", 1984, 1984, 136, 104, 0, W);</string>
+        <string>dlgTeleportTo(135, 104, 0, E);</string>
+        <string>useCameraBookmark(quest_tg2_ring_02);</string>
+        <string>dlgSetAnimation(anim_beg00_ambient_02, 0.75);</string>
+        <string>dlgSetWalkAnimation(1984);</string>
+        <string>dlgUnequipSlot(1, 1);</string>
+        <string>aod.quest_tg2_beggarFinish = true;</string>
+        <string>dlgUnequipHands(1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1127</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1130</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You rub some dirt on your face and move into one of the best begging spots, pushing the competition out of the way. Eventually, a high-ranking merchant shows up, frowning when he sees the beggars. Seizing the opportunity, you step in front of him and weave him a sad tale that would have squeezed tears from a stone. Since the merchant is made from a far softer material, he reaches into his purse and rewards your story-telling talent with a coin.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgAddItemlist(dirty_tunic);</string>
+        <string>dlgEquipItem(500, 10);</string>
+        <string>dlgCreateCharacter("商人", 1984, 1984, 136, 104, 0, W);</string>
+        <string>dlgTeleportTo(135, 104, 0, E);</string>
+        <string>useCameraBookmark(quest_tg2_ring_02);</string>
+        <string>dlgSetAnimation(anim_beg00_ambient_02, 0.75);</string>
+        <string>dlgSetAnimation(anim_civ_give, 0.5, 1984);</string>
+        <string>dlgUnequipSlot(1, 1);</string>
+        <string>dlgChangeMoney(1);</string>
+        <string>dlgUnequipHands(1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[steal]Make his ring disappear.</text>
+          <def_link>1134</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.steal &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1133</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1132</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Merchant</speaker_name>
+      <npc_text>[failure]You grab his hand and kiss it gratefully, sobbing as if overwhelmed by the moment, while trying to get the ring off. Unfortunately, you pull too hard and the merchant feels it. With a look of disgust, the merchant pushes you away and enters the guild.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(136, 105, 0, N, 1984);</string>
+        <string>dlgTeleportTo(135, 104, 0, NE);</string>
+        <string>dlgSetWalkAnimation(1984);</string>
+        <string>aod.quest_tg2_beggarFinish = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1127</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1134</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Merchant</speaker_name>
+      <npc_text>[success]You grab his hand and kiss it gratefully, sobbing as if overwhelmed by the moment, while carefully removing his ring. Once you have it, you let go of his hand and disappear into the crowd.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg2_gotRing = true;</string>
+        <string>dlgSetAnimation(anim_civ_give, 0.5, 1984);</string>
+        <string>aod.quest_tg2_beggarFinish = true;</string>
+        <string>aod.quest_tg2a_phase2 = true;</string>
+        <string>dlgAddItem(1335);</string>
+        <string>rwd_civil(Steal);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Return to Cado.</text>
+          <def_link>1136</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1133</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - finish</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgSetZoom(10);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportTo(137, 68, 0, S);</string>
+        <string>dlgDeleteCharacter(1984);</string>
+        <string>TG2_Beggar.setActive(false);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1127</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - finish got the ring</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgSetZoom(10);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportTo(137, 68, 0, S);</string>
+        <string>dlgDeleteCharacter(1984);</string>
+        <string>TG2_Beggar.setActive(false);</string>
+        <string>dlgDeleteCharacter(1954);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1136</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgSetZoom(10);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportTo(136, 99, 0, N);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1135</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

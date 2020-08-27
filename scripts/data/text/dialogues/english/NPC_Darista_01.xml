@@ -1,0 +1,1372 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_darista_reportSerenas</string>
+      <string>aod.pc_member_assassins &amp;&amp; aod.pc_member_mdnAG</string>
+      <string>aod.npc_darista_met</string>
+    </conditions>
+    <links>
+      <int>3329</int>
+      <int>3278</int>
+      <int>3321</int>
+    </links>
+    <dlg_name>NPC_Darista_01</dlg_name>
+    <def_link>3258</def_link>
+    <def_speaker_name>Darista</def_speaker_name>
+    <def_portrait>Darista</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>It is rumored that Darista, the guildmaster of Maadoran’s assassins, was once beautiful and even shared Gaelius’ bed once or twice. Nowadays her beauty is well hidden behind several scars, a broken nose, and a mercenary tattoo on her cheek – marks of the various campaigns she fought in. Darista isn’t the first female guildmaster, but she is the first to make assassinations a *preferred* choice for solving disputes and conflicts. As a result, business in the Maadoran’s guild is booming, with the number of satisfied customers growing daily.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_darista_met = true;</string>
+        <string>addJournalChar(darista);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Darista_PC);</string>
+        <string>dlgCam(70, 45, 7, 4600);</string>
+        <string>if(isQuestAdded(AG_ArriveMDN)) remQuest(AG_ArriveMDN);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Greet her.</text>
+          <def_link>3321</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.pc_AG_traitor</string>
+            <string>aod.pc_member_assassins &amp;&amp; aod.global_teronAG_complete &amp;&amp; aod.npc_neleos_dead</string>
+            <string>aod.pc_member_assassins &amp;&amp; aod.global_teronAG_complete</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3261</int>
+            <int>3260</int>
+            <int>3259</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3258</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What do you need?"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_Darista_PC);</string>
+        <string>dlgCam(70, 45, 7, 4600);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I'm looking for work."</text>
+          <def_link>3325</def_link>
+          <checkOnAppear>pcHasFaction() == false &amp;&amp; aod.pc_exMember_assassins == false &amp;&amp; aod.mdn_finished == 0</checkOnAppear>
+          <checksOnClick>
+            <string>aod.global_Teron_Alliance || aod.global_Teron_IGTookOver</string>
+            <string>dlgGetRep(assassins) &lt; 0</string>
+            <string>dlgGetRep(bodycount) &lt; 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3328</int>
+            <int>3324</int>
+            <int>3327</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"My name's &lt;charname&gt;. I used to work for Neleos, then we parted ways."</text>
+          <def_link>3326</def_link>
+          <checkOnAppear>pcHasFaction() == false &amp;&amp; aod.pc_exMember_assassins &amp;&amp; aod.mdn_finished == 0</checkOnAppear>
+          <checksOnClick>
+            <string>aod.global_Teron_Alliance || aod.global_Teron_IGTookOver</string>
+            <string>dlgGetRep(assassins) &lt; 0</string>
+            <string>dlgGetRep(bodycount) &lt; 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3328</int>
+            <int>3324</int>
+            <int>3327</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Nothing right now." Leave.</text>
+          <def_link>3266</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3321</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Look elsewhere."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3266</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3328</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[Boatmen Reputation Failure]"Can't say I've heard anything good about you, so the answer is no."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3266</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3324</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[Bodycount Reputation Failure]"They say you're squeamish when it comes to wet work, which is the last thing we need."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3266</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3327</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[Boatmen Reputation Success]"I might have something for you. Stick around, &lt;brother/sister&gt;."</npc_text>
+      <onLoadScripts>
+        <string>PCmemberAssassins();</string>
+        <string>aod.pc_member_mdnAG = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"What do you want me to do?"</text>
+          <def_link>3263</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3325</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It happens. Not sure if you've heard, but Neleos is dead. So, are you looking for work or just sight-seeing?”</npc_text>
+      <onLoadScripts>
+        <string>aod.pc_member_mdnAG = true;</string>
+        <string>PCmemberAssassins();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’m ready to work.”</text>
+          <def_link>3263</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Give me a day or two.”</text>
+          <def_link>3262</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3326</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Welcome, &lt;charname&gt;. It's an honor to have you with us. Neleos sent us a message explaining what happened while praising your skills and dedication.
+
+“Now, are you looking for work or just sight-seeing?”</npc_text>
+      <onLoadScripts>
+        <string>remQuest(AG_ArriveMDN);</string>
+        <string>addQuest(AG_WorkMDN);</string>
+        <string>aod.pc_member_mdnAG = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’m ready to work.”</text>
+          <def_link>3263</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Give me a day or two.”</text>
+          <def_link>3262</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3259</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Welcome to Maadoran, &lt;brother/sister&gt;. We heard about what happened in Teron. Neleos’ little adventure has made quite a buzz here.” She shakes her head.
+
+“Now, are you looking for work or just sight-seeing?”</npc_text>
+      <onLoadScripts>
+        <string>aod.pc_member_mdnAG = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’m ready to work.”</text>
+          <def_link>3263</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Give me a day or two.”</text>
+          <def_link>3262</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3260</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>When Darista’s eyes fall upon you, they flash with anger as she abruptly yells something to her men. Something about giving you the traitor’s welcome.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Run.</text>
+          <def_link>3273</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt; 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3274</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Stay and fight.</text>
+          <def_link>3275</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3261</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[dexterity failure]Realizing your mistake, you turn around and run. The first bolt whizzes by your ear. The second goes straight through your neck, throwing you to the ground. You feel something sticking out of your throat and realize that it's the triangular head of the bolt. Surprisingly, it didn't hit anything vital, which gives you a shred of hope. Just then you feel a boot on your back and someone yanks the bolt out, tearing everything in its path.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Rest in peace.</text>
+          <def_link>3276</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3273</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[dexterity success]Realizing your mistake, you turn around and run. A bolt whizzes by your ear, warning you that things are about to take a turn for the worst, but by then you're already darting into the safety of a nearby alley.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_AG_traitorEscape);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3268</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3274</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Not a &lt;man/woman&gt; to back down from a fight, you charge to meet your enemies. You hack and slash wildly, feeling invincible while reveling in the spilt blood. Then, abruptly, a sword plunged deep into your stomach returns you back to reality.
+
+You're dying, surrounded by a dozen of hard looking men, who have nothing but contempt for you in their eyes. Suddenly, the idea to attack the guild of assassins all by yourself doesn't seem so great anymore and you die wondering what the hell you were thinking.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Rest in peace.</text>
+          <def_link>3276</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3275</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Of course. Come and see me when you’re ready.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3266</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3262</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Have you heard about Antidas’ golden hoard yet? I swear, that’s all I hear everywhere I go. The way they tell it, the Forty Thieves somehow managed to rob Antidas himself. They took a fortune in gold, enough to ransom ten lords. The fools couldn’t think of anything better to do with it than to bring it here.
+
+“The hoard is in the Slums and it’s fucking with people’s heads. Sellswords are falling all over themselves, willing to risk their lives for a piece of the action. More of them arrive with every passing day. The thieves are mobilizing too. This must be dealt with before it gets too far.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_darista_gotWork = true;</string>
+        <string>remQuest(AG_WorkMDN);</string>
+        <string>addQuest(AG4);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Since when do the Boatmen worry about the public order?”</text>
+          <def_link>3322</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3263</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Since Neleos decided to take out the Imperial Guards,” snaps Darista. “Anyway, are you in or out?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’m in. What’s the plan?”</text>
+          <def_link>3269</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m out.” Leave.</text>
+          <def_link>3265</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3322</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’m sending in two teams. The first team will take care of the sellswords and stage an attack on the Slums to create a distraction. The second team will go in and retrieve the gold. If we time it right, their temple will be practically unguarded.
+
+“Securing the gold is the priority. It must be delivered to lord Gaelius. Talk to Hamza, my second-in-command. He’ll set you up with all that you need.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’ll talk to Hamza then.”</text>
+          <def_link>3271</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“We’re stealing from thieves now? I thought we were assassins.”</text>
+          <def_link>3270</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3269</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The gold will be guarded, so if it’s killing you want, it’s killing you’ll find. If you don’t like how we do things in Maadoran, you can pack your things and go back to Teron. No? I didn’t think so. So shut your mouth and do what you’re told.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’ll talk to Hamza then.”</text>
+          <def_link>3271</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You’re working for Gaelius now?”</text>
+          <def_link>3272</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m out.” Leave.</text>
+          <def_link>3265</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3270</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Yes, we’re working for Gaelius now,” says Darista defiantly. Looks like it’s not the first time she’s been asked this question and been forced to defend her decision.
+
+“As if who we kill for makes a difference. As if working for random people is somehow better than working for the most powerful lord of the realm. Give me a fucking break.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’ll talk to Hamza then.”</text>
+          <def_link>3271</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m out.” Leave.</text>
+          <def_link>3265</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3272</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgCam(70, 45, 15, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3266</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - left the questline</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>remQuest(AG4);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>removePcMember();</string>
+        <string>dlgCam(70, 45, 15, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3265</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - talk to Hamza</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_AG4_talkToHamza = true;</string>
+        <string>aod.quest_AG4_active = true;</string>
+        <string>createByCharMarker("CM_Hamza");</string>
+        <string>setRtsCam();</string>
+        <string>aod.quest_ag4_phase1b = true;</string>
+        <string>dlgCam(70, 45, 15, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3271</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - run away</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.npc_darista_runAwayTraitor = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3268</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3276</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It’d better be important...”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_Darista_PC);</string>
+        <string>dlgCam(70, 45, 7, 4600);</string>
+        <string>if(isQuestAdded(AG_ArriveMDN)) remQuest(AG_ArriveMDN);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Do you have any work for me?”</text>
+          <def_link>3263</def_link>
+          <checkOnAppear>aod.npc_darista_gotWork == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.tempLowStanding</string>
+            <string>aod.quest_ag5_getQuest</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3286</int>
+            <int>3287</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Mind if I ask you a few questions?”</text>
+          <def_link>3289</def_link>
+          <checkOnAppear>aod.npc_darista_askQuestions</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"You wanted me to meet someone?"</text>
+          <def_link>3316</def_link>
+          <checkOnAppear>aod.npc_darista_askAboutMeeting</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'm ready to take care of Lorenza."</text>
+          <def_link>3293</def_link>
+          <checkOnAppear>aod.npc_darista_killLorenza</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'm ready to take care of Serenas."</text>
+          <def_link>3319</def_link>
+          <checkOnAppear>aod.npc_darista_visitSerenas</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3266</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3278</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Is it done?"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_Darista_PC);</string>
+        <string>dlgCam(70, 45, 7, 4600);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Serenas is dead.”</text>
+          <def_link>3307</def_link>
+          <checkOnAppear>aod.npc_darista_reportSerenas</checkOnAppear>
+          <checksOnClick>
+            <string>aod.quest_AG6_SerenasPoison</string>
+            <string>aod.quest_AG6_SerenasBetrayed</string>
+            <string>aod.quest_AG6_SerenasSilent</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3306</int>
+            <int>3305</int>
+            <int>3320</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3329</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“As a matter of fact, I do. Now, it's an important job. Screw it up and I’ll kill you myself. Do it right and we let bygones be bygones.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ag5_getQuest = false;</string>
+        <string>aod.npc_darista_gotWork = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What’s the job?”</text>
+          <def_link>3288</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3286</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“As a matter of fact, I do. Now, it's an important job. Gaelius himself is watching, so don’t screw up, alright?”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ag5_getQuest = false;</string>
+        <string>aod.npc_darista_gotWork = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What’s the job?”</text>
+          <def_link>3288</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3287</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Lady Lorenza Calani. Her name doesn’t mean anything to you, which is why I picked you for the job. Her villa is well guarded, but if you manage to get past the guards, she won’t give you any trouble. She’s deadly at scheming and plotting, but I doubt that she knows what to do with a blade.
+
+“The job’s worth five hundred imperials. It needs to be done fast, so don’t waste any time.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_darista_askQuestions = true;</string>
+        <string>aod.npc_darista_killLorenza = true;</string>
+        <string>remQuest(AG_WorkMDN);</string>
+        <string>addQuest(AG5);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I can do it now.”</text>
+          <def_link>3293</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Mind if I ask you a few questions?”</text>
+          <def_link>3289</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I need a few hours to prepare.” Leave.</text>
+          <def_link>3266</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3288</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Good,” says Darista, handing you a heavy leather bag. “Half now, half when the job’s done.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_darista_killLorenza = false;</string>
+        <string>dlgChangeMoney(250);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Alright.” Wait until dark and go to Lorenza’s house.</text>
+          <def_link>3294</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3293</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start AG5</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>switchMission("Quest_AG5_AG6.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3294</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Let's go. We're already late."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_darista_askAboutMeeting = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go with Darista.</text>
+          <def_link>3317</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3316</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start AG6 palace</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>sd(quest_AG6_01);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3317</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Good luck, &lt;charname&gt;."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay Serenas a visit.</text>
+          <def_link>3318</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3319</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start AG6 Serenas</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>switchMission("Quest_AG6.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3318</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Shoot.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Last time I killed a high profile mark, all hell broke loose.”</text>
+          <def_link>3291</def_link>
+          <checkOnAppear>aod.npc_darista_talk_highProfile == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Another job for Gaelius. The Boatmen used to be independent...”</text>
+          <def_link>3290</def_link>
+          <checkOnAppear>aod.npc_darista_talk_independent == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Let me ask you something else."</text>
+          <def_link>3278</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3289</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Not this shit again...
+
+“The Boatmen used to serve the Emperor. As his personal fucking guard. Then we went through some hard times, during which we had to settle family and trading disputes, but now the hard times are finally over and we can finally go back.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_darista_talk_independent = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Last time I killed a high profile mark, all hell broke loose.”</text>
+          <def_link>3291</def_link>
+          <checkOnAppear>aod.npc_darista_talk_highProfile == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Alright, I'll go get ready.” Leave.</text>
+          <def_link>3266</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3290</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Don’t compare a two-bit shithole to the city of all cities. Maadoran was ancient when Teron was nothing but an army camp. We are civilized.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_darista_talk_highProfile = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Civilized?”</text>
+          <def_link>3292</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3291</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Don’t give me this shit. Men were killing each other ever since they discovered sharp rocks. Our entire history is a history of not getting along, a history of killing one another for causes that are forgotten as quickly as the name of a whore bedded last week.
+
+“Trust me, I’d know,” she says, pointing at the mercenary tattoos on her face. “Eight years.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What was it like?”</text>
+          <def_link>3295</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3292</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Bloody. When you fight for money, the war never ends. You go from one battle to another. No matter what the cause is, it boils down to the same old shit – kill them before they kill you.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Surely there are some causes worth fighting for?”</text>
+          <def_link>3296</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“How did you end up here?”</text>
+          <def_link>3298</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3295</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“A cause is nothing but pretty words. I’ve heard all kinds of words over the years, but haven’t seen anything that would make dying for it worthwhile. Hell, look around, &lt;charname&gt;. You don’t think that we are where we are because we were short on good causes, do you?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“And yet you will fight for Gaelius.”</text>
+          <def_link>3297</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3296</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Because it’s what’s best for the guild. Before I became a guildmaster, the Boatmen lived hand to mouth, fighting for jobs.
+
+“Now, the guild is stronger than ever and has twice as many men. All thanks to Gaelius. Taking care of his enemies is the least we can do,” smirks Darista.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“How did you end up here?”</text>
+          <def_link>3298</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3297</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I got tired of sleeping on the ground and eating shit. The Boatmen seemed as good of a choice as any.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Which company were you with?”</text>
+          <def_link>3299</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3298</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I started with the Red Cloaks. They are all about numbers. They take anyone, give them a sword and a red cloak, and send them in. If they are facing a thousand, the Red Cloaks send in three thousand to intimidate the enemy. Of course, if it does come to fighting, it’s a fucking slaughter. At best, fifteen percent come out alive.
+
+“Then I joined the Shieldwall. It was a good outfit, until the day our captain took a spear through the eye. The new captain didn’t understand the business aspect of it too well, so he took a job that he shouldn’t have. Only four of us ended up walking out of it.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What did you do then?”</text>
+          <def_link>3300</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3299</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Jellal’s Lions were recruiting for the siege of Asmara, so we signed up and went south with them. The siege didn’t go exactly as we had planned – but do they ever? We spent almost two years camping around the walls and keeping other companies from breaking the siege.
+
+“Then Asmara finally fell and that’s when it all went to shit. I told Jellal that we needed to take what we could and get the fuck out fast, but he didn’t listen. An opportunity of a lifetime, he said. By the time he was ready to go, the place was teeming with vultures.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Vultures?”</text>
+          <def_link>3301</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You mentioned the business side?”</text>
+          <def_link>3303</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3300</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Mercs that show up late to the party. They let others do all the fun stuff, like scale walls and charge into breaches, wait until they get paid, and then gang up on weakened companies.
+
+“Jellal had more than five hundred men when the siege started. He put all his money into recruiting and had steady reinforcements, but even so, when the city fell, he had less than eighty men, tired and wounded, against two hundred vultures.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“How did you survive?”</text>
+          <def_link>3302</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3301</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I killed them all,” grins Darista. “No, that’s not exactly how it went. I ran the moment they attacked. Sure, it’s not as glamorous as killing them and there’s definitely no glory in it, but the end result is the same – I’m still alive. That, my friend, is what really fucking counts at the end of each day.
+
+“I warned Jellal. We could have taken less and lived. I did.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You mentioned the business side?”</text>
+          <def_link>3303</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Alright, I'll go get ready.” Leave.</text>
+          <def_link>3266</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3302</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It takes a long time and a lot of money to put together a few hundred well-trained men who can fight together, but you can lose them in a mere hour if you take a shitty deal. There’s a lot to it, but at the very least you have to make sure that you’re fighting on the winning side and that you’re fighting for someone who knows what he’s doing.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Like Gaelius?”</text>
+          <def_link>3304</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3303</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Like Gaelius,” nods Darista. “He is the most powerful lord. Give him time and both Antidas and Meru will bend their knees to him. As long as we’re watching his back, he has nothing to fear. He rises and we rise with him.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Alright, I'll go get ready.” Leave.</text>
+          <def_link>3266</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3304</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’ve already heard. Killed by his own guards? Gaelius couldn’t be more pleased. In one stroke of genius, you managed to get rid of Serenas and put the Guards in a very bad position. They look treacherous and unreliable. Now any noble or merchant would be a fool not to think twice before asking them for help. Excellent work, &lt;charname&gt;!”</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(AG6_Serenas_01);</string>
+        <string>rwd_quest(AG6_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“So, now what?”</text>
+          <def_link>3308</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3305</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’ve already heard. He took poison in front of several witnesses. Gaelius couldn’t be more pleased. Excellent work, &lt;charname&gt;!”</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(AG6_Serenas_02);</string>
+        <string>rwd_quest(AG6_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“So, now what?”</text>
+          <def_link>3308</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3306</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’ve already heard. Well done, &lt;charname&gt;. I’ll take reliable over fancy any day.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(AG6_Serenas_03);</string>
+        <string>rwd_quest(AG6_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“So, now what?”</text>
+          <def_link>3308</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3307</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’ve already heard. Walked in, killed the mark surrounded by guards and walked out. Pavola's men can't possibly look more useless now. Nicely done, &lt;charname&gt;.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(AG6_Serenas_04);</string>
+        <string>rwd_quest(AG6_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“So, now what?”</text>
+          <def_link>3308</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3320</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Now?” smirks Darista. “Fame and glory. Ever been to Ganezzar?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_darista_reportSerenas = 0;</string>
+        <string>aod.jnl_ag6_phase4 = true;</string>
+        <string>setAchievement("ACH_MAADORAN_AG_1");</string>
+        <string>aod.global_mdn_crisisActive = false;</string>
+        <string>aod.gnz_assassin_start = true;</string>
+        <string>revealMapLocation("Ganezzar");</string>
+        <string>dlgAddTextBoxMessage("Ganezzar added to the map");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What's in Ganezzar?”</text>
+          <def_link>3309</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3308</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Lord Meru. Your next mark. Think you're up to it?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Give me the details.”</text>
+          <def_link>3310</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3309</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What’s there to say? Ever since Meru lost his mind, Ganezzar’s been sliding into chaos. If you ask me, he should have been taken out a long time ago. Now, it’s going to be much harder.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Why?”</text>
+          <def_link>3311</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3310</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Well, for one, an angry mob attacked our guild a week ago. They tore our men apart, limb by limb, like fucking animals. Apparently, the fuckers didn’t want assassins ‘polluting’ their fucking city.
+
+“So, now you’ll have no support on the ground and if you’re recognized, you’re dead meat. Not to mention that the city is under siege, so getting in won’t be easy.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Under siege?”</text>
+          <def_link>3312</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3311</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I don’t have all the info, but apparently Meru got caught with his hand in the cookie jar, fucking with things all lords agreed to leave alone a long time ago. I don’t know much about the old magics, but it had to be pretty bad for Gaelius to send in his troops.
+
+“He asked the Guards to help him take the city but they’re taking their sweet time. Gaelius thinks the Guards got a counter-offer from Meru, which complicates the situation. If the Guards side with Meru, we’re all fucked, so the sooner you take care of Meru, the sooner it all ends.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Any ideas?”</text>
+          <def_link>3313</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3312</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Nope. All I know is that you’re the best I’ve got and if someone can do it, it’ll be you. Of course, Hamza might still give you a run for your money, but he’s old and well known.
+
+“I’m giving you a carte-blanche, &lt;charname&gt;. Do whatever you have to do as long as Meru ends up dead. Gaelius said he doesn’t care how many you have to kill, but me – I kinda do. I’m unleashing you upon Ganezzar like a fucking plague. Make them pay for what they did to our brothers.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Consider it done.” Leave for Ganezzar.</text>
+          <def_link>3314</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“So, what’s with Meru’s madness?”</text>
+          <def_link>3315</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3313</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The problem, as I understand it, is that Meru is alive when he should be dead. That’s the extent of my knowledge and interest in the situation.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Consider it done.” Leave for Ganezzar.</text>
+          <def_link>3314</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3315</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Maadoran</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.ending_mdn_faction_AG_success = true;</string>
+        <string>addQuest(AG_ArriveGNZ);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3314</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

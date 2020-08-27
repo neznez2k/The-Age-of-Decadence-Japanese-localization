@@ -1,0 +1,71 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>TSQ_Cellar_Wall</dlg_name>
+    <def_link>1955</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[perception success]Trying to spot anything out of the ordinary in the crumbling brickwork is difficult; after all, what is one loose brick amongst many? But in the end you find it, a brick that shifts under pressure, but in a way that suggests that the movement was by design, not accident or decay. A switch.
+
+You hesitate before pressing it, but fortunately nothing untoward occurs. Unfortunately, nothing happens at all.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(TSQ_Cellar_cam_04);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take the wall apart.</text>
+          <def_link>1956</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1955</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>There is no way to figure out the switch's function with this wall in the way. So, unlimbering your tools, you set to work. Soon, a pile of rubble is at your feet and sweat runs down your face. But there, exposed to the open for probably the first time in centuries, is a large, rusted cylindrical device. The design is strange, but it looks like some type of pump.
+
+You glance back at the drain. If the pump was to keep the cellar from being flooded, why was it hidden?</npc_text>
+      <onLoadScripts>
+        <string>aod.tsq_cellar_WallDestroyed = true;</string>
+        <string>setObjectRenderState(secretWall, 0);</string>
+        <string>VCO_Wall_01.setActive(0);</string>
+        <string>VCO_Pump_01.setActive(1);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take a look.</text>
+          <def_link>1960</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1956</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1960</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

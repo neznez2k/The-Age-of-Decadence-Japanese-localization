@@ -1,0 +1,108 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Quest_Arena_Hamul</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Hamul</def_speaker_name>
+    <def_portrait>Hamul</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Have you made peace with the Gods?” asks Hamul, his voice surprisingly soft. “It’s not too late, my friend. It’s *never* too late.”</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(280, 40, 6, 520);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’m not here to talk.”</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I know,” nods Hamul. “You’re here to die, but your soul can still be saved, &lt;brother/sister&gt;.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What makes you so sure?”</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You see this?” asks Hamul, raising his hand to show you a ring covered with glowing runes. “It’s Galbo’s ring. As long as I wear it, I can’t be beaten in battle. I’m afraid your fate is sealed, &lt;brother/sister&gt;.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I have the same ring, *brother*.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear>dlgOwnsItem(1350)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“We’ll know soon enough.” Start the fight.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Hamul frowns for a moment, then smiles like a man who figured out the answer to a riddle. “Your trickery won’t help you here, &lt;brother/sister&gt;.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Start the fight.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetAttitude(520, 1, -10);</string>
+        <string>dlgcam(225,45,15,1);</string>
+        <string>dlgChangeTraining(sword, 15, 520);</string>
+        <string>dlgChangeTraining(dodge, 15, 520);</string>
+        <string>dlgChangeTraining(critical_strike, 6, 520);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

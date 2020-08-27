@@ -1,0 +1,478 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_hd3_foughtAssassins</string>
+    </conditions>
+    <links>
+      <int>30</int>
+    </links>
+    <dlg_name>Quest_HD3_01</dlg_name>
+    <def_link>26</def_link>
+    <def_speaker_name>Steward</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>You spend the next few days locked in one of the rooms in the east wing of the palace, waiting for Gaelius to determine your fate and wondering what it might be. Just when you begin to realize that making you disappear is the best option for Gaelius, no matter how you look at it, the door opens and two guards step inside, glancing around. Naturally, they seem strange to you. Anyone would at this point.
+
+“We’re just making sure that everything is in order,” says one of them, showing no signs of hostility.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Quest_HD3_01);</string>
+        <string>createByCharMarker("CM_Cyrus_HD3");</string>
+        <string>createByCharMarker("CM_Thief_HD3");</string>
+        <string>dlgCam(170, 40, 10, 5090);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>He can’t fool you! Kill them before they kill you!</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Paranoia isn’t a very attractive trait. Wait for them to leave.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[perception]Who the hell are they?</text>
+          <def_link>27</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>28</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>26</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>[failure]You have no idea.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>They might be assassins! Kill them before they kill you!</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Paranoia isn’t a very attractive trait. Wait for them to leave.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>27</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>[success]One looks like a fighting man accustomed to relying only on his own skills. Such a man wouldn’t work as a palace guard, no matter the pay. The other one looks too shifty to be a guard.
+
+If they aren’t here for you, whom are they after? Some dignitaries? But it’s much easier to get to them outside the palace... Could it be Gaelius himself? To say that he has enemies would be an understatement.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Kill them. Surely, Gaelius would appreciate the gesture.</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Do nothing and see what transpires.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>28</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addParty(HD3_Assassins, 0);</string>
+        <string>addCharToParty(5091, HD3_Assassins, fighter);</string>
+        <string>addCharToParty(5090, HD3_Assassins, fighter);</string>
+        <string>addEnemyToParty(1, HD3_Assassins);</string>
+        <string>aod.fight_hd3Assassins = true;</string>
+        <string>aod.quest_hd3_foughtAssassins = true;</string>
+        <string>setRtsCam();</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>29</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Legatus</speaker_name>
+      <npc_text>Just as your work is done, the guards rush in, surrounding you. They assess the situation, check the bodies to see if one of them is still alive, but to no avail. When you kill people, they tend to stay dead.
+
+They fetch the Legatus, who examines the recently departed, orders to crucify all guards who let the assassins get past them, then turns his attention on you.
+
+“Lord Gaelius wants to see you.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_HD3_talkToGaelius = true;</string>
+        <string>dlgCam(15, 45, 9, 1);</string>
+        <string>dlgTeleportToMarker(TM_Quest_HD3_01);</string>
+        <string>HD3_Guards.showObjects();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Follow the Legatus.</text>
+          <def_link>31</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>30</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - talk with Gaelius</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>HD3_Guards.hideObjects();</string>
+        <string>aod.global_mdn_crisisActive = 0;</string>
+        <string>sd(npc_gaelius_01);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>31</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>A steward wakes you up, waits until you get dressed, then informs you that you’re no longer a prisoner and thus free to leave whenever you wish.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.quest_hd3_talkToStrabos = true;</string>
+        <string>aod.quest_hd3_talkToSenna = true;</string>
+        <string>aod.quest_hd3_talkToLorenza = true;</string>
+        <string>aod.quest_hd3_talkToSerenas = true;</string>
+        <string>aod.quest_hd3_active = true;</string>
+        <string>dlgDeleteCharacter(4100);</string>
+        <string>aod.npc_gaelius_dead = true;</string>
+        <string>createByCharMarker("CM_Serenas");</string>
+        <string>aod.gnz_HD_start = true;</string>
+        <string>dlgDeleteCharacter(5091);</string>
+        <string>dlgDeleteCharacter(5090);</string>
+        <string>createByCharMarker("CM_Steward");</string>
+        <string>dlgCam(170, 45, 8, 4140);</string>
+        <string>dlgDeleteCharacter(4600);</string>
+        <string>dlgDeleteCharacter(4615);</string>
+        <string>DOOR_AG_01.close();</string>
+        <string>DOOR_AG_01.lock();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Really? I didn’t take your lord for a forgiving kind.”</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“He has more pressing concerns at the moment,” informs you the steward. “The River Styx is boiling hot this time of year.”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_AurelianThrone, 4150);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What happened?”</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“He didn’t survive the night,” says the steward, annoyed that he has to explain something that should be obvious. “You’re fortunate that nobody’s holding you accountable.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I had nothing to do with it.”</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Be that as it may,” says the steward dismissively, “the protocol demands that the culprit be seized and brought to justice. In my experience, foreign agents who arrive shortly before a calamity strikes make excellent and most convincing culprits.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So who rules Maadoran now?”</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Lord Serenas the Victorious, aided by his most faithful servants: Lady Lorenza of House Calani, Lord Senna, and master Strabos. Legatus Pavola of the Imperial Guards has been entrusted with keeping peace in the city.”</npc_text>
+      <onLoadScripts>
+        <string>addQuest(HD3);</string>
+        <string>addQuest(HD3a);</string>
+        <string>addQuest(HD3b);</string>
+        <string>addQuest(HD3c);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What can you tell me about them?”</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The steward looks at you strangely, as if shocked to meet someone so ignorant. “Lord Serenas is the nephew of late Lord Gaelius. He’s a most noble young man, undoubtedly destined for great things. Lady Lorenza brings much experience in the area of city politics to the table. Lord Senna has the support of many lords of the Court, and master Strabos, the famed guildmaster of the Commercium, is without equal when it comes to managing financial affairs and keeping the coffers full.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“In other words, Serenas is a puppet and the “advisors” take turns pulling the strings, while everyone else pretends that it’s business as usual.”</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“So, where does the new regime stand with House Daratan?”</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What’s so unusual about this arrangement, Praetor?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So, where does the new regime stand with House Daratan?”</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I wouldn’t expect anything to change in the near future, as it would be most disrespectful to our late Lord.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Unlike assassinating him, which, I’m sure, was done in accordance to the protocol.”</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“So, what’s the difference between the new regime and the old one?”</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Quite so, Praetor.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So, what’s the difference between the new regime and the old one?”</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Lord Gaelius had nothing to prove to anyone. I wouldn’t expect the new regime to be as confident.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’d like to make my introduction to lord Serenas. Can you take me to him?”</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Certainly. A word of advise, Praetor. Funds are of the essence during transition periods, so if you want to make a good first impressions, a generous gift won't go amiss.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“How generous are we talking about?”</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“And if I don't have the money?”</text>
+          <def_link>24</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“We're talking about the Lord of House Aurelian. Offering less than 2,000 imperials would be an insult.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_hd3_talkedHowGenerous = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“And if I don't have the money?”</text>
+          <def_link>24</def_link>
+          <checkOnAppear>aod.quest_hd3_talkedDontHaveMoney == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Then perhaps one of the advisors might be of service to you?”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_hd3_talkedDontHaveMoney = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“How generous are we talking about?”</text>
+          <def_link>23</def_link>
+          <checkOnAppear>aod.quest_hd3_talkedHowGenerous == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportToMarker(TM_Map_Gate);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgDeleteCharacter(4140);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>25</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

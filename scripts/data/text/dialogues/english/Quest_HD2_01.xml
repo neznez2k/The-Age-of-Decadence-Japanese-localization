@@ -1,0 +1,404 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_hd2_talkToSohrab</string>
+    </conditions>
+    <links>
+      <int>11</int>
+    </links>
+    <dlg_name>Quest_HD2_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Dellar</def_speaker_name>
+    <def_portrait>Dellar</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"We have a situation here," he says after a long pause, as if considering the best way to explain it. "Commander Carrinas, of the Imperial Guards' fame, thinks that he'll do a better job running Teron. From what I've heard about him, his ambitions go a lot further and Teron is just a stepping stone on his way to bigger things.
+
+"It stops tonight. Your job is to get him out in the open, where the Boatmen can get him."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_hd2_talkCarrinas = true;</string>
+        <string>addQuest(HD2);</string>
+        <string>aod.jnl_hd2 = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Sounds easy."</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Tell him that one of his men betrayed him. That's gotta get his attention, but remember that fools don't become Commanders of the Imperial Guards. You'd have to be very, very persuasive. If he buys it, get him to the inn after dark. The Boatmen's shooters will be waiting in a room next door. Make sure they have a shot. See? Easy."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"And if he doesn't buy it?"</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"If he doesn't buy it, you are as good as dead. If he suspects that something is wrong, you will not leave the barracks alive."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"What do you have on his bodyguards?"</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Not much to work with."</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Not much. They are well trained. They are loyal. Severus watched Carrinas' back the longest. Decius replaced Marcellus who died from malaria last year. He's a bit young, but he's very good. Some say he would have been a centurion by now, if Carrinas didn't take him as a bodyguard. It's a position of respect, but I have a feeling it's not the kind of respect that the kid wants.
+
+"I've had a chat with him once. Offered him a job, he told me to go fuck myself. Like I said, he's a bit young."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_hd2_askBodyguards = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise success]"Best lies have a grain of truth in them. Do we have anything I can use?"</text>
+          <def_link>3</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Not much to work with."</text>
+          <def_link>4</def_link>
+          <checkOnAppear>aod.quest_hd2_askIdeas == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Alright, I'll give it a try." Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear>aod.streetwise &lt; 3 &amp;&amp; aod.quest_hd2_askIdeas</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"If someone can help you, it's Cado, but his prices are sometimes too steep, if you know what I mean."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_hd2_CadoHelp = true;</string>
+        <string>addQuest(HD2a);</string>
+        <string>aod.quest_hd2a_phase1 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Might not be enough."</text>
+          <def_link>4</def_link>
+          <checkOnAppear>aod.quest_hd2_askIdeas == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intelligence success]"How would Gaelius react to Carrinas' plot?"</text>
+          <def_link>5</def_link>
+          <checkOnAppear>aod.quest_hd2_askIdeas &amp;&amp; aod.int &gt;= 7 &amp;&amp; aod.npc_sohrab_dead == false &amp;&amp; aod.quest_hd2_talkedSohrab == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intelligence success]"If Sohrab were still alive, we could have used him. Alright, I'll give it a try." Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear>aod.quest_hd2_askIdeas &amp;&amp; aod.int &gt;= 7 &amp;&amp; aod.npc_sohrab_dead &amp;&amp; aod.quest_hd2_talkedSohrab == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Alright, I'll give it a try." Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear>aod.int &lt; 7 || aod.quest_hd2_talkedSohrab</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'll go talk to Sohrab."</text>
+          <def_link>11</def_link>
+          <checkOnAppear>aod.quest_hd2_talkedSohrab</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgFadeToThisPart();</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Do you have any better ideas?"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_hd2_askIdeas = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Not really. Alright, I'll give it a try." Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear>aod.int &lt; 7 || aod.quest_hd2_askBodyguards</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intelligence success]"If Sohrab were still alive, we could have used him. Alright, I'll give it a try." Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear>aod.int &gt;= 7 &amp;&amp; aod.npc_sohrab_dead</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intelligence success]"How would Gaelius react to Carrinas' plot?"</text>
+          <def_link>5</def_link>
+          <checkOnAppear>aod.int &gt;= 7 &amp;&amp; aod.npc_sohrab_dead == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What do you have on his bodyguards?"</text>
+          <def_link>2</def_link>
+          <checkOnAppear>aod.quest_hd2_askBodyguards == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"He'd help Carrinas to topple Antidas, but stop him before his ambitions reach Maadoran. Why do you ask?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"It would be a lot easier to convince Carrinas that Gaelius is eager to help him than to sell him the treachery story."</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You will need an envoy. Whom do you have in mind?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Sohrab."</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Sohrab," repeats Dellar thoughtfully. "It's our only chance to stop Carrinas. Are you sure it's a good idea?"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_hd2_talkedSohrab = true;</string>
+        <string>aod.quest_hd2_talkToSohrab = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Yes."</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>aod.quest_hd2_useSohrab = true;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"You're right. Let's go with your plan."</text>
+          <def_link>9</def_link>
+          <checkOnAppear>aod.quest_hd2_askBodyguards</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"You're right. Let's go with your plan. What do you have on his bodyguards?"</text>
+          <def_link>2</def_link>
+          <checkOnAppear>aod.quest_hd2_askBodyguards == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportTo(174, 160, 0, N);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Alright. Don't fuck it up, &lt;charname&gt;. Too much is riding on it."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go talk to Sohrab.</text>
+          <def_link>11</def_link>
+          <checkOnAppear>aod.quest_hd2_useSohrab</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgFadeToThisPart();</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear>aod.quest_hd2_useSohrab == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Sohrab</portrait>
+      <speaker_name>Sohrab</speaker_name>
+      <npc_text>"When will I be allowed to go home?" asks Sohrab. "I told you all I knew."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(8, 236, 0, W);</string>
+        <string>dlgTeleportTo(7, 236, 0, E, 2055);</string>
+        <string>useCameraBookmark(Quest_HD1_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Tomorrow, master Sohrab, if everything goes well tonight."</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Sohrab</portrait>
+      <speaker_name>Sohrab</speaker_name>
+      <npc_text>"And if it doesn't?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"If it doesn't, then we'll be dead and probably would have different travel arrangements. They say that Styx is lovely this time of year, but if you'd rather go to Maadoran, play your part well and you'll be home before you know it."</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Sohrab</portrait>
+      <speaker_name>Sohrab</speaker_name>
+      <npc_text>"What's, uh," Sohrab licks his lips nervously, "my part?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"An envoy from Lord Gaelius, bringing greetings and support to Commander Carrinas. Follow my lead and try not to get us killed."</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Sohrab</portrait>
+      <speaker_name>Sohrab</speaker_name>
+      <npc_text>"Very well," finally says Sohrab.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_hd2_envoySohrab = true;</string>
+        <string>aod.quest_hd2_talkToSohrab = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Dellar will take you to the inn. I'll see you there." Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

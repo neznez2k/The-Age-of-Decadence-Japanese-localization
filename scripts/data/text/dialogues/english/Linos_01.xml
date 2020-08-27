@@ -1,0 +1,1522 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.global_mg_expelled</string>
+      <string>aod.quest_mg1_success</string>
+      <string>aod.quest_mg1_failure</string>
+      <string>aod.pc_member_commercium</string>
+      <string>aod.quest_mgtest_started &amp;&amp; aod.quest_mgtest_completed == false &amp;&amp; aod.pc_member_none == false</string>
+      <string>aod.pc_member_daratan</string>
+      <string>aod.pc_member_commercium == false</string>
+    </conditions>
+    <links>
+      <int>19</int>
+      <int>5</int>
+      <int>10</int>
+      <int>34</int>
+      <int>49</int>
+      <int>52</int>
+      <int>25</int>
+    </links>
+    <dlg_name>Linos_01</dlg_name>
+    <def_link>25</def_link>
+    <def_speaker_name>Linos</def_speaker_name>
+    <def_portrait>Linos</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What is it, &lt;charname&gt;?"</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Linos_cam_01);</string>
+        <string>dlgTeleportTo(134, 118, 0, N);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"What should I do now?"</text>
+          <def_link>0</def_link>
+          <checkOnAppear>aod.quest_mg1_started == false &amp;&amp; aod.quest_mg1_finished == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"About that task you gave me..."</text>
+          <def_link>10</def_link>
+          <checkOnAppear>aod.quest_mg1_started &amp;&amp; aod.quest_mg1_finished == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"About the proof..."</text>
+          <def_link>20</def_link>
+          <checkOnAppear>aod.quest_mg2_started &amp;&amp; aod.npc_antidas_metInMg2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"About Gracius' map..."</text>
+          <def_link>38</def_link>
+          <checkOnAppear>aod.quest_MQ_mapIdentified &amp;&amp; aod.npc_linos_talkedAboutMap == false &amp;&amp; aod.professionID == 7</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Nothing." Leave.</text>
+          <def_link>35</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>34</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I have another job for you. The Imperial Guards are up to something again. Shipments, drills, recruiting... It's not good. Find out what it is."</npc_text>
+      <onLoadScripts>
+        <string>aod.global_teron_vignette = false;</string>
+        <string>useCameraBookmark(NPC_Linos_cam_01);</string>
+        <string>dlgTeleportTo(134, 118, 0, N);</string>
+        <string>addQuest(MG1);</string>
+        <string>aod.quest_mg1_phase2 = true;</string>
+        <string>remQuest(MG_WorkTRN);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Any suggestions?"</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Mercato Breni - a man with a grudge. He was next in line for the top job when Carrinas was sent here so unexpectedly. I've heard that Mercato favors Cado's tavern these days, drinking and gambling. Have a chat with him. See what you can do."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Cado's tavern? Isn't that the thieves guild?"</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Why do you care about the Imperial Guards?"</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'll talk to Mercato."</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"When it comes to business, we aren't prejudiced. Neither is Cado, it seems. Sometimes I think that he has picked the wrong guild."</npc_text>
+      <onLoadScripts>
+        <string>aod.linos_mg1_TG = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Why do you care about the Imperial Guards?"</text>
+          <def_link>3</def_link>
+          <checkOnAppear>aod.linos_mg1_IG == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'll talk to Mercato."</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What a foolish thing to ask, &lt;charname&gt;! I care because information is the most valuable and profitable commodity. I care because the Imperial Guards want nothing but power. The Noble Houses kept them in check for a long time, but they have been too preoccupied with fighting each other lately, which is why we have only three weakened Houses now - if you pretend that House Daratan is still a House - instead of the seven that survived the war. So, whatever it is the Guards are up to, I want to know. Surprises are bad for our business."</npc_text>
+      <onLoadScripts>
+        <string>aod.linos_mg1_IG = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Cado's tavern? Isn't that the thieves guild?"</text>
+          <def_link>2</def_link>
+          <checkOnAppear>aod.linos_mg1_TG == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'll talk to Mercato."</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start MG1</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg1_started = true;</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>aod.quest_mg1_phase2 = true;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgSetZoom(10);</string>
+        <string>dlgTeleportTo(137, 109, 0, S);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Report. One of our caravans has been attacked outside of the town gates. Bandits are getting bolder and bolder. If not for the Imperial Guards..."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg1_success = false;</string>
+        <string>aod.killvar(quest_mg1_success);</string>
+        <string>useCameraBookmark(NPC_Linos_cam_01);</string>
+        <string>dlgTeleportTo(134, 118, 0, N);</string>
+        <string>aod.quest_mg1_finished = true;</string>
+        <string>if(aod.quest_mg1_sign_document) aod.quest_mg1_phase3c = true;</string>
+        <string>if(aod.quest_mg1_sign_document == false) aod.quest_mg1_phase3d = true;</string>
+        <string>aod.quest_mg1_failure = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"...who staged the attack to get a pretext to take the town by force, it wouldn't have happened."</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Clever," says Linos without any enthusiasm. "I assume we don't have much time, so let's not waste it. Commander Carrinas must die tonight.
+
+"Think of it as your final test. Talk to Neleos and don't take no for an answer. Don't disappoint me, &lt;charname&gt;."</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(MG1_01);</string>
+        <string>rwd_reputation(MG1_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Final test for what?"</text>
+          <def_link>36</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Go to the assassins guild right away.</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start MG2</npc_text>
+      <onLoadScripts>
+        <string>if(aod.quest_mg1_zenonTeleport) dlgTeleportTo(125, 119, 0, S, 1090);</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>aod.quest_mg2_started = true;</string>
+        <string>aod.quest_mg2_neleos = true;</string>
+        <string>addQuest(MG2);</string>
+        <string>aod.quest_mg2_phase1a = true;</string>
+        <string>dlgSetZoom(10);</string>
+        <string>dlgTeleportTo(137, 109, 0, S);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>assignDialogue(Quest_MG2_01, 1020);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - leave to the AG - start MG2</npc_text>
+      <onLoadScripts>
+        <string>if(aod.quest_mg1_zenonTeleport) dlgTeleportTo(125, 119, 0, S, 1090);</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>aod.quest_mg2_started = true;</string>
+        <string>aod.quest_mg2_neleos = true;</string>
+        <string>dlgTeleportTo(202, 104, 0, E);</string>
+        <string>addQuest(MG2);</string>
+        <string>aod.quest_mg2_phase1a = true;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgSetZoom(10);</string>
+        <string>assignDialogue(Quest_MG2_01, 1020);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Report."</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Linos_cam_01);</string>
+        <string>dlgTeleportTo(134, 118, 0, N);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I'm still working on it."</text>
+          <def_link>11</def_link>
+          <checkOnAppear>aod.quest_mg1_failure == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"There were complications..."</text>
+          <def_link>13</def_link>
+          <checkOnAppear>aod.quest_mg1_failure</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Complications?" Linos stops working and gives you a hard look. "Can you give me what I asked for, &lt;charname&gt;? Yes or no?"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_mercato = false;</string>
+        <string>aod.quest_mg1_failure = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"No."</text>
+          <def_link>14</def_link>
+          <checkOnAppear>aod.quest_mg1_debt_success == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion]"It's almost done. Mercato is in debt up to his neck, but I can't crack him. Send in someone else to break him and we're done. Give me another chance, Linos."</text>
+          <def_link>16</def_link>
+          <checkOnAppear>aod.quest_mg1_debt_success</checkOnAppear>
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>15</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"No? I'm disappointed." He signals his guards. "We're done with &lt;charname&gt;. Throw &lt;him/her&gt; out."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>41</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>Before you can protest or react, Linos' guards grab you from behind, drag you through the building and literally throw you outside. You are no longer a member of the Commercium.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(quest_mg1_cam_05);</string>
+        <string>dlgTeleportTo(136, 103, 0, N);</string>
+        <string>dlgTeleportTo(136, 105, 0, S, 1570);</string>
+        <string>dlgTeleportTo(137, 105, 0, S, 1571);</string>
+        <string>dlgSetAnimation(anim_dodge_back, 0.1);</string>
+        <string>aod.global_MG_expelled = true;</string>
+        <string>rwd_reputation(MG1_05);</string>
+        <string>aod.quest_mg1_phase3a = true;</string>
+        <string>dlgDelRank(41);</string>
+        <string>aod.pc_member_commercium = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>41</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"You've almost convinced me, &lt;charname&gt;. Just like you almost did what I asked you. Unfortunately – as you're about to learn – 'almost' doesn't quite cut it."
+
+He signals his guards. "We're done with &lt;charname&gt;. Throw &lt;him/her&gt; out."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg1_finished = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>41</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"One. Last. Chance."
+
+Linos summons Zenon - another associate - and explains the situation to him. Zenon bows and departs without delay.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(133, 118, 0, NE, 1090);</string>
+        <string>dlgRotateToChar(1090, 1080);</string>
+        <string>aod.quest_mg1_zenon = true;</string>
+        <string>if(aod.quest_mg1_sign_document) aod.quest_mg1_phase3e = true;</string>
+        <string>if(aod.quest_mg1_sign_document == false) aod.quest_mg1_phase3b = true;</string>
+        <string>aod.quest_mg1_finished = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Zenon returns an hour later and tells Linos that Carrinas is planning to attack the town and take it over by force, using a staged attack on one of the caravans as a pretext.
+
+"Clever," says Linos without any enthusiasm. "I assume we don't have much time, so let's not waste it. Commander Carrinas must die tonight. &lt;charname&gt;, think of it as your last chance to prove yourself. Talk to Neleos and don't take no for an answer."</npc_text>
+      <onLoadScripts>
+        <string>dlgRotateToChar(1, 1080);</string>
+        <string>rwd_quest(MG1_02);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_mg1_zenonTeleport = true;</string>
+        <string>rwd_reputation(MG1_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to the assassins guild.</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"We're running out of time, &lt;charname&gt;, and for your sake I hope that you're not wasting it."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>if(aod.global_MG_expelled == false) dlgTeleportTo(137, 109, 0, S);</string>
+        <string>if(aod.quest_mg1_zenon) dlgTeleportTo(125, 119, 0, S, 1090);</string>
+        <string>if(aod.global_MG_expelled) dlgTeleportTo(134, 114, 0, S, 1570);</string>
+        <string>if(aod.global_MG_expelled) dlgTeleportTo(139, 114, 0, S, 1571);</string>
+        <string>dlgSetZoom(10);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"We're done with you, &lt;charname&gt;." He signals his guards. "Throw &lt;him/her&gt; out."</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Linos_cam_01);</string>
+        <string>dlgTeleportTo(134, 118, 0, N);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>35</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Any news?"</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Linos_cam_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I have everything I need to forge the evidence."</text>
+          <def_link>42</def_link>
+          <checkOnAppear>aod.quest_mg2_forgeEvidence</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I have the evidence."</text>
+          <def_link>48</def_link>
+          <checkOnAppear>aod.quest_mg2_hasEvidence &amp;&amp; aod.quest_mg2_forgedEvidence == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Not yet." Leave.</text>
+          <def_link>12</def_link>
+          <checkOnAppear>aod.quest_mg2_cado_failure == false || aod.quest_mg2_mercato_failure == false || aod.quest_mg2_merchant_failure == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I have no idea how to get the evidence. Any help?"</text>
+          <def_link>21</def_link>
+          <checkOnAppear>aod.quest_mg2_cado_failure &amp;&amp; aod.quest_mg2_mercato_failure &amp;&amp; aod.quest_mg2_merchant_failure</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Then what are you waiting for? Take it to Antidas right away."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go see Antidas.</text>
+          <def_link>47</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>48</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Let's see what you can do."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[perception][lore]Forge the evidence.</text>
+          <def_link>43</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.per + aod.lore) &lt; 10</string>
+            <string>(aod.per + aod.lore) &gt;= 10 &amp;&amp; aod.int &lt; 9</string>
+            <string>(aod.per + aod.lore) &gt;= 10 &amp;&amp; aod.int &gt;= 9</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>45</int>
+            <int>44</int>
+            <int>46</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>42</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You study Carrinas' handwriting, then write a letter to Caer-Tor, outlining Carrinas' plan to take over and requesting more troops.
+
+Linos examines the letter, carefully comparing it to the original, then tears it up. "It won't fool a child. Stop wasting my time and get me the real evidence."</npc_text>
+      <onLoadScripts>
+        <string>remQuest(MG2a);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_mg2_forgeEvidence = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>43</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You study Carrinas' handwriting, then write a letter to Caer-Tor, outlining Carrinas' plan to take over and requesting more troops.
+
+Linos examines the letter, carefully comparing it to the original, then tears it up. "It's not good enough."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I'll try again later." Leave.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>45</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You study Carrinas' handwriting, then write a letter to Caer-Tor, outlining Carrinas' plan to take over and requesting more troops.
+
+Linos examines the letter, carefully comparing it to the original, then gives it back to you, nodding his head in approval. "I've never seen a better job. You're a true artist, &lt;charname&gt;! Take it to Antidas."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_poor_fake = true;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_mg2_forgedEvidence = true;</string>
+        <string>aod.quest_mg2a_phase3 = true;</string>
+        <string>aod.quest_mg2_hasEvidence = true;</string>
+        <string>aod.quest_mg2_forgeEvidence = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go see Antidas.</text>
+          <def_link>47</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>44</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success][intelligence success]You study Carrinas' handwriting, then write a letter to Caer-Tor. You don't want to make it too obvious, so your letter isn't a plain 'confession', but a response to imaginary objections raised by the Caer-Tor. The nature of the objections makes it very clear what Carrinas' plan is.
+
+Linos examines the letter, carefully comparing it to the original, then gives it back to you, nodding his head in approval. "I've never seen a better job. You're a true artist, &lt;charname&gt;! Take it to Antidas."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_mg2_forgedEvidence = true;</string>
+        <string>aod.quest_mg2a_phase3 = true;</string>
+        <string>aod.quest_mg2_hasEvidence = true;</string>
+        <string>aod.quest_mg2_forgeEvidence = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go see Antidas.</text>
+          <def_link>47</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>46</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Sure. You don't work for me anymore and the evidence is no longer your problem. Hope that helps."
+
+He signals his guards. "We're done with &lt;charname&gt;. Throw &lt;him/her&gt; out."
+
+Before you can protest or react, Linos' guards grab you from behind, drag you through the building and literally throw you outside. You are no longer a member of the Commercium.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(136, 103, 0, N);</string>
+        <string>dlgTeleportTo(136, 105, 0, S, 1570);</string>
+        <string>dlgTeleportTo(137, 105, 0, S, 1571);</string>
+        <string>useCameraBookmark(quest_mg1_cam_05);</string>
+        <string>dlgSetAnimation(anim_dodge_back, 0.1);</string>
+        <string>aod.global_MG_expelled = true;</string>
+        <string>rwd_reputation(MG2_04);</string>
+        <string>aod.quest_mg2_phase3e = true;</string>
+        <string>dlgDelRank(41);</string>
+        <string>aod.pc_member_commercium = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Yes?"</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Linos_cam_01);</string>
+        <string>dlgTeleportTo(134, 118, 0, N);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I need a job."</text>
+          <def_link>26</def_link>
+          <checkOnAppear>aod.pc_member_none &amp;&amp; aod.npc_linos_askedForJob == false</checkOnAppear>
+          <checksOnClick>
+            <string>dlgGetRep(commercium) &gt; -10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>27</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"About the task you asked me to do..."</text>
+          <def_link>29</def_link>
+          <checkOnAppear>aod.quest_mgtest_started &amp;&amp; aod.quest_mgtest_completed == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I have information. I figured it might be worth something to you.”</text>
+          <def_link>53</def_link>
+          <checkOnAppear>aod.quest_tg2_shipmentInfo</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"So, what have you learned?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"You were right, master Linos. The guards eagerly took a bribe."</text>
+          <def_link>30</def_link>
+          <checkOnAppear>aod.quest_mgtest_guardsBribed &amp;&amp; aod.quest_mgtest_flaviusKnowInfo == false &amp;&amp; aod.quest_mgtest_igKnowInfo == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"You were right, master Linos. The guards eagerly took a bribe. Also, Flavius, commander of the watch, has a large gambling debt. He's a man waiting to be bought."</text>
+          <def_link>31</def_link>
+          <checkOnAppear>aod.quest_mgtest_guardsBribed &amp;&amp; aod.quest_mgtest_flaviusKnowInfo &amp;&amp; aod.quest_mgtest_igKnowInfo == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"You were right, master Linos. The guards eagerly took a bribe. Also, the Imperial Guards have been doing a lot of shipping lately. The watch guards aren't even allowed to stop them."</text>
+          <def_link>32</def_link>
+          <checkOnAppear>aod.quest_mgtest_guardsBribed &amp;&amp; aod.quest_mgtest_flaviusKnowInfo == false &amp;&amp; aod.quest_mgtest_igKnowInfo</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"You were right, master Linos. The guards eagerly took a bribe. Also, Flavius, commander of the watch, has a large gambling debt. He's a man waiting to be bought. Last, but not the least, the Imperial Guards have been doing a lot of shipping lately. The watch guards aren't even allowed to stop them."</text>
+          <def_link>32</def_link>
+          <checkOnAppear>aod.quest_mgtest_guardsBribed &amp;&amp; aod.quest_mgtest_flaviusKnowInfo &amp;&amp; aod.quest_mgtest_igKnowInfo</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I couldn't find anything..."</text>
+          <def_link>33</def_link>
+          <checkOnAppear>aod.quest_mgtest_failed</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Nothing yet, but I will soon." Leave.</text>
+          <def_link>12</def_link>
+          <checkOnAppear>aod.quest_mgtest_failed == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>29</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[reputation failure]"We don't deal with the likes of you."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_linos_askedForJob = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>26</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[reputation success]"Prove yourself and I'll consider your request."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_linos_askedForJob = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"What should I do?"</text>
+          <def_link>28</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>27</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Smuggling remains a problem. It encourages theft. The moment we close one hole, Cado makes another one. Like a fucking rat." Linos spits.
+
+"I have a feeling they will try the guards at the gate next. I've petitioned Lord Antidas to post more men there and even suggested to reinforce it with my own mercenaries, but he remains deaf to my requests. Will you be kind enough to bring me proof that the guards aren't trustworthy?"</npc_text>
+      <onLoadScripts>
+        <string>assignDialogue(quest_mgtest, 1890);</string>
+        <string>assignDialogue(quest_mgtest, 1891);</string>
+        <string>aod.quest_mgtest_started = true;</string>
+        <string>addQuest(MGTest);</string>
+        <string>aod.quest_mgtest_phase1 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I'll do my best." Leave.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>28</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Of course they did. It would have been nice to be wrong once. Very well, you're in. Here is your first task. The Imperial Guards are up to something again. Shipments, drills, recruiting... It's not good. Find out what it is."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mgtest_completed = true;</string>
+        <string>ChangeMoney(25);</string>
+        <string>addQuest(MG1);</string>
+        <string>aod.quest_mgtest_phase4 = true;</string>
+        <string>aod.pc_member_none = false;</string>
+        <string>aod.pc_member_commercium = true;</string>
+        <string>tbd_mg_door_01.unlock();</string>
+        <string>tbd_mg_door_04.unlock();</string>
+        <string>dlgAddRank(41);</string>
+        <string>remQuest(Job);</string>
+        <string>dlgAddItem(1335, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Any suggestions?"</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>30</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Indeed? I wouldn't mind buying a man that high on the ladder myself. You never know when it might come in handy, but his rank assures that the money won't be wasted. Well done, &lt;charname&gt;, you're in.
+
+"Here is your first task. The Imperial Guards are up to something again. Shipments, drills, recruiting... It's not good. Find out what it is."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mgtest_completed = true;</string>
+        <string>rwd_reputation(MG_Test_01);</string>
+        <string>ChangeMoney(50);</string>
+        <string>addQuest(MG1);</string>
+        <string>aod.quest_mgtest_phase4 = true;</string>
+        <string>aod.pc_member_none = false;</string>
+        <string>aod.pc_member_commercium = true;</string>
+        <string>tbd_mg_door_01.unlock();</string>
+        <string>tbd_mg_door_04.unlock();</string>
+        <string>dlgAddRank(41);</string>
+        <string>remQuest(Job);</string>
+        <string>dlgAddItem(1335, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Any suggestions?"</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>31</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I knew it. Something is definitely going on. Carrinas, that fucking snake. I knew that I would regret the day they sent him here. Excellent work, &lt;charname&gt;. I gave you a simple task and you gave me 200%. I praise this quality above all in those who serve me.
+
+"Here is your first task. As you can see, the Imperial Guards are up to something again. Shipments, drills, recruiting... It's not good. Find out what it is."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mgtest_completed = true;</string>
+        <string>rwd_reputation(MG_Test_02);</string>
+        <string>ChangeMoney(75);</string>
+        <string>addQuest(MG1);</string>
+        <string>aod.quest_mgtest_phase4 = true;</string>
+        <string>aod.pc_member_none = false;</string>
+        <string>aod.pc_member_commercium = true;</string>
+        <string>tbd_mg_door_01.unlock();</string>
+        <string>tbd_mg_door_04.unlock();</string>
+        <string>dlgAddRank(41);</string>
+        <string>remQuest(Job);</string>
+        <string>dlgAddItem(1335, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Any suggestions?"</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>32</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Leave. Now."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>33</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - dialogue</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportTo(137, 109, 0, S);</string>
+        <string>dlgSetZoom(10);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>35</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You are showing promise, &lt;charname&gt;. I believe you can make it in our guild, but ultimately, only results count. Get me the results, and we'll talk about your future, be it in Teron or elsewhere."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Elsewhere?"</text>
+          <def_link>37</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Thank you, master Linos." Leave.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Thank you, master Linos." Go to the assassins guild right away.</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>36</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"It seems the Maadoran chapter has noticed you as well. We'll see. Now, back to business! Results, remember?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Thank you, master Linos." Leave.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Thank you, master Linos." Go to the assassins guild right away.</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>37</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Ah, yes, the map. What did Feng say?"</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_linos_talkedAboutMap = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Something about lost temples, high lords, and magi's artefacts. Worth looking into?"</text>
+          <def_link>39</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>38</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Worth chasing fairy tales? Absolutely! Why make money when you can just plant a money tree with shiny gold coins instead of leaves?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"So, you don't believe in the loremasters' tales?"</text>
+          <def_link>40</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>39</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I'm too busy running the guild to wonder about the tales. Even if every word is true, even if one could gain power through magic in the past, it's clear that magic is a fickle mistress. Gold, on the other hand... Now this is a deity worth serving and the power it grants those who serve it well will never be diminished."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Let's talk about something else."</text>
+          <def_link>34</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>35</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>40</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go to palace</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(167, 163, 0, N);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgSetZoom(10);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>47</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"It seems that you already got another job."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mgtest_completed = true;</string>
+        <string>remQuest(MGTest);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>35</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>49</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What can I do for you, praetor?"</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Linos_cam_01);</string>
+        <string>dlgTeleportTo(134, 118, 0, N);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>52</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It might,” says Linos. “Then again, it might not. What’s the information and how much do you want for it?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“The Forty Thieves are planning to rob you.”</text>
+          <def_link>54</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>53</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“They are thieves, aren’t they? It’s the cost of running business.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“They’re aiming a bit higher than that this time.”</text>
+          <def_link>55</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>54</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“So you say. You think you’re the first to come to “warn me” in hopes of getting a few coins? Either tell me what you know or get out.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I want to see some money first!”</text>
+          <def_link>65</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“They know about the gold shipment.”</text>
+          <def_link>57</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Forget it.” Leave.</text>
+          <def_link>58</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>55</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>“Of course you do,” says Linos with irritation. He gestures and his guards drag you out of his office.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(quest_mg1_cam_05);</string>
+        <string>dlgTeleportTo(136, 103, 0, N);</string>
+        <string>dlgTeleportTo(136, 105, 0, S, 1570);</string>
+        <string>dlgTeleportTo(137, 105, 0, S, 1571);</string>
+        <string>dlgSetAnimation(anim_dodge_back, 0.1);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>66</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>65</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - betray closed</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportTo(137, 109, 0, S);</string>
+        <string>dlgTeleportTo(134, 114, 0, S, 1570);</string>
+        <string>dlgTeleportTo(139, 114, 0, S, 1571);</string>
+        <string>dlgSetZoom(10);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.quest_tg2_shipmentInfo = false;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>66</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It’s very ... disappointing,” says Linos, “considering how well our people are paid. Very well, we’ll reroute the shipment. Here is your pay – five hundred imperials.”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(500);</string>
+        <string>PC_Traitor();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Five hundred?”</text>
+          <def_link>59</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Much obliged.” Leave.</text>
+          <def_link>60</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>57</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - dialogue TG2 betray</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportTo(137, 109, 0, S);</string>
+        <string>dlgSetZoom(10);</string>
+        <string>aod.quest_tg2_shipmentInfo = false;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>58</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It’s more than generous for five minutes of work. Now, be gone. I have work to do.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>60</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>59</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>If that’s what he calls paying his people well, no wonder the poor bastards sell him out the first chance they get. You were thinking of getting paid and skipping town immediately. It was a good plan, but five hundred coins just aren’t enough to secure the kind of life you had in mind when you went to Linos. It’s probably still a good plan as sticking around Cado after betraying him isn’t a particularly bright idea. Still...</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(quest_mg1_cam_05);</string>
+        <string>dlgTeleportTo(136, 104, 0, S);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.ending_town_02 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Skip town.</text>
+          <def_link>63</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Return to Cado.</text>
+          <def_link>61</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.gender == 0</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>62</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>60</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>“Where were you, &lt;charname&gt;! We’ve just received word that Linos changed the route. He’ll send a heavily guarded decoy to distract us, while the real shipment will be in plain sight, practically unguarded. Are you ready? Don’t tell me you still need more time. You’re worse than a woman...”</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Cado_Cam_01);</string>
+        <string>dlgTeleportTo(139, 53, 0, N, 1100);</string>
+        <string>dlgTeleportTo(139, 54, 0, S);</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Looks like Linos will pay you one way or another. Go get that shipment.</text>
+          <def_link>64</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]You have a bad feeling about it. You better skip town now.</text>
+          <def_link>63</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>61</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>“Where were you, &lt;charname&gt;! We’ve just received word that Linos changed the route. He’ll send a heavily guarded decoy to distract us, while the real shipment will be in plain sight, practically unguarded. Are you ready? Don’t tell me you still need more time. I swear this is the last time I work with a woman...”</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Cado_Cam_01);</string>
+        <string>dlgTeleportTo(139, 53, 0, N, 1100);</string>
+        <string>dlgTeleportTo(139, 54, 0, S);</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Looks like Linos will pay you one way or another. Go get that shipment.</text>
+          <def_link>64</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]You have a bad feeling about it. You better skip town now.</text>
+          <def_link>63</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>62</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING - go to Maadoran</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>removePcMember();</string>
+        <string>StartTeronEnding();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>63</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go to ambush</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>tg2_createGoldAmbushFake();</string>
+        <string>aod.quest_tg2_betrayal = true;</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>TeronNightTime();</string>
+        <string>useCameraBookmark(quest_tg2_ambush_01);</string>
+        <string>apmsstartdialogue(quest_tg2_02);</string>
+        <string>dlgTeleportTo(78, 111, 0, W);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>64</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

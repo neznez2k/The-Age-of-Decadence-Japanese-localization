@@ -1,0 +1,1839 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Quest_MG1</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The Forty Thieves guild is a large and seemingly indefatigable network of thieves, smugglers, and other criminally inclined citizens. The guild operates in every town and traces its origin to the early days of the Empire. It is said that in the past, the forty kingpins of the forty largest towns used to coordinate the network. Opinion is divided as to the relations and ties of the Forty Thieves of yore and its current incarnation, but the name persists.
+
+In Teron the guild operates out of a local tavern – a popular destination for people who feel at home in shady parts of town and dark alleys. You nod to the men posted outside and go in. The tavern is full of people laughing, arguing and drinking. At the back of the tavern piles of loot sit atop tables, waiting to be counted and divvied.
+
+Cado, the guildmaster, notices you the moment you walk in. He gestures to one of his men near the entrance, who politely but firmly escorts you to his master.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(137, 60, 0, SW);</string>
+        <string>dlgTeleportTo(136, 59, 0, NE, 1110);</string>
+        <string>useCameraBookmark(quest_mg1_cam_01);</string>
+        <string>aod.global_teron_mercato_disposition = 0;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Greet the guildmaster.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>"To what do I owe this dubious pleasure?" inquires Cado without much interest.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(139, 54, 0, S);</string>
+        <string>useCameraBookmark(NPC_Cado_Cam_01);</string>
+        <string>dlgTeleportTo(134, 58, 0, E, 1110);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>addJournalChar(cado);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I need a favor."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Just paying my respects." Go talk to Mercato.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>"A favor? Sounds expensive."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Do you know Mercato Breni?"</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>"I know many people, &lt;charname&gt;. Get to the point."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"They say that Mercato likes to gamble. We want him to lose more than he can pay."</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>"There are other ways to make friends than fucking people and then offering your help."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"It works, doesn't it?"</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>"It sure does." Cado chuckles. "What's in it for me though?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"What do you want?"</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Peace of mind. I mean, you don't want to end up like the previous guildmaster. I've heard that he was nailed to the guild's door. They say it took him six hours to die."</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(bodycount) &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>16</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>"You, &lt;charname&gt;. We want you to become a good friend of our guild. We'll help you impress your superiors and make you a rising star within your guild. All we ask in return are minor favors here and there.
+
+"Take a minute to think about what I'm offering you here. Say 'no' and go back to your guildmaster empty-handed. You can tell him about this conversation, hoping that your loyalty would somehow overshadow your failure, and then watch him give this task to someone more capable. Or... Or you can say 'yes', and we'll hand you what Linos wants on a silver plate. You'll be praised and noticed. Is it really a hard decision to make?"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg1_talkedAboutDocument = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I'll pass."</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I accept your offer. What do I have to do?"</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>"Just sign this document outlining what we've just discussed, &lt;charname&gt;. You seem like an honest sort, but it's natural to have doubts and second thoughts, and this document will help you avoid certain... temptations."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"It's a death sentence. I'm not signing it."</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Sign the document.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>"Your loss then. Good luck with Mercato."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_cado_failure = true;</string>
+        <string>aod.quest_mg1_refuse_offer = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go talk to Mercato.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>"Excellent choice, my friend. Enjoy a few drinks while we take care of Mercato."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg1_sign_document = true;</string>
+        <string>aod.quest_mg2_cado_failure = false;</string>
+        <string>aod.quest_mg1_refuse_offer = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>"It's done. Mercato owes this establishment 2,000 imperials. He's all yours, &lt;charname&gt;."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(134, 58, 0, E, 1110);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_mg1_debt_success = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"My gratitude." Go talk to Mercato.</text>
+          <def_link>13</def_link>
+          <checkOnAppear>aod.quest_mg1_mercatoAttack == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"My gratitude." Go back to Linos.</text>
+          <def_link>25</def_link>
+          <checkOnAppear>aod.quest_mg1_mercatoAttack</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>"Are you threatening me, merchant?! In my own guild?" As if on cue, conversations and drunken laughter stop and dead silence fills the tavern.
+
+"Kill &lt;him/her&gt;," Cado says casually, without taking his eyes off you. Two hard looking thugs step forward and look at you appraisingly. A theatrical gesture conjures a dagger and cheers from the crowd.</npc_text>
+      <onLoadScripts>
+        <string>dlgRotateToChar(1, 1300);</string>
+        <string>dlgTeleportTo(138, 55, 0, SE, 1110);</string>
+        <string>dlgEquipItem(100, 0, 1100);</string>
+        <string>dlgSetAnimation(anim_combat_dagger_00, 0.5, 1110);</string>
+        <string>dlgSetAnimation(anim_combat_dagger_03, 0.5, 1300);</string>
+        <string>dlgSetAnimation(anim_combat_dagger_04, 0.55, 1100);</string>
+        <string>dlgSetAnimation(anim_dodge_back, 0.1);</string>
+        <string>aod.quest_mg1_refuse_offer = true;</string>
+        <string>aod.quest_mg2_cado_failure = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][persuasion]"You aren't dealing with me, Cado. You are dealing with an organization, so unless you are prepared to take on the entire merchants guild, I'd suggest you reconsider."</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>18</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Fight your way out.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>[failure]"Coming here was a mistake, &lt;charname&gt;. Goodbye." Cado nods to the thugs.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way out.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Cado threaten</npc_text>
+      <onLoadScripts>
+        <string>delCharTag(TeronKeyNPC, 1100);</string>
+        <string>delCharTag(TeronKeyNPC, 1105);</string>
+        <string>delCharTag(TeronKeyNPC, 1110);</string>
+        <string>delCharTag(TeronKeyNPC, 1290);</string>
+        <string>delCharTag(TeronKeyNPC, 1300);</string>
+        <string>aod.quest_mg1_failure = true;</string>
+        <string>aod.quest_mg1_started = false;</string>
+        <string>aod.quest_mg1_cado_fight = true;</string>
+        <string>aod.quest_MG1_MG = true;</string>
+        <string>addEnemyToParty(1, Teron_Thieves);</string>
+        <string>setRtsCam();</string>
+        <string>aod.gameplay_questMG1_fight = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>[success]"I'll do what your guild... asks, but I'll remember the insult. Wait here."</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAmbientAnimation(1100);</string>
+        <string>dlgSetAmbientAnimation(1110);</string>
+        <string>dlgSetAmbientAnimation(1300);</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>rwd_reputation(MG1_04);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>"Are you threatening me, merchant?! In my own guild?" As if on cue, conversations and drunken laughter stop and dead silence fills the tavern.
+
+"Kill &lt;him/her&gt;," Cado says casually, without taking his eyes off you. Two hard looking thugs step forward. They look at you for awhile, then at each other. "I've heard of &lt;him/her&gt;," says one of the thugs finally. "They say &lt;he/she&gt; has killed a lot of men. &lt;He/She&gt; is not just another bean counter, Cado. How badly do you want &lt;him/her&gt; dead?"
+
+Cado looks furious, but manages to control himself. "Your life isn't worth the lives of my men. I'll do what your guild ... asks, but I'll remember the insult. Wait here."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(138, 55, 0, SE, 1110);</string>
+        <string>dlgRotateToChar(1, 1300);</string>
+        <string>rwd_reputation(MG1_04);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>"I'm not here to talk. If you want to play a game, have a seat. Otherwise, get lost."</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Mercato_Cam_01);</string>
+        <string>dlgTeleportTo(138, 59, 0, E);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[intelligence]Play a game of chance with Mercato.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.int &gt;= 10</string>
+            <string>aod.int &gt;= 7 &amp;&amp; aod.int &lt; 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+            <int>21</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity][streetwise]Play a game of chance with Mercato. Attempt to cheat.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise &lt; 3 || aod.dex &lt; 7) &amp;&amp; (aod.gender == 1 &amp;&amp; aod.cha &lt; 9)</string>
+            <string>(aod.streetwise &lt; 3 || aod.dex &lt; 7) &amp;&amp; (aod.gender == 1 &amp;&amp; aod.cha &gt;= 9)</string>
+            <string>(aod.streetwise &lt; 3 || aod.dex &lt; 7) &amp;&amp; (aod.gender == 0 &amp;&amp; aod.cha &lt; 8)</string>
+            <string>(aod.streetwise &lt; 3 || aod.dex &lt; 7) &amp;&amp; (aod.gender == 0 &amp;&amp; aod.cha &gt;= 8)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>23</int>
+            <int>24</int>
+            <int>23</int>
+            <int>24</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>[failure]The fortune didn't favor you today. You lost 40 imperials.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-40);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[dexterity][streetwise]Play a game of chance with Mercato. Attempt to cheat.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise &lt; 3 || aod.dex &lt; 7) &amp;&amp; (aod.gender == 1 &amp;&amp; aod.cha &lt; 8)</string>
+            <string>(aod.streetwise &lt; 3 || aod.dex &lt; 7) &amp;&amp; (aod.gender == 1 &amp;&amp; aod.cha &gt;= 8)</string>
+            <string>(aod.streetwise &lt; 3 || aod.dex &lt; 7) &amp;&amp; (aod.gender == 0 &amp;&amp; aod.cha &lt; 7)</string>
+            <string>(aod.streetwise &lt; 3 || aod.dex &lt; 7) &amp;&amp; (aod.gender == 0 &amp;&amp; aod.cha &gt;= 7)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>23</int>
+            <int>24</int>
+            <int>23</int>
+            <int>24</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Talk to Cado. See if he can help you.</text>
+          <def_link>52</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Go back to Linos empty handed.</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>[failure]You do your best, but your skills aren't good enough to reward you with more than a handful of imperials.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(78);</string>
+        <string>dlgAddTextBoxMessage("You gain 78 imperials");</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[dexterity][streetwise]Play a game of chance with Mercato. Attempt to cheat.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise &lt; 3 || aod.dex &lt; 7) &amp;&amp; (aod.gender == 1 &amp;&amp; aod.cha &lt; 9)</string>
+            <string>(aod.streetwise &lt; 3 || aod.dex &lt; 7) &amp;&amp; (aod.gender == 1 &amp;&amp; aod.cha &gt;= 9)</string>
+            <string>(aod.streetwise &lt; 3 || aod.dex &lt; 7) &amp;&amp; (aod.gender == 0 &amp;&amp; aod.cha &lt; 8)</string>
+            <string>(aod.streetwise &lt; 3 || aod.dex &lt; 7) &amp;&amp; (aod.gender == 0 &amp;&amp; aod.cha &gt;= 8)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>23</int>
+            <int>24</int>
+            <int>23</int>
+            <int>24</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Talk to Cado. See if he can help you.</text>
+          <def_link>52</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Go back to Linos empty handed.</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>"It's hard to make friends these days, isn't it? If you need my help..."</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Cado_Cam_01);</string>
+        <string>dlgTeleportTo(139, 54, 0, S);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Enough, Cado. We need Mercato to lose and you're going to help us, unless you want to end up like your predecessor. I've heard that he was nailed to the guild's door. They say it took him six hours to die."</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(bodycount) &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>16</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What's it gonna cost me?"</text>
+          <def_link>80</def_link>
+          <checkOnAppear>aod.quest_mg1_talkedAboutDocument == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Alright, I'll sign your paper."</text>
+          <def_link>10</def_link>
+          <checkOnAppear>aod.quest_mg1_talkedAboutDocument</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>52</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>"You, &lt;charname&gt;. We want you to become a good friend of our guild. We'll help you impress your superiors and make you a rising star within your guild. All we ask in return are minor favors here and there.
+
+"Take a minute to think about what I'm offering you here. Say 'no' and go back to your guildmaster empty-handed. You can tell him about this conversation, hoping that your loyalty would somehow overshadow your failure, and then watch him give this task to someone more capable. Or... Or you can say 'yes', and we'll hand you what Linos wants on a silver plate. You'll be praised and noticed. Is it really a hard decision to make?
+
+"Just sign this document outlining what we've just discussed, &lt;charname&gt;. You seem like an honest sort, but it's natural to have doubts and second thoughts, and this document would help you avoid certain ... temptations."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"It's a death sentence. I'm not signing it."</text>
+          <def_link>53</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Sign the document.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>80</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>"Your loss then."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go back to Linos.</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>53</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure][charisma failure]It doesn't take long for Mercato to realize that you are cheating. He hesitates for a moment, and then lazily reaches for his sword, as if he's doing it purely out of boredom.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgEquipItem(110, 0, 1140);</string>
+        <string>dlgSetCombatAnimation(1140);</string>
+        <string>dlgSetCombatAnimation();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Defend yourself.</text>
+          <def_link>82</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dodge &gt;= 3</string>
+            <string>dlgHasShieldEquipped() &amp;&amp; aod.block &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>83</int>
+            <int>84</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You watch in horror as Mercato's sword connects with your body, cutting in deeply. Your life starts flashing in front of your eyes when Mercato's voice brings you back to reality.
+
+"It's a just flesh wound. Now, get the fuck out of here."
+
+*You lose 2 maximum hit points*</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMaxHp(-2);</string>
+        <string>if(dlgGetCharacterHP() &gt; 2) dlgChangeCharacterHP(-2);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetAmbientAnimation(1140);</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>aod.quest_mg1_mercatoAttack = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go back to Linos empty handed.</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Talk to Cado. See if he can help you.</text>
+          <def_link>52</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>82</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>[dodge success]You deftly dodge the attack and raise your hands, indicating that you aren't taking it seriously.
+
+Mercato sighs, pours himself more wine, and sheaths his sword. "What the fuck do you want from me?"</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetAmbientAnimation(1140);</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>addJournalChar(mercato);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Information. We want to know what Carrinas is planning."</text>
+          <def_link>27</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>83</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>[block success]You deftly block the attack and raise your hands, indicating that you aren't taking it seriously.
+
+Mercato sighs, pours himself more wine, and sheaths his sword. "What the fuck do you want from me?"</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAmbientAnimation(1140);</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addJournalChar(mercato);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Information. We want to know what Carrinas is planning."</text>
+          <def_link>27</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>84</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>[failure][charisma success]"If you have to cheat, can't you at least do it less clumsily? A less patient man would have killed you already." Mercato sighs and pours himself more wine. "So, what do you want from me?"</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Information. We want to know what Carrinas is planning."</text>
+          <def_link>27</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>"And why would I tell you?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"We'll pay you."</text>
+          <def_link>28</def_link>
+          <checkOnAppear>aod.trading &lt; 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading success]"Because you're tired of drinking and gambling in this shithole, killing time and waiting for your chance. Your wait is over, Mercato."</text>
+          <def_link>30</def_link>
+          <checkOnAppear>aod.trading &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>27</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>Mercato yawns and turns his attention to his wine. The conversation is over.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg1_failure = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Talk to Cado. See if he can help you.</text>
+          <def_link>52</def_link>
+          <checkOnAppear>aod.quest_mg1_debt_success == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Go back to Linos empty handed.</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_mg1_cheated</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>48</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>28</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>"Well, this must be my lucky day then."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[trading][persuasion]"Quite so. It's not every day that one is given an opportunity to trade favors with Commercium. To put it plainly, if Carrinas is out, you're in. You get the job you wanted plus plenty of gold in your pockets. Do you really see a downside?"</text>
+          <def_link>31</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.trading) &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>32</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>30</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>[failure]"I'm not buying what you're selling. Beat it, merchant."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Talk to Cado. See if he can help you.</text>
+          <def_link>52</def_link>
+          <checkOnAppear>aod.quest_mg1_debt_success == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Go back to Linos empty handed.</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_mg1_cheated</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>48</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>31</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>[success]"There is always a downside when one deals with your guild, merchant."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][charisma]"Not when we want what you want. We want to have a Commander who isn't a fanatic like Carrinas, but a reasonable man who appreciates the finer things in life, a man with an open mind, a man we can deal with. Think of it as a partnership. Think of how far you'd be able to go with the full backing of the Commercium."</text>
+          <def_link>33</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.cha + aod.persuasion) &gt;= 14</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>34</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>32</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>[failure]"Until you make a new deal with someone else."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg1_failedhighpers = true;</string>
+        <string>if(aod.quest_mg1_mercatoindebt == false) {aod.quest_mg1_failure = true; aod.quest_mg1_mercato_no_info = true;}</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Talk to Cado. See if he can help you.</text>
+          <def_link>52</def_link>
+          <checkOnAppear>aod.quest_mg1_debt_success == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"If you change your mind, let me know." Go back to Linos empty handed.</text>
+          <def_link>25</def_link>
+          <checkOnAppear>aod.quest_mg1_mercatoindebt == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.quest_mg1_cheated</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>48</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>33</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>[success]The difference in intelligence has practically eliminated the "chance" aspect of the game. You take every coin Mercato has and keep playing until he owes you 1,200 imperials.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(454);</string>
+        <string>dlgAddTextBoxMessage("You gain 454 imperials");</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>85</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>[success]You skilfully cheat Mercato out of all his coins and keep playing until he owes you 1,200 imperials.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.quest_mg1_cheated = true;</string>
+        <string>dlgChangeMoney(454);</string>
+        <string>dlgAddTextBoxMessage("You gain 454 imperials");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>85</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>If Mercato is concerned about the debt, he hides it well by focusing all his attention on a cup of wine.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg1_mercatoindebt = true;</string>
+        <string>useCameraBookmark(NPC_Mercato_Cam_01);</string>
+        <string>dlgTeleportTo(138, 59, 0, E);</string>
+        <string>aod.quest_mg1_debt_success = true;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>addJournalChar(mercato);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"You've lost a lot of money, Mercato."</text>
+          <def_link>38</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>If Mercato is concerned about the debt, he hides it well by focusing all his attention on a cup of wine.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg1_mercatoindebt = true;</string>
+        <string>useCameraBookmark(NPC_Mercato_Cam_01);</string>
+        <string>dlgTeleportTo(138, 59, 0, E);</string>
+        <string>aod.quest_mg1_debt_success = true;</string>
+        <string>addJournalChar(mercato);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"You've lost a lot of money, Mercato."</text>
+          <def_link>38</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>85</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>Mercato shrugs and pours more wine into his cup. "Wouldn't be the first time."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I represent the Commercium, the merchants' guild. We can pay off your debt and make sure you don't have to worry about money again."</text>
+          <def_link>39</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>38</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>"Out of the goodness of your shrivelled heart? I'm touched by your concern."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"We need to know what Carrinas is planning."</text>
+          <def_link>40</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>39</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>"Then go and ask him."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[trading][persuasion]"You're not thinking it through, Mercato. If Carrinas is out, you're in. You get the job you wanted plus plenty of gold in your pockets. Do you really see a downside?"</text>
+          <def_link>73</def_link>
+          <checkOnAppear>aod.persuasion &gt;= 2 &amp;&amp; aod.trading &gt;= 2</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.persuasion + aod.trading) &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>41</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][persuasion]"Let's not pretend that you have a choice. You don't want to deal with Cado's thugs, do you?"</text>
+          <def_link>42</def_link>
+          <checkOnAppear>aod.persuasion &gt;= 2 &amp;&amp; aod.streetwise &gt;= 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]"Not an answer I expected from a man who owes us money."</text>
+          <def_link>68</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"You're not thinking it through, Mercato."</text>
+          <def_link>28</def_link>
+          <checkOnAppear>(aod.persuasion &lt; 2 || aod.trading &lt; 2) &amp;&amp; (aod.persuasion &lt; 2 || aod.streetwise &lt; 2) &amp;&amp; aod.streetwise &lt; 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>40</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>[success]"There is always a downside when one deals with your guild, merchant."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg1_downside = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][charisma]"Not when we want what you want. We want to have a Commander who isn't a fanatic like Carrinas, but a reasonable man who appreciates the finer things in life, a man with an open mind, a man we can deal with. Think of it as a partnership. Think of how far you'd be able to go with the full backing of the Commercium."</text>
+          <def_link>73</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.cha + aod.persuasion) &gt;= 14</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>34</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>41</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>[failure]"Until you make a new deal with someone else."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg1_failedhighpers = true;</string>
+        <string>if(aod.quest_mg1_mercatoindebt == false) {aod.quest_mg1_failure = true; aod.quest_mg1_mercato_no_info = true;}</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][persuasion]"Let's not pretend that you have a choice. You don't want to deal with Cado's thugs, do you?"</text>
+          <def_link>42</def_link>
+          <checkOnAppear>aod.quest_mg1_failedPerLow == false &amp;&amp; aod.persuasion &gt;= 2 &amp;&amp; aod.streetwise &gt;= 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]"Not an answer I expected from a man who owes us money."</text>
+          <def_link>68</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 3 &amp;&amp; aod.quest_mg1_failedStreet == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"If you change your mind, let me know." Leave.</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_mg1_cheated</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>48</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>73</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>"I can handle them." Mercato waves dismissively.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg1_handlethem = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][persuasion]"Do you? Can you handle a crossbow bolt in your back? Poison in your wine? Cado can't let you walk away without settling your debt. It's bad for business. Is Carrinas really worth dying for?"</text>
+          <def_link>74</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>43</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>42</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>[failure]"Carrinas is a Guard, and so am I. We don't sell our own."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg1_failedPerLow = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][charisma]"Who's talking about selling? What Carrinas is planning is his business. All we want to know is how it's going to affect our business. There is no harm in that, is there?"</text>
+          <def_link>76</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.cha + aod.persuasion) &gt;= 12</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>75</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>74</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>"Life is full of disappointments."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"It can always be worse, unless we find a way to settle your debt."</text>
+          <def_link>69</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>68</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>"I won't betray my brothers."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][charisma]"Your brothers? Do you see any around here? Will they help you pay your debt? You're all alone, Mercato, and the only friend you've got right now is me."</text>
+          <def_link>76</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.cha) &gt;= 12</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>71</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>69</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>[failure]"Be on your way, merchant."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg1_failedStreet = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[trading][persuasion]"You're not thinking it through, Mercato. If Carrinas is out, you're in. You get the job you wanted plus plenty of gold in your pockets. Do you really see a downside?"</text>
+          <def_link>73</def_link>
+          <checkOnAppear>aod.quest_mg1_failedhighpers == false &amp;&amp; aod.persuasion &gt;= 2 &amp;&amp; aod.trading &gt;= 2</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.persuasion + aod.trading) &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>41</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][persuasion]"Let's not pretend that you have a choice. You don't want to deal with Cado's thugs, do you?"</text>
+          <def_link>42</def_link>
+          <checkOnAppear>aod.quest_mg1_failedPerLow == false &amp;&amp; aod.persuasion &gt;= 2 &amp;&amp; aod.streetwise &gt;= 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"If you change your mind, let me know." Leave.</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_mg1_cheated</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>48</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>76</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>[success]"And if I refuse to give you what you want?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][charisma]"If you decide to cross the Commercium, you mean? I can assure you that you'll regret it for the rest of your life."</text>
+          <def_link>76</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.cha) &gt;= 13</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>72</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>71</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>[success]"What goes around, comes around. I'd keep it in mind if I were you, merchant. Now, what do you want to know?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Tell me what Carrinas is up to."</text>
+          <def_link>46</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>72</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>[success]"I suppose not, especially if it wipes my debt clean. Very well, ask your questions and make sure that my debt is settled."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Tell me what Carrinas is up to."</text>
+          <def_link>46</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>75</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>[success]"No man is worth dying for, if you ask me. Very well, ask your questions and make sure that my debt is settled."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Tell me what Carrinas is up to."</text>
+          <def_link>46</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>43</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>[success]"Partnership, eh? I must admit that the idea does have a certain appeal. So, what do you want to know, 'partner'?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Tell me what Carrinas is up to."</text>
+          <def_link>35</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>34</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>"Carrinas wants Teron. The crafty bastard has staged a fake attack on one of your caravans to show that the old man Antidas can't protect the town. Now he's gathering support of concerned citizens; once he has it, he will send his troops to take over the gate and the towers, which would effectively seal the town. I don't think that Antidas will last long after that. I hate to admit it but it's a very good plan."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg1_persuaded_mercato = true;</string>
+        <string>aod.quest_mg1_success = true;</string>
+        <string>aod.global_teron_mercato_disposition = 1;</string>
+        <string>rwd_civil(MG1_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Thank you." Leave.</text>
+          <def_link>37</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_mg1_cheated</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>48</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"So, what happened between you and Carrinas?"</text>
+          <def_link>56</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.cha &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>55</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>35</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>"Carrinas wants Teron. The crafty bastard had staged a fake attack on one of your caravans to show that the old man Antidas can't protect the town. Now he's gathering support of concerned citizens; once he has it, he will send his troops to take over the gate and the towers, which would effectively seal the town. I don't think that Antidas will last long after that. My debt had better be settled now."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg1_threatened_mercato = true;</string>
+        <string>aod.quest_mg1_success = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Thank you." Leave.</text>
+          <def_link>37</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_mg1_cheated</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>48</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"So, what happened between you and Carrinas?"</text>
+          <def_link>57</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>46</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - failure</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_mg1_failure = true;</string>
+        <string>aod.quest_mg1_started = false;</string>
+        <string>aod.quest_mg1_mercato_no_info = true;</string>
+        <string>dlgFinish();</string>
+        <string>aod.quest_MG1_MG = true;</string>
+        <string>dlgTeleportTo(134, 118, 0, N);</string>
+        <string>apmsStartDialogue(Linos_01);</string>
+        <string>if(aod.quest_mg1_cheated) {dlgTeleportTo(139, 53, 0, N, 1100); dlgTeleportTo(140, 55, 0, W, 1110); dlgTeleportTo(134, 58, 0, E, 1300);}</string>
+      </onLoadScripts>
+      <answers />
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - success</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_mg1_success = true;</string>
+        <string>aod.quest_mg1_started = false;</string>
+        <string>dlgFinish();</string>
+        <string>aod.quest_MG1_MG = true;</string>
+        <string>dlgTeleportTo(134, 118, 0, N);</string>
+        <string>apmsStartDialogue(Linos_01);</string>
+        <string>if(aod.quest_mg1_cheated) {dlgTeleportTo(139, 53, 0, N, 1100); dlgTeleportTo(140, 55, 0, W, 1110); dlgTeleportTo(134, 58, 0, E, 1300);}</string>
+      </onLoadScripts>
+      <answers />
+      <UID>37</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>[charisma failure]"None of your fucking business."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>37</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_mg1_cheated</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>48</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>56</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>"You have the nerve to threaten me and then ask questions about my life. Fuck off, &lt;charname&gt;."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>37</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_mg1_cheated</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>48</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>57</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>[charisma success]"Nothing dramatic, I'm afraid. Carrinas must have fucked up bad to be sent to this little spot of sunshine. So, he comes here and the first thing he does is bring his own people. Suddenly, I am a second class citizen. Now, I know that this is how the game is played, but looking after yourself is part of the game too. So, here we are..."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"What do you mean 'he fucked up bad'?"</text>
+          <def_link>58</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>55</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>"It doesn't take a genius to figure this one out. When you climb high enough, you end up either in Caer-Tor with the rest of the brass or in a shithole like Teron."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"If it's a shithole, why do you care?"</text>
+          <def_link>59</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What's Caer-Tor?"</text>
+          <def_link>60</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>58</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>"Because it's *my* shithole? Besides, where else would I go? I'm too old to start working my way up somewhere else, only to get shafted again in the end. This time I'll play it smart."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Caer-Tor?"</text>
+          <def_link>60</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>59</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>"Our headquarters. Caer-Tor was a small settlement around a hundred years ago. The locals asked the Imperial Guards to protect them against the raiders. The Guards liked the location, so they decided to stay. The locals weren't too happy about it, but it's not like they had a choice.
+
+"Today it's a fort, big enough to house several legions."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Sounds like the locals had learned a valuable lesson."</text>
+          <def_link>61</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Thanks for the chat."</text>
+          <def_link>64</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>60</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>"That they did," agrees Mercato, "but what do you expect? If you invite armed men to your house to watch over you, while you sleep, you might wake up one day to find that the house is no longer yours. It's common sense."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"An interesting theory. So, nobody should ever ask for help?"</text>
+          <def_link>62</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>61</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>"I'm sure you can count beans with the best of the merchants. Still, when it comes to things of a more ... primal, shall we say, nature, you are clearly at a disadvantage. The rule is very simple actually. The power you borrow should never exceed your own. If you don't have any, well, you're nothing but cattle waiting for someone to start craving a steak.
+
+"I've seen the wasteland and believe me, there are worse things out there than the Imperial Guards."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"So, what's out there?"</text>
+          <def_link>63</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What do you think about Carrinas' plan?"</text>
+          <def_link>65</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Thanks for the chat."</text>
+          <def_link>64</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>62</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>"That, my friend, is a story for another day."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"What do you think about Carrinas' plan?"</text>
+          <def_link>65</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>63</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>"To bring law and order? If you ask me, both are only good in small doses."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Is that what you think he's doing?"</text>
+          <def_link>66</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>65</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>"That's what Carrinas thinks he's doing. He is one of those people who think that what's good for them has got to be good for everyone."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"He doesn't have much faith in the Lords, does he?"</text>
+          <def_link>67</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>66</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>"Who does?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Thanks for the chat."</text>
+          <def_link>64</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>67</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>"Have yourself a good day, &lt;charname&gt;. I'm sure I'll see you again."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>37</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_mg1_cheated</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>48</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>64</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>When you are about to leave, you see Cado and his thugs blocking the door.
+
+"That was some fine cheating, &lt;charname&gt;. With fingers like these you should be working for me, not Linos."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(137, 59, 0, N);</string>
+        <string>dlgTeleportTo(137, 60, 0, S, 1100);</string>
+        <string>dlgTeleportTo(138, 61, 0, S, 1110);</string>
+        <string>dlgTeleportTo(136, 61, 0, S, 1300);</string>
+        <string>useCameraBookmark(quest_mg1_cam_04);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I'll consider it, Cado."</text>
+          <def_link>49</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>48</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>"Now would be a good time. You see, we don't tolerate cheating in my fine establishment. Bad for business, you know. However, seeing that you're such a talented &lt;boy/girl&gt;, I'll let you keep half. Hand over the other half and you're free to leave. It's more than fair and you know it."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Here is your half, Cado. Now step aside."</text>
+          <def_link>81</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_mg1_success == false</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>25</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"No 'hard way' option?" Fight your way out.</text>
+          <def_link>51</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>49</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - cheating</npc_text>
+      <onLoadScripts>
+        <string>delCharTag(TeronKeyNPC, 1100);</string>
+        <string>delCharTag(TeronKeyNPC, 1105);</string>
+        <string>delCharTag(TeronKeyNPC, 1110);</string>
+        <string>delCharTag(TeronKeyNPC, 1290);</string>
+        <string>delCharTag(TeronKeyNPC, 1300);</string>
+        <string>aod.quest_mg1_success = true;</string>
+        <string>aod.quest_mg1_started = false;</string>
+        <string>aod.quest_mg1_cado_fight = true;</string>
+        <string>aod.quest_MG1_MG = true;</string>
+        <string>addEnemyToParty(1, Teron_Thieves);</string>
+        <string>setRtsCam();</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>51</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>"Pleasure doing business with you, &lt;charname&gt;. Come again."</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-227);</string>
+        <string>rwd_reputation(MG1_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>37</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_mg1_success == false</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>25</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>81</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

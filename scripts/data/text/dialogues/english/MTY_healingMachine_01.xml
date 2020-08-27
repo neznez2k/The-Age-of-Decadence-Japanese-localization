@@ -1,0 +1,536 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.mty_useMachine == 1</string>
+      <string>aod.mdn_healingMachine</string>
+    </conditions>
+    <links>
+      <int>91</int>
+      <int>86</int>
+    </links>
+    <dlg_name>MTY_healingMachine_01</dlg_name>
+    <def_link>79</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You see a large sarcophagus - a misshapen rectangular container, made of grey metal, with strange cylindrical extensions sticking out at odd angles.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[lore]Examine it.</text>
+          <def_link>81</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lore &gt;= 8</string>
+            <string>aod.lore &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>84</int>
+            <int>94</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>71</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>79</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You don't know for sure but you're dead certain that it's an imprisonment device. Once you get in, you ain't never getting out.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>71</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>81</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]It appears to be a medical machine of some kind. Most peculiar.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>71</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>94</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You have no idea how to use it. It's too complex.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>71</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>93</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You see an already familiar healing machine. It looks different somehow.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[lore]Examine it.</text>
+          <def_link>93</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lore &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>84</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>86</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]It appears to be an automated medical machine designed to heal extensive wounds and repair cellular damage.</npc_text>
+      <onLoadScripts>
+        <string>aod.mty_useMachine = 1;</string>
+        <string>dlgCureStat(all);</string>
+        <string>getLowerPhysicalStat();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Run a scan.</text>
+          <def_link>90</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.str &lt; 8 &amp;&amp; aod.lowestStat == str</string>
+            <string>aod.dex &lt; 8 &amp;&amp; aod.lowestStat == dex</string>
+            <string>aod.con &lt; 8 &amp;&amp; aod.lowestStat == con</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>29</int>
+            <int>87</int>
+            <int>88</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>84</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Fortunately, the machine is still here.</npc_text>
+      <onLoadScripts>
+        <string>aod.mty_useMachine = 1;</string>
+        <string>dlgCureStat(all);</string>
+        <string>getLowerPhysicalStat();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Run a scan.</text>
+          <def_link>90</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.str &lt; 8 &amp;&amp; aod.lowestStat == str</string>
+            <string>aod.dex &lt; 8 &amp;&amp; aod.lowestStat == dex</string>
+            <string>aod.con &lt; 8 &amp;&amp; aod.lowestStat == con</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>29</int>
+            <int>87</int>
+            <int>88</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>91</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>According to the readings, you're suffering from muscular atrophy and a host of other problems caused by poor diet, tainted water supplies, and radioactive contamination.
+
+It appears you need a special single-use canister to run the machine.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Insert the canister and improve your Strength.</text>
+          <def_link>42</def_link>
+          <checkOnAppear>dlgOwnsItem(2165) &amp;&amp; aod.str &lt; 10</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>aod.mty_healingMachine = 1;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Insert the canister and improve your Dexterity.</text>
+          <def_link>42</def_link>
+          <checkOnAppear>dlgOwnsItem(2165) &amp;&amp; aod.dex &lt; 10</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>aod.mty_healingMachine = 2;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Insert the canister and improve your Constitution.</text>
+          <def_link>42</def_link>
+          <checkOnAppear>dlgOwnsItem(2165) &amp;&amp; aod.con &lt; 10</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>aod.mty_healingMachine = 3;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>You wish you had such a canister. Oh well... You're perfect the way you are!</text>
+          <def_link>71</def_link>
+          <checkOnAppear>dlgOwnsItem(2165) == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>71</def_link>
+          <checkOnAppear>dlgOwnsItem(2165)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>29</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>According to the readings, you're suffering from the lack of coordination of muscle movements and a host of other problems caused by poor diet, tainted water supplies, and radioactive contamination.
+
+It appears you need a special single-use canister to run the machine.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Insert the canister and improve your Strength.</text>
+          <def_link>42</def_link>
+          <checkOnAppear>dlgOwnsItem(2165) &amp;&amp; aod.str &lt; 10</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>aod.mty_healingMachine = 1;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Insert the canister and improve your Dexterity.</text>
+          <def_link>42</def_link>
+          <checkOnAppear>dlgOwnsItem(2165) &amp;&amp; aod.dex &lt; 10</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>aod.mty_healingMachine = 2;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Insert the canister and improve your Constitution.</text>
+          <def_link>42</def_link>
+          <checkOnAppear>dlgOwnsItem(2165) &amp;&amp; aod.con &lt; 10</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>aod.mty_healingMachine = 3;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>You wish you had such a canister. Oh well... You're perfect the way you are!</text>
+          <def_link>71</def_link>
+          <checkOnAppear>dlgOwnsItem(2165) == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>71</def_link>
+          <checkOnAppear>dlgOwnsItem(2165)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>87</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>According to the readings, you're suffering from vitamin deficiencies and a host of other problems caused by poor diet, tainted water supplies, and radioactive contamination.
+
+It appears you need a special single-use canister to run the machine.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Insert the canister and improve your Strength.</text>
+          <def_link>42</def_link>
+          <checkOnAppear>dlgOwnsItem(2165) &amp;&amp; aod.str &lt; 10</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>aod.mty_healingMachine = 1;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Insert the canister and improve your Dexterity.</text>
+          <def_link>42</def_link>
+          <checkOnAppear>dlgOwnsItem(2165) &amp;&amp; aod.dex &lt; 10</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>aod.mty_healingMachine = 2;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Insert the canister and improve your Constitution.</text>
+          <def_link>42</def_link>
+          <checkOnAppear>dlgOwnsItem(2165) &amp;&amp; aod.con &lt; 10</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>aod.mty_healingMachine = 3;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>You wish you had such a canister. Oh well... You're perfect the way you are!</text>
+          <def_link>71</def_link>
+          <checkOnAppear>dlgOwnsItem(2165) == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>71</def_link>
+          <checkOnAppear>dlgOwnsItem(2165)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>88</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>According to the readings, you're suffering from numerous health problems caused by poor diet, tainted water supplies, and radioactive contamination.
+
+It appears you need a special single-use canister to run the machine.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Insert the canister and improve your Strength.</text>
+          <def_link>42</def_link>
+          <checkOnAppear>dlgOwnsItem(2165) &amp;&amp; aod.str &lt; 10</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>aod.mty_healingMachine = 1;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Insert the canister and improve your Dexterity.</text>
+          <def_link>42</def_link>
+          <checkOnAppear>dlgOwnsItem(2165) &amp;&amp; aod.dex &lt; 10</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>aod.mty_healingMachine = 2;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Insert the canister and improve your Constitution.</text>
+          <def_link>42</def_link>
+          <checkOnAppear>dlgOwnsItem(2165) &amp;&amp; aod.con &lt; 10</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>aod.mty_healingMachine = 3;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>You wish you had such a canister. Oh well... You're perfect the way you are!</text>
+          <def_link>71</def_link>
+          <checkOnAppear>dlgOwnsItem(2165) == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>71</def_link>
+          <checkOnAppear>dlgOwnsItem(2165)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>90</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>71</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You press a button and the machine’s hatch slowly opens. You take off your armor, get inside and try to get as comfortable as possible. As the hatch goes down, something inside the machine whirs and you wince in pain as several needles are forcefully plunged into your spine.
+
+Suddenly, you feel relaxed and peaceful. You close your eyes and let the drugs whisk you away.</npc_text>
+      <onLoadScripts>
+        <string>dlgRemoveItem(2165, 1);</string>
+        <string>dlgUnequipEverything();</string>
+        <string>setCharacterRendered(1, 0);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>36</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>42</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You wake up lying on the floor, barely aware of where you are and why you’re here. You try to get up, but find that you don’t have any strength.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>setAchievement("ACH_HEALING_MACHINE");</string>
+        <string>setCharacterRendered(1, 1);</string>
+        <string>apmsSetPC(1);</string>
+        <string>dlgSetAnimation(anim_death_back04, 0.95);</string>
+        <string>cheatHP();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Try to get up.</text>
+          <def_link>40</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.mty_healingMachine == 2</string>
+            <string>aod.mty_healingMachine == 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>38</int>
+            <int>45</int>
+          </linksOnClick>
+          <scriptsOnClick>
+            <string>dlgSetAmbientAnimation();</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+      </answers>
+      <UID>36</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Slowly, you get up. At first you don’t feel any different, but then you realize that your muscles are heavier and you feel stronger.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeStat(str, 1);</string>
+        <string>dlgAddTextBoxMessage("Your Strength has increased by 1");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>71</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>40</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Slowly, you get up. At first you don’t feel any different, but then you realize that your muscles contract faster, speeding up your reflexes.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeStat(dex, 1);</string>
+        <string>dlgAddTextBoxMessage("Your Dexterity has increased by 1");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>71</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>38</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Slowly, you get up. Somehow you feel better and more resilient.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeStat(con, 1);</string>
+        <string>dlgAddTextBoxMessage("Your Constitution has increased by 1");</string>
+        <string>cheatHP();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>71</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>45</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

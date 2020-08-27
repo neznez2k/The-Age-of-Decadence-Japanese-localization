@@ -1,0 +1,271 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_mdnTraderArmor_met</string>
+    </conditions>
+    <links>
+      <int>481</int>
+    </links>
+    <dlg_name>MDN_Trader_Armor</dlg_name>
+    <def_link>478</def_link>
+    <def_speaker_name>Merchant</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Come! Come! Don’t be shy!” yells a well-tanned trader, smiling as if you’re his long lost sibling. “I have the best armor here, bar none, but why am I telling you this? You look like a &lt;man/woman&gt; who knows quality! Am I right?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_mdnTraderArmor_met = true;</string>
+        <string>dlgTeleportToMarker(TM_DLG_TraderArmor);</string>
+        <string>dlgCam(15, 40, 7, 6108);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Browse the wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Do you have anything special?”</text>
+          <def_link>482</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>478</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>TRADE</npc_text>
+      <onLoadScripts>
+        <string>dlgTradeWithMe("The Armor Makers of Isher");</string>
+        <string>dlgCam(35, 45, 15);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>479</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgCam(35, 45, 15);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>480</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Come! Browse my wares freely, for it costs you nothing but teaches you a thing or two about quality!”</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(15, 40, 7, 6108);</string>
+        <string>dlgTeleportToMarker(TM_DLG_TraderArmor);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Browse the wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Do you have anything special?”</text>
+          <def_link>482</def_link>
+          <checkOnAppear>aod.npc_TraderArmor_asked_armor == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Do you still have that blue steel armor?”</text>
+          <def_link>487</def_link>
+          <checkOnAppear>aod.npc_TraderArmor_asked_armor &amp;&amp; aod.npc_TraderArmor_bought_armor == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>481</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Way ahead of you, friend, way ahead of you! One look and I could just tell you were in the market for something special. Well, today is your lucky day, because you won’t find anything more special than this armor!
+
+“I bought it from Marcus Tiberius Aerus’ widow. He saved Lord Gaelius’ noble father from an assassination attempt and was given this armor as a reward for faithful service. Made of the finest blue steel! Gold inlays! Exquisite craftsmanship! Why, the very thought of parting with this magnificent armor brings tears to my eyes, but I can tell you need it more. Am I right?”
+
+[Reduced Dodge Penalty, increased vsCS and Hardness]</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_TraderArmor_asked_armor = true;</string>
+        <string>setWindowImage(item_honorbound);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“How much for the armor?”</text>
+          <def_link>484</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>482</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Four thousand. Yes, yes, it's a lot of money, but look at what you're getting for it. You know what they say, you get what you pay for. Am I right or what?”</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setWindowImage();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 4,000 imperials.</text>
+          <def_link>485</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 4000</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgChangeMoney(-4000);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading success]“3,000, if you actually want to sell this thing. I don't see people lining up. Do you?”</text>
+          <def_link>485</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 3000 &amp;&amp; aod.trading &gt;= 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgChangeMoney(-3000);</string>
+            <string>aod.flagUsed = 1;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I can't afford it.” Browse other wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>484</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I knew you'd take a shine to it. Got four thousand imperials?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 4,000 imperials.</text>
+          <def_link>485</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 4000</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgChangeMoney(-4000);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading success]“3,000, if you actually want to sell this thing. I don't see people lining up. Do you?”</text>
+          <def_link>485</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 3000 &amp;&amp; aod.trading &gt;= 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgChangeMoney(-3000);</string>
+            <string>aod.flagUsed = 1;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I can't afford it.” Browse other wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>487</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Wear it proudly. It cost you a lot of money.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_TraderArmor_bought_armor = true;</string>
+        <string>dlgAddItemlist(Unique_HonorBound);</string>
+        <string>if(aod.flagUsed) {rwd_civil(Trading); aod.flagUsed = 0;}</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Browse the wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>485</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

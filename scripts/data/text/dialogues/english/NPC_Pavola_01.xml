@@ -1,0 +1,1219 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.pc_member_guards &amp;&amp; aod.npc_paullus_met</string>
+      <string>aod.pc_member_guards &amp;&amp; aod.npc_pavola_met</string>
+      <string>aod.pc_member_commercium &amp;&amp; aod.npc_pavola_met</string>
+      <string>aod.quest_hd4_talkToPavola &amp;&amp; aod.npc_pavola_met</string>
+    </conditions>
+    <links>
+      <int>43</int>
+      <int>27</int>
+      <int>9</int>
+      <int>32</int>
+    </links>
+    <dlg_name>NPC_Pavola_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Pavola</def_speaker_name>
+    <def_portrait>Pavola</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>An observant person could deduce much about Legatus Pavola by his rank and posting. Maadoran is the last place where troubles are expected, which means that the legatus’ abilities weren’t needed elsewhere, which means they weren’t needed at all. At the same time, it was an important post, which could only be given to a reliable officer accustomed to carrying out orders quickly and efficiently, without ever questioning them. Finally, both the rank and the posting suggested that Pavola was a performance-oriented officer who knew how to keep his superiors happy – an often overlooked trait but vital for one’s advancement.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_pavola_met = true;</string>
+        <string>dlgTeleportToMarker(TM_Dialogue_Pavola_PC_01);</string>
+        <string>addJournalChar(pavola);</string>
+        <string>dlgCam(255, 45, 6, 4400);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Approach.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.pc_member_guards</string>
+            <string>aod.quest_hd4_talkToPavola</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>19</int>
+            <int>32</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I already told that fat fuck no,” says Pavola skipping the pleasantries. “We’ll deal with Gaelius in our own way.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Like Carrinas did? Trust me, you go at Gaelius alone, you’ll fail. Take help when it’s offered.”</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I thought that it was customary to think of the enemy of your enemy as your friend.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Sometimes, it’s just another enemy.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[charisma]“We’re a trading company, Legatus. If we're your enemy, then your victory is all but assured. Come now, what are your concerns?”</text>
+          <def_link>48</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.cha &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“I already told you, we’ll deal with Gaelius in our own way.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Like Carrinas did? Trust me, you go at Gaelius alone, you’ll fail. Take help when it’s offered.”</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>48</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Nobody knows what happened in Teron,” says Pavola grimly.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]“I do. I was there. We offered our help to Carrinas, but his answer was the same as yours. And now he’s dead and Antidas’ position is stronger than ever. Don’t make the same mistake.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>46</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“I’ve heard a different story...”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][charisma]“No matter what story you’ve heard, it doesn’t change the fact that Carrinas tried to seize power and ended up dead.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.cha + aod.streetwise) &gt;= 12</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>46</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“My concerns? We get in bed with you, we get fucked.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][trading]“We want what you want – a Lord who isn’t a fanatic, but a reasonable man, a man with an open mind, a man we all can deal with.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.trading) &gt;= 12</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][charisma]“After what happened in Teron? You don’t get in bed with us, you’re fucked for sure. Take our hand, before it’s too late.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.cha + aod.streetwise) &gt;= 15</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Say what you want, but we both know that if we get in bed with you, we get fucked.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][trading]“We want what you want – a Lord who isn’t a fanatic, but a reasonable man, a man with an open mind, a man we all can deal with.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.trading) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][charisma]“After what happened in Teron? You don’t get in bed with us, you’re fucked for sure. Take our hand, before it’s too late.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.cha + aod.streetwise) &gt;= 15</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>46</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Very well. We can try it your way first, but on one condition – the Imperial Guards will absorb and replace the Aurelian legionaries. We don’t need two armed groups in the city – one’s more than enough to keep peace.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_MG4_pavolaSupport = true;</string>
+        <string>aod.jnl_mg4c_phase3 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“It’s only fair.” Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“My answer is still a no. Be on your way, merchant.”</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_mg4c_phase2a = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(255, 45, 10, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Now now, &lt;charname&gt;! Five of my men have just been arrested on some bogus charges. It's a fucking outrage!"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Master Strabos will be very sorry to hear that. Even though you've refused to stand against the tyranny of Lord Gaelius' thugs, my master thinks very highly about the Imperial Guards."</text>
+          <def_link>30</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>29</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"About that," says Pavola. "I changed my mind. We'll back you up, but on one condition – the Imperial Guards will absorb and replace the Aurelian legionaries. We don’t need two armed groups in the city – one’s more than enough to keep peace."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_MG4_pavolaSupport = true;</string>
+        <string>aod.jnl_mg4c_phase3 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“It’s only fair.” Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>30</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What do you want now?” asks Pavola with irritation in his voice.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Dialogue_Pavola_PC_01);</string>
+        <string>dlgCam(255, 45, 6, 4400);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I wanted to ask you one more time..."</text>
+          <def_link>29</def_link>
+          <checkOnAppear>aod.quest_mg4_active &amp;&amp; aod.quest_MG4_pavolaSupport == false &amp;&amp; aod.quest_MG4_arrestedSoldiers</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“We have a problem with the Boatmen.”</text>
+          <def_link>10</def_link>
+          <checkOnAppear>aod.quest_mg5_active &amp;&amp; aod.npc_pavola_talkedProblemBoatman == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Can you give me some men?”</text>
+          <def_link>12</def_link>
+          <checkOnAppear>aod.quest_mg5_active &amp;&amp; aod.npc_pavola_askGiveMeMen &amp;&amp; aod.npc_pavola_talkedGiveMeMen == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.quest_MG4_arrestedSoldiers</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>31</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Nothing at the moment." Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“We? No, &lt;charname&gt;, *you* have a problem with the Boatmen, which means that you’re as good as dead, which means that our ‘understanding’ is null and void.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_pavola_talkedProblemBoatman = true;</string>
+        <string>aod.npc_pavola_askGiveMeMen = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“They’ll go after you next.”</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Can you give me some men?”</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_MG4_arrestedSoldiers</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>31</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m not dead yet.” Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I really hope they do. This isn’t Teron, &lt;charname&gt;.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Can you give me some men?”</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_MG4_arrestedSoldiers</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>31</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’m not going to risk my men’s lives to save your sorry ass.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_pavola_talkedGiveMeMen = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]“This isn’t about doing me a favour. You still want Gaelius out? You’ll have to deal with the Boatmen first. I’m giving you an opportunity to do it on your terms, which is always a good strategy.”</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]“I thought you’d jump at the opportunity to avenge your brothers, but you’re right – hiding behind your walls is a safer choice.”</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>18</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I'm short as it is. Five of my men are rotting in Gaelius' dungeon and I'm not about to risk more men to save your sorry ass."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_pavola_talkedGiveMeMen = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]“This isn’t about doing me a favour. You still want Gaelius out? You’ll have to deal with the Boatmen first. I’m giving you an opportunity to do it on your terms, which is always a good strategy.”</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]“I thought you’d jump at the opportunity to avenge your brothers, but you’re right – hiding behind your walls is a safer choice.”</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>18</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>31</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“My terms? Seems you want me to do your bidding and pretend that you’re doing me a favor.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg5_pavolaFailPersuasion = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“I thought you’d jump at the opportunity to avenge your brothers, but you’re right – hiding behind your walls is a safer choice.”</text>
+          <def_link>17</def_link>
+          <checkOnAppear>aod.quest_mg5_pavolaFailStreetwise == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>18</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear>aod.quest_mg5_pavolaFailStreetwise == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“Fuck off, &lt;charname&gt;.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg5_pavolaFailStreetwise = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]This isn’t about doing me a favour. You still want Gaelius out? You’ll have to deal with the Boatmen first. I’m giving you an opportunity to do it on your terms, which is always a good strategy.”</text>
+          <def_link>13</def_link>
+          <checkOnAppear>aod.quest_mg5_pavolaFailPersuasion == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear>aod.quest_mg5_pavolaFailPersuasion</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“What do you know of strategy, merchant?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I know enough.”</text>
+          <def_link>16</def_link>
+          <checkOnAppear>aod.persuasion &lt; 6</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion]“Enough to know that it’s best to strike first and deal with your enemies one a time. Wait long enough and it will be too late.”</text>
+          <def_link>15</def_link>
+          <checkOnAppear>aod.persuasion &gt;= 6</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“I’m not hiding,” growls Pavola. “I’m not about to start –”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“Start? It started when the Boatmen slaughtered your brethren in their sleep. Your only choice here is to pretend that nothing happened or to do something about it. So, what's it going to be, Legatus?”</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>15</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Alright. I’ll give you enough men to deal with the Boatmen, but you'll owe me.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg5_gotMenIG = true;</string>
+        <string>aod.jnl_mg5a_phase2 = true;</string>
+        <string>rwd_civil(MG5_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Thanks." Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You are on your own,” says Pavola firmly.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“I thought you’d jump at the opportunity to avenge your brothers, but you’re right – hiding behind your walls is a safer choice.”</text>
+          <def_link>17</def_link>
+          <checkOnAppear>aod.quest_mg5_pavolaFailStreetwise == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>18</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear>aod.quest_mg5_pavolaFailStreetwise</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Carrinas!” says Legatus Pavola instead of greeting you. “That son of a bitch could never get along with anyone. They thought they got rid of him when they sent him to Teron. He sure showed them! And now what? Now Gaelius looks at me as if I’m his enemy. Now I have to be. Now it’s him or me. Fucking Carrinas! They should have just spared us the headache and sent that son of a bitch back to the wasteland.”</npc_text>
+      <onLoadScripts>
+        <string>remQuest(IG_ArriveMDN);</string>
+        <string>addQuest(IG4);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Well, he did succeed...”</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What headache?”</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“He did,” agrees Pavola. “Carrinas is the new lord of Teron. We all dreamt to rule Teron one day, but he went and conquered it. And then he wept because there were no more shitholes to conquer. A tragic fucking tale.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You mentioned a problem?”</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“How do you think Gaelius reacted to the news? We are guests in his city. I did twenty five hard years in the wasteland to earn this post. I wanted peace and quiet and what better place to enjoy it than Maadoran – the city of all cities? Lucky for me, Carrinas had other plans, so now I have to look over my shoulder and wonder what Gaelius is up to, especially after I let that fat fuck Strabos talk me into getting involved in his plot.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What happened?”</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Peace and quiet? That’s all you dream of?”</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Pavola sighs. “Strabos, the head of the merchants, came to me and asked me to back him up. The way he presented it to me, it was a done deal. Gaelius would be gone, Serenas – his nephew - would take his place and the rest of us would be back to peace and quiet.
+
+“Guess what? The Boatmen got involved and a lot of people, including Serenas and other conspirators, ended up dead. Except for Strabos. Which is where you come in.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_pavola_talkedPlot = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What do I have to do with that?”</text>
+          <def_link>24</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Back to peace and quiet? That’s all you dream of?”</text>
+          <def_link>26</def_link>
+          <checkOnAppear>aod.npc_pavola_talkedPeaceQuiet == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Strabos is shitting his pants. Rightfully so, I might add. He’s begging me to protect him. I wouldn’t even speak of it, but he’s offering a trade – his life for what he claims to be vital information.
+
+“I don’t want my men to be seen around a traitor who conspired to kill Lord Gaelius, but you are new to the city. Nobody knows you.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What do I have to do, Legatus?”</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Spend an evening with him, listen to his bullshit, kill anyone who might look threatening, and get the info. One evening. That’s the deal I made with Strabos. They kill him tomorrow - not my problem. Tonight, he’s safe because one of my finest will be looking after him,” he says, slapping you on the shoulder.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_IG4_goSeeStrabos = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I was told that my things will be sent here. Where can I find them?"</text>
+          <def_link>42</def_link>
+          <checkOnAppear>aod.npc_pavola_askForEquipment</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Consider it done.” Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear>aod.npc_pavola_askForEquipment == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Do I look like a quartermaster to you? Talk to Vitus, he should have it."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_vitus_askForEquipment = true;</string>
+        <string>aod.npc_pavola_askForEquipment = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>42</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What else is there? Oh, I was young once too and thought that we fight for something, that we have the power to make the world a better place, that our sacrifice has a purpose. It doesn’t.
+
+“Me, I can live with it. Carrinas can’t. His life must have a meaning. His sacrifice must have a purpose, even if he has to start a war to forge it in fire. Still, I’m a soldier and if I have to fight, I will. I would have preferred peace and quiet though.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_pavola_talkedPeaceQuiet = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“You mentioned a plot?”</text>
+          <def_link>23</def_link>
+          <checkOnAppear>aod.npc_pavola_talkedPlot == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"So, where do I come in?"</text>
+          <def_link>24</def_link>
+          <checkOnAppear>aod.npc_pavola_talkedPlot</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>26</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Report!”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Dialogue_Pavola_PC_01);</string>
+        <string>dlgCam(255, 45, 6, 4400);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Tell him what you learned from Strabos.</text>
+          <def_link>28</def_link>
+          <checkOnAppear>aod.npc_pavola_reportStrabos</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Nothing yet." Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear>aod.npc_pavola_reportStrabos == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>27</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“So much for peace and quiet,” groans Pavola. “You’re leaving in the morning. Take one squad and go to the pass. I’ll send several pigeons with the orders to lock the pass tight and wait for your arrival.
+
+“I’m putting you in charge, &lt;charname&gt;. Your orders are to hold the pass against the Ordu no matter the cost, even if you’re the last &lt;man/woman&gt; standing.
+
+“See the quartermaster before you go. I’ll instruct him accordingly. Dismissed!”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_pavola_reportStrabos = false;</string>
+        <string>aod.quest_IG5_sentToQM = true;</string>
+        <string>aod.quest_ig4_phase4 = true;</string>
+        <string>addQuest(IG5);</string>
+        <string>rwd_quest(IG4_01);</string>
+        <string>revealMapLocation("ThePass");</string>
+        <string>dlgAddTextBoxMessage("The Pass added to the map");</string>
+        <string>aod.quest_IG5_getPassIntro = true;</string>
+        <string>rwd_reputation(IG4_05);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>28</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What do you want, Praetor?”</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(255, 45, 6, 4400);</string>
+        <string>dlgTeleportToMarker(TM_Dialogue_Pavola_PC_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Lord Serenas wants to clean up the Slums. I know that you’re itching to do it, so why are you stalling?”</text>
+          <def_link>33</def_link>
+          <checkOnAppear>aod.npc_pavola_talkedAttackSlums == false &amp;&amp; aod.quest_hd4_gotSupport == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Nothing at the moment." Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>32</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What makes you think I’m itching to do it?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_pavola_talkedAttackSlums = true;</string>
+        <string>remQuest(HD4b);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“You and your boys will go through them like a hot knife through butter. Don’t you all live for these moments?”</text>
+          <def_link>34</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>33</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“If I get the order, I’ll do it, no questions asked. Now, I assume you know who calls the shots these days, so if you want it done, talk to Senna, Lorenza, or Strabos.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Senna’s dead.”</text>
+          <def_link>35</def_link>
+          <checkOnAppear>aod.npc_senna_dead</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]“Look at you. A Legatus of the Imperial Guards taking orders from women and merchants.”</text>
+          <def_link>36</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>37</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion]“Serenas isn’t going to stay a puppet forever. One day he will rule Maadoran and on that day he will remember that when he asked you to do something, you told him no. I have a feeling that it won’t be a very good day for you or the Guards.”</text>
+          <def_link>36</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>41</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>34</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Lorenza wasted no time, did she? Hurry up before she kills Strabos then.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“Look at you. A Legatus of the Imperial Guards taking orders from women and merchants.”</text>
+          <def_link>36</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>37</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion]“Serenas isn’t going to stay a puppet forever. One day he will rule Maadoran and on that day he will remember that when he asked you to do something, you told him no. I have a feeling that it won’t be a very good day for you or the Guards.”</text>
+          <def_link>36</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>41</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>35</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“Be on your way, Praetor.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>36</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“What do you expect me to do? Start a war to prove a point?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“Start a war? Don’t tell me that you let them convince you that the Imperial Guards can’t handle some thugs.”</text>
+          <def_link>36</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>38</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion]“I was told that the Imperial Guards were charged with keeping order in the city, yet thugs are still in control of one of the city’s districts. What are you going to do about it, Legatus? Wait for someone to tell you how to do your job? Do you tell Lorenza how to do hers?”</text>
+          <def_link>36</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>39</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>37</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“I assure you, Praetor,” growls Pavola, “that my men are more than capable of cleaning up this city.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][charisma]“Then prove it. This is your chance to show everyone what the Imperial Guards are. Show them that things will be different now. Show them that you aren’t a lap dog, but a goddamn Legatus of the Imperial Guards.”</text>
+          <def_link>36</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 4 &amp;&amp; aod.cha &gt;= 8</string>
+            <string>aod.streetwise &gt;= 5 &amp;&amp; aod.cha &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>39</int>
+            <int>39</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>38</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“And what would I tell the others?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]“You – a Legatus of the Imperial Guards – will tell them that you made a decision, which was well within your authority and discretion, and they will be a-ok with it because you have an army and they don’t.”</text>
+          <def_link>36</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>39</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>41</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Alright,” says Pavola suddenly. “I will do it. I don’t think that cracking a few skulls and putting the fear of the Guards into these savages is a bad idea.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_hd4_gotSupport = true;</string>
+        <string>aod.jnl_HD4_phase2 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“You've made the right decision, Legatus. I’ll let Serenas know.” Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>39</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I didn’t expect to see you back so soon,” says Pavola, looking happy to see you. “Last I heard, you went to Caer-Tor.”</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(250, 40, 6, 4400);</string>
+        <string>dlgTeleportToMarker(TM_Dialogue_Pavola_PC_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I had some unfinished business here. How did Gaelius react to the news?”</text>
+          <def_link>44</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_IG6_end_promisedSupplies || aod.quest_IG6_end_delayedAttack || aod.quest_IG6_end_killedLeaders   </string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>45</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>43</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Gaelius? He did his best to distance himself from it and even thanked us for stopping the Ordu menace,” says Pavola with a grin. “Of course, I told anyone willing to listen what really happened. Not everyone believed me, but quite a few people did and they weren’t happy that Gaelius went that far.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>44</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Nobody really knows what happened. Of course, I told anyone willing to listen that Gaelius made a deal with the Ordu and wanted to bring them here, but few people believed me. Called it far-fetched.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>45</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

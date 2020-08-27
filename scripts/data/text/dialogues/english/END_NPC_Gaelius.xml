@@ -1,0 +1,237 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_endGaelius_talked &amp;&amp; aod.pc_member_aurelian</string>
+      <string>aod.npc_endGaelius_talked</string>
+    </conditions>
+    <links>
+      <int>8</int>
+      <int>7</int>
+    </links>
+    <dlg_name>END_NPC_Gaelius</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Gaelius</def_speaker_name>
+    <def_portrait>Gaelius</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Speak, citizen.”</npc_text>
+      <onLoadScripts>
+        <string>dlgUnequipHands();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“We took Ganezzar. Meru’s dead.”</text>
+          <def_link>2</def_link>
+          <checkOnAppear>aod.pc_member_daratan</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“We took Ganezzar. Meru’s dead.”</text>
+          <def_link>1</def_link>
+          <checkOnAppear>aod.pc_member_aurelian</checkOnAppear>
+          <checksOnClick>
+            <string>dlgGetRep(aurelian) &lt; 15 &amp;&amp; aod.npc_gaelius_talkedTemple == false</string>
+            <string>dlgGetRep(aurelian) &lt; 15 &amp;&amp; aod.npc_gaelius_talkedTemple</string>
+            <string>aod.npc_gaelius_talkedTemple</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9</int>
+            <int>6</int>
+            <int>5</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Well done, Praetor,” says Gaelius. “I have many loyal servants but few I can rely on. I hereby promote you to the rank of Praefectus Praetorio and place you in charge of the Praetorian Guard.
+
+“But first, I have a special task for you. There are stories of a certain pre-War temple. Both Antidas and Meru tried to find it. While Meru is dead, his followers are still around. If they find it first, nothing good will come out of it.
+
+“I want you to find the temple and destroy it. I don't want any witnesses, so this task is for you and you alone. As far as everyone's concerned, this temple is nothing but a figment of Meru's imagination. It has never existed.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_endGaelius_talked = true;</string>
+        <string>rwd_quest(HA_GNZ_02);</string>
+        <string>dlgAddRank(59);</string>
+        <string>rwd_reputation(HA_Praefectus);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Salute and leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Well done, Praetor,” says Gaelius. “I have a special task for you. There are stories of a certain pre-War temple. Both Antidas and Meru tried to find it. While Meru is dead, his followers are still around. If they find it first, nothing good will come out of it.
+
+“I want you to find the temple and destroy it. I don't want any witnesses, so this task is for you and you alone. As far as everyone's concerned, this temple is nothing but a figment of Meru's imagination. It has never existed.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_endGaelius_talked = true;</string>
+        <string>rwd_quest(HA_GNZ_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Salute and leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Well done, Praetor,” says Gaelius. “I have many loyal servants but few I can rely on. I hereby promote you to the rank of Praefectus Praetorio and place you in charge of the Praetorian Guard.
+
+“But first, I have a special task for you. If memory serves me right, we talked about a certain temple before. While Meru is dead, his followers are still around. If they find it first, nothing good will come out of it.
+
+“I want you to find the temple and destroy it. I don't want any witnesses, so this task is for you and you alone. As far as everyone's concerned, this temple is nothing but a figment of Meru's imagination. It has never existed.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_endGaelius_talked = true;</string>
+        <string>rwd_quest(HA_GNZ_02);</string>
+        <string>dlgAddRank(59);</string>
+        <string>rwd_reputation(HA_Praefectus);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Salute and leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Well done, Praetor,” says Gaelius. “I have a special task for you. If memory serves me right, we talked about a certain temple before. While Meru is dead, his followers are still around. If they find it first, nothing good will come out of it.
+
+“I want you to find the temple and destroy it. I don't want any witnesses, so this task is for you and you alone. As far as everyone's concerned, this temple is nothing but a figment of Meru's imagination. It has never existed.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_endGaelius_talked = true;</string>
+        <string>rwd_quest(HA_GNZ_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Salute and leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“So I was told,” says Gaelius, glancing at the sand clock.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Yet the spoils of war went to your House, my Lord. We were forced out of the city.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It’s unfortunate,” says Gaelius, smiling politely, “but not unreasonable. I’m grateful for your lord’s support but it is his duty as my vassal, is it not? Remember, Praetor, I may have needed your lord's help taking Ganezzar in a timely manner but I won’t need any help taking Teron.
+
+“Send my regards to your lord.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_DLG_Gaelius_02);</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Lord Gaelius seems to be preoccupied with other matters.</npc_text>
+      <onLoadScripts>
+        <string>dlgUnequipHands();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start Gaelius normal dialogue</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>sd(NPC_Gaelius_01);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

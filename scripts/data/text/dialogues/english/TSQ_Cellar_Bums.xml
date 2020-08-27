@@ -1,0 +1,309 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>TSQ_Cellar_Bums</dlg_name>
+    <def_link>1943</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Squatter</speaker_name>
+      <npc_text>"Wait, where are you going with it? How do you know it's not mine?" demands the squatter. "If you want it, you have to pay. Say, twenty coins. I'll even throw in a couple of rats for free. What do you say?"
+
+The conversation attracts the rest of the squatters. It suddenly occurs to you that you can easily become another meal for the rats.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_TowerCellarExit_Bum, 2081);</string>
+        <string>dlgRotateToChar(1, 2081);</string>
+        <string>dlgRotateToChar(1, 2082);</string>
+        <string>dlgRotateToChar(1, 2083);</string>
+        <string>aod.tsq_cellar_status = 3;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay them.</text>
+          <def_link>1944</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 20</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Kill ‘em all – give the rats their last meal.</text>
+          <def_link>1954</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]"Don't you see?! It's the curse! The curse of the tower! To touch it is to die."</text>
+          <def_link>1945</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1946</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[House Daratan]"This belongs to Lord Antidas. Is there a dead man in here who wishes to lay claim on His Lordship's property?"</text>
+          <def_link>1952</def_link>
+          <checkOnAppear>aod.pc_member_daratan</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1943</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The squatters grab your money and start divvying them up, fighting and arguing.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-20);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1958</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1944</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Squatter</speaker_name>
+      <npc_text>[failure]"I don't know. Doesn't look like a curse to me..."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay them.</text>
+          <def_link>1944</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 20</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Kill ‘em all – give the rats their last meal.</text>
+          <def_link>1954</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion]"And how many curses have you seen, my friend? Well, let me tell you what I've learned in my travels..." Read him a lecture on curses.</text>
+          <def_link>1947</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1946</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1945</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Squatter</speaker_name>
+      <npc_text>[success]"Stop waving this thing in my face then and go."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]"Hmm... maybe I should leave it here. Disturbing a curse can bring one all kinds of misfortunes. I feel weaker already..."</text>
+          <def_link>1948</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1949</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1958</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1946</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Squatter</speaker_name>
+      <npc_text>[failure]"I don't know. Look, curse or no curse, you have to pay."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay them.</text>
+          <def_link>1944</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 20</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Kill ‘em all – give the rats their last meal.</text>
+          <def_link>1954</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1947</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Squatter</speaker_name>
+      <npc_text>[failure]"Too late. You took it, it's yours now. Get the fuck outta here."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1958</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1948</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Squatter</speaker_name>
+      <npc_text>[success]"No, no, you have to take this thing and go. Look, we'll give you some money... Here, twenty imperials. Just go, ok?"</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(TRN_Squatters_01);</string>
+        <string>dlgChangeMoney(20);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[trading]"You want me to throw my life away for twenty imperials? It's worth at least fifty."</text>
+          <def_link>1950</def_link>
+          <checkOnAppear>aod.trading &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Take the money and leave.</text>
+          <def_link>1958</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1949</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Squatter</speaker_name>
+      <npc_text>"We don't have that much. I do have this stone, but it's worth a lot more than fifty."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'm risking my life to save you and you worry about giving me too much? Just give me the goddamn stone and I'll be on my way."</text>
+          <def_link>1951</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1950</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The squatter sighs, goes down the stairs, and comes back a few minutes later with the stone - a blue sapphire covered in grease.</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(2003, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take it and leave.</text>
+          <def_link>1958</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1951</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"We didn't know, &lt;master/mistress&gt;. We meant no offense..."</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(TRN_Squatters_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1958</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1952</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - sidequest</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>rwd_quest(TRN_Cellar_01);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1958</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>delCharTag(TeronCivilianNPC, 2080);</string>
+        <string>delCharTag(TeronCivilianNPC, 2081);</string>
+        <string>delCharTag(TeronCivilianNPC, 2082);</string>
+        <string>delCharTag(TeronCivilianNPC, 2083);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addEnemyToParty(1, TSQCellarSquatters);</string>
+        <string>setRtsCam();</string>
+        <string>TowerCellarEntrance.setActive(false);</string>
+        <string>aod.gameplay_questCellar_fight = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1954</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

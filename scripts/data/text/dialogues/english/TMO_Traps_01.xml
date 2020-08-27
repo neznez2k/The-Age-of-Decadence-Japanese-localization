@@ -1,0 +1,165 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>TMO_Traps_01</dlg_name>
+    <def_link>1358</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You step inside the tunnel leading into the mine. The floor is uneven and littered with rocks. You walk slowly, expecting an attack at any moment, but the mine is quiet. The tunnel leads into a small chamber filled with strange machines towering above you.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(quest_outpost_cam_16);</string>
+        <string>Mine_Interior_MT_01.setActive(true);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Examine the machines.</text>
+          <def_link>1360</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.traps &gt;= 3</string>
+            <string>aod.per &gt;= 8</string>
+            <string>dlgGetCharacterHP() &gt;= 20</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1359</int>
+            <int>1362</int>
+            <int>1363</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1358</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[perception failure][traps failure]You're so distracted by the machines that you don't notice a string stretched across the floor. You take a step forward and a crossbow rigged to a wall behind the corner fires almost point blank. The impact throws you against the wall. The bolt's barbed head tears through your left kidney and lodges in your intestines, robbing you of your strength and will to get up. You die in the mine, sitting on the cold stone floor all alone.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgUnequipHands(1);</string>
+        <string>dlgSetAnimation(anim_death_back03, 0.8);</string>
+        <string>useCameraBookmark(quest_outpost_cam_17);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Rest in peace.</text>
+          <def_link>1361</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1360</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1361</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[traps success]You notice the string only because you were looking for it. The tunnel is a perfect place to set up a trap and you'd have been disappointed if no attempt were made. Crouching, you trace the string to a crossbow rigged to a wall behind the corner. A barbed bolt, fired almost point blank? It wouldn't have been pretty.
+
+You carefully step over the string and disarm the crossbow.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(quest_oupost_cam_06);</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>dlgAddItem(161, 1);</string>
+        <string>dlgAddItem(302, 1);</string>
+        <string>rwd_civil(Traps);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Explore the chamber.</text>
+          <def_link>1355</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1359</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[perception success]You're about to step forward, when you notice a string stretched across the floor. Crouching, you trace the string to a crossbow rigged to a wall behind the corner. A barbed bolt, fired almost point blank? It wouldn't have been pretty.
+
+You carefully step over the string and disarm the crossbow.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(quest_oupost_cam_06);</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>dlgAddItem(161, 1);</string>
+        <string>dlgAddItem(302, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Explore the chamber.</text>
+          <def_link>1355</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1362</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[perception failure][traps failure]You're so distracted by the machines that you don't notice a string stretched across the floor. You take a step forward and a crossbow rigged to a wall behind the corner fires almost point blank, throwing you against the wall. The bolt's barbed head tears through your left kidney and lodges in your intestines.
+
+Grunting with pain, you break the bolt, leaving the head inside. You'd better see a doctor about it.
+
+*Lost 20 Hit Points*
+*Permanently lost 2 maximum Hit Points*</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>useCameraBookmark(quest_outpost_cam_17);</string>
+        <string>dlgSetAnimation(anim_death_back03, 0.8);</string>
+        <string>dlgUnequipHands(1);</string>
+        <string>dlgChangeCharacterHP(-20);</string>
+        <string>dlgChangeMaxHp(-2);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Explore the chamber.</text>
+          <def_link>1355</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1363</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1355</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

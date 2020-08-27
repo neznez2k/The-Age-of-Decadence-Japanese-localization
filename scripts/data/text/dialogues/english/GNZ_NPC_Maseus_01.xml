@@ -1,0 +1,104 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>GNZ_NPC_Maseus_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Maseus</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Ah, &lt;master/mistress&gt; &lt;charname&gt;, always a pleasure. If there is anything I can do for you, anything at all, don’t hesitate to ask! After all, we’re in your debt.
+
+“Now if you’ll excuse me, I need to go over these reports. Thanks for stopping by, my friend. Always a pleasure!”</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(15, 40, 7, 4305);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’d like to take a look at Meru’s private library.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(commercium) &gt;= 15</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(15, 40, 15, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[commercium reputation failure]“I’ll make some inquires,” says Maseus, dismissing you with a gesture.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[commercium reputation success]“It’s the least I can do,” says Maseus, turning to his men. “My friend wants a tour. Start with the library.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go to the library.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - library</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>switchMission("Ganezzar Castle Archive.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

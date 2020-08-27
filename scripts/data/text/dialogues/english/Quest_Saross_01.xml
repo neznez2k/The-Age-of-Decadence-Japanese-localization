@@ -1,0 +1,729 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.SRS_prospectorMet</string>
+    </conditions>
+    <links>
+      <int>5917</int>
+    </links>
+    <dlg_name>Quest_Saross_01</dlg_name>
+    <def_link>5882</def_link>
+    <def_speaker_name>Prospector</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>The Imperial Library of Saross was actually built after the fall of the Empire, in a noble yet futile attempt to preserve the rapidly disappearing knowledge for future generations. The library operated for almost four decades, but came to an unexpected end when rumors that the library collected more than dusty old scrolls started spreading. The volunteers protecting the library managed to repel two attacks before the complex was overrun by raiders who didn’t leave many stones unturned looking for anything valuable.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(CAM_Intro);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Explore.</text>
+          <def_link>5906</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5882</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - explore</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgCam(325, 40, 20, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5906</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Prospector</speaker_name>
+      <npc_text>“Come join me,” says the prospector, grinning. “I’ve been here for almost a week and nothing pleases me more now than the sight of another human being. The coffee tastes like dirt, but you’re welcome to it. There’s some bread too, if you’re hungry.”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Saross_01);</string>
+        <string>dlgCam(315, 45, 8, 5800);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Accept the invitation.</text>
+          <def_link>5893</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.alchemy &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5901</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[perception success][streetwise success]His body language is wrong. Refuse his offer.</text>
+          <def_link>5888</def_link>
+          <checkOnAppear>aod.per &gt;= 5 &amp;&amp; aod.streetwise &gt;= 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>The prospector will only get in your way. Tell him to pack his things and leave.</text>
+          <def_link>5883</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5917</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Bold words,” says the prospector calmly, pulling out an axe, but staying where he is. “Who might you be?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>5884</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[reputation]“The name's &lt;charname&gt;.”</text>
+          <def_link>5885</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(bodycount) &gt;= 25</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5886</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5883</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgSetAttitude(5800, 1, -10);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.fight_srs_prospector = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5884</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“Never heard of you,” says the prospector, raising the axe and taking a step forward.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Kill him.</text>
+          <def_link>5884</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5885</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“They say you’re a hard &lt;man/woman&gt;,” says the prospector watching you carefully. “Not one to be crossed, so I’ll save me the trouble and be on my way.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Wait for him to leave.</text>
+          <def_link>5918</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5886</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - prospector leaves</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgDeleteCharacter(5800);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5918</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - prospector dead</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5887</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - threat</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.srs_prospectorThreat = true;</string>
+        <string>dlgTeleportToMarker(TM_SarossLeave_01);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5890</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“If my food isn’t good enough for you, I suggest you be on your way, stranger,” says the prospector putting his hands on his axe.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>5884</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m staying. You’re leaving.”</text>
+          <def_link>5883</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]“Wish I could, but I was told to scout the area and wait for the Legatus here. He will be pissed if I’m not here. Trust me, you’ll have enough troubles dealing with him when he’s in a good mood, but if he’s pissed, he’ll nail you to a cross first and ask questions second.”</text>
+          <def_link>5889</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5891</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5890</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5888</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“Bullshit,” says the prospector looking at you suspiciously.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>5884</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5890</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5889</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Why would he nail me to a cross?” asks the prospector in confusion.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“He thinks everyone is a spy. You have to admit though, running into you here is a hell of a coincidence, and the Legatus doesn’t believe in those...”</text>
+          <def_link>5892</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5891</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>Swearing, the prospector starts packing his things quickly and retreats without saying another word to you.</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(Saross_04);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait for him to leave.</text>
+          <def_link>5918</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5892</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You pour some coffee into a beaten tin mug and take a sip. It does taste like dirt, but after weeks of traveling you feel no desire to be picky.
+
+“Must have been a grand place back in the day,” says the prospector nodding at the ruins. “They say that anyone could come here and have his story recorded by the scribes. Can you imagine such a thing?” He shakes his head. “Hard to believe that nothing survived.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Nothing at all?”</text>
+          <def_link>5894</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5893</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Must have been a grand place back in the day,” says the prospector nodding at the ruins. “They say that anyone could come here and have his story recorded by the scribes. Can you imagine such a thing?” He shakes his head. “Hard to believe that nothing survived.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Nothing at all?”</text>
+          <def_link>5894</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5911</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Well... there are stories of secret chambers and such. In fact, we’re sitting on top of one such chamber right now,” says the prospector in an unusually open manner. “Nothing but shelves with old scrolls – what’s left of them – and rat droppings. The doors are a marvel though. Made entirely of metal. Can you believe it? Of course, there is rust and damage, but they are bound to fetch a good price once I figure out how to get them out.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What else do the stories say?”</text>
+          <def_link>5895</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5894</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“All kinds of things,” grins the prospector. “Chests with gems and gold, watched over by the ancient guardians who’re waiting for the true heir to the Empire. They don’t call them stories for nothing, eh? But you know what my favorite story is?
+
+“It says that a mysterious caravan arrived one night – under the cover of darkness, so to speak – and brought eleven crates. The crates were so big and heavy that it took a dozen slaves to carry each crate inside this very building. The contents of the crates was never displayed or given to scribes for copying. It just disappeared. The slaves were never seen again either. What do you make of this story, stranger?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[intelligence success]“If the story is true, there is another secret chamber. A chamber that was hidden even from the scribes who knew the buildings well.”</text>
+          <def_link>5897</def_link>
+          <checkOnAppear>aod.int &gt;= 8</checkOnAppear>
+          <checksOnClick>
+            <string>aod.quest_saross_poisonedProspector</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5916</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You think these crates are still here?”</text>
+          <def_link>5903</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_saross_poisonedProspector</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5914</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5895</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Exactly! Another chamber! You are a sharp one, stranger. Too bad you had to die, eh?”
+
+Suddenly, you feel weak and lethargic. Cold sweat breaks out on your forehead. “It will be over soon,” says the prospector. “Don’t fight it, it will be easier this way.”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeCharacterHP(-20);</string>
+        <string>aod.srs_chamberMentioned = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill the bastard while you still can.</text>
+          <def_link>5884</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Take the antidote.</text>
+          <def_link>5898</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgOwnsItem(811)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5899</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Why?”</text>
+          <def_link>5900</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5897</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Well... It’s possible than someone's found them already, but I think it’s unlikely. Whatever’s inside the crates, it’s big. I’m sure we would have heard about it. Anyway... We’re burning daylight here, so I better get started. You alright there, stranger? You look pale.”
+
+Suddenly, you feel weak and lethargic. Cold sweat breaks out on your forehead. “It will be over soon,” says the prospector. “Don’t fight it, it will be easier this way.”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeCharacterHP(-20);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill the bastard while you still can.</text>
+          <def_link>5884</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Take the antidote.</text>
+          <def_link>5898</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgOwnsItem(811)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5899</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Why?”</text>
+          <def_link>5900</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5903</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Exactly! Another chamber! You are a sharp one, stranger.”
+
+Suddenly, the prospector retches and turns pale. “Fuck...,” he says weakly, spitting out blood, and falls dead.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAnimation(anim_death_aimed_torso, 0.95, 5800);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgKillCharacter(5800);</string>
+        <string>changeRep(bodycount, 1);</string>
+        <string>aod.srs_chamberMentioned = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Explore.</text>
+          <def_link>5887</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5916</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Well... It’s possible than someone has found them already, but I think it’s unlikely. Whatever’s inside the crates, it’s big. I’m sure we would have heard about it. Anyway... We’re burning daylight here, so I better get started.”
+
+Suddenly, the prospector retches and turns pale. “Fuck...,” he says weakly, spitting out blood, and falls dead.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetAnimation(anim_death_aimed_torso, 0.95, 5800);</string>
+        <string>dlgKillCharacter(5800);</string>
+        <string>changeRep(bodycount, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Explore.</text>
+          <def_link>5887</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5914</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Why?” repeats the prospector looking surprised. “You think you can just come here and expect a share? No, my friend, it’s not how it works. Nothing personal, you understand? Just bad timing for you.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Kill the bastard while you still can.</text>
+          <def_link>5884</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Take the antidote.</text>
+          <def_link>5898</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgOwnsItem(811)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5899</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5900</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>[failure]You try to distract the prospector but fail.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Kill the bastard while you still can.</text>
+          <def_link>5884</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Take the antidote.</text>
+          <def_link>5898</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgOwnsItem(811)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5899</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5904</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>Too bad you don't have any poison.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Kill the bastard while you still can.</text>
+          <def_link>5884</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Take the antidote.</text>
+          <def_link>5898</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgOwnsItem(811)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5899</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5908</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>Too bad you don’t have the antidote.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Kill the bastard while you still can.</text>
+          <def_link>5884</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5898</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You pull the cork out of the vial with your teeth, spit it out, and pour the content of the vial down your throat. The bitter taste makes you spasm, but you feel better almost instantly.
+
+The prospector’s watching you with growing concern. “Tricky fucker, are you?” He grabs his axe and takes a step forward.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeCharacterHP(10);</string>
+        <string>dlgRemoveItem(811, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill the bastard.</text>
+          <def_link>5884</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5899</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[alchemy success]You pour some coffee into a beaten tin mug and take a sip. It does taste like dirt, but it also has a barely discernible bitter taste that tells you that you’ve just swallowed some poison.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeCharacterHP(-20);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill the bastard while you still can.</text>
+          <def_link>5884</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]Distract the prospector and give him a taste of his own medicine.</text>
+          <def_link>5908</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(dlgOwnsItem(810) || dlgOwnsItem(812)) &amp;&amp; aod.streetwise &gt;= 4</string>
+            <string>(dlgOwnsItem(810) || dlgOwnsItem(812)) &amp;&amp; aod.streetwise &lt; 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5902</int>
+            <int>5904</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5901</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“What was that?” you ask, feigning fear. “If it’s the raiders, we’re both dead!”
+
+Your words have the desired effect – the prospector grabs his axe and crawls to the edge of the wall, scanning the area for any movement and giving you a perfect opportunity to drink the antidote, which gives you another idea.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Poison the prospector’s coffee.</text>
+          <def_link>5909</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5902</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You find the right vial and quickly empty it into the prospector’s cup. Just in time... The prospector turns around, looking at you suspiciously, and says, “There’s nobody out there. You must be seeing things.”
+
+Then he takes a drink of his coffee, winces, and puts his cup down.</npc_text>
+      <onLoadScripts>
+        <string>removePoison();</string>
+        <string>aod.quest_saross_poisonedProspector = true;</string>
+        <string>rwd_civil(Saross_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“So, you were saying?”</text>
+          <def_link>5911</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5909</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

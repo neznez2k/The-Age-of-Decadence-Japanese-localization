@@ -1,0 +1,233 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>NPC_Vitus_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Vitus</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What do you need?" inquires the quartermaster, his tone indicating that the only acceptable answer to his question is 'nothing'.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"My orders are to hold the pass against the Ordu. I'll require your best weapons and armor."</text>
+          <def_link>1</def_link>
+          <checkOnAppear>aod.quest_IG5_sentToQM</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Do you have my things?"</text>
+          <def_link>10</def_link>
+          <checkOnAppear>aod.npc_vitus_askForEquipment</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Nothing." Leave.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"They're in the chest over there. Here's the key."</npc_text>
+      <onLoadScripts>
+        <string>IC_IG3_pcEquipment.setActive(true);</string>
+        <string>aod.npc_vitus_askForEquipment = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Thanks." Leave.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Right," says the quartermaster, looking at you skeptically. "Well, as it happens, all our gear is fairly standard, but I can probably spare a couple of steel ingots if you know what to do with them."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_IG5_sentToQM = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"But the legatus said -"</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"The legatus believes that issuing orders is enough to restock our supplies and conjure quality steel out of thin air, but you and I, we know better, don't we?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Are you saying that the Imperial Guards are under-equipped?"</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Don't be daft, &lt;charname&gt;. The priority is to keep our legions in the wasteland well fed and looked after. The garrisons that are just for show get the leftovers. Get it?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Alright, what *can* you spare?"</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What do you mean 'just for show'?"</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"We are here to maintain presence and inspire awe. In practical terms, it means that we're here to drink and fuck until the next rotation. Neither drinking nor fucking require finest weapons and armor."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Alright, what *can* you spare?"</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Three... Ok, fine, four steel ingots and a couple of sharpening stones. If you want to know how to take good care of your gear, I can teach you a thing or two."</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItemlist(vitusSteelIngots);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I'm all ears."</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Now, I assume that you know how to harden a blade. You heat it up, then cool it down. Sounds simple, right? Well, the trick is heating it up to the right degree and cooling it down fast. The faster your blade cools down, the harder it gets. The problem is that simply plunging it in cold water doesn't work very well. You see, the heat warms up the water, which slows the cooling down.
+
+"Some blacksmiths prefer oil over water, others swear by salt and suggest sea water, horse urine, or even blood if you have too many slaves. It's all horseshit. Now, watch and learn..."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Watch and learn.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You learn how to properly sharpen your weapons, increasing your Crafting skill.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>rwd_training(Vitus);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Any idea where I can get better weapons?"</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You can always buy what you need. If you need money, try the arena. Pavola doesn't mind - he feels that fighting in the arena is a good way to show the locals that the Guards aren't to be fucked with and to boost recruiting."</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_arena_phase2 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

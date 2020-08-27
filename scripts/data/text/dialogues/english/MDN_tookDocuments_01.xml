@@ -1,0 +1,106 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>MDN_tookDocuments_01</dlg_name>
+    <def_link>6</def_link>
+    <def_speaker_name>Centurion</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>After weeks of arduous travel, you finally reach Maadoran – the city of all cities, at least according to the locals. You make your way to the Palace district, eager to make your introductions to Lord Gaelius of House Aurelian and get the reward you undoubtedly deserve.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Map_Palace);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Approach the palace.</text>
+          <def_link>0</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The entrance is blocked by a burly centurion, expertly handling the traffic and sending people away almost as fast as they come.
+
+“State your business,” says the centurion in a monotone voice.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_palace_centurion_met = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_PalaceCenturion_PC_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I want to talk to Lord Gaelius.”</text>
+          <def_link>2</def_link>
+          <checkOnAppear>aod.npc_gaelius_dead == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Does Lord Gaelius want to talk to you? If you can't think of a reason, then the answer is 'no'.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Show him the documents you took from Carrinas.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Ah, now this is interesting. Go in.”</npc_text>
+      <onLoadScripts>
+        <string>aod.mdn_allowed_palace = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go in.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - palace</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.npc_gaelius_talkAllianceDocs = true;</string>
+        <string>VCO_EnterPalace.setActive(true);</string>
+        <string>Exit_EnterPalace.isRenderEnabled = true;</string>
+        <string>sd(NPC_Gaelius_01);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,291 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_darganus_killed</string>
+    </conditions>
+    <links>
+      <int>12</int>
+    </links>
+    <dlg_name>GNZ_NPC_Darganus_02</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You wait until dark and go to Darganus' house, followed by Claudia and two zealots. The zealots carry two wooden beams destined to become a cross. The streets are deserted as the guards seem to favor the upper district and the castle.
+
+The house is locked for the night. Claudia points at the door, the zealots put down the shorter beam, grab the other one and use as a battering ram to smash their way into the house, seemingly oblivious to the noise they are making.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Can't let them have all the fun. Go join the party. Moreover, they seems to be happy to let you handle with Darganus by yourself.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>Darganus looks shocked and enraged. He's surrounded by several guards who aren't sure whether to attack the zealots or defend their master against yet unseen intruders. Judging by their confused looks, home invasions aren't very popular in the Temple district.
+
+Their confusion grows when they see you walking in. Clearly, they expected a score of brigands to rush in.
+
+“What do you want here?” demands one of the men.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]“This man is accused of blasphemy, the most heinous of crimes. The evidence of his guilt is clear and convincing. What’s not clear is whether or not you willingly supported him and committed acts of heresy, which are punishable by death.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 12</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.npc_darganus_killed = true;</string>
+        <string>addEnemyToParty(1, DarganusParty);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.fight_darganus_01 = 1;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]The guards aren't convinced. “Kill &lt;him/her&gt;!” yells their leader, determined to earn his pay.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[success]Your words have the desired effect. “We didn’t do any of that,” says the guard weakly.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Then prove it. Hand us this enemy of the Gods and we’ll know you speak true.”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Darganus</portrait>
+      <speaker_name>Darganus</speaker_name>
+      <npc_text>“Wait!” yells Darganus, taking the matters into his own hands. “I’m not the enemy of the Gods! If there are charges against me, let a court of my peers hear them!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Lucky for you, we’re all brothers and sisters in faith, so your fate will be decided tonight, right here.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Darganus</portrait>
+      <speaker_name>Darganus</speaker_name>
+      <npc_text>“I’m a lord!” says Darganus in disbelief.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]“There are no lords anymore, *brother*. There are men who would rather stick to the old ways and lord over the rest of us. You would deny us the Gods’ Kingdom for your own selfish reasons. You would deny the Gods!”</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[failure]The guards aren't convinced. “If he's guilty, he should have a proper trial,” says their leader.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[success]The guards look troubled. “These are serious accusations,” says their leader, looking at Darganus.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“We wouldn't be here otherwise, brother. No man is above the Gods, you know that.”</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Darganus</portrait>
+      <speaker_name>Darganus</speaker_name>
+      <npc_text>“What does it even mean?” explodes Darganus. “What Gods? Where?”
+
+The guards move aside before he finishes speaking. “He's all yours,” says their leader.</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(GNZ_Darganus_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave the rest to Claudia.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Claudia</portrait>
+      <speaker_name>Claudia</speaker_name>
+      <npc_text>Claudia's zealots grab Darganus, shove a dirty cloth in his mouth, and drag him outside. You hear the sound of hammers and muffled screams.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_darganus_cross = true;</string>
+        <string>dlgDeleteCharacter(9014);</string>
+        <string>dlgDeleteCharacter(9015);</string>
+        <string>dlgDeleteCharacter(9016);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Follow them.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Claudia</portrait>
+      <speaker_name>Claudia</speaker_name>
+      <npc_text>Claudia's zealots grab Darganus' body and drag him outside. You hear the sound of hammers.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_darganus_cross = true;</string>
+        <string>dlgDeleteCharacter(9014);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Follow them.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Claudia</portrait>
+      <speaker_name>Claudia</speaker_name>
+      <npc_text>You go outside just in time to see the zealots lowering the cross into a hole.
+
+"Imagine the look on their faces," says Claudia, smiling like a child that was promised a toy in the morning. "He was clutching this spear til the very end. You can have it, I have no use for it anyway."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>setWindowImage(darganus_crucifix);</string>
+        <string>dlgAddItemlist(Unique_Vindicator);</string>
+        <string>aod.npc_darganus_dead = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Explore the house.</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - inside the house</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.gnz_startPosition_Darganus = 1;</string>
+        <string>VCO_Ganezzar.setActive(1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>13</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,500 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_ig9_tower_status == 1</string>
+      <string>aod.quest_ig9_tower_status == 2</string>
+      <string>aod.quest_ig9_tower_status == 3</string>
+    </conditions>
+    <links>
+      <int>19</int>
+      <int>15</int>
+      <int>21</int>
+    </links>
+    <dlg_name>Quest_IG9_04</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You’re standing in a small, high chamber filled with various crates and chests, containing repair supplies, assorted junk, and empty bottles. Semicircular stairs lead to the upper level. You hear voices coming from upstairs: at least two, maybe three men.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ig9_tower_status = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Explore.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgFinish();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>These towers are tall enough, so there are at least two floors full of guards. Fighting them all at the same time would be most unwise.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(80, 55, 8, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Ready or not, here I come!</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Throw a brick and hide in the shadows.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Pray before a fight.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You see three guards standing next to the stairs, talking to someone on the upper floor. Probably two, maybe three men upstairs, plus these three.
+
+Dead men, all of them.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Floor_3_Up);</string>
+        <string>if(isAlive(6425)) dlgTeleportToMarker(TM_F3_Ally_1, 6425);</string>
+        <string>if(isAlive(6426)) dlgTeleportToMarker(TM_F3_Ally_2, 6426);</string>
+        <string>if(isAlive(6427)) dlgTeleportToMarker(TM_F3_Ally_3, 6427);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Do your thing.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You throw a brick and hide, waiting for one of the guards to investigate. You picture a lazy, easily distracted guard walking down the stairs and cursing about damn rats. Instead you get an alert, slightly paranoid guard with a loaded crossbow.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_CSF2_NPC_01, 6420);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_CSF2_PC_01);</string>
+        <string>dlgStealthPose(1);</string>
+        <string>dlgCam(300, 55, 7, 1);</string>
+        <string>dlgSetCombatAnimation(6420);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[sneak][critical strike]Take him out.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.critical_strike + aod.sneak) &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]The guard whirls around as you lunge at him, the crossbow goes off and the bolt hits you in the chest, throwing you across the room. While you’re deciding whether to pull the bolt out or break it and worry about it later – *if* you live long enough to worry about such things – the guard starts yelling for help as loudly as he can.
+
+Why did you volunteer for this mission again?</npc_text>
+      <onLoadScripts>
+        <string>dlgGetCharacterHP(-15);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_CSF2_PC_03);</string>
+        <string>dlgSetCombatAnimation(1);</string>
+        <string>dlgRotateToChar(1, 6420);</string>
+        <string>sfxPlayOnce(AudioCsRangedBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addEnemyParty(PlayerParty, IG9_TowerGuards);</string>
+        <string>addEnemyParty(IG9_TowerGuards, PlayerParty);</string>
+        <string>aod.quest_ig9_tower_status = 3;</string>
+        <string>aod.fight_ig9_tower = 1;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]The guard whirls around but it’s too late and your blade is already in his throat, all that whirling only making your job easier. You lower the body to the ground and consider your options.
+
+Judging by the voices and laughter, there are two guards on the floor above you. You can try to sneak up on them or put on the guard’s armor and helmet and try to get close enough to kill them.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_CSF2_PC_02);</string>
+        <string>dlgCombatKnife(1);</string>
+        <string>dlgRobCharacter(6420, 1, 1, 1, 1);</string>
+        <string>dlgSetAnimation(anim_death_forward00, 0.95, 6420);</string>
+        <string>dlgKillCharacter(6420);</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>sfxPlayOnce(csSuccessMetal01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go up the stairs.</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Put on the guard’s armor and helmet and go up the stairs.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgUnequipSlot(2);</string>
+            <string>dlgEquipItem(425);</string>
+            <string>dlgEquipItem(1114);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You see two guards standing next to the stairs, talking to someone on the upper floor. Probably two, maybe three men upstairs, plus these two.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Floor_3_Up);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgStealthPose(1);</string>
+        <string>dlgCam(45, 55, 12, 6421);</string>
+        <string>dlgRotateToChar(6421);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[sneak][critical strike]Get closer.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.critical_strike + aod.sneak) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>12</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You see two guards standing next to the stairs, talking to someone on the upper floor. Probably two, maybe three men upstairs, plus these two.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Floor_3_Up);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(45, 55, 12, 6421);</string>
+        <string>dlgRotateToChar(6421);</string>
+        <string>dlgSetAmbientAnimation(1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[impersonate]Get closer.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.disguise &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>12</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Crouching you move closer but you can’t hide in plain sight. The guards spot you almost instantly and raise the alarm.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill them.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You do your best to impersonate the paranoid guard but apparently your acting leaves much to be desired. The guards spot you almost instantly and raise the alarm.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill them.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]The guard whose back was turned to you dies first. The other guard...</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(25, 40, 8, 1);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_CSF3_PC_01);</string>
+        <string>dlgCombatKnife(1);</string>
+        <string>killRandomDeathPosition(6421);</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>sfxPlayOnce(csSuccessMetal01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[dexterity][critical strike]Kill the other guard, what are you waiting for?!</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.critical_strike + aod.dex) &gt;= 16</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]The other guard manages to jump back and runs up the stairs.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_CS_GuardUp, 6422);</string>
+        <string>dlgTeleportToMarker(TM_CSF3_PC_02);</string>
+        <string>dlgCombatKnife(1);</string>
+        <string>dlgRotateToChar(6422);</string>
+        <string>dlgCam(45, 40, 8, 1);</string>
+        <string>sfxPlayOnce(csMissSwingAir01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>After him!</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]The other guard goes for his sword, but you skewer his throat before the sword leaves the sheath.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ig9_tower_status = 2;</string>
+        <string>dlgTeleportToMarker(TM_CSF3_PC_02);</string>
+        <string>dlgCombatKnife(1);</string>
+        <string>killRandomDeathPosition(6422);</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>if(isAlive(6425)) dlgTeleportToMarker(TM_F3_Ally_1, 6425);</string>
+        <string>if(isAlive(6426)) dlgTeleportToMarker(TM_F3_Ally_2, 6426);</string>
+        <string>if(isAlive(6427)) dlgTeleportToMarker(TM_F3_Ally_3, 6427);</string>
+        <string>dlgCam(45, 40, 8, 1);</string>
+        <string>sfxPlayOnce(csSuccessMetal01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Catch your breath.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The two guards look surprised to see you. The opening mechanism is behind the door, waiting for you.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Floor_4);</string>
+        <string>if(isAlive(6425)) dlgTeleportToMarker(TM_F4_Ally_1, 6425);</string>
+        <string>if(isAlive(6426)) dlgTeleportToMarker(TM_F4_Ally_2, 6426);</string>
+        <string>if(isAlive(6427)) dlgTeleportToMarker(TM_F4_Ally_3, 6427);</string>
+        <string>dlgCam(350, 40, 8, 6423);</string>
+        <string>dlgSetCombatAnimation(6423);</string>
+        <string>dlgSetCombatAnimation(6424);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill them and open the gates.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The three remaining guards are standing ready, weapons drawn and waiting for blood. You see resolve in their eyes but you also see fear. It pleases you.
+
+The opening mechanism is behind the door, waiting for you.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Floor_4);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>if(isAlive(6425)) dlgTeleportToMarker(TM_F4_Ally_1, 6425);</string>
+        <string>if(isAlive(6426)) dlgTeleportToMarker(TM_F4_Ally_2, 6426);</string>
+        <string>if(isAlive(6427)) dlgTeleportToMarker(TM_F4_Ally_3, 6427);</string>
+        <string>dlgCam(350, 40, 8, 6423);</string>
+        <string>dlgSetCombatAnimation(6422);</string>
+        <string>dlgSetCombatAnimation(6423);</string>
+        <string>dlgSetCombatAnimation(6424);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill them and open the gates.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You enter a small passageway connecting both towers. The control mechanism is right there, waiting for you.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Bar the doors and raise the gates.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_TG9_gates</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>24</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - completed quest</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_IG9_towerInfiltration = true;</string>
+        <string>sd(GNZ_Siege_01);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING - HA wins alone</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.ending_GNZ_faction_TG = 2;</string>
+        <string>aod.ending_gnz_TG_joins_HA = true;</string>
+        <string>aod.jnl_TG9 = 2;</string>
+        <string>setAchievement("ACH_AGGRESSIVE_NEG");</string>
+        <string>SS_start("gnz_ending", "switchMission(\"Ganezzar.mis\");");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>24</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

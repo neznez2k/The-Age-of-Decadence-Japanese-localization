@@ -1,0 +1,883 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_erebus_met</string>
+    </conditions>
+    <links>
+      <int>118</int>
+    </links>
+    <dlg_name>NPC_Erebus_01</dlg_name>
+    <def_link>90</def_link>
+    <def_speaker_name>Erebus</def_speaker_name>
+    <def_portrait>Erebus</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Master Erebus is a dignified man in his sixties, with a grey, well groomed beard, appropriate for his position, and sharp, intelligent eyes.
+
+“Have you come seeking my wisdom?” he asks in a surprisingly strong, booming voice. It seems that master Erebus has accepted his own superiority a long time ago and his mannerism reflects the confidence this acceptance required.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_erebus_met = true;</string>
+        <string>addJournalChar(erebus);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I have some questions...”</text>
+          <def_link>91</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>90</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Ask what you want to know."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What can you tell me about the War?”</text>
+          <def_link>92</def_link>
+          <checkOnAppear>aod.npc_erebus_askedWar == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What do you know about the gods and demons who fought in the War?”</text>
+          <def_link>97</def_link>
+          <checkOnAppear>aod.npc_erebus_askedGods == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Why did the Empire fall?”</text>
+          <def_link>103</def_link>
+          <checkOnAppear>aod.npc_erebus_askedEmpire == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“A storyteller told me about a drawing he saw in lord Gaelius’ library. It depicted the Magi and the Qantari overseeing the construction of some kind of town. Any ideas on what it might mean?”</text>
+          <def_link>94</def_link>
+          <checkOnAppear>aod.npc_storyteller_drawing &amp;&amp; aod.npc_erebus_drawing == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I have some artefacts I'd like you to look at.”</text>
+          <def_link>113</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Is there anything you can teach me?”</text>
+          <def_link>119</def_link>
+          <checkOnAppear>aod.npc_erebus_training == false</checkOnAppear>
+          <checksOnClick>
+            <string>dlgGetRep(aurelian) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>120</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Maybe later.” Leave.</text>
+          <def_link>112</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>91</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It’s an endless topic. We can talk for hours and barely scratch the surface there. Why don’t you ask what you really want to know?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“How did it start?”</text>
+          <def_link>93</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>92</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Everyone knows it,” says Erebus, raising his eyebrows in surprise. “We were attacked by the Qantari. If you want to know why they attacked us, we can do nothing but speculate. Unfortunately, only the Qantari know the answer and they are long dead.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_erebus_askedWar = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“A storyteller told me about a drawing he saw in lord Gaelius’ library. It depicted the Magi and the Qantari overseeing the construction of some kind of town. Any ideas on what it might mean?”</text>
+          <def_link>94</def_link>
+          <checkOnAppear>aod.npc_storyteller_drawing &amp;&amp; aod.npc_erebus_drawing == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What do you know about the gods and demons who fought in the War?”</text>
+          <def_link>97</def_link>
+          <checkOnAppear>aod.npc_erebus_askedGods == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Why did the Empire fall?”</text>
+          <def_link>103</def_link>
+          <checkOnAppear>aod.npc_erebus_askedEmpire == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Let me ask you something else."</text>
+          <def_link>91</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Thank you for your time, master Erebus.” Leave.</text>
+          <def_link>112</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>93</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Nothing significant. Just because the Empire was at war with the Qantari doesn’t mean that all Qantari were our enemies. I’m sure that there were some good people among them, people who rejected their evil and joined the Empire.
+
+“I did see this drawing and the only item of note there is the name of the town – Al-Akia. I don’t recall it mentioned anywhere else, so if there is a mystery there to be solved, it’s not in the fact that we worked with some Qantari, but in the town itself.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_erebus_drawing = true;</string>
+        <string>if(isQuestAdded(GrainOfTruth) == 0) addQuest(GrainOfTruth);</string>
+        <string>aod.quest_grainTruth_status = 3;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Why?”</text>
+          <def_link>95</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>94</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The Empire had good record-keeping. While I’m sure that there is a perfectly good explanation of why this town isn’t mentioned anywhere, I have to admit that it’s a bit strange. I’m too old to be interested in ancient mysteries, when there is so much still needs to be done in the present, but it’s almost as if all traces of it were destroyed. Except for the silly old drawing that nobody looked twice at.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So how do I find an ancient town that isn’t mentioned anywhere?”</text>
+          <def_link>96</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>95</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Well, young &lt;master/mistress&gt;, if it was easy, anyone could do it. Do me a favour and keep me informed of your progress. I think that I’m developing a taste for these mysteries of yours.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(MDN_TheGrain_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Let me ask you something else."</text>
+          <def_link>91</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Thank you for your time, master Erebus.” Leave.</text>
+          <def_link>112</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>96</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It’s hardly a secret,” says Erebus. “The Qantari couldn’t defeat us, so they had summoned some horrible beasts and unleashed them upon our cities. Our Magi had responded in kind and brought forth nobler allies, who helped us throw the Qantari and their hellish minions back into the sea.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_erebus_askedGods = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[intelligence success]“So, the Empire stood for more than a thousand years, yet there is not a single record of otherworldly beings, gods or demons. Then the Qantari came and at the drop of a hat we summon “gods” to aid us in battle as if it’s something one always does in times of crisis.”</text>
+          <def_link>102</def_link>
+          <checkOnAppear>aod.int &gt;= 7</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Did they come from the sea?”</text>
+          <def_link>98</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>97</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“From across the ocean, if you want to be specific. A couple of ships at first, their entire fleet a year later.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“If they wanted to invade, why did they wait a year?”</text>
+          <def_link>99</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>98</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Who knows what they wanted and what they knew of us? It could very well be that the first ships were scouts, looking for a land ripe for pillage.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[lore success]“And yet the war started before the fleet came. Why would a few ships attack us, knowing full well that they don’t stand a chance?”</text>
+          <def_link>100</def_link>
+          <checkOnAppear>aod.lore &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Let me ask you something else."</text>
+          <def_link>91</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Thank you for your time, master Erebus.” Leave.</text>
+          <def_link>112</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>99</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I wouldn’t be surprised to learn that the Empire attacked them first, if that’s what you’re getting at.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[intelligence success]“I’d be more interested to learn how “a few scout ships” managed to hold their own against the Empire for a year.”</text>
+          <def_link>101</def_link>
+          <checkOnAppear>aod.int &gt;= 7</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Let me ask you something else."</text>
+          <def_link>91</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Thank you for your time, master Erebus.” Leave.</text>
+          <def_link>112</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>100</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Hmm, interesting,” says Erebus thoughtfully, stroking his beard. “I’ve never thought of it this way – due to the lack of interest in the military matters, but now that I did, I’m inclined to agree with you.
+
+“There is a number of records confirming that only three ships had arrived at first. Regardless of what these ships’ purpose was and who attacked whom first, the Qantari couldn’t have lasted a year, and yet it is an undeniable fact that the war was in full swing when the Qantari’s fleet had arrived.
+
+“The only logical conclusion here is that the war didn’t start when the Qantari arrived. It does look like they were here for a while, before things turned sour. I wonder what they were up to,” says Erebus, lost in his thoughts.</npc_text>
+      <onLoadScripts>
+        <string>addLore(15);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Let me ask you something else."</text>
+          <def_link>91</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Thank you for your time, master Erebus.” Leave.</text>
+          <def_link>112</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>101</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I wouldn’t recommend taking legends at their face. It’s clear that something extraordinary took place during the war, yet people’s ability to describe the extraordinary is limited. So, they’ve described it in familiar, fairy-tale terms – gods and demons coming to aid and fight alongside men.
+
+“The key lies in what you’ve just said. Until the Qantari showed up, there was no talk of gods or demons, just like there was no sighting of either after the war was over. So, what happened had something to do with the Qantari and was clearly a one-time event.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Did they come from the sea?”</text>
+          <def_link>98</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>102</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Why? Because it was time. All empires fall. Some last decades, some last centuries, but sooner or later death comes for them all. It’s inevitable.
+
+“Everything has its seasons. Fall follows summer. Winter follows fall. Spring – the rebirth – follows winter. This is the way of life and kingdoms and empires are no exception. They have their springs, their summers, their falls, and finally winters, when they crumble and die, only to be reborn again.
+
+“The war with the Qantari wasn’t the reason. It was the catalyst. Once a body weakens, a number of things can kill it. If not the Qantari, it would have been something else.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_erebus_askedEmpire = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I'm not sure I follow.”</text>
+          <def_link>104</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>103</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Have you never seen soft and spoiled children squandering away the domains built by their forefathers? Imagine it on a much grander scale and you’ll have your answer.
+
+“All empires are born in blood and conquest, so first come the conquerors. They aren’t burdened by moral considerations. They take from others, those who were too weak to protect their gains. Many will die, but they won’t die in vain – their lands, their wealth, even the slaves will nurture and strengthen the growing empire as if they were the mother’s milk.
+
+“When the stage for the second act is set, come the administrators. They build, they manage, they grow and multiply. They create order out of post-conquest chaos. History has known many great conquerors, but not every conquest gave birth to an empire. Many newly created domains had collapsed the moment the warlord died. Why? Poor administration.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“And then?”</text>
+          <def_link>105</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>104</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“And then come those who neither built nor conquered. They start the process of squandering it all away because they don’t know its value and don’t understand the price that was paid by the previous generations. They think that prosperity will last forever. They look at the vast size of the domain entrusted to them and mistake it for strength. It’s so big, it can’t possibly fall.
+
+“The fall is a gradual process and that’s what makes it unstoppable. Bad decisions don’t result in instant, disastrous consequences. They work slowly, spreading decay and corruption of the very foundation of an empire. By the time it becomes obvious to everyone, it’s usually too late.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I see.”</text>
+          <def_link>106</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>105</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“If you do, then stop worrying about empires that are long gone, and serve an empire that’s on the rise.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Gaelius’ Empire?”</text>
+          <def_link>107</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>106</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Whose else? The land needs a master. We need to start rebuilding. We need to unite the factions – forcefully, if needed – and bring everything under Maadoran’s control. We need to bring order to the wasteland and make it a safe place once again. We need more towns, farms, mines!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Tell that to Gaelius.”</text>
+          <def_link>108</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>107</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Erebus straightens up and smiles. “I’m more than a loremaster or a stargazer. I carry many a burden for lord Gaelius.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Why is Gaelius so afraid of the artefacts?”</text>
+          <def_link>109</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Let me ask you something else."</text>
+          <def_link>91</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Thank you for your time, master Erebus.” Leave.</text>
+          <def_link>112</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>108</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Keeping the world safe has been House Aurelian’s duty ever since they came to Maadoran in the aftermath of the War. The Magi’s warnings left us little doubt that the magic is dangerous, not that we needed to be told this – the world around us speaks for itself. What sane person would want to unleash these horrors again?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“The warnings?”</text>
+          <def_link>110</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>109</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The Magi left us cryptic messages, warning us not to repeat their mistakes. They speak of doors that should never be opened again, of spells that must never be reversed, of dangers that were underestimated. I have a feeling that they were written as a warning to those who’d be able to follow in their footsteps, but as you know the Magi are gone from this world.
+
+“Unfortunately, many of their artefacts remain. It took the brightest minds to construct them, but any fool can press a button and unleash something he doesn’t understand, something we won't be able to stop this time.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What happened to the Magi? Why are they gone?”</text>
+          <def_link>111</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>110</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Most Magi were killed during the war. They may have helped us win it, but they were blamed for the destruction after. Those who survived the war were hunted, schools were burned... It was a dark time.
+
+“Without the schools, without anyone left to teach, the Art had died quickly. I get reports on children born with what the peasants call the gift, but so far I’ve seen nothing substantial. Either these “gifts” are weak or it takes a long time and help to develop them.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Let me ask you something else."</text>
+          <def_link>91</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Thank you for your time, master Erebus.” Leave.</text>
+          <def_link>112</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>111</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>112</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Nothing dangerous, I hope. Very well, show me.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Show him the sphere.</text>
+          <def_link>114</def_link>
+          <checkOnAppear>dlgGetItemsCount(2110) &gt;= 1 &amp;&amp; aod.npc_erebus_shownSphere == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Show him the prospector's amulet.</text>
+          <def_link>115</def_link>
+          <checkOnAppear>dlgGetItemsCount(901) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Show him the strange mask.</text>
+          <def_link>115</def_link>
+          <checkOnAppear>dlgGetItemsCount(903) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Show him the "Jellyfish" artefact.</text>
+          <def_link>116</def_link>
+          <checkOnAppear>dlgGetItemsCount(2160) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I have some questions...”</text>
+          <def_link>91</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Thank you for your time, master Erebus.” Leave.</text>
+          <def_link>112</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>113</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The rarity of the metal suggests a specific purpose, rather than a decorative one. The grooves look like they've seen some use, which suggests the existence of corresponding rails. A token of some sort, perhaps?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_erebus_shownSphere = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Show him the prospector's amulet.</text>
+          <def_link>115</def_link>
+          <checkOnAppear>dlgGetItemsCount(901) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Show him the "Jellyfish" artefact.</text>
+          <def_link>116</def_link>
+          <checkOnAppear>dlgGetItemsCount(2160) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I have some questions...”</text>
+          <def_link>91</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>114</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It's a breathing apparatus. The magic in it purifies the air that goes through it. I've seen a number of such gadgets and I can't help but marvel at the ingenuity of their makers.”</npc_text>
+      <onLoadScripts>
+        <string>if(dlgGetItemsCount(901) &gt;= 1) {dlgRemoveItem(901, 1); dlgAddItem(902, 1); aod.artefact_respirator1_identified = true;}</string>
+        <string>if(dlgGetItemsCount(903) &gt;= 1) {dlgRemoveItem(903, 1); dlgAddItem(904, 1); aod.artefact_respirator2_identified = true;}</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Show him the sphere.</text>
+          <def_link>114</def_link>
+          <checkOnAppear>dlgGetItemsCount(2110) &gt;= 1 &amp;&amp; aod.npc_erebus_shownSphere == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Show him the "Jellyfish" artefact.</text>
+          <def_link>116</def_link>
+          <checkOnAppear>dlgGetItemsCount(2160) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I have some questions...”</text>
+          <def_link>91</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Thank you for your time, master Erebus.” Leave.</text>
+          <def_link>112</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>115</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Now, this is a real gem. It's a unique key with its own signature. The magic in it must match the magic of the lock or it will never be opened. Where did you find such a relic?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“In Teron, hidden in the ruins of a guard tower.”</text>
+          <def_link>117</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>116</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Strange. All I can think of is the mine, but a mine isn't something you need a special lock and key for. Well, if you do find the lock, I hope you will do your duty and let us handle it.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Show him the sphere.</text>
+          <def_link>114</def_link>
+          <checkOnAppear>dlgGetItemsCount(2110) &gt;= 1 &amp;&amp; aod.npc_erebus_shownSphere == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Show him the prospector's amulet.</text>
+          <def_link>115</def_link>
+          <checkOnAppear>dlgGetItemsCount(901) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I have some questions...”</text>
+          <def_link>91</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Thank you for your time, master Erebus.” Leave.</text>
+          <def_link>112</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>117</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What can I help you with?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I have some questions...”</text>
+          <def_link>91</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Is there anything you can teach me?”</text>
+          <def_link>119</def_link>
+          <checkOnAppear>aod.npc_erebus_training == false</checkOnAppear>
+          <checksOnClick>
+            <string>dlgGetRep(aurelian) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>120</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>118</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[aurelian reputation failure]“I wish I could,” says Erebus, hiding his desire well, “but there is too much demand on my time as it is.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I have some questions...”</text>
+          <def_link>91</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>112</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>119</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[aurelian reputation success]“You've served this House well,” nods Erebus, “so I'm inclined to let you drink deep from the fountain of wisdom.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_training(Erebus);</string>
+        <string>aod.npc_erebus_training = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I have some questions...”</text>
+          <def_link>91</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>112</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>120</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

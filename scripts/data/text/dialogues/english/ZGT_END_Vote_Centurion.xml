@@ -1,0 +1,130 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>ZGT_END_Vote_Centurion</dlg_name>
+    <def_link>9359</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Centurion</speaker_name>
+      <npc_text>"Should I call the votes?"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_Centurion);</string>
+        <string>dlgCam(10, 45, 6, 9105);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Yes."</text>
+          <def_link>9381</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.end_chosen_votes &gt;= aod.end_chosen_votesNeeded</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9382</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Not yet."</text>
+          <def_link>9380</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9359</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(0, 45, 10);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9380</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>It doesn’t take them long to tally up the votes. You come up short. Oh well... You tried to do it the easy way, but clearly these fools can’t be reasoned with. Hard way it is then.
+
+The guards come to take you away. You spread your arms and call for Agathoth, waiting for him to possess you and smite the unbelievers. The guards stop, hesitating, then move forward again.
+
+A few hours later a crowd gathers to watch your crucifixion. You ignore them and keep praying, quietly at first, then louder, screaming in pain when they nail you to a cross. Unfortunately, Agathoth has no use for you anymore...</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(0, 45, 12);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go into the light.</text>
+          <def_link>9383</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9381</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>One by one they raise their hands in response to a cleverly worded question. The vote isn’t unanimous but it hardly matters. The city is yours. Agathoth should be pleased.
+
+The men who voted for you will expect to share the burden of power with you, power that’s not yours to give. By the time they realize they made a mistake, it will be too late. Still, there’s always room for loyal and capable servants at your table, for you’re nothing if not benevolent.
+
+For now you dismiss them with a gesture and wait for further instructions from Agathoth.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(0, 45, 12);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>A new world dawns.</text>
+          <def_link>9384</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9382</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9383</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.ending_agathoth = 5;</string>
+        <string>SS_start("temple_ending", "disconnect();");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9384</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

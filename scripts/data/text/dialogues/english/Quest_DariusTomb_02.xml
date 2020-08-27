@@ -1,0 +1,670 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_dariusTomb_per</string>
+      <string>aod.quest_dariusTomb_int</string>
+    </conditions>
+    <links>
+      <int>3435</int>
+      <int>3447</int>
+    </links>
+    <dlg_name>Quest_DariusTomb_02</dlg_name>
+    <def_link>3467</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You’re looking at a rather well-hidden door.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_PC_InsideTomb_02);</string>
+        <string>dlgCam(145, 50, 8);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[strength]Push the door out of the way.</text>
+          <def_link>3445</def_link>
+          <checkOnAppear>aod.quest_dariusTomb_gaeliusMen == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.str &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3443</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Ask the raiders to help you.</text>
+          <def_link>3440</def_link>
+          <checkOnAppear>aod.quest_dariusTomb_raidersDead == false &amp;&amp; aod.quest_dariusTomb_gaeliusMen == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Ask Gaelius' men to help you.</text>
+          <def_link>3442</def_link>
+          <checkOnAppear>aod.quest_dariusTomb_gaeliusMen</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[perception]Look for the switch.</text>
+          <def_link>3446</def_link>
+          <checkOnAppear>aod.quest_dariusTomb_gaeliusMen == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.per &gt;= 9</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3441</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[alchemy]Blow it up.</text>
+          <def_link>3437</def_link>
+          <checkOnAppear>aod.quest_dariusTomb_gaeliusMen == false</checkOnAppear>
+          <checksOnClick>
+            <string>dlgOwnsItem(1815)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3448</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>3468</def_link>
+          <checkOnAppear>aod.quest_dariusTomb_gaeliusMen == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3467</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[perception success]Suddenly, a crack in the wall catches your eye. It’s too straight to be natural and runs from ceiling to floor. The walls are rough and the crack isn’t easy to see, but you manage to trace it. Within a few moments, you’re certain that you’re looking at a rather well-hidden door.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_dariusTomb_per = false;</string>
+        <string>dlgTeleportToMarker(TM_PC_InsideTomb_02);</string>
+        <string>TombDoor_01.setActive(true);</string>
+        <string>aod.jnl_HA1_phase2 = true;</string>
+        <string>dlgCam(145, 50, 8);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[strength]Push the door out of the way.</text>
+          <def_link>3445</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.str &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3443</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Ask the raiders to help you.</text>
+          <def_link>3440</def_link>
+          <checkOnAppear>aod.quest_dariusTomb_raidersDead == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Ask Gaelius' men to help you.</text>
+          <def_link>3442</def_link>
+          <checkOnAppear>aod.quest_dariusTomb_gaeliusMen</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[perception]Look for the switch.</text>
+          <def_link>3446</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per &gt;= 9</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3441</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[alchemy]Blow it up.</text>
+          <def_link>3437</def_link>
+          <checkOnAppear>aod.quest_dariusTomb_gaeliusMen == false</checkOnAppear>
+          <checksOnClick>
+            <string>dlgOwnsItem(1815)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3448</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>3468</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3435</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[intelligence][perception]Disappointed, you head out, thinking that you aren’t the first who came here, discovered the cave-in, and had to turn back. And then it hits you – misdirection. While you’re looking at the cave-in, you aren’t looking for Darius’ burial chamber elsewhere. You stop and look at the walls. If you’re right, there should be another branch off the main corridor.
+
+You start examining the walls inch-by-inch looking for any sign of a hidden passage. The walls are rough and have plenty of cracks, but you’re thorough. After hours of tracing every crack, you’re certain that you’re looking at a rather well-hidden door.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_dariusTomb_int = false;</string>
+        <string>dlgTeleportToMarker(TM_PC_InsideTomb_02);</string>
+        <string>TombDoor_01.setActive(true);</string>
+        <string>aod.jnl_HA1_phase2 = true;</string>
+        <string>dlgCam(145, 50, 8);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[strength]Push the door out of the way.</text>
+          <def_link>3445</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.str &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3443</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Ask the raiders to help you.</text>
+          <def_link>3440</def_link>
+          <checkOnAppear>aod.quest_dariusTomb_raidersDead == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Ask Gaelius' men to help you.</text>
+          <def_link>3442</def_link>
+          <checkOnAppear>aod.quest_dariusTomb_gaeliusMen</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[perception]Look for the switch.</text>
+          <def_link>3446</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per &gt;= 9</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3441</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[alchemy]Blow it up.</text>
+          <def_link>3437</def_link>
+          <checkOnAppear>aod.quest_dariusTomb_gaeliusMen == false</checkOnAppear>
+          <checksOnClick>
+            <string>dlgOwnsItem(1815)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3448</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>3468</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3447</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Unfortunately, you don't have enough black powder.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[strength]Push the door out of the way.</text>
+          <def_link>3445</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.str &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3443</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Ask the raiders to help you.</text>
+          <def_link>3440</def_link>
+          <checkOnAppear>aod.quest_dariusTomb_raidersDead == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Ask Gaelius' men to help you.</text>
+          <def_link>3442</def_link>
+          <checkOnAppear>aod.quest_dariusTomb_gaeliusMen</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[perception]Look for the switch.</text>
+          <def_link>3446</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per &gt;= 9</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3441</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3437</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[perception failure]You look for the switch everywhere, but find nothing.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[strength]Push the door out of the way.</text>
+          <def_link>3445</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.str &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3443</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Ask the raiders to help you.</text>
+          <def_link>3440</def_link>
+          <checkOnAppear>aod.quest_dariusTomb_raidersDead == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Ask Gaelius' men to help you.</text>
+          <def_link>3442</def_link>
+          <checkOnAppear>aod.quest_dariusTomb_gaeliusMen</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[alchemy]Blow it up.</text>
+          <def_link>3437</def_link>
+          <checkOnAppear>aod.quest_dariusTomb_gaeliusMen == false</checkOnAppear>
+          <checksOnClick>
+            <string>dlgOwnsItem(1815)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3448</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>3468</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3446</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[strength failure]You push as hard as you can but the door doesn’t move an inch.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Ask the raiders to help you.</text>
+          <def_link>3440</def_link>
+          <checkOnAppear>aod.quest_dariusTomb_raidersDead == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Ask Gaelius' men to help you.</text>
+          <def_link>3442</def_link>
+          <checkOnAppear>aod.quest_dariusTomb_gaeliusMen</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[perception]Look for the switch.</text>
+          <def_link>3446</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per &gt;= 9</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3441</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[alchemy]Blow it up.</text>
+          <def_link>3437</def_link>
+          <checkOnAppear>aod.quest_dariusTomb_gaeliusMen == false</checkOnAppear>
+          <checksOnClick>
+            <string>dlgOwnsItem(1815)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3448</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>3468</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3445</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You carefully measure the black powder and rig up a small charge at the base of the door. Then you move to a safe distance, leaving a small trail of the powder behind you.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>removeCharges(1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Light it up.</text>
+          <def_link>3444</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.alchemy &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3439</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3448</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]The charge goes off, sending bits of granite flying in all directions, yet the door is still standing.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>sfxPlayOnce(explosionMiddle01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[strength]Push the door out of the way.</text>
+          <def_link>3445</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.str &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3443</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Ask the raiders to help you.</text>
+          <def_link>3440</def_link>
+          <checkOnAppear>aod.quest_dariusTomb_raidersDead == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Ask Gaelius' men to help you.</text>
+          <def_link>3442</def_link>
+          <checkOnAppear>aod.quest_dariusTomb_gaeliusMen</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[perception]Look for the switch.</text>
+          <def_link>3446</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per &gt;= 9</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3441</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>3468</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3444</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]The charge goes off, shaking the tomb and showering you with sands seeping through the cracks in the ceiling. For a moment there, you think it’s about to collapse, burying you inside, but the tomb holds. When the dust settles, you see that there is a wide opening where the door used to be.</npc_text>
+      <onLoadScripts>
+        <string>RealTomb.showObjects();</string>
+        <string>Tomb_Interior_03.IsRenderEnabled = false;</string>
+        <string>TombChamberObj_01.setActive(true);</string>
+        <string>TombChamberObj_02.setActive(true);</string>
+        <string>TombChamberObj_03.setActive(true);</string>
+        <string>TombDoor_01.setActive(false);</string>
+        <string>aod.quest_dariusTomb_tombOpen = true;</string>
+        <string>setPassability(42, 108, 0, 1);</string>
+        <string>if(aod.quest_dariusTomb_raidersDead == false) dariusTomb_raiders_door();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>sfxPlayOnce(explosionMiddle01);</string>
+        <string>rwd_civil(Darius_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go in.</text>
+          <def_link>3449</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3439</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The raiders quickly line against the door and push. At first nothing happens, then the door moves a bit. Encouraged, they push even harder and the door slowly gives in, the ancient hinges screeching as you force them to move and get the door out of your way.</npc_text>
+      <onLoadScripts>
+        <string>RealTomb.showObjects();</string>
+        <string>Tomb_Interior_03.IsRenderEnabled = false;</string>
+        <string>TombChamberObj_01.setActive(true);</string>
+        <string>TombChamberObj_02.setActive(true);</string>
+        <string>TombChamberObj_03.setActive(true);</string>
+        <string>TombDoor_01.setActive(false);</string>
+        <string>aod.quest_dariusTomb_tombOpen = true;</string>
+        <string>setPassability(42, 108, 0, 1);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Door_01, 5045);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Door_02, 5046);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Door_03, 5047);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Door_04, 5048);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Door_05, 5049);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Door_06, 5050);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go in.</text>
+          <def_link>3449</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3440</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Gaelius' men quickly line against the door and push. At first nothing happens, then the door moves a bit. Encouraged, they push even harder and the door slowly gives in, the ancient hinges screeching as you force them to move and get the door out of your way.</npc_text>
+      <onLoadScripts>
+        <string>RealTomb.showObjects();</string>
+        <string>Tomb_Interior_03.IsRenderEnabled = false;</string>
+        <string>TombChamberObj_01.setActive(true);</string>
+        <string>TombChamberObj_02.setActive(true);</string>
+        <string>TombChamberObj_03.setActive(true);</string>
+        <string>TombDoor_01.setActive(false);</string>
+        <string>aod.quest_dariusTomb_tombOpen = true;</string>
+        <string>setPassability(42, 108, 0, 1);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_NPC_Door_04, 5054);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Door_03, 5053);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go in.</text>
+          <def_link>3449</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3442</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[perception success]You start by assuming that the switch is well hidden, otherwise it would have been discovered a long time ago. Thus, instead of looking for the switch everywhere and wasting your time, you examine all places where the switch would be the hardest to spot or stumble upon by accident. After twenty minutes of searching, you narrow your suspicions to a small hole, no more than a crack between the wall and the ground. It looks perfectly natural and even has some beetles scurrying around, but you doubt that it was made by the bugs. You take an arrow and insert it into the hole. Unsurprisingly, the arrow goes in deep, proving that the hole is straight and was drilled into the rock, not burrowed.
+
+Finally, the arrow makes contact with something. You hear a distant click, some noise, and the door slowly sinks into the wall, opening up a passage.</npc_text>
+      <onLoadScripts>
+        <string>RealTomb.showObjects();</string>
+        <string>Tomb_Interior_03.IsRenderEnabled = false;</string>
+        <string>TombChamberObj_01.setActive(true);</string>
+        <string>TombChamberObj_02.setActive(true);</string>
+        <string>TombChamberObj_03.setActive(true);</string>
+        <string>TombDoor_01.setActive(false);</string>
+        <string>aod.quest_dariusTomb_tombOpen = true;</string>
+        <string>setPassability(42, 108, 0, 1);</string>
+        <string>if(aod.quest_dariusTomb_raidersDead == false) dariusTomb_raiders_door();</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go in.</text>
+          <def_link>3449</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3441</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[strength success]You lean against the door and push with all your might. At first nothing happens, then the door moves a bit. Encouraged, you push even harder and the door slowly gives in, the ancient hinges screeching as you force them to move and get the door out of your way.</npc_text>
+      <onLoadScripts>
+        <string>RealTomb.showObjects();</string>
+        <string>Tomb_Interior_03.IsRenderEnabled = false;</string>
+        <string>TombChamberObj_01.setActive(true);</string>
+        <string>TombChamberObj_02.setActive(true);</string>
+        <string>TombChamberObj_03.setActive(true);</string>
+        <string>TombDoor_01.setActive(false);</string>
+        <string>aod.quest_dariusTomb_tombOpen = true;</string>
+        <string>setPassability(42, 108, 0, 1);</string>
+        <string>if(aod.quest_dariusTomb_raidersDead == false) dariusTomb_raiders_door();</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go in.</text>
+          <def_link>3449</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3443</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - enter tomb</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>if(isAlive(5046)) sayphrase(5046, "You go first.");</string>
+        <string>aod.jnl_HA1_phase3 = true;</string>
+        <string>dlgCam(20, 45, 12);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3449</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(20, 45, 12);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3468</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

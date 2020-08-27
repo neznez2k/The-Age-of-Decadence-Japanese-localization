@@ -1,0 +1,230 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_azra_letgo</string>
+    </conditions>
+    <links>
+      <int>2</int>
+    </links>
+    <dlg_name>INF_afterAzra</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The villagers rush at you the moment you step outside.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_OutsideAzra_02);</string>
+        <string>dlgCam(0, 45, 10, 1);</string>
+        <string>aod.inf_insideAzra = false;</string>
+        <string>INF_moveMobSpot();</string>
+        <string>dlgCam(330, 40, 9, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[strength]Fight them off!</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.str &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Let them take you.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You try to fight, but there are too many of them. They overpower you and drag you to the top of the hill. The hole - the center of the eye - reeks of death. Before you can say anything, one of the villagers gives you a push...</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>...and down you go.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You manage to push them back, creating a temporary opening.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[dexterity]Make a run for it.</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Fight!</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addEnemyToParty(1, InferiaeVillagers);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You try to get away, but there is nowhere to run and eventually you're overpowered and dragged to the top of the hill. The hole - the center of the eye - reeks of death. Before you can say anything, one of the villagers gives you a push...</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>...and down you go.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You run like the wind, possibly even faster, and eventually the crowd gives up and stops chasing you.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave the village.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>They overpower you and drag you to the top of the hill. The hole - the center of the eye - reeks of death. Before you can say anything, one of the villagers gives you a push...</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_HoleDragged);</string>
+        <string>MobTower.showObjects();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>...and down you go.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start tower02</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>INF_moveOriginalSpot();</string>
+        <string>MobTower.hideObjects();</string>
+        <string>switchMission("Inferiae Tower.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The villagers surround you the moment you step outside, but the crone shakes her head and they step back, obeying instantly and without questions.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_OutsideAzra_02);</string>
+        <string>aod.inf_insideAzra = false;</string>
+        <string>INF_moveMobSpot();</string>
+        <string>dlgCam(330, 40, 9, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave this place while you can.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - village</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>VCO_AzraDoor.setActive(0);</string>
+        <string>INF_moveOriginalSpot();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - escaped village</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>VCO_AzraDoor.setActive(0);</string>
+        <string>INF_moveOriginalSpot();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>revealmaplocation("Inferiae", false);</string>
+        <string>switchMission("Maadoran.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>10</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

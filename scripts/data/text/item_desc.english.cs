@@ -1,0 +1,58 @@
+$item_desc[0] = "DR";
+$item_desc[1] = "Max AP";
+$item_desc[2] = "Armor penalty";
+$item_desc[3] = "Sneak penalty";
+$item_desc[4] = "vs CS";
+$item_desc[5] = "THC penalty";
+$item_desc[6] = "vs Ranged";
+$item_desc[7] = "Armor hardness";
+$item_desc[8] = "Melts DR";
+$item_desc[9] = "Damage to HP";
+$item_desc[10] = "Damage";
+$item_desc[11] = "Burning damage (3 turns)";
+$item_desc[12] = "tiles";
+$item_desc[13] = "Speed AP";
+$item_desc[14] = "THC bonus";
+$item_desc[15] = "Passive chance bonus";
+$item_desc[16] = "Passive value bonus";
+$item_desc[17] = "Counterattack chance bonus";
+$item_desc[18] = "Poison: Dmg";
+$item_desc[19] = "Duration";
+$item_desc[20] = "Reload Speed AP";
+$item_desc[21] = "Capacity";
+$item_desc[22] = "DR modifier = DR * 0.5";
+$item_desc[23] = "Critical Damage modifier bonus";
+$item_desc[24] = "DR modifier = DR * 2";
+$item_desc[25] = "Heals HP";
+$item_desc[26] = "Lowers max HP by";
+$item_desc[27] = "HP regeneration per turn";
+$item_desc[28] = "Damage bonus";
+$item_desc[29] = "Natural DR bonus";
+$item_desc[30] = "Lose HP when the effect ends";
+$item_desc[31] = "Duration turns";
+$item_desc[32] = "AP bonus";
+$item_desc[33] = "Decreases poison level by";
+$item_desc[34] = "Strikes";
+$item_desc[35] = "Weapon Hardness";
+$item_desc[36] = "Sharpened: Dmg";
+$item_desc[37] = "CS Bonus"; // Serrated Edge
+$item_desc[38] = "Damage modifier";
+$item_desc[39] = "Heals stat penalties for <amount> point(s)";
+$item_desc[40] = "Weap. Class:";
+loadStringCollection("Item Description Strings", "item_desc");
+
+$weap_class[0] = "Dagger";
+$weap_class[1] = "Sword";
+$weap_class[2] = "Axe";
+$weap_class[3] = "Hammer";
+$weap_class[4] = "Spear";
+$weap_class[5] = "Bow";
+$weap_class[6] = "Crossbow";
+$weap_class[7] = "Throwing";
+loadStringCollection("Weap Class Strings", "weap_class");
+
+$weap_type_1h = "One-handed";
+$weap_type_2h = "Two-handed";
+
+$item_desc_upgrades = "Upgrades:";
+$item_desc_skill_bonuses = "Skill bonuses:";

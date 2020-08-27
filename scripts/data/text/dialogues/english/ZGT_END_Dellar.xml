@@ -1,0 +1,111 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.end_xp_antidas == 1</string>
+      <string>aod.end_xp_antidas == 2</string>
+    </conditions>
+    <links>
+      <int>2</int>
+      <int>4</int>
+    </links>
+    <dlg_name>ZGT_END_Dellar</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Dellar</def_speaker_name>
+    <def_portrait>Dellar</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The Old Man’s been waiting for you.”</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(295, 40, 6, 1070);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Dellar);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I'll go talk to him then.” Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(0, 45, 15);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’ve already heard,” says Dellar. “We’re going sightseeing. Remind me to break your neck when this is over.”</npc_text>
+      <onLoadScripts>
+        <string>aod.end_xp_antidas = 2;</string>
+        <string>VCO_Stash.setActive(1);</string>
+        <string>setObjectRenderState(obj_stash, 1);</string>
+        <string>dlgCam(295, 40, 6, 1070);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Dellar);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“We’ll need some supplies.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“One step ahead of you,” says Dellar. “I’ve already sent for your things and extra supplies.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The Old Man is getting restless. I wouldn’t make him wait any longer if I were you.”</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(295, 40, 6, 1070);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Dellar);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

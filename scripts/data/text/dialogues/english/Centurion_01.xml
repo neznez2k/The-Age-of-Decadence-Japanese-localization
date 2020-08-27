@@ -1,0 +1,154 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_ig2_start_ig3</string>
+    </conditions>
+    <links>
+      <int>5</int>
+    </links>
+    <dlg_name>Centurion_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Centurion</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Are you ready for your next assignment?"</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Centurion_01);</string>
+        <string>dlgTeleportTo(225, 54, 0, W, 1130);</string>
+        <string>dlgTeleportTo(224, 54, 0, E);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Yes."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"No."</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Do what you have to do and report back to me asap."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Good. Get in line and wait for Commander Carrinas."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Wait.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - wait for IG2</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>dlgCreateCharacter("帝国兵", 1541, 1541, 224, 51, 0, N);</string>
+        <string>dlgCreateCharacter("帝国兵", 1542, 1542, 222, 51, 0, N);</string>
+        <string>dlgCreateCharacter("帝国兵", 1543, 1543, 221, 51, 0, N);</string>
+        <string>dlgCreateCharacter("帝国兵", 1544, 1544, 220, 51, 0, N);</string>
+        <string>dlgTeleportTo(223, 51, 0, N);</string>
+        <string>useCameraBookmark(quest_IG2_cam_01);</string>
+        <string>dlgTeleportTo(222, 53, 0, S, 1120);</string>
+        <string>dlgTeleportTo(223, 53, 0, W, 1130);</string>
+        <string>apmsStartDialogue(Quest_IG2);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I was looking for you. One last push, &lt;charname&gt;, and we're there. Are you ready to go?"</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Centurion_02);</string>
+        <string>dlgTeleportTo(228, 54, 0, W);</string>
+        <string>dlgTeleportTo(227, 54, 0, E, 1130);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Yes."</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"No."</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start IG3</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>aod.quest_ig2_start_ig3 = false;</string>
+        <string>apmsStartDialogue(Quest_IG3);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

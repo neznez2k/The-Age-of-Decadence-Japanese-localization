@@ -1,0 +1,507 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Quest_HA_Pass_03</dlg_name>
+    <def_link>2852</def_link>
+    <def_speaker_name>Gaelius</def_speaker_name>
+    <def_portrait>Gaelius</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Speak," commands Gaelius, beckoning you to step forward.</npc_text>
+      <onLoadScripts>
+        <string>blockMapLocation("ThePass");</string>
+        <string>if(aod.quest_HA2_Senna == 1) aod.quest_HA2_Senna = 0;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"About the Ordu..."</text>
+          <def_link>2882</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_ordu_maadoran</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2884</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2852</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Tell me they’re coming.”</npc_text>
+      <onLoadScripts>
+        <string>aod.global_mdn_crisisActive = 0;</string>
+        <string>aod.mdn_noOrdu = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“They couldn’t get through the pass and had to turn back.”</text>
+          <def_link>2883</def_link>
+          <checkOnAppear>aod.quest_HA_pass_leftOrdu || aod.quest_HA_pass_brokeNegotiations</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"They're dead. The Imperial Guards got to the pass before we did. It was a slaughter."</text>
+          <def_link>2906</def_link>
+          <checkOnAppear>aod.quest_HA_pass_defeat</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2882</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Couldn't get through the pass?” asks Gaelius, looking confused for a moment. “Didn’t I send you there to ensure that they do? I warned you even...
+
+“Get out but remember what I told you earlier – I will not allow Antidas or Meru to get their hands on what’s inside that temple. If you find it, let me know where it is and you’ll be rewarded. Sell it to anyone else and you won’t live long enough to spend the money.”</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_HA2_phase4 = true;</string>
+        <string>rwd_quest(HA2_02);</string>
+        <string>rwd_reputation(HA2_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2911</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_senna_dead</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2905</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2883</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"How did you survive?" asks Gaelius suspiciously.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I was lucky."</text>
+          <def_link>2907</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Carbo let me live to deliver you a message... He said that if you ever try it again, he’ll come knocking on your doors himself.”</text>
+          <def_link>2909</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2906</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Lucky or not, you've failed me. I have no place for people I can't rely on. Leave now but remember what I told you earlier – I will not allow Antidas or Meru to get their hands on what’s inside that temple. If you find it, let me know where it is and you’ll be rewarded. Sell it to anyone else and you won’t live long enough to spend the money.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(HA2_02);</string>
+        <string>rwd_reputation(HA2_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2911</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_senna_dead</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2905</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2907</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“If he does, he will be reminded of the difference between starved and poorly armed Ordu and House Aurelian.
+
+“As for you, you've failed me. I have no place for people I can't rely on. Leave now but remember what I told you earlier – I will not allow Antidas or Meru to get their hands on what’s inside that temple. If you find it, let me know where it is and you’ll be rewarded. Sell it to anyone else and you won’t live long enough to spend the money.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(HA2_02);</string>
+        <string>rwd_reputation(HA2_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2911</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_senna_dead</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2905</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2909</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’ve already heard. Pavola’s going to be here shortly, to lodge a complaint. Stay – you’ve earned your place at my table.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(HA2_01);</string>
+        <string>aod.jnl_HA2_phase6 = true;</string>
+        <string>aod.ending_mdn_town_ordu = true;</string>
+        <string>rwd_reputation(HA2_01);</string>
+        <string>aod.gnz_HA_start = true;</string>
+        <string>aod.global_mdn_crisisActive = 0;</string>
+        <string>createByCharMarker("CM_Thorgul");</string>
+        <string>if(aod.npc_belgutai_dead == 0) createByCharMarker("CM_Belgutai");</string>
+        <string>OrduTents.showObjects();</string>
+        <string>setgrouppassability(192, 191, 198, 197, 0, 0);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait for Pavola.</text>
+          <def_link>2885</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2884</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Pavola</portrait>
+      <speaker_name>Pavola</speaker_name>
+      <npc_text>You don’t have to wait long. Accompanied by his senior officers, Pavola storms in, huffing and puffing. “What is the meaning of all this?” he demands angrily.
+
+“Since when are the internal affairs of Noble Houses any of the Guards’ business?” inquires Gaelius with a smirk, enjoying every minute of this spectacle.
+
+“You’re harboring our enemies!” explodes Pavola. “They attacked Harran’s Pass and slaughtered the garrison to a man! This is war!”</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_DLG_Gaelius_Pavola);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Gaelius_01, 4400);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>2886</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2885</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It’s an unfortunate accident,” says Gaelius. “One of the Ordu tribes has expressed a strong desire to become more civilized. I’ve invited them to come to Maadoran – for what other city is more civilized and open to different cultures – yet your men at the pass had refused them entry, which is a grave insult to me.
+
+“I was going to demand restitution, but since they are all dead now, we shall consider the matter settled. You can remain in my city and continue enjoying its hospitality.”
+
+“This isn’t over,” growls Pavola.
+
+“It is now,” says Gaelius, changing tone. “I don’t seek a war with the Guards, nor do I see the Guards as my enemies, but if you continue being a nuisance, I’ll throw you out and let the Ordu sack your fort.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Wait.</text>
+          <def_link>2910</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2886</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Pavola gives Gaelius another glare and walks out, leaving you alone with your liege.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Dialogue_Pavola_NPC_01, 4400);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Gaelius_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What should I do now, my Lord?”</text>
+          <def_link>2887</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2910</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I'll do my best to domesticate the Ordu and give them something worth following my orders for, while you’ll go to Zamedi and see if you can find anything about that temple’s whereabouts there. I want it dealt with, once and for all.”
+
+He gives you a bronze reliquary, containing a glowing red sphere. “It should open the tower to you. Explore it and report back without delay.”</npc_text>
+      <onLoadScripts>
+        <string>addQuest(Zamedi);</string>
+        <string>aod.npc_gaelius_reportTower = true;</string>
+        <string>aod.jnl_Zamedi_phase2 = true;</string>
+        <string>revealMapLocation("Zamedi");</string>
+        <string>dlgAddTextBoxMessage("Zamedi added to the map");</string>
+        <string>dlgAddItem(2180, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Zamedi?”</text>
+          <def_link>2854</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2905</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2887</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You haven’t heard of Zamedi? Now, that is a cautionary tale, if there ever was one. It is said that during the war the town of Zamedi was under siege for almost a year. The walls were impregnable – granite infused with magic. And so it stood until our magi came up with a siege engine of immense power. They’ve assured the Emperor that it will have no problem blasting through the walls and they didn’t lie. The siege engine obliterated the walls, the town with all the defenders, and our army that was ready to charge into a breach, leaving nothing but a tower.
+
+“The desert where Zamedi used to be was glowing at night for decades, killing anyone who’d come close.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“How did the tower survive the attack?”</text>
+          <def_link>2855</def_link>
+          <checkOnAppear>aod.npc_gaelius_talkedTowerSurvived == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Is it safe now?”</text>
+          <def_link>2856</def_link>
+          <checkOnAppear>aod.npc_gaelius_talkedTowerSafe == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2905</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2854</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I don't know. The mere fact that it did was enough for us to seal it and leave it alone.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_gaelius_talkedTowerSurvived = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Is it safe now?”</text>
+          <def_link>2856</def_link>
+          <checkOnAppear>aod.npc_gaelius_talkedTowerSafe == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2905</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2855</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“After so many years? It’s quite safe, I assure you. The magic is long gone.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_gaelius_talkedTowerSafe = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“How did the tower survive the attack?”</text>
+          <def_link>2855</def_link>
+          <checkOnAppear>aod.npc_gaelius_talkedTowerSurvived == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2905</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2856</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportToMarker(TM_DLG_Gaelius_02);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2905</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>A guard stops you before you leave. "Lord Senna wants to have a word with you. Come with me."</npc_text>
+      <onLoadScripts>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_SennaGuard);</string>
+        <string>dlgCam(45, 45, 8, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Follow him.</text>
+          <def_link>2912</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_HA2_Senna == 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2913</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2911</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Senna</portrait>
+      <speaker_name>Senna</speaker_name>
+      <npc_text>The guard takes you to Senna's house.
+
+"It's a pleasure to finally meet you, &lt;master/mistress&gt; &lt;charname&gt;," says Senna. "You may have failed lord Gaelius but our city is better off without the Ordu. I hope you'd allow me to put in a good word for you with Gaelius. It's the least I can do."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Talk_Senna_PC);</string>
+        <string>dlgCam(75, 45, 6, 4210);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"By all means."</text>
+          <def_link>2914</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2912</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Senna</portrait>
+      <speaker_name>Senna</speaker_name>
+      <npc_text>The guard takes you to Senna's house.
+
+"You're a &lt;man/woman&gt; of your word, Praetor," says Senna. "You may have failed lord Gaelius but our city is better off without the Ordu. I hope you'd allow me to put in a good word for you with Gaelius. It's the least I can do."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgCam(75, 45, 6, 4210);</string>
+        <string>dlgTeleportToMarker(TM_Talk_Senna_PC);</string>
+        <string>rwd_reputation(HA2_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"By all means."</text>
+          <def_link>2914</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2913</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Senna</portrait>
+      <speaker_name>Senna</speaker_name>
+      <npc_text>You spend the next two days as Senna's personal guest, enjoying life to the fullest.
+
+"Lord Gaelius has agreed to receive you," says Senna, entering the room. "I look forward to our cooperation in the future."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.quest_HA2_Senna = 3;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay Lord Gaelius another visit.</text>
+          <def_link>2915</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2914</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go to Gaelius</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>sd(Quest_Zamedi_Report_01);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2915</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

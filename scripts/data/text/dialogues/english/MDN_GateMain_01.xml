@@ -1,0 +1,605 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_mdnGateMain_trader</string>
+      <string>aod.quest_MDN_gateTrader_status == 6</string>
+      <string>aod.quest_MDN_gateTrader_status == 2</string>
+    </conditions>
+    <links>
+      <int>15</int>
+      <int>16</int>
+      <int>23</int>
+    </links>
+    <dlg_name>MDN_GateMain_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You hear the sounds of drums announcing the arrival of a caravan and almost immediately crates, barrels, and sacks start flowing through the gates, followed by chained, dust-covered slaves and tired guards.</npc_text>
+      <onLoadScripts>
+        <string>createByCharMarker("CM_Gate_Merchant");</string>
+        <string>createByCharMarker("CM_Gate_Merchant_Thug_01");</string>
+        <string>createByCharMarker("CM_Gate_Merchant_Thug_02");</string>
+        <string>setObjectRenderState(EXIT_MainGate, 0);</string>
+        <string>OBJ_GateEvent.showObjects();</string>
+        <string>useCameraBookmark(CAM_MainGateEvent);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go and take a look.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Once inside the gates, the new arrivals are dealt with a surprising speed and efficiency. Slaves are taken to the auction block, paid-for cargo delivered to the consignees, guards paid and discharged to boost the local economy. All that’s left are small-time traders hoping to sell their goods at a profit in a big city and the vultures that prey on them: levy collectors who’d take all they can and cutthroats who’d take everything, including their lives.
+
+One of the traders shakes his head and turns away from a levy collector to think it over. Almost immediately, he’s approached by two rough looking men who whisper something in his ear. The trader, still in a state of shock, accepts their generous offer much like a drowning man grasps at straws and follows them to his doom.</npc_text>
+      <onLoadScripts>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportToMarker(TM_MainGateMerchant_06);</string>
+        <string>dlgCam(225, 40, 11, 5235);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Follow them.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Not your problem.</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - don't follow them</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportToMarker(TM_MainGateMerchant_01, 5235);</string>
+        <string>dlgSetAnimation(anim_death_forward01, 0.95, 5235);</string>
+        <string>dlgKillCharacter(5235);</string>
+        <string>createByCharMarker("CM_Gate_Merchant_Thug_03");</string>
+        <string>dlgTeleportToMarker(TM_MainGateMerchant_02, 5236);</string>
+        <string>dlgTeleportToMarker(TM_MainGateMerchant_03, 5237);</string>
+        <string>aod.quest_MDN_gateTrader_status = 2;</string>
+        <string>dlgAddItemlist(UNIQUE_theArbiter, 5238);</string>
+        <string>setObjectRenderState(EXIT_MainGate, 1);</string>
+        <string>OBJ_GateEvent.hideObjects();</string>
+        <string>dlgTeleportToMarker(TM_Map_Arena);</string>
+        <string>dlgCam(0, 45, 10);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Thug</speaker_name>
+      <npc_text>You enter a side alley, just in time for the final act of the drama: three thugs arguing over the traders' dead body. They seem to be happy to see you.
+
+“What do we have here?” inquires one of the thugs – a skinny man with deep seated eyes, surrounded by dark circles.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_MainGateMerchant_04);</string>
+        <string>dlgCam(290, 45, 9, 5236);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill them all.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Get out of here.”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Is that what you do for a living? Rob and kill the newcomers?”</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Thug</speaker_name>
+      <npc_text>You follow them into a nearby alley, arriving just in time to witness the last act of the drama: the parting of the fool and his gold and possibly life. The thugs, now three of them, regard you as an extra bonus: two for the price of one.
+
+“What do we have here?” inquires one of the thugs – a skinny man with deep seated eyes, surrounded by dark circles.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>createByCharMarker("CM_Gate_Merchant_Thug_03");</string>
+        <string>dlgTeleportToMarker(TM_MainGateMerchant_01, 5235);</string>
+        <string>dlgTeleportToMarker(TM_MainGateMerchant_02, 5236);</string>
+        <string>dlgTeleportToMarker(TM_MainGateMerchant_03, 5237);</string>
+        <string>dlgTeleportToMarker(TM_MainGateMerchant_04);</string>
+        <string>dlgCam(290, 45, 9, 5236);</string>
+        <string>OBJ_GateEvent.hideObjects();</string>
+        <string>setObjectRenderState(EXIT_MainGate, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill them all.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Get out of here.”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Is that what you do for a living? Rob and kill the newcomers?”</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT 1</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addParty(GateMerchantThugs, 0);</string>
+        <string>addCharToParty(5236, GateMerchantThugs, fighter);</string>
+        <string>addCharToParty(5237, GateMerchantThugs, fighter);</string>
+        <string>addCharToParty(5238, GateMerchantThugs, fighter);</string>
+        <string>addEnemyToParty(1, GateMerchantThugs);</string>
+        <string>aod.quest_mdnGateMain_trader = true;</string>
+        <string>aod.fight_mdnGateMain_01 = true;</string>
+        <string>aod.quest_MDN_gateTrader_status = 3;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Thug</speaker_name>
+      <npc_text>“Or what?” asks the thug, spreading his arm and pushing his chest forward.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[body count]“Or I’ll fucking kill you.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(bodycount) &gt;= 15</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[thief]“Or you’ll answer to the Forty Thieves.”</text>
+          <def_link>8</def_link>
+          <checkOnAppear>aod.pc_member_thieves</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]“Or what? Do you have any idea who you’re talking to, you stupid little fuck?”</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick>
+            <string>if(aod.streetwise &gt;= 5) aod.flagUsed = 1;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Thug</speaker_name>
+      <npc_text>[failure]“You don’t look so tough,” says the thug, grabbing a hammer.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Kill them all.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Thug</speaker_name>
+      <npc_text>[success]“Easy there, friend. We’re leaving,” says the thug, raising his hands to show that he leaves in peace.</npc_text>
+      <onLoadScripts>
+        <string>if(aod.flagUsed) {rwd_civil(MDN_GateMain_01); aod.flagUsed = 0;}</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait for them to leave.</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_MDN_gateTrader_status == 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>24</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Thug</speaker_name>
+      <npc_text>“So, what, you own everything now?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Yes, we fucking own everything now. Get out!”</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Thug</speaker_name>
+      <npc_text>“Easy there, friend. We’re leaving,” says the thug, raising his hands to show that he leaves in peace.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Wait for them to leave.</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_MDN_gateTrader_status == 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>24</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Thug</speaker_name>
+      <npc_text>[failure]“Do you?” says the thug, grabbing a hammer.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Kill them all.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Thug</speaker_name>
+      <npc_text>“How’s that any of your business?” asks the thug, looking a bit confused.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Get out of here.”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Because from now on, it is my business. I’m new to the city and need some spending money. You’ll pay me half of each take and in return...”</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Kill them all.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Thug</speaker_name>
+      <npc_text>“In return what?” asks the thug, half angry, half curious.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[body count]“In return I won’t fucking kill you, right here on this very spot.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(bodycount) &gt;= 15</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>12</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Don't play dumb. Leave while you can.”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Thug</speaker_name>
+      <npc_text>[success]“Easy there, boss. I didn’t mean nothing. You want us to pay, we’ll pay. We aren’t stupid, right, boys?”
+
+The boys nod without any enthusiasm.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I don’t see any money.”</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“One hundred imperials. That’s all we have. Come by later and we’ll have more.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(MDN_GateTrader_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Later then.” Leave the trader to his fate.</text>
+          <def_link>21</def_link>
+          <checkOnAppear>aod.quest_MDN_gateTrader_status != 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Later then.” Leave.</text>
+          <def_link>21</def_link>
+          <checkOnAppear>aod.quest_MDN_gateTrader_status == 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I changed my mind.” Kill them all.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>rwd_reputation(MDN_GateMain_01);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - left trader to his fate</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportToMarker(TM_MainGateMerchant_01, 5235);</string>
+        <string>dlgSetAnimation(anim_death_forward01, 0.95, 5235);</string>
+        <string>dlgKillCharacter(5235);</string>
+        <string>dlgTeleportToMarker(TM_MainGateTrader_07, 5236);</string>
+        <string>dlgTeleportToMarker(TM_MainGateTrader_08, 5237);</string>
+        <string>dlgTeleportToMarker(TM_MainGateTrader_09, 5238);</string>
+        <string>rwd_quest(MDN_GateTrader_01);</string>
+        <string>aod.quest_MDN_gateTrader_status = 4;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - saved trader</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgDeleteCharacter(5235);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - they left, trader dead</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_MainGateTrader_07, 5236);</string>
+        <string>dlgTeleportToMarker(TM_MainGateTrader_08, 5237);</string>
+        <string>dlgTeleportToMarker(TM_MainGateTrader_09, 5238);</string>
+        <string>rwd_quest(MDN_GateTrader_01);</string>
+        <string>dlgFinish();</string>
+        <string>aod.quest_MDN_gateTrader_status = 4;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Trader</speaker_name>
+      <npc_text>“I don’t know how to thank you,” says the trader, being visibly shaken. “They would have killed me. The bastards would have killed me and taken everything...” He hesitates for a moment, then makes a decision and removes a well-adorned dagger from his belt.
+
+“It's been in my family for generations. My father gave it to me before I left. He told me that once unsheathed it can solve any dispute, but I just couldn't bring myself to draw it. May it serve you better than it served me, stranger.”</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_MainGateTrader_07, 5236);</string>
+        <string>dlgTeleportToMarker(TM_MainGateTrader_08, 5237);</string>
+        <string>dlgTeleportToMarker(TM_MainGateTrader_09, 5238);</string>
+        <string>dlgTeleportToMarker(TM_MainGateMerchant_05);</string>
+        <string>rwd_quest(MDN_GateTrader_01);</string>
+        <string>dlgAddItemlist(UNIQUE_theArbiter);</string>
+        <string>aod.quest_MDN_gateTrader_status = 4;</string>
+        <string>dlgCam(290, 45, 8, 5235);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Trader</speaker_name>
+      <npc_text>“I don’t know how to thank you,” says the trader, being visibly shaken. “They would have killed me. The bastards would have killed me and taken everything...” He hesitates for a moment, then makes a decision and removes a well-adorned dagger from his belt.
+
+“It's been in my family for generations. My father gave it to me before I left. He told me that once unsheathed it can solve any dispute, but I just couldn't bring myself to draw it. May it serve you better than it served me, stranger.”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_MainGateMerchant_05);</string>
+        <string>rwd_quest(MDN_GateTrader_01);</string>
+        <string>dlgAddItemlist(UNIQUE_theArbiter);</string>
+        <string>dlgCam(290, 45, 8, 5235);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mercenary</speaker_name>
+      <npc_text>The thugs are standing around a man wearing heavy armor and leaning on a two-handed hammer. He seems like a down on his luck mercenary – not exactly the thugs’ type. Too much risk for very little gain.
+
+“Is that &lt;him/her&gt;?” asks the man when you approach.
+
+“Yep, that’s &lt;him/her&gt; all right,” confirms the thug. “Had the nerve to show up, as you can see.”
+
+“I can see that,” says the mercenary, not taking his eyes off you. “Well, let’s get to it then. You and your boys do your part too. You ain’t paying me enough to fight on my own.”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_MainGateMerchant_04);</string>
+        <string>dlgCam(300, 45, 8, 5239);</string>
+        <string>aod.quest_MDN_gateTrader_status = 7;</string>
+        <string>dlgRotateToChar(5239);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT 2</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addEnemyToParty(1, GateMerchantThugs);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.fight_mdnGateMain_02 = 1;</string>
+        <string>aod.quest_MDN_gateTrader_status = 7;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>17</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

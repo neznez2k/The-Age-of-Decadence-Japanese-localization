@@ -1,0 +1,632 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_amerius_atHisHouse</string>
+      <string>aod.quest_ameriusHome_wentInside</string>
+      <string>aod.npc_amerius_outsideHouse</string>
+      <string>aod.npc_amerius_met</string>
+    </conditions>
+    <links>
+      <int>4767</int>
+      <int>4756</int>
+      <int>4762</int>
+      <int>4761</int>
+    </links>
+    <dlg_name>NPC_Amerius_01</dlg_name>
+    <def_link>4739</def_link>
+    <def_speaker_name>Caius Amerius</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I demand the Lord’s justice!” shouts the man again, but with less vigor.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(315, 40, 7, 4925);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What happened?”</text>
+          <def_link>4740</def_link>
+          <checkOnAppear>aod.npc_amerius_talked == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Alright, I'm listening. Who threw you out of your house and why? Start from the beginning.”</text>
+          <def_link>4741</def_link>
+          <checkOnAppear>aod.npc_amerius_talked</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4739</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I was wronged!” says the man quickly, grateful for the attention. “He took my house! His men threw me out of my own house! I’ve always paid my levies. Always! No questions, no excuses. I have a right to demand justice, yet they won’t even let me in to see Lord Gaelius!”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_amerius_talked = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Slow down. Who threw you out of your house and why? Start from the beginning.”</text>
+          <def_link>4741</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>The man is clearly unstable. Best leave him alone.</text>
+          <def_link>4738</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4740</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgCam(345, 40, 15, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4738</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“My name is Caius Amerius, a prospector by trade,” says the man after taking a deep breath and gathering his thoughts. “I’ve seen my share of oddities and wonders over the years, but they don't come close to what I discovered several months ago.
+
+“I was exploring the mountain range to the north, following the rumors of an ancient temple built into one of the mountains, when suddenly the mountains rumbled and shook, throwing me to the ground. When the quake passed, I saw that there was a long crack in the rock, shining with blue light.
+
+“The crack was no more than a few inches wide, so I could only peer inside, but what I saw there made me weak in the knees. A terrifying figure, horned and huge, sat upon a throne, gazing at me with indifference. In front of the throne stood the biggest metal chest I’ve ever seen, flanked by glowing lamps.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_amerius_met = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>4742</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4741</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It took me a while to realize that the mysterious figure was a long dead guardian of this tomb, still clad in the battle armor of legends. The armor alone, so well preserved, would fetch a fortune, for it is a gift fit for any lord. As for the chest he was guarding... The mere thought of what might be inside made me dizzy.
+
+“So there I was, a few steps away from the biggest find of my life, yet unable to reach it. I would never have been able to go through that rock on my own, and so I returned to Maadoran and carefully approached a number of men who could fund such projects. All but one had turned me down.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What happened next?”</text>
+          <def_link>4743</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4742</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Against my better judgment, I made a deal with Marcus Valla, a man of means and reputation. He invested twelve thousand imperials in exchange for an equal share of the proceeds, and I purchased slaves, tools, and supplies. Knowing that large expeditions often attract unwanted attention, I hired fighting men to accompany us on the journey.
+
+“I fully admit that my experience in such matters was limited, but I didn’t want to bring in another partner to handle it. Even the greatest treasure can be reduced to a handful of coins if you have to split it too many ways.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I sense a tragic twist coming up.”</text>
+          <def_link>4744</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4743</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Quite so,” nods the man. “The slaves worked day and night, for we were in a hurry and soon cut a way in. We took the battle armor out of the chamber first. The magic animating it was long gone, but it was still quite a marvel. The chest was a marvel too, in its own right. There was no lock – the lid was sealed, fused closed!
+
+“Our tools couldn’t open it, so we had to use the black powder. Twice we had tried and twice we had failed, but the third blast tore the chest apart, killing several slaves who could still fetch a good price at the market.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What was in the chest?”</text>
+          <def_link>4745</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4744</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Nothing,” laughs the man, sounding half-mad. “Nothing but scrolls that were incinerated the moment we blasted that damn chest open. No sooner had I thought I still had the armor than the accursed mercenaries, these dogs without any honor, turned on me! They took the armor and the slaves and left me there, right where I started, alone with my broken dreams.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You should have seen it coming. You hire fighting men you have no leverage over and hope that they will be kind enough to let you keep the spoils. You’re lucky they didn’t kill you.”</text>
+          <def_link>4746</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“It’s outrageous! What is the world coming to?”</text>
+          <def_link>4746</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4745</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Sadly, my misfortunes were far from over. When I returned home, Marcus Valla, this fiend in human form, demanded his money back. Obviously, I couldn’t pay him, so this very morning his men came and threw me out of my own house! He told me that until I pay him what I borrowed, the house is his. The audacity!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You and your men have recklessly destroyed priceless documents left for future generations and then squabbled over the armor of a man left to guard them. You deserve what you got.”</text>
+          <def_link>4761</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“So, where is the armor now?”</text>
+          <def_link>4747</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Well, better luck next time.”</text>
+          <def_link>4750</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4746</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Are you going to help me or not?"</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(315, 45, 8, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What do you want me to do?”</text>
+          <def_link>4751</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I don't have time for this." Leave.</text>
+          <def_link>4738</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4761</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Weren’t you listening? It’s gone! The mercenaries took it.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What makes this armor so special?”</text>
+          <def_link>4748</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4747</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It’s the fabled armor of legends. I’d seen plenty of drawings, but this was the first time I’ve actually had one before my eyes. It was heavy – it took several men to carry it. I can’t fathom the strength of someone who would be able to wear it to battle. Maybe the stories are right. Maybe it was the age of great heroes and we are nothing but children to them.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Why did they leave someone to guard the chest?”</text>
+          <def_link>4749</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Well, better luck next time.”</text>
+          <def_link>4750</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4748</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“How should I know? Maybe he didn’t expect to wait that long or maybe he was guarding the chest until it was ready to be taken elsewhere. Who knows?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Well, better luck next time.”</text>
+          <def_link>4750</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4749</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Better luck? But... I thought you were going to help me.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What do you want me to do?”</text>
+          <def_link>4751</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I don't have time for this." Leave.</text>
+          <def_link>4738</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4750</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I was thrown out of my own house. What do you think I want you to do?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Alright, take me to this Marcus Valla.”</text>
+          <def_link>4752</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m busy. I have places to go and people to see. If you want me to drop everything and help you, make it worth my time.”</text>
+          <def_link>4753</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I don't have time for this." Leave.</text>
+          <def_link>4738</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4751</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Come with me!”</npc_text>
+      <onLoadScripts>
+        <string>createByCharMarker("CM_Valla");</string>
+        <string>createByCharMarker("CM_VallaMerc_01");</string>
+        <string>addParty(VallasMercs, 0);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Follow him.</text>
+          <def_link>4760</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4752</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Amerius takes you to an unremarkable house in the Trade district. “Are you going to kill him?” he asks cautiously.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_AmeriusHouse_01);</string>
+        <string>dlgTeleportToMarker(TM_AmeriusHouse_02, 4925);</string>
+        <string>aod.npc_amerius_outsideHouse = true;</string>
+        <string>createByCharMarker("CM_VallaMerc_02");</string>
+        <string>createByCharMarker("CM_VallaMerc_03");</string>
+        <string>VCO_AmeriusHomeDoor.setActive(true);</string>
+        <string>Door_AmeriusHouse.unlock();</string>
+        <string>aod.npc_amerius_leftPalace = true;</string>
+        <string>addQuest(Amerius);</string>
+        <string>dlgCam(45, 45, 8, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“We'll see.” Leave.</text>
+          <def_link>4755</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4760</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Pay you with what? I don’t have any money,” says the man angrily.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You’re a prospector. Surely, you have a trinket or two stashed away.”</text>
+          <def_link>4754</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4753</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Fine!” snaps the man. “I’ll pay you with trinkets, just get me my house back!”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_amerius_payment = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Alright, take me to this Marcus Valla.”</text>
+          <def_link>4752</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4754</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - near house</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addCharToParty(4926, VallasMercs, fighter);</string>
+        <string>addCharToParty(4927, VallasMercs, fighter);</string>
+        <string>addCharToParty(4928, VallasMercs, fighter);</string>
+        <string>addCharToParty(4929, VallasMercs, fighter);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(65, 40, 15, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4755</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"He's inside the house! What are you waiting for?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4738</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4762</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Any news?” asks Amerius hopefully.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I'm working with Marcus now, so you can forget about the house.”</text>
+          <def_link>4757</def_link>
+          <checkOnAppear>aod.quest_ameriusHome_madeDeal</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“The house is yours.”</text>
+          <def_link>4758</def_link>
+          <checkOnAppear>aod.quest_ameriusHome_gotHouse</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I'm working on it.” Leave.</text>
+          <def_link>4738</def_link>
+          <checkOnAppear>aod.quest_ameriusHome_gotHouse == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4756</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Oh no!” exclaims Amerius. “No, no, no! Justice will be served, my *friend*. There will be a reckoning, you'll see!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4765</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4757</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I don't know how to thank you, my friend,” exclaims Amerius, nearly in tears. “If not for you...”</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_amerius = 2;</string>
+        <string>if(aod.quest_ameriusReward == false) {rwd_quest(MDN_Amerius_01); aod.quest_ameriusReward = true;}</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Don't mention it.” Leave.</text>
+          <def_link>4766</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“My payment?”</text>
+          <def_link>4759</def_link>
+          <checkOnAppear>aod.npc_amerius_payment</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4758</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Amerius sighs, reaches inside his tunic and pulls out a glowing power tube. “It's my lucky charm. You never know what you may find out there. You've earned it.”</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(1600, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Thanks.” Leave.</text>
+          <def_link>4766</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4759</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Amerius leaves</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgDeleteCharacter(4925);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4765</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Amerius goes to his house</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportToMarker(TM_AmeriusHouse_03, 4925);</string>
+        <string>aod.npc_amerius_atHisHouse = true;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4766</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I can't thank you enough, my friend!"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4738</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4767</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,545 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_mdnHealer_counter &gt;= 3 &amp;&amp; aod.npc_healer_quest == false</string>
+      <string>dlgGetPercentageHP() &lt;= 50 || dlgGetCureStatPrice(all) &gt;= 1</string>
+    </conditions>
+    <links>
+      <int>13</int>
+      <int>3</int>
+    </links>
+    <dlg_name>Maadoran_Healer</dlg_name>
+    <def_link>12</def_link>
+    <def_speaker_name>Healer</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What can I do for you?"</npc_text>
+      <onLoadScripts>
+        <string>if(aod.quest_mdnHealer_counter &lt; 1) aod.quest_mdnHealer_counter = 0;</string>
+        <string>dlgCam(200, 45, 7, 4900);</string>
+        <string>dlgTeleportToMarker(TM_Healer_PC);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"A few stitches here and there."</text>
+          <def_link>6</def_link>
+          <checkOnAppear>dlgGetPercentageHP() &lt; 100 || dlgGetCureStatPrice(all) &gt; 0</checkOnAppear>
+          <checksOnClick>
+            <string>dlgGetCureStatPrice(all) &gt;= 1</string>
+            <string>dlgGetPercentageHP() &lt;= 15</string>
+            <string>dlgGetPercentageHP() &gt;= 70</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>23</int>
+            <int>7</int>
+            <int>4</int>
+          </linksOnClick>
+          <scriptsOnClick>
+            <string>getStatHealPrice();</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I've been to that village."</text>
+          <def_link>18</def_link>
+          <checkOnAppear>aod.jnl_elixir &lt; 7 &amp;&amp; aod.mty_introDone</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Another time."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You look unwell... If you have a few coins, I can set your bones and dress up your wounds."</npc_text>
+      <onLoadScripts>
+        <string>if(aod.quest_mdnHealer_counter &lt; 1) aod.quest_mdnHealer_counter = 0;</string>
+        <string>dlgCam(200, 45, 7, 4900);</string>
+        <string>dlgTeleportToMarker(TM_Healer_PC);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Sure."</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetCureStatPrice(all) &gt;= 1</string>
+            <string>dlgGetPercentageHP() &lt;= 15</string>
+            <string>dlgGetPercentageHP() &gt;= 70</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>23</int>
+            <int>7</int>
+            <int>4</int>
+          </linksOnClick>
+          <scriptsOnClick>
+            <string>getStatHealPrice();</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I've been to that village."</text>
+          <def_link>18</def_link>
+          <checkOnAppear>aod.jnl_elixir &lt; 7 &amp;&amp; aod.mty_introDone</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Another time."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Let me see," says the healer. "The cuts need stitching before the wounds go bad. &lt;HitPointsHealPriceLow&gt; imperials will cover it."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mdnHealer_counter += 1;</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Fix me up."</text>
+          <def_link>1</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= $HitPointsHealPriceLow</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgchangemoney(-$HitPointsHealPriceLow);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Another time."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Let me see," says the healer. "These are some nasty cuts... And it appears that you're bleeding internally. In my medical opinion, it's not good for you. So, we'll need to do a bit of draining, a bit of stitching, and a lot of praying. Praying's free, the rest will set you back &lt;HitPointsHealPriceMed&gt; imperials."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mdnHealer_counter += 1;</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Fix me up."</text>
+          <def_link>1</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= $HitPointsHealPriceMed</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgchangemoney(-$HitPointsHealPriceMed);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Another time."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Let me see," says the healer. "Do you know that one of your eyeballs is hanging out of its socket? It's not a pretty picture. Hmm... the skull is caved in. Lucky for you, I've just got a new Dent Repair kit. You won't even notice the damage after I'm done. What else is there? Smashed ribs, ruptured organs, the works. Had some fun, did you?
+
+"&lt;HitPointsHealPriceHigh&gt; imperials. Consider it an investment into your well-being."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mdnHealer_counter += 1;</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Fix me up."</text>
+          <def_link>1</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= $HitPointsHealPriceHigh</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgchangemoney(-$HitPointsHealPriceHigh);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Another time."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[stat damage]"Let me see," says the healer. "Do you know that one of your eyeballs is hanging out of its socket? It's not a pretty picture. Hmm... the skull is caved in. Lucky for you, I've just got a new Dent Repair kit. You won't even notice the damage after I'm done. What else is there? Smashed ribs, ruptured organs, the works. Had some fun, did you?
+
+"&lt;healStatPrice&gt; imperials. Consider it an investment into your well-being."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mdnHealer_counter += 1;</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Fix me up."</text>
+          <def_link>8</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= $statHealPrice</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgchangemoney(-$statHealPrice);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Another time."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>CURE - HP</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>cheatHP();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(200, 45, 12, 1);</string>
+        <string>if(aod.mdn_healerFromArena) {dlgTeleportToMarker(TM_Map_Arena); aod.mdn_healerFromArena = 0; dlgCam(315, 45, 10);}</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>CURE - stats</npc_text>
+      <onLoadScripts>
+        <string>dlgCureStat(all);</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>cheatHP();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(200, 45, 12, 1);</string>
+        <string>if(aod.mdn_healerFromArena) {dlgTeleportToMarker(TM_Map_Arena); aod.mdn_healerFromArena = 0; dlgCam(315, 45, 10);}</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgCam(200, 45, 12, 1);</string>
+        <string>if(aod.mdn_healerFromArena) {dlgTeleportToMarker(TM_Map_Arena); aod.mdn_healerFromArena = 0; dlgCam(315, 45, 10);}</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You look like the adventurous type," says the healer instead of her usual greeting, "judging by your present condition and the number of times I had to patch you up.
+
+"It occured to me that we can help each other. There are rumors of a certain pre-War elixir called Rapid Cellular Regeneration and I'd love to get my hands on it. The job's dangerous, but danger is your middle name, aint it?"</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_healer_quest = true;</string>
+        <string>dlgCam(200, 45, 7, 4900);</string>
+        <string>dlgTeleportToMarker(TM_Healer_PC);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"What's in it for me?"</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You'll be the guinea pig and the lucky recipient of the first batch of the elixir. If it goes well, as I'm sure it would, you'll never need my services ever again. Why, your wounds would close instantly the moment you get them and you'll be unstoppable in battle, but first, you need to get me the key reagent called the Extract of Amaranthus, of course. So, do we have a deal?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Sign me up!"</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'll pass. Now, fix me up."</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetCureStatPrice(all) &gt;= 1</string>
+            <string>dlgGetPercentageHP() &lt;= 15</string>
+            <string>dlgGetPercentageHP() &gt;= 70</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>23</int>
+            <int>7</int>
+            <int>4</int>
+          </linksOnClick>
+          <scriptsOnClick>
+            <string>getStatHealPrice();</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I've heard an interesting story of a hidden village up in the mountains. The man who told it to me swore up and down that there are chambers filled with ancients vats going deep into the mountain.
+
+“He claims that he was given a few drops of the very extract I seek. It’s an elixir so rare that it was thought to be a myth. You see, there are more than seventy species of Amaranthus and most are common as dirt. Yet, there were always rumor of a rare species of this plant with almost mystical properties and now we finally have a proof that it exists.”</npc_text>
+      <onLoadScripts>
+        <string>revealMapLocation("Monastery");</string>
+        <string>dlgAddTextBoxMessage("Monastery added to the map");</string>
+        <string>addQuest(ElixirMonastery);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“So, whom do you expect me to fight? The villagers?”</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'll take a look. Now, fix me up."</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetCureStatPrice(all) &gt;= 1</string>
+            <string>dlgGetPercentageHP() &lt;= 15</string>
+            <string>dlgGetPercentageHP() &gt;= 70</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>23</int>
+            <int>7</int>
+            <int>4</int>
+          </linksOnClick>
+          <scriptsOnClick>
+            <string>getStatHealPrice();</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The man who sold me the exact location of the village ended up dead a few days ago. I admit that I was skeptical when I first heard his story, but it looks like someone took him seriously and shut him up for good. So, expect some competition.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'll take a look. Now, fix me up."</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetCureStatPrice(all) &gt;= 1</string>
+            <string>dlgGetPercentageHP() &lt;= 15</string>
+            <string>dlgGetPercentageHP() &gt;= 70</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>23</int>
+            <int>7</int>
+            <int>4</int>
+          </linksOnClick>
+          <scriptsOnClick>
+            <string>getStatHealPrice();</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Did you find the extract? Do you have it?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Here it is.” Give her the extract.</text>
+          <def_link>19</def_link>
+          <checkOnAppear>dlgGetItemsCount(1802) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I was too late. The raiders took everything."</text>
+          <def_link>22</def_link>
+          <checkOnAppear>aod.jnl_elixir == 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“The man lied. There are no vats or elixirs there.”</text>
+          <def_link>20</def_link>
+          <checkOnAppear>aod.jnl_elixir != 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Not yet." Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I knew it! I have everything ready, just give me a few moments to distill it... And here we go,” she pours a foul-smelling liquid into a bottle and gives it you.</npc_text>
+      <onLoadScripts>
+        <string>dlgadditemlist(Unique_RegenerationElixir);</string>
+        <string>dlgRemoveItem(1802, 1);</string>
+        <string>rwd_quest(Monastery_01);</string>
+        <string>aod.jnl_elixir = 8;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Are you sure? Nothing at all?”</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(Monastery_01);</string>
+        <string>aod.jnl_elixir = 7;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Are you sure? Nothing? What about the chambers he described?”</npc_text>
+      <onLoadScripts>
+        <string>mty_rightThing();</string>
+        <string>rwd_quest(Monastery_01);</string>
+        <string>aod.jnl_elixir = 7;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“There are no chambers there, trust me. He lied to you to make a few coins.”</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The healer swears in frustration and turns away.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

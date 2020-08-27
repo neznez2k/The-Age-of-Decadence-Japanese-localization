@@ -1,0 +1,297 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_esdras_PA == 1</string>
+    </conditions>
+    <links>
+      <int>8</int>
+    </links>
+    <dlg_name>NPC_Esdras_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Esdras</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What can I do for you?” asks a man with a tired, bloated face.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(75, 45, 6, 8080);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Marcus Valla sent me.”</text>
+          <def_link>2</def_link>
+          <checkOnAppear>aod.quest_ameriusHome_madeDeal &amp;&amp; aod.item_PA_received == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Show me your wares.”</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>TRADE</npc_text>
+      <onLoadScripts>
+        <string>dlgTradeWithMe("Esdras");</string>
+        <string>dlgCam(75, 45, 12);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The man cringes. “It’s a bad way to do business, but I don’t have a choice, do I?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_esdras_PA = 1;</string>
+        <string>aod.jnl_amerius = 4;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What did you find out so far?”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Not much,” shrugs the man. “They aren’t local, that’s for sure, so nobody’s going to miss them. They do have the armor and they’re selling it to the highest bidder. A lot of people are interested. Some of these people I’d rather not cross.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What do you mean?”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“As I understand, the plan is to offer them money, then jump them and get the armor for nothing. What can possibly go wrong, eh?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“It’s my problem, not yours. Set up the meet when I tell you.” Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You have a better idea?”</text>
+          <def_link>6</def_link>
+          <checkOnAppear>aod.notImplemented</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgCam(75, 45, 12);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It depends,” says the man, licking his lips. “If you’re up to the task, let the mercs sell the armor, then take it from the buyer. Nice and easy.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“We stick with the plan. Set up the meet when I tell you.” Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I bet the buyer will have other artefacts. Can you get me his name?” [Future Adventure]</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I will,” says the man, looking relieved. “Check back with me in a day or two.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It’s all set,” says Esdras. “I hope you know what you’re doing, otherwise we’re both dead.”</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(75, 45, 6, 8080);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Take me there.”</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[impersonate success]“Do you have any of the robes the zealots favor? I might be able to get the armor without killing anyone.”</text>
+          <def_link>12</def_link>
+          <checkOnAppear>aod.disguise &gt;= 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>You follow Esdras to an old warehouse. The street is quiet – too quiet. The locals know that something big is going down tonight and they are staying away. Maybe you should have stayed away too, but it’s too late for second thoughts. You have men to kill over some fancy armor. It’s not the best reason to kill someone, but to be perfectly honest you’ve killed for far less.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_PA_Warehouse_01);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>TeronNightTime();</string>
+        <string>dlgCam(75, 45, 6);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go in.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“And if it fails? A robe is a poor protection against swords, my friend. Still, I was told to help in any way I can, so if a robe is what you need, a robe is what you're going to get.”
+
+Esdra gives you a dusty old robe.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"You're right. Just take me there."</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Take me there.” Put on the robe.</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>You follow Esdras to an old warehouse. The street is quiet – too quiet. The locals know that something big is going down tonight and they are staying away. Maybe you should have stayed away too, but it’s too late for second thoughts.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_PA_robe = true;</string>
+        <string>dlgAddItemlist(Quest_PA_Robe);</string>
+        <string>dlgUnequipEverything();</string>
+        <string>dlgEquipItem(502, 100);</string>
+        <string>dlgTeleportToMarker(TM_PA_Warehouse_01);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgCam(75, 45, 6);</string>
+        <string>TeronNightTime();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go in.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - warehouse</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.npc_esdras_PA = 2;</string>
+        <string>aod.item_PA_received = 1;</string>
+        <string>aod.jnl_amerius = 5;</string>
+        <string>switchMission("Quest_WarehousePA.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>20</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

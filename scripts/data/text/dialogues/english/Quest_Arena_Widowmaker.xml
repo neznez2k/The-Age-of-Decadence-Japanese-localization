@@ -1,0 +1,106 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Quest_Arena_Widowmaker</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Widowmaker</def_speaker_name>
+    <def_portrait>Widowmaker</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Fetch me the champion,” demands the Widowmaker.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(280, 40, 6, 522);</string>
+        <string>dlgUnequipItem(1120, 522);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’m the champion.”</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgIsEquippedItem(2501)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“This is fucking bullshit,” roars the Widowmaker, exploding with sudden rage. “I came here to kill a great warrior and take his glory. There’s no glory in killing you!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I made it that far.”</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Fighting law-breakers and street thugs,” the Ordu spits on your sandaled feet. “I’ll teach you the same lesson I taught hundreds of men. Too bad it will be your last.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Start the fight.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Hiding inside that metal suit?” asks the Ordu, a satisfied smile slowly spreading across his scarred face. “You’re wise to fear the Widowmaker but it won’t help you. I’ll cut it open and get you out, one piece at a time.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Start the fight.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAttitude(522, 1, -10);</string>
+        <string>dlgEquipItem(1120, 0, 522);</string>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgcam(225,45,15,1);</string>
+        <string>dlgChangeTraining(critical_strike, 20, 522);</string>
+        <string>dlgChangeTraining(axe, 22, 522);</string>
+        <string>dlgChangeTraining(dodge, 22, 522);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

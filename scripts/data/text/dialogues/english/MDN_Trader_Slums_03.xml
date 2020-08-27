@@ -1,0 +1,322 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_slums_trader03_met</string>
+    </conditions>
+    <links>
+      <int>5930</int>
+    </links>
+    <dlg_name>MDN_Trader_Slums_03</dlg_name>
+    <def_link>5922</def_link>
+    <def_speaker_name>Trader</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Pig iron?” asks a man with a rugged, dirty face. “Frying pan? How ‘bout a good cast-iron kazan? It’s heavy but well worth the weight. No? Eat your food raw, do ya?
+
+“Wait, if it’s weapons ya like, I have something for you,” he pulls out a black-bladed axe, wrapped in rags. It looks rough, bearing hammer marks and dents, but the edge is razor-sharp and the axe is well balanced.
+
+“My old man forged it himself,” says the man with pride. “Found a rock that fell outta the sky and hammered it for days. Made a plough, the best I’ve seen, and this axe. I could sell it to ya for four hundred if it strikes yer fancy.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_slums_trader03_met = true;</string>
+        <string>setWindowImage(item_blackDow);</string>
+        <string>dlgTeleportToMarker(TM_DLG_SlumsTrader3);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 400 imperials.</text>
+          <def_link>5934</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 400</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading]“I can buy a new axe for a few hundred. The star metal is worth something but not four hundred. Two fifty, three hundred at most.”</text>
+          <def_link>5925</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 300</checkOnAppear>
+          <checksOnClick>
+            <string>aod.trading &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5926</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[crafting success]“It’s steel, not the sky metal. Still, it’s a good axe. I’ll give you two hundred for it.”</text>
+          <def_link>5924</def_link>
+          <checkOnAppear>aod.crafting &gt;= 5 &amp;&amp; dlgGetMoney() &gt;= 200</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5928</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5922</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Right here,” says the man, showing you the axe in case you need convincing. “Forged from a rock that fell outta the sky. As rare it as it gets these days. Can be yours if ya have four hundred coins to spare.”</npc_text>
+      <onLoadScripts>
+        <string>setWindowImage(item_blackDow);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 400 imperials.</text>
+          <def_link>5934</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 400</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading]“I can buy a new axe for a few hundred. The star metal is worth something but not four hundred. Two fifty, three hundred at most.”</text>
+          <def_link>5925</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 300</checkOnAppear>
+          <checksOnClick>
+            <string>aod.trading &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5926</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[crafting success]“It’s steel, not the sky metal. Still, it’s a good axe. I’ll give you two hundred for it.”</text>
+          <def_link>5924</def_link>
+          <checkOnAppear>aod.crafting &gt;= 5 &amp;&amp; dlgGetMoney() &gt;= 200</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5928</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5933</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Right here,” says the man, showing you the axe in case you need convincing.</npc_text>
+      <onLoadScripts>
+        <string>setWindowImage(item_blackDow);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 300 imperials.</text>
+          <def_link>5934</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 300 &amp;&amp; aod.trader_slum_03_axe_300 &amp;&amp; aod.trader_slum_03_axe_200 == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Pay him 200 imperials.</text>
+          <def_link>5934</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 200 &amp;&amp; aod.trader_slum_03_axe_200</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[crafting success]“It’s steel, not the sky metal. Still, it’s a good axe. I’ll give you two hundred for it.”</text>
+          <def_link>5924</def_link>
+          <checkOnAppear>aod.crafting &gt;= 5 &amp;&amp; dlgGetMoney() &gt;= 200 &amp;&amp; aod.trader_slum_03_axe_200 == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5928</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5936</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Aye, sure,” nods the man. “My old man did make it from a rock he found but it didn’t fall outta the sky. It does make a good story though.”</npc_text>
+      <onLoadScripts>
+        <string>aod.trader_slum_03_axe_200 = true;</string>
+        <string>aod.trader_slum_03_haggled = true;</string>
+        <string>if(aod.MDN_traderSlums3_Reward1 == false) rwd_civil(Trading);</string>
+        <string>aod.MDN_traderSlums3_Reward1 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 200 imperials.</text>
+          <def_link>5934</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 200</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5928</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5924</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“The star metal is worth twice as much. If ya don't have the money, just say so and quit wasting my time.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 400 imperials.</text>
+          <def_link>5934</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 400</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[crafting success]“It’s steel, not the sky metal. Still, it’s a good axe. I’ll give you two hundred for it.”</text>
+          <def_link>5924</def_link>
+          <checkOnAppear>aod.crafting &gt;= 5 &amp;&amp; dlgGetMoney() &gt;= 200</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5928</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5925</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Aye, sure,” nods the man. “I'll take three hundred. These are hard times, gotta take what ya can.”</npc_text>
+      <onLoadScripts>
+        <string>aod.trader_slum_03_axe_300 = true;</string>
+        <string>aod.trader_slum_03_haggled = true;</string>
+        <string>if(aod.MDN_traderSlums3_Reward1 == false) rwd_civil(Trading);</string>
+        <string>aod.MDN_traderSlums3_Reward1 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 300 imperials.</text>
+          <def_link>5934</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 300</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5928</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5926</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It will serve you well,” says the man. “My old man called it Black Dow. Never did ask him why but it hardly matters now, does it? It's yours now so call it whatever you like.”</npc_text>
+      <onLoadScripts>
+        <string>aod.trader_slum_03_axe_bought = true;</string>
+        <string>dlgAddItemlist(UNIQUE_blackDow);</string>
+        <string>if(aod.trader_slum_03_axe_200) dlgChangeMoney(-200);</string>
+        <string>if(aod.trader_slum_03_axe_300) dlgChangeMoney(-300);</string>
+        <string>if(aod.trader_slum_03_axe_200 == false &amp;&amp; aod.trader_slum_03_axe_300 == false) dlgChangeMoney(-400);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5928</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5934</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(75, 40, 15);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5928</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You again? Whaddya want?"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_SlumsTrader3);</string>
+        <string>dlgCam(15, 40, 7, 6153);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"You still have that axe?"</text>
+          <def_link>5933</def_link>
+          <checkOnAppear>aod.trader_slum_03_axe_bought == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.trader_slum_03_haggled</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5936</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5928</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5930</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,650 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_tg3_foughtGuards</string>
+    </conditions>
+    <links>
+      <int>12</int>
+    </links>
+    <dlg_name>Quest_TG3_05</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Gate Guard</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You approach the gate. The guards you talked to earlier aren't there. The new guards look like veterans and are heavily armoured. Fighting your way through won't be easy.
+
+"Halt!" says one of the guards. "The town is sealed until further notice. Turn around and go back NOW!"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Talk_Gate_PC);</string>
+        <string>dlgRotateToChar(1, 1969);</string>
+        <string>dlgRotateToChar(1, 1970);</string>
+        <string>dlgCam(325, 45, 8, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Your order doesn't apply to me." Show him the Daratan ring.</text>
+          <def_link>2</def_link>
+          <checkOnAppear>dlgGetItemsCount(1330) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Let me pass." Show him the Imperial Guards mandate.</text>
+          <def_link>3</def_link>
+          <checkOnAppear>aod.quest_tg1_igStoleMandate || aod.quest_tg1_igForgeryPoor || aod.quest_tg1_igForgeryGood</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[impersonate][streetwise]"I'm on a mission of great importance. Unless you want to explain Lord Antidas why you thought that his mission could wait, open the fucking gate NOW!"</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.disguise + aod.streetwise) &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Consider other options.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>getnumberdead() &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>17</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You take a moment and carefully consider your options. You can order an attack and engage the guards in melee. Alternatively, you can order your men to fall back and put the armor-piercing bolts to good use.
+
+The crossbowman is going to be a problem either way though. His death would make your life a whole lot easier. Maybe you should try to distract the guards and send a man up there to get rid of him. Or you can ask one of your men to do the talking while you go there. If you are fast and quiet enough, you could make it.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Fall back and attack.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[charisma]Distract the guards and send one of your men to take care of the crossbowman.</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.gender == 0 &amp;&amp; aod.cha &gt;= 6) || (aod.gender == 1 &amp;&amp; aod.cha &gt;= 7)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[sneak]Send one of your men to distract the guards while you take care of the crossbowman.</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.sneak &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>22</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You strike up a conversation and keep the guards' attention occupied long enough to give your man enough time to sneak past them and up to the battlements.
+
+Alarmed, the crossbowman turns around but quickly disappears from view. The coast is clear.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>killRandomDeathPosition(1971);</string>
+        <string>aod.quest_tg3_thiefAtGate = 1;</string>
+        <string>dealXbowGate();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pretend to leave, then attack.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You take a moment and carefully consider your options. You can order an attack and engage the guards in melee. Alternatively, you can order your men to fall back and put the armor-piercing bolts to good use.
+
+The crossbowman is going to be a problem either way though. His death would make your life a whole lot easier. If only you had more men...</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Fall back and attack.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You attempt to engage the guards in a conversation but fail.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Fall back and attack.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]The guards spot you and raise the alarm.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Sneak_Fail);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way through.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You manage to get to the gate without being seen. The crossbowman remains unaware of your presence.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Sneak_Xbow_02);</string>
+        <string>dlgCam(245, 40, 11, 1);</string>
+        <string>rwd_civil(Sneak);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[sneak][critical strike]Kill the crossbowman.</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.sneak + aod.critical_strike) &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>24</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]The crossbowman pulls the trigger the moment he sees you emerging out of darkness. The bolt hits you in the shoulder, throwing you back and giving the crossbowman time to reload.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeCharacterHP(-7);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>sfxPlayOnce(AudioCsRangedBody01);</string>
+        <string>setgrouppassability(79, 58, 79, 57, 0, 1);</string>
+        <string>aod.quest_tg3_walkway = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way through.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You cut the crossbowman's throat and push his body aside.</npc_text>
+      <onLoadScripts>
+        <string>removeCharFromParty(1971);</string>
+        <string>killRandomDeathPosition(1971);</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Sneak_Xbow_01);</string>
+        <string>sfxPlayOnce(csSuccessMetal01);</string>
+        <string>setgrouppassability(79, 58, 79, 57, 0, 1);</string>
+        <string>aod.quest_tg3_walkway = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill the rest.</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - from a distance</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>addEnemyParty(tg3_guard, tg3_thieves);</string>
+        <string>addEnemyParty(tg3_thieves, tg3_guard);</string>
+        <string>aod.quest_tg3_fightGuards = true;</string>
+        <string>aod.quest_tg3_fight = true;</string>
+        <string>aod.gameplay_questTG3_fight = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>Move_Gate_Fight();</string>
+        <string>dlgTeleportToMarker(TM_Fight_Gate_PC);</string>
+        <string>dlgCam(160, 45, 12, 1);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - at close range</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>Move_Gate_Fight();</string>
+        <string>addEnemyParty(tg3_guard, tg3_thieves);</string>
+        <string>addEnemyParty(tg3_thieves, tg3_guard);</string>
+        <string>aod.quest_tg3_fightGuards = true;</string>
+        <string>aod.quest_tg3_fight = true;</string>
+        <string>aod.gameplay_questTG3_fight = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(160, 45, 12, 1);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"At once, &lt;master/mistress&gt;."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg3_talk = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pass through.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"The town is sealed until further notice. Turn around and go back NOW!"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Your order doesn't apply to me." Show him the Daratan ring.</text>
+          <def_link>2</def_link>
+          <checkOnAppear>dlgGetItemsCount(1330) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][impersonate]"I'm on a mission of great importance. Unless you want to explain to Lord Antidas why you thought that his mission could wait, open the fucking gate NOW!"</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.disguise + aod.streetwise) &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Fight your way through.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>isDead(1961) || isDead(1962) || isDead(1963)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Consider other options.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>getnumberdead() &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>17</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"Nice try."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Your order doesn't apply to me." Show him the Daratan ring.</text>
+          <def_link>2</def_link>
+          <checkOnAppear>dlgGetItemsCount(1330) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Let me pass." Show him the Imperial Guards mandate.</text>
+          <def_link>3</def_link>
+          <checkOnAppear>aod.quest_tg1_igStoleMandate || aod.quest_tg1_igForgeryPoor || aod.quest_tg1_igForgeryGood</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Fight your way through.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>isDead(1961) || isDead(1962) || isDead(1963)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>17</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Consider other options.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>getnumberdead() &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>17</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Lucius</speaker_name>
+      <npc_text>"&lt;charname&gt;!" You turn around and see Lucius and another man emerging from the shadows.
+
+"Some mercs are waiting for you outside the walls. Same outfit. Looks like we've made a lasting impression on them, so Cado sent me to lend you a hand. Sorry, I'm late. Had to tie up some loose ends first."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Lucius_PC);</string>
+        <string>dlgTeleportToMarker(TM_Lucius_Gate, 1110);</string>
+        <string>createByCharMarker("CM_Thief_TG3_04");</string>
+        <string>delCharTag(TeronKeyNPC, 1110);</string>
+        <string>addCharToParty(1110, tg3_thieves, fighter);</string>
+        <string>addCharToParty(1983, tg3_thieves, fighter);</string>
+        <string>dlgCam(225, 45, 8, 1110);</string>
+        <string>assignDialogue("", 1110);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Let's go."</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start TG3_03 (mercs)</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>apmsstartdialogue(quest_tg3_03);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"I don't know about any mission."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[impersonate][streetwise]"Were you supposed to? Does Lord Antidas have a habit of informing you about his latest plans? Listen, we're on the same side here. Don't make it difficult for me and I won't make it difficult for you. Now, open the gate, I've lost enough time chatting with you here."</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.disguise + aod.streetwise) &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Alright. If anyone asks you, you passed through before we closed the gate."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg3_talk = true;</string>
+        <string>rwd_civil(TG3_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pass through.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"If there was a mission, I'm sure Dellar would have told me."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]"Well, he didn't. Maybe he forgot. Maybe he wasn't told either. Considering this night's events, can you blame him for failing to mention something as obvious as "don't stop our own people, especially those who work for Lord Antidas"? However, this isn't about him. This is about you. Fate has given you a gift, a chance to show everyone that you can make decisions, that you can take justified risks, that even when everything else fails due to incompetence of others, you never fail to serve House Daratan."</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>10</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"One last time, the town is sealed until further notice. Turn around and go back NOW!"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way through.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>isDead(1961) || isDead(1962) || isDead(1963)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>17</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Consider other options.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>getnumberdead() &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>17</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Alright. I'll let you through. Good luck with your mission."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg3_talk = true;</string>
+        <string>rwd_civil(TG3_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pass through.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>The guards are dead, and the way out of the town is clear.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Open the gate and leave Teron.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Don't leave right now.</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>13</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

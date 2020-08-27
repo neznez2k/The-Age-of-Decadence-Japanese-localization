@@ -1,0 +1,217 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_mg1_persuaded_mercato</string>
+    </conditions>
+    <links>
+      <int>814</int>
+    </links>
+    <dlg_name>Mercato_01</dlg_name>
+    <def_link>819</def_link>
+    <def_speaker_name>Mercato</def_speaker_name>
+    <def_portrait>Mercato</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What do you want?"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_talked_mercato = true;</string>
+        <string>aod.quest_mg2_mercato = false;</string>
+        <string>dlgTeleportTo(138, 59, 0, E);</string>
+        <string>dlgTeleportTo(139, 59, 0, W, 1140);</string>
+        <string>useCameraBookmark(NPC_Mercato_Cam_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Is there any proof of what you've told me?"</text>
+          <def_link>818</def_link>
+          <checkOnAppear>aod.npc_antidas_metInMg2 &amp;&amp; aod.npc_mercato_talkedAboutProof == false &amp;&amp; aod.quest_mg2_finished == false &amp;&amp; aod.quest_mg2_infiltration</checkOnAppear>
+          <checksOnClick>
+            <string>aod.cha &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>816</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>820</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>819</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Missed me already?"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_talked_mercato = true;</string>
+        <string>aod.quest_mg2_mercato = false;</string>
+        <string>dlgTeleportTo(138, 59, 0, E);</string>
+        <string>dlgTeleportTo(139, 59, 0, W, 1140);</string>
+        <string>useCameraBookmark(NPC_Mercato_Cam_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Is there any proof of what you've told me?"</text>
+          <def_link>815</def_link>
+          <checkOnAppear>aod.npc_antidas_metInMg2 &amp;&amp; aod.npc_mercato_talkedAboutProof == false &amp;&amp; aod.quest_mg2_finished == false &amp;&amp; aod.quest_mg2_infiltration</checkOnAppear>
+          <checksOnClick>
+            <string>aod.cha &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>816</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>820</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>814</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[charisma failure]"I've told you all I know. Don't bother me again."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_mercato_failure = true;</string>
+        <string>aod.npc_mercato_talkedAboutProof = true;</string>
+        <string>remQuest(MG2b);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>820</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>818</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[charisma failure]"I told you all I know. Sorry."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_mercato_failure = true;</string>
+        <string>aod.npc_mercato_talkedAboutProof = true;</string>
+        <string>remQuest(MG2b);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>820</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>815</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[charisma success]"There is, but it's inside the barracks. If you're up for a little adventure, I can help you get inside. The rest is up to you. So, are you game?"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_mercato_help = true;</string>
+        <string>aod.global_teron_mercato_disposition = (aod.global_teron_mercato_disposition + 1);</string>
+        <string>aod.npc_mercato_talkedAboutProof = true;</string>
+        <string>aod.quest_mg2b_phase2 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I'll think about it."</text>
+          <def_link>817</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>816</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I'll be waiting for you at the entrance to the barracks, but you need the armor. Talk to old man Quintus. I've seen him parading around in an old Imperial Guard armor once, when he was drunk. He lives nearby. Let me show you..."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_quintus = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay Quintus a visit.</text>
+          <def_link>821</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>825</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>817</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>820</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Mercato leaves</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportTo(225, 59, 0, W, 1140);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>825</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - visit Quintus</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(169, 55, 0, W);</string>
+        <string>dlgTeleportTo(225, 59, 0, W, 1140);</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>821</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,937 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_mg9_caerTor &gt;= 1</string>
+    </conditions>
+    <links>
+      <int>102</int>
+    </links>
+    <dlg_name>Quest_MG9_03</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Paullus</def_speaker_name>
+    <def_portrait>Paullus</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Rumors floating around painted Gaius Aetius Paullus as a paranoid tyrant or a benevolent despot, but the man standing in front of you appears to be neither paranoid nor benevolent.
+
+He has an unmistakable aura of power and authority as do all men who are accustomed to being obeyed without question. In his world, his word is the law.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_paullus_met = true;</string>
+        <string>dlgTeleportToMarker(TM_DLG_Paullus_PC);</string>
+        <string>aod.quest_mg9_caerTor = 1;</string>
+        <string>Addjournalchar(paullus);</string>
+        <string>dlgCam(15, 45, 6, 8005);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Approach.</text>
+          <def_link>34</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Was there anything else?"</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(15, 45, 6, 8005);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Paullus_PC);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>103</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>102</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>103</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“&lt;charname&gt;, is it? Let me guess, your Lord wants me to break the siege and save his sorry ass. I’ll be honest with you. If Gaelius were still alive, I would have made a deal with him and nailed Meru to the highest cross for everyone to see.
+
+“But Gaelius is dead, thanks to your guild from what I hear, and his throne is occupied by his weakling nephew. So now I have to choose between a lunatic and a weakling, which isn’t the choice I thought I’d have to make, but the fates are cruel and like fucking with us, don’t they?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What do you want me to do then?”</text>
+          <def_link>35</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>34</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I assume you have a speech ready, otherwise you wouldn’t be here. So, go ahead, convince me.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I think you should join forces with Lord Meru and break the siege.”</text>
+          <def_link>36</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I think you should join forces with House Aurelian and help them take Ganezzar.”</text>
+          <def_link>39</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>35</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Why would I do that? Meru’s weak. He can’t even defend his own town.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“If he were strong, he wouldn’t need you. His weakness is an opportunity.”</text>
+          <def_link>37</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 9</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>38</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion]“So is Serenas, but you aren’t looking for a friend, are you? You’re choosing a faction to support.”</text>
+          <def_link>43</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 9</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>38</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>36</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“An opportunity for whom?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]“For both of us, of course. We’re casting our lot with Meru. This fact alone should tell you something.”</text>
+          <def_link>45</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 14</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>38</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>37</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“I've heard what you had to say,” says Paullus, ending the conversation. “You can return to Meru now. Tell him we'll sit this one out.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg9_caerTor = 2;</string>
+        <string>aod.jnl_MG_GNZ3 = 2;</string>
+        <string>if(aod.quest_mg9_teron == 0) {addQuest(MG_GNZ3_Teron); aod.quest_mg9_teron = 1;}</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to Teron. Maybe you can convince Antidas to break the siege.</text>
+          <def_link>73</def_link>
+          <checkOnAppear>aod.quest_mg9_teron &lt; 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>46</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>45</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - MG - Paullus refused</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_mg9_caerTor = 2;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.jnl_MG_GNZ3 = 2;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>46</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - MG - go to Teron</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.quest_mg9_caerTor = 2;</string>
+        <string>aod.jnl_MG_GNZ3 = 2;</string>
+        <string>switchMission("Teron_MG.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>73</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“Why should I choose the weak one and make the strong one my enemy?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]“House Aurelian is strong yet Serenas is weak. House Crassus is weak yet Meru’s creed is strong. Don’t make your decision based on how things were yesterday. Always keep an eye on the future.”</text>
+          <def_link>45</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 14</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>38</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][charisma]“Because Meru will always need you to keep Serenas at bay. You don’t want to outlive your usefulness, do you?”</text>
+          <def_link>45</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.cha) &gt;= 14</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>38</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>43</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Maybe. So what does Meru offer?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“If you keep &lt;Gaelius/Serenas&gt; at bay, he'll bless the Imperial Guards and declare them protectors of the Creed, the warriors of the Temple. As the Creed grows, the Imperial Guards – the Templars’ power – will grow with it. Meru will oversee all matters of faith, you will oversee the rest.”</text>
+          <def_link>42</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>38</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Protectors of faith,” says Paullus, mulling it over. “Well, I’ve gotta give it to Meru – that creed of his spreads like cockroaches. If he lives long enough, he will be able to take over everything without firing an arrow.
+
+“&lt;Gaelius/Serenas&gt; will be harder to deal with, but at least him I understand. Meru is too unpredictable.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What is your answer?”</text>
+          <def_link>44</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>42</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The offer's good,” says Paullus, “but Meru's unpredictable. Today he's the First Acolyte and we're the warriors of some temple. Tomorrow he might be a lord again, that temple all but forgotten and we with it.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][charisma]“There are no guarantees in this life, Dux. I’m offering you the opportunity of a lifetime, the opportunity you’ve been waiting for. Would you reject it because there might be some unforeseen issues down the road?”</text>
+          <def_link>45</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.cha) &gt;= 15</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>47</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][lore]“Then side with Serenas and pray that he will fulfill all his promises once you’ve done your part. You remember how House Aurelian treated the army in the past, don’t you?”</text>
+          <def_link>45</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.lore) &gt;= 15</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>47</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>44</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Alright,” Paullus says suddenly. “We'll side with Meru.
+
+“Now, tell me about the pyramid.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg9_caerTor = 5;</string>
+        <string>aod.npc_paullus_blows_alakia = 1;</string>
+        <string>if(isQuestAdded(MG_GNZ3_Teron) &amp;&amp; aod.jnl_MG_GNZ3_Teron &lt; 4) remQuest(MG_GNZ3_Teron);</string>
+        <string>rwd_civil(MG9_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“The pyramid?”</text>
+          <def_link>48</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>47</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“My legatus told me some very interesting things. Things that other people might consider ... disturbing. Since we're going to be partners, I'd like to hear your take on it.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“It’s a relic of the old days. If Meru wants to worship it, it’s his business.”</text>
+          <def_link>49</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“It’s a gateway to another realm. A way to bring back the Gods.”</text>
+          <def_link>55</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>48</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I was led to believe it’s more than an old relic,” says Paullus, his expression unreadable.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I was there too but I don’t recall seeing anything out of the ordinary.”</text>
+          <def_link>50</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>49</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Yet Meru’s loremasters spoke of the old gods. Of a way to bring them back. Do you claim to know nothing about it?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]“Meru’s been talking about the gods and bringing them back for years. Of course his people take it seriously. He wouldn’t have much of a creed if they didn’t.”</text>
+          <def_link>53</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>51</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]“These ruins stood there for hundreds of years. Don’t tell me that you think that Meru can wave a magic wand and pull a god out of the ruins like a rabbit out of a hat.”</text>
+          <def_link>53</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise == 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>52</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>50</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“That’s all there is to it?” asks Paullus, relaxing visibly.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“These ruins stood there for hundreds of years. Don’t tell me that you think that Meru can wave a magic wand and pull a god out of the ruins like a rabbit out of a hat.”</text>
+          <def_link>53</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 9</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>52</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>51</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“I guess not,” says Paullus. “We'll be ready to march in three days. For your own safety, I'd like you to travel with me.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg9_caerTor = 4;</string>
+        <string>aod.npc_paullus_blows_alakia = 0;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Travel to Ganezzar with Paullus and his army.</text>
+          <def_link>54</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>52</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“Maybe,” says Paullus but he doesn't sound convinced at all. “We'll be ready to march in three days. For your own safety, I'd like you to travel with me.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Travel to Ganezzar with Paullus and his army.</text>
+          <def_link>54</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>53</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“And how do the old gods fit into that bright future you’ve just painted?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“They don’t.”</text>
+          <def_link>56</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What if they can make the world better?”</text>
+          <def_link>57</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Think of the possibilities. With the Gods on our side, who would oppose us?”</text>
+          <def_link>59</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>55</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I think we’re in agreement then, &lt;master/mistress&gt; &lt;charname&gt;,” says Paullus.
+
+“We'll be ready to march in three days. For your own safety, I'd like you to travel with me.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Travel to Ganezzar with Paullus and his army.</text>
+          <def_link>54</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>56</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Did they?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“It’s different. There was a war.”</text>
+          <def_link>58</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>57</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’m soldier. There is always a war,” says Paullus.
+
+“We'll be ready to march in three days. For your own safety, I'd like you to travel with me.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Travel to Ganezzar with Paullus and his army.</text>
+          <def_link>54</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>58</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Who’d oppose *us*? No, &lt;master/mistress&gt; &lt;charname&gt;, the real question is, who’d oppose the gods, and the answer is, nobody, *including* us.
+
+“One way or another, we’ll have to serve them and I can’t say that I’m eager to put the yoke on my shoulders.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You’d deny the Gods?”</text>
+          <def_link>61</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What if they serve us?”</text>
+          <def_link>62</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>59</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’d deny anyone who wants me to kneel, regardless of the reasons,” says Paullus.
+
+“We'll be ready to march in three days. For your own safety, I'd like you to travel with me.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Travel to Ganezzar with Paullus and his army.</text>
+          <def_link>54</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>61</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You must be as wise as the Magi, &lt;charname&gt;, for they thought the exact same thing. Look at where it got us.
+
+“I’m a simple man, yet I know what the Magi didn’t. The strong doesn’t serve the weak. Usually, it’s the other way around. If these Gods of yours are as powerful as you think they are, we’ll be the ones doing the kneeling,” says Paullus.
+
+“We'll be ready to march in three days. For your own safety, I'd like you to travel with me.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Travel to Ganezzar with Paullus and his army.</text>
+          <def_link>54</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>62</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - MG - IG joins HC</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.gnz_siege_IG_sided_HC = true;</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.gnz_startSiegeEnd = 1;</string>
+        <string>aod.jnl_MG_GNZ3 = 3;</string>
+        <string>aod.quest_MG9_status = 2;</string>
+        <string>switchMission("Ganezzar Siege.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>54</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Now that’s a surprise,” says Paullus, looking at you with interest. “Meru’s position must be truly dire, if even those he trusts turn against him.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’m loyal to my guild not House Crassus. Master Strabos wants House Crassus to fall and I’m here to negotiate on behalf of House Aurelian.”</text>
+          <def_link>40</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>39</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Serenas must be even weaker than I thought,” observes Paullus, “if he lets the likes of Strabos pull his strings. Maybe I will side with Meru after all.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]“If you side with Serenas, the conflict will be over for good. House Aurelian will rule all and you’ll be his sword. If you side with Meru, you’ll have to fight House Aurelian sooner or later.”</text>
+          <def_link>63</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>66</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]“Serenas is weak but under your guidance he will grow into a man worthy of his uncle’s throne. Meru’s insanity will only get worse.”</text>
+          <def_link>63</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 13</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>66</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Meru’s playing with forces he doesn’t understand.” Tell Paullus what you saw.</text>
+          <def_link>65</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>40</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“You make it sound simple, yet this situation is anything but,” says Paullus, ending the conversation. “You can return to your masters now. Tell them we'll sit this one out.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg9_caerTor = 2;</string>
+        <string>aod.jnl_MG_GNZ3 = 2;</string>
+        <string>if(aod.quest_mg9_teron == 0) {addQuest(MG_GNZ3_Teron); aod.quest_mg9_teron = 1;}</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to Teron. Maybe you can convince Antidas to break the siege.</text>
+          <def_link>73</def_link>
+          <checkOnAppear>aod.quest_mg9_teron &lt; 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>46</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>63</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“All the more reasons to let House Aurelian handle it,” says Paullus, ending the conversation. “You can return to Meru now. Tell him we'll sit this one out.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg9_caerTor = 2;</string>
+        <string>aod.jnl_MG_GNZ3 = 2;</string>
+        <string>if(aod.quest_mg9_teron == 0) {addQuest(MG_GNZ3_Teron); aod.quest_mg9_teron = 1;}</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to Teron. Maybe you can convince Antidas to break the siege.</text>
+          <def_link>73</def_link>
+          <checkOnAppear>aod.quest_mg9_teron &lt; 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>46</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>65</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“So what do we get for propping up young Serenas and winning his first war for him?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“We’ll handle the business and administrative side. You’ll keep the cities safe. Serenas will seat in the big chair and look pretty.”</text>
+          <def_link>67</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>66</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Serenas has much to learn about statecraft. Until he does, he should appoint a consul for each city. A civilian consul for Maadoran, military consuls for Ganezzar and Teron. A five-year term.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“And then?”</text>
+          <def_link>68</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Teron?”</text>
+          <def_link>69</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>67</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“And then we’ll renegotiate,” Paullus says in a tone that doesn't accept any objections.
+
+The conflict between House Aurelian and House Crassus might be over soon but it merely sets the stage for a conflict between the Commercium and the Imperial Guards. Money vs the sword. Hard to say which one is heavier. Either way, it's five years down the road. If you're lucky, it will be someone else's problem to deal with.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What about Teron then?”</text>
+          <def_link>69</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>68</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“We’ll have to bring it back into the fold. The town’s lawless, from what I understand. A man I sent to keep order there – Marcus Carrinas – was cowardly assassinated. Our barracks were raided that same night. Surely you understand that the Imperial Guards won’t tolerate such a brazen and unprovoked attack.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Unprovoked? Carrinas was planning to overthrow Antidas and take over.”</text>
+          <def_link>71</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“And if we say no?”</text>
+          <def_link>70</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>69</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’m offering you an olive branch. Past transgressions all but forgotten, including your role in the assassination of Carrinas. If you say no, we’ll be forced to look into the circumstances and punish all those directly responsible. I wouldn’t be surprised if your name were at the very top of this list.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“We have a deal.”</text>
+          <def_link>74</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I'll think about it.” Go seek allies in Teron.</text>
+          <def_link>73</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>70</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’m not interested in conspiracy theories. Our senior officer was murdered in the line of duty, his soldiers killed as they slept. This attack will not go unanswered.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“And if we say no?”</text>
+          <def_link>70</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>71</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Excellent,” says Paullus, his face showing no emotions. “We'll be ready to march in three days. For your own safety, I'd like you to travel with me.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg9_caerTor = 3;</string>
+        <string>if(isQuestAdded(MG_GNZ3_Teron) &amp;&amp; aod.jnl_MG_GNZ3_Teron &lt; 4) remQuest(MG_GNZ3_Teron);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Travel to Ganezzar with Paullus and his army.</text>
+          <def_link>64</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>74</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - MG - IG joins HA</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.gnz_siege_IG_sided_HA = true;</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.gnz_startSiegeEnd = 1;</string>
+        <string>aod.jnl_MG_GNZ3 = 4;</string>
+        <string>aod.quest_MG9_status = 2;</string>
+        <string>switchMission("Ganezzar Siege.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>64</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

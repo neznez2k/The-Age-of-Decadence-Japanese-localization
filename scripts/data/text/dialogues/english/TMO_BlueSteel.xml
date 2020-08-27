@@ -1,0 +1,107 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.teron_outpostDaratan</string>
+      <string>aod.teron_outpostIG</string>
+    </conditions>
+    <links>
+      <int>1</int>
+      <int>0</int>
+    </links>
+    <dlg_name>TMO_BlueSteel</dlg_name>
+    <def_link>-1</def_link>
+    <def_speaker_name>Decanus</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The noise summons a Decanus bearing the Imperial Guards' insignia.
+
+"What happened here?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I managed to turn on the secondary mode. It will enrich steel with cobalt and infuse it with what we call magic, producing blue steel."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The noise summons a Decanus bearing the insignia of House Daratan.
+
+"What happened here?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"The smelter now outputs blue steel."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I'll believe it when I see it," declares the Decanus, looking at you with suspicion.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Wait for the smelter to produce the first batch.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I'll be damned," says the Decanus, looking at the still hot ingots. "Take them, you've earned it."</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(TRN_Mine_06);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>if(aod.teron_outpostDaratan) rwd_reputation(Mine_05);</string>
+        <string>if(aod.teron_outpostIG) rwd_reputation(Mine_06);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Thanks." Leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

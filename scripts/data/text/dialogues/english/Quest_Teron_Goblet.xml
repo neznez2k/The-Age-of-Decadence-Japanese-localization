@@ -1,0 +1,597 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_goblet_fight</string>
+    </conditions>
+    <links>
+      <int>920</int>
+    </links>
+    <dlg_name>Quest_Teron_Goblet</dlg_name>
+    <def_link>903</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You wait for the nightfall and go to the house Cado described. The house is small but well built. The door is sturdy and locked fast. One of the windows leads into a small office with a desk and a chest.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(quest_goblet_cam_01);</string>
+        <string>TeronNightTime();</string>
+        <string>dlgSetAnimation(anim_stealth_00, 0);</string>
+        <string>dlgTeleportTo(127, 92, 0, NW);</string>
+        <string>dlgUnequipHands(1);</string>
+        <string>dlgHideNPCs();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lockpick]Lockpick the door.</text>
+          <def_link>904</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lockpick &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>905</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[lockpick]Lockpick the window.</text>
+          <def_link>916</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lockpick &gt;= 3 &amp;&amp; aod.traps &lt; 3 &amp;&amp; aod.dodge &lt; 3</string>
+            <string>aod.lockpick &gt;= 3 &amp;&amp; aod.traps &gt;= 3</string>
+            <string>aod.lockpick &gt;= 3 &amp;&amp; aod.traps &lt; 3 &amp;&amp; aod.dodge &gt;= 3</string>
+            <string>aod.lockpick &gt;= 3 &amp;&amp; aod.traps &lt; 3 &amp;&amp; aod.per &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>917</int>
+            <int>918</int>
+            <int>922</int>
+            <int>918</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>903</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You try to open the lock, but the mechanism is too complex.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(124, 98, 0, W);</string>
+        <string>useCameraBookmark(quest_goblet_cam_07);</string>
+        <string>dlgStealthPose(1);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lockpick]Lockpick the window.</text>
+          <def_link>916</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lockpick &gt;= 3 &amp;&amp; aod.traps &lt; 3 &amp;&amp; aod.dodge &lt; 3</string>
+            <string>aod.lockpick &gt;= 3 &amp;&amp; aod.traps &gt;= 3</string>
+            <string>aod.lockpick &gt;= 3 &amp;&amp; aod.traps &lt; 3 &amp;&amp; aod.dodge &gt;= 3</string>
+            <string>aod.lockpick &gt;= 3 &amp;&amp; aod.traps &lt; 3 &amp;&amp; aod.per &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>917</int>
+            <int>918</int>
+            <int>922</int>
+            <int>918</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave without the goblet.</text>
+          <def_link>914</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>904</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You explore the lock with your picks, building up a mental picture of the lock. When you see the lock as clearly as if it was wide open in front of you, you carefully push out the bolt locking down the pins, push them up one by one, align, and then rotate the plug until the lock is open.
+
+You open the door just enough to get in and step inside. You're standing in a dark corridor. To your right is a large room, serving as both a bedroom and a kitchen. Belios and his brother seem to be sleeping. To your left are two rooms: a storage room and a small office.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(121, 98, 0, W);</string>
+        <string>useCameraBookmark(quest_goblet_cam_02);</string>
+        <string>dlgStealthPose(1);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>rwd_civil(Lockpick);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Explore the storage room.</text>
+          <def_link>906</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Explore the office.</text>
+          <def_link>909</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>905</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You try to open the lock but fail.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(121, 92, 0, N);</string>
+        <string>dlgStealthPose(1);</string>
+        <string>useCameraBookmark(quest_goblet_cam_08);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave without the goblet.</text>
+          <def_link>914</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>916</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[lockpick success][traps failure]The deadbolt keeping the window locked doesn't give you much trouble. You push the window open, but for some reasons the window resists and you have to put some effort to open it fully. At that moment something clicks and two bolts hit you in the chest lifting you off the window and throwing you to the ground. The third bolt misses you, but it's small comfort.
+
+Your death is quick, but painful. By the time you realize that your life is about to end, the darkness is already washing away the pain.</npc_text>
+      <onLoadScripts>
+        <string>tbd_quest_01.setMeshHidden(FLOOR1_EXTERIOR_win01_, true);</string>
+        <string>useCameraBookmark(quest_goblet_cam_08);</string>
+        <string>dlgTeleportTo(121, 92, 0, N);</string>
+        <string>dlgSetAnimation(anim_death_forward04, 0.90);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go into the light.</text>
+          <def_link>919</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>917</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[lockpick success][traps failure][dodge success]The deadbolt keeping the window locked doesn't give you much trouble. You push the window open, but for some reasons the window resists and you have to put some effort to open it fully. An unseen mechanism clicks, sending three bolts in your direction.
+
+You start moving the moment you hear the click and manage to dodge two bolts. The third one lodges deep in your shoulder, causing great pain and discomfort. Wincing, you break off the bolt and take a deep breath to gather your strength.</npc_text>
+      <onLoadScripts>
+        <string>tbd_quest_01.setMeshHidden(FLOOR1_EXTERIOR_win01_, true);</string>
+        <string>useCameraBookmark(quest_goblet_cam_08);</string>
+        <string>dlgStealthPose(1);</string>
+        <string>dlgTeleportTo(121, 92, 0, N);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgChangeCharacterHP(-30);</string>
+        <string>rwd_civil(Lockpick);</string>
+        <string>dlgAddStatPenalty("con", 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Explore the cabinet.</text>
+          <def_link>909</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>922</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]The deadbolt keeping the window locked doesn't give you much trouble. You push the window open, but for some reasons the window resists. You examine it carefully and notice a thin rope disappearing into the frame. Opening the window seems to be drawing some hidden string. You look around and notice several holes near the ceiling. They are aimed at the window.
+
+You move to the side, taking cover behind the wall, and cut the rope. Nothing happens. The way is clear.</npc_text>
+      <onLoadScripts>
+        <string>tbd_quest_01.setMeshHidden(FLOOR1_EXTERIOR_win01_, true);</string>
+        <string>useCameraBookmark(quest_goblet_cam_08);</string>
+        <string>dlgStealthPose(1);</string>
+        <string>dlgTeleportTo(121, 92, 0, N);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>rwd_civil(Lockpick);</string>
+        <string>rwd_civil(Traps);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Explore the cabinet.</text>
+          <def_link>909</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>918</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>There are several sacks with vegetables and an old chest filled with junk.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_goblet_storage = true;</string>
+        <string>dlgTeleportTo(118, 95, 0, S);</string>
+        <string>useCameraBookmark(quest_goblet_cam_04);</string>
+        <string>dlgStealthPose(1);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[perception]Look through the junk.</text>
+          <def_link>907</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>908</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>906</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You look through the junk but find nothing.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Explore the office.</text>
+          <def_link>909</def_link>
+          <checkOnAppear>aod.quest_goblet_success == false &amp;&amp; aod.quest_goblet_lock_fail == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Explore the bedroom looking for the key.</text>
+          <def_link>911</def_link>
+          <checkOnAppear>aod.quest_goblet_key</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>914</def_link>
+          <checkOnAppear>aod.quest_goblet_success</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>907</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You look through the junk. At first you see nothing, but then notice several roots of Quicksilver, carefully wrapped in oily parchment.</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(1806, 2);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Explore the office.</text>
+          <def_link>909</def_link>
+          <checkOnAppear>aod.quest_goblet_success == false &amp;&amp; aod.quest_goblet_lock_fail == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Explore the bedroom looking for the key.</text>
+          <def_link>911</def_link>
+          <checkOnAppear>aod.quest_goblet_key</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>914</def_link>
+          <checkOnAppear>aod.quest_goblet_success</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>908</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You see a small desk littered with ledger sheets, a shelf with some cans, and a reinforced chest, bolted to the floor.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(122, 95, 0, E);</string>
+        <string>useCameraBookmark(quest_goblet_cam_03);</string>
+        <string>dlgStealthPose(1);</string>
+        <string>tbd_quest_01.setMeshHidden(FLOOR1_EXTERIOR_win01_, false);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lockpick]Open the lock.</text>
+          <def_link>910</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lockpick &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>915</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Explore the storage room.</text>
+          <def_link>906</def_link>
+          <checkOnAppear>aod.quest_goblet_storage == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>909</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You try to open the lock but the mechanism is too complex.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_goblet_key = true;</string>
+        <string>aod.quest_goblet_lock_fail = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave the chest alone and explore the bedroom.</text>
+          <def_link>911</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave the chest alone and explore the storage room.</text>
+          <def_link>906</def_link>
+          <checkOnAppear>aod.quest_goblet_storage == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>910</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You probe the lock with your picks. It's a clever lock and it takes you awhile to figure out its design, but eventually the lock capitulates and clicks. Inside the chest you find the prized goblet, a few steel ingots, and a handful of coins.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_goblet_success = true;</string>
+        <string>dlgAddItemlist(goblet_reward);</string>
+        <string>rwd_civil(Lockpick);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take everything and leave.</text>
+          <def_link>914</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Take everything and explore the storage room.</text>
+          <def_link>906</def_link>
+          <checkOnAppear>aod.quest_goblet_storage == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>915</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You enter the bedroom. Belios and his brother are sleeping. There is a small night table between the beds and a chest with linen.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(121, 101, 0, W);</string>
+        <string>useCameraBookmark(quest_goblet_cam_05);</string>
+        <string>dlgStealthPose(1);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[sneak]Check the night table.</text>
+          <def_link>912</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.sneak &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>913</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Explore the storage room.</text>
+          <def_link>906</def_link>
+          <checkOnAppear>aod.quest_goblet_storage == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave without the goblet.</text>
+          <def_link>914</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>911</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]One of the floor boards creaks and Belios immediately jumps up. When he sees you, he grabs a spiked club and charges at you, screaming, "Thief!" His brother rolls off the bed, picks up a hammer and moves toward you.</npc_text>
+      <onLoadScripts>
+        <string>dlgCreateCharacter("Belios", 1600, 1600, 119, 101, 0, E);</string>
+        <string>dlgCreateCharacter("Elias", 1601, 1601, 118, 102, 0, E);</string>
+        <string>dlgSetAnimation(anim_dodge_back, 0.1);</string>
+        <string>addParty(BeliosParty, 0);</string>
+        <string>addCharToParty(1600, BeliosParty, fighter);</string>
+        <string>addCharToParty(1601, BeliosParty, fighter);</string>
+        <string>dlgSetCombatAnimation(1600);</string>
+        <string>dlgSetCombatAnimation(1601);</string>
+        <string>dlgShowNPCs();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>921</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Run away.</text>
+          <def_link>914</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>912</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You move like a ghost, making no sound at all. The key is on the night table.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(117, 102, 0, W);</string>
+        <string>dlgStealthPose(1);</string>
+        <string>useCameraBookmark(quest_goblet_cam_06);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>rwd_civil(Sneak);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take it and return to the chest in the office.</text>
+          <def_link>920</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>913</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You open the chest with the key and find the prized goblet, a few steel ingots, and a handful of coins.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_goblet_success = true;</string>
+        <string>aod.quest_goblet_key = false;</string>
+        <string>useCameraBookmark(quest_goblet_cam_03);</string>
+        <string>dlgTeleportTo(122, 95, 0, E);</string>
+        <string>dlgStealthPose(1);</string>
+        <string>dlgAddItemlist(goblet_reward);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.quest_goblet_fight = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take everything and leave.</text>
+          <def_link>914</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Take everything and explore the storage room.</text>
+          <def_link>906</def_link>
+          <checkOnAppear>aod.quest_goblet_storage == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>920</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>BlackSplash.command = "";</string>
+        <string>BlackOut.command = "dlgFinish(); setRtsCam(); dlgTeleportTo(136, 91, 0, N); dlgShowNPCs(); TeronDayTime(); startBlackSplash();";</string>
+        <string>startBlackOut();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>914</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>919</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>addEnemyToParty(1, BeliosParty);</string>
+        <string>setRtsCam();</string>
+        <string>aod.quest_goblet_fight = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>921</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

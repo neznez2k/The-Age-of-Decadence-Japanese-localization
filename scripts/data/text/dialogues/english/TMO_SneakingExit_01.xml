@@ -1,0 +1,100 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>TMO_SneakingExit_01</dlg_name>
+    <def_link>5</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The guards are still outside, seemingly unaware of your presence.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Return to Teron.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>if(aod.quest_teronMine_tubeStolen &amp;&amp; aod.quest_teronMine_reportToDellar &amp;&amp; dlgOwnsItem(1600) == false) {aod.quest_teronMine_reportToDellar = false; aod.quest_teronMine_reportDelayed = true;}</string>
+            <string>if(aod.quest_teronMine_tubeStolen &amp;&amp; aod.quest_teronMine_reportDelayed &amp;&amp; dlgOwnsItem(1600)) {aod.quest_teronMine_reportToDellar = true; aod.quest_teronMine_reportDelayed = false;}</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Kill them. Just to be sure.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>You aren't ready to leave yet.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgSetCombatAnimation(1994);</string>
+        <string>dlgSetCombatAnimation(1996);</string>
+        <string>dlgSetCombatAnimation(1997);</string>
+        <string>dlgSetCombatAnimation(1998);</string>
+        <string>dlgSetCombatAnimation(1999);</string>
+        <string>dlgSetCombatAnimation(2000);</string>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>addEnemyToParty(1, AurelianMineOutside);</string>
+        <string>addEnemyToParty(1, AurelianMineInside);</string>
+        <string>aod.quest_teronMine_killedFromInside = true;</string>
+        <string>aod.gameplay_questMine_fight = true;</string>
+        <string>aod.quest_teronMine_sneakExplore = false;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go to Dellar</npc_text>
+      <onLoadScripts>
+        <string>moveNPCinside();</string>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_teronMine_sneakExplore = false;</string>
+        <string>switchMission("Teron.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_SneakExit_PC_02);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

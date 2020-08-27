@@ -1,0 +1,254 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>dlgGetPercentageHP() &lt;= 50 || dlgGetCureStatPrice(all) &gt;= 1</string>
+    </conditions>
+    <links>
+      <int>3</int>
+    </links>
+    <dlg_name>Teron_Doctor</dlg_name>
+    <def_link>12</def_link>
+    <def_speaker_name>Medicus</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Need something?"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Healer_PC_01);</string>
+        <string>dlgTeleportToMarker(TM_Healer_NPC_01, 1905);</string>
+        <string>useCameraBookmark(NPC_Doctor_Cam_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"A few stitches here and there."</text>
+          <def_link>6</def_link>
+          <checkOnAppear>dlgGetPercentageHP() &lt; 100 || dlgGetCureStatPrice(all) &gt; 0</checkOnAppear>
+          <checksOnClick>
+            <string>dlgGetCureStatPrice(all) &gt;= 1</string>
+            <string>dlgGetPercentageHP() &lt;= 15</string>
+            <string>dlgGetPercentageHP() &gt;= 70</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>13</int>
+            <int>7</int>
+            <int>4</int>
+          </linksOnClick>
+          <scriptsOnClick>
+            <string>getStatHealPrice();</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Another time."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You don't look too well. Do you want me to patch you up?"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Healer_PC_01);</string>
+        <string>useCameraBookmark(NPC_Doctor_Cam_01);</string>
+        <string>dlgTeleportToMarkerTM_Healer_NPC_01, 1905);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Sure."</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetCureStatPrice(all) &gt;= 1</string>
+            <string>dlgGetPercentageHP() &lt;= 15</string>
+            <string>dlgGetPercentageHP() &gt;= 70</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>13</int>
+            <int>7</int>
+            <int>4</int>
+          </linksOnClick>
+          <scriptsOnClick>
+            <string>getStatHealPrice();</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Another time."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Let me see," says the healer. "A few cuts and bruises. Possibly a concussion. Nothing modern medicine can't fix. &lt;HitPointsHealPriceLow&gt; imperials."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Fix me up."</text>
+          <def_link>1</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= $HitPointsHealPriceLow</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgChangeMoney(-$HitPointsHealPriceLow);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Another time."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Let me see," says the healer. "A penetrating skull fracture. Intracranial bleeding. Subdural hematoma. You can probably walk it off, but if you're in a hurry, I can certainly be of help here. &lt;HitPointsHealPriceMed&gt; imperials and you'll be as good as new. Maybe even better."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Fix me up."</text>
+          <def_link>1</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= $HitPointsHealPriceMed</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgChangeMoney(-$HitPointsHealPriceMed);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Another time."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Let me see," says the healer. "Several skull fractures. Intracranial bleeding. Cerebral contusion. Multiple organ failures. Internal bleeding. Frankly, I'm surprised you're still breathing. It appears that your armor is holding you in one piece. Most remarkable.
+
+"Fortunately for you, we have no shortage of fresh cadavers with plenty of spare parts. In fact, I have a piece of cranium that will fit this hole perfectly. If you have &lt;HitPointsHealPriceHigh&gt; imperials, we can start right now."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Fix me up."</text>
+          <def_link>1</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= $HitPointsHealPriceHigh</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgChangeMoney(-$HitPointsHealPriceHigh);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Another time."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[stat damage]"Let me see," says the healer. "Several skull fractures. Intracranial bleeding. Cerebral contusion. Multiple organ failures. Internal bleeding. Frankly, I'm surprised you're still breathing. It appears that your armor is holding you in one piece. Most remarkable.
+
+"Fortunately for you, we have no shortage of fresh cadavers with plenty of spare parts. In fact, I have a piece of cranium that will fit this hole perfectly. If you have &lt;healStatPrice&gt; imperials, we can start right now."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Fix me up."</text>
+          <def_link>8</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= $statHealPrice</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgChangeMoney(-$statHealPrice);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Another time."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>CURE - HP</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>cheatHP();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>CURE - stats</npc_text>
+      <onLoadScripts>
+        <string>dlgCureStat(all);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>cheatHP();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

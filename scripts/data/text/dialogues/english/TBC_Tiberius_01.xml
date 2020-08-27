@@ -1,0 +1,66 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>TBC_Tiberius_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Tiberius</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I won't forget it," whispers the man weakly.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Tiberius_PC_01);</string>
+        <string>useCameraBookmark(Quest_Bandit_Camp_Cam_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take the prisoner to Dellar.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Take a look around before leaving.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go to Teron</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_teronRaider_reportToDellar = true;</string>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>switchMission("Teron.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - look around</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

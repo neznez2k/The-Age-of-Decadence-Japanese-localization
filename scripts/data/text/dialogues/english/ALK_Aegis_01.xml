@@ -1,0 +1,108 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>ALK_Aegis_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You see a strange metal casket standing upright. You recall a tale a caravan master once told you. The demons summoned by the Qantari could not be killed: neither cold steel nor fire could harm them. So one by one they were captured and locked away for good. Could it be?</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Open the casket.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Stay away.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - take the armor</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgAddItem(2220, 1);</string>
+        <string>VCO_AegisLocker.setActive(0);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You open the door and recoil in horror as the light reflects off a dozen eyes staring at you. It takes you a moment to realize that you’re looking not at a demon but at a strange, almost grotesque set of armor you’ve ever seen.
+
+The helmet reminds you of the murmillo helmet, but it’s perfectly round and much bigger and heavier. There are sixteen eyeholes covered with thick glass, suggesting that the helmet is immovable. Such armor would be worse than useless in combat, yet it was crafted with great care and precision.
+
+There is a single word engraved on it – Aegis.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Take the armor.</text>
+          <def_link>5</def_link>
+          <checkOnAppear>aod.lore &lt; 7</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[lore]Examine it.</text>
+          <def_link>4</def_link>
+          <checkOnAppear>aod.lore &gt;= 7</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[lore success]You remember an old tale of a giant called Aegir who had such a terrifying visage that even beasts and monsters dwelling in the darkest corners of the world were afraid of him. Thus he could travel freely where no other man – not even the greatest of the Magi – could follow.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Take the armor.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Quest_TG7_Scolopendra</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You take another step and then you see *it* as it starts uncoiling. It’s a desert scolopendra – a very aggressive and poisonous centipede, preying on anything that walks or crawls. Its powerful legs are fast enough to outrun a man and its back plates are as hard as any armor. The horn-covered jaws sport a pair of sharp and curved fangs that inject poison as they tear into flesh.
+
+The scolopendra hisses and raises itself up, getting ready to strike.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(0, 45, 10, 260);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>What are you waiting for? Kill it!</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetAttitude(260, 1, -10);</string>
+        <string>dlgRotateToChar(1, 260);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

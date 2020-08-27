@@ -1,0 +1,380 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>MDN_GateSlums_01</dlg_name>
+    <def_link>4769</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You arrive at the infamous Maadoran Slums, greeted only by an oppressive silence settling around you. Filth-clad figures pay you little notice as they paw through refuse piled against dilapidated buildings, yet you can feel hostile eyes watching you from the shadows.
+
+You're keenly aware that even the Guard have long since chalked this place up as a loss. Their patrol routes avoid the squalid maze of collapsed buildings and make-shift shelters. The only authority in here is the Thieves’ Guild.
+
+You can just make out their headquarters in the distance – the shattered dome of the High Temple, an everlasting mockery that serves as a reminder of this district’s fall from its former grandeur.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Gate_AD_to_SD);</string>
+        <string>useCameraBookmark(CAM_introSlums_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Explore.</text>
+          <def_link>4778</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Go back.</text>
+          <def_link>4771</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4769</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Leon</speaker_name>
+      <npc_text>“You must be lost,” says a man in his fifties, looking at you with interest. “People who don't belong here don't come often, so they always stand out.
+
+“I'm Leon. It's been more than twenty years since I've ended up in the Slums. I thought I wouldn't last a day, yet here I am.”</npc_text>
+      <onLoadScripts>
+        <string>aod.mdn_explore_gateSlums = true;</string>
+        <string>createByCharMarker("CM_Leon");</string>
+        <string>dlgTeleportToMarker(TM_LeonIntro_01);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>useCameraBookmark(CAM_introSlums_02);</string>
+        <string>revealMapLocation("MaadoranSlums");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What do you want?”</text>
+          <def_link>4779</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4778</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Leon</speaker_name>
+      <npc_text>“An honest pay for an honest day’s work. No more, no less. You’ve heard about the Slums, yes? It’s not for the faint-hearted. So, what you need is a local guide, to keep the riff-raff away from you and you away from the riff-raff. It’s almost like two jobs in one, but I’ll ask only for a hundred coins, if you can spare it.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Alright. Here is the money.”</text>
+          <def_link>4781</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 100</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“No, thanks.” Leave.</text>
+          <def_link>4780</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4779</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Leon</speaker_name>
+      <npc_text>“Follow me then. I’ll take you through the district and show you all the places of interest. You know, the Slums isn’t as bad as some people paint it. It has a certain charm, once you get used to the smell. Anyway, let’s go. Time’s money and I’d hate to charge you extra.”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-100);</string>
+        <string>aod.quest_slumsAmbush_01_activated = true;</string>
+        <string>dlgChangeMoney(100, 5215);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Follow him.</text>
+          <def_link>4782</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4781</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Thug</speaker_name>
+      <npc_text>You follow Leon down what used to be a street, trying to stay clear from piles of refuse and dead bodies. Suddenly, a dirty-looking man pops out of nowhere, blocking your way.
+
+“Well, well, well,” says the man, almost too fast to understand. “What do we have here? A new arrival? Nah, too clean for that. A lost sheep that strayed away from the shepherds? That’s more like it, ain’t it?”
+
+Glancing around, you see more figures crawling out of the ruins to join this game. “Thought I was here all by myself, did ya?” says the man, grinning proudly. “Think again.”</npc_text>
+      <onLoadScripts>
+        <string>createByCharMarker("CM_Slums_Fighter_01");</string>
+        <string>createByCharMarker("CM_Slums_Fighter_02");</string>
+        <string>createByCharMarker("CM_Slums_Fighter_03");</string>
+        <string>createByCharMarker("CM_Slums_Fighter_04");</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_SlumsEntranceAmbush_01);</string>
+        <string>dlgTeleportToMarker(TM_SlumsEntranceAmbush_02, 5215);</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>4783</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4782</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Leon</speaker_name>
+      <npc_text>“Are you fucking with me, shit-for-brains?” snaps Leon, transforming from a friendly old man to a psychotic lunatic with bulging eyes. “Think you can come and take what’s mine? Get the fuck out of my way or I’ll fucking end you!”
+
+“Calm down, we didn’t see you there, that’s all,” says the dirty-looking man, taking a step back. “No need for the theatrics, Leon.”
+
+“See what I told you? Fucking savages,” says Leon, wiping off his mouth. “Let’s go or we’ll be here all day.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Follow him.</text>
+          <def_link>4787</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Maybe now would be a good time to part ways with Leon.</text>
+          <def_link>4784</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4783</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Leon</speaker_name>
+      <npc_text>“What?” blinks Leon. “Don't tell me my little show scared you, friend. These people, they don't understand a different language. You know, keep company with wolves and you'll learn to howl. So, come, I have much to show you.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Follow him.</text>
+          <def_link>4787</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4770</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4784</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Leon</speaker_name>
+      <npc_text>“Well, fuck you too,” says Leon. “Hey, rat-face, &lt;he/she&gt;'s all yours.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_leon_leftAtAmbush = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>4773</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4770</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start ambush</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>dlgDeleteCharacter(5215);</string>
+        <string>sd(MDN_SlumsAmbush_01);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4773</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Leon</speaker_name>
+      <npc_text>He takes you to an abandoned alley and whistles twice. Several men emerge out of the ruined buildings and stroll towards you.
+
+“This picturesque view completes the tour,” says Leon, smiling wide. “It’s going to be your resting place, so I hope you like it.”</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>createByCharMarker("CM_Leon_Merc_01");</string>
+        <string>createByCharMarker("CM_Leon_Merc_02");</string>
+        <string>createByCharMarker("CM_Leon_Merc_03");</string>
+        <string>dlgTeleportToMarker(TM_LeonAlley_01);</string>
+        <string>dlgTeleportToMarker(TM_LeonAlley_02, 5215);</string>
+        <string>addParty(LeonAmbush, 0);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>4788</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[thief]“Fuck off. I’m working for Levir.”</text>
+          <def_link>4789</def_link>
+          <checkOnAppear>aod.pc_member_thieves</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[praetor]“I’m a praetor of House Aurelian.”</text>
+          <def_link>4789</def_link>
+          <checkOnAppear>aod.pc_member_aurelian</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]“I’m working for the guild. So, if you know what’s good for you, you best be on your way.”</text>
+          <def_link>4789</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 3 &amp;&amp; aod.pc_member_thieves == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[guard]“I’m an Imperial Guard. Stand aside, vermin!”</text>
+          <def_link>4789</def_link>
+          <checkOnAppear>aod.pc_member_guards</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4787</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - leave Slums</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Gate_SD_to_AD);</string>
+        <string>setRtsCam();</string>
+        <string>schedule(50, 0, centerCamera, 315, 40, 20);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4771</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - gate</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgDeleteCharacter(5215);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4780</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT 2</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addCharToParty(5215, LeonAmbush, fighter);</string>
+        <string>addCharToParty(5216, LeonAmbush, fighter);</string>
+        <string>addCharToParty(5217, LeonAmbush, fighter);</string>
+        <string>addCharToParty(5218, LeonAmbush, fighter);</string>
+        <string>addEnemyToParty(1, LeonAmbush);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>aod.fight_slumsLeon = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4788</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Leon</speaker_name>
+      <npc_text>“It doesn't matter what you are now. The proverbial wheels are already in motion. Don’t worry, they will never find you. The rats will see to that.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Wait! I have money!”</text>
+          <def_link>4790</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Kill the fuckers.</text>
+          <def_link>4788</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4789</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Leon</speaker_name>
+      <npc_text>“I certainly hope you do. It wouldn’t be worth the trouble, if you were as broke as us, would it?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>4788</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4790</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

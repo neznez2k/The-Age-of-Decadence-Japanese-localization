@@ -1,0 +1,348 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>TSQ_Gang</dlg_name>
+    <def_link>2594</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You see a small group of thugs harassing the passersby while drinking wine. It might be wiser to turn around.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(TSQ_Gang_cam_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Keep walking.</text>
+          <def_link>2595</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Turn around.</text>
+          <def_link>2607</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2594</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Seeing that you're alone, the thugs come to the conclusion that you'd make an easy victim. Encouraging each other with shouts, they block the road and wait for your approach.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportTo(177, 69, 0, W, 7490);</string>
+        <string>if(aod.tsq_gang_north) TSQGangNorth();</string>
+        <string>if(aod.tsq_gang_south) TSQGangSouth();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Attack them from a distance.</text>
+          <def_link>2606</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Approach.</text>
+          <def_link>2596</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2595</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Thug</speaker_name>
+      <npc_text>"Where do you think you're going, dumb fuck?" one of the thugs inquires.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>if(aod.tsq_gang_north) {dlgTeleportTo(116, 53, 0, S);}</string>
+        <string>if(aod.tsq_gang_south) {dlgTeleportTo(117, 50, 0, N);}</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way through.</text>
+          <def_link>2606</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[critical strike]Slit his throat.</text>
+          <def_link>2609</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>ownsSmallDagger() &amp;&amp; aod.critical_strike &gt;= 3</string>
+            <string>ownsSmallDagger() &amp;&amp; aod.critical_strike &lt; 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2598</int>
+            <int>2597</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[thief]"You fuck with me, you fuck with Cado. The last man who made this mistake choked on his own balls. Not a good way to go, trust me."</text>
+          <def_link>2599</def_link>
+          <checkOnAppear>aod.pc_member_thieves</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[praetor]"I'm a praetor of House Daratan!"</text>
+          <def_link>2604</def_link>
+          <checkOnAppear>aod.pc_member_daratan</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2596</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Thug</speaker_name>
+      <npc_text>[failure]Your aim is off and your blade hits his collar bone instead of his throat. The thug yells in pain and attacks.</npc_text>
+      <onLoadScripts>
+        <string>equipDaggerCS();</string>
+        <string>dlgChangeCharacterHP(-15, 3001);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetCombatAnimation(3001);</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>2606</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2597</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Thug</speaker_name>
+      <npc_text>[success]Your dagger flashes up, slicing the thug's throat in one fluid motion – splattering the rest of his gang with blood. As he collapses, you prepare yourself to deal with the others.</npc_text>
+      <onLoadScripts>
+        <string>equipDaggerCS();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>dlgSetAnimation(anim_death_back04, 0.95, 3001);</string>
+        <string>dlgKillCharacter(3001);</string>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+        <string>dlgCsRepTrain(1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>2606</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2598</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Thug</speaker_name>
+      <npc_text>"Cado? We didn't know..."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Now that you *do* know, what are you going to do about it?"</text>
+          <def_link>2600</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2599</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Thug</speaker_name>
+      <npc_text>"We have some money," says the thug pleadingly.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"It's a start."</text>
+          <def_link>2601</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2600</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Thug</speaker_name>
+      <npc_text>"How much do you want?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'll take half."</text>
+          <def_link>2602</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Everything."</text>
+          <def_link>2603</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2601</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Thug</speaker_name>
+      <npc_text>The thugs pool up their coins and count them several times, arguing amongst themselves as they do so, before handing you your share.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(73);</string>
+        <string>dlgChangeMoney(-15, 3005);</string>
+        <string>dlgChangeMoney(-16, 3003);</string>
+        <string>dlgChangeMoney(-15, 3002);</string>
+        <string>dlgChangeMoney(-27, 3001);</string>
+        <string>rwd_quest(TRN_Gang_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2608</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2602</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Thug</speaker_name>
+      <npc_text>"Fuck it, let's just kill &lt;him/her&gt;!" yells one of the thugs. "Cado will never know."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>2606</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2603</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Thug</speaker_name>
+      <npc_text>"You bleed like the rest of them, don't you?" snaps the thug angrily.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Teach the youngsters some respect.</text>
+          <def_link>2606</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2604</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addEnemyToParty(1, TeronGang01);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>aod.tsq_gang_finished = true;</string>
+        <string>dlgShowWeapons();</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2606</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - turn around</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>if(aod.tsq_gang_north) aod.tsq_gang_north = false;</string>
+        <string>if(aod.tsq_gang_south) aod.tsq_gang_south = false;</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2607</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - leave</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>TSQGangOrigin();</string>
+        <string>aod.tsq_gang_finished = true;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2608</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Too bad you don't have a small dagger. Oh well...</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>2606</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2609</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

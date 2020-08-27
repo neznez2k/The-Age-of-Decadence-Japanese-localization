@@ -1,0 +1,1128 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_hector_fight == 1</string>
+      <string>aod.quest_hector_02 == 1</string>
+      <string>aod.quest_gnz_milt_02 == 3</string>
+      <string>aod.npc_hector_owe_money == 1</string>
+      <string>aod.npc_hector_refused || aod.npc_hector_refused_Q1</string>
+      <string>aod.npc_hector_reported_darganus</string>
+      <string>aod.npc_hector_met</string>
+    </conditions>
+    <links>
+      <int>24</int>
+      <int>45</int>
+      <int>13</int>
+      <int>18</int>
+      <int>12</int>
+      <int>34</int>
+      <int>13</int>
+    </links>
+    <dlg_name>GNZ_NPC_Hector_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Hector</def_speaker_name>
+    <def_portrait>Hector</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You see a man in his fifties standing at the street corner. He has a deep-lined face, slightly bulging blue eyes, and an easy confidence, which seems out of place in Lowtown.
+
+“The blessing of the Gods be upon you,” he says in a raspy voice when you approach.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(325, 45, 6, 9010);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Hector);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’m looking for Hector. Tycho sent me.”</text>
+          <def_link>2</def_link>
+          <checkOnAppear>aod.npc_hector_intro</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m looking for Hector. Claudia sent me.”</text>
+          <def_link>36</def_link>
+          <checkOnAppear>aod.quest_darganus_01 == 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Hector?”</text>
+          <def_link>21</def_link>
+          <checkOnAppear>aod.quest_darganus_02 == 3 || aod.quest_gnz_milt_01 == 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Keep walking,” says Hector when you approach.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(325, 45, 6, 9010);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Hector);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I came to warn you. Darganus is planning a massacre.”</text>
+          <def_link>37</def_link>
+          <checkOnAppear>aod.quest_gnz_milt_01 == 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I changed my mind. The city must be cleansed."</text>
+          <def_link>8</def_link>
+          <checkOnAppear>aod.npc_hector_refused_Q1 == 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>aod.npc_hector_refused_Q1 = 0;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Is it done?” asks Hector when you approach.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(325, 45, 6, 9010);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Hector);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Bernie sends best wishes and 500 imperials.”</text>
+          <def_link>16</def_link>
+          <checkOnAppear>aod.quest_hector_01 == 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I had to kill him and his guards.”</text>
+          <def_link>14</def_link>
+          <checkOnAppear>aod.quest_hector_01 == 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Darganus got what he deserved.”</text>
+          <def_link>33</def_link>
+          <checkOnAppear>aod.npc_darganus_cross &amp;&amp; aod.npc_hector_reported_darganus == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Miltiades won't bother us again.”</text>
+          <def_link>44</def_link>
+          <checkOnAppear>aod.quest_gnz_milt_02 == 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Are you ready?” asks Hector when you approach.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(325, 45, 6, 9010);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Hector);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Yes." Wait until dark and pay Lord Darganus a visit.</text>
+          <def_link>31</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>45</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I don't have anything for you yet,” says Hector.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(325, 45, 6, 9010);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Hector);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.global_ganezzar_completed &amp;&amp; aod.quest_gnz_milt_02 == 0 &amp;&amp; aod.npc_miltiades_lord &amp;&amp; aod.npc_miltiades_dead == false</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>43</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>34</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Do you have the money?”</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(325, 45, 6, 9010);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Hector);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Give him 1,000 imperials.</text>
+          <def_link>17</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 1000</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(325, 45, 12);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Tycho, eh? He’s a righteous man. He doesn’t send me people too often, so consider it a high praise. You think you’re worthy of it?” He stares at you for a while as if trying to peel you with his eyes, layer by layer, until nothing but your bare soul remains.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_hector_met = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I am.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“He sent me to you, so it’s for you to decide.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Cocky. I like that. They call Ganezzar the Holy City. You think it’s holy?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Without a doubt! When the Gods return they will smile upon those who live here and follow the teachings of Meru, the First Acolyte.”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I don’t see anything holy about it.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Of course it’s for me to decide,” says Hector, frowning. “They call Ganezzar the Holy City. You think it’s holy?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Without a doubt! When the Gods return they will smile upon those who live here and follow the teachings of Meru, the First Acolyte.”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I don’t see anything holy about it.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You’re nuttier than Tycho. I can see why he took such a liking to you.” He gives you a long, hard look.
+
+“They call it a holy city but it isn’t. They call it all kinds of names and take pride in them because words are cheap and deeds are rare. Meru had one good idea – no man should say that he’s above others, yet there are plenty who stick to the old ways.
+
+“We tried to change that, so they put the guards everywhere and barred our way uptown. You look different and these rules won’t apply to you. You see where I’m going with it?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Just tell me what you need.”</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Well, at least you’re honest. Now here is a quality you don’t see often these days.” He gives you a long, hard look.
+
+“They call it a holy city but it isn’t. They call it all kinds of names and take pride in them because words are cheap and deeds are rare. Meru had one good idea – no man should say that he’s above others, yet there are plenty who stick to the old ways.
+
+“We tried to change that, so they put the guards everywhere and barred our way uptown. You look different and these rules won’t apply to you. You see where I’m going with it?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Just tell me what you need.”</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Look around. I see men and women living in squalor, eating rats and roots. Yet those who live in the upper districts, those who call us brothers and sisters share neither our hardships nor food from their tables. They tell us they’ve earned it, but I say that the Gods blessed them with their fortunes and this blessing was meant to be shared not hoarded,” Hector says angrily.
+
+“What do you think about that, &lt;brother/sister&gt;?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Expropriate the expropriators? Sign me up!”</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’ll pass.”</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>aod.npc_hector_refused_Q1 = true;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Tycho was right about you,” says Hector, looking satisfied. “There is a trader by the name of Berengarius who refuses to share his fortune with the needy. He thinks that the guards can protect him. I want you to pay him a visit and remind him about his duty to those less fortunate.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_hector_01 = 1;</string>
+        <string>aod.jnl_GNZ_Hector_01 = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“And if he refuses?”</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Kill him. This will send the message to others.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“There are others?”</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The righteous path is hard. Most people need help staying on it.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - refused</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.npc_hector_refused = true;</string>
+        <string>dlgCam(325, 45, 12);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It had to be done,” nods Hector. “Give me a thousand imperials, the rest is yours.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Give him 1,000 imperials.</text>
+          <def_link>17</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 1000</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“He didn't have that much.”</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Hector fixes you with his eyes. “That's what Berengarius kept telling me. Look where it got him,” he says after a long pause. “You owe me a thousand coins. We'll talk more when you pay.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_hector_owe_money = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Give him 1,000 imperials.</text>
+          <def_link>17</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 1000</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It's for a good cause,” says Hector, accepting the money.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-500);</string>
+        <string>rwd_quest(Hector_01);</string>
+        <string>aod.jnl_GNZ_Hector_01 = 3;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“So now what?”</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It's for a good cause,” says Hector, accepting the money.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-1000);</string>
+        <string>aod.npc_hector_owe_money = 2;</string>
+        <string>rwd_quest(Hector_01);</string>
+        <string>aod.jnl_GNZ_Hector_01 = 3;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“So now what?”</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Claudia thinks there's hope for you yet, but she's an impressionable girl."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_darganus_intro = 2;</string>
+        <string>aod.quest_darganus_01 = 5;</string>
+        <string>rwd_quest(Hector_01);</string>
+        <string>aod.jnl_GNZ_Darganus_01 = 5;</string>
+        <string>aod.npc_hector_met = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"That's one way of putting it."</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>36</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I have a special job for you,” says Hector. “Some might say it crosses the line, but we can’t do much if we stay within the boundaries forced upon us by the nobles, can we?” He gives you a long, measuring look.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_hectorQ2_accepted = true;</string>
+        <string>if(aod.quest_hector_01 != 0) aod.quest_hector_01 = 4;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Which line in particular?”</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Did you notice that no lord has been punished for blasphemy yet? The laws of men were always too lenient on the noble-born, but the Gods’ laws are the same for all men, aren’t they? The punishment should be the same too. No man is above the Gods. No man,” repeats Hector for emphasis.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So you're going to –”</text>
+          <def_link>27</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Claudia</portrait>
+      <speaker_name>Claudia</speaker_name>
+      <npc_text>“We’re going to do what the guards are unwilling to do,” says a young woman, walking towards you.
+
+She is young but her eyes are burning with the fire of fanaticism. Her beliefs are all that matters. She doesn’t speak; she pronounces judgement, ready to fulfill it.
+
+“Claudia and her men will go with you,” says Hector.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>createByCharMarker("CM_Claudia");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Who’s the lucky man?”</text>
+          <def_link>28</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>27</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Claudia</portrait>
+      <speaker_name>Claudia</speaker_name>
+      <npc_text>“Lord Darganus,” says Claudia, the word ‘lord’ is the only proof of the man’s guilt she needs. “He’s been asking for it for a very long time.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Asking for what?”</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>28</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Claudia</portrait>
+      <speaker_name>Claudia</speaker_name>
+      <npc_text>“The cross, what else? We’re going to decorate the Temple district and splash some color,” says the woman, smirking.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_hector_02 = 1;</string>
+        <string>addQuest(GNZ_Hector_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What about his guards?”</text>
+          <def_link>30</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Shaking down traders is one thing. Murdering nobles is another.”</text>
+          <def_link>32</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>29</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“They’re your problem. Why do you think I’m bringing you along?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Alright, let’s do it.” Wait until dark and pay Lord Darganus a visit.</text>
+          <def_link>31</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'll go get ready then." Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Find someone else, I'm out.” Walk away.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>aod.quest_hector_02 = 0;</string>
+            <string>remQuest(GNZ_Hector_02);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+      </answers>
+      <UID>30</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“&lt;charname&gt;,” says Hector, preparing to appeal to reason. “Brother Meru changed everything when he renounced the title and started talking to us. He gave us hope and he showed the way, but not everyone is willing to follow him. Some nobles just call themselves our brothers and think that’s enough. Others don’t do even that. They are the poison that should be removed.
+
+“We *have* to send a message. Embrace our faith or leave this city.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Alright, let’s do it.” Wait until dark and pay Lord Darganus a visit.</text>
+          <def_link>31</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'll go get ready then." Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Find someone else, I'm out.” Walk away.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>aod.quest_hector_02 = 0;</string>
+            <string>remQuest(GNZ_Hector_02);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+      </answers>
+      <UID>32</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go to Darganus after dark</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_hector_02 = 2;</string>
+        <string>aod.jnl_GNZ_Hector_02 = 1;</string>
+        <string>switchMission("Quest_Darganus_Fight.mis");</string>
+        <string>dlgDeleteCharacter(9032);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>31</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Who wants to know?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“My name is &lt;charname&gt;. Maybe you've heard of me.”</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_tycho_dead</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>26</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Darganus' lapdog,” nods Hector. “They say you killed Claudia. That girl had spirit.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“And now I'm here to kill you.”</text>
+          <def_link>23</def_link>
+          <checkOnAppear>aod.quest_darganus_02 == 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I came to warn you. Darganus is planning a massacre.”</text>
+          <def_link>37</def_link>
+          <checkOnAppear>aod.quest_gnz_milt_01 == 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Darganus' lapdog,” nods Hector. “They say you killed Tycho and Claudia. That girl had spirit.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“And now I'm here to kill you.”</text>
+          <def_link>23</def_link>
+          <checkOnAppear>aod.quest_darganus_02 == 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I came to warn you. Darganus is planning a massacre.”</text>
+          <def_link>37</def_link>
+          <checkOnAppear>aod.quest_gnz_milt_01 == 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>26</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Figured as much. Well, come with me then. Don't worry, no surprises. Me and two of my men. As fair as it gets these days.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Follow Hector.</text>
+          <def_link>35</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Walk away.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go to house</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>switchMission("Quest_Hector_Fight.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>35</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Hector takes you to one of the same-looking houses. Two men get up when you enter the room: a tall, scarred Skanian leaning on his warhammer and a dark-skinned crossbowman.
+
+“&lt;He/She&gt; killed Claudia,” says Hector instead of introduction.
+
+The Skanian points at you with his hammer, his face twisted with hate. “It's called That Which Kills in my language,” he growls, expecting you to be impressed.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_hector_dead = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addEnemyToParty(1, HectorParty);</string>
+        <string>aod.fight_hector_01 = 1;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Never thought I'd see the day,” says Hector. “A noble crucified like a common thief. He won't be the last, I promise you that. They can't stop us now.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_hector_reported_darganus = true;</string>
+        <string>setAchievement("ACH_HECTOR");</string>
+        <string>aod.npc_hector_miltiades = 1;</string>
+        <string>rwd_quest(Hector_02);</string>
+        <string>aod.jnl_GNZ_Hector_02 = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>33</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Is he now?” asks Hector, looking like he doesn’t believe a single word that comes out of your mouth. “And why do you care all of a sudden?”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_gnz_milt_01 = 3;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“I don’t. Darganus promised to pay me but didn’t. Just making sure he'll regret it.”</text>
+          <def_link>38</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>39</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion]“Because the city will burn if he attacks Lowtown. He doesn’t get it but I do. Help me stop him.”</text>
+          <def_link>38</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>39</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[reputation: Crassus]“Suffice to say, I’m starting to see things your way. Maybe things should be different, you know?”</text>
+          <def_link>38</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(crassus) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>39</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>37</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“If they come, we'll be ready. Now piss off.”</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_GNZ_Darganus_03 = 6;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>38</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Even if I did believe you, Darganus doesn’t have enough men to attack Lowtown.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_gnz_milt_01 = 4;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“He does now. He reached out to Maadoran and they sent him enough men to pacify Lowtown for good. The first group arrived today. The rest is coming tomorrow.”</text>
+          <def_link>40</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>39</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I did see some men passing through,” says Hector. “They looked like hired thugs.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Because that’s what they are, Hector. You have to strike tonight because tomorrow it will be too late.”</text>
+          <def_link>41</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>40</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Alright,” says Hector. “Truth to be told, Darganus should have been dealt with a long time ago. We can count on you, right?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Absolutely.” Wait until dark and lead the zealots into an ambush.</text>
+          <def_link>42</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>41</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start Quest_Milt_01</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>switchMission("Quest_Darganus_Fight.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>42</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Wait, there is something. A Maadoran lord arrived this morning. He brought some fighting men with him and I want to know what it’s all about. Take a look, will you? He's staying at the inn.
+
+“If he doesn't have a good reason to be here, tell him to leave while he can.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_gnz_milt_02 = 1;</string>
+        <string>aod.jnl_GNZ_Hector_03 = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Alright.” Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>43</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Thank you,” says Hector. “I knew I could count on you.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_gnz_milt_02 = 4;</string>
+        <string>aod.jnl_GNZ_Hector_03 = 3;</string>
+        <string>rwd_quest(GNZ_Miltiades_03);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>44</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

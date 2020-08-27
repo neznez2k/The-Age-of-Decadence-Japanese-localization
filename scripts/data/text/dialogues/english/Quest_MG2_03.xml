@@ -1,0 +1,162 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Quest_MG2_03</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Mercato</def_speaker_name>
+    <def_portrait>mercato</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>Thug</speaker_name>
+      <npc_text>Two door thugs bar the entrance: "We are full. Fuck off."</npc_text>
+      <onLoadScripts>
+        <string>if (aod.quest_mg2_neleos == false)  aod.quest_mg2_visited_tavern = true;</string>
+        <string>useCameraBookmark(Quest_MG2_Cam_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_mg2_neleos == false</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You're about to leave when the door opens and Mercato steps outside. "Missed me already?"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_visited_tavern = true;</string>
+        <string>dlgTeleportTo(137, 66, 0, N, 1140);</string>
+        <string>dlgTeleportTo(137, 67, 0, S);</string>
+        <string>useCameraBookmark(Quest_MG2_Cam_02);</string>
+        <string>aod.npc_mercato_barracks = true;</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Is there any proof of what you've told me?"</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.cha &gt;= 7 &amp;&amp; aod.quest_mg1_persuaded_mercato</string>
+            <string>aod.cha &gt;= 9 &amp;&amp; aod.quest_mg1_persuaded_mercato == false</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3</int>
+            <int>3</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[charisma failure]"I told you all I know. Sorry."</npc_text>
+      <onLoadScripts>
+        <string>remQuest(MG2b);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[charisma success]"There is, but it's inside the barracks. If you're up for a little adventure, I can help you get inside. The rest is up to you."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_mercato_help = true;</string>
+        <string>aod.global_teron_mercato_disposition = (aod.global_teron_mercato_disposition + 1);</string>
+        <string>aod.quest_mg2b_phase2 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I'll think about it."</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I'll be waiting for you at the entrance to the barracks, but you need the armor. Talk to old man Quintus. I've seen him parading around in an old Imperial Guard armor once, when he was drunk. He lives nearby. Let me show you..."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_quintus = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay Quintus a visit.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - visit Quintus</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(169, 55, 0, W);</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(225, 59, 0, W, 1140);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportTo(137, 67, 0, N);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(225, 59, 0, W, 1140);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

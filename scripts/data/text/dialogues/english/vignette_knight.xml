@@ -1,0 +1,721 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.vignette_knight_head_none</string>
+      <string>aod.vignette_knight_head_fake</string>
+      <string>aod.vignette_knight_head_real</string>
+    </conditions>
+    <links>
+      <int>21</int>
+      <int>22</int>
+      <int>23</int>
+    </links>
+    <dlg_name>vignette_knight</dlg_name>
+    <def_link>1</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>アンティダス</speaker_name>
+      <npc_text>アンティダス卿は現在の、そしておそらくは最後のダラタン家の当主である。彼はかつての栄光をダラタンに取り戻す指導者になると予言され、彼自身もその予言に揺るぎない信を置き、ダラタンの敵に対して何度となく果敢な攻撃を加えた。しかしアンティダスと彼の家の双方にとって残念なことに、その予言が果たされることはなく、ダラタン家に悲惨な結果がもたらされた。砦を一つと軍団を二つ失い、アンティダスの領地は崩れ落ちた町と小さな衛兵の連隊にまで減少し、栄光への希望はゆっくりと消え去っていった。
+
+「やあ、&lt;charname&gt;。あの殺人の話はもう知っているか？　商人たちはこの町で稼げる一握りのコインを巡って殺し合いをしている。いつもならそんな些細なことは気に留めないんだが、殺された男は私の庇護を得るために貢ぎ物──あるアーティファクトを持ってきていたんだ。それを取り戻さなければならない」</npc_text>
+      <onLoadScripts>
+        <string>aod.vignette_knight_looking = false;</string>
+        <string>aod.vignette_knight_armor = false;</string>
+        <string>useCameraBookmark(NPC_Antidas_Cam_01);</string>
+        <string>dlgTeleportTo(170, 229, 0, N);</string>
+        <string>dlgRotateToChar(1060);</string>
+        <string>setPassability(155, 218, 0, 1);</string>
+        <string>setPassability(155, 219, 0, 1);</string>
+        <string>setPassability(155, 222, 0, 1);</string>
+        <string>setPassability(155, 223, 0, 1);</string>
+        <string>PG_HelpText_01.setVisible(false);</string>
+        <string>addJournalChar(antidas);</string>
+        <string>remQuest(VignettePraetor);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「直ちに、閣下」</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>「何を探せばいいのですか？」</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[etiquette success]「この町を仕切っている商人のギルドに勧告いたします、閣下。ですが私はそのような任務に適した装備を持っていないような気がします」</text>
+          <def_link>3</def_link>
+          <checkOnAppear>aod.etiquette &gt;= 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>アンティダス</speaker_name>
+      <npc_text>「地図だ。その商人は私に謁見を求める手紙を送っていた。手紙には古代の地図のことが書かれていて、彼が言うには、私にとってとても興味深いものだろう、と」</npc_text>
+      <onLoadScripts>
+        <string>aod.vignette_knight_looking = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「直ちに、閣下」</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[etiquette success]「この町を仕切っている商人のギルドに勧告いたします、閣下。ですが私はそのような任務に適した装備を持っていないような気がします」</text>
+          <def_link>3</def_link>
+          <checkOnAppear>aod.etiquette &gt;= 2 &amp;&amp; aod.vignette_knight_armor == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>アンティダス</speaker_name>
+      <npc_text>「デラーと話しなさい」</npc_text>
+      <onLoadScripts>
+        <string>aod.vignette_knight_armor = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「直ちに、閣下」</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>「何を探せばいいのですか？」</text>
+          <def_link>2</def_link>
+          <checkOnAppear>aod.vignette_knight_looking == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>君は豪華に飾り付けられたコンメルキウムのホールに足を踏み入れた。壁にかけられた質の良いタペストリーから金箔の花瓶に複雑に彫られた石細工に至るまで、どこを見ても富の証を見て取れた。金が力であるとすれば、このインテリアはコンメルキウムが非常に力をもったギルドであるというメッセージを伝えるようにデザインされていた。</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(137, 108, 0, N);</string>
+        <string>if(aod.vignette_knight_armor) {dlgAddItem(415, 1); dlgEquipItem(415);}</string>
+        <string>useCameraBookmark(Location_MG_Cam_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>リノスのオフィスへ行く。</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Linos</portrait>
+      <speaker_name>リノス</speaker_name>
+      <npc_text>リノス・ザ・スカルの愛称は彼の外見からきており、その外見は何十年にもわたり商人ギルドに奉仕してきたことからきている。その奉仕は、青い目をして波立つ鳶色の髪の熱心な若者を、暗い窩の奥にほとんど色のない冷たい眼が収まっているはげ頭の冷淡な老人へと変貌させた。リノスにとってビジネスはボードゲームだった。彼は”人間的な要素”を一切考慮することなく、駒を動かし戦略を実行した。邪魔な人間がいるということは、良い機会を逃す理由にはならない。
+
+リノスの唇が笑顔に似た形にねじれる。「どういったご用件でしょうか？」</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(134, 118, 0, N);</string>
+        <string>useCameraBookmark(NPC_Linos_cam_01);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>addJournalChar(linos);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「どういったご用件？　&lt;omae/anata&gt;があの商人を殺すと決めた時点で、この＊ご用件＊を予想できたはず&lt;da/yo&gt;。彼はうちのボスに贈り物を持ってきていた。そして…」</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Linos</portrait>
+      <speaker_name>リノス</speaker_name>
+      <npc_text>「…そして、それを返して欲しいと。わかりました。一時間以内にアンティダス卿にお届け致します。他に何かお役に立てる事は？」</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>「アンティダス卿はこれを忘れられない経験にすることをお望み&lt;da/yo&gt;。教訓を与えなくてはならない」</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Linos</portrait>
+      <speaker_name>リノス</speaker_name>
+      <npc_text>リノスの唇が再びねじれる。「これも手配致します。贈り物を一つと運の悪い私の仲間の首を一つ、あなたの主にお届けしましょう」</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>「それでいい&lt;mu/wa&gt;」</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intelligence success][streetwise]「商人のローブを着た物乞いの首など欲しくない。この殺しを企てた奴を連れて&lt;kurunda/kinasai&gt;」</text>
+          <def_link>18</def_link>
+          <checkOnAppear>aod.int &gt;= 7</checkOnAppear>
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>11</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Linos</portrait>
+      <speaker_name>リノス</speaker_name>
+      <npc_text>「どうぞこのささやかなプレゼントをお受け取りください……ご理解頂けたお礼に」</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(150);</string>
+        <string>dlgAddTextBoxMessage("君は１５０インペリアルを得た");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「&lt;omae/anata&gt;と私の仲じゃない&lt;ka/mu&gt;」</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Linos</portrait>
+      <speaker_name>リノス</speaker_name>
+      <npc_text>[failure]「信じてください、&lt;charname&gt;。ダラタン家を相手に駆け引きをしようなどと、考えもしていません」</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>「いい&lt;darou/desyou&gt;」</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Linos</portrait>
+      <speaker_name>リノス</speaker_name>
+      <npc_text>[success]リノスは君の目を見据え、その決意を読み取ろうとした。そして死角にいた衛兵に合図をする。</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(vignetteKnight_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>待つ。</text>
+          <def_link>32</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>一分後、商人が部屋に入ってきた。
+
+「ゼノン。ダラタン家の執政官である&lt;charname&gt;を紹介しよう。&lt;kare/kanozyo&gt;はお前と話したいことがあるそうだ。内密にな」　リノスは部屋を出て行った。</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(127, 119, 0, S, 1080);</string>
+        <string>dlgTeleportTo(134, 119, 0, S, 1090);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「教えて&lt;kure/tyoudai&gt;、ゼノン。この町が誰のものか、知っている&lt;ka/mu&gt;？」</text>
+          <def_link>27</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>32</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>ゼノン</speaker_name>
+      <npc_text>「アンティダス卿のものです」</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>「では何故アンティダス卿の庇護を求める客人を襲っていいと思った&lt;nda/no&gt;？　彼の庇護を無視する&lt;omae/anata&gt;は一体何者な&lt;nda/no&gt;？」</text>
+          <def_link>28</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>27</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>ゼノン</speaker_name>
+      <npc_text>「ですが、リノス様が……」</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>「主の無分別は許される……&lt;daga/demo&gt;卑しい召使いはそうではない。それを理解しているの&lt;ka/mu&gt;？」</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>28</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>ゼノン</speaker_name>
+      <npc_text>ゼノンの顔が蒼白になった。</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>彼の喉を掻き切る。</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>「&lt;omae/anata&gt;の命は今、私の手の中にある。それが&lt;omae/anata&gt;にとって価値があるというなら、引き換えに何を私に差し出す？」</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>29</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>君は慣れた動きで短剣を彼の喉に突き刺し、後ろに下がった。ゼノンは血を噴き出しながら膝をつき、それでもなお数秒は生きられるという現実にもがいていた。</npc_text>
+      <onLoadScripts>
+        <string>delCharTag(TeronKeyNPC, 1090);</string>
+        <string>dlgEquipItem(102);</string>
+        <string>dlgChangeRep(bodycount, 1);</string>
+        <string>aod.npc_zenon_dead = true;</string>
+        <string>dlgSetAnimation(anim_death_aimed_head, 0.5, 1090);</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>待つ。</text>
+          <def_link>31</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>使用人が二人で新しいカーペットを運び込んできて、会釈をしてドアのそばで控えている。彼らの顔には何の感情も見えない。コンメルキウムではこれが日常なのか？</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(132, 119, 0, E, 1580);</string>
+        <string>dlgTeleportTo(132, 118, 0, E, 1590);</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>dlgRotateToChar(1580);</string>
+        <string>useCameraBookmark(vignette_knight_cam_01);</string>
+        <string>dlgSetAnimation(anim_death_aimed_head, 0.99, 1090);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「彼の首をアンティダス卿へ届けて&lt;kure/tyoudai&gt;」出て行く。</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>31</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>ゼノン</speaker_name>
+      <npc_text>「何を差し上げたら良いでしょうか？」</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>「３００インペリアル」</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>「私を驚かせてみ&lt;ro/nasai&gt;」</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>「この貸しはいつか返してもらう&lt;mu/wa&gt;」彼を行かせてやってから出て行く。</text>
+          <def_link>21</def_link>
+          <checkOnAppear>aod.coudlntaddanything</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>ゼノン</speaker_name>
+      <npc_text>「この小瓶をどうぞ。在りし日の遺物です。ネロの興奮剤と呼ばれています。戦闘の際に少しの間、反射神経と反応速度を速めてくれます。戦士にとっては、とても貴重な贈り物です。」</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItemlist(vignette_praetor_NS);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「いい&lt;darou/desyou&gt;。次からは気をつける&lt;ndana/none&gt;、ゼノン」出て行く。</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>ゼノン</speaker_name>
+      <npc_text>ゼノンは安堵のため息をつき、震える手で小銭入れを取り出し、お金を数えようとするが失敗したので、君にそのまま手渡した。
+
+＊３１２インペリアルを得た＊</npc_text>
+      <onLoadScripts>
+        <string>dlgAddTextBoxMessage("You gain 312 imperials");</string>
+        <string>dlgChangeMoney(312);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「次からは気をつける&lt;ndana/none&gt;、ゼノン」出て行く。</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>アンティダス</speaker_name>
+      <npc_text>「よくやった！　リノスが自分で地図を届けてくれたよ。気前の良い貢ぎ物と一緒にな。お前の伝言がよほど効いたとみえる」</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(NPC_Antidas_Cam_01);</string>
+        <string>dlgTeleportTo(170, 229, 0, N);</string>
+        <string>rwd_quest(vignettePraetor);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「ありがとうございます、閣下。」</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>アンティダス</speaker_name>
+      <npc_text>「よくやった！　リノスが自分で地図を届けてくれたよ。気前の良い貢ぎ物と、哀れなならず者の首と一緒にな。お前の伝言がよほど効いたとみえる。お前は有能なやつだ、&lt;charname&gt;。正しい導きがあれば、お前は成功を収めるだろう」
+
+「血で教えられなかった教訓はすぐに忘れ去られるということを、理解している者は少ない。」彼は指輪を外し、君に手渡した。</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(NPC_Antidas_Cam_01);</string>
+        <string>dlgTeleportTo(170, 229, 0, N);</string>
+        <string>rwd_quest(vignettePraetor);</string>
+        <string>dlgAddItem(1310, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「ありがとうございます、閣下。」</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>アンティダス</speaker_name>
+      <npc_text>「よくやった！　リノスが自分で地図を届けてくれたよ。気前の良い貢ぎ物と、ゼノンの首と一緒にな。お前の伝言がよほど効いたとみえる。お前は有能なやつだ、&lt;charname&gt;。冷酷さもある。正しい導きがあれば、お前は成功を収めるだろう」
+
+「お前には、為すべきことをする稀有な能力がある。そして、血で教えられなかった教訓はすぐに忘れ去られるということも理解しているようだ」彼は机の中に手を伸ばし、巻物を取り出して君に手渡した。
+
+「”フロス・デュエルトルム”のことを聞いたことがあるか？　戦いの花という意味だ」彼は記憶の中から暗唱してみせる。「”戦争、暴動、決闘のさなかに武器を持つ者たちへ”戦闘は究極の芸術だと考えられていた時代に書かれた、戦闘技術に関する素晴らしい論文だ。残念ながら、私が持っているのはその一部──短剣の章のみ。多くが失われてしまった……いくつか写本を作ってきたが、その一つをお前にやろう」</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(NPC_Antidas_Cam_01);</string>
+        <string>dlgTeleportTo(170, 229, 0, N);</string>
+        <string>rwd_quest(vignettePraetor);</string>
+        <string>dlgDeleteCharacter(1090);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>巻物を読む。</text>
+          <def_link>24</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>アンティダス</speaker_name>
+      <npc_text>”…顔に突きつけられた剣に対して、肘を上げ短剣で左側へと払う。右足で距離を詰め、敵が剣を持っている腕を掴む。これにより、相手は安全な距離に逃げることができなくなる。この有利な位置取りができれば、短剣による突きで敵を片付けることができる。”
+
+これは役に立ちそうだ。</npc_text>
+      <onLoadScripts>
+        <string>if(aod.dagger &gt;= 2) {dlgChangeTraining(dagger, 5); dlgAddTextBoxMessage("Your attack rating when using daggers has increased by 5 points.");}</string>
+        <string>if(aod.dagger &lt; 2) {dlgChangeSkill(dagger, 1); dlgAddTextBoxMessage("Your Dagger skill has increased.");}</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>他の章はどこにあるんでしょうか？</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>アンティダス</speaker_name>
+      <npc_text>「探すのは無理だろう。この論文がどれだけ古いか知っているか？　何世紀も前だ！　数枚残っていただけでも運がいいんだぞ。だが、幸運にも他の部分を見つけられたなら、必ず私のところへ持ってきなさい」</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>「そうします、閣下」</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>アンティダス</speaker_name>
+      <npc_text>「お前は運命を信じるか？　&lt;charname&gt;」君が答える前に、アンディダスは続けた。「私は十年以上をかけて神殿を探し、予言を成就させようとしてきた。財を費やし認めがたくなるほどに多くの人員を失い、そして諦めようとしたちょうどその時、もう一つの地図が現れた。偶然だと？　私はそんなものは信じない」
+
+「全ての人間には運命を変えるチャンスが与えられているという。矮小な身を抜け出し不死を得て、私欲を超えた偉大なる目的のために我が身を供するチャンスが。運命がお前をこの地図へ導き、そして神殿へをも導くだろう」</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>「神殿？　予言？　もう一つの地図？」</text>
+          <def_link>34</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>26</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>アンティダス</speaker_name>
+      <npc_text>「今はまだその時ではない。より難しい問題をお前がどう処理するのか見たいんだ。デラーと話すがいい」</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>「そうします、閣下」立ち去る。</text>
+          <def_link>33</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>34</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>「ちょうどいいところに来たな」デラーは最初に会った相手が君であることを示唆する口調で言う。「カシウスはまだ来ていないのか？」</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(170, 187, 0, N);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgSetZoom(8);</string>
+        <string>useCameraBookmark(NPC_Dellar_Cam_01);</string>
+        <string>addQuest(HD0);</string>
+        <string>aod.jnl_hd0 = 1;</string>
+        <string>aod.quest_hd2_talkToFeng = true;</string>
+        <string>addJournalChar(dellar);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「カシウス？」</text>
+          <def_link>39</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>33</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - vignette</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportTo(167, 163, 0, S);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(134, 119, 0, S, 1080);</string>
+        <string>dlgTeleportTo(125, 119, 0, S, 1090);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>dlgTeleportTo(152, 117, 0, E, 1580);</string>
+        <string>dlgTeleportTo(145, 119, 0, N, 1590);</string>
+        <string>aod.global_teron_vignette = false;</string>
+        <string>setTravelingAllowed(true);</string>
+        <string>setAchievement("ACH_PRAETOR");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>35</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - vignette - go to Feng</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportTo(159, 71, 0, N);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(134, 119, 0, S, 1080);</string>
+        <string>dlgTeleportTo(125, 119, 0, S, 1090);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>dlgTeleportTo(152, 117, 0, E, 1580);</string>
+        <string>dlgTeleportTo(145, 119, 0, N, 1590);</string>
+        <string>aod.global_teron_vignette = false;</string>
+        <string>setTravelingAllowed(true);</string>
+        <string>setAchievement("ACH_PRAETOR");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>40</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>「新しい考古学者だよ。ついにあの食えないフォンを追い出して新しい人に替えてもらうように大将を説得できたんだ。カシウスはかなりのお薦めだったね」
+
+「だから、もうお務めは必要ないとフォンに伝えて、あと宿屋にカシウスがいたら連れてきてくれ」</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>フォンを訪ねる。</text>
+          <def_link>40</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>立ち去る。</text>
+          <def_link>35</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>39</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

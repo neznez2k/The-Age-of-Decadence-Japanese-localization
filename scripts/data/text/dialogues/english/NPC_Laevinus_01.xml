@@ -1,0 +1,373 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_laevinus_met</string>
+    </conditions>
+    <links>
+      <int>3</int>
+    </links>
+    <dlg_name>NPC_Laevinus_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Gaius Laevinus</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The man is gazing blearily at nothing, lost in his thoughts.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(15, 45, 6, 8070);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Laevinus);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Gaius Laevinus?”</text>
+          <def_link>2</def_link>
+          <checkOnAppear>aod.npc_domitius_met || aod.npc_abukar_mentionedLaevinus</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I'm looking for a cartographer. I was told you can help me.”</text>
+          <def_link>2</def_link>
+          <checkOnAppear>aod.npc_domitius_met == false &amp;&amp; aod.npc_abukar_mentionedLaevinus == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(320, 45, 14, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>He blinks as he returns to reality, then turns to look at you, expressionless.
+
+“I don’t know you,” he says after a moment.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_laevinus_met = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Domitius Ulpius sent me.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear>aod.npc_domitius_met</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Abukar sent me.” Show him the map.</text>
+          <def_link>15</def_link>
+          <checkOnAppear>aod.npc_domitius_met == false &amp;&amp; aod.npc_abukar_mentionedLaevinus</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Show him the map.</text>
+          <def_link>15</def_link>
+          <checkOnAppear>aod.npc_domitius_met == false &amp;&amp; aod.npc_abukar_mentionedLaevinus == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I told you everything I know. Now leave me alone.”</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(15, 45, 6, 8070);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Laevinus);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Do you know of any other old places?”</text>
+          <def_link>14</def_link>
+          <checkOnAppear>aod.npc_laevinus_hangar == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I told Domitius to leave me alone,” says the man angrily, “and I’ll tell his lackeys to do the same. I’ve got nothing to say to you.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I was asked to find the temple. Any help –”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>He returns you the map, barely glancing at it. “I’ve got nothing to say to you.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I was asked to find the temple. Any help –”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I don’t see a crossbow pointed at your head,” he says, interrupting. “Tell them you didn’t find it. Everyone will be better off. You can thank me later for living a long life, or a longer one at any rate.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You have some strong opinions considering you’ve never even seen the temple. Domitius said you never found it.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear>aod.npc_domitius_met</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You have some strong opinions considering you’ve never even seen the temple. Seems like you never found it, right?”</text>
+          <def_link>6</def_link>
+          <checkOnAppear>aod.npc_domitius_met == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“That’s right, we didn’t find the damned temple,” says the man, staring at his cup for a while. “We didn’t have to.” He takes a deep breath and, as if against his will, continues.
+
+“We’ve all heard the tales, of the all-powerful Magi, pacts with demons, betrayals and destruction, the stories from before history. The Loremasters spelled it all out for us, but we didn’t really listen. And why would we? It happened centuries ago. The tales were outrageous, legends. The War, the Gods and the Qantari – they’re all gone, like all the great works of the past, no more than dust and rubble, right?” He smiles nervously.
+
+“That’s what we all thought until one day we stopped under that merciless desert sun to wipe the sweat from our eyes, looked about ourselves and found we had walked straight into those tales and discovered just how real they are.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So now you drink all day?”</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I drink because nothing makes sense anymore. We and our fathers and our grandfathers have lived our lives in the shadow of a volcano. For years it is silent, so you think that it's dead. One day it rumbles, but you tell yourself you were mistaken, it must have been a cart of bricks tipping over in the road. But then it rumbles again, and you realize that it is not dead, that it has slept for centuries and is about to awaken.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Did you tell anyone?”</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I did. They called me mad, the natural reaction to the inconceivable. That’s why I came to Ganezzar, where insanity is the norm and to speak sense will get you stoned. Now I keep my mouth shut. Besides, what can I do? What can anyone do?” He shrugs and looks away before answering his own question: “Nothing.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Do you know where the temple is?”</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The young are so eager to throw their lives away, and the world so eager to take them from you.” He drains the cup and lets it clatter to the ground.
+
+“The temple is in the valley beyond the dead river. It has to be. The location fits, and it’s the only place we couldn’t get to ourselves. Why is that, you ask? Because we lost every man trying to get there. Every. Single. Man. But you!” He claps you on the shoulder, but the friendly gesture is belied by his bitter voice. “I have every confidence you will prevail where better men have failed.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Is crossing the river the only way into the valley?”</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I still think it’s the easiest route. Stay away from Hellgate. These screams... I can still hear them.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What do you know about Hellgate?”</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Not much. We weren’t the first to stumble upon it and pay the blood price. As far as I know nobody who explored it returned to tell any tales.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“If Hellgate is still unexplored, what makes you think it leads into the valley?”</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I found an old manuscript written by someone returning from a pilgrimage to the temple. This is from the end of the War, so the account is sketchy at best. Apparently, the scribe went to seek refuge at the temple, a place he had visited many times before. The soldiers turned him back, but when he retraced his steps to the river crossing, it was struck by a terrifying weapon. His account read, ‘Day turned into night, men and ships burned, and water and sky switched places...’” The man pauses.
+
+“I’ve read such stories before but this one I believed, every word of it. He made no embellishments, used no fancy words. It was nothing but an honest record of sheer horror.” He looks away again.
+
+“The scribe went back, not to the temple but to what he described as the command center under the mountains. He begged and pleaded and the guards eventually allowed him to pass.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So you think Hellgate is this command center?”</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It has to be,” nods the man. “The temple, the river crossing, the mountains. It fits.”</npc_text>
+      <onLoadScripts>
+        <string>revealMapLocation("DeadRiver");</string>
+        <string>revealMapLocation("Hellgate");</string>
+        <string>dlgAddTextBoxMessage("Dead River added to the map");</string>
+        <string>dlgAddTextBoxMessage("Hellgate added to the map");</string>
+        <string>rwd_quest(MQ_Laevinus_01);</string>
+        <string>aod.jnl_map = 7;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Do you know of any other old places?”</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Thank you for your help.” Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The ruins are everywhere but all the low-hanging fruit has been picked a long time ago,” says the man, rubbing his forehead.
+
+“One of the zealots did mention that a hole in the ground opened up and swallowed his friend whole. If you want to take a look, I can add it to your map.”</npc_text>
+      <onLoadScripts>
+        <string>revealMapLocation("Hangar");</string>
+        <string>dlgAddTextBoxMessage("Old Facility added to the map");</string>
+        <string>aod.npc_laevinus_hangar = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Thank you.” Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

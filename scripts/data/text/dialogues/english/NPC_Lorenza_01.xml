@@ -1,0 +1,2037 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_mg6_strabosMagistratus &amp;&amp; aod.quest_mg6_lorenzaMet == false</string>
+      <string>aod.quest_mg6_talkToLorenza &amp;&amp; aod.quest_mg6_lorenzaMet == false</string>
+      <string>aod.npc_lorenza_met</string>
+    </conditions>
+    <links>
+      <int>27</int>
+      <int>35</int>
+      <int>23</int>
+    </links>
+    <dlg_name>NPC_Lorenza_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Lorenza</def_speaker_name>
+    <def_portrait>Lorenza</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Lady Lorenza Calani of House Calani was married five times. All five husbands died in unfortunate accidents, adding their wealth and power to House Calani. Lorenza blamed assassins and other Houses. House Aurelian blamed Lorenza's lust for power and claimed, as a warning to others, that the ‘cold and calculating bitch’ would never be satisfied with being a mere wife. Neither the warning nor the popular opinion, suggesting that one explanation doesn't necessarily exclude the other, had any effect on the prominent suitors who seemed to surround Lorenza at all times.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAnimation(anim_talk_crossed_agree, 0, 4200);</string>
+        <string>aod.npc_lorenza_met = true;</string>
+        <string>addJournalChar(lorenza);</string>
+        <string>dlgCam(230, 45, 6, 4200);</string>
+        <string>dlgTeleportToMarker(TM_Lorenza_TalkPC_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Greet her.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_HD3_talkToLorenza</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>52</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[etiquette success]"Thank you for receiving me on such a short notice, my lady."</text>
+          <def_link>81</def_link>
+          <checkOnAppear>aod.etiquette &gt;= 4 &amp;&amp; aod.quest_HD3_talkToLorenza == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“&lt;charname&gt;! The vanquisher of Commander Carrinas! What a delightful and completely unexpected surprise.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Does the word travel that fast?”</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lore &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>82</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>She smiles and nods, acknowledging your effort.
+
+“I couldn't keep the vanquisher of Commander Carrinas waiting. It's such a delightful and completely unexpected surprise.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_lorenza_disposition += 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Does the word travel that fast?”</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lore &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>82</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>81</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The word? No. People in my employ do. It used to be my family’s city, did they tell you that?
+
+“I knew that Strabos summoned someone before the ink on his letter had a chance to dry. I suppose I could have waited, but I do like to know what I’m working with. So... it's you against the most powerful man of the realm. Do you really think you have what it takes?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Only one way to find out.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I represent the guild, so I don't stand alone.”</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The word? No. People in my employ do. It used to be my family’s city, did they tell you that?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[lore success]"I'm well versed in history, my lady. House Calani ruled Maadoran for centuries until House Aurelian took it by force shortly after the Great War. I hope that one day your city will be restored to you."</text>
+          <def_link>83</def_link>
+          <checkOnAppear>aod.lore &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>82</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“How kind of you to say that,” says Lorenza without any emotions.
+
+“I knew that Strabos summoned someone before the ink on his letter had a chance to dry. I suppose I could have waited, but I do like to know what I’m working with. So... it's you against the most powerful man of the realm. Do you really think you have what it takes?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_lorenza_disposition += 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Only one way to find out.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I represent the guild, so I don't stand alone.”</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>83</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“How delightfully bold. Then again, what is it that you really stand to lose? You’re a nobody – no name, no reputation, no assets. If you weren’t bold, you would have had nothing at all.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I stand to lose my life. It's much more important to me than your assets."</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'd love to stay and talk about nothing, but I have people to see. So, are you in or are you out?"</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You truly believe that?” laughs Lorenza. “You're too much, &lt;charname&gt;!
+
+“Well, when you do find yourself standing alone, naked as a babe, remember that I did warn you.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I wasn’t given much choice in the matter.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'd love to stay and talk about nothing, but I have people to see. So, are you in or are you out?"</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Well, at least you’re honest. It’s a refreshing quality in this city, although it does cast some doubt on your usefulness.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Your support is very important to us...”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I daresay it is, but what will I be getting out of this? Will I get my city? Are you going to return it to its rightful owners?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“It’s not in my power, but I’m sure we can work something out.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Do you really expect me to?”</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’m the Lady of House Calani, not some fishwife. I don’t haggle with the lowborn.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Do you really expect Strabos to hand over the city?”</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I expect nothing and everything at the same time, but enough about me. What do *you* expect, &lt;charname&gt;? What do *you* want to get out of it?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“The satisfaction of a job well done.”</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“To make a name for myself and see where it takes me.”</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Not ending up dead would be a good start.”</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Is this all that moves you? I must confess - I didn’t take you for a slave.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_lorenza_disposition -= 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I'd love to stay and chat, but I have people to see...”</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“An ambitious &lt;man/woman&gt;? Welcome to Maadoran then. I know you will enjoy your stay.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_lorenza_disposition += 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I'd love to stay and chat, but I have people to see...”</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I feel safer already.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I'd love to stay a chat, but I have people to see...”</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“This must be the impatience of youth I've heard so much about,” says Lorenza with a tolerant smile.
+
+“I’ll be honest with you, &lt;charname&gt;. As much as I despise Gaelius, I despise the idea of “lord” Strabos pulling Serenas’ strings even more. Am I alone in such concerns?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’m afraid so. What should I tell my master?”</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“To quote someone experienced in Maadoran’s politics, what will I be getting out of this?”</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Serenas is nothing but a puppet. Without someone pulling his strings, he just might crumble into a heap.”</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion][trading]“You have two options here. Make a deal with Strabos and share the power or refuse to come to an agreement and watch Gaelius tightening up his grip over your city. I know that I’m just a lowborn and could never grasp the full extent of your concerns, but where I come from, something is always better than nothing.”</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.trading + aod.npc_lorenza_disposition) &gt;= 15</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>13</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“I’ll take that into consideration. Tell Strabos I’ll think about it.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_lorenza_cantPersuade = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"And if I agree to your terms?"</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Is it a yes?”</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“You drive a hard bargain, &lt;charname&gt;. Tell Strabos that he has my support. For now.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_MG4_lorenzaSupport = true;</string>
+        <string>aod.jnl_mg4a_phase1b = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I feel that I’m perfectly capable of pulling his strings all by myself. I hardly need Strabos there to assist me, do I?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You don’t, but you do need Strabos to put Serenas on the throne.”</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I suppose you don’t. So, what do I get out of it?”</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I can’t go against the guild.”</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“And once he is on the throne?” inquires Lorenza looking past you.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I won't stand in your way.”</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I'd expect you to honor the terms of the agreement.”</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Such a pity. Tell Strabos that I'll think about it.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][trading]“You have two options here. Make a deal with Strabos and share the power or refuse to come to an agreement and watch Gaelius tightening up his grip over your city. I know that I’m just a lowborn and could never grasp the full extent of your concerns, but where I come from, something is always better than nothing.”</text>
+          <def_link>12</def_link>
+          <checkOnAppear>aod.npc_lorenza_cantPersuade == false</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.persuasion + aod.trading + aod.npc_lorenza_disposition) &gt;= 15</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>13</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Is it a yes?”</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Did it sound like a yes? Good bye, &lt;charname&gt;.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Why, anything you want, of course. Help me get what I want and see yourself rewarded beyond your wildest dreams. So, do I have your word?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You have my word.”</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I can’t go against the guild.”</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Then you'll have my support, of course. Help me get what I want and see yourself rewarded beyond your wildest dreams. So, do I have your word?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You have my word.”</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I can’t go against the guild.”</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Then we have a deal. Tell Strabos he has my support.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_MG4_lorenzaSupport = true;</string>
+        <string>aod.quest_mg4_dealWithLorenza = true;</string>
+        <string>aod.jnl_mg4a_phase1b = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - first meeting</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.npc_lorenza_cantPersuade = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgCam(230, 45, 12, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What's on your mind, &lt;master/mistress&gt; &lt;charname&gt;?" says Lorenza with a playful smile.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAnimation(anim_talk_crossed_agree, 0, 4200);</string>
+        <string>dlgCam(230, 45, 6, 4200);</string>
+        <string>dlgTeleportToMarker(TM_Lorenza_TalkPC_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"You win. I agree to your terms."</text>
+          <def_link>25</def_link>
+          <checkOnAppear>aod.quest_MG4_lorenzaSupport == false &amp;&amp; aod.quest_mg4_active</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Senna is dead.”</text>
+          <def_link>64</def_link>
+          <checkOnAppear>aod.quest_hd3_reportSennaDead &amp;&amp; aod.quest_hd3_active</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Serenas wants to clean up the Slums, but you seem to be against it. Why?”</text>
+          <def_link>65</def_link>
+          <checkOnAppear>aod.quest_hd4_active &amp;&amp; aod.npc_lorenza_talkedAttackSlums == false &amp;&amp; aod.quest_hd4_gotSupport == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.npc_senna_dead</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>66</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Take me to the catacombs."</text>
+          <def_link>74</def_link>
+          <checkOnAppear>aod.npc_lorenza_goToCatacombs</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“They say you killed your five husbands.”</text>
+          <def_link>75</def_link>
+          <checkOnAppear>aod.npc_lorenza_asked_husbands == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Excellent. Help me get what I want and see yourself rewarded beyond your wildest dreams. So, do I have your word?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You have my word.”</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I can’t go against the guild.”</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgCam(230, 45, 12, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>26</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Well played, &lt;charname&gt;. I must admit, you’ve surprised me, which doesn’t happen often. Enjoy your victory.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg6_lorenzaMet = true;</string>
+        <string>dlgCam(230, 45, 6, 4200);</string>
+        <string>dlgTeleportToMarker(TM_Lorenza_TalkPC_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>27</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Did you come to congratulate me, &lt;charname&gt;?”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg6_lorenzaMet = true;</string>
+        <string>dlgCam(230, 45, 6, 4200);</string>
+        <string>dlgTeleportToMarker(TM_Lorenza_TalkPC_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I came for my reward.”</text>
+          <def_link>36</def_link>
+          <checkOnAppear>aod.quest_mg4_dealWithLorenza || aod.quest_mg6_giveJobLorenza</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What about Strabos?”</text>
+          <def_link>43</def_link>
+          <checkOnAppear>aod.quest_mg4_dealWithLorenza &amp;&amp; aod.quest_mg6_giveJobLorenza == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“We had a deal.”</text>
+          <def_link>43</def_link>
+          <checkOnAppear>aod.quest_mg4_dealWithLorenza == false &amp;&amp; aod.quest_mg6_giveJobLorenza == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>35</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Reward? What on Earth for? Strabos’ incompetence?”</npc_text>
+      <onLoadScripts>
+        <string>if(aod.quest_mg4_dealWithLorenza) rwd_reputation(MG6_Lorenza_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“I held him back. It wasn’t easy.”</text>
+          <def_link>37</def_link>
+          <checkOnAppear>aod.quest_mg6_giveJobLorenza == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>39</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"For talking Serenas into giving you the job. You and Senna put so much pressure on the poor bastard that he gave it to Strabos just for the asking. Lucky for you, I made you a part of the deal."</text>
+          <def_link>28</def_link>
+          <checkOnAppear>aod.quest_mg6_giveJobLorenza</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>36</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“My, my, such a clever &lt;boy/girl&gt;... Yes, I would, as a matter of fact, like to share it. What would it cost me?”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg6_lorenzaShared = true;</string>
+        <string>aod.jnl_mg6_phase2i = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“10,000 imperials.”</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m fond of old trinkets.”</text>
+          <def_link>30</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You’ll owe me a favor.”</text>
+          <def_link>34</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>28</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Done,” Lorenza says instantly. “Pleasure doing business with you, &lt;charname&gt;.”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(10000);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>29</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I don’t have any, but I do have some knowledge that you may find interesting. Levir, the guildmaster of the thieves, has found an ancient machine in the catacombs beneath the city. He spent years looking for the parts, which is how it came to my attention. In fact,” says Lorenza smiling knowingly, “he acquired the last part very recently.
+
+“If you consider such information a suitable payment, it’s yours. Just let me know when you’d like to see it and one of my servants will take you there.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Deal.”</text>
+          <def_link>31</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Not interested.”</text>
+          <def_link>32</def_link>
+          <checkOnAppear>aod.npc_lorenza_mgLowReward == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I'll take 3,000 imperials instead.”</text>
+          <def_link>41</def_link>
+          <checkOnAppear>aod.npc_lorenza_mgLowReward == 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I'll take 10,000 imperials instead.”</text>
+          <def_link>41</def_link>
+          <checkOnAppear>aod.npc_lorenza_mgLowReward &lt; 2</checkOnAppear>
+          <checksOnClick>
+            <string>aod.npc_lorenza_mgLowReward == 1</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>38</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>30</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What do you want then?” asks Lorenza impatiently.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“10,000 imperials.”</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m fond of old trinkets.”</text>
+          <def_link>30</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You’ll owe me a favor.”</text>
+          <def_link>34</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>32</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Pleasure doing business with you, &lt;charname&gt;. Would you like to go to the catacombs now?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_lorenza_goToCatacombs = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Sure.”</text>
+          <def_link>33</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Some other time.” Leave.</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>31</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Certainly. Let me make the arrangements...”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Wait for the servant and go see what Levir’s been up to.</text>
+          <def_link>33</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>74</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go to catacombs</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.npc_lorenza_goToCatacombs = false;</string>
+        <string>aod.quest_HealingMachine_fromLorenza = true;</string>
+        <string>switchMission("Quest_HealingMachine.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>33</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“A favor? How interesting. I’ve definitely misread you, &lt;charname&gt;... Very well. A favor it is then. Pleasure doing business with you.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>34</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“This is just sad, &lt;charname&gt;. Do excuse me - I have a city to run.”</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_mg6_phase2j = true;</string>
+        <string>aod.quest_MG6_lorenzaFailure = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>37</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Then I suppose I should be grateful. What can I do for you, &lt;charname&gt;?”</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_mg6_phase2k = true;</string>
+        <string>aod.quest_MG6_lorenzaFailure = true;</string>
+        <string>aod.npc_lorenza_mgLowReward = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“10,000 imperials.”</text>
+          <def_link>38</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m fond of old trinkets.”</text>
+          <def_link>30</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“How about a favor?”</text>
+          <def_link>38</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>39</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Let's be reasonable here. I'll give you 3,000 imperials - more than generous for what you claim to be your help.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_lorenza_mgLowReward = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’ll take it.”</text>
+          <def_link>41</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading success]“How about five?”</text>
+          <def_link>40</def_link>
+          <checkOnAppear>aod.trading &gt;= 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m fond of old trinkets.”</text>
+          <def_link>30</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>38</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Never haggle with the noble-born, &lt;charname&gt;. I find it distasteful. Will you take 3,000? I will not ask again.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’ll take it.”</text>
+          <def_link>41</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m fond of old trinkets.”</text>
+          <def_link>30</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>40</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Excellent. Now our business is concluded. Good day.”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(3000);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>41</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Oh, come now, &lt;charname&gt;. Nobody wins all the time, but good players lose gracefully. You’ve done well for someone who’s only been here a couple of days. You’ve failed to secure a position for your master, but I assure you - it’s not the end of your world.”</npc_text>
+      <onLoadScripts>
+        <string>if(aod.quest_mg4_dealWithLorenza) rwd_reputation(MG6_Lorenza_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“It could be the end of yours.”</text>
+          <def_link>44</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I didn’t fail yet. We’re still talking.”</text>
+          <def_link>49</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>43</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You wouldn’t dare.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Tell that to Gaelius.”</text>
+          <def_link>45</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>44</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Gaelius didn’t see you coming. I do. I can have you killed right now, on this very spot. Would you like to give me a reason not to?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]“You think you can do it alone, but the simple truth is you can’t. Sooner or later you’ll be forced to seek allies and these allies will be much harder to control than Strabos.”</text>
+          <def_link>46</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>47</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intelligence success][streetwise]“You think that going back on your word makes you clever? You think I didn’t see it coming? I took you at your word because I thought you were clever enough to realize that you stood alone and needed allies.”</text>
+          <def_link>46</def_link>
+          <checkOnAppear>aod.int &gt;= 7 &amp;&amp; aod.quest_mg4_dealWithLorenza == 0</checkOnAppear>
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>47</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>45</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Unless you give me a reason to take you and your master seriously, it will be a very short conversation.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]“You think you can do it alone, but the simple truth is you can’t. Sooner or later you’ll be *forced* to accept allies and these allies will be much harder to control than Strabos.”</text>
+          <def_link>46</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>47</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intelligence success][streetwise]“You think that going back on your word makes you clever? You think I didn’t see it coming? I took you at your word because I thought that you were clever enough to realize that you stood alone and needed allies.”</text>
+          <def_link>46</def_link>
+          <checkOnAppear>aod.int &gt;= 7 &amp;&amp; aod.quest_mg4_dealWithLorenza == 0</checkOnAppear>
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>47</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>49</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“I don’t need anyone,” says Lorenza with strange pride. “Good day, &lt;charname&gt;.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_MG6_lorenzaFailure = true;</string>
+        <string>aod.jnl_mg6_phase2g = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>46</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“And what makes Strabos such an ideal candidate?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][trading]“Money and power at a reasonable cost. Any other candidate will offer less but ask for more simply because they are accustomed to more. Strabos is a pleb. He will be satisfied with merely raising far above his station.”</text>
+          <def_link>46</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.trading) &gt;= 13</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>50</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>47</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Alright. Tell your master he's the city's new magistratus. *My* magistratus. He does nothing - absolutely nothing - before running it by me first. Is this understood?”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg6_lorenzaShared = true;</string>
+        <string>aod.jnl_mg6_phase2e = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“You couldn't be more clear, my lady.” Leave.</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>50</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“To what do I owe this pleasure, Praetor?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“The relationship between House Aurelian and House Daratan has been strained for a very long time. Lord Gaelius’ passing is most unfortunate, yet it gives us an opportunity to turn over a new leaf.”</text>
+          <def_link>51</def_link>
+          <checkOnAppear>aod.quest_hd3_active</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Serenas wants to clean up the Slums, but you seem to be against it. Why?”</text>
+          <def_link>65</def_link>
+          <checkOnAppear>aod.quest_hd4_active &amp;&amp; aod.npc_lorenza_talkedAttackSlums == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.npc_senna_dead</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>66</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>52</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I was thinking the exact same thing, Praetor. We can’t build a better tomorrow by living in the past, can we now? If you ask me, we should let bygones be bygones and bury whatever issues Gaelius had with Antidas with him. Unfortunately...”</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_HD3a_phase2 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Unfortunately?”</text>
+          <def_link>53</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>51</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Unfortunately, Lord Senna’s opinion carries far more weight. After all, I’m but a woman. What do I know about politics? Thus, I’m afraid that as long as Senna is around to poison the young lord’s mind, there will be no peace. In fact, I wouldn’t be surprised if he takes a more aggressive position. A decisive victory over an old enemy would definitely strengthen him. The peasants do love a victor.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_hd3_lorenzaKillSenna = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“He won’t win.”</text>
+          <def_link>54</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“As long as he’s around?”</text>
+          <def_link>60</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>53</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Probably not, but he will definitely try. Isn’t that what we’re trying to prevent here?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“We?”</text>
+          <def_link>55</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What do you want me to do?”</text>
+          <def_link>57</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]“Trying to pull the chestnuts from the fire with the cat’s paw?”</text>
+          <def_link>56</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>54</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“If you want to change the world all by your lonesome, don’t let me stop you.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What do you want me to do?”</text>
+          <def_link>57</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>55</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Whereas you’re driven by a noble notion of getting something for nothing? It doesn’t work this way, not in Maadoran. So, if you care so much about this so-called relationship between our city and your sleepy little village, you’ll have to earn it.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What do you want me to do?”</text>
+          <def_link>57</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>56</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Kill Senna. Once he’s gone, I’ll be in a position to forge an alliance and be that friend in high places you’ve always dreamed of. Senna is well guarded, of course. Expect at least five men, so don’t say I didn’t warn you.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’ll think about it.” Leave.</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Why me? Don’t you have your own men?”</text>
+          <def_link>61</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I can’t handle that many.”</text>
+          <def_link>59</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.gender == 1</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>58</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>57</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“And you call yourself a man?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>58</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Then why are you wasting my time?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>59</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Senna is old, so he won’t be here forever. Of course, if you were to speed up his departure from this world, I wouldn’t complain. In fact, I would view it most favourably.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Why me? Don’t you have your own men?”</text>
+          <def_link>61</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>60</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You've never heard about deniability? I’m sure that in Teron political opponents can slaughter each other in the streets, but we do things differently here. It would be most embarrassing for me to be implicated in such a scandal, whereas you are an agent of a hostile House. Nobody will think twice about why you did it, if you’re caught or killed.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“And if I’m neither caught nor killed? Wouldn’t that make you a suspect?”</text>
+          <def_link>62</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“How do I know I can trust you?”</text>
+          <def_link>63</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>61</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“In whose eyes? The plebs? Some lordlings? They’ve been spreading rumors about me for years and yet I’m still here, as you can attest.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“How do I know I can trust you?”</text>
+          <def_link>63</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>62</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Why wouldn’t you? Do you think I care about Teron? As long as Antidas minds his own business and keeps out of mine, we’ll get along just fine.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’ll think about it.” Leave.</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>63</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Such a relief... Senna was never an easy man to deal with, but lately he has become absolutely unbearable. Thank you, &lt;charname&gt;. I’ll talk to our mutual friend Serenas later on today, so next time you’ll talk to him, he’ll be all heart.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_hd3_reportSennaDead = false;</string>
+        <string>aod.quest_hd3_advisorConvincedSerenas = true;</string>
+        <string>aod.jnl_HD3a_phase4 = true;</string>
+        <string>aod.jnl_HD3_phase2 = true;</string>
+        <string>aod.quest_hd3_sennaMurderInvestigation = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>64</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Because Senna’s dead-set against it. Oh, I could fight him, but I was taught to pick my battles. Fighting yours after you didn’t lift up a finger to help me would not make any sense at all, would it?
+
+“Not to worry though, I’m sure you can figure something out. Now, if you’ll excuse me...”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_lorenza_talkedAttackSlums = true;</string>
+        <string>remQuest(HD4a);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>65</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Because Senna was dead-set against it and Senna – for all his flaws – wasn’t a dimwit. I don’t have a strong opinion on the subject myself, but his opposition makes me cautious.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_lorenza_talkedAttackSlums = true;</string>
+        <string>remQuest(HD4a);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Where do you see the downside?”</text>
+          <def_link>67</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>66</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“In my experience, people rarely see the downside until it pays them a social visit.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Surely, getting rid of some scum would be good for the city?”</text>
+          <def_link>68</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>67</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I have a feeling that Levir would disagree most vocally.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Why do you care if he disagrees?”</text>
+          <def_link>69</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>68</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I suspect that Levir wouldn’t have the decency to leave, once he realizes that he isn’t welcome here. He is a spiteful man, so he will stay and fight.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]“So, let him fight and be defeated. Whoever takes his place, will remember the lesson and be less ‘spiteful’.”</text>
+          <def_link>70</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>71</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]“Levir has his eyes and ears everywhere, so he already knows that Serenas wants to clean up the Slums. What would he think if you do nothing?”</text>
+          <def_link>70</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>71</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][charisma]“Gaelius and Senna are dead. Why stop halfway? Clean up the city while you can, while you can blame it on others.”</text>
+          <def_link>70</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.cha) &gt;= 13</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>71</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>69</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“As much as I admire your newly-found concern for our city, I’ve already made up my mind.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>70</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“And if he isn’t defeated? Then what?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]“Sooner or later he will be. One man can’t stand against the combined power of House Aurelian and the Imperial Guards for long.”</text>
+          <def_link>70</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>72</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]“Then you will blame it on Serenas and Pavola and make peace with him. He will be weakened and in no position to negotiate.”</text>
+          <def_link>70</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>72</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>71</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Very well. You have my consent.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_hd4_gotSupport = true;</string>
+        <string>aod.jnl_HD4_phase2 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Return to Serenas.</text>
+          <def_link>73</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>72</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - return to Serenas</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_DLG_Gaelius_03);</string>
+        <string>dlgCam(45, 45, 9, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>73</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Do you believe everything you hear or just the juicy gossip?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_lorenza_asked_husbands = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Are you saying you didn’t?”</text>
+          <def_link>76</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>75</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I killed only three. My first husband died of natural causes if you consider dying of a heart attack while *fucking* some whore a natural and socially acceptable way to go. Gaelius had my second husband killed and married me off to a ‘man of character’ to keep me in check.
+
+“Like all big men, the man of character thought he could handle a woman, but strength is a very fleeting thing, especially when your nervous system is paralyzed.
+
+“Husband number four proved to be a disappointment. He was good with words but that was the only thing he was good at. He promised to reclaim my city but had forgotten his promises the moment he gained access to my money. I had to get rid of him somehow,” says Lorenza, lifting her shoulders in a gesture of helplessness.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What happened to husband number five?”</text>
+          <def_link>77</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Why do you want to rule Maadoran?”</text>
+          <def_link>79</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>76</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I loved him, after a fashion, but he paid too much attention to the rumors and grew too paranoid. He had the nerve to have his food and wine tasted by servants, right in front of me. Was I supposed to tolerate it?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So you poisoned him?”</text>
+          <def_link>78</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>77</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Not right away, no. He tried to poison me first.
+
+“My great-great-grandfather was poisoned after a successful military campaign. Since then every child in my family was given regular small doses of different poisons to develop immunity. So my dear late husband’s attempt gave me nothing but sharp stomach pains and dizziness.
+
+“I simply had to give him the taste of his own medicine. Needless to say, he didn’t have any resistance to it. I can still hear him screaming.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Why do you want to rule Maadoran?”</text>
+          <def_link>79</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>78</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Because it was our city once. We opened the gates to House Aurelian and this is how they repaid us!” Lorenza says with sudden anger, as if these centuries old events were still alive in her memory.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“It was a long time ago.”</text>
+          <def_link>80</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>79</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Am I supposed to forget then? Bow to the usurpers with the rest of the rabble? My House ruled this city when House Aurelian was nothing but a provincial lordling with an entourage.
+
+“Besides, what *am* I supposed to do? Take another husband and be bred like a prized mare? Give *my* name and *my* money to my husband and just become content with ... everything? Take up knitting?
+
+“My House ruled this city once and it will rule it again. Mark my words.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>80</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

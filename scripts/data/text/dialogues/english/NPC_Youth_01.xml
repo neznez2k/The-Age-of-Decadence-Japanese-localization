@@ -1,0 +1,437 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_package_accepted</string>
+      <string>aod.npc_youth_met</string>
+    </conditions>
+    <links>
+      <int>4973</int>
+      <int>4974</int>
+    </links>
+    <dlg_name>NPC_Youth_01</dlg_name>
+    <def_link>4961</def_link>
+    <def_speaker_name>Youth</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You see a slightly awkward, light-haired youth, scarcely out of his teens.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(275, 40, 7, 5250);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Approach.</text>
+          <def_link>4963</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Ignore.</text>
+          <def_link>4962</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4961</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgCam(245, 40, 15);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4962</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I couldn’t help but notice that you’re heading for the Slums,” says the youth in a somewhat shy manner. “I was wondering if you can do me a favor. In exchange for a reasonable remuneration, of course,” he adds quickly, trying to sound business-like.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_youth_met = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_DLG_Youth);</string>
+        <string>dlgCam(275, 40, 7, 5250);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What’s the favor?”</text>
+          <def_link>4964</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4963</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’ve, uh, entered into a business arrangement with a certain individual who goes by the name of Neros. He asked me to procure certain goods and deliver them to him. Yet now that I’m about to do it, I find myself being torn by doubts and fears.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Such as?”</text>
+          <def_link>4965</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4964</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I must confess that I’ve never been to the Slums and find the task to be more intimidating than what I’ve originally envisioned. They say that it’s a lawless place where a man’s life is worth nothing. Not to mention that I can’t help but wonder if Neros is going to pay me what he promised. After all, what stops him from cutting my throat,” he touches his throat uncomfortably, “and taking the goods for nothing?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So, where do I come in?”</text>
+          <def_link>4966</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4965</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You seem to have a certain air about you. I don’t think that Neros would dare playing games with you. He promised to pay me 3,000 imperials. I’d be willing to part with 500 imperials, if you were to deliver the package and collect the money.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What’s in the package?”</text>
+          <def_link>4967</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading]“We’ll split it 50/50, since it looks like I’ll be doing all the work here.”</text>
+          <def_link>4969</def_link>
+          <checkOnAppear>aod.npc_youth_talkedTrading == false &amp;&amp; aod.trading &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Alright, I'll do it.”</text>
+          <def_link>4972</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I don’t have time for this.” Leave.</text>
+          <def_link>4962</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4966</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Will you do it?"</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(275, 40, 7, 5250);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Youth);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What’s in the package?”</text>
+          <def_link>4967</def_link>
+          <checkOnAppear>aod.npc_youth_talkedPackage == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Why does Neros need these things?”</text>
+          <def_link>4968</def_link>
+          <checkOnAppear>aod.npc_youth_talkedNerosNeeds == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Can’t this Neros buy these things in the Slums?”</text>
+          <def_link>4970</def_link>
+          <checkOnAppear>aod.npc_youth_talkedNerosNeeds == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading]“We’ll split it 50/50, since it looks like I’ll be doing all the work here.”</text>
+          <def_link>4969</def_link>
+          <checkOnAppear>aod.npc_youth_talkedTrading == false &amp;&amp; aod.trading &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Alright, I'll do it.”</text>
+          <def_link>4972</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I don’t have time for this.” Leave.</text>
+          <def_link>4962</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4974</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Black powder, sulfur, sal petrae, things of that nature.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_youth_talkedPackage = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Why does Neros need these things?”</text>
+          <def_link>4968</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Can’t this Neros buy these things in the Slums?”</text>
+          <def_link>4970</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4967</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I don’t see how it’s any of my business. Or yours, for that matter.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_youth_talkedNerosNeeds = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Can’t this Neros buy these things in the Slums?”</text>
+          <def_link>4970</def_link>
+          <checkOnAppear>aod.npc_youth_talkedBuySlums == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading]“We’ll split it 50/50, since it looks like I’ll be doing all the work here.”</text>
+          <def_link>4969</def_link>
+          <checkOnAppear>aod.npc_youth_talkedTrading == false &amp;&amp; aod.trading &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Alright, I'll do it.”</text>
+          <def_link>4972</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I don’t have time for this.” Leave.</text>
+          <def_link>4962</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4968</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“This is highway robbery,” protests the youth, “but I suppose I don’t have a choice, do I?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_youth_talkedTrading = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What’s in the package?”</text>
+          <def_link>4967</def_link>
+          <checkOnAppear>aod.npc_youth_talkedPackage == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Why does Neros need these things?”</text>
+          <def_link>4968</def_link>
+          <checkOnAppear>aod.npc_youth_talkedNerosNeeds == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Can’t this Neros buy these things in the Slums?”</text>
+          <def_link>4970</def_link>
+          <checkOnAppear>aod.npc_youth_talkedNerosNeeds == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Alright, I'll do it.”</text>
+          <def_link>4972</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I don’t have time for this.” Leave.</text>
+          <def_link>4962</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4969</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Not if he wants quality,” says the youth, smiling haughtily. “I doubt that Lord Gaelius’ own alchemist would take commission from the likes of Neros.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_youth_talkedBuySlums = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Yet a young lordling is eager to do it for him.”</text>
+          <def_link>4971</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4970</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The youth’s face turns red. “I’ve lost a lot of money in a game of chance. It was rigged, I’m sure, so I refused to pay. The proprietor sold my debt to Neros.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Why does Neros need these things?”</text>
+          <def_link>4968</def_link>
+          <checkOnAppear>aod.npc_youth_talkedNerosNeeds == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading]“We’ll split it 50/50, since it looks like I’ll be doing all the work here.”</text>
+          <def_link>4969</def_link>
+          <checkOnAppear>aod.npc_youth_talkedTrading == false &amp;&amp; aod.trading &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Alright, I'll do it.”</text>
+          <def_link>4972</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I don’t have time for this.” Leave.</text>
+          <def_link>4962</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4971</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Thank you,” says the youth with relief, handing you a heavy package. “His house is somewhere around the old temple. He told me it's easy to find.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_package_accepted = true;</string>
+        <string>addQuest(Package);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4962</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4972</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Did you do it?”</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(275, 40, 7, 5250);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Youth);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Not yet.” Leave.</text>
+          <def_link>4962</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4973</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,2225 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_hd1_fromCassius</string>
+      <string>aod.pc_background_praetor &amp;&amp; aod.pc_member_daratan</string>
+      <string>aod.quest_cassius_startDellarQuest</string>
+      <string>aod.npc_dellar_test &amp;&amp; aod.npc_dellar_startTest</string>
+      <string>aod.npc_dellar_help &amp;&amp; aod.npc_dellar_startHelp</string>
+      <string>aod.npc_dellar_met &amp;&amp; dlgGetRep(daratan) &lt; -15</string>
+      <string>aod.npc_dellar_met &amp;&amp; dlgGetRep(daratan) &gt; -15 &amp;&amp; dlgGetRep(daratan) &lt; -10</string>
+      <string>aod.npc_dellar_met &amp;&amp; dlgGetRep(daratan) &gt;= -10</string>
+    </conditions>
+    <links>
+      <int>87</int>
+      <int>66</int>
+      <int>18</int>
+      <int>34</int>
+      <int>34</int>
+      <int>59</int>
+      <int>58</int>
+      <int>36</int>
+    </links>
+    <dlg_name>Dellar_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>デラー</def_speaker_name>
+    <def_portrait>Dellar</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>デラーは老いてくたびれた書記のように見え、外見はあまりあてにならないのだということを証明している。彼は１７歳でキャラバンの護衛になった。それから３年後、彼は父親の真面目な仕事に関しての考えは間違っているのではないかと気付いて寝返り、昨日まで自分が護衛していたキャラバンを略奪し始めた。４年後、商人ギルドは帝国衛兵に莫大な金を払い、”略奪者問題”はすぐに解決した。何百人もの略奪者の死体がマードランの城壁に打ち付けられ、幸運にも生き残った少数の人間は、ギルドの負債を埋め合わせるために鉱山に送られた。１０年ほどの間デラーは鉄鉱石を採掘し、残飯を得るために、そして生きるために戦っていたが、その後テロンへ逃げ延びてアンティダスの保護を得た。 
+
+デラーは無表情で君を見ている。君が近づいてくると彼は止まるように身振りで示し、しばらくの間じろじろと観察してきた。「何の用だ？」彼は君が来た目的を推測し損ね、純粋に興味を持った様子で尋ねた。</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_dellar_met = true;</string>
+        <string>addJournalChar(dellar);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「アンティダス卿にお目通りしろとフォン博士に言われた&lt;nda/no&gt;」</text>
+          <def_link>8</def_link>
+          <checkOnAppear>aod.quest_MQ_seeAntidas</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[impersonate]「&lt;omae/anata&gt;はこの高貴な人間に疑いをかけるというの&lt;ka/mu&gt;？　私が寛容でいられる内に道を空けるがいい」</text>
+          <def_link>9</def_link>
+          <checkOnAppear>aod.quest_MQ_seeAntidas &amp;&amp; aod.quest_mg2_goSeeAntidas == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.gender == 1 &amp;&amp; aod.disguise &gt;= 3 &amp;&amp; dlgIsEquippedItem(509)</string>
+            <string>aod.gender == 0 &amp;&amp; aod.disguise &gt;= 2 &amp;&amp; dlgIsEquippedItem(510)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>10</int>
+            <int>10</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"My guild has uncovered a treacherous plot..."</text>
+          <def_link>82</def_link>
+          <checkOnAppear>aod.quest_mg2_goSeeAntidas</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]デラーの剣は一瞬にして鞘を抜け君の首から１インチのところで止まる。「もう一度嘘をついたらお前の首を頂く」そう言って彼は剣を鞘に収めた。</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>「アンティダス卿にお目通りしろとフォン博士に言われた&lt;nda/no&gt;」</text>
+          <def_link>27</def_link>
+          <checkOnAppear>aod.quest_MQ_seeAntidas</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>立ち去る。</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]「申し訳ありません。お名前は…？」</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[lore success]"Taliades."</text>
+          <def_link>11</def_link>
+          <checkOnAppear>aod.lore &gt;= 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>「&lt;charname&gt;」</text>
+          <def_link>16</def_link>
+          <checkOnAppear>aod.lore &lt; 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"It is an honor, my &lt;Lord/Lady&gt;. I was always impressed by the battle your House won at Coltar."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Yes, it was a great battle, wasn't it? Nice of you to remember."</text>
+          <def_link>9</def_link>
+          <checkOnAppear>aod.lore &lt; 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[lore success]"My House fought for the Emperor at Trudoth, East Beck, and Stanias." Throw Dellar a coin. "If you're so interested in history, hire a tutor."</text>
+          <def_link>12</def_link>
+          <checkOnAppear>aod.lore &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Very kind of you, my &lt;Lord/Lady&gt;. I must admit that I'm shocked to see you here unannounced and without an entourage."</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][charisma]"I'm on a mission of a very delicate nature. The less attention is drawn to it, the better. You can't be too careful these days."</text>
+          <def_link>13</def_link>
+          <checkOnAppear>aod.persuasion &gt;= 3</checkOnAppear>
+          <checksOnClick>
+            <string>aod.gender == 1 &amp;&amp; (aod.persuasion + aod.cha) &gt;= 13</string>
+            <string>aod.gender == 0 &amp;&amp; (aod.persuasion + aod.cha) &gt;= 12</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'm tired of being questioned. One last time, step aside!"</text>
+          <def_link>15</def_link>
+          <checkOnAppear>aod.persuasion &lt; 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"I don't buy that. This conversation is over."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Wait! Master Feng has sent me to see Lord Antidas."</text>
+          <def_link>27</def_link>
+          <checkOnAppear>aod.quest_MQ_seeAntidas</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Very well." Dellar nods reluctantly. "You can go in."</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(TRN_Palace_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go inside.</text>
+          <def_link>54</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start Antidas dialogue - tricked Dellar</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.npc_dellar_tricked = true;</string>
+        <string>apmsstartdialogue(antidas_02);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>54</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"And I'm tired of being lied to." Dellar's sword clears the scabbard in an instant and stops an inch from your neck.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Master Feng has sent me to see Lord Antidas."</text>
+          <def_link>27</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>デラーの剣は一瞬にして鞘を抜け君の首から１インチのところで止まる。「もう一度嘘をついたらお前の首を頂く」そう言って彼は剣を鞘に収めた。</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>「アンティダス卿にお目通りしろとフォン博士に言われた&lt;nda/no&gt;」</text>
+          <def_link>27</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>立ち去る。</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>「奴がそう言ったのか？　それじゃあ、ここでの決まりを教えてやる。誰が主に会えるのかを決めているのは俺だ。職務上の特権ってとこだ。今のところ、あんたがアンティダス卿に会う必要が本当にあるとは思えん。その下手くそな嘘も無駄だったな」</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>「フォン博士はこの地図はとても貴重で、アンティダス卿もきっとご覧になりたいと思うだろうと言っていた&lt;zo/&gt;&lt;mu/wa&gt;」</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>27</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>「奴がそう言ったのか？　それじゃあ、ここでの決まりを教えてやる。誰が主に会えるのかを決めているのは俺だ。職務上の特権ってとこだ。今のところ、あんたがアンティダス卿に会う必要が本当にあるとは思えん」</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>「フォン博士はこの地図はとても貴重で、アンティダス卿もきっとご覧になりたいと思うだろうと言っていた&lt;zo/&gt;&lt;mu/wa&gt;」</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>「持ち込まれたガラクタに価値があると請け負うのがフォン先生のお仕事だからな。そして、拝謁を求める奴から適切な貢ぎ物を頂くのが俺の仕事だ。わかったか？」</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_dellar_fengSentMe = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「何が望み&lt;da/&gt;&lt;/na&gt;&lt;mu/no&gt;？」</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>「手を貸してくれ。その代わり、中に入れてやるし、よしなに口添えもしてやるよ」</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_dellar_talkedAboutQuests = true;</string>
+        <string>aod.quest_cassius_startDellarQuest = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「自分の部下はいないの&lt;ka/mu&gt;？」</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>「いい質問だ。俺の部下には価値があるが、はっきり言って、お前はそうじゃない。心配するな。俺は適性を見抜くのは得意なんだ。あんたには何の適性も見えないから、比較的簡単な仕事を任せるよ」
+
+「アウレリアン家がテロンからそう遠くない遺跡を発掘している。どうやらそこは古い採掘施設だったらしく、手つかずの機械がまだ残っているらしい。奴らはソフラーブを呼んだんだが、こいつが良くないニュースでな。ソフラーブは古い機械の専門家なんだ。ギアがある物なら直せるだろう。俺たちにはできない。アウレリアンの奴らが俺たちの裏庭で店を構えるのだけは勘弁だ」</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>「で、&lt;ore/watashi&gt;に何をして欲しい&lt;nda/no&gt;？」</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[impersonate]「奴らはソフラーブを待ってると言った&lt;na/&gt;&lt;mu/wa&gt;&lt;/ne&gt;？」</text>
+          <def_link>56</def_link>
+          <checkOnAppear>aod.npc_dellar_sohrabDisguise == false &amp;&amp; aod.disguise &gt;= 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>「奴らを止められることなら何でも。殺しはいつだって有効だろうが、それがあんたの洗練されたお口に合わないっていうなら他のやり方でやればいい」</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>「他に何か情報はある&lt;ka/mu&gt;？」</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>「人手を貸してくれない&lt;ka/mu&gt;？」</text>
+          <def_link>55</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[impersonate]「奴らはソフラーブを待ってると言った&lt;na/&gt;&lt;mu/wa&gt;&lt;/ne&gt;？」</text>
+          <def_link>56</def_link>
+          <checkOnAppear>aod.npc_dellar_sohrabDisguise == false &amp;&amp; aod.disguise &gt;= 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>「他に何かできることはある&lt;ka/mu&gt;？」</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>「あまりないな。廃墟は至る所にあるが、俺たちには全部の石の下を見て回る金も人員もない。数週間前にアウレリアンはあそこにキャンプを張って発掘を始めた。そこに何かがあるのかも知れないし、あるいは何もなくてただ俺たちの行動を待ってるのかもしれない。テロンを攻撃する口実を得るために」</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_dellar_whatElse = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「彼らはどこで物資を手に入れてる&lt;nda/no&gt;？」</text>
+          <def_link>92</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>「いい質問だ。定期的にマードランから補給を受けるにしちゃ遠すぎるし、奴らはこの土地で生活することにも慣れてない。聞き込みでもしたら何か見つかるかもな」</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mineWine_askedDellar = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「人手を貸してくれない&lt;ka/mu&gt;？」</text>
+          <def_link>55</def_link>
+          <checkOnAppear>aod.npc_dellar_anyMen == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[impersonate]「奴らはソフラーブを待ってると言った&lt;na/&gt;&lt;mu/wa&gt;&lt;/ne&gt;？」</text>
+          <def_link>56</def_link>
+          <checkOnAppear>aod.npc_dellar_sohrabDisguise == false &amp;&amp; aod.disguise &gt;= 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>「他に何かできることはある&lt;ka/mu&gt;？」</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>92</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>デラーは首を振った。「まず、何が起きているのか正確にはわからん。予想外の状況になった時に備えて全ての人員を置いておく必要がある。それと、俺はお前の能力を見てみたい。それで問題ないだろう？」</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_dellar_anyMen = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「他に何か情報はある&lt;ka/mu&gt;？」</text>
+          <def_link>21</def_link>
+          <checkOnAppear>aod.npc_dellar_whatElse == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[impersonate]「奴らはソフラーブを待ってると言った&lt;na/&gt;&lt;mu/wa&gt;&lt;/ne&gt;？」</text>
+          <def_link>56</def_link>
+          <checkOnAppear>aod.npc_dellar_sohrabDisguise == false &amp;&amp; aod.disguise &gt;= 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>「他に何かできることはある&lt;ka/mu&gt;？」</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>55</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>デラーは興味深げに君を見て、うなずく。「ソフラーブはバクトリア人だ。だから東部訛りで話す必要があるだろうな。奴は大半の時間を仕事場で過ごしているから、奴らが知ってるのは名前だけだろう。もちろん、それらしい格好をしなければいけないだろうが、ローブがあれば大丈夫だろう」</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_dellar_sohrabDisguise = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「他に何か情報はある&lt;ka/mu&gt;？」</text>
+          <def_link>21</def_link>
+          <checkOnAppear>aod.npc_dellar_whatElse == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>「人手を貸してくれない&lt;ka/mu&gt;？」</text>
+          <def_link>55</def_link>
+          <checkOnAppear>aod.npc_dellar_anyMen == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>「他に何かできることはある&lt;ka/mu&gt;？」</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>56</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>「まあ、この問題がお気に召さなかったんなら、二つ目のも絶対気に入らないだろうがな。我々の貴族の一人が略奪者の一団に捕まったんだ。誰かがそこへ言って略奪者達が何を望んでいるのか知る必要がある」</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>「彼らは何が欲しいか言わなかったの&lt;ka/mu&gt;？」</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>「それが笑える話でな。数日前に略奪者の一人が入ってきて、一味が領主を捕らえたと言って要求を始めた。俺たちはそのクソ野郎の言うことを真に受けずに射撃訓練の的にしたわけだ。それからアンティダス卿の遠縁が本当に行方不明だと判明したんだが、もう手遅れだった。俺の部下はもうそこへ行って血の贖いをしようという奴はいない」</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>「そんなところに&lt;ore/watashi&gt;を送り込むの&lt;ka/mu&gt;？」</text>
+          <def_link>24</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>「払っても構わない犠牲だ」</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>「どうもご親切に。わかった&lt;yo/&gt;&lt;mu/wa&gt;、やってみる」立ち去る。</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>「考えておく&lt;mu/wa&gt;」立ち去る。</text>
+          <def_link>52</def_link>
+          <checkOnAppear>aod.npc_dellar_test == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start quests</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_teronRaider_goToCamp = true;</string>
+        <string>aod.quest_teronMine_goToMine = true;</string>
+        <string>revealMapLocation("BanditCamp");</string>
+        <string>revealMapLocation("Outpost");</string>
+        <string>dlgAddTextBoxMessage("Bandit Camp added to the map");</string>
+        <string>dlgAddTextBoxMessage("Outpost added to the map");</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportTo(167, 163, 0, S);</string>
+        <string>aod.gameplay_showLocations = true;</string>
+        <string>aod.npc_dellar_questsGiven = true;</string>
+        <string>if(aod.npc_dellar_questConsidered == false) addQuest(TeronOutpost);</string>
+        <string>if(aod.npc_dellar_questConsidered == false) addQuest(TeronBandit);</string>
+        <string>aod.npc_dellar_questConsidered = false;</string>
+        <string>aod.quest_teronOutpost_phase2 = true;</string>
+        <string>aod.quest_teronBandit_phase2 = true;</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>if(aod.quest_mineWine_askedDellar) aod.quest_mineWine_askAround = true;</string>
+        <string>tutorial_map_start();</string>
+        <string>tutorial_map();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - quests considered</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.npc_dellar_questConsidered = true;</string>
+        <string>dlgTeleportTo(167, 163, 0, S);</string>
+        <string>setRtsCam();</string>
+        <string>addQuest(TeronOutpost);</string>
+        <string>addQuest(TeronBandit);</string>
+        <string>aod.quest_teronBandit_phase1 = true;</string>
+        <string>aod.quest_teronOutpost_phase1 = true;</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>52</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - lied to Dellar</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgTeleportTo(167, 163, 0, S);</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>26</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>「人助けに飢えてるんだろ？　アウレリアン家がテロンからそう遠くない遺跡を発掘している。どうやらそこは古い採掘施設だったらしく、手つかずの機械がまだ残っているらしい。奴らはソフラーブを呼んだんだが、こいつが良くないニュースでな。ソフラーブは古い機械の専門家なんだ。ギアがある物なら直せるだろう。俺たちにはできない。アウレリアンの奴らが俺たちの裏庭で店を構えるのだけは勘弁だ」</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_dellar_talkedAboutQuests = true;</string>
+        <string>aod.npc_dellar_met = true;</string>
+        <string>if(aod.npc_dellar_startTest) aod.npc_dellar_startTest = false;</string>
+        <string>if(aod.npc_dellar_startHelp) aod.npc_dellar_startHelp = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「で、&lt;ore/watashi&gt;に何をして欲しい&lt;nda/no&gt;？」</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[impersonate]「奴らはソフラーブを待ってると言った&lt;na/&gt;&lt;mu/wa&gt;&lt;/ne&gt;？」</text>
+          <def_link>56</def_link>
+          <checkOnAppear>aod.npc_dellar_sohrabDisguise == false &amp;&amp; aod.disguise &gt;= 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>34</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>「何か用か？」</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"My guild has uncovered a treacherous plot..."</text>
+          <def_link>82</def_link>
+          <checkOnAppear>aod.quest_mg2_goSeeAntidas</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"About the bandit camp..."</text>
+          <def_link>37</def_link>
+          <checkOnAppear>aod.quest_teronRaider_metLeader &amp;&amp; aod.quest_teronRaider_finished == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.quest_teronRaider_ransomGiven</string>
+            <string>aod.quest_teronRaider_mineAttackProposal &amp;&amp; aod.quest_teronRaider_mineAttackRefused == false &amp;&amp; aod.quest_teronMine_complete == false &amp;&amp; aod.quest_teronMine_fightOutside == false</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>63</int>
+            <int>84</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'll give your problems a shot."</text>
+          <def_link>25</def_link>
+          <checkOnAppear>aod.npc_dellar_questConsidered &amp;&amp; aod.npc_dellar_questsGiven == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Master Feng has sent me to see Lord Antidas."</text>
+          <def_link>8</def_link>
+          <checkOnAppear>aod.npc_dellar_fengSentMe == false &amp;&amp; aod.npc_dellar_talkedAboutQuests == false &amp;&amp; aod.quest_MQ_seeAntidas &amp;&amp; aod.npc_antidas_allowedToSeeHim == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Take me to Antidas."</text>
+          <def_link>57</def_link>
+          <checkOnAppear>aod.npc_antidas_allowedToSeeHim &amp;&amp; aod.quest_mg2_goSeeAntidas == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'm here to see Master Cassius."</text>
+          <def_link>64</def_link>
+          <checkOnAppear>aod.npc_cassius_daratan</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Anything I can do to help?"</text>
+          <def_link>34</def_link>
+          <checkOnAppear>aod.npc_dellar_talkedAboutQuests == false &amp;&amp; aod.quest_MQ_seeAntidas &amp;&amp; aod.npc_dellar_questsGiven == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>「&lt;omae/anata&gt;は昔キャラバンを襲撃したことがあると聞いたんだ&lt;ga/kedo&gt;」"I've heard you raided caravans back in the day."</text>
+          <def_link>74</def_link>
+          <checkOnAppear>aod.npc_dellar_talkAboutRaiding == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>「今は何もない&lt;mu/wa&gt;」立ち去る。</text>
+          <def_link>48</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>36</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What do you want, praetor?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Intercept the Aurelian legionaries.</text>
+          <def_link>67</def_link>
+          <checkOnAppear>aod.quest_hd1_finished == false &amp;&amp; aod.quest_hd1_started</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I didn't find Cassius. Maybe he changed his mind."</text>
+          <def_link>90</def_link>
+          <checkOnAppear>aod.quest_kill_cassius_solved &amp;&amp; aod.quest_hd0_finished == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'm ready to defend the palace."</text>
+          <def_link>72</def_link>
+          <checkOnAppear>aod.quest_hd2_carrinasFailure &amp;&amp; aod.quest_hd2_palaceDefense == false &amp;&amp; aod.WTF</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'm ready to go to the inn."</text>
+          <def_link>70</def_link>
+          <checkOnAppear>aod.quest_hd2_readyForInn</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"About the bandit camp..."</text>
+          <def_link>37</def_link>
+          <checkOnAppear>aod.quest_teronRaider_metLeader &amp;&amp; aod.quest_teronRaider_finished == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.quest_teronRaider_ransomGiven</string>
+            <string>aod.quest_teronRaider_mineAttackProposal &amp;&amp; aod.quest_teronRaider_mineAttackRefused == false &amp;&amp; aod.quest_teronMine_complete == false &amp;&amp; aod.quest_teronMine_fightOutside == false</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>63</int>
+            <int>84</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'll give your problems a shot."</text>
+          <def_link>25</def_link>
+          <checkOnAppear>aod.npc_dellar_questConsidered</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Take me to Antidas."</text>
+          <def_link>57</def_link>
+          <checkOnAppear>aod.npc_antidas_allowedToSeeHim</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'm here to see Master Cassius."</text>
+          <def_link>64</def_link>
+          <checkOnAppear>aod.npc_cassius_daratan</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Let me talk with Master Sohrab. I want his help with Carrinas."</text>
+          <def_link>85</def_link>
+          <checkOnAppear>aod.quest_hd2_talkToSohrab</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Anything I can do to help?"</text>
+          <def_link>34</def_link>
+          <checkOnAppear>aod.npc_dellar_talkedAboutQuests == false &amp;&amp; aod.quest_MQ_seeAntidas &amp;&amp; aod.npc_dellar_questsGiven == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I've heard you raided caravans back in the day."</text>
+          <def_link>74</def_link>
+          <checkOnAppear>aod.npc_dellar_talkAboutRaiding == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I need some poison."</text>
+          <def_link>97</def_link>
+          <checkOnAppear>aod.quest_mineWine_getPoison &amp;&amp; aod.quest_mineWine_hasHighPoison == false &amp;&amp; aod.quest_teronMine_complete == false &amp;&amp; aod.quest_teronMine_fight == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Nothing at the moment." Leave.</text>
+          <def_link>48</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>66</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Guard! Escort &lt;charname&gt; to Master Cassius."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Follow him.</text>
+          <def_link>65</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>64</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Report."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"They want money. One thousand imperials."</text>
+          <def_link>38</def_link>
+          <checkOnAppear>aod.quest_teronRaider_talkedToDellar == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"They want money. They asked for a thousand, but I talked them down to five hundred."</text>
+          <def_link>51</def_link>
+          <checkOnAppear>aod.quest_teronRaider_talkedToDellar == false &amp;&amp; aod.quest_teronRaider_raiderRansom500</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What do you want me to do?"</text>
+          <def_link>39</def_link>
+          <checkOnAppear>aod.quest_teronRaider_talkedToDellar &amp;&amp; aod.quest_teronRaider_ransomGiven == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion]"Just pay them. The raiders understand that it's a delicate situation. Instead of asking for a ransom, they're asking for a reward for helping a noble in need and seeing him to safety. I think it would be easier to pay than put your men and the hostage at risk."</text>
+          <def_link>40</def_link>
+          <checkOnAppear>aod.quest_teronRaider_persOptionFail == false &amp;&amp; aod.quest_teronRaider_talkedToDellar</checkOnAppear>
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>49</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intelligence success]"Pay the raiders to attack the Aurelian outpost. You'll kill two birds with one stone."</text>
+          <def_link>41</def_link>
+          <checkOnAppear>aod.int &gt;= 7 &amp;&amp; aod.quest_teronRaider_intOptionFail == false &amp;&amp; aod.quest_teronRaider_talkedToDellar &amp;&amp; aod.quest_teronMine_complete == false &amp;&amp; aod.quest_teronMine_fightOutside == false &amp;&amp; aod.quest_teronRaider_mineAttackRefused == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[thief]"Still working on it. I'll run it by Cado, see what he says." Go see Cado.</text>
+          <def_link>53</def_link>
+          <checkOnAppear>aod.pc_member_thieves &amp;&amp; aod.quest_teronRaider_cadoInvolvement == false &amp;&amp; aod.quest_teronRaider_talkedToDellar</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"They refuse. It's the ransom or nothing."</text>
+          <def_link>45</def_link>
+          <checkOnAppear>aod.quest_teronRaider_mineAttackRefused</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"The mine is no longer a problem. We'll have to find another way to deal with the raiders."</text>
+          <def_link>45</def_link>
+          <checkOnAppear>aod.quest_teronMine_complete &amp;&amp; aod.quest_teronRaider_mineAttackProposal &amp;&amp; aod.quest_teronMine_fightOutside == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>37</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Out of the question. Paying ransom is a sign of weakness and an invitation for more troubles. We can't afford it at the moment."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_teronRaider_talkedToDellar = true;</string>
+        <string>aod.quest_teronRaider_dellarRansom1000 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"What do you want me to do then?"</text>
+          <def_link>39</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion]"The raiders leader understands that. Instead of asking for a ransom, he's asking for a reward for helping a noble in need and seeing him to safety. I think it would be easier to pay him than put your men and the hostage at risk."</text>
+          <def_link>40</def_link>
+          <checkOnAppear>aod.quest_teronRaider_persOptionFail == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>49</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intelligence success]"Then pay the raiders to attack the Aurelian outpost. You'll kill two birds with one stone."</text>
+          <def_link>41</def_link>
+          <checkOnAppear>aod.int &gt;= 7 &amp;&amp; aod.quest_teronRaider_intOptionFail == false &amp;&amp; aod.quest_teronMine_complete == false &amp;&amp; aod.quest_teronMine_fightOutside == false &amp;&amp; aod.quest_teronRaider_mineAttackRefused == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[thief]"I'll run it by Cado then, see what he says." Go see Cado.</text>
+          <def_link>53</def_link>
+          <checkOnAppear>aod.pc_member_thieves &amp;&amp; aod.quest_teronRaider_cadoInvolvement == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>38</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Out of the question. Paying ransom is a sign of weakness and an invitation for more troubles. We can't afford it at the moment."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_teronRaider_talkedToDellar = true;</string>
+        <string>aod.quest_teronRaider_dellarRansom500 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"What do you want me to do then?"</text>
+          <def_link>39</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion]"The raiders leader understands that. Instead of asking for a ransom, he's asking for a reward for helping a noble in need and seeing him to safety. I think it would be easier to pay him than put your men and the hostage at risk."</text>
+          <def_link>40</def_link>
+          <checkOnAppear>aod.quest_teronRaider_persOptionFail == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>49</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intelligence success]"Then pay the raiders to attack the Aurelian outpost. You'll kill two birds with one stone."</text>
+          <def_link>41</def_link>
+          <checkOnAppear>aod.int &gt;= 7 &amp;&amp; aod.quest_teronRaider_intOptionFail == false &amp;&amp; aod.quest_teronMine_complete == false &amp;&amp; aod.quest_teronMine_fightOutside == false &amp;&amp; aod.quest_teronRaider_mineAttackRefused == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[thief]"Still working on it. I'll run it by Cado, see what he says." Go see Cado.</text>
+          <def_link>53</def_link>
+          <checkOnAppear>aod.pc_member_thieves &amp;&amp; aod.quest_teronRaider_cadoInvolvement == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>51</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Can you handle them?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I think so."</text>
+          <def_link>44</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I don't think so. There are too many of them."</text>
+          <def_link>45</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[thief]"I'd rather run it by Cado first, see what he says." Go see Cado.</text>
+          <def_link>53</def_link>
+          <checkOnAppear>aod.pc_member_thieves &amp;&amp; aod.quest_teronRaider_cadoInvolvement == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>39</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Then do it. What are you waiting for?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>48</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>44</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"And then what? What are we going to do, if they won't leave and take another hostage a few weeks later? If another gang shows up, attracted by the prospect of easy money?"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_teronRaider_persOptionFail = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"What do you want me to do then?"</text>
+          <def_link>39</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion][trading]"It's only 500 imperials. It's not enough to give them a good reason to stick around and cause more troubles. They will buy some supplies and move on."</text>
+          <def_link>43</def_link>
+          <checkOnAppear>aod.quest_teronRaider_dellarRansom500</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.persuasion + aod.trading) &gt;= 5 &amp;&amp; aod.persuasion &gt;= 2 &amp;&amp; aod.trading &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>49</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intelligence success]"Then pay the raiders to attack the Aurelian outpost. You'll kill two birds with one stone."</text>
+          <def_link>41</def_link>
+          <checkOnAppear>aod.int &gt;= 7 &amp;&amp; aod.quest_teronRaider_intOptionFail == false &amp;&amp; aod.quest_teronMine_complete == false &amp;&amp; aod.quest_teronMine_fightOutside == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>40</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Risky."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]"Where is the downside? The outpost will be wiped out or weakened enough for you to finish the job, and you'll have bodies of dead raiders to prove that Daratan had nothing to do with it."</text>
+          <def_link>42</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>50</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>41</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"Too complicated."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_teronRaider_intOptionFail = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"What do you want me to do then?"</text>
+          <def_link>39</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion]"Then just pay them. The raiders understand that it's a delicate situation. Instead of asking for a ransom, they're asking for a reward for helping a noble in need and seeing him to safety. I think it would be easier to pay than put your men and the hostage at risk."</text>
+          <def_link>40</def_link>
+          <checkOnAppear>aod.quest_teronRaider_persOptionFail == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>49</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>42</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"Enough. We'll not pay."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_teronRaider_persOptionFail = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"What do you want me to do then?"</text>
+          <def_link>39</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intelligence success]"Then pay the raiders to attack the Aurelian outpost. You'll kill two birds with one stone."</text>
+          <def_link>41</def_link>
+          <checkOnAppear>aod.int &gt;= 7 &amp;&amp; aod.quest_teronRaider_intOptionFail == false &amp;&amp; aod.quest_teronMine_complete == false &amp;&amp; aod.quest_teronMine_fightOutside == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>43</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I guess we'll have to do it ourselves. You've seen the camp. What can you tell us about it?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[perception]"Not much. It's a small camp. Fenced off. There are two ways in, well guarded. I saw five or six men, but there could be more."</text>
+          <def_link>46</def_link>
+          <checkOnAppear>aod.per &lt; 7</checkOnAppear>
+          <checksOnClick>
+            <string>aod.pc_member_daratan</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>94</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[perception]"The camp is fenced off from two sides to prevent the raiders from being attacked from all directions. The forest is too dense in the south, so they expect you to come from the north – I saw two men with bows posted near the northern entrance to the camp. There are six raiders, but two are wounded and won't count for much in a fight.
+
+The prisoner is in a cage near the south entrance. There is a single guard there. If you take him out quietly, you can take the raiders by surprise and make sure that the hostage will live through the fight."</text>
+          <def_link>47</def_link>
+          <checkOnAppear>aod.per &gt;= 7</checkOnAppear>
+          <checksOnClick>
+            <string>aod.pc_member_daratan</string>
+            <string>aod.npc_antidas_met &amp;&amp; aod.npc_dellar_test == false || aod.npc_antidas_metInMg2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>93</int>
+            <int>95</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion]"Just pay them. The raiders understand that it's a delicate situation. Instead of asking for a ransom, they're asking for a reward for helping a noble in need and seeing him to safety. I think it would be easier to pay than put your men and the hostage at risk."</text>
+          <def_link>40</def_link>
+          <checkOnAppear>aod.quest_teronRaider_persOptionFail == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>49</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intelligence success]"Why not pay the raiders to attack the Aurelian outpost? You'll kill two birds with one stone."</text>
+          <def_link>41</def_link>
+          <checkOnAppear>aod.int &gt;= 7 &amp;&amp; aod.quest_teronRaider_intOptionFail == false &amp;&amp; aod.quest_teronMine_complete == false &amp;&amp; aod.quest_teronMine_fightOutside == false &amp;&amp; aod.quest_teronRaider_mineAttackRefused == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[thief]"Wait, let me run it by Cado first, see what he says." Go see Cado.</text>
+          <def_link>53</def_link>
+          <checkOnAppear>aod.pc_member_thieves &amp;&amp; aod.quest_teronRaider_cadoInvolvement == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'll try something else." Leave.</text>
+          <def_link>48</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>45</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Dellar's men are back in less than an hour.
+
+"It didn't go well," says one of them grimly. "We hit them hard, but they were ready and met us with several volleys of bolts. We've lost five men," Dellar winces, "but the raiders are dead. Tiberius was dead by the time we reached him..."
+
+"It's a fucking disaster," says Dellar. "The old man will be furious." It takes awhile for him to realize that you're still here. "What do you want? Don't tell me you're dumb enough to hope for a reward. Fuck off."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_teronRaider_finished = true;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>finishedTeronBandits();</string>
+        <string>rwd_reputation(BanditCamp_07);</string>
+        <string>aod.quest_teronBandit_phase4f = true;</string>
+        <string>aod.quest_teronRaider_complete = true;</string>
+        <string>aod.npc_esbenus_dead = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>48</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>46</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Dellar's men are back in less than an hour.
+
+"It didn't go well," says one of them grimly. "We hit them hard, but they were ready and met us with several volleys of bolts. We've lost five men," Dellar winces, "but the raiders are dead. Tiberius was dead by the time we reached him..."
+
+"It's a fucking disaster," says Dellar. "The old man will be furious." It takes awhile for him to realize that you're still here. "We're done here, &lt;charname&gt;."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_teronRaider_finished = true;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>finishedTeronBandits();</string>
+        <string>rwd_reputation(BanditCamp_07);</string>
+        <string>aod.quest_teronBandit_phase4f = true;</string>
+        <string>aod.quest_teronRaider_complete = true;</string>
+        <string>aod.npc_esbenus_dead = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>48</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>94</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Dellar's men are back in less than an hour.
+
+"In and out," says one of them, unstringing his bow. "We took out the guard at the southern entrance and hit them from behind. When they realized we were there, four of them were already down. We took our time with the other two though. Tiberius is shaken, but at least he's alive."
+
+"Well done," says Dellar. "Let's go see the old man now."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>rwd_quest(BanditCamp_02);</string>
+        <string>rwd_reputation(BanditCamp_06);</string>
+        <string>aod.quest_teronRaider_finished = true;</string>
+        <string>finishedTeronBandits();</string>
+        <string>aod.quest_teronBandit_phase4g = true;</string>
+        <string>aod.quest_teronRaider_complete = true;</string>
+        <string>aod.npc_esbenus_dead = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Follow him.</text>
+          <def_link>57</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>47</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Dellar's men are back in less than an hour.
+
+"In and out," says one of them, unstringing his bow. "We took out the guard at the southern entrance and hit them from behind. When they realized we were there, four of them were already down. We took our time with the other two though. Tiberius is shaken, but at least he's alive."
+
+"Well done," says Dellar.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>rwd_quest(BanditCamp_02);</string>
+        <string>rwd_reputation(BanditCamp_06);</string>
+        <string>aod.quest_teronRaider_finished = true;</string>
+        <string>finishedTeronBandits();</string>
+        <string>aod.quest_teronBandit_phase4g = true;</string>
+        <string>aod.quest_teronRaider_complete = true;</string>
+        <string>aod.npc_esbenus_dead = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>48</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>95</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Dellar's men are back in less than an hour.
+
+"In and out," says one of them, unstringing his bow. "We took out the guard at the southern entrance and hit them from behind. When they realized we were there, four of them were already down. We took our time with the other two though. Tiberius is shaken, but at least he's alive."
+
+"Well done, &lt;charname&gt;," says Dellar.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>rwd_quest(BanditCamp_02);</string>
+        <string>rwd_reputation(BanditCamp_06);</string>
+        <string>aod.quest_teronRaider_finished = true;</string>
+        <string>finishedTeronBandits();</string>
+        <string>aod.quest_teronBandit_phase4g = true;</string>
+        <string>aod.quest_teronRaider_complete = true;</string>
+        <string>aod.npc_esbenus_dead = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>48</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>93</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Good point. Alright, pay the ransom. Here is the money, but the roads are watched, so don't get any ideas."</npc_text>
+      <onLoadScripts>
+        <string>if(aod.quest_teronRaider_dellarRansom1000) dlgChangeMoney(1000);</string>
+        <string>if(aod.quest_teronRaider_dellarRansom500) dlgChangeMoney(500);</string>
+        <string>aod.quest_teronRaider_ransomGiven = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[thief]"Of course." Stop by Cado first.</text>
+          <def_link>53</def_link>
+          <checkOnAppear>aod.pc_member_thieves &amp;&amp; aod.quest_teronRaider_cadoInvolvement == false &amp;&amp; aod.quest_teronRaider_talkedToDellar</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>48</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>49</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"I haven't thought of that. Good plan, &lt;charname&gt;. If it works, Lord Antidas will be very impressed."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_teronRaider_mineAttackProposal = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>48</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>50</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You've already got the ransom money. What are you still doing here?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>48</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>63</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Go tell them about your plan, &lt;charname&gt;, you don't need anything else from me."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>48</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>84</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgTeleportTo(167, 163, 0, S);</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>48</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go meet Antidas</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>apmsstartdialogue(antidas_02);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>57</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Cado and raiders</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>apmsstartdialogue(cado_02);</string>
+        <string>aod.quest_teronRaider_cadoInvolvement = true;</string>
+        <string>dlgTeleportTo(139, 54, 0, S);</string>
+        <string>useCameraBookmark(NPC_Cado_Cam_01);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>53</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What are you doing here, &lt;charname&gt;? I thought I've made it clear that you aren't welcome here. Do you want me to make it crystal fucking clear for you?" He raises his hand and the tower guards take aim.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>48</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>58</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You've gotta be kidding me, &lt;charname&gt;! After all you've done, I didn't think I'd see your face anytime soon. Kill the &lt;son a bitch/bitch&gt;."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[dodge]Run!</text>
+          <def_link>60</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex == 10 &amp;&amp; aod.dodge &gt;= 2</string>
+            <string>aod.dex == 9 &amp;&amp; aod.dodge &gt;= 3</string>
+            <string>aod.dex == 8 &amp;&amp; aod.dodge &gt;= 4</string>
+            <string>aod.dodge &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>62</int>
+            <int>62</int>
+            <int>62</int>
+            <int>62</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>59</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You turn around and run as fast as you can. For a second there you think that you've made it and then a well aimed bolt hits you between the shoulder blades, throwing you to the ground.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Rest in peace.</text>
+          <def_link>61</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>60</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>61</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You turn around and run, changing your direction randomly to throw off the aim of the crossbowmen. Several bolts whiz by you, failing to find the target, as you dart into a nearby alley.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>48</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>62</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go see Cassius</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_DLG_Cassius);</string>
+        <string>useCameraBookmark(NPC_Cassius_Cam_01);</string>
+        <string>apmsstartdialogue(Cassius_02);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Cassius_NPC, 1010);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>65</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start HD1</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>dlgCreateCharacter("Aurelian Praetor", 2050, 2050, 26, 68, 0, E);</string>
+        <string>dlgCreateCharacter("Aurelian Legionary", 2051, 2051, 25, 69, 0, E);</string>
+        <string>dlgCreateCharacter("Aurelian Legionary", 2052, 2052, 25, 66, 0, E);</string>
+        <string>dlgCreateCharacter("Aurelian Legionary", 2053, 2053, 23, 68, 0, E);</string>
+        <string>dlgCreateCharacter("ソフラーブ", 2055, 2055, 23, 67, 0, E);</string>
+        <string>dlgCreateCharacter("ダラタンの衛兵", 2054, 2054, 29, 66, 0, W);</string>
+        <string>dlgCreateCharacter("ダラタンの衛兵", 2056, 2056, 29, 69, 0, W);</string>
+        <string>dlgTeleportTo(28, 68, 0, W);</string>
+        <string>useCameraBookmark(Quest_HD1_01);</string>
+        <string>apmsstartdialogue(quest_hd1_01);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>67</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"We rented a room for you on the second floor. The innkeeper will take you there when you arrive. Remember, &lt;charname&gt;, this ends tonight."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_hd2_readyForInn = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to the inn.</text>
+          <def_link>71</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>70</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start HD2 inn</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>dlgCreateCharacter("Decius", 1475, 1475, 61, 149, 1, S);</string>
+        <string>dlgCreateCharacter("帝国衛兵", 1480, 1480, 60, 149, 1, S);</string>
+        <string>dlgTeleportTo(61, 147, 1, S, 1120);</string>
+        <string>dlgTeleportTo(61, 146, 1, N);</string>
+        <string>useCameraBookmark(Quest_HD2_01);</string>
+        <string>AG2_Level.showObjects();</string>
+        <string>TeronNightTime();</string>
+        <string>apmsstartdialogue(quest_hd2_03);</string>
+        <string>if(aod.quest_hd2_envoySohrabSuccess) dlgTeleportTo(60, 146, 1, NE, 2055);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>71</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Alright, come with me."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Follow Dellar.</text>
+          <def_link>73</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>72</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start palace defense</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.quest_hd2_palaceDefense = true;</string>
+        <string>apmsstartdialogue(quest_hd2_05);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>73</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>「したが。それが何か？」</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_dellar_talkAboutRaiding = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「それについて聞かせてくれない&lt;ka/mu&gt;？」</text>
+          <def_link>75</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.pc_background_praetor &amp;&amp; aod.cha &gt;= 6</string>
+            <string>aod.cha &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>76</int>
+            <int>76</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>74</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[charisma failure]「他にやること探しな、&lt;charname&gt;」</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>「別の話をし&lt;yo/&gt;&lt;u/&gt;&lt;/masyou&gt;」</text>
+          <def_link>36</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.pc_background_praetor &amp;&amp; aod.pc_member_daratan</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>66</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>立ち去る。</text>
+          <def_link>48</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>75</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[charisma success]"There is nothing to tell. I was young and good with a sword. I took a job guarding caravans. You know... see the world, kill a few men, make a few coins. The romance of the wasteland.
+
+"Turned out it was just another shit job for shit pay. I worked it for three years and then decided that maybe it was time to switch sides."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Just like that?"</text>
+          <def_link>77</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>76</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Nothing happens just like that. You ever worked caravans? Good men are expensive, so the merchant guilds hire what comes cheap – kids, rejects, cutthroats. They start dropping like flies after an attack or two, which means less sleep and more shit to deal with for those who live. You are always up, always working. You and the slaves who pull those damn carts. After awhile you start wondering who has it easier – you or the slaves."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"So, what made you change sides?"</text>
+          <def_link>78</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>77</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"A sword to my throat – the most convincing argument there is.
+
+"We were doing a two-week run. A few days in, we hit a storm. The sand was everywhere. You couldn't see anything, couldn't even open your eyes. The boss man told us to press on and we did. To be fair, nobody thought that we could be attacked in that storm.
+
+"The raiders picked our men off one by one. By the time we'd realized what was happening, it was too late. They gave me a chance to live and I took it. Didn't even have to think about it."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"What happened after that?"</text>
+          <def_link>79</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>78</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"We raided for a few years. Those were the good days... If I was smarter I would have quit when I was ahead, but I was young and thought that we were a force to be reckoned with. And we were, until the merchants paid the Imperial Guards to put us out of business.
+
+"They sent me to the iron mines. I did ten years in a place called the Second Chance. It was like a big empty pot - called the town - with passages going off in every direction. The main ore deposits were long gone, but you could find a bit here and there. That's what the tunnels were for. Every day you trade ore for food. No ore, no food. It's a simple system that brings the best out of people."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"How did you escape?"</text>
+          <def_link>80</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>79</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I waited for an opportunity since the day they put me there. Only took ten years..."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Have you thought of going back to raiding?"</text>
+          <def_link>81</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>80</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I have. I've also thought about going back to the mines. I believe that one comes with the other, and it's the other that I'm not looking forward to.
+
+"There are three ways to make a living if you're good with a sword. You can do it for nothing – guarding caravans or fighting for the Imperials Guards. You can do it for yourself and sooner or later you'll piss off someone who will swat you like a fly and that would be the end of it. Or you can do it smart and work for someone like Antidas – he needs me as much as I need him. He goes up, I go up with him. He goes down – well, nobody lives forever."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Is there anything you can teach me?"</text>
+          <def_link>96</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>81</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I suppose I can spare a minute..."</npc_text>
+      <onLoadScripts>
+        <string>rwd_training(Dellar);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Thanks. Let me ask you something else."</text>
+          <def_link>36</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.pc_background_praetor &amp;&amp; aod.pc_member_daratan</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>66</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Thanks." Leave.</text>
+          <def_link>48</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>96</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I thought the Commercium had a monopoly on those. Master Linos must have been outraged.
+
+"Go in, &lt;charname&gt;."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go inside.</text>
+          <def_link>83</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>82</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go see Antidas MG2</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>apmsStartDialogue(quest_mg2_01);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>83</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Alright. Don't fuck it up, &lt;charname&gt;. Too much is riding on it."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go talk to Sohrab.</text>
+          <def_link>86</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>85</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - talk to Sohrab</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>apmsStartDialogue(Quest_HD2_01);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>86</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I have a task for you. One of the caravan masters reported seeing a small group of Aurelian legionaries escorting a man. Take two men with you and bring him here. I'd like to know who he is and what he's doing skulking around in our backyard."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_hd1_fromCassius = false;</string>
+        <string>aod.quest_hd0_finished = true;</string>
+        <string>aod.quest_hd1_started = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Intercept the group.</text>
+          <def_link>67</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I need some time to prepare."</text>
+          <def_link>88</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>87</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Maybe," says Dellar without elaborating. "I have a task for you. One of the caravan masters reported seeing a small group of Aurelian legionaries escorting a man. Take two men with you and bring him here. I'd like to know who he is and what he's doing skulking around in our backyard."</npc_text>
+      <onLoadScripts>
+        <string>addQuest(HD1);</string>
+        <string>aod.quest_hd1_phase1 = true;</string>
+        <string>aod.quest_hd0_finished = true;</string>
+        <string>aod.quest_hd1_started = true;</string>
+        <string>aod.jnl_hd0 = 7;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Intercept the group.</text>
+          <def_link>67</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I need some time to prepare."</text>
+          <def_link>88</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>90</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Don't take too long, &lt;charname&gt;."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'd like to ask you something."</text>
+          <def_link>66</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>48</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>88</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What for?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I know how they get their supplies. I'll spike their wine and pay them a visit after."</text>
+          <def_link>98</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>97</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Didn't take you for a poisoner. Well, Coltan owes me a favor, so now it would be a good time to collect. Wait a bit, I'll send someone to fetch it for you."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Wait.</text>
+          <def_link>99</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>98</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Here you go," says Dellar, giving you a small vial. "I was assured it was the best, which is highly doubtful but better than nothing."</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItemlist(Quest_AG2_Poison);</string>
+        <string>aod.quest_mineWine_hasHighPoison = true;</string>
+        <string>aod.quest_mineWine_phase3 = true;</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Thanks." Return to the shanty town.</text>
+          <def_link>100</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Thanks." Leave.</text>
+          <def_link>48</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>99</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - shanty</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Teleport_Shanty);</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>100</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

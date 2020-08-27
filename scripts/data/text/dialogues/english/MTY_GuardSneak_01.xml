@@ -1,0 +1,180 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.mty_sneakCaughtStarted</string>
+    </conditions>
+    <links>
+      <int>6</int>
+    </links>
+    <dlg_name>MTY_GuardSneak_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Guard</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It is forbidden,” says a man guarding an ancient colonnade entrance into the mountain. He says it almost pleadingly as if expecting you to understand the gravity of what you were about to do.
+
+The colonnade is fairly big and the other end is unguarded. With luck, you can easily sneak inside without anyone’s noticing.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[sneak]Sneak in from the other side.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.sneak &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I just killed a dozen raiders. You sure you want to be in my way?”</text>
+          <def_link>1</def_link>
+          <checkOnAppear>aod.mty_raidersLeft == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]"The Elder said he has no secrets from me now. You know, on account of me saving your sorry asses, but hey, maybe you wanted to fight all those raiders. Just say the word and I'll go get them back."</text>
+          <def_link>5</def_link>
+          <checkOnAppear>aod.mty_raidersLeft</checkOnAppear>
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1</int>
+          </linksOnClick>
+          <scriptsOnClick>
+            <string>if(aod.streetwise &gt;= 6) aod.flagUsed = 1;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The guard steps aside without saying a word.</npc_text>
+      <onLoadScripts>
+        <string>if(aod.flagUsed) {rwd_civil(MTY_02); aod.flagUsed = 0;}</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go in. You've earned it.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go inside</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>switchMission("Monastery interior.mis");</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“It is forbidden,” says the guard again, this time more firmly.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[sneak]Sneak in from the other side.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.sneak &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Your attempt to sneak in was spotted a mile away. The guard gives you a look of shame, for all the good it's going to do.</npc_text>
+      <onLoadScripts>
+        <string>aod.mty_sneakCaughtStarted = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]A better guard would have spotted you a mile away, but the villagers aren't used to visitors sneaking around and being all kinds of clever, which makes your job too easy.</npc_text>
+      <onLoadScripts>
+        <string>if(aod.MTY_sneakReward1 == false) rwd_civil(Sneak);</string>
+        <string>aod.MTY_sneakReward1 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go inside.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

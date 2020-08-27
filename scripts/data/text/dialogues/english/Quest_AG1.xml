@@ -1,0 +1,1013 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_ag1_combat_01</string>
+      <string>aod.quest_ag1_found_report</string>
+      <string>aod.quest_ag1_search_report</string>
+      <string>aod.quest_ag1_fight_dias</string>
+    </conditions>
+    <links>
+      <int>9</int>
+      <int>41</int>
+      <int>22</int>
+      <int>27</int>
+    </links>
+    <dlg_name>Quest_AG1</dlg_name>
+    <def_link>31</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You are standing outside the house Neleos sent you to. Everything seems quiet.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(quest_ag1_house_04);</string>
+        <string>dlgTeleportTo(182, 53, 0, S);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go inside.</text>
+          <def_link>0</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Maybe later.</text>
+          <def_link>32</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>31</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - leave</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>32</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You enter the house. What you see gives the word 'poor' a new meaning. The house hasn't been maintained in decades. The wood is dark and rotten, the furniture is falling apart; the smell matches the visuals.
+
+A sickly old man lies on the only bed, being tended to by a young woman. Clad in shabby garments only a shade cleaner than her surroundings, she looks at you with tears in her eyes and says, "My father... He must be dying..."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(20, 246, 0, S);</string>
+        <string>useCameraBookmark(quest_ag1_house_02);</string>
+        <string>VCO_Quest_AG1.setactive(0);</string>
+        <string>aod.quest_ag1_start = false;</string>
+        <string>ag1_spy_male.isrenderenabled = true;</string>
+        <string>ag1_spy_female.isrenderenabled = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill them.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Approach them.</text>
+          <def_link>42</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You take a few steps closer and the smell of the old man's unwashed body hits you hard, nearly making you nauseous. "Please...," says the girl pleadingly.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(21, 242, 0, S);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>useCameraBookmark(quest_ag1_house_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill them.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What happened to him?"</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Does anyone else live here?"</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>42</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The man springs from the bed in a lightning-quick motion, dagger in hand. His 'daughter' produces a small crossbow from beneath the bed and points it at your head.</npc_text>
+      <onLoadScripts>
+        <string>ag1_spy_male.isrenderenabled = false;</string>
+        <string>ag1_spy_female.isrenderenabled = false;</string>
+        <string>dlgCreateCharacter("The old man", 1310, 1310, 22, 242, 0, W);</string>
+        <string>dlgCreateCharacter("The woman", 1320, 1320, 19, 241, 0, NE);</string>
+        <string>aod.quest_ag1_combat_01 = true;</string>
+        <string>addParty(TeronSpy, 0);</string>
+        <string>addCharToParty(1310, "TeronSpy", "fighter");</string>
+        <string>addCharToParty(1320, "TeronSpy", "fighter");</string>
+        <string>dlgSetCombatAnimation(1310);</string>
+        <string>dlgSetCombatAnimation(1320);</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>30</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>addEnemyToParty(1, TeronSpy);</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>aod.gameplay_questAG1_fight = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>30</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I don't know. He's had a bad cough for a while, but lately he's been coughing up blood and constantly shivering. We don't have any money to pay the healer." She looks at you with hope.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Kill them.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Does anyone else live here?"</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Here is 10 coins, go get someone to help him." Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 10</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgChangeMoney(-10);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'm sorry, I can't help you." Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Just me and my dad. Are you looking for someone? I know everyone who lives in this area."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Kill them.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'm looking for two people. They are probably not from around here. I have a message for them."</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The old man makes a rattling, gurgling sound and weakly gestures for you to come closer.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Approach.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]Suddenly you realize that everything about this situation is a bit too pat. You're off guard and relaxed... Too relaxed. You draw your weapon quickly to see how the pair reacts.</text>
+          <def_link>1</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>You don't want to get too close to the dying man. Turn around and leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Standing beside the dying man, you lean in in an attempt to understand the weak sounds escaping his throat. Suddenly, your midsection erupts in pain. As you recoil, you see a blood-stained dagger in the surprisingly lively man's hand.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeCharacterHP(-7);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>"So?" Neleos looks at you expectantly, his expression unreadable. "How did it go?"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ag1_complete = true;</string>
+        <string>aod.quest_ag1_killed_none = true;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(211, 106, 0, E);</string>
+        <string>useCameraBookmark(NPC_neleos_cam_01);</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>dlgDeleteDeadCharacters();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"You gave me the wrong house. I've found no one but a dying old man and his daughter."</text>
+          <def_link>36</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Young Spy</speaker_name>
+      <npc_text>You start searching the house when the door opens, admitting a visitor. It's a young man in an old, dirty tunic. He looks like a beggar but he has the bearing of a soldier. The man sees the dead bodies and his hand goes to a sword he isn't wearing. He shrugs and smiles, acknowledging his disadvantage.
+
+"I work for House Aurelian. Help me and the most powerful House will be in your debt. Kill me and you'll get a few hundred coins at most."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(21, 242, 0, S);</string>
+        <string>aod.quest_ag1_combat_01 = false;</string>
+        <string>aod.quest_ag1_killed_one_spy = true;</string>
+        <string>useCameraBookmark(quest_ag1_house_02);</string>
+        <string>dlgCreateCharacter("The young spy", 1315, 1315, 19, 246, 0, S);</string>
+        <string>dlgRotateToChar(1315);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"You were dead the moment I took the job." Attack.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Hand me your reports and I'll let you live."</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What kind of help? And what assurance do I have that you would keep your word to an assassin?"</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Young Spy</speaker_name>
+      <npc_text>"Why should I trust you?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"What choice do you have?"</text>
+          <def_link>11</def_link>
+          <checkOnAppear>aod.persuasion &lt; 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion][charisma]"Because recovering the reports is more important than killing you. The lesson has already been taught." Nod at the other bodies on the floor.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.cha) &gt;= 8 &amp;&amp; aod.persuasion &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>13</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Young Spy</speaker_name>
+      <npc_text>"There is always a choice." The spy pulls out a dagger and attacks.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Young Spy</speaker_name>
+      <npc_text>[failure]"I don't trust you." The spy pulls out a dagger and attacks.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Young Spy</speaker_name>
+      <npc_text>[success]"Do I have your word?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Yes."</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Enough. Make a decision."</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Young Spy</speaker_name>
+      <npc_text>"Very well." The spy retrieves the documents from a secret compartment in the door – the last place anyone would look for anything valuable – and gives them to you.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ag1_found_report = true;</string>
+        <string>rwd_civil(AG1_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"You're free to go."</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I can't let you go." Attack.</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Young Spy</speaker_name>
+      <npc_text>"I don't trust you." The spy pulls out a dagger and attacks.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Young Spy</speaker_name>
+      <npc_text>"Just get me and the missives safely to Maadoran. House Aurellian rewards skill and success. I can vouch for your skill, and the safe delivery of this report will guarantee that the both of us are amply rewarded."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"No deal. Hand me the reports and I'll let you walk away."</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Alright, let's go. Just remember that I'll be right behind you. If I don't like something..."</text>
+          <def_link>27</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"On a second thought, I think I'll be better off just killing you."</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - spy</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>aod.quest_ag1_combat_02 = true;</string>
+        <string>addCharToParty(1315, "TeronSpy", "fighter");</string>
+        <string>aod.quest_ag1_phase2a = true;</string>
+        <string>aod.gameplay_questAG1_fight = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>"So?" Neleos looks at you expectantly, his expression unreadable. "How did it go?"</npc_text>
+      <onLoadScripts>
+        <string>dlgStopCombat();</string>
+        <string>aod.quest_ag1_complete = true;</string>
+        <string>rwd_reputation(AG1_06);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(211, 106, 0, E);</string>
+        <string>useCameraBookmark(NPC_neleos_cam_01);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>dlgDeleteCharacter(1315);</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>aod.ending_agChoices = true;</string>
+        <string>aod.ending_ag_02 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Two dead spies. Plus the reports." Put the reports on his desk.</text>
+          <def_link>34</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - break promise</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(AG1_07);</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>aod.quest_ag1_combat_02 = true;</string>
+        <string>addCharToParty(1315, "TeronSpy", "fighter");</string>
+        <string>aod.gameplay_questAG1_fight = true;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You look at the dead bodies sprawled around you and the blood slowly spreading on the floor. You take everything valuable, but the reports aren't there.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ag1_killed_both_spies = true;</string>
+        <string>aod.quest_ag1_complete = true;</string>
+        <string>aod.quest_ag1_killed_one_spy = false;</string>
+        <string>useCameraBookmark(quest_ag1_house_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[perception]Search the house for the documents.</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per &gt;= 8</string>
+            <string>aod.per &lt; 8 &amp;&amp; aod.steal &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>24</int>
+            <int>25</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Check the bodies.</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - continue looking</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>29</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[perception failure]You look around but find nothing.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ag1_found_report = false;</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[perception success]The reports must be here somewhere. You start checking everything methodically, moving inch by inch. You check the broken ceiling, every floor board, examine the walls and the furniture, and finally get to the door. It's broken and poorly patched, with a fist-size hole where the lock used to be. One of the patches near the bottom is loose, revealing a small niche. Inside the niche, you find the reports and a small purse.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ag1_found_report = true;</string>
+        <string>dlgChangeMoney(24);</string>
+        <string>dlgAddTextBoxMessage("You find 24 imperials and the reports.");</string>
+        <string>useCameraBookmark(quest_ag1_house_03);</string>
+        <string>dlgTeleportTo(19, 246, 0, N);</string>
+        <string>dlgStealthPose(1);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take everything and leave.</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[stealing success]You have enough experience to know what to look for. The best place isn't a heavy chest or a hole dug under the floor boards; it's something that's out in the open, something that everyone sees and dismisses - the last place someone will look for anything valuable.
+
+The door is perfect. It's broken and poorly patched, with a fist-size hole where the lock used to be. Anyone who comes in to search will kick in the door and start searching the room, leaving the hiding spot behind. As you suspected, one of the patches near the bottom is loose, revealing a small niche. Inside the niche, you find the reports and a small purse.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ag1_found_report = true;</string>
+        <string>dlgChangeMoney(24);</string>
+        <string>dlgAddTextBoxMessage("You find 24 imperials and the reports.");</string>
+        <string>dlgTeleportTo(19, 246, 0, N);</string>
+        <string>useCameraBookmark(quest_ag1_house_03);</string>
+        <string>dlgStealthPose(1);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>rwd_civil(Steal);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take everything and leave.</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Dias</speaker_name>
+      <npc_text>END - go to Dias ambush</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>PC_Traitor();</string>
+        <string>switchMission("Quest_AG1.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>27</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>"So?" Neleos looks at you expectantly, his expression unreadable. "How did it go?"</npc_text>
+      <onLoadScripts>
+        <string>VCO_AG1_01.setActive(0);</string>
+        <string>VCO_AG1_02.setActive(0);</string>
+        <string>VCO_AG1_03.setActive(0);</string>
+        <string>VCO_AG1_04.setActive(0);</string>
+        <string>VCO_AG1_05.setActive(0);</string>
+        <string>aod.quest_ag1_search_report = false;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(211, 106, 0, E);</string>
+        <string>useCameraBookmark(NPC_neleos_cam_01);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>dlgSetAmbientAnimation();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"There were three spies, not two. I hope it will be reflected in my pay. Plus the reports." Put the reports on his desk.</text>
+          <def_link>33</def_link>
+          <checkOnAppear>aod.quest_ag1_found_report &amp;&amp; aod.quest_ag1_killed_both_spies</checkOnAppear>
+          <checksOnClick>
+            <string>dlgGetPercentageHP() == 100</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>20</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Two dead spies. Plus the reports." Put the reports on his desk.</text>
+          <def_link>34</def_link>
+          <checkOnAppear>aod.quest_ag1_found_report &amp;&amp; aod.quest_ag1_killed_one_spy</checkOnAppear>
+          <checksOnClick>
+            <string>dlgGetPercentageHP() == 100</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>28</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"There were three spies, not two. I hope it will be reflected in my pay. I didn't find the reports, though."</text>
+          <def_link>35</def_link>
+          <checkOnAppear>aod.quest_ag1_found_report == false &amp;&amp; aod.quest_ag1_killed_both_spies</checkOnAppear>
+          <checksOnClick>
+            <string>dlgGetPercentageHP() == 100</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>39</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"You gave me the wrong house. I've found no one but a dying old man and his daughter."</text>
+          <def_link>36</def_link>
+          <checkOnAppear>aod.quest_ag1_killed_none</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>26</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>"Excellent work, &lt;charname&gt;." Neleos opens his desk and starts counting money. "Hundred and twenty for the spies. Hundred for the reports – the client will be *very* pleased."</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(AG1_01);</string>
+        <string>rwd_reputation(AG1_01);</string>
+        <string>dlgChangeMoney(220);</string>
+        <string>dlgAddTextBoxMessage("You gain 220 imperials");</string>
+        <string>aod.quest_ag1_phase3c = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Thank you."</text>
+          <def_link>38</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>"Good job, &lt;charname&gt;." Neleos opens his desk and starts counting money. "Eighty for the spies. Hundred for the reports – the client will be *very* pleased."</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(AG1_01);</string>
+        <string>dlgAddTextBoxMessage("You gain 180 imperials");</string>
+        <string>rwd_reputation(AG1_02);</string>
+        <string>dlgChangeMoney(180);</string>
+        <string>aod.quest_ag1_phase3d = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Thank you."</text>
+          <def_link>38</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>28</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>"Good job, &lt;charname&gt;." Neleos opens his desk and starts counting money. "Here are your one hundred and twenty imperials."</npc_text>
+      <onLoadScripts>
+        <string>dlgAddTextBoxMessage("You gain 120 imperials");</string>
+        <string>rwd_quest(AG1_01);</string>
+        <string>rwd_reputation(AG1_03);</string>
+        <string>dlgChangeMoney(120);</string>
+        <string>aod.quest_ag1_phase3b = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Thank you."</text>
+          <def_link>38</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>39</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>"Excellent work, &lt;charname&gt;." Neleos opens his desk and starts counting money. "Hundred and twenty for the spies. Hundred for the reports – the client will be *very* pleased." He looks at your blood soaked bandages. "You must learn to kill faster. Agatai, spend some time with &lt;him/her&gt;, will you?"</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(AG1_01);</string>
+        <string>rwd_reputation(AG1_01);</string>
+        <string>dlgChangeMoney(220);</string>
+        <string>dlgAddTextBoxMessage("You gain 220 imperials");</string>
+        <string>aod.quest_ag1_phase3c = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Thank you."</text>
+          <def_link>37</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>33</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>"Good job, &lt;charname&gt;." Neleos opens his desk and starts counting money. "Eighty for the spies. Hundred for the reports – the client will be *very* pleased." He looks at your blood soaked bandages. "You must learn to kill faster. Agatai, spend some time with &lt;him/her&gt;, will you?"</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(AG1_01);</string>
+        <string>dlgAddTextBoxMessage("You gain 180 imperials");</string>
+        <string>rwd_reputation(AG1_02);</string>
+        <string>dlgChangeMoney(180);</string>
+        <string>aod.quest_ag1_phase3d = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Thank you."</text>
+          <def_link>37</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>34</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>"Good job, &lt;charname&gt;." Neleos opens his desk and starts counting money. "Here are your one hundred and twenty imperials." He looks at your blood soaked bandages. "You must learn to kill faster. Agatai, spend some time with &lt;him/her&gt;, will you?"</npc_text>
+      <onLoadScripts>
+        <string>dlgAddTextBoxMessage("You gain 120 imperials");</string>
+        <string>rwd_quest(AG1_01);</string>
+        <string>rwd_reputation(AG1_03);</string>
+        <string>dlgChangeMoney(120);</string>
+        <string>aod.quest_ag1_phase3b = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Thank you."</text>
+          <def_link>37</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>35</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>"Well, in that case, you might be pleasantly surprised to learn that the dying man felt much better after your visit and left Teron very quickly with his companion. I've already sent Dias after them - he knows the roads better than anyone.
+
+"As for you, &lt;charname&gt;, next time I tell you to kill someone, you do exactly that, even if it's your own brother. I didn't hire you to provide me with your opinions and insightful comments. I hired you to kill the people I tell you to kill in a fast and efficient manner. Is that understood?"</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(AG1_02);</string>
+        <string>rwd_reputation(AG1_04);</string>
+        <string>dlgChangeSkill(streetwise, 1);</string>
+        <string>dlgAddTextBoxMessage("You've learned that you can't trust everyone. Streetwise increased");</string>
+        <string>aod.quest_ag1_phase3a = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Yes."</text>
+          <def_link>38</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>36</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - training with Agatai</npc_text>
+      <onLoadScripts>
+        <string>dlgCureStat(all);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>aod.quest_ag2_start = true;</string>
+        <string>rwd_training(Agatai);</string>
+        <string>cheatHP();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>37</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - AG2 set to start</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_ag2_start = true;</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>38</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Go back to the guild?</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(quest_ag1_house_02);</string>
+        <string>aod.quest_ag1_killed_both_spies = true;</string>
+        <string>aod.quest_ag1_complete = true;</string>
+        <string>aod.quest_ag1_killed_one_spy = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Yes.</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Not yet.</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>41</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,72 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Quest_TG7_01</dlg_name>
+    <def_link>7255</def_link>
+    <def_speaker_name>Thief</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You follow Glabrio’s man into one of the old tunnels, crawling over debris and trying to avoid thick, seemingly empty cobwebs. Twice the man have to turn back because of recent cave-ins and seek alternative routes, but eventually he take you to your destination – a dark side tunnel that smells of dust and mold and something else that you can’t quite figure out.
+
+“Watch out for the traps,” says the man. “They are old and rusty, which doesn’t make them any less deadly. Good luck.”</npc_text>
+      <onLoadScripts>
+        <string>dlgUnequipHands();</string>
+        <string>dlgUnequipHands(62561);</string>
+        <string>dlgCam(320, 45, 6);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"That's it? That's all the help I'm going to get?"</text>
+          <def_link>7257</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7255</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Alright," sighs the man, "but I'm not going to show it to you twice, so pay attention."
+
+He sets up a simple bolt trap and shows you how to spot and disarm it, increasing your understanding of all mechanical things.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAnimation(anim_stealth_00, 0);</string>
+        <string>dlgSetAnimation(anim_sit_ground_00_00, 0, 62561);</string>
+        <string>rwd_training(TG7);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go in.</text>
+          <def_link>7256</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7257</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - enter the tunnel</npc_text>
+      <onLoadScripts>
+        <string>dlgDeleteCharacter(62561);</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>7256</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

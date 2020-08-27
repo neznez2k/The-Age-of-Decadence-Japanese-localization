@@ -1,0 +1,1424 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_serenas_met</string>
+    </conditions>
+    <links>
+      <int>3227</int>
+    </links>
+    <dlg_name>NPC_Serenas_01</dlg_name>
+    <def_link>3172</def_link>
+    <def_speaker_name>Serenas</def_speaker_name>
+    <def_portrait>Serenas</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>If Lord Serenas the Victorious, the only son of Lord Gaelius' sister, had any good qualities, he hid them well. Spoiled by his mother, despised by his uncle, manipulated by his uncle's enemies, and loved by whores, who gave him the title, Serenas never had a chance to become the man his "friends" convinced him he was. He lacked ambition and willpower, which made him useless to Gaelius, but very useful to everyone who would have preferred to see a puppet on the Aurelian throne.
+
+"You may approach," says Serenas pompously, beckoning you with a well rehearsed gesture.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_serenas_met = true;</string>
+        <string>dlgTeleportToMarker(TM_DLG_Gaelius_01);</string>
+        <string>addJournalChar(serenas);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I bring greetings from my master, my lord.”</text>
+          <def_link>3173</def_link>
+          <checkOnAppear>aod.quest_mg6_active</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“The relationship between House Aurelian and House Daratan has been strained for a very long time. Lord Gaelius’ passing is most unfortunate, yet it gives us an opportunity to turn over a new leaf.”</text>
+          <def_link>3192</def_link>
+          <checkOnAppear>aod.quest_hd3_advisorConvincedSerenas == false &amp;&amp; aod.quest_hd3_active</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[etiquette success]“Lord Antidas of House Daratan sends his greetings and proffers this token of his esteem.” Give him 2,000 imperials.</text>
+          <def_link>3193</def_link>
+          <checkOnAppear>aod.etiquette &gt;= 3 &amp;&amp; aod.quest_hd3_advisorConvincedSerenas == false &amp;&amp; aod.quest_hd3_active</checkOnAppear>
+          <checksOnClick>
+            <string>dlgGetMoney() &gt;= 2000</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3194</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"My lord, I was told that you wished to discuss the relationship between House Aurelian and House Daratan."</text>
+          <def_link>3195</def_link>
+          <checkOnAppear>aod.quest_hd3_advisorConvincedSerenas &amp;&amp; aod.quest_hd3_active</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3184</def_link>
+          <checkOnAppear>aod.quest_mg6_active == false &amp;&amp; aod.quest_hd3_active == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3172</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Ah yes. We are thankful for his support. Assure him that...,” Serenas stumbles, looking for words, “that his support won’t be ... forgotten?”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg6_talkedToSerenas = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Master Strabos will be glad to hear that, but I think he’s expecting you to make good on your promises. My lord.”</text>
+          <def_link>3174</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3173</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Ah,” says Serenas looking uncomfortable. “Promises... You know,” his tone changes, “it’s very presumptuous of him. I’m the Lord of House Aurelian now. Your master did me a service - as was his duty, but demanding a payment? It’s outrageous! I’ll hear no more of this!”</npc_text>
+      <onLoadScripts>
+        <string>aod.mdn_lordsBlocked = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]“My lord, master Strabos is a proven and capable administrator. Unless you’re planning to do everything yourself and work long hours, why not entrust the day-to-day tasks to his care?”</text>
+          <def_link>3180</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3176</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m truly sorry about your uncle, my lord. I can only hope it’s not hereditary. It would be a real tragedy if you too were to die in your sleep one day.”</text>
+          <def_link>3175</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[etiquette]“I beg forgiveness, my lord. My master is nothing but the humblest of your servants. His service was indeed his duty and does not require a payment, but I was so certain that your first official act would correct your uncle’s mistakes that I assumed that you’d reward his loyalty and dedication.”</text>
+          <def_link>3180</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.etiquette &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3178</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3174</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You dare threaten me?!” explodes Serenas. “ME?! The Lord of House Aurelian?!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][charisma]“Learn from your uncle’s mistakes, my lord. He pushed aside too many people, making enemies out of people who wanted to help. In the end, it was his downfall. Ask yourself this, would you rather have the most powerful guild as your friend or your enemy?”</text>
+          <def_link>3181</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.cha) &gt;= 15</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3176</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]“Lord? Your uncle was a lord. You are a fucking disgrace to the family and would do well to remember that, if you want to live long enough to enjoy the perks of your new title. Go back on your word and you won’t make it through the night. Are we clear?”</text>
+          <def_link>3181</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3177</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3175</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“You can’t talk to me this way,” squeaks Serenas, looking around to make sure that nobody heard you. “I have guards!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Everyone can be gotten to. Just ask your uncle.”</text>
+          <def_link>3179</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3177</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What does Strabos want?” asks Serenas quietly.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“To run the city.”</text>
+          <def_link>3187</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_senna_dead</string>
+            <string>aod.npc_lorenza_dead</string>
+            <string>aod.quest_MG4_lorenzaSupport &amp;&amp; aod.quest_MG4_SennaSupport == false</string>
+            <string>aod.quest_MG4_lorenzaSupport == false &amp;&amp; aod.quest_MG4_SennaSupport</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3185</int>
+            <int>3186</int>
+            <int>3185</int>
+            <int>3186</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3179</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Serenas sighs. “What does he want, again?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“To run the city.”</text>
+          <def_link>3187</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_senna_dead</string>
+            <string>aod.npc_lorenza_dead</string>
+            <string>aod.quest_MG4_lorenzaSupport &amp;&amp; aod.quest_MG4_SennaSupport == false</string>
+            <string>aod.quest_MG4_lorenzaSupport == false &amp;&amp; aod.quest_MG4_SennaSupport</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3185</int>
+            <int>3186</int>
+            <int>3185</int>
+            <int>3186</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3176</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“My uncle's mistakes?” asks Serenas, suddenly interested. “Yes, I suppose he made quite a few of those, didn't he? I told him that many times, but he never listened.
+
+“So, what does Strabos, my loyal servant, want, again?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“To run the city.”</text>
+          <def_link>3187</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_senna_dead</string>
+            <string>aod.npc_lorenza_dead</string>
+            <string>aod.quest_MG4_lorenzaSupport &amp;&amp; aod.quest_MG4_SennaSupport == false</string>
+            <string>aod.quest_MG4_lorenzaSupport == false &amp;&amp; aod.quest_MG4_SennaSupport</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3185</int>
+            <int>3186</int>
+            <int>3185</int>
+            <int>3186</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3178</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“I shall consider it,” says Serenas, dismissing you with a gesture.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_MG6_serenasFailure = true;</string>
+        <string>aod.jnl_mg6_phase2c = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3184</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3180</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“I will NOT be threatened in my own palace! Guards! Seize &lt;him/her&gt;!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>3182</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3181</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Eager to impress their new lord, the guards fall upon you with their swords drawn. Lucky for you, the guards are overzealous and you bleed to death before you reach the torture chamber.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>There has to be a valuable lesson there somewhere.</text>
+          <def_link>3183</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3182</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3183</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportToMarker(TM_DLG_Gaelius_02);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3184</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“This task has already been delegated to House Calani. It was their city once, did you know that? It was only fair and wise to let them handle it. After all, who knows the city better than the Calani? Certainly not Strabos.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg6_talkToLorenza = true;</string>
+        <string>aod.jnl_mg6_phase2a = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3184</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3185</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Then he should discuss it with Lord Senna. He’s proven himself indispensible, so I will rely on him to handle more ... mundane aspects of my rule, at least until I understand these things better. I’m sure he can use a man as capable as your master.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg6_talkToSenna = true;</string>
+        <string>aod.jnl_mg6_phase2b = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3184</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3186</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Run the city! Everyone wants to run the city! That’s all I hear from Lorenza and Senna. They disagree on everything and are constantly at ends with each other. It drives me mad. How am I supposed to make any decisions in this sort of atmosphere?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][etiquette]“My Lord, you wouldn’t have had this problem had you honoured your promise to my master. It appears that keeping your word will fix all these problems and restore your inner peace.”</text>
+          <def_link>3188</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.etiquette) &gt;= 11</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3189</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][charisma]“It seems like neither of them is suitable for the task. You need someone who will do what needs to be done, without bothering you with insignificant details or ‘bickering’ with the others. Someone like my master.”</text>
+          <def_link>3188</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.cha) &gt;= 15</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3189</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3187</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“I will take it under advisement,” Serenas informs you coldly, letting you know that the audience is over.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_MG6_serenasFailure = true;</string>
+        <string>aod.jnl_mg6_phase2c = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3184</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3188</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“If only it was that simple. For all his money, Strabos is a pleb. He’ll never be accepted,” says Serenas dismissively.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]“And that’s precisely what makes him a perfect candidate. Running the city is a job. You know the noble-born better than I do. Where would you find one who’s willing to work day and night, going over the balance sheets?”</text>
+          <def_link>3188</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3190</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[etiquette][streetwise]“Never be accepted? Your word is beyond contestation, my lord. In fact, appointing Strabos would be a good way to test your subjects’ true loyalties. I’m certain that had your uncle done that, he would still be alive.”</text>
+          <def_link>3188</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.etiquette) &gt;= 12</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3190</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]“Quite a dilemma. You have two loyal supporters who want the same position. You can’t give the job to one without angering the other. It seems that the only way to solve this riddle is to give the position to someone else.”</text>
+          <def_link>3188</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 12</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3190</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][etiquette]“An excellent point, my lord. While master Strabos is uniquely qualified, he does lack a certain perspective, but that’s easy to fix. He speaks highly of lady Lorenza and he would welcome an opportunity to work under her tutelage.”</text>
+          <def_link>3188</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.etiquette) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3191</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3189</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“You make good points,” says Serenas, trying to sound wise and noble. “Very well. Please inform master Strabos that he’s the city’s new magistratus.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg6_strabosMagistratus = true;</string>
+        <string>aod.jnl_mg6_phase2h = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3184</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3190</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Lorenza?” asks Serenas, trying to sound thoughtful. “Her lineage is exemplary. It was their city once, did you know that? It would only be fair and wise to let her oversee Strabos’ work. Will you inform her of this appointment? And master Strabos too.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(Lorenza_01);</string>
+        <string>aod.quest_mg6_talkToLorenza = true;</string>
+        <string>aod.quest_mg6_giveJobLorenza = true;</string>
+        <string>aod.jnl_mg6_phase2d = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3184</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3191</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I shall consider your request,” nods Serenas, switching his attention to the next solicitor.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_serenas_talkedNewLeaf = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3184</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3192</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Too bad you don't have enough money.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“The relationship between House Aurelian and House Daratan has been strained for a very long time. Lord Gaelius’ passing is most unfortunate, yet it gives us an opportunity to turn over a new leaf.”</text>
+          <def_link>3192</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3193</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I was led to believe that House Daratan was our enemy, but I came to realize that it wasn’t the case at all. So, let there be peace between our Houses. I declare Lord Antidas to be our noble brother and peer. Tell him that he’s always welcome here.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_hd3_peaceAchieved = true;</string>
+        <string>rwd_quest(HD3_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Lord Antidas will be overjoyed to hear that, my Lord.” Leave.</text>
+          <def_link>3196</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Lord Antidas will be overjoyed to hear that, my Lord. Before I go, I’d like to discuss something else with you, concerning master Strabos.”</text>
+          <def_link>3197</def_link>
+          <checkOnAppear>aod.quest_hd3_dealWithStrabos</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3195</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Speak freely, my friend,” says Serenas, raising his chin to look statelier.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I couldn’t help but notice that master Strabos hasn’t been given his title yet.”</text>
+          <def_link>3198</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3197</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Why should he be given a title?” asks Serenas, looking genuinely confused.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[etiquette][streetwise]“It’s one of the Empires’ oldest traditions, observed by all remaining Noble Houses. A man elevated to serve a Lord of the House in the official capacity is given a title to reflect his new status.”</text>
+          <def_link>3199</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.etiquette) &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3203</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[etiquette][persuasion]“Because he serves you now and represents your interests. Any man who slights him in any way slights you, my Lord, yet what noble-born would ever treat a low-born the same way they treat a peer. They might think you’re deliberately insulting them.”</text>
+          <def_link>3200</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.etiquette) &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3205</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][trading]“Because it’s cheaper than rewarding him in different ways. Strabos is a capable man and as any capable man, he will serve you faithfully for as long as he feels that his efforts are appreciated and rewarded. Would you rather give him money, power, or an empty title that means nothing to you but everything to him?”</text>
+          <def_link>3202</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.trading) &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3201</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3198</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“I’ve never heard about such a tradition.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“It’s kept secret and for a good reason. What lord would be eager to admit that his great grandfather was a man of low-birth?”</text>
+          <def_link>3202</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3204</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3199</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“Why should I care what they think?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]“Because you need their support. You don’t have to give them everything they ask for, of course, but every now and then you’ll have to throw them a bone. Elevating a man who’s useful to you will strengthen you, yet would appear as a thoughtful gesture to them.”</text>
+          <def_link>3202</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3204</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3200</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Obviously, granting a title is the least expensive option, but claiming that it means nothing is going a bit too far, Praetor.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]“Have you seen the impoverished noble-born who have nothing left but the title? What do these titles worth, once everything else – the wealth and the power – has been lost? Nothing. A title is worth something only when it’s backed by wealth and power.”</text>
+          <def_link>3202</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3204</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3201</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“I will take that under advisement, Praetor.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3196</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3202</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Well, if it's a long standing tradition, I don’t have any objections,” says Serenas, looking like he has quite a few. “Does everyone know about it?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“Of course, they do, my Lord. In fact, they expect you to make the announcement. Not so much to reward Strabos, but to reassure them that you will honor and protect the traditions.”</text>
+          <def_link>3202</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3204</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3203</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Wouldn't they feel even more slighted if I give a title to a low-born?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[etiquette]“It's the lesser evil, my Lord. As long as the protocol is maintained, they will accept it.”</text>
+          <def_link>3202</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.etiquette &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3204</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3205</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“I will make the announcement shortly then. You’d think that with so many advisors around someone would tell me these things. Thank you for your service, Praetor.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(Strabos_01);</string>
+        <string>aod.quest_hd3_lordStrabos = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Master Strabos will be overjoyed to hear that, my Lord.” Leave.</text>
+          <def_link>3196</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3204</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Wasn’t Antidas our enemy?” asks Serenas absent-mindedly, accepting the money. “Or was I misinformed?”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-2000);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise success]“If only you had more enemies then. Your treasury would never run dry.”</text>
+          <def_link>3207</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“His quarrel was with your uncle, not you.”</text>
+          <def_link>3209</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3194</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Yet I feel that I must honor my uncle’s legacy and continue it. I will not do something as rush as making peace with his enemies.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise success]“If only you had more enemies then. Your treasury would never run dry.”</text>
+          <def_link>3207</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3184</def_link>
+          <checkOnAppear>aod.streetwise &lt; 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3209</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“A fair point,” smiles Serenas. “So what does your Lord seek?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“An alliance between House Aurelian and House Daratan.”</text>
+          <def_link>3208</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3207</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I have my advisors for such things.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[etiquette][streetwise]“I would caution you against relying on your advisors too much. Only the Lord of House Aurelian is infallible by the virtue of his most noble destiny and birth, for if it were otherwise, he would have been born to a lesser family.”</text>
+          <def_link>3213</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.etiquette) &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3210</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[etiquette][persuasion]“Your advisors are there to advise you when you need it, not to make decisions for you. You’re the Lord of House Aurelian – don’t let them ever forget that.”</text>
+          <def_link>3213</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.etiquette) &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3211</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3208</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"The advisors are there to advise, are they not? I will hear them out first and then make my decision."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3184</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3213</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“You’re right,” exclaims Serenas with enthusiasm. “I was always told that I’m a man of vision and wisdom.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I can see it in your eyes, my Lord. Now, is there a better way to show the world your greatness than to cement an alliance with House Daratan – something your uncle couldn’t do?”</text>
+          <def_link>3212</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3210</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Of course,” nods Serenas, trying to sound confident and sure of himself. “I make decisions around here, so you don’t need to worry about that.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So, what do you think about my proposal then? Is having Lord Antidas as your faithful friend and ally not better than having him as your enemy?”</text>
+          <def_link>3214</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3211</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You raise good points,” says Serenas, trying to sound stately. “There shall be peace between our Houses. I declare Lord Antidas to be our noble brother and peer. Tell him that he’s always welcome here.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_hd3_peaceAchieved = true;</string>
+        <string>rwd_quest(HD3_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[etiquette][intelligence]“Lord Antidas will be overjoyed to hear that his most unfortunate disagreement with your uncle has been finally put to rest. He regretted it greatly and it was his most sincere wish to remedy this misunderstanding.”</text>
+          <def_link>3215</def_link>
+          <checkOnAppear>aod.etiquette &gt;= 4 &amp;&amp; aod.int &gt;= 7</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You’re wise beyond your years, my Lord.” Leave.</text>
+          <def_link>3196</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3212</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It is,” says Serenas firmly. “There shall be peace between our Houses. I declare Lord Antidas to be our noble brother and peer. Tell him that he’s always welcome here.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_hd3_peaceAchieved = true;</string>
+        <string>rwd_quest(HD3_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[etiquette][intelligence]“Lord Antidas will be overjoyed to hear that his most unfortunate disagreement with your uncle has been finally put to rest. He regretted it greatly and it was his most sincere wish to remedy this misunderstanding.”</text>
+          <def_link>3215</def_link>
+          <checkOnAppear>aod.etiquette &gt;= 4 &amp;&amp; aod.int &gt;= 7</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You’re wise beyond your years, my Lord.” Leave.</text>
+          <def_link>3196</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3214</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“And what was this disagreement about?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]“My Lord held to the opinion that we shouldn’t fear the artefacts. After all, we don’t fear swords – we master them and turn them against our enemies.”</text>
+          <def_link>3219</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 9</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3216</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[etiquette][streetwise]“Lord Gaelius’ position on the artefacts was well known, but not shared by everyone. What’s your opinion on the subject, if I may ask, my Lord?”</text>
+          <def_link>3219</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.etiquette) &gt;= 9</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3220</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3215</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“It's a foolish notion,” declares Serenas. “Was there anything else?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_serenas_magicFoolish = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“No, my Lord.” Leave.</text>
+          <def_link>3196</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3219</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“You think we can master the magic again?” Serenas asks eagerly.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_serenas_believeInMagic = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“We did it once. We can certainly do it again.”</text>
+          <def_link>3232</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“It’s not my area of expertise, my Lord.”</text>
+          <def_link>3233</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3216</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“The artefacts are dangerous, are they not?” says Serenas, hiding a lack of knowledge behind fake indifference.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_serenas_believeInMagic = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“So is fire, yet we didn’t let our fear of it to keep us on a raw-meat diet.”</text>
+          <def_link>3221</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m sure that some of them are, but we don’t want to throw out the wine with the cork. We should study the artefacts rather than lock them all away.”</text>
+          <def_link>3232</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3220</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You think we can master the magic again?” Serenas asks eagerly.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“We did it once. We can certainly do it again.”</text>
+          <def_link>3232</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_hd3_peaceAchieved</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3232</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“It’s not my area of expertise, my Lord.”</text>
+          <def_link>3233</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_hd3_peaceAchieved</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3233</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3221</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“We should discuss it further at a later time. I wish to question you about certain matters and seek your perspective. Surely, you’ve dealt with many different challenges in your service to Lord Antidas?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Certainly, my Lord.”</text>
+          <def_link>3225</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3232</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Of course, of course,” smiles Serenas. “I wish to question you about certain matters and seek your perspective. Surely, you’ve dealt with many different challenges in your service to Lord Antidas?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Certainly, my Lord.”</text>
+          <def_link>3225</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3233</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“We aren’t done yet, Praetor. I would question you about certain matters and seek your perspective. Surely, you’ve dealt with many different challenges in your service to Lord Antidas.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Certainly, my Lord.”</text>
+          <def_link>3225</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3196</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I want to do great things, Praetor, worthy of my family’s name. I want to surpass my uncle, not remain in his shadow even after his death. I have big plans, but I want to start with this city. I want to increase its glory tenfold, yet how can I do it when one of the districts is ruled by some thugs! In my city!
+
+“I couldn’t believe my ears when I was informed of this fact in the most casual manner. As if it wasn’t an outrage that can’t be tolerated, but something to be aware of and keep in mind. Why did my uncle allow that? Was he not the man I've always thought he was? Was that too a lie?
+
+“Even more alarming was the fact that when I demanded to clean up the district immediately, lord Senna has objected most vehemently. Neither of my advisors seemed to share my belief that dealing with this Slums was of utmost importance. Am I not the Lord of this House?”</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_HD3_phase3 = true;</string>
+        <string>addQuest(HD4);</string>
+        <string>addQuest(HD4a);</string>
+        <string>addQuest(HD4b);</string>
+        <string>addQuest(HD4c);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“How may I be of service, my Lord?”</text>
+          <def_link>3226</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3225</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I want the Slums cleaned. This House should be the only law in the city. Pavola has more than enough men, yet he says that he won’t enter the Slums until we all agree that it’s the right course of actions. By ‘all’ he means my esteemed advisors, who have given me nothing but excuses so far. Talk to them and make them listen to reason.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_hd4_active = true;</string>
+        <string>aod.quest_hd3_active = false;</string>
+        <string>aod.quest_hd4_talkToPavola = true;</string>
+        <string>if(isAlive(4216) == 0 &amp;&amp; aod.npc_senna_dead == false) createByCharMarker(CM_Senna);</string>
+        <string>if(aod.npc_senna_dead == false) aod.npc_senna_atThePalace = true;</string>
+        <string>if(aod.npc_senna_dead == false) dlgTeleportToMarker(TM_Senna_Palace, 4210);</string>
+        <string>if(isAlive(4216)) dlgDeleteCharacter(4216);</string>
+        <string>if(isAlive(4217)) dlgDeleteCharacter(4217);</string>
+        <string>if(isAlive(4218)) dlgDeleteCharacter(4218);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I'll talk to them." Leave.</text>
+          <def_link>3184</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3226</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Speak,” commands Serenas.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_Gaelius_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“The relationship between House Aurelian and House Daratan has been strained for a very long time. Lord Gaelius’ passing is most unfortunate, yet it gives us an opportunity to turn over a new leaf.”</text>
+          <def_link>3192</def_link>
+          <checkOnAppear>aod.quest_hd3_advisorConvincedSerenas == false &amp;&amp; aod.quest_hd3_peaceAchieved == false &amp;&amp; aod.npc_serenas_talkedNewLeaf == false &amp;&amp; aod.quest_hd3_active</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[etiquette success]“Lord Antidas of House Daratan sends his greetings and proffers this token of his esteem.” Give him 2,000 imperials.</text>
+          <def_link>3193</def_link>
+          <checkOnAppear>aod.etiquette &gt;= 3 &amp;&amp; aod.quest_hd3_advisorConvincedSerenas == false &amp;&amp; aod.quest_hd3_peaceAchieved == false &amp;&amp; aod.quest_hd3_active</checkOnAppear>
+          <checksOnClick>
+            <string>dlgGetMoney() &gt;= 2000</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3194</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"My lord, I was told that you wished to discuss the relationship between House Aurelian and House Daratan."</text>
+          <def_link>3195</def_link>
+          <checkOnAppear>aod.quest_hd3_advisorConvincedSerenas &amp;&amp; aod.quest_hd3_peaceAchieved == false &amp;&amp; aod.quest_hd3_active</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“It's done. If you issue an order to attack, Pavola will obey without question.”</text>
+          <def_link>3228</def_link>
+          <checkOnAppear>aod.quest_hd4_active &amp;&amp; aod.quest_hd4_gotSupport</checkOnAppear>
+          <checksOnClick>
+            <string>aod.npc_serenas_believeInMagic</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3231</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Your advisors are right. If you attack the Slums, the city will burn.”</text>
+          <def_link>3229</def_link>
+          <checkOnAppear>aod.quest_hd4_active</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"My apologies, my lord. I have pressing concerns elsewhere." Leave.</text>
+          <def_link>3184</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3227</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You've done this city a great service,” says Serenas. “It won't be forgotten!”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_hd4_active = false;</string>
+        <string>aod.jnl_HD4_phase4 = true;</string>
+        <string>rwd_quest(HD4_01);</string>
+        <string>aod.gnz_HD_start = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to your quarters and rest until morning.</text>
+          <def_link>3230</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3228</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You've done this city a great service,” says Serenas. “It won't be forgotten!
+
+“I have something for you. I found this amongst my uncle’s possessions,” Serenas gives you a bronze reliquary, containing a glowing red sphere.
+
+“This is the key to the famous tower of Zamedi, which has never been opened. Since you believe that we should explore the unknown, rather than lock it away, I want you to go there, enter the tower and then report on your findings.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_hd4_active = false;</string>
+        <string>aod.jnl_HD4_phase4 = true;</string>
+        <string>addQuest(Zamedi);</string>
+        <string>aod.quest_Zamedi_phase2 = true;</string>
+        <string>rwd_quest(HD4_01);</string>
+        <string>revealMapLocation("Zamedi");</string>
+        <string>dlgAddTextBoxMessage("Zamedi added to the map");</string>
+        <string>dlgAddItem(2180, 1);</string>
+        <string>aod.quest_zamedi_fromHD4 = true;</string>
+        <string>aod.artefact_crimsoneye_identified = true;</string>
+        <string>aod.gnz_HD_start = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Consider it done, my Lord.” Go to your quarters and rest until morning.</text>
+          <def_link>3230</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3231</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You too, Praetor? Very well. I don't think I will be needing your services in the future.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_hd4_active = false;</string>
+        <string>aod.jnl_HD4_phase3 = true;</string>
+        <string>aod.gnz_HD_start = true;</string>
+        <string>addQuest(HD_ArriveGNZ);</string>
+        <string>aod.jnl_HD_ArriveGNZ = 1;</string>
+        <string>aod.global_mdn_crisisActive = 0;</string>
+        <string>rwd_reputation(HD4_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3184</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3229</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start HD4</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>sd(Quest_HD4_01);</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_PC_QHD4_Inn);</string>
+        <string>aod.quest_hd4_status = 3;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3230</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,82 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>TSQ_Cellar_Pump</dlg_name>
+    <def_link>1957</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]It's a test of your ingenuity, but after an hour you manage to rig the pump to operate manually via a makeshift hand crank. You give it a few test pumps and are rewarded by the faint rumbling of ancient plumbing stirring to life.
+
+You grab the crank with both hands and set to work. Progress is painfully slow, but eventually the sludge retreats into a hidden reservoir, revealing a manhole with steps carved into the inner side of the wall.</npc_text>
+      <onLoadScripts>
+        <string>TSQCellarGrate02.isRenderEnabled = true;</string>
+        <string>TSQCellarGrate01.isRenderEnabled = false;</string>
+        <string>useCameraBookmark(TSQ_Cellar_cam_05);</string>
+        <string>setObjectRenderState(drainWater, 0);</string>
+        <string>dlgTeleportToMarker(TM_Grate);</string>
+        <string>VCO_Pump_01.setActive(0);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go down.</text>
+          <def_link>1958</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1957</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The space is cramped, barely 6 feet deep. At first you can't see anything that justifies the effort, but then you notice that a section of the wall is uneven. Though you don't have much room to maneuver in the manhole, with some effort you manage to pry loose the bricks and reveal a small niche.
+
+Inside you find a strange device wrapped in several layers of once-oiled cloth. A crystal semi-sphere, encased in a metal dome. Thin metal rods of varying lengths protrude from the bottom, reminding you of a jellyfish. The crystal, despite its centuries buried under brick and stagnant water, glows with a soft, blue light.
+
+You don't remember anything like it in any of the scrolls you've read or stories you've heard. The blue glow is obviously magical, but its purpose is unknown to you. You check the relic for potential magic leaking - more than one loremaster has been poisoned to death by the magic of a broken artefact - but it is still intact.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>useCameraBookmark(TSQ_Cellar_cam_06);</string>
+        <string>dlgTeleportToMarker(TM_Drain);</string>
+        <string>aod.tsq_cellar_finished = true;</string>
+        <string>dlgAddItem(2160, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take it.</text>
+          <def_link>1959</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1958</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>TSQCellarGrate02.isRenderEnabled = false;</string>
+        <string>TSQCellarGrate01.isRenderEnabled = true;</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportToMarker(TM_Grate);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.tsq_cellar_status = 2;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1959</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

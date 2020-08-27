@@ -1,0 +1,166 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_tg3_atTheTavern</string>
+      <string>aod.npc_livia_met</string>
+    </conditions>
+    <links>
+      <int>5</int>
+      <int>4</int>
+    </links>
+    <dlg_name>livia_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Livia</def_speaker_name>
+    <def_portrait>Livia</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I suppose I should thank you. This tavern isn't a girl's dream come true, but it's better than working the streets. Now, what can I do for you, sugar?"</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_livia_met = true;</string>
+        <string>dlgTeleportTo(136, 56, 0, N, 2065);</string>
+        <string>dlgTeleportTo(136, 57, 0, S);</string>
+        <string>useCameraBookmark(NPC_Livia_cam_01);</string>
+        <string>dlgRotateToChar(2065);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"You almost got me when I first saw you. How did you do it?"</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You can say that I give people what they want to see. I give them a chance to act their fantasies – to save a girl from a thug, to catch attention of a rich lady, or just to be what they've always wanted to be.
+
+"Give them what *they* want and they will give you what *you* want. It's that easy, sugar."</npc_text>
+      <onLoadScripts>
+        <string>increaseDisguiseSkills(15);</string>
+        <string>PC_trained();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"It didn't work on me though."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Tells you something about you, doesn't it?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Buy the girl a drink?"</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Livia_cam_01);</string>
+        <string>dlgTeleportTo(136, 57, 0, S);</string>
+        <string>dlgTeleportTo(136, 56, 0, N, 2065);</string>
+        <string>dlgRotateToChar(2065);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Maybe later." Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You'll be alright, sugar. I just know it."</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Livia_cam_01);</string>
+        <string>dlgTeleportTo(136, 57, 0, S);</string>
+        <string>dlgTeleportTo(136, 56, 0, N, 2065);</string>
+        <string>dlgRotateToChar(2065);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"You do?"</text>
+          <def_link>7</def_link>
+          <checkOnAppear>aod.quest_tg3_talkLivia == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Thanks, Livia." Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"No," laughs Livia gently. "I think there are easier ways to get yourself killed, but that's not what you want to hear, do you?
+
+"I'm going to Maadoran in a few days, although I don't think that my trip will be as exciting as yours. Cado made the introductions. He thinks that my talents are wasted here. Big city, here I come," she laughs again.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg3_talkLivia = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I'll see you in Maadoran." Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

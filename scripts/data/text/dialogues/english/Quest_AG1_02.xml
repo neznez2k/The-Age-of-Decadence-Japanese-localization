@@ -1,0 +1,63 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Quest_AG1_02</dlg_name>
+    <def_link>27</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Dias</speaker_name>
+      <npc_text>"Long way from home, &lt;charname&gt;." Dias steps out from the shadows. "Made a new friend?" he asks casually and pulls out his dagger.</npc_text>
+      <onLoadScripts>
+        <string>delCharTag(TeronKeyNPC, 1030);</string>
+        <string>addParty(AG1Maadoran, 0);</string>
+        <string>addCharToParty(1, AG1Maadoran, fighter);</string>
+        <string>addCharToParty(1316, AG1Maadoran, fighter);</string>
+        <string>setCombatTargetPriority(1, 20);</string>
+        <string>cheatHP();</string>
+        <string>aod.quest_ag1_phase2b = true;</string>
+        <string>aod.ending_ag_01 = true;</string>
+        <string>aod.ending_agChoices = true;</string>
+        <string>rwd_reputation(AG1_05);</string>
+        <string>useCameraBookmark(Quest_ag1_Dias_01);</string>
+        <string>dlgSetCombatAnimation(1030);</string>
+        <string>removePcMember();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>28</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>27</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Dias</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addEnemyToParty(1030, AG1Maadoran);</string>
+        <string>dlgSetAttitude(1030, 1, -10);</string>
+        <string>dlgSetAttitude(1030, 1316, -10);</string>
+        <string>setRtsCam();</string>
+        <string>dlgSetZoom(8);</string>
+        <string>aod.quest_ag1_fightDias = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.fight_AG1_dias = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>28</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

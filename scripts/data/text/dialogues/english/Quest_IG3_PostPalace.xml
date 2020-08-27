@@ -1,0 +1,357 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_ig3_aureliansFight</string>
+      <string>aod.quest_ig3_postPalace == 1</string>
+      <string>aod.quest_ig3_postPalace == 2</string>
+    </conditions>
+    <links>
+      <int>608</int>
+      <int>611</int>
+      <int>600</int>
+    </links>
+    <dlg_name>Quest_IG3_PostPalace</dlg_name>
+    <def_link>-1</def_link>
+    <def_speaker_name>Carrinas</def_speaker_name>
+    <def_portrait>Carrinas</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Well done, &lt;charname&gt;. Now that your training is completed, I want you to leave for Maadoran without delays. Report to Legatus Pavola."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(170, 205, 0, S, 1120);</string>
+        <string>dlgTeleportTo(170, 203, 0, N);</string>
+        <string>useCameraBookmark(quest_ig3_cam_03);</string>
+        <string>aod.mdn_guard_startPeaceful = true;</string>
+        <string>remQuest(IG3_PostPalace);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>598</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>611</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING - peaceful</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>aod.quest_ig3_phase2b = true;</string>
+        <string>dlgTeleportTo(167, 163, 0, S);</string>
+        <string>if(aod.ending_mg_carrinas_01) {aod.ending_mg_carrinas_01 = false; aod.ending_mg_carrinas_02 = true;}</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setAchievement("ACH_TERON_IG");</string>
+        <string>aod.global_trn_crisisActive = 0;</string>
+        <string>StartTeronEnding();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>598</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Ah, &lt;charname&gt;! I was just telling master Erastus here," he points at a richly dressed, angry looking man wearing House Aurelian's insignia, "that Lord Antidas had attacked our delegation without warning and, sadly, perished in the battle that ensued."
+
+"It's regicide, Carrinas!" interrupts Erastus. "Regicide! You were always mad but now you've gone too far! Lord Gaelius demands that you send the members of this so-called delegation to him in chains. I don't have to explain what will happen if you refuse, do I?"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(170, 205, 0, S, 1120);</string>
+        <string>dlgTeleportTo(170, 203, 0, N);</string>
+        <string>dlgCreateCharacter("Erastus", 1850, 1850, 169, 205, 0, SE);</string>
+        <string>useCameraBookmark(quest_ig3_cam_03);</string>
+        <string>remQuest(IG3_PostPalace);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait for Erastus to leave.</text>
+          <def_link>601</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>600</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Centurion &lt;charname&gt;," says Carrinas with a faint smile, "you're going to Maadoran.
+
+"We have no choice, but to send you to Gaelius. Of course, if you were to escape during the trip, being afraid for your life – rightfully so, I might add – then I don't see how anyone can blame us. Don't worry, we'll make sure that your chains will be easy to break and find a way to get you a short dagger. Once you're far from Teron, kill Gaelius' men, make your way to Maadoran, and report to Legatus Pavola. Any questions?"</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(11, 62, 0, N, 1850);</string>
+        <string>dlgTeleportTo(170, 203, 0, N);</string>
+        <string>dlgStealthPose(1850);</string>
+        <string>aod.npc_pavola_askForEquipment = true;</string>
+        <string>dlgDelRank(37);</string>
+        <string>dlgAddRank(50);</string>
+        <string>setAchievement("ACH_CENTURION");</string>
+        <string>rwd_reputation(IG_Centurion);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Is it necessary?"</text>
+          <def_link>602</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Why not go with the questioning?"</text>
+          <def_link>603</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>601</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Everything we've gained will be lost, if we give House Aurelian a pretext to move against us. We have to do it. Your belongings will be sent to Maadoran, I'll see to it myself. Good luck."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'll see you in Maadoran then." Leave.</text>
+          <def_link>605</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Why not go with the questioning?"</text>
+          <def_link>603</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>602</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Gaelius is a clever man. Don't underestimate him. If he even suspects that something isn't what it seems, you will die in his torture chambers. There is too much of a risk."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I can handle it. Trust me."</text>
+          <def_link>604</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"You're right. I'll see you in Maadoran then." Leave.</text>
+          <def_link>605</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>603</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Alright, &lt;charname&gt;. If you can pull it off, it would work much better than the escape plan, but if you can't..."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I won't betray you." Leave.</text>
+          <def_link>605</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>604</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>Stripped to a tunic, you are chained and put in a cage sitting atop a cart. Several slaves slowly pull the cart through the streets of Teron, with Erastus and his two men walking behind it.
+
+You inspect the chains – they look solid, but when you pull them you feel the metal giving in and bending easily. It looks like the cage's hinges have received a similar treatment. A small clay amphora with drinking water seems a few pounds heavier than it should be.</npc_text>
+      <onLoadScripts>
+        <string>moveItemsToContainer("Maadoran.mis", IC_IG3_pcEquipment);</string>
+        <string>dlgTeleportTo(89, 172, 0, S);</string>
+        <string>dlgSetAnimation(anim_beg00_ambient_02, 0.5);</string>
+        <string>useCameraBookmark(quest_ig3_cam_05);</string>
+        <string>dlgAddItemlist(ig3dagger);</string>
+        <string>dlgEquipItem(500);</string>
+        <string>dlgFadeLongToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Do nothing.</text>
+          <def_link>607</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>It's time to get busy.</text>
+          <def_link>606</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>605</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING - go to Maadoran interrogation</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.mdn_guard_start = true;</string>
+        <string>setAchievement("ACH_TERON_IG");</string>
+        <string>aod.global_trn_crisisActive = 0;</string>
+        <string>StartTeronEnding();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>607</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>You wait until the cart leaves Teron and the guards start showing signs of tiredness, then snap off the chains and smash the amphora. Grabbing a small steel dagger that was hidden inside, you kick the cage's door open and jump off the cart. The slaves scatter in all directions. The guards, determined to deliver you dead or alive, reach for their weapons.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(16, 65, 0, N);</string>
+        <string>dlgEquipBestWeapon();</string>
+        <string>dlgCreateCharacter("Aurelian Guard", 2100, 2100, 15, 67, 0, S);</string>
+        <string>dlgCreateCharacter("Aurelian Guard", 2101, 2101, 17, 67, 0, S);</string>
+        <string>dlgSetCombatAnimation(1);</string>
+        <string>dlgSetCombatAnimation(2100);</string>
+        <string>dlgSetCombatAnimation(2101);</string>
+        <string>useCameraBookmark(quest_ig3_cam_06);</string>
+        <string>addParty(IG3Aurelian, 0);</string>
+        <string>addCharToParty(2100, IG3Aurelian, fighter);</string>
+        <string>addCharToParty(2101, IG3Aurelian, fighter);</string>
+        <string>setGroupPassability(16, 59, 16, 64, 0, 0);</string>
+        <string>ig3Cart_02.showObjects();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>616</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>606</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Erastus</speaker_name>
+      <npc_text>You approach Erastus. He seems terrified, his arrogance long gone.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(11, 63, 0, S);</string>
+        <string>useCameraBookmark(quest_ig3_cam_07);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Slit his throat.</text>
+          <def_link>617</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave him. Carrinas needs a witness that you have escaped on your own.</text>
+          <def_link>610</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>608</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>You kill him and go through his pockets, helping yourself to some coins, rings, and gems.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeRep(bodycount, 1);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCsKillRibs(1850);</string>
+        <string>dlgAddItemlist(quest_ig3_erastus);</string>
+        <string>rwd_reputation(IG3_04);</string>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to Maadoran.</text>
+          <def_link>610</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>617</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING - left Erastus</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setAchievement("ACH_TERON_IG");</string>
+        <string>StartTeronEnding();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>610</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Aurelians</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_ig3_aureliansFight = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addEnemyToParty(1, IG3Aurelian);</string>
+        <string>setRtsCam();</string>
+        <string>assignDialogue(quest_ig3_PostPalace, 1850);</string>
+        <string>dlgSetZoom(8);</string>
+        <string>blockTraveling(1);</string>
+        <string>setCharacterInvincible(1850, 1);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>616</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

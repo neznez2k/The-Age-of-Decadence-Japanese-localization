@@ -1,0 +1,111 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Cado_03</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Cado</def_speaker_name>
+    <def_portrait>Cado</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Are you ready, &lt;charname&gt;?"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(139, 53, 0, N, 1100);</string>
+        <string>dlgTeleportTo(139, 54, 0, S);</string>
+        <string>useCameraBookmark(NPC_Cado_Cam_01);</string>
+        <string>dlgSetAmbientAnimation();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Yes."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Not yet."</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Be careful. There is a mob out there looking for the gold. It will be hard to get past them. Good luck, &lt;charname&gt;."</npc_text>
+      <onLoadScripts>
+        <string>tg3_createMob();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Flavius owes me. It's time to collect."</text>
+          <def_link>3</def_link>
+          <checkOnAppear>aod.quest_tg1_flaviusMadeDeal</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'll handle them."</text>
+          <def_link>4</def_link>
+          <checkOnAppear>aod.quest_tg1_flaviusMadeDeal == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go to Flavius</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(NPC_Flavius_01);</string>
+        <string>dlgTeleportTo(214, 240, 1, N);</string>
+        <string>dlgTeleportTo(214, 241, 1, S, 1420);</string>
+        <string>apmsstartdialogue(quest_tg3_01);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go to mob</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>apmsstartdialogue(quest_tg3_02);</string>
+        <string>dlgTeleportTo(81, 92, 0, S);</string>
+        <string>useCameraBookmark(cam_quest_tg3_mob_01);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

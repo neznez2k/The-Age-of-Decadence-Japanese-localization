@@ -1,0 +1,101 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.pc_rejected_IG1</string>
+    </conditions>
+    <links>
+      <int>3</int>
+    </links>
+    <dlg_name>Teron_IG_Gate_Guard</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Guard</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You are standing in front of the Imperial Guards' barracks. The building is well fortified. By the looks of it, the fort is designed to hold off enemy forces attacking from the inside of the town.
+
+"State your business," demands one of the guards.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(quest_IG1_cam_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I want to join the Imperial Guards."</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"It's your lucky day then. We're hiring." The guard moves out of the way and lets you in.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go inside.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go inside</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgCreateCharacter("Recruit", 1510, 1510, 85, 43, 0, N);</string>
+        <string>dlgCreateCharacter("Recruit", 1511, 1511, 83, 43, 0, N);</string>
+        <string>BlackSplash.command = "apmsStartDialogue(Quest_IG1);";</string>
+        <string>BlackOut.command = "dlgTeleportTo(86, 43, 0, N); useCameraBookmark(quest_IG1_cam_02); startBlackSplash();";</string>
+        <string>startBlackOut();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You again? Get the fuck outta here!"</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(quest_IG1_cam_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

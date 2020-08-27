@@ -1,0 +1,72 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Quest_HA_MeruDies</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Gaelius</def_speaker_name>
+    <def_portrait>Gaelius</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What news do you bring, &lt;charname&gt;?"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_GnzHA1_status = 6;</string>
+        <string>aod.npc_endGaelius_talked = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Meru's dead." Tell him the details.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Look how far his madness took him," says Gaelius. "If not for you, who knows...
+
+"You did me a great service, &lt;charname&gt;, but I have to send you into the wasteland one last time. Find the temple before someone else does."</npc_text>
+      <onLoadScripts>
+        <string>revealMapLocation("AlAkia");</string>
+        <string>aod.quest_GnzHA1_status = 6;</string>
+        <string>setAchievement("ACH_DELENDA");</string>
+        <string>dlgAddTextBoxMessage("Al-Akia added to the map");</string>
+        <string>rwd_quest(HA_GNZ_01);</string>
+        <string>rwd_reputation(HA3_Meru);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I will, my Lord." Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgTeleportToMarker(TM_DLG_Gaelius_02);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

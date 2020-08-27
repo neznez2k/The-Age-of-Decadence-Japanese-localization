@@ -1,0 +1,361 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.HGR_decanus_met</string>
+    </conditions>
+    <links>
+      <int>7374</int>
+    </links>
+    <dlg_name>HGR_Soldiers_01</dlg_name>
+    <def_link>7368</def_link>
+    <def_speaker_name>Decanus</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You see several Aurelian soldiers sitting around a campfire. When you approach, the soldiers give the bubbling stew pot one last look and slowly get up.
+
+“This area is claimed by House Aurelian,” the Decanus says mechanically. “Turn around and leave.”</npc_text>
+      <onLoadScripts>
+        <string>aod.HGR_decanus_met = true;</string>
+        <string>dlgTeleportToMarker(TM_Soldiers_Start);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[praetor]“Relax, we’re on the same side.”</text>
+          <def_link>7372</def_link>
+          <checkOnAppear>aod.pc_member_aurelian</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]“Relax, we’re on the same side.”</text>
+          <def_link>7373</def_link>
+          <checkOnAppear>aod.pc_member_aurelian == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7372</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You didn't know? Maadoran has been destroyed. House Aurelian is no more.”</text>
+          <def_link>7371</def_link>
+          <checkOnAppear>aod.mdn_destroyed</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You didn't know? There is war in Maadoran. House Aurelian is no more.”</text>
+          <def_link>7371</def_link>
+          <checkOnAppear>aod.mdn_slumsAttacked</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Kill them.</text>
+          <def_link>7369</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>7370</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7368</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addEnemyToParty(1, HGR_Soldiers);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.hgr_soldiers_status = 2;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>7369</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgTeleportToMarker(TM_Soldiers_End);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>7370</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Yeah, right,” laughs the Decanus. “Get the fuck out of here.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Kill them.</text>
+          <def_link>7369</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>7370</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7371</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“Are you now?” asks the Decanus, putting his hand on his sword. “Well, then, here is your order. Get the fuck out of here.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Kill them.</text>
+          <def_link>7369</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>7370</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7373</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You again?” asks the Decanus, putting his hand on his sword. “It's your last warning.”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Soldiers_Start);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill them.</text>
+          <def_link>7369</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>7370</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7374</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]The words don’t come out right. The Decanus gives you a hard look and tells you to get out.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Kill them.</text>
+          <def_link>7369</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>7370</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7375</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Really? And who the fuck are you?” the Decanus asks cautiously, his hand on his sword.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[praetor]“I’m a praetor of House Aurelian.”</text>
+          <def_link>7379</def_link>
+          <checkOnAppear>aod.pc_member_aurelian</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][impersonate]“I was sent to assess the situation.”</text>
+          <def_link>7375</def_link>
+          <checkOnAppear>aod.pc_member_aurelian == false</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.streetwise + aod.disguise) &gt;= 9</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7376</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7372</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You’ve seen plenty of bureaucrats to get the mannerism right. In a few simple words you manage to show both the disdain and power of the pencil pushers over soldiers.
+
+The Decanus almost chokes with rage. “We need fucking engineers to seal this shit, not fucking assessors!”</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(HGR_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Engineers? Son, House Aurelian can't dispatch troops and engineers every time some decanus starts panicking. That’s why I’m here – to verify your find. *If* it’s real, you’ll get your engineers. If not, you’ll be guarding latrines tomorrow.”</text>
+          <def_link>7377</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7376</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“If it’s real? It's the biggest fucking door you’ve ever seen. At least a thousand pounds of real steel. That’s some serious shit, I tell you. The sooner the engineers seal it, the better.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’ll be the judge of that.” Climb down into the hole.</text>
+          <def_link>7378</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7377</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - down there</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.hgr_engineer_status = 1;</string>
+        <string>aod.hgr_soldiers_status = 1;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>VCO_Hole.setActive(1);</string>
+        <string>switchMission("Hangar Interior.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>7378</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Why didn’t you say so?” asks the Decanus with irritation. “What news do you bring us? When will the engineers arrive?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“No idea. What do you need engineers for?”</text>
+          <def_link>7380</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7379</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“To seal it, what else?” shrugs the Decanus. “They sent us here two weeks ago. The usual orders: clear, investigate, and hold until relieved. Done it a hundred times, but this time... The moment I saw the door, I knew we hit something big. I sent three men back to the city, been waiting here ever since.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What do you think is down there?”</text>
+          <def_link>7381</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7380</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Whatever it is, if it took them a thousand pounds of steel to keep it locked, I hope it never gets out.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Mind if I take a look?”</text>
+          <def_link>7382</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7381</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Be my guest.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Climb down into the hole.</text>
+          <def_link>7378</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7382</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

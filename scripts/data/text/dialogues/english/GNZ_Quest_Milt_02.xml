@@ -1,0 +1,464 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_gnz_milt_02 == 4</string>
+      <string>aod.quest_gnz_milt_02 == 5</string>
+    </conditions>
+    <links>
+      <int>10</int>
+      <int>13</int>
+    </links>
+    <dlg_name>GNZ_Quest_Milt_02</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Miltiades</def_speaker_name>
+    <def_portrait>Miltiades</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Miltiades arrived in style as befits a lord, surrounded by men-at-arms. His men look like thugs who were cleaned up and given matching armor. He nods magnanimously when he sees you – a lord acknowledging an occasionally useful but insignificant vassal.
+
+“&lt;charname&gt;!” exclaims Miltiades. “I was looking everywhere for you!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What brings you to Ganezzar?”</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Lord Darganus. He sent his servants to Maadoran, trying to drum up some support. Apparently, the natives are getting restless and we must save the city before it's too late. Since I had to leave Maadoran in a hurry, I graciously accepted his invitation.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Darganus is dead.”</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I can’t get a break lately,” sighs Miltiades. “Do you know who killed him?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I did a few favors for the local zealots. One thing led to another... You know how it is.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Regretfully, I do,” nods Miltiades. “Look, I don’t care about Darganus. Who’s he to me anyway? But I’m here now and I don’t want to leave empty-handed. Can you at least get me a meeting with whoever runs this circus? Maybe we can make some kind of deal.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I was asked to run you out of town.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Sure, I’ll get you a meeting. Why not?”</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’m not alone,” says Miltiades, the smile instantly disappears.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[body count]“You think some thugs are going to stop me?”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(bodycount) &gt;= 25</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion]“It’s over. You came too late and now the zealots run this town. There’s nothing for you here, trust me.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick>
+            <string>if(aod.persuasion &gt;= 6) aod.flagUsed = 1;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Alright, I’ll get you a meeting. Why not?”</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Kill him and his men. It's the only way to be sure.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - kill Miltiades and his men</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addEnemyToParty(1, MiltiadesParty);</string>
+        <string>aod.quest_gnz_milt_02 = 3;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.jnl_GNZ_Hector_03 = 2;</string>
+        <string>aod.fight_gnz_miltiades = 1;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“I'm not leaving because I don't have anywhere to go,” says Miltiades, looking away. “So either help me one last time and give me a goddamn chance or do what you came here to do.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Alright, I’ll get you a meeting, but you come alone.”</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Kill him and his men. It's the only way to be sure.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“You know, I really thought you were my friend,” says Miltiades, looking lost and confused. “All I wanted was a second chance, but if you want us gone so badly, we'll leave. I don't want to cause you any problems.”</npc_text>
+      <onLoadScripts>
+        <string>if(aod.flagUsed) {rwd_civil(GNZ_Miltiades_01); aod.flagUsed = 0;}</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Alright, I’ll get you a meeting, but you come alone.”</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Wait for them to leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Miltiades left</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_gnz_milt_02 = 3;</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>dlgDeleteCharacter(9040);</string>
+        <string>dlgDeleteCharacter(9041);</string>
+        <string>dlgDeleteCharacter(9042);</string>
+        <string>dlgDeleteCharacter(9043);</string>
+        <string>dlgDeleteCharacter(9044);</string>
+        <string>aod.jnl_GNZ_Hector_03 = 2;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“That's all I ask,” says Miltiades, happy as a pig.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Take him to Hector.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - move to Hector level</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_gnz_milt_02 = 4;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>switchMission("Quest_Hector_Fight.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What’s he doing here,” ask Hector, staring at Miltiades.
+
+“I just want to talk,” says Miltiades, raising his arms to show that he comes in peace. “That’s all.”
+
+“Say what you came here to say and get out,” says Hector.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Miltiades spends the next ten minutes pleading and begging, doing his best to convince Hector he isn't a threat. Eventually, Hector gives in and offers some crumbs off his table. Relieved, Miltiades steps forward – the guards bark at him to step back but Hector shrugs and allows it – and clasps Hector’s forearm gratefully.
+
+With the other hand, Miltiades artfully conjures a razor and slashes Hector’s throat in one impossibly quick motion. Hector stumbles, blood spraying everywhere, and goes down.
+
+“Guards! Get the guards!” yells Miltiades. The guards take as a sign that you are in on it and attack.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAnimation(anim_death_back03, 0.95, 9010);</string>
+        <string>dlgKillCharacter(9010);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetCombatAnimation(9044);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - kill Hector guards</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_gnz_milt_02 = 5;</string>
+        <string>aod.fight_miltiadesHector = 1;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addEnemyToParty(1, HectorParty);</string>
+        <string>dlgTeleportToMarker(TM_MiltiadesFight, 9044);</string>
+        <string>dlgSetAnimation(anim_stealth_00, 0.5, 9044);</string>
+        <string>setCharacterInvincible(9044, 1);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What a rush!” says Miltiades, smiling from ear to ear. “I knew we could handle them.”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_PC_01);</string>
+        <string>dlgTeleportToMarker(TM_Miltiades_01, 9044);</string>
+        <string>dlgSetAmbientAnimation(9044);</string>
+        <string>rwd_quest(GNZ_Miltiades_01);</string>
+        <string>dlgCam(50, 45, 6, 9044);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“WHAT THE FUCK?”</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Come on, I did you a favor,” says Miltiades. “Zealots? I mean, really. Were you really that desperate?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Alright, now what?”</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Kill the son of a bitch.</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“We’ll take over. Keep collecting money from the traders and send the zealots to harass the upper districts to keep money flowing. Hector had a good thing going, so why fix what isn’t broken?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You think you can control the zealots?”</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Of course I can. What, you think Hector knew a magic trick? He didn’t. Tomorrow, I’ll publically renounce my lordship and become a humble preacher who heard the call and saw the lights. Don’t worry about it, it’s under control.”</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_GNZ_Hector_03 = 4;</string>
+        <string>aod.quest_gnz_milt_02 = 6;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Miltiades took over Lowtown</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgDeleteCharacter(9044);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You stab him twice and let go. He takes a step back, raises blood-covered hands to his face as if refusing to believe that it finally happened, then his knees buckle and he collapses.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAnimation(anim_death_aimed_head, 0.6, 9044);</string>
+        <string>dlgKillCharacter(9044);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>aod.jnl_GNZ_Hector_03 = 4;</string>
+        <string>aod.quest_gnz_milt_02 = 7;</string>
+        <string>aod.npc_miltiades_dead = 1;</string>
+        <string>changeRep(bodycount, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - killed Miltiades</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetAnimation(anim_death_aimed_head, 0.95, 9044);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>18</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

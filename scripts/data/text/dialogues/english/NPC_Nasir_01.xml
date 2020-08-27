@@ -1,0 +1,224 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_nasir_gaveGem</string>
+      <string>aod.npc_nasir_madeOffer &amp;&amp; aod.npc_nasir_accepted == false</string>
+      <string>aod.npc_nasir_accepted &amp;&amp; aod.npc_nasir_gaveGem == false</string>
+    </conditions>
+    <links>
+      <int>5788</int>
+      <int>5790</int>
+      <int>5786</int>
+    </links>
+    <dlg_name>NPC_Nasir_01</dlg_name>
+    <def_link>5782</def_link>
+    <def_speaker_name>Nasir</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Welcome to Nasir's Carpet Diem! Seize the day and buy yourself the nicest wool carpet money can...” starts the storekeeper, then stops abruptly, realizing that you aren't in the market for rugs.
+
+“Say, friend,” says the man, changing his tone, “how would you like to make a thousand imperials?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_nasir_met = true;</string>
+        <string>dlgTeleportToMarker(TM_Nasir_01);</string>
+        <string>dlgcam(315, 45, 8, 6135);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Keep talking.”</text>
+          <def_link>5784</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5782</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgcam(315, 45, 15);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5783</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - accepted</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.npc_nasir_accepted = true;</string>
+        <string>addQuest(theGem);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgcam(315, 45, 15);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5789</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It's a simple tale. I wish to buy a gem. It’s a rare yellow sapphire, cut to perfection. Unfortunately, Silvanus is not a reasonable man. I’ve offered him a thousand imperials, yet he still refuses to sell, making a fool out of me. Not very neighborly of him, is it?
+
+“He used to live next door and sell spices. Then he made some powerful friends and bought a house in the Palace district, right next to the palace. The nerve, eh?
+
+“So, here is the deal. Bring me the stone and I’ll pay you a thousand imperials. I don’t care how you acquire it. That’s between you and Silvanus.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_nasir_madeOffer = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“And if he ends up dead?”</text>
+          <def_link>5785</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I'll go and take a look then.”</text>
+          <def_link>5789</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Not interested.” Leave.</text>
+          <def_link>5783</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5784</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Like I said, friend,” says Nasir, putting his hand on your shoulder. “That’s between you and Silvanus.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I'll go and take a look then.”</text>
+          <def_link>5789</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5785</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Do you have the stone?”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Nasir_01);</string>
+        <string>dlgcam(315, 45, 8, 6135);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Give him the gem.</text>
+          <def_link>5787</def_link>
+          <checkOnAppear>dlgOwnsItem(2007)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5783</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5786</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Have you considered my offer?"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Nasir_01);</string>
+        <string>dlgcam(315, 45, 8, 6135);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I'll go and take a look.”</text>
+          <def_link>5789</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5783</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5790</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It's truly perfect,” whispers Nasir examining the gem. “Well worth the money... Speaking of which,” he gives you a heavy leather bag. “Our business is now concluded. If anyone asks, I've never seen you before in my life.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_nasir_gaveGem = true;</string>
+        <string>dlgChangeMoney(1000);</string>
+        <string>dlgRemoveItem(2007, 1);</string>
+        <string>rwd_quest(MDN_theGem_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5783</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5787</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Welcome to Nasir's Carpet Diem! Seize the day and get yourself the nicest wool carpet money can buy,” says Nasir with a polite smile, making it clear that the conversation is over.</npc_text>
+      <onLoadScripts>
+        <string>dlgcam(315, 45, 8, 6135);</string>
+        <string>dlgTeleportToMarker(TM_Nasir_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5783</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5788</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

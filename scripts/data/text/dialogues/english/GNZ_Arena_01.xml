@@ -1,0 +1,750 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.gnz_arena_fight == 1</string>
+      <string>aod.gnz_arena_fight == 2</string>
+      <string>aod.gnz_arena_fight == 3</string>
+      <string>aod.gnz_arena_met</string>
+    </conditions>
+    <links>
+      <int>8475</int>
+      <int>8480</int>
+      <int>8489</int>
+      <int>8487</int>
+    </links>
+    <dlg_name>GNZ_Arena_01</dlg_name>
+    <def_link>8458</def_link>
+    <def_speaker_name>Centurion</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>House Crassus banners are flying above the Imperial Guard’s fort, leaving no doubt as to who the current owner is.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(270, 45, 15, 9501);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Approach.</text>
+          <def_link>8460</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8459</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8458</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(225, 45, 12);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8459</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Legionary</speaker_name>
+      <npc_text>“State your business,” says the legionary posted outside.</npc_text>
+      <onLoadScripts>
+        <string>aod.gnz_arena_met = true;</string>
+        <string>dlgCam(255, 45, 6, 9501);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What happened to the Guards that were stationed here?”</text>
+          <def_link>8461</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8460</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Legionary</speaker_name>
+      <npc_text>“No solicitors,” says the legionary, pretending he doesn’t recognize you.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(255, 45, 6, 9501);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8459</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.rep_arenaChampion &amp;&amp; aod.gnz_arena_fight != 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8464</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8487</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Legionary</speaker_name>
+      <npc_text>“Missing in action,” says the legionary with a shrug.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What action?”</text>
+          <def_link>8462</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8461</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Legionary</speaker_name>
+      <npc_text>“You think they stopped to see me on their way out and left a message for you?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So House Crassus wasted no time moving in?”</text>
+          <def_link>8463</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8462</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Legionary</speaker_name>
+      <npc_text>“Looks this way, doesn’t it?” says the legionary. “Anything else I can help you with?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8459</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.rep_arenaChampion</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8464</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8463</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Legionary</speaker_name>
+      <npc_text>“You seem familiar,” the legionary says suddenly. “Come with me, there is someone I want you to meet.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Follow him.</text>
+          <def_link>8465</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Walk away.</text>
+          <def_link>8459</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8464</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The legionary takes you to his Centurion – a bearded man with droopy eyes. “That’s &lt;him/her&gt;,” says the legionary. “The arena champion I told you about.”
+
+“No shit,” says the Centurion, looking at you with interest. “To be honest, &lt;he/she&gt; doesn’t look like a champion. Are you sure?”
+
+“Positive,” says the legionary. “Granted, I was drunk at the time...”
+
+“Are you or are you not the champion of Maadoran’s arena?” inquires the Centurion, losing his patience and finally addressing you directly.</npc_text>
+      <onLoadScripts>
+        <string>createByCharMarker("CM_GNZ_Arena_Centurion");</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Arena_PC_Centurion);</string>
+        <string>dlgTeleportToMarker(TM_Arena_Leg_Centurion, 9501);</string>
+        <string>dlgCam(255, 45, 6, 9500);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I am.”</text>
+          <def_link>8466</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8465</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“But you aren’t in Maadoran now,” says the Centurion, demonstrating his power of observation.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So?”</text>
+          <def_link>8467</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8466</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“So your title means shit here,” explains the Centurion. “Now we don’t have an arena per se, but you don’t need a crowd, do you? So how about it, *champion*? Want to defend your title?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I thought you’d never ask.”</text>
+          <def_link>8473</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“How much?”</text>
+          <def_link>8468</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I have better things to do.” Leave.</text>
+          <def_link>8492</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8467</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Other than your opponents’ gear? A thousand imperials,” says the Centurion, jingling coins in his pocket.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“How about your shamshir? What is it, blue steel?”</text>
+          <def_link>8469</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m ready.”</text>
+          <def_link>8473</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8468</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It’s a gift from Lord Meru,” says the Centurion. “I can’t wager it.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Fine. Let’s get to it.”</text>
+          <def_link>8473</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][charisma]“Because you know you’re going to lose. I’m the champion of Maadoran, the city of all cities. You think you have better fighters in this shithole? Ha!”</text>
+          <def_link>8470</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.cha) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8471</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8469</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“Are you deaf, &lt;boy/girl&gt;? I’ve just told you I can’t wager it.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Fine. Let’s get to it.”</text>
+          <def_link>8473</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8470</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Listen,” says the Centurion, his face getting red. “You’re a champion of some fucking arena, not Maadoran. You think that’s where the best fighters are? Fighting on the arena for the amusement of the crowd? Think again!”</npc_text>
+      <onLoadScripts>
+        <string>aod.gnz_arena_shamshir = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Then bet the shamshir.”</text>
+          <def_link>8472</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8471</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Fine,” snaps the Centurion. “You want the sword?” He pulls the blade out of the sheath, demonstrating the quality and ancient engraving. “Come and get it.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’m ready.”</text>
+          <def_link>8473</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8472</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Alright,” says the Centurion, “let’s make it simple. Three fights, the winner takes the prize money.”
+
+He turns to his men. “This here is the self-proclaimed champion of Maadoran. &lt;He/She&gt; thinks that it gives &lt;him/her&gt; the right to piss all over the likes of you. I need a volunteer to teach this, uh, champion some manners.
+
+“Which one of you apes wants to have the honor of fighting &lt;him/her&gt; first?”
+
+“I’ll go first,” says a man, stepping forward. He has a square jaw and a rather impressive eyebrow ridge, indicating that he’s working his way backwards on the evolutionary scale. Considering where things are going, it’s probably a smart choice.</npc_text>
+      <onLoadScripts>
+        <string>createByCharMarker("CM_GNZ_Arena_Caveman");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight the caveman.</text>
+          <def_link>8474</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8473</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - caveman</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.gnz_arena_fight = 1;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Arena_PC_Fight);</string>
+        <string>dlgSetAttitude(9502, 1, -10);</string>
+        <string>aod.fight_gnz_arena = 1;</string>
+        <string>GNZ_Hide_ArenaExit();</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+        <string>dlgCam(315, 40, 15, 9502);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8474</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“So you can fight after all,” says the Centurion, ignoring the dead caveman. “I need three men to defend the honor of the legion.”
+
+A crossbowman and two swordsmen step forward.</npc_text>
+      <onLoadScripts>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>dlgTeleportToMarker(TM_Arena_PC_Centurion);</string>
+        <string>dlgCam(255, 45, 6, 9500);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Three men?”</text>
+          <def_link>8476</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8475</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You can fight *and* count? I’m impressed! If you can also hold your wine and do card tricks, I might hire you as a munifex.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I meant three against one.”</text>
+          <def_link>8477</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8476</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You have a problem with it, champion? Nobody’s holding you here. You want to fight? Then stop complaining and get to it because you’re wasting everyone’s time.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I need to see a healer.”</text>
+          <def_link>8478</def_link>
+          <checkOnAppear>dlgGetPercentageHP() &lt; 100</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>8479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I'm done.” Leave.</text>
+          <def_link>8492</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8477</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Physician! This &lt;man/woman&gt; has a nosebleed. Apparently, the sight of blood distracts &lt;him/her&gt;. We don’t want &lt;him/her&gt; to faint, so get your kit and patch &lt;him/her&gt; up.”
+
+The physician manages to stop the bleeding and close up your wounds. You don't feel any better.</npc_text>
+      <onLoadScripts>
+        <string>cheatHP();</string>
+        <string>dlgCureStat(all);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>8479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8478</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - 3 men</npc_text>
+      <onLoadScripts>
+        <string>createByCharMarker("CM_GNZ_Arena_Sword_01");</string>
+        <string>createByCharMarker("CM_GNZ_Arena_Sword_02");</string>
+        <string>createByCharMarker("CM_GNZ_Arena_Xbow_01");</string>
+        <string>dlgFinish();</string>
+        <string>aod.gnz_arena_fight = 2;</string>
+        <string>addParty(GNZ_Arena_Fight_2, 0);</string>
+        <string>addCharToParty(9505, GNZ_Arena_Fight_2, fighter);</string>
+        <string>addCharToParty(9504, GNZ_Arena_Fight_2, fighter);</string>
+        <string>addCharToParty(9503, GNZ_Arena_Fight_2, fighter);</string>
+        <string>addEnemyToParty(1, GNZ_Arena_Fight_2);</string>
+        <string>dlgTeleportToMarker(TM_Arena_PC_Fight);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.fight_gnz_arena = 2;</string>
+        <string>GNZ_Hide_ArenaExit();</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+        <string>dlgCam(315, 40, 15, 9505);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8479</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Makes you feel alive, eh?” says the Centurion. “One last fight and you can claim the prize money and the title. Let me fetch the physician first.”
+
+The physician returns and tends to your wounds, shaking his head.</npc_text>
+      <onLoadScripts>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>cheatHP();</string>
+        <string>dlgTeleportToMarker(TM_Arena_PC_Centurion);</string>
+        <string>dlgCureStat(all);</string>
+        <string>dlgCam(255, 45, 6, 9500);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’m ready.”</text>
+          <def_link>8481</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.gnz_arena_shamshir</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8483</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I'm done.” Leave.</text>
+          <def_link>8492</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8480</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Murad,” calls out the Centurion. A skinny, wiry man with a shaved head – the exact opposite of the ‘caveman’ – steps forward. He’s wearing a steel manica, which doesn’t seem to hinder his movements.
+
+“Darbus and Timotheus,” continues the Centurion, picking two bowmen to spice things up.</npc_text>
+      <onLoadScripts>
+        <string>createByCharMarker("CM_GNZ_Arena_Murad");</string>
+        <string>createByCharMarker("CM_GNZ_Arena_Bow_01");</string>
+        <string>createByCharMarker("CM_GNZ_Arena_Bow_02");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>8490</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8481</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Murad,” calls out the Centurion. A skinny, wiry man with a shaved head – the exact opposite of the ‘caveman’ – steps forward. He’s wearing a steel manica, which doesn’t seem to hinder his movements.
+
+“Darbus and Timotheus,” continues the Centurion, picking two bowmen to spice things up.
+
+“Still want the shamshir?” The question is addressed to you.</npc_text>
+      <onLoadScripts>
+        <string>createByCharMarker("CM_GNZ_Arena_Bow_01");</string>
+        <string>createByCharMarker("CM_GNZ_Arena_Bow_02");</string>
+        <string>createByCharMarker("CM_GNZ_Arena_Murad");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I do.”</text>
+          <def_link>8484</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Keep it.”</text>
+          <def_link>8485</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8483</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - last</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.gnz_arena_fight = 3;</string>
+        <string>addParty(GNZ_Arena_Fight_3, 0);</string>
+        <string>addCharToParty(9506, GNZ_Arena_Fight_3, fighter);</string>
+        <string>addCharToParty(9507, GNZ_Arena_Fight_3, fighter);</string>
+        <string>addCharToParty(9508, GNZ_Arena_Fight_3, fighter);</string>
+        <string>addEnemyToParty(1, GNZ_Arena_Fight_3);</string>
+        <string>dlgTeleportToMarker(TM_Arena_PC_Fight);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.fight_gnz_arena = 3;</string>
+        <string>GNZ_Hide_ArenaExit();</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+        <string>dlgCam(315, 40, 15, 9506);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8490</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - last - centurion</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.gnz_arena_fight = 4;</string>
+        <string>dlgTeleportToMarker(TM_Arena_Centurion_Fight, 9500);</string>
+        <string>dlgTeleportToMarker(TM_Arena_PC_Fight);</string>
+        <string>addParty(GNZ_Arena_Fight_3, 0);</string>
+        <string>addCharToParty(9506, GNZ_Arena_Fight_3, fighter);</string>
+        <string>addCharToParty(9507, GNZ_Arena_Fight_3, fighter);</string>
+        <string>addCharToParty(9508, GNZ_Arena_Fight_3, fighter);</string>
+        <string>addCharToParty(9500, GNZ_Arena_Fight_3, fighter);</string>
+        <string>addEnemyToParty(1, GNZ_Arena_Fight_3);</string>
+        <string>aod.fight_gnz_arena = 4;</string>
+        <string>GNZ_Hide_ArenaExit();</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+        <string>dlgCam(315, 40, 15, 9506);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8491</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You’ll have to take it from me,” says the Centurion, joining the three ‘gladiators’.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>8491</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8484</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The Centurion nods as if it’s the answer he expected.
+
+“The floor is yours, champion.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>8490</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8485</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You cost me seven men and a thousand imperials,” says the Centurion grudgingly, as if it was your idea. “Get the fuck out of here!”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(1000);</string>
+        <string>dlgTeleportToMarker(TM_Arena_PC_Centurion);</string>
+        <string>dlgCam(255, 45, 6, 9500);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8492</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8489</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - finished arena</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Arena_Exit_PC);</string>
+        <string>aod.gnz_arena_fight = 5;</string>
+        <string>dlgTeleportToMarker(TM_Arena_Leg_Entrance, 9501);</string>
+        <string>setObjectRenderState(OBJ_ExitArena, 0);</string>
+        <string>VCO_ExitArena.setActive(0);</string>
+        <string>dlgCam(225, 45, 12);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>dlgDeleteCharacter(9500);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8492</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,267 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_teronGeneralMerchant_met</string>
+      <string>aod.pc_member_commercium</string>
+    </conditions>
+    <links>
+      <int>481</int>
+      <int>487</int>
+    </links>
+    <dlg_name>Teron_General_Merchant</dlg_name>
+    <def_link>478</def_link>
+    <def_speaker_name>Merchant</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Welcome to my store, my friend! I have the finest selection of goods at unbelievable prices. So, please, make yourself at home and browse the merchandise. And remember, when in doubt, buy it. It's better to regret buying something than regret not having it when you need it the most. Am I right? Why am I telling this to you? You look like a smart kid, so you know this already. Am I right?"</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_teronGeneralMerchant_met = true;</string>
+        <string>useCameraBookmark(NPC_MgMerchant_Cam_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Browse the wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Do you know anyone who's been buying supplies regularly? Enough to feed a camp full of soldiers."</text>
+          <def_link>483</def_link>
+          <checkOnAppear>aod.quest_mineWine_askAround &amp;&amp; aod.quest_teronMine_complete == false &amp;&amp; aod.quest_teronMine_fight == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Do you have any poison?"</text>
+          <def_link>484</def_link>
+          <checkOnAppear>aod.quest_mineWine_getPoison &amp;&amp; aod.quest_mineWine_hasLowPoison == false &amp;&amp; aod.quest_teronMine_complete == false &amp;&amp; aod.quest_teronMine_fight == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>478</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"&lt;Master/Mistress&gt; &lt;charname&gt;! Welcome to my store. As you know, we have the finest selection of goods at unbelievable prices. So, please, make yourself at home and browse the merchandise."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_teronGeneralMerchant_met = true;</string>
+        <string>useCameraBookmark(NPC_MgMerchant_Cam_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Browse the wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Do you know anyone who's been buying supplies regularly? Enough to feed a camp full of soldiers."</text>
+          <def_link>483</def_link>
+          <checkOnAppear>aod.quest_mineWine_askAround &amp;&amp; aod.quest_teronMine_complete == false &amp;&amp; aod.quest_teronMine_fight == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Do you have any poison?"</text>
+          <def_link>484</def_link>
+          <checkOnAppear>aod.quest_mineWine_getPoison &amp;&amp; aod.quest_mineWine_hasLowPoison == false &amp;&amp; aod.quest_teronMine_complete == false &amp;&amp; aod.quest_teronMine_fight == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>487</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>TRADE</npc_text>
+      <onLoadScripts>
+        <string>dlgTradeWithMe("Merchant");</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>479</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>480</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go to Rhaskos</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportTo(135, 14, 0, N);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>486</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Back for more, eh? My entire store is at your disposal, my friend."</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_MgMerchant_Cam_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Browse the wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Do you know anyone who's been buying supplies regularly? Enough to feed a camp full of soldiers."</text>
+          <def_link>483</def_link>
+          <checkOnAppear>aod.quest_mineWine_askAround &amp;&amp; aod.quest_teronMine_complete == false &amp;&amp; aod.quest_teronMine_fight == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Do you have any poison?"</text>
+          <def_link>484</def_link>
+          <checkOnAppear>aod.quest_mineWine_getPoison &amp;&amp; aod.quest_mineWine_hasLowPoison == false &amp;&amp; aod.quest_teronMine_complete == false &amp;&amp; aod.quest_teronMine_fight == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>481</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Sorry, can't help you there."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Browse the wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>483</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I have a rat poison, if that's what you're looking for. It works like a charm – knocks those buggers right out."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'll take it." Pay 5 imperials.</text>
+          <def_link>485</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>484</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The storekeeper takes your money and gives you a small glass bottle with green liquid.</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItemlist(MineWine_RatPoison);</string>
+        <string>dlgChangeMoney(-5);</string>
+        <string>aod.quest_mineWine_hasLowPoison = true;</string>
+        <string>aod.quest_mineWine_phase3 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Return to Rhaskos.</text>
+          <def_link>486</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>485</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

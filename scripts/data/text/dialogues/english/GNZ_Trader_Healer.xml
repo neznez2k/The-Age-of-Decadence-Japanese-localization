@@ -1,0 +1,255 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>dlgGetPercentageHP() &lt;= 50 || dlgGetCureStatPrice(all) &gt;= 1</string>
+    </conditions>
+    <links>
+      <int>3</int>
+    </links>
+    <dlg_name>GNZ_Trader_Healer</dlg_name>
+    <def_link>12</def_link>
+    <def_speaker_name>Medicus</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"May the Gods be with you, &lt;brother/sister&gt;."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_Healer);</string>
+        <string>dlgCam(300, 40, 6, 9050);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I need some stitches."</text>
+          <def_link>6</def_link>
+          <checkOnAppear>dlgGetPercentageHP() &lt; 100 || dlgGetCureStatPrice(all) &gt; 0</checkOnAppear>
+          <checksOnClick>
+            <string>dlgGetCureStatPrice(all) &gt;= 1</string>
+            <string>dlgGetPercentageHP() &lt;= 15</string>
+            <string>dlgGetPercentageHP() &gt;= 70</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>13</int>
+            <int>7</int>
+            <int>4</int>
+          </linksOnClick>
+          <scriptsOnClick>
+            <string>getStatHealPrice();</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You look unwell, &lt;brother/sister&gt;. Let me help you."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_Healer);</string>
+        <string>dlgCam(300, 40, 6, 9050);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Sure."</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetCureStatPrice(all) &gt;= 1</string>
+            <string>dlgGetPercentageHP() &lt;= 15</string>
+            <string>dlgGetPercentageHP() &gt;= 70</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>13</int>
+            <int>7</int>
+            <int>4</int>
+          </linksOnClick>
+          <scriptsOnClick>
+            <string>getStatHealPrice();</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Another time."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Let's see... A few cuts, but nothing serious. I can stitch them for &lt;HitPointsHealPriceLow&gt; imperials."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Fix me up."</text>
+          <def_link>1</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= $HitPointsHealPriceLow</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgchangemoney(-$HitPointsHealPriceLow);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Another time."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Must have been quite a fight... I'll clean up the wounds as best as I can - I have the finest maggots in Ganezzar. Then I'll stitch them up with goat intestines. Only the best for you, eh? &lt;HitPointsHealPriceMed&gt; imperials ought to cover it."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Fix me up."</text>
+          <def_link>1</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= $HitPointsHealPriceMed</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgchangemoney(-$HitPointsHealPriceMed);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Another time."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Let's see here... The Gods must really love you, &lt;brother/sister&gt;, because any other &lt;man/woman&gt; would have died from these injuries a long time ago. Don't worry though, I have the finest selection of body parts in Ganezzar. I have a wine barrel full of kidneys, so you can have four of them if you want to.
+
+"&lt;HitPointsHealPriceHigh&gt; imperials upfront, in case you die during the surgery."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Fix me up."</text>
+          <def_link>1</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= $HitPointsHealPriceHigh</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgchangemoney(-$HitPointsHealPriceHigh);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Another time."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[stat damage]"Let's see here... The Gods must really love you, &lt;brother/sister&gt;, because any other &lt;man/woman&gt; would have died from these injuries a long time ago. Don't worry though, I have the finest selection of body parts in Ganezzar. I have a wine barrel full of kidneys, so you can have four of them if you want to.
+
+"&lt;healStatPrice&gt; imperials upfront, in case you die during the surgery."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Fix me up."</text>
+          <def_link>8</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= $statHealPrice</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgchangemoney(-$statHealPrice);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Another time."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>CURE - HP</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>cheatHP();</string>
+        <string>dlgCam(300, 40, 15);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>CURE - stats</npc_text>
+      <onLoadScripts>
+        <string>dlgCureStat(all);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>cheatHP();</string>
+        <string>dlgCam(300, 40, 15);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgCam(300, 40, 15);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

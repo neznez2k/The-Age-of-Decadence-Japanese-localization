@@ -1,0 +1,294 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>ZGT_ElevatorBlocked</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The elevator shaft is blocked by overlapping crescent-shaped metal plates, forming an iris diaphragm.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Hack away the plates.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.zgt_constructs_disabled</string>
+            <string>aod.zgt_constructs_killed</string>
+            <string>aod.zgt_constructs_trap == 1</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4</int>
+            <int>5</int>
+            <int>6</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Perhaps it's best to leave it alone, abandoned and forgotten. Tell your master that the temple doesn't exist.</text>
+          <def_link>10</def_link>
+          <checkOnAppear>aod.zgt_tomb_balzaar == 0</checkOnAppear>
+          <checksOnClick>
+            <string>aod.alk_ritual_performed</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>12</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Your ingenuity is rewarded with a strange pulsing sound. Almost instantly, the constructs come to life and move toward you.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>aod.zgt_constructs_killed = true;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Your ingenuity is rewarded with a strange pulsing sound. Almost instantly, the constructs come to life and move toward you.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Wait for it...</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.alchemy + aod.traps) &gt;= 14</string>
+            <string>(aod.alchemy + aod.traps) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9</int>
+            <int>8</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]The trap goes off with a loud bang. Unfortunately, that's all it does.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>sfxPlayOnce(explosionHigh01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>aod.zgt_constructs_killed = true;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]The trap goes off with a loud bang, shredding a nearby construct and damaging the other two.</npc_text>
+      <onLoadScripts>
+        <string>aod.creature_killedInTA = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetAnimation(anim_death_back, 0.95, 27201);</string>
+        <string>dlgKillCharacter(27201);</string>
+        <string>dlgChangeCharacterHP(-25, 27202);</string>
+        <string>dlgChangeCharacterHP(-25, 27203);</string>
+        <string>rwd_civil(Traps);</string>
+        <string>sfxPlayOnce(explosionHigh01);</string>
+        <string>aod.creature_killedInTA = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>aod.zgt_constructs_killed = true;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[great success!]The trap goes off with a loud bang, throwing the constructs back. Only one tries to get up, but its joints are far too damaged.</npc_text>
+      <onLoadScripts>
+        <string>aod.creature_killedInTA = true;</string>
+        <string>dlgSetAnimation(anim_death_back, 0.95, 27201);</string>
+        <string>dlgSetAnimation(anim_death_back, 0.95, 27202);</string>
+        <string>dlgSetAnimation(anim_death_forward, 0.95, 27203);</string>
+        <string>dlgKillCharacter(27201);</string>
+        <string>dlgKillCharacter(27202);</string>
+        <string>dlgKillCharacter(27203);</string>
+        <string>rwd_civil(ZGT_01);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>sfxPlayOnce(explosionHigh01);</string>
+        <string>aod.creature_killedInTA = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Use the elevator.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>aod.zgt_constructs_killed = true;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addEnemyToParty(1, Constructs);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.ending_men = 1;</string>
+        <string>SS_start("temple_ending", "disconnect();");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The disabled constructs watch you hack at the plates with disinterest. The metal protests loudly but eventually gives way.</npc_text>
+      <onLoadScripts>
+        <string>ZTG_OpenElevator();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Use the elevator.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>With the constructs out of the way, you go back to assaulting the plates. The metal protests loudly but eventually gives way.</npc_text>
+      <onLoadScripts>
+        <string>ZTG_OpenElevator();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Use the elevator.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Balzaar won't buy it. He knows Agathoth is here and won't accept anything short of his head. So you either find a way or die trying.</npc_text>
+      <onLoadScripts>
+        <string>aod.zgt_tomb_balzaar = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Hack away the plates.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.zgt_constructs_disabled</string>
+            <string>aod.zgt_constructs_killed</string>
+            <string>aod.zgt_constructs_trap == 1</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4</int>
+            <int>5</int>
+            <int>6</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

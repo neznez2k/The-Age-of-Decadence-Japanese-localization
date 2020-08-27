@@ -1,0 +1,114 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>END_NPC_Antidas</dlg_name>
+    <def_link>8</def_link>
+    <def_speaker_name>Antidas</def_speaker_name>
+    <def_portrait>Antidas</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What news do you bring me?”</npc_text>
+      <onLoadScripts>
+        <string>dlgUnequipHands();</string>
+        <string>dlgCam(345, 45, 6, 1060);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“We’ve destroyed the entrance to Al-Akia. It would take Meru years to dig a proper way in.”</text>
+          <def_link>9</def_link>
+          <checkOnAppear>aod.gnz_ending_HDblewAlAkia &amp;&amp; aod.alakia_destroyed &amp;&amp; aod.alakia_destroyed_reported == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“The Guards’ve destroyed the entrance to Al-Akia. It would take Meru years to dig a proper way in.”</text>
+          <def_link>9</def_link>
+          <checkOnAppear>aod.npc_paullus_blows_alakia &amp;&amp; aod.alakia_destroyed &amp;&amp; aod.alakia_destroyed_reported == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I'm still searching for the temple, my Lord.”</text>
+          <def_link>10</def_link>
+          <checkOnAppear>aod.alakia_destroyed_reported || aod.alakia_destroyed == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I wish I could see the look on his face,” says Antidas, smiling. “All we need now are the engines of war from that temple and we’ll deal with Meru once and for all. Tell me you’re getting close, &lt;charname&gt;.”</npc_text>
+      <onLoadScripts>
+        <string>aod.alakia_destroyed_reported = true;</string>
+        <string>if(aod.gnz_ending_HDblewAlAkia) {rwd_quest(HD5_04); rwd_reputation(HD5_02); aod.jnl_Antidas_Temple = 1; setAchievement("ACH_ENEMY");}</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’ll find the temple, my Lord.”</text>
+          <def_link>10</def_link>
+          <checkOnAppear>aod.gnz_ending_HDblewAlAkia</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Not yet, my Lord.” Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear>aod.gnz_ending_HDblewAlAkia == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Do it fast. We need to strike now, when our enemy is weak.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgTeleportToMarker(TM_PalaceEnd_PC_01);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

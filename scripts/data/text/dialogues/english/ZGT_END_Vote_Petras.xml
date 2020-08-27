@@ -1,0 +1,194 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_prophet_met == 2</string>
+      <string>aod.pc_background_grifter</string>
+    </conditions>
+    <links>
+      <int>9386</int>
+      <int>9362</int>
+    </links>
+    <dlg_name>ZGT_END_Vote_Petras</dlg_name>
+    <def_link>9364</def_link>
+    <def_speaker_name>Prophet</def_speaker_name>
+    <def_portrait>Prophet</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name>ペトラス</speaker_name>
+      <npc_text>“What are you doing?” hisses Petras. “We had a good thing going. Why?”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_Prophet);</string>
+        <string>dlgCam(110, 45, 6, 8002);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What’s done is done. Are you with me or not?”</text>
+          <def_link>9363</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9386</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What are you doing, &lt;charname&gt;?” hisses the prophet.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_Prophet);</string>
+        <string>dlgCam(110, 45, 6, 8002);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Petras? I barely recognized you."</text>
+          <def_link>9385</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9362</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>ペトラス</speaker_name>
+      <npc_text>“Because I don't want to be recognized,” snaps Petras. “Why did you do it? You ruined everything!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What’s done is done. Are you with me or not?”</text>
+          <def_link>9363</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9385</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>ペトラス</speaker_name>
+      <npc_text>“Of course I’m with you. What choice do I have now?” sighs Petras.</npc_text>
+      <onLoadScripts>
+        <string>aod.end_chosen_votes += 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9380</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9363</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The prophet’s eyes roll up as he prepares to enter a trance to communicate with the Gods and seek clarity on the matter at hand. It doesn’t look like he’s interested in a conversation.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_Prophet);</string>
+        <string>dlgCam(110, 45, 6, 8002);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[impersonate success]You know a conman when you see one. "Quite a show, friend."</text>
+          <def_link>9381</def_link>
+          <checkOnAppear>aod.disguise &gt;= 8</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9380</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9364</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>assignDialogue("", 8002);</string>
+        <string>dlgSetAnimation(anim_sit_ground_00_00, 0, 8002);</string>
+        <string>dlgCam(0, 45, 10);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9380</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The prophet stays in trance - or rather in character, but his concentration appears to be broken.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]"I must say, it's most impressive. I can use a man like you. Back me up and you'll have this prophet gig for life."</text>
+          <def_link>9382</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 9</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9383</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9381</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]The 'prophet' remains silent.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9380</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9382</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"The Gods favor you," says the fake prophet, staying in character. "I see their blessing upon you, &lt;brother/sister&gt;."</npc_text>
+      <onLoadScripts>
+        <string>aod.end_chosen_votes += 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9380</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9383</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

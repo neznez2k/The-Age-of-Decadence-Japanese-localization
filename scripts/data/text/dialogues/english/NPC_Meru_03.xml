@@ -1,0 +1,189 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>NPC_Meru_03</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Meru</def_speaker_name>
+    <def_portrait>Meru</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You’re standing in front of Lord Meru. He is dressed in the eastern manner and has an aura of humility and piousness about him, although you can’t say whether he is a humble and pious man or merely wants to come across as one.
+
+There are no guards in the room, nothing that would highlight his status and station. Lord Meru is accompanied only by the already familiar magus whose accursed eyes seem to penetrate to your very soul.
+
+“Faelan tells me you’re a common thief,” says Meru, looking at you with a mix of interest and disgust. “A creature who steals and murders. Is that what you are? Or is there more to you? Is there some part of you that wants redemption? Answer me!”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_meru_met = true;</string>
+        <string>setWindowImage(npc_meru_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Yes, my Lord. I want redemption!”</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Fuck you.”</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Very well,” nods Meru. “Tell me then, who sent you to kill Faelan and why?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Tell him everything.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.pc_member_thieves</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I ain’t a rat.”</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“How disappointing,” says Meru slowly. “Do we have any further use for &lt;him/her&gt;?”
+
+Faelan shakes his head. Meru gives you another look as if trying to find some redeeming quality he might have overlooked before, then calls the guards.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Go back to Glabrio,” says Meru after a long pause. “Tell him that Faelan is dead, then let him bring in the Aurelians. We’ll be waiting.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg8_toldMeru = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“And then?”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“If I refuse?”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“And then you and I will have a conversation about your future.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“If I refuse?”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Consider it done, my Lord.” Leave.</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You’ll die,” says Meru matter-of-factly. He doesn’t threaten you but merely states the obvious. “Glabrio and his rats will die too, so you can’t save them. You can only save yourself.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’ll do it.” Leave.</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - teleported outside</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_TG9_meru_asked_betray = true;</string>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.jnl_TG8 = 2;</string>
+        <string>aod.gnz_startPosition_TG = 1;</string>
+        <string>switchMission("Ganezzar.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>7</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

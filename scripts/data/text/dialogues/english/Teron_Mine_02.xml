@@ -1,0 +1,275 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_teronMine_leftBeforeInterior</string>
+    </conditions>
+    <links>
+      <int>3</int>
+    </links>
+    <dlg_name>Teron_Mine_02</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The men guarding the entrance to the mine are dead, but it's likely that there are more men inside.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(quest_outpost_cam_13);</string>
+        <string>dlgTeleportToMarker(TM_MineDoorOutside_PC_04);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Finish it now.</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Deal with them later.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>As soon as you enter the main chamber, two legionaries block the exit, forcing you to stay and fight.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(quest_outpost_cam_14);</string>
+        <string>Mine_Exterior_MT_01.setActive(true);</string>
+        <string>Mine_Interior_MT_01.setActive(false);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - inside</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>addEnemyToParty(1, AurelianMineInside);</string>
+        <string>aod.quest_teronMine_fightInside = true;</string>
+        <string>aod.quest_teronMine_killedEveryone = true;</string>
+        <string>schedule(250, 0, dlgStartCombat);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.gameplay_questMine_fight = true;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>When you return to the outpost, you find that the remaining legionaries didn't waste any time. They've barricaded the entrance and armed the slaves. Going over the barricade will make you a hard-to-miss target. You should have finished them when it was easy. Then again, nothing is easy these days.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(quest_oupost_cam_12);</string>
+        <string>dlgSetZoom(20);</string>
+        <string>aod.quest_teronMine_trapInterior = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go in, everyone's waiting for you.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dodge &gt;= 5</string>
+            <string>dlgHasShieldEquipped() &amp;&amp; aod.block &lt; 4</string>
+            <string>dlgHasShieldEquipped() &amp;&amp; aod.block &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>16</int>
+            <int>15</int>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[dodge failure]As you climb over the barricade, you see two legionaries taking aim at you. You jump down, but a moment's hesitation proves almost fatal. A bolt slams into your side, its force throwing you against the barricade.
+
+The legionaries laugh, and yell something at the slaves standing in front of them, forcing them to move toward you. The slaves are armed with spiked clubs, but wear no armor.</npc_text>
+      <onLoadScripts>
+        <string>if(dlgGetCharacterHP() &gt; 10) dlgChangeCharacterHP(-10);</string>
+        <string>if(dlgGetCharacterHP() &lt;= 10) dlgSetCharacterHP(1);</string>
+        <string>dlgTeleportTo(28, 145, 0, NW);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(quest_outpost_cam_15);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[block success]As you climb over the barricade, you see two legionaries taking aim at you. You raise your shield just in time – almost immediately two bolts slam into it, rocking you backwards. Without wasting any time, you jump down.
+
+The legionaries curse, and yell something at the slaves standing in front of them, forcing them to move toward you. The slaves are armed with spiked clubs, but wear no armor.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(28, 145, 0, NW);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(quest_outpost_cam_15);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[block failure]As you climb over the barricade, you see two legionaries taking aim at you. You raise your shield but not fast enough – a bolt slams into your side, making you lose the balance and roll down.
+
+The legionaries laugh, and yell something at the slaves standing in front of them, forcing them to move toward you. The slaves are armed with spiked clubs, but wear no armor.</npc_text>
+      <onLoadScripts>
+        <string>if(dlgGetCharacterHP() &gt; 10) dlgChangeCharacterHP(-10);</string>
+        <string>if(dlgGetCharacterHP() &lt;= 10) dlgSetCharacterHP(1);</string>
+        <string>dlgTeleportTo(28, 145, 0, NW);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(quest_outpost_cam_15);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[dodge success]As you climb over the barricade, you see two legionaries taking aim at you. You throw yourself down, hitting the ground hard, just as the bolts fly over your head.
+
+The legionaries curse, and yell something at the slaves standing in front of them, forcing them to move toward you. The slaves are armed with spiked clubs, but wear no armor.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(28, 145, 0, NW);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(quest_outpost_cam_15);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>addEnemyToParty(1, AurelianMineInside);</string>
+        <string>aod.quest_teronMine_fightInside = true;</string>
+        <string>aod.quest_teronMine_killedEveryone = true;</string>
+        <string>schedule(250, 0, dlgStartCombat);</string>
+        <string>dlgTeleportTo(26, 150, 0, SE, 1997);</string>
+        <string>dlgTeleportTo(25, 149, 0, SE, 1998);</string>
+        <string>dlgTeleportTo(24, 148, 0, E, 1999);</string>
+        <string>dlgTeleportTo(24, 147, 0, E, 2000);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgAddItem(132, 1, 1997);</string>
+        <string>dlgAddItem(132, 1, 1998);</string>
+        <string>dlgAddItem(132, 1, 1999);</string>
+        <string>dlgAddItem(132, 1, 2000);</string>
+        <string>dlgEquipItem(132, 0, 1997);</string>
+        <string>dlgEquipItem(132, 0, 1998);</string>
+        <string>dlgEquipItem(132, 0, 1999);</string>
+        <string>dlgEquipItem(132, 0, 2000);</string>
+        <string>dlgTeleportTo(23, 150, 0, SE, 1994);</string>
+        <string>aod.gameplay_questMine_fight = true;</string>
+        <string>setTravelingAllowed(false);</string>
+        <string>aod.quest_teronOutpost_phase3c = true;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - leave</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportTo(29, 138, 0, N);</string>
+        <string>dlgSetZoom(8);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>13</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

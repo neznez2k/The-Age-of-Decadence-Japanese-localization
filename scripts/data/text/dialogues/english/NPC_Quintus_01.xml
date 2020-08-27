@@ -1,0 +1,167 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_quintus_firstProtection</string>
+      <string>aod.npc_quintus_firstFight &amp;&amp; aod.npc_quintus_dealAccepted</string>
+      <string>aod.npc_quintus_firstFight</string>
+    </conditions>
+    <links>
+      <int>1</int>
+      <int>14</int>
+      <int>16</int>
+    </links>
+    <dlg_name>NPC_Quintus_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Quintus</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Have an itch that needs scratching? You came to the right place.”</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(170, 45, 7, 4745);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Maybe later.” Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Thug</speaker_name>
+      <npc_text>A thug is busy kicking some sense into Quintus, who’s squealing like a pig and doesn’t seem to be in the mood to cooperate. Another thug is watching the beating with a bored look on his face.
+
+When they notice your presence, the thug stops and looks at you warily. “What do you want? We left the tavern alone, didn’t we? If you want a woman, come later.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_quintus_firstProtection = false;</string>
+        <string>createByCharMarker("CM_Quintus_Thug_01");</string>
+        <string>createByCharMarker("CM_Quintus_Thug_02");</string>
+        <string>aod.jnl_basil_phase3 = true;</string>
+        <string>dlgTeleportToMarker(TM_Quest_Quintus_02);</string>
+        <string>DOOR_Quintus_01.close();</string>
+        <string>dlgCam(15, 40, 7);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’m going to count to three. If you’re still here, when I’m done...”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>Hoping to catch you off-guard, the thug attacks.</npc_text>
+      <onLoadScripts>
+        <string>addParty(QuintusThugs_01, 0);</string>
+        <string>addCharToParty(5097, QuintusThugs_01, fighter);</string>
+        <string>addCharToParty(5098, QuintusThugs_01, fighter);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.npc_quintus_firstFight = true;</string>
+        <string>addEnemyToParty(1, QuintusThugs_01);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>narratePhrase("No longer the center of the thugs' attention, Quintus dives into one of the compartments, leaving the battlefield to you.");</string>
+        <string>DOOR_Quintus_01.lock();</string>
+        <string>dlgTeleportToMarker(TM_Quest_Quintus_01, 4745);</string>
+        <string>aod.fight_quintusThughs = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Thanks, &lt;charname&gt;,” says Quintus, wiping the blood off his face. “Fucking animals, eh?” He kicks a nearby corpse.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_basil_reportBotherAgain = true;</string>
+        <string>aod.npc_quintus_firstFight = false;</string>
+        <string>dlgTeleportToMarker(TM_NPC_Quintus_01, 4745);</string>
+        <string>dlgTeleportToMarker(TM_PC_Quintus_01);</string>
+        <string>dlgCam(170, 45, 7, 4745);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I'll see you later.” Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Thanks, &lt;charname&gt;,” says Quintus, wiping the blood off his face. “Fucking animals, eh?” He kicks a nearby corpse.
+
+“Four hundred imperials, as promised. You don't need to count, it's all there.”</npc_text>
+      <onLoadScripts>
+        <string>changeMoney(400);</string>
+        <string>aod.npc_basil_reportBotherAgain = true;</string>
+        <string>aod.npc_quintus_firstFight = false;</string>
+        <string>dlgTeleportToMarker(TM_Quest_Quintus_03, 4745);</string>
+        <string>dlgTeleportToMarker(TM_Quest_Quintus_04);</string>
+        <string>dlgCam(170, 45, 7, 4745);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I'll see you later.” Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(170, 45, 10);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

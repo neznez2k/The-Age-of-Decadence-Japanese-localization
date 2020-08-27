@@ -1,0 +1,330 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Cado_02</dlg_name>
+    <def_link>820</def_link>
+    <def_speaker_name>Cado</def_speaker_name>
+    <def_portrait>Cado</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Made a new friend?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Dellar? Just trading favors."</text>
+          <def_link>821</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>820</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What's the favour?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Some raiders have kidnapped a noble. Antidas wants him back, preferably in one piece."</text>
+          <def_link>822</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>821</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Don't get yourself killed."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I can use your help."</text>
+          <def_link>823</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>822</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"It's gonna cost you. Seven hundred should cover it."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Here is the money."</text>
+          <def_link>824</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 700</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion]"You're not getting the big picture, Cado. The raiders are moving in on our territory. Is Teron big enough to support us AND them? Unless we get rid of them fast, soon there will be nothing left for us to take."</text>
+          <def_link>825</def_link>
+          <checkOnAppear>aod.quest_teronRaider_cadoPersFail == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>829</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading]"Seven hundred? Isn't it forbidden for one thief to rob another? Five hundred, Cado. That's all I have."</text>
+          <def_link>826</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 500 &amp;&amp; aod.quest_teronRaider_cadoTradFail == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.trading &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>830</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[steal]Conjure a gold coin out of nowhere, run it through your fingers, and make it disappear. "A favour for a favour?"</text>
+          <def_link>827</def_link>
+          <checkOnAppear>aod.steal &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I don't have that much." Leave.</text>
+          <def_link>860</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>823</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Aziz!" calls Cado. "I have a job for you. &lt;charname&gt; is very concerned about some raiders. Have a chat with them, will you?"
+
+Aziz nods and turns to you. "Let's go."</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-700);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take Aziz to the raiders.</text>
+          <def_link>828</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>824</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"If they decide to stay, *then* we'll deal with them. Most likely they're just passing through."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_teronRaider_cadoPersFail = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Here is the money."</text>
+          <def_link>824</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 700</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading]"Seven hundred? Isn't it forbidden for one thief to rob another? Five hundred, Cado. That's all I have."</text>
+          <def_link>826</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 500 &amp;&amp; aod.quest_teronRaider_cadoTradFail == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.trading &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>830</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[steal]Conjure a gold coin out of nowhere, run it through your fingers, and then make it disappear. "A favour for a favour?"</text>
+          <def_link>827</def_link>
+          <checkOnAppear>aod.steal &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>860</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>825</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"You have a point there. Aziz!" calls Cado. "I have a job for you. &lt;charname&gt; is very concerned about some raiders. Have a chat with them, will you?"
+
+Aziz nods and turns to you. "Let's go."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Take Aziz to the raiders.</text>
+          <def_link>828</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>829</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"Then go "find" some more. Don't you claim to be a thief, &lt;charname&gt;?"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_teronRaider_cadoTradFail = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Here is the money."</text>
+          <def_link>824</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 700</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion]"You're not getting the big picture, Cado. The raiders are moving in on our territory. Is Teron big enough to support us AND them? Unless we get rid of them fast, soon there will be nothing left for us to take."</text>
+          <def_link>825</def_link>
+          <checkOnAppear>aod.quest_teronRaider_cadoPersFail == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>829</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[steal]Conjure a gold coin out of nowhere, run it through your fingers, and then make it disappear. "A favour for a favour?"</text>
+          <def_link>827</def_link>
+          <checkOnAppear>aod.steal &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>860</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>826</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Alright, alright. Five hundred it is then. Aziz!" calls Cado. "I have a job for you. &lt;charname&gt; is very concerned about some raiders. Have a chat with them, will you?"
+
+Aziz nods and turns to you. "Let's go."</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-500);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take Aziz to the raiders.</text>
+          <def_link>828</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>830</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Why not? I've heard rumors that Master Belios has an old golden goblet. Beautiful work. I'd say it's worth a lot more than seven hundred, but if you prefer to pay me this way... Bring me the goblet and I'll take care of the raiders for you."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go to Master Belios' house.</text>
+          <def_link>831</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>827</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - camp</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>apmsStartDialogue(TBC_AzizAmbush);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>828</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Belios</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_teronRaider_cadoGoblet = true;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>apmsstartdialogue(quest_teron_goblet);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>831</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>860</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

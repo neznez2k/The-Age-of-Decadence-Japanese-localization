@@ -1,0 +1,1512 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.mdn_destroyed</string>
+      <string>aod.fight_haPass_intro</string>
+      <string>aod.quest_HA_pass == 2</string>
+    </conditions>
+    <links>
+      <int>60</int>
+      <int>15</int>
+      <int>17</int>
+    </links>
+    <dlg_name>Quest_HA_Pass_01</dlg_name>
+    <def_link>1</def_link>
+    <def_speaker_name>Bass</def_speaker_name>
+    <def_portrait>Bass</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>"Another refugee from Maadoran? If you can pay, you can stay. If not..."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_HAPass_PC_01);</string>
+        <string>dlgTeleportToMarker(TM_HAPass_NPC_01, 5540);</string>
+        <string>aod.pas_open = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"What about the Ordu?"</text>
+          <def_link>62</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>60</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>"What about 'em? They know there's nothing for them here now. They ain't stupid."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>61</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>62</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>61</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>“We’re closed for business until further notice,” says one of the guards cheerfully. “Centurion Bass went a-hunting, so I'll be your host until he comes back. Let's have us a little conversation. What’s on the other side that’s so important to you?”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_HAPass_PC_01);</string>
+        <string>dlgTeleportToMarker(TM_HAPass_NPC_01, 5540);</string>
+        <string>aod.quest_haPass_messenger = true;</string>
+        <string>dlgTeleportToMarker(TM_Bass_HA_1, 4410);</string>
+        <string>setCharacterRendered(4410, 0);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What business is that of yours?”</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[impersonate]“The Commercium has business interests in the area. I was sent to evaluate them and report back. While your assistance will be appreciated and rewarded, delaying me will have consequences.”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.disguise &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[lore][streetwise]“I’m a loremaster. A trader told me that he saw some ruins a few days northeast from here. I want to get there before anyone else does.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.lore + aod.streetwise) &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>36</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[body count][streetwise]“A trader didn’t make it back when he was supposed to. I was hired to find him and bring him back, if he’s still alive. The longer I sit here, the less chance I have of finding him alive.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 3 &amp;&amp; dlgGetRep(bodycount) &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>“You’re right,” nods the guard, as if admitting that he crossed the line there. “Throw &lt;him/her&gt; off the mountain,” he adds, turning to his buddies.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Wait!”</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>“I'm listening,” says the guard, clearly enjoying this conversation.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[impersonate]“The Commercium has business interests in the area. I was sent to evaluate them and report back. While your assistance will be appreciated and rewarded, delaying me will have consequences.”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.disguise &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[lore][streetwise]“I’m a loremaster. A trader told me that he saw some ruins a few days northeast from here. I want to get there before anyone else does.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.lore + aod.streetwise) &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>36</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[body count][streetwise]“A trader didn’t make it back when he was supposed to. I was hired to find him and bring him back, if he’s still alive. The longer I sit here, the less chance I have of finding him alive.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 3 &amp;&amp; dlgGetRep(bodycount) &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>removeCharFromParty(4410);</string>
+        <string>dlgDeleteCharacter(4410);</string>
+        <string>dlgFinish();</string>
+        <string>aod.fight_haPass_intro = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addEnemyToParty(1, PassGuards);</string>
+        <string>schedule(100, 0, dlgStartCombat, 1);</string>
+        <string>setRtsCam();</string>
+        <string>VCO_EscapePass_01.setActive(true);</string>
+        <string>VCO_EscapePass_02.setActive(true);</string>
+        <string>VCO_NorthGate.setActive(false);</string>
+        <string>EXIT_NorthGate.isRenderEnabled = false;</string>
+        <string>EXIT_EscapePass_01.isRenderEnabled = true;</string>
+        <string>EXIT_EscapePass_02.isRenderEnabled = true;</string>
+        <string>aod.death_pass_attack = true;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[failure]“It’s a good story, but you tell it wrong,” says the guard after a pause. “Maybe you’re the messenger we’re looking for. Unfortunately, there is only way to know for sure...”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way through.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[failure]“You’ve heard the &lt;man/woman&gt;,” says the guard turning to his buddies. &lt;He/She&gt; is on a mission of great importance and won’t tolerate delays. Throw &lt;him/her&gt; off the fucking mountain – it’s the fastest way down.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way through.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[success]“Are you threatening us?” laughs the guard.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_haPass_merchant = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]“Look, I’m just an employee. Between you and me, I’m not looking forward to spending the next few weeks in the wilderness, watching over my shoulder. So, if you tell me that I can’t go, I won’t shed any tears, but my guildmaster will be pissed and take it out on you. Don’t say I didn’t warn you.”</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>12</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][trading]“I’m stating the obvious. We reward those who render assistance and discourage those who interfere with our business. I'm willing to pay you 5,000 imperials and all you have to do is open that gate. I'd take the money, but if you'd rather fuck with my guild for your amusement and make some powerful enemies, be my guest.”</text>
+          <def_link>9</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 5000</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.streetwise + aod.trading) &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[success]“Nobody’s allowed in or out until we get this situation under control,” says the guard. “You can stay here for a few days – provided you have some money to pay for the hospitality – and hope that it will be sorted out quickly.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_haPass_loremaster = true;</string>
+        <string>aod.quest_HA_pass = 2;</string>
+        <string>rwd_civil(HA2_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>63</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>36</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[success]“Well, you do look like the fighting type, but we have a situation here,” says the guard.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_haPass_merc = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[trading][streetwise]“This trader had a lot of money with him – revenues from several trading outposts. You let me go through, I’ll split the money with you and tell the guild that some money were missing. What do you say?”</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.trading) &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>11</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[failure]“Nobody’s allowed in or out until we get this situation under control,” says the guard. “You can stay here for a few days – provided you have some money to pay for the hospitality – and hope that it will be sorted out quickly.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_HA_pass = 2;</string>
+        <string>rwd_civil(HA2_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>63</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[success]“Why the sudden generosity?” asks the guard.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]“If I’m stuck here, I’ll get nothing. If I split it with you, I’ll get something. Where I come from, something’s always better than nothing.”</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>12</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[success]“Alright,” says the guard. “Let &lt;him/her&gt; go.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(HA2_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>63</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[success]“Alright,” says the guard. “Let &lt;him/her&gt; go.”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-5000);</string>
+        <string>rwd_civil(HA2_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>63</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Ordu</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>switchMission("Barbarian Camp.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - explore</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>63</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>You hear shouts coming from outside. Must be Centurion Bass and his merry men returning from a raid. You shouldn't be here when they arrive.</npc_text>
+      <onLoadScripts>
+        <string>aod.fight_haPass_intro = 0;</string>
+        <string>aod.fight_haPass_win = true;</string>
+        <string>rwd_reputation(HA_Pass_01);</string>
+        <string>rwd_fight(HA_Pass_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Run!</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>You run toward the gate. A guard steps out from one of the buildings, looking around in confusion. You push him out of the way, sprint up the stairs and jump over the wall just as the bolts begin to fly.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go to the Ordu camp.</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>The camp is dark and quiet. The only obstacles between you and the Ordu camp are two guards, slowly patrolling the wall.</npc_text>
+      <onLoadScripts>
+        <string>setNight();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[sneak]Get closer.</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.sneak &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>19</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Approach them. Slowly. You don't want to get shot accidentally.</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Wait till morning.</text>
+          <def_link>35</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You step into the shadows and cloak yourself in darkness, becoming a shifting shadow yourself, all but invisible to the mortal eyes. Slowly, you move toward the wall - a predator stalking its helpless prey.
+
+Then a twig cracks under foot, the guards whirl and you freeze like a deer. A bolt hits you in the chest, breaking the spell and throwing you to the ground. The darkness swirls down upon you, this time for good.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Rest in peace.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>[success]Moving as quietly as you can and watching your steps, you manage to reach the wall without attracting the guards' attention.</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(Sneak);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[dexterity][dodge]Make a run for it.</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dodge &gt;= 4 &amp;&amp; aod.dex &gt;= 7</string>
+            <string>aod.dodge &gt;= 3 &amp;&amp; aod.dex &gt;= 8</string>
+            <string>aod.dodge &gt;= 2 &amp;&amp; aod.dex &gt;= 9</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>22</int>
+            <int>22</int>
+            <int>22</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[critical strike]Take them out.</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>24</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>[failure]You sprint up the stairs, pushing the nearst guard out of the way, jump down and keep on running, praying to anyone who might be listening. Unfortunately, the gods are either busy or rooting for the other team. Somehow, a barbed bolt finds you, tearing a bloody path through your neck.
+
+You bleed to death within seconds.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Rest in peace.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>[success]You sprint up the stairs, pushing the nearest guard out of the way, jump down and keep on running. A sixth sense – or the growing fear – tells you to change direction and as you do, a bolt hits the ground where you were a second ago. Before the guard can reload, you disappear into the darkness.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go to the Ordu camp.</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>[failure]The first guard goes down easy. The bastard didn't even see it coming. You whirl around to deal with the other guard, see the raised crossbow and die instantly as the guard shoots you point-blank in the face.</npc_text>
+      <onLoadScripts>
+        <string>sfxPlayOnce(csSuccessMetal01);</string>
+        <string>schedule(250, 0, sfxPlayOnce, AudioCsRangedBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Rest in peace.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>[success]The first guard goes down easy. The bastard didn't even see it coming. The other guard turns around, raising his crossbow, but you move a bit faster, gaining the tactical advantage of having your dagger buried to the hilt between his ribs. The guard blinks in surprise and falls down, conceding defeat.</npc_text>
+      <onLoadScripts>
+        <string>dlgCsRepTrain(2);</string>
+        <string>sfxPlayOnce(csSuccessMetal01);</string>
+        <string>schedule(250, 0, sfxPlayOnce, csSuccessMetal01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to the Ordu camp.</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>“What do you want?” asks one of the guards, walking down the stairs. The other guard aims his crossbow at you, waiting to see what transpires.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“The Ordu are coming. They will be here in two days. Gaelius doesn't know for sure, but at least three thousand. Maybe five-six.”</text>
+          <def_link>28</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>27</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading]“I need to get through the pass right now. I can't waste any more time, sitting here. Name your price.”</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.trading &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>29</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[failure]“No deal,” says the guard calmly. “Nobody gets through without Bass' say-so.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_haPass_bribe = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait till morning.</text>
+          <def_link>35</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>26</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>“Then why are you wasting my time?” snaps the guard. “Get out of here!”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_haPass_bribe = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait till morning.</text>
+          <def_link>35</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>32</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[failure]“They aren't here yet, are they?” says the guard calmly. “Nobody gets through without Bass' say-so.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_haPass_toldOrdu = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait till morning.</text>
+          <def_link>35</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>28</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[success]Your words have the desired effect. “Why are you telling me this?” asks the guard, glancing around.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]“You know why – because *you* don't have to die here. Get out, while you still can. If the Imperial Guards cared about this pass, they would have kept a thousand men here. If they don't care, why should you?”</text>
+          <def_link>41</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>34</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]“Because you deserve to know the truth. I was sent to stop the Ordu, but the Imperial Guards want a war. That's why they closed off the pass. Are you willing to die to start a war?”</text>
+          <def_link>41</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>33</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>27</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[failure]“Forget about it,” says the guard after a pause. “Nobody gets through without Bass' say-so.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_haPass_toldOrdu = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait till morning.</text>
+          <def_link>35</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>41</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[success]Your words have the desired effect. “What do I tell Bass?” asks the guard, glancing around.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“Tell him that some idiot got drunk and fell off the cliff.”</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>30</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>29</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[success]“Alright,” says the guard. He flashes an open palm to the other guard twice, gets a quick nod in response, and turns back to you.
+
+“One thousand imperials.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay him.</text>
+          <def_link>31</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 1000</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I don't have this kind of money.”</text>
+          <def_link>32</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>30</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>“Go now, quickly!”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-1000);</string>
+        <string>rwd_civil(HA2_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to the Ordu camp.</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>31</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[success]“Fucking bastards!” swears the guard. “Alright, go and do whatever you have to do to stop them. Last thing we need right now is another war.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(HA2_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to the Ordu camp.</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>33</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[success]“Fucking bastards!” swears the guard. “Alright, we're getting out of here now. You do whatever it is you need to do. It's no longer my problem.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(HA2_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to the Ordu camp.</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>34</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>In the morning Centurion Bass invites you for a chat outside. He’s enjoying a cup of fermented goat milk. Must be an acquired taste. Behind him, the guards are stripping armor from a dead man.
+
+“He was my suspect number one,” explains Bass, “but upon reflection I’ve decided that he was probably innocent. Or had an accomplice. Since you’re my suspect number two, you get the honor of being questioned next.”</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>addJournalChar(bass);</string>
+        <string>setDay();</string>
+        <string>dlgTeleportToMarker(TM_Bass_HA_2, 4410);</string>
+        <string>dlgTeleportToMarker(TM_PC_Bass_HA_2);</string>
+        <string>dlgCam(225, 45, 8, 4410);</string>
+        <string>setCharacterRendered(4410, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I have nothing to hide.”</text>
+          <def_link>37</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_haPass_toldOrdu</string>
+            <string>aod.quest_haPass_bribe</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>39</int>
+            <int>38</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>35</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Excellent,” says Bass. “This is what I want to hear. So, who did you say you were?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"A merchant."</text>
+          <def_link>45</def_link>
+          <checkOnAppear>aod.quest_haPass_merchant</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"A loremaster."</text>
+          <def_link>46</def_link>
+          <checkOnAppear>aod.quest_haPass_loremaster</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"A mercenary."</text>
+          <def_link>44</def_link>
+          <checkOnAppear>aod.quest_haPass_merc</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>37</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“I suppose,” says Bass. “At very least, I won't have you killed just because you tried to bribe one of my men, especially since you did it so clumsily. So, who did you say you were?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"A merchant."</text>
+          <def_link>45</def_link>
+          <checkOnAppear>aod.quest_haPass_merchant</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"A loremaster."</text>
+          <def_link>46</def_link>
+          <checkOnAppear>aod.quest_haPass_loremaster</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"A mercenary."</text>
+          <def_link>44</def_link>
+          <checkOnAppear>aod.quest_haPass_merc</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>43</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Really? Nothing at all? Because usually people who have nothing to hide don’t try to bribe guards in the middle of the night. Are you holding out on us?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]“I told you. I really need to get through and if it’s going to cost me a few coins, so be it. No harm in trying to make a guard’s life a bit more bearable, is it?”</text>
+          <def_link>42</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>43</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>38</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Excellent,” says Bass. “Because as it turned out, you’re surprisingly well informed. All these stories about thousands of Ordu coming to kill us all, they fuel the imagination and raise many questions.” He turns to one his men.
+
+“Chain &lt;him/her&gt; and chop off &lt;his/her&gt; legs at the knees. It’s not like &lt;he/she&gt; is going anywhere.” He turns back to you.
+
+“We both know that you’re going to lie as long as have hope that somehow you’ll weasel your way out of it. You won't. You will die here; the only question is how long it would take. It can be fast, like blowing out a candle. Or it can be slow. Painfully slow.
+
+“So think of it as skipping foreplay and jumping straight to business.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Now you’re fucked.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>39</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Bass shrugs and turns to one his men.
+
+“Chain &lt;him/her&gt; and chop off &lt;his/her&gt; legs at the knees. It’s not like &lt;he/she&gt; is going anywhere.” He turns back to you.
+
+“We both know that you’re going to lie as long as have hope that somehow you’ll weasel your way out of it. You won't. You will die here; the only question is how long it would take. It can be fast, like blowing out a candle. Or it can be slow. Painfully slow.
+
+“So think of it as skipping foreplay and jumping straight to business.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Now you’re fucked.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>48</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“I still don’t trust you,” says Bass. “There is something about you that makes me think that you’re the &lt;man/woman&gt; we’re looking for.” He turns to one his men.
+
+“Chain &lt;him/her&gt; and chop off &lt;his/her&gt; legs at the knees. It’s not like &lt;he/she&gt; is going anywhere.” He turns back to you.
+
+“We both know that you’re going to lie as long as have hope that somehow you’ll weasel your way out of it. You won't. You will die here; the only question is how long it would take. It can be fast, like blowing out a candle. Or it can be slow. Painfully slow.
+
+“So think of it as skipping foreplay and jumping straight to business.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Now you’re fucked.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>42</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“That's the plan?” asks Bass. “Send you because you ‘just might make it’. You're full of shit, my friend, but we can easily fix that.” He turns to one his men.
+
+“Chain &lt;him/her&gt; and chop off &lt;his/her&gt; legs at the knees. It’s not like &lt;he/she&gt; is going anywhere.” He turns back to you.
+
+“We both know that you’re going to lie as long as have hope that somehow you’ll weasel your way out of it. You won't. You will die here; the only question is how long it would take. It can be fast, like blowing out a candle. Or it can be slow. Painfully slow.
+
+“So think of it as skipping foreplay and jumping straight to business.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Now you’re fucked.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>56</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You almost had me,” says Bass, smiling, “but Kemnebi would never take a 70/30 split and he would kill anyone who'd agree to such a deal on his behalf.” He turns to one his men.
+
+“Chain &lt;him/her&gt; and chop off &lt;his/her&gt; legs at the knees. It’s not like &lt;he/she&gt; is going anywhere.” He turns back to you.
+
+“We both know that you’re going to lie as long as have hope that somehow you’ll weasel your way out of it. You won't. You will die here; the only question is how long it would take. It can be fast, like blowing out a candle. Or it can be slow. Painfully slow.
+
+“So think of it as skipping foreplay and jumping straight to business.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Now you’re fucked.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>55</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“A mercenary. Right. So, tell me, mercenary, who hired you? I have to warn you though, if you say a word about client’s confidentiality, I’ll throw you off the cliff myself.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Kemnebi hired me.”</text>
+          <def_link>50</def_link>
+          <checkOnAppear>aod.npc_kemnebi_met</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m working for the Commercium.”</text>
+          <def_link>51</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Marcus Valla.”</text>
+          <def_link>52</def_link>
+          <checkOnAppear>aod.npc_valla_met</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Go fuck yourself.”</text>
+          <def_link>48</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.pc_background_mercenary</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>47</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>44</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“A merchant. Right. So, tell me, merchant, why would a trading company as big as the Commercium send a single &lt;man/woman&gt; in the middle of fucking nowhere? Don’t tell me that they can’t afford to pay for a proper escort.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]“The Commercium didn’t get rich by hiring armed escorts for every merchant. So, if I die, they haven’t lost much. If I succeed against all odds, which is getting more and more doubtful by the minute, they will make a hefty profit.”</text>
+          <def_link>42</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>57</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]“You send in twenty men, the Ordu would see it as a challenge, or a gift, or both. You send in one &lt;man/woman&gt;, &lt;he/she&gt; just might make it.”</text>
+          <def_link>56</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 5 &amp;&amp; aod.persuasion &gt;= 2 &amp;&amp; aod.streetwise &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>57</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][charisma]“Same reason why this pass is guarded by a dozen of cross dodgers and towers that were old when the world was still young.”</text>
+          <def_link>42</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 3 &amp;&amp; aod.cha &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>57</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>45</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“A loremaster. Right. So, tell me, loremaster, what’s so special about these ruins that you simply couldn’t wait another week?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“In a week this pass will be swarmed with loremasters trying to get through and the ruins will be picked clean.”</text>
+          <def_link>42</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 2 &amp;&amp; dlgGetItemsCount(2110) &gt;= 1</string>
+            <string>aod.streetwise &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>58</int>
+            <int>59</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>46</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>Before the centurion can say anything, another guard steps forward and looks at you.
+
+“I saw &lt;him/her&gt; in Teron at that shitty inn a few years ago,” says one of the guards. &lt;He/She&gt; was one of those rent-a-guard mercs. Not the kind of people Gaelius would use, that’s for sure. I mean, look at &lt;him/her&gt;, Bass.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>49</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>47</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Alright, let &lt;him/her&gt; go,” says Bass. “Bring in the next one.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(HA2_04);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to the Ordu camp.</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>49</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Alright, alright. 50/50,” says Bass, winking. “Let &lt;him/her&gt; go and bring in the next one.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(HA2_04);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to the Ordu camp.</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>54</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Kemnebi’s a raider. Why would give a fuck about some trader?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“Same reason he does anything – money. The trader carries a small fortune with him.”</text>
+          <def_link>42</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>53</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>50</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Bullshit. The Commercium doesn’t work with single operators.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]“You send in twenty men, the Ordu would see it as a challenge, or a gift, or both. You send in one &lt;man/woman&gt;, &lt;he/she&gt; just might make it.”</text>
+          <def_link>56</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 5 &amp;&amp; aod.persuasion &gt;= 2 &amp;&amp; aod.streetwise &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>49</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[impersonate][sneak]“Good trackers are hard to find. You send twenty men, they will make a lot of noise and find nothing but trouble. I can find that trader and bring him back before anyone even realize I was there.”</text>
+          <def_link>42</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.disguise &gt;= 3 &amp;&amp; aod.sneak &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>49</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>51</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You're working with Marcus? Why didn’t you say so in the first place?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You didn't ask.”</text>
+          <def_link>49</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>52</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Ah,” says Bass, “now I understand. Kemnebi didn't send you to rescue the trader, did he? Sly old bastard. Alright, I'm going to let you go, but we want a bigger cut. 70/30.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Alright. 70/30.”</text>
+          <def_link>55</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“70/30? Forget about it. Take 50 points and thank Kemnebi when you see him for his generousity.”</text>
+          <def_link>54</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>53</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“How long have you been working for the guild?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Quite a few years. I started under master Linos in Teron...” Tell him a few stories.</text>
+          <def_link>49</def_link>
+          <checkOnAppear>aod.pc_background_merchant</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]“Quite a few years...” Make up some stories of your exploits.</text>
+          <def_link>42</def_link>
+          <checkOnAppear>aod.pc_background_merchant == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>49</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>57</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“It's a cutthroat business. Then again, what isn't these days, eh? Now, since you're here...” He pulls out a small grooved sphere, exactly like the one you have, and shows it to you.
+
+“If you're truly a loremaster, tell me what it is and you can be on your way.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][lore]“The truth is, nobody knows what it is. It's too small to be identified, but judging by the metal and the workmanship, it's definitely an artefact. Its nature is mechanical, but whether it's an integral part of some device or a stand-alone object I can't say.”</text>
+          <def_link>42</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lore &gt;= 2 &amp;&amp; aod.persuasion &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>49</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][lore]“It's a potent charm made from the star metal. It contains a sacred matter which drains and nullifies magic. For as long as you have it on you, neither a spell nor a curse would be able to harm you.”</text>
+          <def_link>42</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 3 &amp;&amp; aod.lore &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>49</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>58</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“It's a cutthroat business. Then again, what isn't these days, eh? Now, since you're here...” He pulls out a small grooved sphere.
+
+“If you're truly a loremaster, tell me what it is and you can be on your way.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][lore]“It's too small to be identified, but judging by the metal and the workmanship, it's definitely an artefact. Its nature is mechanical, but whether it's an integral part of some device or a stand-alone object I can't say.”</text>
+          <def_link>42</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lore &gt;= 3 &amp;&amp; aod.persuasion &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>49</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][lore]“It's a potent charm made from the star metal. It contains a sacred matter which drains and nullifies magic. For as long as you have it on you, neither a spell nor a curse would be able to harm you.”</text>
+          <def_link>42</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 3 &amp;&amp; aod.lore &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>49</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>59</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

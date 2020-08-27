@@ -1,0 +1,158 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.artefact_ghostHand_interactFrom == 2191</string>
+    </conditions>
+    <links>
+      <int>4</int>
+    </links>
+    <dlg_name>ITEM_GhostHand</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>A strange, metal glove of unknown purpose.</npc_text>
+      <onLoadScripts>
+        <string>setWindowImage(item_ghostHand_off);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lore]Examine it.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lore &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You have no idea what it is.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]It is said that some machines could never function in this world for they required different laws of physics. Thus, the Magi had built them in realms that exist elsewhere. They called them the Ghost Worlds and used devices such as this one to bridge the gap between these worlds and ours.
+
+It needs three power tubes to function properly.</npc_text>
+      <onLoadScripts>
+        <string>aod.item_ghostHand_identified = 1;</string>
+        <string>dlgRemoveItem(2190, 1);</string>
+        <string>dlgAddItem(2191, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Insert three power tubes.</text>
+          <def_link>5</def_link>
+          <checkOnAppear>dlgGetItemsCount(1600) &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The Ghost Hand needs three power tubes to function properly.</npc_text>
+      <onLoadScripts>
+        <string>aod.item_ghostHand_identified = 1;</string>
+        <string>setWindowImage(item_ghostHand_off);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Insert three power tubes.</text>
+          <def_link>5</def_link>
+          <checkOnAppear>dlgGetItemsCount(1600) &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You put on the Ghost Hand glove, flex your fingers, and insert the tubes one by one. Your fingers feel a bit strange, as if you were moving them underwater, but other than that there is no noticeable effect.</npc_text>
+      <onLoadScripts>
+        <string>dlgRemoveItem(2191, 1);</string>
+        <string>dlgRemoveItem(1600, 3);</string>
+        <string>dlgAddItem(2192, 1);</string>
+        <string>setWindowImage(item_ghostHand_on);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

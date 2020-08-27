@@ -1,0 +1,494 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_mg1_sign_document &amp;&amp; aod.quest_mg3_tavern == false</string>
+      <string>aod.quest_mg3_tavern</string>
+    </conditions>
+    <links>
+      <int>5</int>
+      <int>13</int>
+    </links>
+    <dlg_name>Quest_MG3_03</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Linos</def_speaker_name>
+    <def_portrait>Linos</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Report."</npc_text>
+      <onLoadScripts>
+        <string>aod.global_teron_fort_daratan = true;</string>
+        <string>aod.global_teron_fort_ig = false;</string>
+        <string>dlgDeleteCharacter(1141);</string>
+        <string>aod.quest_mg3_started = false;</string>
+        <string>FortBanners_IG.hideObjects();</string>
+        <string>VCO_misc_01.setActive(0);</string>
+        <string>FortBanners_Daratan.showObjects();</string>
+        <string>aod.global_trn_crisisActive = 0;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I've convinced Mercato to take his men to Antidas."</text>
+          <def_link>1</def_link>
+          <checkOnAppear>aod.global_teron_ig_joins_daratan</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I've convinced Antidas to wipe out the remaining Guards. It's done."</text>
+          <def_link>2</def_link>
+          <checkOnAppear>aod.global_teron_daratan_destroys_ig</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Good call. That's what I would have done." Linos seems very pleased with your performance. "I have a small gift for you." He hands you a heavy scroll.
+
+"The first two chapters of The Art of Deceptive Arguments. You've heard about the Sophists, I assume? I think you'd find it very, very useful."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg3_finished = true;</string>
+        <string>TRN_daratanFort();</string>
+        <string>aod.quest_mg3_phase2a = true;</string>
+        <string>rwd_quest(MG3_01);</string>
+        <string>rwd_reputation(MG3_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"My gratitude, Linos."</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I would have handled it differently, but what's done is done. I hope you'll be proven right in the end. I have a small gift for you." He hands you a heavy scroll.
+
+"The first two chapters of The Art of Deceptive Arguments. You've heard about the Sophists, I assume? I think you'd find it very, very useful."</npc_text>
+      <onLoadScripts>
+        <string>TRN_daratanFort_IGwiped();</string>
+        <string>aod.quest_mg3_finished = true;</string>
+        <string>aod.quest_mg3_phase2b = true;</string>
+        <string>rwd_quest(MG3_01);</string>
+        <string>rwd_reputation(MG3_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"My gratitude, Linos."</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"The gold, where is it?"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(135, 117, 0, NW, 1570);</string>
+        <string>dlgTeleportTo(133, 117, 0, NE, 1571);</string>
+        <string>aod.global_teron_fort_daratan = true;</string>
+        <string>aod.global_teron_fort_ig = false;</string>
+        <string>aod.quest_mg3_started = false;</string>
+        <string>dlgDeleteCharacter(1141);</string>
+        <string>aod.quest_mg3_finished = true;</string>
+        <string>aod.quest_mg3_phase2c = true;</string>
+        <string>emptyTgTavern();</string>
+        <string>aod.global_trn_crisisActive = 0;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"What are you talking about?"</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Where is my *fucking* gold?" You've never seen Linos so furious.
+
+He throws you a scroll with the guild's stamps. It's a letter ordering to reroute the gold shipment and deliver it to a warehouse in the gate district. The signature is yours. You can only tell that it's a forgery because you know you didn't sign it. You look at Linos. He shows you a ring – your guild ring which should have been on your finger. Cado! Now you know why the guards are in the room.
+
+"Don't play with me, &lt;charname&gt;! Tell me where the gold is and I'll let you walk out of here alive."</npc_text>
+      <onLoadScripts>
+        <string>if (aod.global_teron_daratan_destroys_ig) TRN_daratanFort_IGwiped();</string>
+        <string>if (aod.global_teron_ig_joins_daratan) TRN_daratanFort();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"It's a forgery, Linos. Why would I do it? It doesn't make any sense."</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"It doesn't. Is that what you were counting on?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"It's Cado. He took your gold and set me up. Send your men to his tavern right now."</text>
+          <def_link>8</def_link>
+          <checkOnAppear>aod.int &lt; 7</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intelligence success][persuasion]"I was too busy doing your bidding to plan gold heists and count on you being a trusting man. I know you too well, Linos. Trust me on one thing, if I did it, I would be gone with the gold."</text>
+          <def_link>9</def_link>
+          <checkOnAppear>aod.int &gt;= 7</checkOnAppear>
+          <checksOnClick>
+            <string>aod.cha &gt;= 10</string>
+            <string>aod.persuasion &gt;= 6 &amp;&amp; dlgGetRep(commercium) &gt;= 10</string>
+            <string>aod.persuasion &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>21</int>
+            <int>11</int>
+            <int>10</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"We'll all go. Pray that the gold is still there."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go to the tavern.</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>The tavern is empty. There is a scroll carefully left on one of the tables. Linos picks it up, open it and looks at it for a long time. Then he puts it back and walks out without saying a word to you.
+
+You approach the table and pick up the scroll. It's the agreement Cado had made you sign. Probably the same agreement he copied your signature from. Behind you hear the sound of a sword leaving sheath.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(Quest_MG3_Cam_06);</string>
+        <string>dlgTeleportTo(136, 60, 0, W);</string>
+        <string>dlgTeleportTo(137, 61, 0, SW, 1570);</string>
+        <string>dlgTeleportTo(137, 59, 0, NW, 1571);</string>
+        <string>dlgSetCombatAnimation(1570);</string>
+        <string>dlgSetCombatAnimation(1571);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>tgd_tg_door6.close();</string>
+        <string>tgd_tg_door6.lock();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Remain where you are and die with dignity.</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - tavern</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>addEnemyToParty(1, MgGuards);</string>
+        <string>aod.global_teron_killedKeyCharacter = true;</string>
+        <string>aod.quest_mg3_fightMG = true;</string>
+        <string>aod.gameplay_questMG3gold_fight = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"But why you, &lt;charname&gt;? I have many agents, yet it's your name and your ring that were used last night. There is something you're not telling me and I'd really like to know what it is. Take &lt;him/her&gt; away."</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(MG3_03);</string>
+        <string>rwd_reputation(MG3_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I'm not going down without a fight."</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Accept your fate.</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - MG</npc_text>
+      <onLoadScripts>
+        <string>addEnemyToParty(1, MgGuards);</string>
+        <string>setRtsCam();</string>
+        <string>aod.global_teron_killedKeyCharacter = true;</string>
+        <string>aod.quest_mg3_fightMG = true;</string>
+        <string>dlgTeleportTo(125, 118, 0, N, 1080);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>tbd_mg_door_04.close();</string>
+        <string>tbd_mg_door_05.close();</string>
+        <string>tbd_mg_door_06.close();</string>
+        <string>tbd_mg_door_04.lock();</string>
+        <string>tbd_mg_door_05.lock();</string>
+        <string>tbd_mg_door_06.lock();</string>
+        <string>aod.gameplay_questMG3gold_fight = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"I can't prove that you did it, &lt;charname&gt;. At the same time I can't be absolutely sure that you didn't. You're expelled from the guild. Leave before I reconsider."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg3_phase3c = true;</string>
+        <string>rwd_reputation(MG3_03);</string>
+        <string>rwd_quest(MG3_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - expelled</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.global_MG_expelled = true;</string>
+        <string>removePcMember();</string>
+        <string>dlgTeleportTo(136, 103, 0, S);</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.ending_town_02 = true;</string>
+        <string>aod.ending_faction_MG = true;</string>
+        <string>setAchievement("ACH_TERON_MG");</string>
+        <string>dlgTeleportToMarker(TM_LinosGuard_01, 1570);</string>
+        <string>dlgTeleportToMarker(TM_LinosGuard_02, 1571);</string>
+        <string>revealMapLocation("Maadoran");</string>
+        <string>dlgAddTextBoxMessage("Maadoran added to the map");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[charisma success]"Let's say I believe you but only because you're too good of an asset to waste based on nothing but a suspicion.
+
+Our coffers are deep and Antidas will get his money. As for you, well, suffice to say, you're no longer my problem. Strabos has requested you by name. You're going to Maadoran."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg3_phase3d = true;</string>
+        <string>rwd_reputation(MG3_04);</string>
+        <string>addQuest(MG_ArriveMDN);</string>
+        <string>rwd_quest(MG3_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Strabos?"</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Let's say I believe you but only because you're too good of an asset to waste based on nothing but a suspicion.
+
+Our coffers are deep and Antidas will get his money. As for you, well, suffice to say, you're no longer my problem. Strabos has requested you by name. You're going to Maadoran."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg3_phase3d = true;</string>
+        <string>rwd_reputation(MG3_04);</string>
+        <string>addQuest(MG_ArriveMDN);</string>
+        <string>rwd_quest(MG3_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Strabos?"</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Don't thank me just yet. Strabos has requested you by name. You're going to Maadoran."</npc_text>
+      <onLoadScripts>
+        <string>addQuest(MG_ArriveMDN);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Strabos?"</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"He runs our operations in Maadoran. A word of advice, &lt;charname&gt;. Try to stay on his good side."</npc_text>
+      <onLoadScripts>
+        <string>aod.global_teronMG_complete = true;</string>
+        <string>aod.quest_mg3_sentToStrabos = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave for Maadoran.</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"He runs our operations in Maadoran. A word of advice, &lt;charname&gt;. Strabos wants power and no price is too high, especially if someone else ends up paying it.
+
+Don't get me wrong, we've always manipulated the playing field to create favourable conditions for our guild and eliminate the competition, but Strabos wants to wrestle power from Lord Gaelius himself. It's a very dangerous game.
+
+Go to Maadoran, talk to Strabos, and then decide."</npc_text>
+      <onLoadScripts>
+        <string>aod.global_teronMG_complete = true;</string>
+        <string>aod.quest_mg3_sentToStrabos = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave for Maadoran.</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - MG4</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>aod.ending_town_02 = true;</string>
+        <string>aod.ending_faction_MG = true;</string>
+        <string>setAchievement("ACH_TERON_MG");</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_LinosGuard_01, 1570);</string>
+        <string>dlgTeleportToMarker(TM_LinosGuard_02, 1571);</string>
+        <string>revealMapLocation("Maadoran");</string>
+        <string>dlgAddTextBoxMessage("Maadoran added to the map");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>19</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

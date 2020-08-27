@@ -1,0 +1,408 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.gnz_tunnels_leakFixed</string>
+    </conditions>
+    <links>
+      <int>7260</int>
+    </links>
+    <dlg_name>Quest_TG7_Pit</dlg_name>
+    <def_link>7255</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The walkway has collapsed a long time ago. You aren't sure you can jump across and you're dead certain you don't want to fall down. Judging by the way your skin prickles, the magic is leaking into the air. The sooner you leave this place, the better.</npc_text>
+      <onLoadScripts>
+        <string>if(aod.gnz_castle_tunnels_pit == 1) {dlgTeleportToMarker(TM_Jump_1_Start); dlgCam(135, 40, 10, 1);}</string>
+        <string>if(aod.gnz_castle_tunnels_pit == 2) {dlgTeleportToMarker(TM_Jump_2_Start); dlgCam(45, 40, 10, 1);}</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[dexterity]Just jump over it.</text>
+          <def_link>7257</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 10</string>
+            <string>aod.gnz_tunnels_leakFixed &amp;&amp; aod.dex &lt; 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7258</int>
+            <int>7263</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[throwing]Use a rope with the grappling hook.</text>
+          <def_link>7264</def_link>
+          <checkOnAppear>aod.gnz_castle_tunnels_ropeAttached == false &amp;&amp; dlgOwnsItem(2125)</checkOnAppear>
+          <checksOnClick>
+            <string>aod.throwing &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7262</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>&lt;color:ff0000&gt;A rope with the grappling hook might come in handy here.</text>
+          <def_link>7255</def_link>
+          <checkOnAppear>aod.gnz_castle_tunnels_ropeAttached == false &amp;&amp; dlgOwnsItem(2125) == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity][strength]Swing yourself to the other side.</text>
+          <def_link>7266</def_link>
+          <checkOnAppear>aod.gnz_castle_tunnels_ropeAttached</checkOnAppear>
+          <checksOnClick>
+            <string>climbingCheck(14, 1)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7265</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Back away.</text>
+          <def_link>7256</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7255</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The walkway has collapsed a long time ago. You aren't sure you can jump across and you're dead certain you don't want to fall down. Your skin is no longer prickling after you've fixed the leak.</npc_text>
+      <onLoadScripts>
+        <string>if(aod.gnz_castle_tunnels_pit == 1) {dlgTeleportToMarker(TM_Jump_1_Start); dlgCam(135, 40, 10, 1);}</string>
+        <string>if(aod.gnz_castle_tunnels_pit == 2) {dlgTeleportToMarker(TM_Jump_2_Start); dlgCam(45, 40, 10, 1);}</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[dexterity]Just jump over it.</text>
+          <def_link>7257</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 10</string>
+            <string>aod.gnz_tunnels_leakFixed &amp;&amp; aod.dex &lt; 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7258</int>
+            <int>7263</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[throwing]Use a rope with the grappling hook.</text>
+          <def_link>7264</def_link>
+          <checkOnAppear>aod.gnz_castle_tunnels_ropeAttached == false &amp;&amp; dlgOwnsItem(2125)</checkOnAppear>
+          <checksOnClick>
+            <string>aod.throwing &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7262</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>&lt;color:ff0000&gt;A rope with the grappling hook might come in handy here.</text>
+          <def_link>7255</def_link>
+          <checkOnAppear>aod.gnz_castle_tunnels_ropeAttached == false &amp;&amp; dlgOwnsItem(2125) == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity][strength]Swing yourself to the other side.</text>
+          <def_link>7266</def_link>
+          <checkOnAppear>aod.gnz_castle_tunnels_ropeAttached</checkOnAppear>
+          <checksOnClick>
+            <string>climbingCheck(14, 1)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7265</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Back away.</text>
+          <def_link>7256</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7260</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You've been neglecting your throwing skills, haven't you?</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[dexterity]Just jump over it.</text>
+          <def_link>7257</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 10</string>
+            <string>aod.gnz_tunnels_leakFixed &amp;&amp; aod.dex &lt; 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7258</int>
+            <int>7263</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[throwing]Keep trying, you have all the time in the world after fixing the leak.</text>
+          <def_link>7261</def_link>
+          <checkOnAppear>aod.gnz_tunnels_leakFixed</checkOnAppear>
+          <checksOnClick>
+            <string>getRandom(0, 2) &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7262</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Back away.</text>
+          <def_link>7256</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7264</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You throws the rope, but the grappling hook fails to catch and hold.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[dexterity]Just jump over it.</text>
+          <def_link>7257</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 10</string>
+            <string>aod.gnz_tunnels_leakFixed &amp;&amp; aod.dex &lt; 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7258</int>
+            <int>7263</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[throwing]Keep trying, you have all the time in the world after fixing the leak.</text>
+          <def_link>7261</def_link>
+          <checkOnAppear>aod.gnz_tunnels_leakFixed</checkOnAppear>
+          <checksOnClick>
+            <string>getRandom(0, 2) &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7262</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Back away.</text>
+          <def_link>7256</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7261</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You let go in the last moment, probably saving your life.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[dexterity]Just jump over it.</text>
+          <def_link>7257</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 10</string>
+            <string>aod.gnz_tunnels_leakFixed &amp;&amp; aod.dex &lt; 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7258</int>
+            <int>7263</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Back away.</text>
+          <def_link>7256</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7266</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>7256</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You soar into the air like an eagle but gravity puts a stick in your wheel, forcing you to crash-land hard.
+
+You wake up from the pain in your leg - looks like your ankle is twisted, if not broken. Either way you can't walk. You try to get up but you feel weak and nauseous. The leaking magic is swirling around you, draining you of your energy. You close your eyes and wait for the inevitable.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Jump_Fall);</string>
+        <string>dlgSetAnimation(anim_death_back00, 0.95);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Rest in peace.</text>
+          <def_link>7259</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7257</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You soar into the air like an eagle but gravity puts a stick in your wheel, forcing you to crash-land hard.
+
+You wake up from the pain in your leg - looks like your ankle is twisted, if not broken. Either way you can't walk. You try to get up but you feel too weak for it. You close your eyes and wait for the inevitable.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Jump_Fall);</string>
+        <string>dlgSetAnimation(anim_death_back00, 0.95);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Rest in peace.</text>
+          <def_link>7259</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7263</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>7259</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Crouching like a tiger or perhaps a dragon, you take a gravity-defying jump and successfully land on the other side.</npc_text>
+      <onLoadScripts>
+        <string>if(aod.gnz_castle_tunnels_pit == 1) dlgTeleportToMarker(TM_Jump_1_End);</string>
+        <string>if(aod.gnz_castle_tunnels_pit == 2) dlgTeleportToMarker(TM_Jump_2_End);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>7256</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7258</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Your throw is successful: the hook finds purchase. You test the rope a few times, but it seems to be holding.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.gnz_castle_tunnels_ropeAttached = true;</string>
+        <string>dlgRemoveItem(2125, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[dexterity][strength]Swing yourself to the other side.</text>
+          <def_link>7266</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>climbingCheck(14, 1)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7265</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7262</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You manage to land on the other side without killing yourself in the process.</npc_text>
+      <onLoadScripts>
+        <string>if(aod.gnz_castle_tunnels_pit == 1) dlgTeleportToMarker(TM_Jump_1_End);</string>
+        <string>if(aod.gnz_castle_tunnels_pit == 2) dlgTeleportToMarker(TM_Jump_2_End);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>7256</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7265</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

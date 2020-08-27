@@ -1,0 +1,1237 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_gaelius_templeStart == 1 &amp;&amp; aod.npc_gaelius_trial</string>
+      <string>aod.npc_gaelius_templeStart == 1 &amp;&amp; aod.npc_antidas_dead</string>
+      <string>aod.npc_gaelius_templeStart == 1</string>
+    </conditions>
+    <links>
+      <int>2961</int>
+      <int>2959</int>
+      <int>2958</int>
+    </links>
+    <dlg_name>NPC_Gaelius_Temple</dlg_name>
+    <def_link>2819</def_link>
+    <def_speaker_name>Gaelius</def_speaker_name>
+    <def_portrait>Gaelius</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>You enter the main hall. At the far end of it, Lord Gaelius holds court, receiving daily visitors in the order of their importance. A row of guards form a barrier between the Lord of the House and the petitioners, with blank stares on their faces. Another row forms a semi-circle around Gaelius, their eyes constantly scanning the crowd.</npc_text>
+      <onLoadScripts>
+        <string>dlgUnequipHands();</string>
+        <string>aod.mdn_allowed_palace = true;</string>
+        <string>useCameraBookmark(CAM_NPC_Gaelius_01);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Gaelius_03);</string>
+        <string>aod.npc_gaelius_met = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Approach.</text>
+          <def_link>2848</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_gaelius_trial</string>
+            <string>aod.npc_antidas_dead</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2962</int>
+            <int>2943</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2819</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“So, Antidas still wants to find the temple? He doesn’t learn, does he?” asks Gaelius. He speaks like a true statesman, addressing the audience rather than speaking directly to you. “Last time, he sent a small army. This time he sent ... you. Are you that good? Or is Antidas that desperate?”</npc_text>
+      <onLoadScripts>
+        <string>dlgUnequipHands();</string>
+        <string>aod.npc_gaelius_talkAntidasTemple = false;</string>
+        <string>aod.npc_gaelius_talkedTemple = true;</string>
+        <string>aod.npc_gaelius_templeStart = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Why do you care?”</text>
+          <def_link>2820</def_link>
+          <checkOnAppear>aod.pc_member_daratan == false || aod.global_maadoran_completed</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[praetor]"What business is it of yours, my lord? House Daratan isn't your vassal House and doesn't require your approval."</text>
+          <def_link>2844</def_link>
+          <checkOnAppear>aod.pc_member_daratan &amp;&amp; aod.global_maadoran_completed == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2958</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“So, Antidas tried to find the temple until the very end?” asks Gaelius. He speaks like a true statesman, addressing an invisible audience rather than speaking directly to you. “Last time, he sent a small army. This time he sent... you. Are you that good? Or was Antidas that desperate?”</npc_text>
+      <onLoadScripts>
+        <string>dlgUnequipHands();</string>
+        <string>aod.npc_gaelius_talkAntidasTemple = false;</string>
+        <string>aod.npc_gaelius_talkedTemple = true;</string>
+        <string>aod.npc_gaelius_templeStart = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Why do you care?”</text>
+          <def_link>2944</def_link>
+          <checkOnAppear>aod.pc_member_daratan == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2959</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“So, Antidas tried to find the temple until the very end?” asks Gaelius. He speaks like a true statesman, addressing an invisible audience rather than speaking directly to you. “Last time, he sent a small army. This time he sent... you, the &lt;man/woman&gt; accused of his murder. Was he really that desperate?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_gaelius_talkAntidasTemple = false;</string>
+        <string>aod.npc_gaelius_talkedTemple = true;</string>
+        <string>aod.npc_gaelius_templeStart = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Why do you care?”</text>
+          <def_link>2944</def_link>
+          <checkOnAppear>aod.pc_member_daratan == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2962</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“So, Antidas still wants to find the temple? He doesn’t learn, does he?” asks Gaelius. He speaks like a true statesman, addressing the audience rather than speaking directly to you. “Last time, he sent a small army. This time he sent... you. Are you that good? Or is Antidas that desperate?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_gaelius_talkAntidasTemple = false;</string>
+        <string>aod.npc_gaelius_talkedTemple = true;</string>
+        <string>dlgTeleportToMarker(TM_DLG_Gaelius_01);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Why do you care?”</text>
+          <def_link>2820</def_link>
+          <checkOnAppear>aod.pc_member_daratan == false || aod.global_maadoran_completed</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[praetor]"What business is it of yours, my lord? House Daratan isn't your vassal House and doesn't require your approval."</text>
+          <def_link>2844</def_link>
+          <checkOnAppear>aod.pc_member_daratan &amp;&amp; aod.global_maadoran_completed == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2848</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“So, Antidas tried to find the temple until the very end?” asks Gaelius. He speaks like a true statesman, addressing an invisible audience rather than speaking directly to you. “Last time, he sent a small army. This time he sent... you. Are you that good? Or was Antidas that desperate?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_gaelius_talkAntidasTemple = false;</string>
+        <string>aod.npc_gaelius_talkedTemple = true;</string>
+        <string>dlgTeleportToMarker(TM_DLG_Gaelius_01);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Why do you care?”</text>
+          <def_link>2944</def_link>
+          <checkOnAppear>aod.pc_member_daratan == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2943</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“So, Antidas tried to find the temple until the very end?” asks Gaelius. He speaks like a true statesman, addressing an invisible audience rather than speaking directly to you. “Last time, he sent a small army. This time he sent... you, the &lt;man/woman&gt; accused of his murder. Was he really that desperate?”</npc_text>
+      <onLoadScripts>
+        <string>dlgUnequipHands();</string>
+        <string>aod.npc_gaelius_talkAntidasTemple = false;</string>
+        <string>aod.npc_gaelius_talkedTemple = true;</string>
+        <string>dlgTeleportToMarker(TM_DLG_Gaelius_01);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Why do you care?”</text>
+          <def_link>2944</def_link>
+          <checkOnAppear>aod.pc_member_daratan == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2961</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Because those who don't understand what they are doing are the ones who should be watched the most. Do you have any idea what it is that you’re trying to find for Antidas?
+
+“They say it was a place of great power. Would you deliver that power - abandoned for a good reason, mind you - to Antidas, who will put it to use without hesitation? Would you destroy what's left of our lands?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Would you rather I deliver it to you?”</text>
+          <def_link>2836</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2820</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Because those who don't understand what they are doing are the ones who should be watched the most. Do you have any idea what it is that you’re still trying to find, even though your master is dead?
+
+“They say it was a place of great power. Would you deliver that power - abandoned for a good reason, mind you - to those who will put it to use without hesitation? Would you destroy what's left of our lands?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Would you rather I deliver it to you?”</text>
+          <def_link>2836</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2944</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’d rather it remains lost, but since there is no shortage of fools willing to look for it, I want to find it and seal it for good. And I want you to help me.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Antidas isn't a fool.”</text>
+          <def_link>2821</def_link>
+          <checkOnAppear>aod.npc_antidas_dead == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“That’s not what Antidas wanted.”</text>
+          <def_link>2945</def_link>
+          <checkOnAppear>aod.npc_antidas_dead</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“So, you aren’t tempted by the power at all?”</text>
+          <def_link>2822</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I'm yours to command, my lord.”</text>
+          <def_link>2835</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>isQuestComplete(AG4)</string>
+            <string>aod.pc_member_guards</string>
+            <string>aod.pc_liegemanAurelian</string>
+            <string>aod.pc_member_thieves</string>
+            <string>aod.pc_member_commercium</string>
+            <string>aod.pc_member_assassins</string>
+            <string>aod.pc_liegemanDaratan</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2953</int>
+            <int>2884</int>
+            <int>2930</int>
+            <int>2885</int>
+            <int>2886</int>
+            <int>2887</int>
+            <int>2882</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“And if I say no?”</text>
+          <def_link>2897</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.pc_liegemanAurelian</string>
+            <string>aod.npc_antidas_dead</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2910</int>
+            <int>2960</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2836</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“No? Has he found a way to control magic? He must be a very powerful magus then, to prevail where thousands of the Imperial magi had failed.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_gaelius_talkedAntidasFool = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“So, you aren’t tempted by the power at all?”</text>
+          <def_link>2822</def_link>
+          <checkOnAppear>aod.npc_gaelius_talkedTemptedPower == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What do you know about the temple?”</text>
+          <def_link>2840</def_link>
+          <checkOnAppear>aod.npc_gaelius_talkedKnowTemple == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What do you want me to do?"</text>
+          <def_link>2942</def_link>
+          <checkOnAppear>aod.npc_gaelius_talkedTemptedPower &amp;&amp; aod.npc_gaelius_talkedKnowTemple</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2821</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“No? Had he found a way to control magic? He must have been a very powerful magus then, to prevail where the thousand of Imperial magi had failed over and over again.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_gaelius_talkedAntidasFool = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“So, you aren’t tempted by the power at all?”</text>
+          <def_link>2822</def_link>
+          <checkOnAppear>aod.npc_gaelius_talkedTemptedPower == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What do you know about the temple?”</text>
+          <def_link>2840</def_link>
+          <checkOnAppear>aod.npc_gaelius_talkedKnowTemple == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What do you want me to do?"</text>
+          <def_link>2942</def_link>
+          <checkOnAppear>aod.npc_gaelius_talkedTemptedPower &amp;&amp; aod.npc_gaelius_talkedKnowTemple</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2945</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Tempted by the power that destroyed an empire? I think not. I’m well familiar with the old world’s magic and trust me when I tell you that it can’t be controlled. When you unleash a hurricane or a wildfire, don’t complain when it burns your house down.
+
+“Desperate men might be willing to risk it all, but I am far from desperate. Today I rule the largest city. In ten years I will rule all, with or without your help, but I can assure you that helping me will be a lot more rewarding than meddling in my affairs.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_gaelius_talkedTemptedPower = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“You want me to believe that all those magi were fools who played with fire?”</text>
+          <def_link>2823</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2822</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Does the world around you not speak for itself? The magi tampered with the very fabric of reality. What unfathomable arrogance and blindness!
+
+“Hundreds of years have passed, but this city still bears the scars. I suggest you visit the Abyss, if you haven’t already done so. It’s a reminder of the horrors of the past and a warning to heed its lessons.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What do you think about the stories of demons and gods?”</text>
+          <def_link>2824</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2823</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“They’ve been awfully quiet since the war, haven’t they? One can almost think that they were invented by fools like Antidas, who couldn’t face the fact that the Empire was brought to its knees by some savages from beyond the sea. Supernatural beasts had to be involved somehow.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So, how did the savages bring the Empire to its knees?”</text>
+          <def_link>2839</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2824</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You know what I think? The Empire had ruled for too long unopposed and gone soft. The Qantari caught them by surprise, and by the time we’ve remembered how to fight, the war was all but lost. Caution was thrown to the wind and the magi were given a free reign. They won the war, but we’re still paying the price.”</npc_text>
+      <onLoadScripts>
+        <string>addLore(5);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What do you know about the temple?”</text>
+          <def_link>2840</def_link>
+          <checkOnAppear>aod.npc_gaelius_talkedKnowTemple == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Antidas isn't a fool.”</text>
+          <def_link>2821</def_link>
+          <checkOnAppear>aod.npc_gaelius_talkedAntidasFool == false &amp;&amp; aod.npc_antidas_dead == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“That’s not what Antidas wanted.”</text>
+          <def_link>2945</def_link>
+          <checkOnAppear>aod.npc_gaelius_talkedAntidasFool == false &amp;&amp; aod.npc_antidas_dead</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What do you want me to do?"</text>
+          <def_link>2942</def_link>
+          <checkOnAppear>aod.npc_gaelius_talkedKnowTemple &amp;&amp; aod.npc_gaelius_talkedAntidasFool</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2839</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Not that much, actually. I believe that I heard about it for the first time when Antidas mounted his expedition. I’ve consulted my loremasters since then, but all I’ve learned is that it was the temple of Thoragoth the Artificer. It is said that many magi travelled there to improve their craft and build arcane devices of great power, which certainly explains Antidas’ interest.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_gaelius_talkedKnowTemple = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Antidas isn't a fool.”</text>
+          <def_link>2821</def_link>
+          <checkOnAppear>aod.npc_gaelius_talkedAntidasFool == false &amp;&amp; aod.npc_antidas_dead == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“That’s not what Antidas wanted.”</text>
+          <def_link>2945</def_link>
+          <checkOnAppear>aod.npc_gaelius_talkedAntidasFool == false &amp;&amp; aod.npc_antidas_dead</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“So, you aren’t tempted by the power at all?”</text>
+          <def_link>2822</def_link>
+          <checkOnAppear>aod.npc_gaelius_talkedTemptedPower == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What do you want me to do?"</text>
+          <def_link>2942</def_link>
+          <checkOnAppear>aod.npc_gaelius_talkedAntidasFool &amp;&amp; aod.npc_gaelius_talkedTemptedPower</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2840</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I want you to find the temple and deliver it to me."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I'm yours to command, my lord.”</text>
+          <def_link>2835</def_link>
+          <checkOnAppear>aod.pc_liegemanAurelian == false</checkOnAppear>
+          <checksOnClick>
+            <string>isQuestComplete(AG4)</string>
+            <string>aod.pc_member_guards</string>
+            <string>aod.pc_member_thieves</string>
+            <string>aod.pc_member_commercium</string>
+            <string>aod.pc_member_assassins</string>
+            <string>aod.pc_liegemanDaratan</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2953</int>
+            <int>2884</int>
+            <int>2885</int>
+            <int>2886</int>
+            <int>2887</int>
+            <int>2882</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“And if I say no?”</text>
+          <def_link>2897</def_link>
+          <checkOnAppear>aod.pc_liegemanAurelian == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.npc_antidas_dead</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2960</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I will, my Lord." Leave.</text>
+          <def_link>2842</def_link>
+          <checkOnAppear>aod.pc_liegemanAurelian</checkOnAppear>
+          <checksOnClick>
+            <string>aod.npc_gaelius_fromDom</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2932</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2942</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Then I'll tell you that I will never allow this power to fall into Antidas’ hands, no matter the cost. Should you do the right thing and help me seal the temple, I will not overlook it and reward you generously. Thus, your choice is between being hunted and killed and being rewarded and elevated. Not a hard choice at all.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I'll find the temple and deliver it to you, my lord.”</text>
+          <def_link>2835</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>isQuestComplete(AG4)</string>
+            <string>aod.pc_member_guards</string>
+            <string>aod.pc_member_thieves</string>
+            <string>aod.pc_member_commercium</string>
+            <string>aod.pc_member_assassins</string>
+            <string>aod.pc_liegemanDaratan</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2953</int>
+            <int>2884</int>
+            <int>2885</int>
+            <int>2886</int>
+            <int>2887</int>
+            <int>2882</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I'll consider it.” Leave.</text>
+          <def_link>2842</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_gaelius_fromDom</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2932</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2897</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Then I'll tell you that I will never allow this power to fall into someone's hands, no matter the cost. Should you do the right thing and help me seal the temple, I will not overlook it and reward you generously. Thus, your choice is between being hunted and killed and being rewarded and elevated. Not a hard choice at all.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I'll find the temple and deliver it to you, my lord.”</text>
+          <def_link>2835</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>isQuestComplete(AG4)</string>
+            <string>aod.pc_member_guards</string>
+            <string>aod.pc_member_thieves</string>
+            <string>aod.pc_member_commercium</string>
+            <string>aod.pc_member_assassins</string>
+            <string>aod.pc_liegemanDaratan</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2953</int>
+            <int>2884</int>
+            <int>2885</int>
+            <int>2886</int>
+            <int>2887</int>
+            <int>2882</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I'll consider it.” Leave.</text>
+          <def_link>2842</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_gaelius_fromDom</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2932</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2960</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Then find the temple before anyone does and deliver it to me. It is your duty as my Liegeman!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Consider it done, my Lord!” Leave.</text>
+          <def_link>2842</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_gaelius_fromDom</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2932</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2930</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Then I'll remind you that I'm your liege and that it is your duty to serve and obey me. Do it and you'll be rewarded and elevated. Refuse me and you'll be crucified for your insolence. Not a hard choice at all.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I'll find the temple and deliver it to you, my lord.” Leave.</text>
+          <def_link>2842</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2910</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Then swear your allegiance to me and be welcomed into the ranks of those who have chosen to serve my House.
+
+“Any past oaths will be dissolved, any past transgressions against my House will be forgiven in consideration of services already rendered and faithful service expected from you from this day forward.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I swear my fealty to you, my Lord."</text>
+          <def_link>2904</def_link>
+          <checkOnAppear>aod.etiquette &lt; 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[etiquette success]"I swear to serve you, your cause, and House Aurelian faithfully, never cause you harm and will observe my homage to you completely against all persons in good faith and without deceit."</text>
+          <def_link>2905</def_link>
+          <checkOnAppear>aod.etiquette &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I can't do that.”</text>
+          <def_link>2907</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2835</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Be warned, &lt;charname&gt;. If you are not with me, you are against me."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I swear my fealty to you, my Lord."</text>
+          <def_link>2904</def_link>
+          <checkOnAppear>aod.etiquette &lt; 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[etiquette success]"I swear to serve you, your cause, and House Aurelian faithfully, never cause you harm and will observe my homage to you completely against all persons in good faith and without deceit."</text>
+          <def_link>2905</def_link>
+          <checkOnAppear>aod.etiquette &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I'll keep it in mind.” Leave.</text>
+          <def_link>2842</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_gaelius_fromDom</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2932</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2907</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Why would one of Antidas' agents be so eager to serve me?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[etiquette success]“Had I been aware of your interest in this matter, my Lord, I would have never accepted Antidas' request.”</text>
+          <def_link>2888</def_link>
+          <checkOnAppear>aod.etiquette &gt;= 3</checkOnAppear>
+          <checksOnClick>
+            <string>dlgGetRep(aurelian) &gt;= 1</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2833</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I was swayed by your words, my Lord, and came to realize that the situation isn't what I thought it was. Given a choice, I'd rather serve you now."</text>
+          <def_link>2888</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(aurelian) &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2895</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"My loyalty to Lord Antidas doesn't blind me to the dangers you spoke of."</text>
+          <def_link>2928</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2882</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[aurelian reputation failure]"I've heard about you, &lt;charname&gt;. Nothing good, unfortunately."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"If I can find a way to earn your trust, I will." Leave.</text>
+          <def_link>2842</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_gaelius_fromDom</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2932</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2888</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Why would an Imperial Guard be so eager to serve me?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I've uncovered a plot against you, my lord."</text>
+          <def_link>2955</def_link>
+          <checkOnAppear>aod.npc_pavola_reportStrabos || aod.quest_ig4_betrayedIG &amp;&amp; aod.npc_gaelius_talkedIG4Betrayal == false || aod.quest_mg5_active &amp;&amp; aod.quest_MG5_reportStrabos == false || aod.quest_tg6_active</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"If I can find a way to earn your trust, I will." Leave.</text>
+          <def_link>2842</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_gaelius_fromDom</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2932</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2884</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You're a thief, aren't you? Why would one of Levir's &lt;men/women&gt; be so eager to serve me?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I've uncovered a plot against you, my lord."</text>
+          <def_link>2955</def_link>
+          <checkOnAppear>aod.npc_pavola_reportStrabos || aod.quest_ig4_betrayedIG &amp;&amp; aod.npc_gaelius_talkedIG4Betrayal == false || aod.quest_mg5_active &amp;&amp; aod.quest_MG5_reportStrabos == false || aod.quest_tg6_active</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"If I can find a way to earn your trust, I will." Leave.</text>
+          <def_link>2842</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_gaelius_fromDom</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2932</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2885</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Why would one of Strabos' agents be so eager to serve me?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I've uncovered a plot against you, my lord."</text>
+          <def_link>2955</def_link>
+          <checkOnAppear>aod.npc_pavola_reportStrabos || aod.quest_ig4_betrayedIG &amp;&amp; aod.npc_gaelius_talkedIG4Betrayal == false || aod.quest_mg5_active &amp;&amp; aod.quest_MG5_reportStrabos == false || aod.quest_tg6_active</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"If I can find a way to earn your trust, I will." Leave.</text>
+          <def_link>2842</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_gaelius_fromDom</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2932</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2886</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start betrayal</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_gaelius_betrayal = 1;</string>
+        <string>dlgFinish();</string>
+        <string>sd(NPC_Gaelius_01);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2955</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You are a Boatman, aren't you? If you truly wish to serve me, I can talk to Darista and have your oath to the guild dissolved."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I will be honored to serve you, my Lord."</text>
+          <def_link>2957</def_link>
+          <checkOnAppear>aod.etiquette &lt; 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>aod.npc_gaelius_join_AG = 1;</string>
+            <string>if(isQuestAdded(AG_WorkMDN)) remQuest(AG_WorkMDN);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[etiquette success]"I swear to serve you, your cause, and House Aurelian faithfully, never cause you harm and will observe my homage to you completely against all persons in good faith and without deceit."</text>
+          <def_link>2957</def_link>
+          <checkOnAppear>aod.etiquette &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>aod.npc_gaelius_join_AG = 1;</string>
+            <string>if(isQuestAdded(AG_WorkMDN)) remQuest(AG_WorkMDN);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I'd rather stay with the guild, my Lord. Should I find the temple, I'll deliver it to you.”</text>
+          <def_link>2928</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2887</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Then I won't ask for more, but I *will* keep an eye on you, &lt;charname&gt;."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2842</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_gaelius_fromDom</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2932</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2928</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start join AG</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>sd(NPC_Gaelius_01);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2957</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Darista is short-staffed as it is. I don't want to weaken the guild, so stay with her, at least for now."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I will, my Lord. Should I find the temple, I'll deliver it to you.”</text>
+          <def_link>2954</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2953</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I *will* keep an eye on you, &lt;charname&gt;."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2842</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_gaelius_fromDom</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2932</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2954</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Good. I expect you to defend the interest of my House in any of your dealings. Should you find the temple, notify me immediately. You can leave now."</npc_text>
+      <onLoadScripts>
+        <string>dlgAddRank(47);</string>
+        <string>setAchievement("ACH_LIEGEMAN_HA");</string>
+        <string>rwd_reputation(Gaelius_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I will do as you command, my lord."</text>
+          <def_link>2932</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_gaelius_join_AG == 1</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2957</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2904</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Well said. I expect you to defend the interest of my House in any of your dealings. Should you find the temple, notify me immediately. You can leave now."</npc_text>
+      <onLoadScripts>
+        <string>dlgAddRank(47);</string>
+        <string>setAchievement("ACH_LIEGEMAN_HA");</string>
+        <string>rwd_reputation(Gaelius_01);</string>
+        <string>rwd_civil(Gaelius_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I will do as you command, my lord."</text>
+          <def_link>2932</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2905</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportToMarker(TM_DLG_Gaelius_02);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2842</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>Gaelius tells the guards to take you back and they dutifully escort you to Domitius' house.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Quest_Domitius_01);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2948</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2932</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go back to Domitius</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>aod.npc_gaelius_fromDom = false;</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2948</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Is that so?” asks Gaelius. “And now that you are aware of my interest, what are you going to do about it?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I'll do whatever it takes to prove myself to you, my lord.”</text>
+          <def_link>2841</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2833</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“An admirable attitude,” Gaelius says coldly. “I'll test it, of course.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I will do as you command, my lord."</text>
+          <def_link>2835</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2841</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[aurelian reputation success]"You've never been an enemy of my House, this much is true. Still, I'll test your eagerness to serve me first.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I will do as you command, my lord."</text>
+          <def_link>2835</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2895</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Careful, Praetor," says Gaelius, managing to contain his anger. "You're in my city now, and you'll have to play by my rules, whether you like it or not.
+
+"You will stay here, as my personal guest, until I decide what to do with you."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"You'd dare to take me as your prisoner?"</text>
+          <def_link>2850</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2844</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"As my guest, Praetor. Prisoners usually go to the dungeon, whereas you will be given all the courtesies befitting a &lt;man/woman&gt; of your status. I'm sure you will be able to recognize the difference."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Follow the guards to your new quarters.</text>
+          <def_link>2851</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2850</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start HD3</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>sd(quest_hd3_01);</string>
+        <string>dlgFadeLongToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2851</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

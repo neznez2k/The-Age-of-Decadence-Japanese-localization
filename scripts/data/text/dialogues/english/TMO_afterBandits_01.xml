@@ -1,0 +1,292 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_teronMine_afterBandits</string>
+      <string>aod.quest_banditCamp_fightEsbenus</string>
+    </conditions>
+    <links>
+      <int>95</int>
+      <int>87</int>
+    </links>
+    <dlg_name>TMO_afterBandits_01</dlg_name>
+    <def_link>95</def_link>
+    <def_speaker_name>Raider Leader</def_speaker_name>
+    <def_portrait>Esbenus</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Sitting in the shadow of the mountain, the Aurelian outpost is protected from prying eyes by a tall, wooden palisade that circles it. Judging by a dead guard slumped over the watchtower's balcony, prying eyes weren't the outpost garrison's biggest problem. When you get closer, you see half a dozen dead bodies strewn around the entrance. Esbenus, the raiders' leader, is sitting on the ground in front of a small barricade. He's covered in blood, but it's hard to say how much of it is his own.
+
+"Some diggers are still alive," he says tiredly. "Holed up inside the tunnel."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_teronMine_afterBandits = false;</string>
+        <string>dlgTeleportToMarker(TM_Esbenus_PC_01);</string>
+        <string>dlgcam(45,40,8,1557);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>56</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>95</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"We'll handle it. You deal with him." Dellar throws you a heavy leather bag and goes inside. Judging by the weight, it's the thousand imperials he has agreed to pay the raiders.</npc_text>
+      <onLoadScripts>
+        <string>aod.tmo_AurelianMineInsideDead = true;</string>
+        <string>aod.tmo_AurelianMineOutsideDead = true;</string>
+        <string>dlgChangeMoney(1000);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_MineInterior_NPC_01, 1070);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>A deal's a deal. Pay Esbenus.</text>
+          <def_link>57</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_esbenus_toldHellgate &amp;&amp; aod.disable</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>107</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Tell Esbenus to fuck off and keep the money.</text>
+          <def_link>88</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(bodycount) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>58</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Attack him.</text>
+          <def_link>59</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>56</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Esbenus</portrait>
+      <speaker_name>Esbenus</speaker_name>
+      <npc_text>"You're a &lt;man/woman&gt; of your word," says Esbenus. "I'll remember it, should our paths cross again. Catch," he throws you a small object. It's a small glass tube encased in elaborate metal framework. The tube is very warm to touch and contains what looks like constantly shifting liquid fire.
+
+"One of them," he nods toward the dead bodies, "had it on him. Since you've done right by me..." Slowly, he gets up and walks away without finishing the sentence.</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(1600, 1);</string>
+        <string>dlgSetAmbientAnimation(1557);</string>
+        <string>rwd_reputation(Mine_03);</string>
+        <string>aod.ending_banditOupost = true;</string>
+        <string>aod.ending_bandit_01 = true;</string>
+        <string>aod.npc_esbenus_keptWordMine = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go inside the mine.</text>
+          <def_link>60</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>57</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Esbenus</portrait>
+      <speaker_name>Esbenus</speaker_name>
+      <npc_text>"You're a &lt;man/woman&gt; of your word," says Esbenus. "I'll remember it, should our paths cross again. Catch," he throws you a small object. It's a small glass tube encased in elaborate metal framework. The tube is very warm to touch and contains what looks like constantly shifting liquid fire.
+
+"One of them," he nods toward the dead bodies, "had it on him. Since you've done right by me... Now, one more thing, &lt;charname&gt;. You look like the curious type. If fate ever brings you to Hellgate and you find out what happened to my men, let me know."</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(1600, 1);</string>
+        <string>dlgSetAmbientAnimation(1557);</string>
+        <string>rwd_reputation(Mine_03);</string>
+        <string>aod.ending_banditOupost = true;</string>
+        <string>aod.ending_bandit_01 = true;</string>
+        <string>aod.quest_Hellgate = 1;</string>
+        <string>addQuest(Hellgate);</string>
+        <string>aod.npc_esbenus_keptWordMine = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"How do I find you?"</text>
+          <def_link>108</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>107</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Esbenus</portrait>
+      <speaker_name>Esbenus</speaker_name>
+      <npc_text>"If you're clever enough to find Hellgate, finding me won't be a problem at all." Slowly, Esbenus gets up and walks away, limping.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go inside the mine.</text>
+          <def_link>60</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>108</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Esbenus</portrait>
+      <speaker_name>Esbenus</speaker_name>
+      <npc_text>"So, that's how it is now?" says Esbenus. "Well, I'll be seeing you, &lt;charname&gt;." Slowly, he gets up and walks away, limping.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAmbientAnimation(1557);</string>
+        <string>rwd_reputation(Mine_04);</string>
+        <string>aod.npc_esbenus_enemy = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go inside the mine.</text>
+          <def_link>60</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>58</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Esbenus</portrait>
+      <speaker_name>Esbenus</speaker_name>
+      <npc_text>"You lying fucking weasel," says Esbenus, getting up slowly. "You think you can get away with it?"</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAmbientAnimation(1557);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>59</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>88</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Esbenus</npc_text>
+      <onLoadScripts>
+        <string>quest_outpost_hideNPC();</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgSetAttitude(1557, 1, -10);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.quest_banditCamp_fightEsbenus = true;</string>
+        <string>rwd_reputation(Mine_04);</string>
+        <string>rwd_reputation(Mine_07);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>59</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>You go inside the ancient tunnel carved into the mountain. The tunnel leads into a small chamber filled with strange machines towering above you.
+
+"It went better than I expected," says Dellar. "The diggers saw the attack. They are on their way to Lord Gaelius, to inform him that an army of raiders has descended upon the ill-defended outpost, slaughtered the Aurelian legionaries, and would have killed the poor diggers too, if not for the Daratan forces who, unfortunately, have arrived too late to save their noble brethren.
+
+"You did well, &lt;charname&gt;. Without lifting a sword you've solved quite a few of our problems. Tiberius is free. The Aurelian forces are dead. The raiders are dead. The mine is ours. Not that it's doing us any good at the moment, but still...
+
+"Take a look around, I'll head back to Teron."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(quest_oupost_cam_06);</string>
+        <string>dlgDeleteCharacter(1557);</string>
+        <string>dlgTeleportToMarker(TM_MineInterior_PC_01);</string>
+        <string>aod.quest_teronMine_reportToDellar = 1;</string>
+        <string>dlgSetZoom(30);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Explore.</text>
+          <def_link>109</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>60</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>Before going inside, you take a small object from Esbenus' hand. It's a small glass tube, encased in elaborate metal framework. The tube is very warm to touch and contains what looks like constantly shifting liquid fire. Then you enter the tunnel carved into the mountain. It leads into a small chamber filled with strange machines towering above you.
+
+"It went better than I expected," says Dellar. "The diggers saw the attack. They are on their way to Lord Gaelius, to inform him that an army of raiders has descended upon the ill-defended outpost, slaughtered the Aurelian legionaries, and would have killed the poor diggers too, if not for the Daratan forces who, unfortunately, have arrived too late to save their noble brethren.
+
+"You did well, &lt;charname&gt;. Without lifting a sword you've solved quite a few of our problems. Tiberius is free. The Aurelian forces are dead. The raiders are dead. The mine is ours. Not that it's doing us any good at the moment, but still...
+
+"Take a look around, I'll head back to Teron."</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(quest_oupost_cam_06);</string>
+        <string>dlgTeleportToMarker(TM_MineInterior_PC_01);</string>
+        <string>aod.quest_banditCamp_fightEsbenus = false;</string>
+        <string>dlgDeleteCharacter(1557);</string>
+        <string>aod.quest_teronMine_reportToDellar = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Explore.</text>
+          <def_link>109</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>87</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgDeleteCharacter(1070);</string>
+        <string>setTravelingAllowed(1);</string>
+        <string>aod.tmo_noTravel = false;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>109</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

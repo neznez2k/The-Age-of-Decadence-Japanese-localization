@@ -1,0 +1,233 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.pc_member_assassins &amp;&amp; aod.npc_coltan_met == false</string>
+      <string>aod.pc_member_assassins &amp;&amp; aod.npc_coltan_met</string>
+    </conditions>
+    <links>
+      <int>1</int>
+      <int>3</int>
+    </links>
+    <dlg_name>Coltan_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Coltan</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Talk to Master Neleos."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(219, 107, 0, W, 1050);</string>
+        <string>dlgTeleportTo(218, 107, 0, E);</string>
+        <string>useCameraBookmark(NPC_coltan_cam_01);</string>
+        <string>dlgRotateToChar(1050);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Greetings," says Coltan with a slight bow. "Are you interested in science or merely fascinated by bright lights?"</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_coltan_met = true;</string>
+        <string>dlgTeleportTo(219, 107, 0, W, 1050);</string>
+        <string>dlgTeleportTo(218, 107, 0, E);</string>
+        <string>useCameraBookmark(NPC_coltan_cam_01);</string>
+        <string>dlgRotateToChar(1050);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"A bit of both. Can you teach me anything?"</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.alchemy &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I need some poison."</text>
+          <def_link>5</def_link>
+          <checkOnAppear>aod.quest_mineWine_getPoison &amp;&amp; aod.quest_mineWine_hasHighPoison == false &amp;&amp; aod.quest_teronMine_complete == false &amp;&amp; aod.quest_teronMine_fight == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I'm afraid, I'm a poor teacher," says Coltan, smiling apologetically, "but I can show you how to extract poison from kadura leaves. It's very simple, actually. Many plants have poison to keep animals away. Usually it causes stomach pain, vomiting, and such. Poison contained in leaves of a kadura plant will cause difficulty breathing and, if enough is consumed, can even stop the heart.
+
+"Now, watch carefully. Soak the leaves in water for an hour or so, then boil the water until nothing is left, and collect the residue. The poison is weak, but every little bit helps, right? Once your understanding of alchemy grows, you'll be able to extract a much stronger poison."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_coltan_teach = true;</string>
+        <string>rwd_training(Coltan);</string>
+        <string>dlgAddItem(1808, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Thank you, master Coltan." Leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I can't teach you what you already know," says Coltan, smiling apologetically, "but I can certainly share my humble supplies with you."
+
+He gives you some Kadura leaves, several Cassava roots, a rare Quicksilver root, and a vial containing a rather potent mix of liquid fire.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_coltan_teach = true;</string>
+        <string>dlgadditemlist(TRN_ColtanGift);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Thank you, master Coltan." Leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"My apologies, but I'm very busy at the moment."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(219, 107, 0, W, 1050);</string>
+        <string>dlgTeleportTo(218, 107, 0, E);</string>
+        <string>useCameraBookmark(NPC_coltan_cam_01);</string>
+        <string>dlgRotateToChar(1050);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I'm sorry to bother you, master Coltan. I hoped to learn something from you."</text>
+          <def_link>2</def_link>
+          <checkOnAppear>aod.npc_coltan_teach == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"It would take but a moment. I really need some poison."</text>
+          <def_link>5</def_link>
+          <checkOnAppear>aod.quest_mineWine_getPoison &amp;&amp; aod.quest_mineWine_hasHighPoison == false &amp;&amp; aod.quest_teronMine_complete == false &amp;&amp; aod.quest_teronMine_fight == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportTo(219, 107, 0, N, 1050);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - shanty</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportTo(219, 107, 0, N, 1050);</string>
+        <string>dlgTeleportTo(135, 14, 0, N);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"A wise choice, &lt;charname&gt;, a wise choice. Give me the specifics. Like good wine, poison should fit the occasion. The number of targets, form of delivery, desired outcome, and so on."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"The Aurelian outpost. Half a dozen men, maybe more. Delivered in wine."</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"The outpost? Ambitious. Well, I have a perfect blend for you." He gives you a small bottle. "Bear in mind, that if they water the wine too much, the poison will lose its potency, so be ready for anything."</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItemlist(Quest_AG2_Poison);</string>
+        <string>aod.quest_mineWine_hasHighPoison = true;</string>
+        <string>aod.quest_mineWine_phase3 = true;</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Return to shanty town.</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,746 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_clemens_met</string>
+    </conditions>
+    <links>
+      <int>4799</int>
+    </links>
+    <dlg_name>NPC_Clemens_01</dlg_name>
+    <def_link>4769</def_link>
+    <def_speaker_name>Clemens</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Suddenly, the maze-like streets and alleys open into a large square, occupied by an old temple and a busy bazaar surrounding it.
+
+“First time?” asks a tall man dressed in comfortable robes, smiling pleasantly. “I’m Clemens, the local doctor.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_clemens_met = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“You seem to be doing well...”</text>
+          <def_link>4791</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4769</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“For someone who lives in the Slums, you mean?” smiles the doctor. “It’s not that bad, I assure you. Think of it as a poor province of a vast empire. Just because it’s poor doesn’t mean one can’t do well here. There is nothing you can’t buy here, if you have the coin.”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_Clemens);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(260, 45, 6, 6150);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What’s this area?”</text>
+          <def_link>4792</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“How did you end up here?”</text>
+          <def_link>4793</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Let's talk about something else."</text>
+          <def_link>4799</def_link>
+          <checkOnAppear>aod.npc_clemens_questions</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4798</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4791</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It’s our ‘capital’. This is where Levir holds his court and rules over his subjects. Since it’s the safest area in the Slums, everyone comes here to buy and sell without worrying about being robbed. Levir gets a cut, so everyone’s happy.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_clemens_askedArea = true;</string>
+        <string>aod.npc_clemens_askAboutLevir = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“How did you end up here?”</text>
+          <def_link>4793</def_link>
+          <checkOnAppear>aod.npc_clemens_askedEndUp == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Levir?”</text>
+          <def_link>4796</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Let's talk about something else."</text>
+          <def_link>4799</def_link>
+          <checkOnAppear>aod.npc_clemens_questions</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4798</def_link>
+          <checkOnAppear>aod.npc_clemens_questions == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4792</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“A horse that was in my care decided that it would rather die than live another day and I had to take the blame. Well, in all honesty, it was my fault. Still, I never would have imagined that one animal, no matter how valuable, would outweigh years of loyal service. Thus, I lost my job, my house, and my wife. Well, wives are an easily replaceable commodity, but I’d be lying if I told you that it didn’t hurt.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_clemens_askedEndUp = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What happened then?”</text>
+          <def_link>4794</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4793</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I came here to die. In fact, I think I did die, after a fashion, and then discovered that there is life after death. I put my considerable talents to good use and started stitching wounds and mending broken bones. Don’t give me that look. It’s all the same.
+
+“In fact, it’s easier with people. Much higher survival rate. You see, horses are very delicate animals. Noble even. A man? Nothing but an oversized cockroach that can live anywhere and survive almost anything.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Almost anything?”</text>
+          <def_link>4795</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4794</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“They brought me a man with a gut wound once. It was about as messy as you can imagine. Blood everywhere, guts dragging behind him. Messy! So, I did what any doctor worth his salt would do – cut as much as I could, stitched up the rest, then closed the wound and hoped for the best. I thought he was a goner for sure, but he clung to life as if it was actually worth living. He fought tooth and nail for it and managed to crawl out.
+
+“Of course, he couldn’t eat much or drink, but he made it through just to end up sitting in the dirt with an outstretched hand, begging people for some scraps and coins. Where am I going with this? If you ever find yourself in a similar situation, don’t hesitate to call on me. Got it down to a science by now.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What’s this area?”</text>
+          <def_link>4792</def_link>
+          <checkOnAppear>aod.npc_clemens_askedArea == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What can you tell me about Levir?”</text>
+          <def_link>4796</def_link>
+          <checkOnAppear>aod.npc_clemens_askAboutLevir &amp;&amp; aod.npc_clemens_askedLevir == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Let's talk about something else."</text>
+          <def_link>4799</def_link>
+          <checkOnAppear>aod.npc_clemens_questions</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4798</def_link>
+          <checkOnAppear>aod.npc_clemens_questions == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4795</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“He runs the Forty Thieves; that tells you all you need to know. They say he was born here, so the Slums are his home. Obviously, he can afford to live anywhere he wants, but he stays here. Takes a rare kind of man to do that. I mean, let’s face it, the grass *is* greener over there, but it means nothing to him.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_clemens_askedLevir = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“So what’s he after then?”</text>
+          <def_link>4797</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4796</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Power, what else? Look what he’s done with the guild. They were always a local power, but in my father’s time they were staying in the shadows. Now, they rule it openly, the way Houses do. We live in interesting times, my friend, that’s for sure.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“How did you end up here?”</text>
+          <def_link>4793</def_link>
+          <checkOnAppear>aod.npc_clemens_askedEndUp == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Let's talk about something else."</text>
+          <def_link>4799</def_link>
+          <checkOnAppear>aod.npc_clemens_questions</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4798</def_link>
+          <checkOnAppear>aod.npc_clemens_questions == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4797</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(260, 40, 15);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4798</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You want something?”</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(260, 45, 6, 6150);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Clemens);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I can use a few stitches."</text>
+          <def_link>4800</def_link>
+          <checkOnAppear>dlgGetPercentageHP() &lt; 100 || dlgGetCureStatPrice(all) &gt; 0</checkOnAppear>
+          <checksOnClick>
+            <string>dlgGetCureStatPrice(all) &gt;= 1</string>
+            <string>dlgGetPercentageHP() &lt;= 15</string>
+            <string>dlgGetPercentageHP() &gt;= 70</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4804</int>
+            <int>4802</int>
+            <int>4801</int>
+          </linksOnClick>
+          <scriptsOnClick>
+            <string>getStatHealPrice();</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Ever seen anything like this?” Show him the eye implant.</text>
+          <def_link>4808</def_link>
+          <checkOnAppear>dlgGetItemsCount(2205) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“About the eye implant... I'm ready.” Pay him 100 imperials.</text>
+          <def_link>4809</def_link>
+          <checkOnAppear>aod.npc_clemens_asked_eye &amp;&amp; aod.npc_clemens_did_eye == false &amp;&amp; dlgGetMoney() &gt;= 100 &amp;&amp; dlgGetItemsCount(2205) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Mind if I ask you a few questions?"</text>
+          <def_link>4815</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4798</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4799</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"It's a free district, ain't it? Ask away."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_clemens_questions = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What’s this area?”</text>
+          <def_link>4792</def_link>
+          <checkOnAppear>aod.npc_clemens_askedArea == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“How did you end up here?”</text>
+          <def_link>4793</def_link>
+          <checkOnAppear>aod.npc_clemens_askedEndUp == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What can you tell me about Levir?”</text>
+          <def_link>4796</def_link>
+          <checkOnAppear>aod.npc_clemens_askAboutLevir &amp;&amp; aod.npc_clemens_askedLevir == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Let's talk about something else."</text>
+          <def_link>4799</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4798</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4815</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Say no more," says Clemens, producing a needle made of a fish bone. "You do have the money, right? &lt;HitPointsHealPriceLow&gt; coins oughta do the trick."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Fix me up."</text>
+          <def_link>4803</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= $HitPointsHealPriceLow</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Maybe later."</text>
+          <def_link>4799</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4798</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4800</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You don't say," says Clemens, looking at your broken ribs with professional interest. "You do have the money, right? &lt;HitPointsHealPriceMed&gt; coins oughta do the trick."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Fix me up."</text>
+          <def_link>4806</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= $HitPointsHealPriceMed</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Maybe later."</text>
+          <def_link>4799</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4798</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4801</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Blood transfusion wouldn't hurt either," says Clemens, looking at the pool of blood quickly forming on the floor. "Goat's blood is all I have, but I'm sure it will work just fine. You do have the money, right? &lt;HitPointsHealPriceHigh&gt; coins for my time."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Fix me up."</text>
+          <def_link>4807</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= $HitPointsHealPriceHigh</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Maybe later."</text>
+          <def_link>4799</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4798</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4802</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[stat damage]"Let me see," says Clemens, looking at your broken ribs and the pool of blood quickly forming on the floor with professional interest. "You do have the money, right? &lt;healStatPrice&gt; coins oughta do the trick."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Fix me up."</text>
+          <def_link>4805</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= $statHealPrice</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Maybe later."</text>
+          <def_link>4799</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4798</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4804</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>CURE - minor</npc_text>
+      <onLoadScripts>
+        <string>cheatHP();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgChangeMoney(-$HitPointsHealPriceMed);</string>
+        <string>dlgFinish();</string>
+        <string>dlgCam(260, 40, 15);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4803</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>CURE - wounded</npc_text>
+      <onLoadScripts>
+        <string>cheatHP();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgChangeMoney(-$HitPointsHealPriceHigh);</string>
+        <string>dlgFinish();</string>
+        <string>dlgCam(260, 40, 15);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4806</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>CURE - almost dead</npc_text>
+      <onLoadScripts>
+        <string>cheatHP();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgChangeMoney(-$HitPointsHealPriceHigh);</string>
+        <string>dlgFinish();</string>
+        <string>dlgCam(260, 40, 15);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4807</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>CURE - stats</npc_text>
+      <onLoadScripts>
+        <string>dlgCureStat(all);</string>
+        <string>cheatHP();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgChangeMoney(-$statHealPrice);</string>
+        <string>dlgFinish();</string>
+        <string>dlgCam(260, 40, 15);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4805</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Interesting,” says Clemens. “You know, I once replaced a man’s eye with a metal ball. So, I do have the required expertise, if that's what you're wondering.
+
+“Well, at the very least, I know how to remove an eye without causing any damage. Then we put this thingamajig in and let nature take its course. I can do it for a hundred. So, what do you say?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_clemens_asked_eye = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 100 imperials.</text>
+          <def_link>4809</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 100</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Maybe later."</text>
+          <def_link>4799</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4798</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4808</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The doctor takes you to his tent and prepares the space for the surgery. A crowd of onlookers gathers around, watching the preparations with interest. You lie down on an old mattress that smells of mildew and urine, trying to relax.
+
+The doctor produces a small knife, examines the rust on the blade, shakes his head and asks someone to fetch him a grinding stone and some wine. He looks at you and smiles fatherly before instructing his assistant to sedate the patient.
+
+You take a blow to the head and pass out.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-100);</string>
+        <string>dlgRemoveItem(2205, 1);</string>
+        <string>aod.npc_clemens_did_eye = true;</string>
+        <string>aod.pc_aug_eye = true;</string>
+        <string>dlgAddRank(52);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wake up.</text>
+          <def_link>4810</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4809</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The first thing you see is your own eye floating in a jar. The next moment, pain shoots through your eye – or where your eye used to be – and into your brain.
+
+“Drink this,” says the doctor, lifting a cup up to your lips. “It will ease the pain.
+
+“Now, you’ll be happy to know that everything went without a hitch. Almost. So, the good news is that you’re going to live. The bad news is that the new eye doesn’t quite work. I popped it right in and did my best to connect it, but it doesn’t sync with the other eye.
+
+“So, effectively, you won’t see as well as you did before, ‘cause you’re down to one eye, but practically...”</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>setAchievement("ACH_AUGMENTED");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Practically what?”</text>
+          <def_link>4811</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4810</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Practically, the other eye should work.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“That’s very reassuring. Why doesn’t it work?”</text>
+          <def_link>4812</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4811</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It must be powered up, but that’s where it gets tricky. You see, it doesn’t accept any power source.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So, I have a dead piece of metal in my eye? Is that what you’re telling me?”</text>
+          <def_link>4813</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4812</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It doesn’t seem dead to me,” says Clemens, examining the eye. “In my medical opinion, it's working just fine, so I’d appreciate it if you would stop complaining. You’re scaring off the other customers.
+
+“Maybe it just needs more time to adjust, eh? Give it time. In the meantime, let me put a patch over it. You don’t want to scare people, do you?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“By the way, how did you manage to attach it? It almost feels ... natural.”</text>
+          <def_link>4814</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4813</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“To tell you the truth,” says Clemens, lowering his voice, “I didn’t. I removed your eye – that part was easy. I’ve done it a hundred times to wounded horses after battles. Then I started wondering what to do with the eye thingy and put it into the hole just to see if it would fit. Lo and behold, it whirred to life and took roots right before my eyes. I don’t think I could remove it now even if I wanted to.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4798</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4814</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

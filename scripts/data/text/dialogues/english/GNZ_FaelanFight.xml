@@ -1,0 +1,1624 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.fight_TG8_thieves</string>
+    </conditions>
+    <links>
+      <int>13</int>
+    </links>
+    <dlg_name>GNZ_FaelanFight</dlg_name>
+    <def_link>10</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>Faelan</portrait>
+      <speaker_name>Faelan</speaker_name>
+      <npc_text>Faelan the Thrice Blessed owed everything he had - including his life - to Lord Meru who saved him from the gallows. Born a slave, Faelan made his life a lot harder by refusing to keep his eyes down. He was always staring at people, staring with such intensity that it made even hardened Imperial Guardsmen uncomfortable. It was that staring as much as his refusal to work that earned him the beatings. When the Guardsmen had finally had enough of his resistance and came to make an example of him, witnesses say he did nothing to defend himself. He simply stared at the soldiers, and smiled that twisted smile. And, one by one, they took out their daggers and slit their own throats.
+
+Terrifying though this display of power was, the Imperial Guards were veterans of many battles. Quickly recovering from their shock, the remaining Guards overwhelmed Faelan with their numbers, beating him unconscious. His execution would have followed swiftly if word of his deed hadn't reached the ears of Lord Meru. And so Faelan the slave became Faelan the Thrice Blessed, the Magus of House Crassus, a position of near unlimited wealth and influence.</npc_text>
+      <onLoadScripts>
+        <string>if(aod.quest_AG8_status == 1) aod.quest_AG8_status = 2;</string>
+        <string>if(aod.jnl_AG_GNZ2 == 1) aod.jnl_AG_GNZ2 = 2;</string>
+        <string>Addjournalchar(faelan);</string>
+        <string>dlgCam(170, 40, 9, 8001);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_TG8_status == 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>0</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Faelan</portrait>
+      <speaker_name>Faelan</speaker_name>
+      <npc_text>Faelan is already awake, assuming the man ever sleeps, and his attention is on some charts. His back is exposed, and you move silently toward him.
+
+As if sensing your presence, the magus slowly turns his head to the side. Before you can stop him, the man to your right conjures a dagger and quickly throws it at the magus, but it stops in midair as if hitting an invisible wall and drops to the floor.
+
+Without a word, the magus turns around and stares at you. Suddenly, you feel confused and unsure of yourself. You can't even remember why you're here. You glance around and see two men, looking as lost and confused as you are. They seem familiar to you, somehow, but it seems so unimportant.
+
+“Kill them,” says the magus, addressing nobody in particular, and you’re filled with the burning desire to protect him. His life is all that matters and you’ll gladly die for him, in fact, you’re eager to die for him.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>if(aod.quest_TG8_status == 2) aod.quest_TG8_status = 3;</string>
+        <string>dlgTeleportToMarker(TM_PC_01);</string>
+        <string>dlgRotateToChar(1, 8001);</string>
+        <string>dlgCam(170, 40, 9, 8001);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill Glabrio’s men to protect the magus.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intelligence success]Even though you feel nothing but an obsessive desire to die for the magus, some part of you is aware that your will is no longer your own. Try to resist.</text>
+          <def_link>1</def_link>
+          <checkOnAppear>aod.int &gt;= 6</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Close your eyes and fight blind.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Desperate times call for desperate measures. Eat some mushrooms.</text>
+          <def_link>62</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetItemsCount(1803) &gt;= 1</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>65</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Glabrio men</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.fight_TG8_thieves = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>TG8_hostileThieves();</string>
+        <string>setCharacterInvincible(8001, 1);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Faelan</portrait>
+      <speaker_name>Faelan</speaker_name>
+      <npc_text>“Well done,” smiles the magus. “Come with me, slave.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Follow the magus.</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - follow</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>sd(NPC_Meru_03);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Faelan</portrait>
+      <speaker_name>Faelan</speaker_name>
+      <npc_text>Faelan is already awake, assuming the man ever sleeps, and his attention is on some charts. His back is exposed, and you move silently toward him.
+
+As if sensing your presence, the magus slowly turns around and stares at you. Suddenly, you feel confused and unsure of yourself. You can't even remember why you're here.
+
+The magus! You came to see the magus... to pledge your life to him. You aren't sure why but it hardly matters now.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_PC_01);</string>
+        <string>dlgRotateToChar(1, 8001);</string>
+        <string>dlgCam(170, 40, 9, 8001);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[intelligence success]Even though you feel nothing but an obsessive desire to die for the magus, some part of you is aware that your will is no longer your own. Try to resist.</text>
+          <def_link>1</def_link>
+          <checkOnAppear>aod.int &gt;= 6</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Close your eyes and fight blind.</text>
+          <def_link>59</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Desperate times call for desperate measures. Eat some mushrooms.</text>
+          <def_link>62</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetItemsCount(1803) &gt;= 1 &amp;&amp; aod.quest_TG8_status &gt;= 1</string>
+            <string>dlgGetItemsCount(1803) &gt;= 1</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>65</int>
+            <int>64</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Sadly, you're out of 'shrooms.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[intelligence][charisma]Lock your eyes with the magus' eyes and use your will to negate his power.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.cha == 10 || (aod.cha + aod.int) &gt;= 16</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>16</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Close your eyes and fight blind.</text>
+          <def_link>59</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_TG8_status &gt;= 1</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>62</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You put a dried blood mushroom in your mouth and start chewing. Nothing happens and the desire to die for the magus grows stronger, slowly becoming an obsession. You take another ‘shroom – you don’t feel any different but the obsessive desire starts fading away, giving room to suspicion.
+
+The magus makes a strange face and you laugh. Suddenly, the chamber explodes with color. It leaches from the objects, forming glowing orbs tracking your every move. The magus! He’s casting a spell! He lured you here to kill you, but you’re going to kill him first!
+
+Realizing that you see right through him, the magus calls off the glamour and the glowing orbs disappear, the chamber becoming dark and filthy. The magus’ face twists into a terrifying visage, finally revealing his true self.
+
+You blink and see that there are two men standing in front of you now. No, three! Four! There are four of him! So that’s his secret! You knew it, you fucking knew it all along!</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setMushroomFight();</string>
+        <string>dlgCam(170, 45, 8, 1);</string>
+        <string>dlgRemoveItem(1803, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill the magi before they steal your body and turn you into one of them!</text>
+          <def_link>66</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>64</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You put a dried blood mushroom in your mouth and start chewing. Nothing happens and the desire to die for the magus grows stronger, slowly becoming an obsession. You take another ‘shroom – you don’t feel any different but the obsessive desire starts fading away, giving room to suspicion.
+
+The magus makes a strange face and you laugh. Suddenly, the chamber explodes with color. It leaches from the objects, forming glowing orbs tracking your every move. The magus! He’s casting a spell! He lured you here to kill you, but you’re going to kill him first!
+
+Realizing that you see right through him, the magus calls off the glamour and the glowing orbs disappear, the chamber becoming dark and filthy. The magus’ face twists into a terrifying visage, finally revealing his true self.
+
+You blink and see that there are two men standing in front of you now. No, three! Four! There are four of him! So that’s his secret! They killed your companions and now they're coming for you!</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>killRandomDeathPosition(6310);</string>
+        <string>killRandomDeathPosition(6311);</string>
+        <string>setMushroomFight();</string>
+        <string>dlgCam(170, 45, 8, 1);</string>
+        <string>dlgRemoveItem(1803, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill the magi before they steal your body and turn you into one of them!</text>
+          <def_link>66</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>65</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - magus mushrooms</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addEnemyToParty(1, FaelanMushroom);</string>
+        <string>aod.fight_faelanMushroom = 1;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>66</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The magus is watching you with a thin aberrant smile. His eyes draw you in, making it almost impossible to look away.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Close your eyes and fight blind.</text>
+          <def_link>59</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_TG8_status &gt;= 1</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intelligence][charisma]Lock your eyes with the magus' eyes and use your will to negate his power.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.cha == 10 || (aod.cha + aod.int) &gt;= 16</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>16</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Desperate times call for desperate measures. Eat some mushrooms.</text>
+          <def_link>62</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetItemsCount(1803) &gt;= 1 &amp;&amp; aod.quest_TG8_status &gt;= 1</string>
+            <string>dlgGetItemsCount(1803) &gt;= 1</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>65</int>
+            <int>64</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You boldly stare into the magus’ eyes, silently commanding him to obey and submit to your will. You feel the magus’ fear, feel your own power waiting to be unleashed, feel your hand on the dagger, feel the sharp blade against your own throat – Why? What’s it doing there? No! – and then you feel nothing at all.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go into the light.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]The magus’ smile disappears from his face as he struggles to impose his will on you, but apparently his craft works better on those weak of mind and character.
+
+He curses in frustration, then finally looks away, rubbing his eyes. Now's your chance!</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(Faelan_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Attack!</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_TG8_status</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>67</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - magus</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetAttitude(8001, 1, -10);</string>
+        <string>aod.fight_faelanAlone = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - magus thieves</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetAttitude(8001, 1, -10);</string>
+        <string>TG8_fightFaelanWithThieves();</string>
+        <string>aod.fight_faelanAlone = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>67</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You take a step forward, visualizing the room in your head. Almost immediately, you hear the sound of a dagger leaving its sheath. It appears the magus is not completely defenseless.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_faelanFight_faelanHit = 0;</string>
+        <string>aod.quest_faelanFight_PCHit = 0;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setWindowImage(blackScreen);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[perception]Listen to the sound in the room. Maybe you can determine the magus' position.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity][critical strike]Charge the position where the magus last stood! If you're fast enough, you can strike him before he can react.</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 8 &amp;&amp; aod.critical_strike &gt;= 8</string>
+            <string>aod.dex &gt;= 8 &amp;&amp; aod.critical_strike &lt; 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>23</int>
+            <int>22</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>59</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You take a step forward, visualizing the room in your head. Almost immediately, you hear the sounds of two bodies hitting the floor. It seems that your companions didn't make it.
+
+Before long, you hear the sound of a dagger leaving its sheath. It appears the magus is not completely defenseless.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_faelanFight_faelanHit = 0;</string>
+        <string>aod.quest_faelanFight_PCHit = 0;</string>
+        <string>setWindowImage(blackScreen);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>killRandomDeathPosition(6310);</string>
+        <string>killRandomDeathPosition(6311);</string>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+        <string>schedule(500, 0, sfxPlayOnce, csSuccessMetal01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[perception]Listen to the sound in the room. Maybe you can determine the magus' position.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity][critical strike]Charge the position where the magus last stood! If you're fast enough, you can strike him before he can react.</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 8 &amp;&amp; aod.critical_strike &gt;= 8</string>
+            <string>aod.dex &gt;= 8 &amp;&amp; aod.critical_strike &lt; 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>23</int>
+            <int>22</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[perception success]You hear the sound of soft footsteps to the right, but as you listen carefully you hear a fainter sound moving to your left.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Strike to your left.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[perception]Remain still and listen.</text>
+          <def_link>34</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>35</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You hear the sound of soft footsteps to the right.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Strike to your right.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[perception]Remain still and listen.</text>
+          <def_link>34</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>35</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You dash forward and strike, but hit nothing but air. Suddenly, you hear the sound of someone charging at you from behind!</npc_text>
+      <onLoadScripts>
+        <string>sfxPlayOnce(csMissSwingAir01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[dexterity][critical strike]Turn around and strike!</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 8 &amp;&amp; aod.critical_strike &gt;= 8</string>
+            <string>aod.dex &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>29</int>
+            <int>27</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[block]Block the attack!</text>
+          <def_link>43</def_link>
+          <checkOnAppear>dlgHasShieldEquipped()</checkOnAppear>
+          <checksOnClick>
+            <string>aod.block &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>44</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dodge]Roll out of the way!</text>
+          <def_link>36</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dodge &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>39</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You stand ready, listening to the sound of the room, hoping to determine the magus' next attack. Unfortunately you can't hear the magus for a few moments, until suddenly you hear him charging right in front of you!</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[dexterity][critical strike]Turn around and strike!</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 8 &amp;&amp; aod.critical_strike &gt;= 8</string>
+            <string>aod.dex &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>29</int>
+            <int>27</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[block]Block the attack!</text>
+          <def_link>43</def_link>
+          <checkOnAppear>dlgHasShieldEquipped()</checkOnAppear>
+          <checksOnClick>
+            <string>aod.block &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>44</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dodge]Roll out of the way!</text>
+          <def_link>36</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dodge &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>39</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>50</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You dash forward and strike, trying not to overextend yourself. The blade makes contact and the magus cries in pain, instantly falling back and cursing you from afar.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_faelanFight_faelanHit += 1;</string>
+        <string>reduceHPPercent(30, 8001);</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[dexterity][critical strike]Charge the magus - or the place where he stood a second ago. If you're fast enough, you can take him by surprise.</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 8 &amp;&amp; aod.critical_strike &gt;= 8 &amp;&amp; aod.quest_faelanFight_faelanHit &gt;= 1</string>
+            <string>aod.dex &gt;= 8 &amp;&amp; aod.critical_strike &gt;= 8</string>
+            <string>aod.dex &gt;= 8 &amp;&amp; aod.critical_strike &lt; 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>24</int>
+            <int>23</int>
+            <int>22</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[perception]Play it safe and listen for the sound of his movements.</text>
+          <def_link>50</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>28</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You open your eyes. Though still blurry from the light of the room, you can see the magus, with his hand clutched against his bloody jaw. As your vision begins to clear, you begin to see the intensity in the magus' eyes... as he stares... into... your...
+
+For a moment, your mind feels cloudy and your senses dull, but it soon fades away and your vision becomes clear, perhaps clearer than it has ever been. You can see them, all of them, a world away yet standing beside you, smiling, and happy. The ones you've loved, the ones you've known only in passing, and even the ones you've killed. They're waiting, waiting for you to be at peace, waiting for you to join them.
+
+You are so tired, so very tired. All you have worked for, fought for, seem so far away now. You look down and see something in your hands. You grasp it tightly and you smile, for at last, you have found your peace.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Kill yourself.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intelligence][charisma]Something is wrong. Try to fight back.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.cha == 10 || aod.cha &gt;= 8 &amp;&amp; aod.int &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>16</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>31</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You charge at the position of the magus, but it seems that he had enough time to avoid the brunt of your attack, causing you to trip and fall. You quickly turn over, preparing for the worst.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[dodge]Roll out of the way!</text>
+          <def_link>36</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dodge &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>39</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity][strength]Kick toward the magus!</text>
+          <def_link>55</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.str + aod.dex) &gt;= 14 &amp;&amp; aod.str &gt;= 5 &amp;&amp; aod.dex &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>41</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[block]Shield yourself from his next attack!</text>
+          <def_link>43</def_link>
+          <checkOnAppear>dlgHasShieldEquipped()</checkOnAppear>
+          <checksOnClick>
+            <string>aod.block &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>44</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[dexterity success][critical strike failure]You charge at the position of the magus and swing your dagger in a wide arch, like a fisherman casting a net. Your blade connects and the magus yells in pain, hurling curses at you from a distance.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_faelanFight_faelanHit += 1;</string>
+        <string>reduceHPPercent(30, 8001);</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Open your eyes and take a peek.</text>
+          <def_link>31</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[perception]Don't take any chance and keep fighting blind.</text>
+          <def_link>50</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>28</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You charge at the position of the magus and stab several times in rapid succession, choosing quality over quantity - killing strikes over wider but relatively harmless swings.
+
+The first two attacks miss the magus completely, but the third strike hits home, sinking deep into the magus' abdomen as he was about to attack. The magus howls in pain and wildly swings his dagger, forcing you to fall back.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_faelanFight_faelanHit += 2;</string>
+        <string>reduceHPPercent(60, 8001);</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+        <string>schedule(200, 0, sfxPlayOnce, csSuccessSilence01);</string>
+        <string>schedule(400, 0, sfxPlayOnce, csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Open your eyes and take a peek.</text>
+          <def_link>31</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[perception]Don't take any chance and keep fighting blind.</text>
+          <def_link>50</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>28</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You charge at the position of the magus and stab several times in rapid succession, choosing quality over quantity - killing strikes over wider but relatively harmless swings.
+
+The first two attacks miss the magus completely, but the third strike hits home, sinking deep into the magus' abdomen as he was about to attack. Already wounded, the magus staggers and you drive your blade deeper, working it back and forth until the magus collapses at your feet, dead.</npc_text>
+      <onLoadScripts>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+        <string>schedule(200, 0, sfxPlayOnce, csSuccessSilence01);</string>
+        <string>schedule(400, 0, sfxPlayOnce, csSuccessBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>You can open your eyes now.</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - killed magus</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>rwd_reputation(Faelan_01);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Faelan_01, 8001);</string>
+        <string>killRandomDeathPosition(8001);</string>
+        <string>VCO_Ganezzar.setActive(1);</string>
+        <string>rwd_quest(Faelan_02);</string>
+        <string>aod.npc_faelan_dead = true;</string>
+        <string>setAchievement("ACH_FAELAN");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You turn around just in time to avoid being stabbed in the back but not fast enough to escape the attack unscathed. The blade sinks in between your ribs, sending searing pain through your right side.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_faelanFight_PCHit += 1;</string>
+        <string>reduceHPPercent(30, 1);</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[constitution][critical strike]Endure the pain and strike the magus while he is near you!</text>
+          <def_link>46</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.critical_strike + aod.con) &gt;= 11 &amp;&amp; aod.con &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>47</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[constitution][strength]Lock arms with the magus and wrestle him to the ground!</text>
+          <def_link>42</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.str + aod.con + aod.quest_faelanFight_faelanHit - aod.quest_faelanFight_PCHit) &gt;= 13</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>45</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>26</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[dexterity success][critical strike failure]You whirl around, lashing out with your dagger and catching the magus by surprise. The blade draws a bloody line through his face, parting flesh and scraping bone. The magus screams in agony, taking a few unsteady steps backwards. He keeps howling, raising hope that you blinded him.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_faelanFight_faelanHit += 1;</string>
+        <string>reduceHPPercent(30, 8001);</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Open your eyes and take a peek.</text>
+          <def_link>31</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[perception]Don't take any chance and keep fighting blind.</text>
+          <def_link>50</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>28</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>27</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You whirl around, sensing the magus to be very close, and stab upward, betting your life on this single strike. Lucky for you, the blade hits the magus under his chin. Seizing the moment, you grab the magus' neck with your left hand and drive the blade deeper with all your strength, until his body goes limp and collapses at your feet.</npc_text>
+      <onLoadScripts>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>You can open your eyes now.</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>29</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You stand ready, listening to the sound of the room, hoping to determine the magus' next attack. Fortunately, the magus is breathing heavily, which makes it easy to determine his position. You hear him creeping toward you.
+
+He must be getting impatient. Now's your chance.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[dodge][critical strike]Anticipate his attack and counter!</text>
+          <def_link>37</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.dodge + aod.critical_strike) &gt;= 14 &amp;&amp; aod.quest_faelanFight_faelanHit &gt;= 1</string>
+            <string>(aod.dodge + aod.critical_strike) &gt;= 12 &amp;&amp; aod.quest_faelanFight_faelanHit &gt;= 2</string>
+            <string>(aod.dodge + aod.critical_strike) &gt;= 12</string>
+            <string>aod.quest_faelanFight_PCHit &lt;= 1</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>52</int>
+            <int>52</int>
+            <int>51</int>
+            <int>36</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[block][critical strike]Shield yourself from his attack and counter!</text>
+          <def_link>37</def_link>
+          <checkOnAppear>dlgHasShieldEquipped()</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.block + aod.critical_strike) &gt;= 14 &amp;&amp; aod.quest_faelanFight_faelanHit &gt;= 1</string>
+            <string>(aod.block + aod.critical_strike) &gt;= 12 &amp;&amp; aod.quest_faelanFight_faelanHit &gt;= 2</string>
+            <string>(aod.block + aod.critical_strike) &gt;= 12</string>
+            <string>aod.quest_faelanFight_PCHit &lt;= 1</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>54</int>
+            <int>54</int>
+            <int>53</int>
+            <int>43</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>28</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You kick wildly toward the magus, forcing him to step back. Slowly, you get up, ready for anything.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[dodge][critical strike]Anticipate his attack and counter!</text>
+          <def_link>37</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.dodge + aod.critical_strike) &gt;= 14 &amp;&amp; aod.quest_faelanFight_faelanHit &gt;= 1</string>
+            <string>(aod.dodge + aod.critical_strike) &gt;= 12 &amp;&amp; aod.quest_faelanFight_faelanHit &gt;= 2</string>
+            <string>(aod.dodge + aod.critical_strike) &gt;= 12</string>
+            <string>aod.quest_faelanFight_PCHit &lt;= 1</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>52</int>
+            <int>52</int>
+            <int>51</int>
+            <int>36</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[block][critical strike]Shield yourself from his attack and counter!</text>
+          <def_link>37</def_link>
+          <checkOnAppear>dlgHasShieldEquipped()</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.block + aod.critical_strike) &gt;= 14 &amp;&amp; aod.quest_faelanFight_faelanHit &gt;= 1</string>
+            <string>(aod.block + aod.critical_strike) &gt;= 12 &amp;&amp; aod.quest_faelanFight_faelanHit &gt;= 2</string>
+            <string>(aod.block + aod.critical_strike) &gt;= 12</string>
+            <string>aod.quest_faelanFight_PCHit &lt;= 1</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>54</int>
+            <int>54</int>
+            <int>53</int>
+            <int>43</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>55</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You now hear the sound of soft footsteps to your left, but it suddenly stops.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Strike to your left.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>34</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You now hear the sound of soft footsteps to your left, but as you listen carefully you soon hear a fainter sound moving behind you.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[dexterity][critical strike]Turn around and strike!</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 7 &amp;&amp; aod.critical_strike &gt;= 7</string>
+            <string>aod.dex &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>29</int>
+            <int>27</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>35</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You try to move out of the way, but you're too slow. The magus' dagger bites deep, the pain bringing you to your knees. You try to crawl away, but the magus has no intention of letting you go. He grabs you by the hair, pulling your head back to expose your throat. Your life is about to end.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_faelanFight_PCHit += 1;</string>
+        <string>reduceHPPercent(30, 1);</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[dexterity][critical strike]It's now or never!</text>
+          <def_link>37</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 7</string>
+            <string>(aod.dex + aod.critical_strike) &gt;= 13</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>38</int>
+            <int>38</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[constitution][strength]Ignore the pain. Grab his arm and wrestle him to the ground!</text>
+          <def_link>42</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.str + aod.con + aod.quest_faelanFight_faelanHit - aod.quest_faelanFight_PCHit) &gt;= 13</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>45</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>36</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You raise your shield but your timing is way off. The magus sidesteps and rams his dagger into your side, the pain bringing you to your knees. You try to crawl away, but the magus has no intention of letting you go. He grabs you by the hair, pulling your head back to expose your throat. Your life is about to end.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_faelanFight_PCHit += 1;</string>
+        <string>reduceHPPercent(30, 1);</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[dexterity][critical strike]It's now or never!</text>
+          <def_link>37</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 7</string>
+            <string>(aod.dex + aod.critical_strike) &gt;= 13</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>38</int>
+            <int>38</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[constitution][strength]Ignore the pain. Grab his arm and wrestle him to the ground!</text>
+          <def_link>42</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.str + aod.con + aod.quest_faelanFight_faelanHit - aod.quest_faelanFight_PCHit) &gt;= 13</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>45</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>43</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You give it your best shot but it's just not your day. Protected by his dark arts, the magus easily avoids your clumsy attack and stabs you several times, abandoning his plan to cut your throat. Not that you care at this point.</npc_text>
+      <onLoadScripts>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go into the light before the magus binds your soul and uses it for some nefarious purposes.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>37</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Quick as a snake, you twist around, slashing with your dagger. The magus instantly lets go, trying to jump back, out of reach, but it's too late. The blade cuts flesh to the bone, the magus howls in pain and steps back.
+
+Breathing hard, he stands there for a while, working up the courage to face you one last time.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_faelanFight_faelanHit += 1;</string>
+        <string>reduceHPPercent(30, 8001);</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[critical strike]You won't get a better chance, so make it count.</text>
+          <def_link>56</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 8</string>
+            <string>aod.critical_strike &gt;= 4 &amp;&amp; aod.quest_faelanFight_faelanHit &gt;= 2</string>
+            <string>aod.critical_strike &gt;= 2 &amp;&amp; aod.quest_faelanFight_faelanHit &gt;= 3</string>
+            <string>aod.critical_strike &gt;= 4 &amp;&amp; aod.quest_faelanFight_PCHit &lt;= 1</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>57</int>
+            <int>57</int>
+            <int>57</int>
+            <int>60</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>38</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You quickly roll out of the way as the magus stabs the spot you were at a moment ago. “Damn you!” says the magus, despite his intention to remain silent. It seems like he's losing his nerve.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Open your eyes and take a peek.</text>
+          <def_link>31</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[perception]Don't take any chance and keep fighting blind.</text>
+          <def_link>50</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>28</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>39</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You expertly block the magus attack and counter with such force that the magus stumbles backwards, buying you some time.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Open your eyes and take a peek.</text>
+          <def_link>31</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[perception]Don't take any chance and keep fighting blind.</text>
+          <def_link>50</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>28</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>44</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You wildly kick toward the magus, hitting his knee and sending him on his backside. When he try to gets up, putting his weight on the injured leg, he cries in pain, almost collapsing to the floor.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_faelanFight_faelanHit += 1;</string>
+        <string>reduceHPPercent(30, 8001);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[critical strike]You won't get a better chance, so make it count.</text>
+          <def_link>56</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 8</string>
+            <string>aod.critical_strike &gt;= 4 &amp;&amp; aod.quest_faelanFight_faelanHit &gt;= 2</string>
+            <string>aod.critical_strike &gt;= 2 &amp;&amp; aod.quest_faelanFight_faelanHit &gt;= 3</string>
+            <string>aod.critical_strike &gt;= 4 &amp;&amp; aod.quest_faelanFight_PCHit &lt;= 1</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>57</int>
+            <int>57</int>
+            <int>57</int>
+            <int>60</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>41</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You grab hold of the magus, but the pain is too strong and you lose your grip. You struggle to secure another hold, but it is too late. The magus strikes, hard and fast.
+
+You try to react, but all your strength leaves you and you collapse to the floor. You open your eyes and see your killer, but your last sight was not the eyes that you so desperately tried to avoid, only the sickening smile of the magus as he draws the blade across your throat.</npc_text>
+      <onLoadScripts>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go into the light before the magus binds your soul and uses it for some nefarious purposes.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>42</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Despite the pain, you muster what strength you have and grab hold of the magus. He screams in shock as you wrestle him to the floor. He scratches and grasps at your face, perhaps hoping you'll open your eyes, but you remain resolute. Now's your chance.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[strength][critical strike]You won't get a better chance, so make it count.</text>
+          <def_link>61</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.critical_strike + aod.str) &gt;= 11 &amp;&amp; aod.str &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>57</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>45</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]The pain is too strong and you lose your grip. You struggle to secure another hold, but it is too late. The magus strikes, hard and fast.
+
+You try to react, but all your strength leaves you and you collapse to the floor. You open your eyes and see your killer, but your last sight was not the eyes that you so desperately tried to avoid, only the sickening smile of the magus as he draws the blade across your throat.</npc_text>
+      <onLoadScripts>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go into the light before the magus binds your soul and uses it for some nefarious purposes.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>61</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You make an effort to strike, but the magus avoids your blow and twists the dagger deeper into your side. You try to react, but all your strength leaves you and you collapse to the floor. You lay on your back, your eyes open, desperately trying to pull yourself away from the magus as he makes his way toward you. Suddenly, you realize that you are not under his control, despite looking into his eyes. Judging from his smile it appears that he intends to finish you off the old fashioned way.</npc_text>
+      <onLoadScripts>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go into the light.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>46</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Overcoming the pain, you grab the magus' arm, locking his dagger in place between your ribs, and strike him several times as he desperately tries to drive his dagger deeper. After what seems like eternity, he lets go off the dagger and collapses to the floor, dead.</npc_text>
+      <onLoadScripts>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+        <string>schedule(200, 0, sfxPlayOnce, csSuccessSilence01);</string>
+        <string>schedule(400, 0, sfxPlayOnce, csSuccessBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>You can open your eyes now.</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>47</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Narrowly dodging the magus' dagger, you stab him in the unprotected abdomen and quickly disengage to avoid a counter-attack.
+
+Breathing hard, the magus stands there for a while, working up the courage to face you one last time.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_faelanFight_faelanHit += 1;</string>
+        <string>reduceHPPercent(30, 8001);</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[critical strike]You won't get a better chance, so make it count.</text>
+          <def_link>56</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 8</string>
+            <string>aod.critical_strike &gt;= 4 &amp;&amp; aod.quest_faelanFight_faelanHit &gt;= 2</string>
+            <string>aod.critical_strike &gt;= 2 &amp;&amp; aod.quest_faelanFight_faelanHit &gt;= 3</string>
+            <string>aod.critical_strike &gt;= 4 &amp;&amp; aod.quest_faelanFight_PCHit &lt;= 1</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>57</int>
+            <int>57</int>
+            <int>57</int>
+            <int>60</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>51</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Narrowly dodging the magus' dagger, you stab him in the unprotected abdomen and quickly disengage to avoid a counter-attack.
+
+Already weakened, the magus cries in pain, takes a few unsteady steps and collapses to the floor, dead. It seems that he took all the damage he could handle and the last strike sent him over the edge and to the other side of the river Styx.</npc_text>
+      <onLoadScripts>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>You can open your eyes now.</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>52</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You raise your shield just in time to meet the magus' dagger, then strike as hard as you can, putting all your strength into this attack. The magus shrieks, acknowledging a hit, and falls back, cursing you and your relatives.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_faelanFight_faelanHit += 1;</string>
+        <string>reduceHPPercent(30, 8001);</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[critical strike]You won't get a better chance, so make it count.</text>
+          <def_link>56</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 8</string>
+            <string>aod.critical_strike &gt;= 4 &amp;&amp; aod.quest_faelanFight_faelanHit &gt;= 2</string>
+            <string>aod.critical_strike &gt;= 2 &amp;&amp; aod.quest_faelanFight_faelanHit &gt;= 3</string>
+            <string>aod.critical_strike &gt;= 4 &amp;&amp; aod.quest_faelanFight_PCHit &lt;= 1</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>57</int>
+            <int>57</int>
+            <int>57</int>
+            <int>60</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>53</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You raise your shield just in time to meet the magus' dagger, then strike as hard as you can, putting all your strength into this attack. The magus shrieks, acknowledging a hit, takes a few unsteady steps back and collapses to the floor, dead. It seems that he took all the damage he could handle and the last strike sent him over the edge and to the other side of the river Styx.</npc_text>
+      <onLoadScripts>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>You can open your eyes now.</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>54</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You lunge at the magus, anticipating a quick and decisive victory, but the bastard somehow manages to stab you first, the pain robbing you of your strength and will.
+
+You drop on your knees, then fall down on your side, gasping for air. The dying magus chuckles, then laughs, spitting blood. You close your eyes and drift away.</npc_text>
+      <onLoadScripts>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go into the light.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>56</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You lunge at the magus, but the bastard is ready. He stabs you first which almost brings you to your knees, but almost doesn't count. You hit him hard, your dagger sinking in to the hilt, and he limps away, gasping for air.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_faelanFight_faelanHit += 1;</string>
+        <string>aod.quest_faelanFight_PCHit += 1;</string>
+        <string>reduceHPPercent(30, 8001);</string>
+        <string>reduceHPPercent(30, 1);</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+        <string>schedule(200, 0, sfxPlayOnce, csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Open your eyes and take a peek.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[perception]Don't take any chance and keep fighting blind.</text>
+          <def_link>50</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>28</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>60</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You lunge at the magus. The bastard still manages to stab you first, but you're pretty sure you'll live which is more than can be said about the magus. He tries to draw a breath but your dagger in his throat makes all the difference in the world.</npc_text>
+      <onLoadScripts>
+        <string>reduceHPPercent(30, 1);</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+        <string>schedule(200, 0, sfxPlayOnce, csSuccessBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>You can open your eyes now.</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>57</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

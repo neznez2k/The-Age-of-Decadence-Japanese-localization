@@ -1,0 +1,345 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.fight_IG8_smugglers</string>
+      <string>aod.quest_ig8_killedCrassusGuards</string>
+    </conditions>
+    <links>
+      <int>7302</int>
+      <int>7314</int>
+    </links>
+    <dlg_name>Quest_IG8_02</dlg_name>
+    <def_link>7300</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You follow the tunnel for twenty minutes, feeling your way along the wall, when suddenly the wall ends. You take a few steps forward and suddenly several torches light up the room. You find yourself standing in a fairly large underground chamber cut out of the rock, surrounded by grim looking men who probably misunderstood the purpose of your visit.
+
+They attack before you get a chance to say anything.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(180, 40, 12, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>7301</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7300</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - smugglers</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.fight_IG8_smugglers = true;</string>
+        <string>addEnemyToParty(1, IG8_smugglers);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>7301</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Glabrio</portrait>
+      <speaker_name>Glabrio</speaker_name>
+      <npc_text>The sounds of the battle attract more smugglers. Once again you find yourself surrounded by grim looking men, but this time the atmosphere is different and the swords remain sheathed.
+
+“And who might you be?” asks one of the men. His voice is soft and pleasant, but his eyes are anything but.</npc_text>
+      <onLoadScripts>
+        <string>aod.fight_IG8_smugglers = false;</string>
+        <string>Addjournalchar(glabrio);</string>
+        <string>aod.npc_glabrio_met = 1;</string>
+        <string>dlgCam(10, 40, 10, 8060);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Glabrio);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’m a Legatus of the Imperial Guards. I need to talk to Lord Meru.”</text>
+          <def_link>7303</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7302</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Glabrio</portrait>
+      <speaker_name>Glabrio</speaker_name>
+      <npc_text>The man nods as if he understands completely, then looks at the blood on your armor.
+
+“I don’t begrudge you the loss of my men, Legatus. If they can’t jump a &lt;man/woman&gt; in the dark, what good are they to me? I would apologize for such gross incompetence, but I guess you aren’t complaining that things worked out this way, are you?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What do you want?”</text>
+          <def_link>7304</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7303</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Glabrio</portrait>
+      <speaker_name>Glabrio</speaker_name>
+      <npc_text>“No more than what’s reasonable, my friend,” smiles the man. “You like killing, yes? So, kill a few men for us and we’ll consider the matter settled.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Whom do you want me to kill?”</text>
+          <def_link>7305</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7304</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Glabrio</portrait>
+      <speaker_name>Glabrio</speaker_name>
+      <npc_text>“A couple of Meru’s guards who happened to be in my way. If we kill them and the words get out, Meru might take things the wrong way. If one of the Guards – a Legatus, no less – does it, well, I’m sure that Meru will be very understanding. He’s going to need the Guards’ help to get out of this mess.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You care nothing about the fate of the city?”</text>
+          <def_link>7306</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7305</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Glabrio</portrait>
+      <speaker_name>Glabrio</speaker_name>
+      <npc_text>“You’re being overly dramatic, Legatus. The fate of the city isn’t at stake here, only the fate of House Crassus. Not a bad thing, if you ask me.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Why do you want them dead?”</text>
+          <def_link>7307</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7306</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Glabrio</portrait>
+      <speaker_name>Glabrio</speaker_name>
+      <npc_text>“There are many old tunnels under this hill. Some lead into the lower levels of Castle Ganezzar. The men I told you about guard them.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Why do you want to get into the castle?”</text>
+          <def_link>7308</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7307</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Glabrio</portrait>
+      <speaker_name>Glabrio</speaker_name>
+      <npc_text>“I’m a patient man, Legatus, but I’m getting tired of your goddamn questions. Either go kill them and be on your way or stop wasting my time and get out of here.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Alright, I’ll do it.”</text>
+          <def_link>7309</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m not doing it.”</text>
+          <def_link>7316</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Kill 'em all.</text>
+          <def_link>7317</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7308</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Glabrio</portrait>
+      <speaker_name>Glabrio</speaker_name>
+      <npc_text>“How wonderful,” says the man drily. “Weasel will take you there,” he nods to a shifty man standing next to him.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Can you give me any men? I’m wounded...”</text>
+          <def_link>7310</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7309</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Glabrio</portrait>
+      <speaker_name>Glabrio</speaker_name>
+      <npc_text>“I’ve lost enough men for one night, don’t you think?” says the man. “Here,” he throws you a healing salve, “patch yourself up.”</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItemlist(ITEM_HealingSalve_lvl5);</string>
+        <string>addQuest(IG_GNZ1_Thieves);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go with Weasel.</text>
+          <def_link>7330</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7310</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go with Weasel</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>switchMission("Quest_IG8_03.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>7330</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Glabrio</portrait>
+      <speaker_name>Glabrio</speaker_name>
+      <npc_text>“Thank you, Legatus. Your dedication to the well-being of Ganezzar is inspiring.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(IG8_03);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Glabrio);</string>
+        <string>dlgCam(10, 40, 10, 8060);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>7315</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7314</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - inside the town</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_ig8_ganezzarFromTunnels = true;</string>
+        <string>aod.gnz_startPosition_TG = true;</string>
+        <string>remQuest(IG_GNZ1_Thieves);</string>
+        <string>switchMission("Ganezzar.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>7315</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Glabrio</portrait>
+      <speaker_name>Glabrio</speaker_name>
+      <npc_text>“Suit yourself,” says the man casually and points at the trap door. “Hope you’ve enjoyed your visit.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Alright, I’ll do it.”</text>
+          <def_link>7309</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Kill 'em all.</text>
+          <def_link>7317</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>7329</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7316</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Glabrio</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.fight_IG8_Glabrio = true;</string>
+        <string>addEnemyToParty(1, IG8_Thieves);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addQuest(IG_GNZ1_Thieves);</string>
+        <string>aod.jnl_IG_GNZ1_thieves = 2;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>7317</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - back to camp</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_ig8_fromTunnels = true;</string>
+        <string>switchMission("Quest_IG8_01.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>7329</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

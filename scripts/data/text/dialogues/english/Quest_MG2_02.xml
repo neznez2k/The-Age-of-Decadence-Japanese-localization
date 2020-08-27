@@ -1,0 +1,1528 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_mg2_carrinas_fight</string>
+    </conditions>
+    <links>
+      <int>64</int>
+    </links>
+    <dlg_name>Quest_MG2_02</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Carrinas</def_speaker_name>
+    <def_portrait>Carrinas</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>You're about to approach the barracks. Now would be a good time to go through your options.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(202, 55, 0, E);</string>
+        <string>useCameraBookmark(Quest_MG2_Cam_01);</string>
+        <string>dlgTeleportTo(227, 46, 1, E, 1130);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Put on some merchant robes and approach the entrance to the barracks.</text>
+          <def_link>1</def_link>
+          <checkOnAppear>aod.quest_mg2_merchant_failure == false &amp;&amp; aod.quest_mg2_gotSignature == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.quest_mg2_met_carrinas</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>62</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Put on the armor and approach the entrance to the barracks, looking for Mercato.</text>
+          <def_link>17</def_link>
+          <checkOnAppear>dlgGetItemsCount(423) &gt;= 1 &amp;&amp; aod.quest_mg2_mercato_help &amp;&amp; aod.quest_mg2_mercato_failure == false &amp;&amp; aod.quest_mg2_usedMercatoPath == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Put on the armor, go inside the barracks, and talk to the guard outside of Carrinas' office.</text>
+          <def_link>76</def_link>
+          <checkOnAppear>dlgGetItemsCount(423) &gt;= 1 &amp;&amp; aod.quest_mg2_mercato_help &amp;&amp; aod.quest_mg2_mercato_failure == false &amp;&amp; aod.quest_mg2_usedMercatoPath</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Put on the armor and approach the entrance to the barracks, holding the writ in your hand.</text>
+          <def_link>22</def_link>
+          <checkOnAppear>dlgGetItemsCount(423) &gt;= 1 &amp;&amp; aod.quest_mg2_cado_help &amp;&amp; dlgGetItemsCount(2140) &gt;= 1 &amp;&amp; aod.quest_mg2_cado_failure == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Talk to Carrinas and offer him your services.</text>
+          <def_link>78</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_mg2_met_carrinas</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>79</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - leave infiltration</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportTo(202, 55, 0, W);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You approach the entrance to the barracks. "From the merchants guild?" asks one of the guards. You nod and he opens the gate for you. "The Commander is waiting for you."
+
+Another guard takes you to the Commander's office. The office is simple: a bed, a table with papers, a soldier's chest. Something tells you that the chest contains nothing but armor and basic supplies.
+
+"You're here about the caravan? Let me assure you that we're doing everything in our power -"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_met_carrinas = true;</string>
+        <string>useCameraBookmark(Quest_MG2_Cam_05);</string>
+        <string>dlgTeleportTo(232, 55, 1, N, 1120);</string>
+        <string>dlgTeleportTo(232, 56, 1, S);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>addJournalChar(carrinas);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"To take over? I know."</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>78</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You approach the entrance to the barracks. "From the merchants guild?" asks one of the guards. You nod and he opens the gate for you. "The Commander is waiting for you."
+
+Another guard takes you to the Commander's office. The office is simple: a bed, a table with papers, a soldier's chest. Something tells you that the chest contains nothing but armor and basic supplies.
+
+"What do you want now?"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_met_carrinas = true;</string>
+        <string>useCameraBookmark(Quest_MG2_Cam_05);</string>
+        <string>dlgTeleportTo(232, 55, 1, N, 1120);</string>
+        <string>dlgTeleportTo(232, 56, 1, S);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>addJournalChar(carrinas);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I know about your plans..."</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>79</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You approach the entrance to the barracks. "From the merchants guild?" asks one of the guards. You nod and he opens the gate for you. "The Commander is waiting for you."
+
+Another guard takes you to the Commander's office. The office is simple: a bed, a table with papers, a soldier's chest. Something tells you that the chest contains nothing but armor and basic supplies.
+
+"What do you want now, merchant? I already gave you my word."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(232, 56, 1, S);</string>
+        <string>dlgTeleportTo(232, 55, 1, N, 1120);</string>
+        <string>if(dlgGetItemsCount(514) &lt; 1) dlgAddItemlist(quest_mg2_merchant_robes);</string>
+        <string>dlgUnequipEverything();</string>
+        <string>dlgEquipItem(514);</string>
+        <string>useCameraBookmark(Quest_MG2_Cam_05);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>addJournalChar(carrinas);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[trading]"When it comes to business, our guild prefers to rely on carefully worded documents, not on one's honour. If you want the support of our guild..."</text>
+          <def_link>80</def_link>
+          <checkOnAppear>aod.quest_mg2_merchFailTrading == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.trading &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[etiquette]"It's not your word that would be doubted, my Lord Commander, but mine when I tell the caravan masters that the roads are safe to travel."</text>
+          <def_link>4</def_link>
+          <checkOnAppear>aod.quest_mg2_merchFailEtiquette == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.etiquette &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>62</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You approach the entrance to the barracks. "From the merchants guild?" asks one of the guards. You nod and he opens the gate for you. "The Commander is waiting for you."
+
+Another guard takes you to the Commander's office. The office is simple: a bed, a table with papers, a soldier's chest. Something tells you that the chest contains nothing but armor and basic supplies.
+
+"You're here about the caravan? Let me assure you that we're doing everything in our power -"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_met_carrinas = true;</string>
+        <string>if(dlgGetItemsCount(514) &lt; 1) dlgAddItemlist(quest_mg2_merchant_robes);</string>
+        <string>dlgUnequipEverything();</string>
+        <string>dlgEquipItem(514);</string>
+        <string>useCameraBookmark(Quest_MG2_Cam_05);</string>
+        <string>dlgTeleportTo(232, 55, 1, N, 1120);</string>
+        <string>dlgTeleportTo(232, 56, 1, S);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>addJournalChar(carrinas);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I need your personal guarantee that the roads are safe."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You have my word."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[etiquette]"It's not your word that would be doubted, my Lord Commander, but mine when I tell the caravan masters that the roads are safe to travel."</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.etiquette &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading]"When it comes to business, our guild prefers to rely on carefully worded documents, not on one's honour. If you want the support of our guild..."</text>
+          <def_link>80</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.trading &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Thank you." Leave.</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"Keeping caravan masters in check is your job, not mine."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_merchFailEtiquette = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[trading]"When it comes to business, our guild prefers to rely on carefully worded documents, not on one's honour. If you want the support of our guild..."</text>
+          <def_link>6</def_link>
+          <checkOnAppear>aod.quest_mg2_merchFailTrading == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.trading &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"You are right, Commander." Leave.</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"What do you know about honor, merchant?"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_merchFailTrading = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]"I've seen enough beggared nobles and crippled legionaries to know that honor and money go together. Different sides of the same coin, I might say."</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>80</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"Throw &lt;him/her&gt; out." Carrinas turns around and leaves, as his guards drag you outside.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_merchant_failure = true;</string>
+        <string>remQuest(MG2a);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Let them take you outside.</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Very well." Carrinas sends for a quill and some parchment and within minutes you're holding a document written and signed by Commander Carrinas. You have more than enough to forge a document now.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_forgeEvidence = true;</string>
+        <string>aod.quest_mg2_gotSignature = true;</string>
+        <string>aod.quest_mg2a_phase2 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go back to Linos.</text>
+          <def_link>83</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go to Linos</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(137, 109, 0, N);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>83</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>If Carrinas is surprised, he doesn't show it. "What can I do for you then?" As he speaks several guardsmen enter the room and take positions around you.</npc_text>
+      <onLoadScripts>
+        <string>dlgCreateCharacter("Guard", 1700, 1700, 231, 57, 1, SE);</string>
+        <string>dlgCreateCharacter("Guard", 1700, 1701, 233, 57, 1, SW);</string>
+        <string>addParty(MG2_IG_Guards, 0);</string>
+        <string>addCharToParty(1700, MG2_IG_Guards, fighter);</string>
+        <string>addCharToParty(1701, MG2_IG_Guards, fighter);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I'd like to join you. After all, if one has to take sides, why not take the winning side?"</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Indeed. And what do you bring to the table, other than your loyalty?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[lore success]"I know the Charter inside out. Having someone who can expound and debate the provisions of the document that defines what the Imperial Guards can and cannot do might prove useful."</text>
+          <def_link>9</def_link>
+          <checkOnAppear>aod.lore &gt;= 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion][charisma]"Not every problem can be solved with a sword. I'm skilled in the art of persuasion and if you give me a chance..."</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.cha) &gt;= 12</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>13</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"The Charter is very clear."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"It's a legal document. It's anything but clear."</text>
+          <def_link>11</def_link>
+          <checkOnAppear>aod.lore &lt; 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[lore]"Is it? You're counting on the Charter's provision allowing you to take control and protect Imperial property. I can easily argue that the attack you had staged didn't represent a sufficient threat and that your actions were nothing but a naked power grab. I can also easily argue the opposite."</text>
+          <def_link>10</def_link>
+          <checkOnAppear>aod.lore &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Very well. All that's left to do is pass a little loyalty test.
+
+"Centurion! Take care of our newest recruit. If &lt;he/she&gt; tries to leave, kill &lt;him/her&gt;."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(233, 55, 1, W, 1130);</string>
+        <string>dlgRotateToChar(1120, 1130);</string>
+        <string>dlgRotateToChar(1130, 1120);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>65</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I'll take my chances."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][charisma]"Not every problem can be solved with a sword. I'm skilled in the art of persuasion and if you give me a chance..."</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.cha) &gt;= 12</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>13</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"Kill &lt;him/her&gt;." Carrinas turns around and leaves, as his guards draw their swords and advance.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetCombatAnimation(1700);</string>
+        <string>dlgSetCombatAnimation(1701);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>63</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Can you convince Antidas to hand me his town?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I might."</text>
+          <def_link>14</def_link>
+          <checkOnAppear>aod.trading &lt; 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading success]"Give me a good offer to take to him and I will."</text>
+          <def_link>15</def_link>
+          <checkOnAppear>aod.trading &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Not good enough. Kill &lt;him/her&gt;." Carrinas turns around and leaves, as his guards draw their swords and advance.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetCombatAnimation(1700);</string>
+        <string>dlgSetCombatAnimation(1701);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>63</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Carrinas office</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_mg2_carrinas_fight = true;</string>
+        <string>dlgTeleportTo(228, 45, 1, W, 1120);</string>
+        <string>addEnemyToParty(1, MG2_IG_Guards);</string>
+        <string>setRtsCam();</string>
+        <string>aod.gameplay_questMG2_fight = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>63</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I wish I had more negotiators like you," says Carrinas. More guards enter the room. "I accept your offer, but you need to pass a loyalty test first.
+
+"Centurion! Take care of our newest recruit. If &lt;he/she&gt; tries to leave, kill &lt;him/her&gt;."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_carrinas_fight = false;</string>
+        <string>dlgTeleportTo(233, 55, 1, SW, 1130);</string>
+        <string>useCameraBookmark(Quest_MG2_Cam_05);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>dlgTeleportTo(232, 56, 1, S);</string>
+        <string>dlgTeleportTo(232, 55, 1, N, 1120);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>65</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>64</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Let's give it a shot then. After all, there would be plenty of opportunities to kill you later if you fail.
+
+"We're about to attack the gate and the towers. Here is your chance to show me that you're not useless." He turns to one of his men. "Brief &lt;him/her&gt;."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(233, 55, 1, W, 1130);</string>
+        <string>dlgRotateToChar(1120, 1130);</string>
+        <string>dlgRotateToChar(1130, 1120);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>65</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Shorty</speaker_name>
+      <npc_text>"What do you want?"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(242, 61, 0, E);</string>
+        <string>useCameraBookmark(NPC_Shorty_01);</string>
+        <string>aod.quest_mg2_test = true;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgDeleteCharacter(1700);</string>
+        <string>dlgDeleteCharacter(1701);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I'm here for my armor."</text>
+          <def_link>75</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'm here for my armor, and I don't want the starter kit. I want an inch of solid metal between me and sharp objects. I'll pay you 300 imperials for my comfort."</text>
+          <def_link>72</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 300</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>65</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Shorty</speaker_name>
+      <npc_text>"Here you go."</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(423, 1);</string>
+        <string>dlgAddItem(1114, 1);</string>
+        <string>dlgEquipItem(423);</string>
+        <string>dlgEquipItem(1114);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Thanks."</text>
+          <def_link>73</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>75</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Shorty</speaker_name>
+      <npc_text>"Here you go. The finest protection 300 imperials can buy you."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgAddItem(424, 1);</string>
+        <string>dlgAddItem(1120, 1);</string>
+        <string>dlgAddItem(1703, 1);</string>
+        <string>dlgEquipItem(424);</string>
+        <string>dlgEquipItem(1120);</string>
+        <string>dlgEquipItem(1703);</string>
+        <string>dlgChangeMoney (-300);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Thanks."</text>
+          <def_link>73</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>72</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start IG2</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>dlgCreateCharacter("帝国兵", 1541, 1541, 224, 51, 0, N);</string>
+        <string>dlgCreateCharacter("帝国兵", 1542, 1542, 222, 51, 0, N);</string>
+        <string>dlgCreateCharacter("帝国兵", 1543, 1543, 221, 51, 0, N);</string>
+        <string>dlgCreateCharacter("帝国兵", 1544, 1544, 220, 51, 0, N);</string>
+        <string>dlgTeleportTo(223, 51, 0, N);</string>
+        <string>useCameraBookmark(quest_IG1_cam_02);</string>
+        <string>dlgTeleportTo(222, 53, 0, S, 1120);</string>
+        <string>dlgTeleportTo(223, 53, 0, W, 1130);</string>
+        <string>apmsStartDialogue(Quest_IG2);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>73</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Mercato</portrait>
+      <speaker_name>Mercato</speaker_name>
+      <npc_text>You approach the entrance to the barracks. One of the guards is about to stop you but Mercato steps forward blocking the view and barks: "You're late! You were supposed to be here half an hour ago. Get inside!", then he turns around to the guards and says: "New recruit. They let anyone join these days. Now, back in my day..."</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(Quest_MG2_Cam_04);</string>
+        <string>dlgTeleportTo(219, 56, 0, E);</string>
+        <string>dlgTeleportTo(216, 57, 0, E, 1140);</string>
+        <string>dlgEquipItem(423);</string>
+        <string>tbd_door_barracks_01.open();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgsetwalkanimation();</string>
+        <string>aod.quest_mg2_usedMercatoPath = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go inside.</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>The barracks are overcrowded. In preparation for the attack, Carrinas has expanded the garrison, bringing in guards loyal to him from the wastelands and taking in new recruits destined to shield the much more valuable veterans from the first attacks. As a result, the armor makes you invisible and you walk through the halls unquestioned.
+
+It doesn't take long to find your destination. A guard posted in front of a heavy door plays the role of an x marking the spot. "What do you want now?"</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(Quest_MG2_Cam_06);</string>
+        <string>dlgTeleportTo(238, 54, 1, W);</string>
+        <string>dlgTeleportTo(230, 49, 1, E, 1120);</string>
+        <string>dlgTeleportTo(225, 58, 0, W, 1140);</string>
+        <string>dlgEquipItem(423);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>tbd_door_barracks_01.close();</string>
+        <string>dlgSetAmbientAnimation();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise success]"Where are the orders?"</text>
+          <def_link>19</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 3 &amp;&amp; aod.quest_mg2_failedStreetwiseMercato == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading]"I'll pay you 500 imperials for five minutes inside this room."</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.trading &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>26</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>76</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>The barracks are overcrowded. In preparation for the attack, Carrinas has expanded the garrison, bringing in guards loyal to him from the wastelands and taking in new recruits destined to shield the much more valuable veterans from the first attacks. As a result, the armor makes you invisible and you walk through the halls unquestioned.
+
+It doesn't take long to find your destination. A guard posted in front of a heavy door plays the role of an x marking the spot. "Commander's quarters," says the guard tiredly, probably not the first time today.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(Quest_MG2_Cam_06);</string>
+        <string>dlgTeleportTo(238, 54, 1, W);</string>
+        <string>dlgTeleportTo(230, 49, 1, E, 1120);</string>
+        <string>dlgTeleportTo(225, 58, 0, W, 1140);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>tbd_door_barracks_01.close();</string>
+        <string>dlgSetAmbientAnimation();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise success]"Where are the orders?"</text>
+          <def_link>19</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 4 &amp;&amp; aod.quest_mg2_failedStreetwiseMercato == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading]"I'll pay you 500 imperials for five minutes inside this room."</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.trading &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>26</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>"What orders?" The guard blinks in surprise.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[impersonate][streetwise]"You were told to get the orders from the Commander's desk and have them ready for a courier. I don't have time. The orders, where are they?"</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.disguise + aod.streetwise) &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>23</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[failure]"Listen," the guard looks at you with suspicion, "I wasn't told anything. So, if you think that there is some kinda mistake, wait for the Commander and straighten it out with him."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_failedStreetwiseMercato = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[trading]"I'll pay you 500 imperials for five minutes inside this room."</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.trading &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>26</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[failure]"It better be some joke I didn't get." The guard reaches for his sword.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_mercato_failure = true;</string>
+        <string>dlgSetCombatAnimation(1610);</string>
+        <string>remQuest(MG2b);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[success]"What orders? Nobody told me anything!"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[impersonate][streetwise]"You're in deep shit then, friend. If the Commander's plans fail because YOU didn't get the orders ready..."</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.disguise + aod.streetwise) &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>24</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[success]"Please..." The guard starts pleading. "Let's go in, get those orders, and you'll be on your way."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_infiltration = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Alright, but you owe me." Go inside.</text>
+          <def_link>30</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[success]"My honour isn't for sale." The guard gives you a hard stare but neither goes for his sword nor sounds the alarm.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[trading]"Everything is for sale, if enough is offered. 1,000 imperials."</text>
+          <def_link>28</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.trading &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>27</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>26</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[failure]"Say another word and I'll gut you like a fish." The guard reaches for his sword.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_mercato_failure = true;</string>
+        <string>dlgSetCombatAnimation(1610);</string>
+        <string>remQuest(MG2b);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>28</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[success]"Show me the money."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Here is the money."</text>
+          <def_link>29</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 1000</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[commercium]Scribble a note to Linos and give it to the guard.</text>
+          <def_link>57</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>27</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>"What is it?" the guard asks suspiciously.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Take this note to the Commercium and ask for Linos. He'll give you the money."</text>
+          <def_link>58</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>57</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>"You think I'm stupid? I'm not leaving my post." The guard smiles and makes arrangements with a friend. You have no choice but to wait.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(237, 55, 1, S, 1611);</string>
+        <string>dlgRotateToChar(1611, 1610);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>59</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(commercium) &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>61</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>58</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[reputation failure]The man returns in a half an hour. He nods and the guard opens the door letting you inside.
+
+"Linos has a message for you. He says he's disappointed and doesn't think you have a future with the merchant guild. If you ask me," the man says casually, "I don't think you have any future at all." A blade slides between the metal bands of your armor and sinks deep into your side. You take a step back but your legs give in and you fall down.
+
+"Caught &lt;him/her&gt; snooping around," you hear the guard explains to someone. "You never know whom you can trust these days."
+
+You close your eyes - just for a second - but never open them again.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(Quest_MG2_Cam_05);</string>
+        <string>dlgTeleportTo(232, 55, 1, E);</string>
+        <string>dlgTeleportTo(233, 54, 1, NW, 1610);</string>
+        <string>dlgTeleportTo(232, 56, 1, S, 1611);</string>
+        <string>dlgSetAnimation(anim_death_aimed_torso, 0.55);</string>
+        <string>dlgSetCombatAnimation(1610);</string>
+        <string>dlgSetCombatAnimation(1611);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go into the light.</text>
+          <def_link>60</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>59</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[reputation success]The man returns in a half an hour. He nods and the guard opens the door letting you inside.
+
+"Pleasure doing business, my friend. You have 5 minutes."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_linos_paid = true;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgRotateToChar(1, 1610);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>30</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>61</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>60</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>"Pleasure doing business, my friend. You have 5 minutes."</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-1000);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>30</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>29</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>The Commander's office is simple: a bed, a table with papers, a soldier's chest. Something tells you that the chest contains nothing but armor and basic supplies. You walk to the table and go through the documents. Carrinas does have big plans for Teron and they don't include House Daratan.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(Quest_MG2_Cam_07);</string>
+        <string>dlgTeleportTo(231, 56, 1, W);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_mg2_hasEvidence = true;</string>
+        <string>aod.quest_mg2_infiltration = false;</string>
+        <string>remQuest(MG2b);</string>
+        <string>aod.quest_mg2_realEvidence = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take the documents to Antidas.</text>
+          <def_link>47</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>30</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - failure</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(202, 55, 0, W);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>You approach the entrance to the barracks. One of the guards is about to step forward and stop you but you shove the writ in his face. "I can't read." says the guard apologetically. "What does it say?"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(216, 57, 0, E);</string>
+        <string>useCameraBookmark(Quest_MG2_Cam_04);</string>
+        <string>dlgEquipItem(423);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[impersonate]"It says that I'm speaking with the voice of Commander Gnaeus Laenas and that I can nail everyone who looks at me the wrong way to a fucking cross."</text>
+          <def_link>31</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.disguise &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>32</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[failure]"Get out of here before we nail *your* ass to a cross."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_cado_failure = true;</string>
+        <string>dlgSetCombatAnimation(1341);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>31</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[success]The guards move out of your way with a surprising speed and you go inside. The barracks are overcrowded. In preparation for the attack Carrinas has expanded the garrison, bringing in guards loyal to him from the wastelands and taking in new recruits destined to shield the much more valuable veterans from the first attacks. As a result, the armor makes you invisible and you walk through the halls unquestioned.
+
+It doesn't take long to find your destination. A guard posted in front of a heavy door plays the role of an x marking the spot. "Commander's quarters," says the guard tiredly, probably not the first time today.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(238, 54, 1, W);</string>
+        <string>useCameraBookmark(Quest_MG2_Cam_06);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Bark, "Out of my way," showing him the writ.</text>
+          <def_link>33</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>32</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>This guard takes the writ, opens it up and slowly reads it. Without saying another word, he returns the scroll, unlocks the door, and leaves.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go inside.</text>
+          <def_link>34</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>33</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The Commander's office is simple: a bed, a table with papers, a soldier's chest. Something tells you that the chest contains nothing but armor and basic supplies. You take a step toward the table, when Carrinas storms in. He grabs the scroll, opens it and throws it on his desk once he sees that it's authentic.
+
+"What does Caer-Tor want?"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(232, 56, 1, S);</string>
+        <string>dlgTeleportTo(232, 55, 1, N, 1120);</string>
+        <string>useCameraBookmark(Quest_MG2_Cam_05);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_mg2_met_carrinas = true;</string>
+        <string>addJournalChar(carrinas);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Caer-Tor feels that your plans are too bold. They are afraid of the consequences, should you fail. That's why they are sending in Laenas..."</text>
+          <def_link>35</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>34</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I will not fail and I don't need anyone looking over my shoulder."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I understand how you feel, but I'm just following my orders, Commander. Is there any message you wish me to take back to Caer-Tor?"</text>
+          <def_link>36</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>35</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Tell them the plans are already in motion."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[impersonate][persuasion]"I think it would be a good opportunity for you to reassure them that you won't fail."</text>
+          <def_link>37</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.disguise) &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>38</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[impersonate][streetwise]"Need I remind you about the chain of command, Commander? You're *ordered* to stand down and wait. Unless you want to be court-martialed, you better explain your actions."</text>
+          <def_link>82</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.disguise + aod.streetwise) &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>77</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>36</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"I don't have to prove anything to anyone."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[impersonate][streetwise]"Need I remind you about the chain of command, Commander? You're *ordered* to stand down and wait. Unless you want to be court-martialed, you better explain your actions."</text>
+          <def_link>39</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.disguise + aod.streetwise) &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>77</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>37</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"I don't have to prove anything to anyone."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[impersonate][persuasion]"I think it would be a good opportunity for you to reassure them that you won't fail."</text>
+          <def_link>39</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.disguise) &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>38</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>82</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"They wouldn't dare to court-martial me, if I hand them Teron on a plate."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]"Would you bet your future on it? Do yourself a favour, Commander, and tell them what they need to hear. Tell them that the leash is still there."</text>
+          <def_link>39</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>40</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion]"In the absence of facts people assume the worst. Show them your plans. Make them believe."</text>
+          <def_link>39</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>40</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>77</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"I don't think my reassurances would change anything. The judgement has already been made."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]"Would you bet your future on it? Do yourself a favour, Commander, and tell them what they need to hear. Tell them that the leash is still there."</text>
+          <def_link>39</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>40</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion]"In the absence of facts people assume the worst. Show them your plans. Make them believe."</text>
+          <def_link>39</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>40</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>38</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"Out of the question. Be on your way and tell your masters that I don't kneel."</npc_text>
+      <onLoadScripts>
+        <string>if(aod.cha &lt; 10) aod.quest_mg2_merchant_failure = true;</string>
+        <string>if(aod.cha &lt; 10) aod.quest_mg2_cado_failure = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[charisma success]"Commander, everyone kneels to someone. It is most unwise to believe otherwise."</text>
+          <def_link>40</def_link>
+          <checkOnAppear>aod.cha == 10</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>25</def_link>
+          <checkOnAppear>aod.cha &lt; 10</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>39</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Alright," Carrinas says with a sudden calm. "I doubt it would make things any worse at this stage, but if it gets the Caer-Tor off my back..." He takes one of the documents from his desk, rolls it, and stamps it with his seal. "Guard it with your life."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_infiltration = false;</string>
+        <string>aod.quest_mg2_hasEvidence = true;</string>
+        <string>aod.quest_mg2_realEvidence = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I will, Commander." Go see Antidas.</text>
+          <def_link>47</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>40</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go to palace</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Antidas_Cam_01);</string>
+        <string>dlgTeleportTo(167, 163, 0, N);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgSetZoom(10);</string>
+        <string>aod.quest_mg2_phase2a = true;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>47</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

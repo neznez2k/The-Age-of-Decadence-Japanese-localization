@@ -1,0 +1,184 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_undertaker03_met</string>
+      <string>aod.npc_antidas_dead</string>
+    </conditions>
+    <links>
+      <int>6</int>
+      <int>0</int>
+    </links>
+    <dlg_name>Teron_Undertaker_02</dlg_name>
+    <def_link>6</def_link>
+    <def_speaker_name>Undertaker</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Let me guess, you want to see the grave?” asks the undertaker. “Come with me.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_undertaker03_met = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Follow him.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The undertaker leads you to a new looking grave. Though the field is crowded with markers, this one is in a prominent, central location, the ground slightly raised. It must have been reserved long ago, or more likely other, lesser graves were displaced to make room. The man slows down as he approaches, then runs a hand lovingly along the top of the stone, a fine-grained white marble.
+
+"Look at her, will you? Great craftsmanship befitting a great man. Yes, my friend, this is the grave of Antidas." He says the name with pride, as if Antidas were his own grandfather. "The great Antidas, slain by the Imperial Guards in his own palace." He pauses to observe a moment of respect for the dead man, then spits. "Godless jackals! What will our descendants say of such a deed, that we let men such as he be attacked and murdered?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“They say he wasn’t a good lord.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“But a lord he was,” the undertaker says sternly. “There is a natural order in all things. Lords rule, guards protect, farmers work the land. When guards start murdering lords, you know the end is not far away.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“The end of the world?”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“And who determines this order?”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Did you think it was going to last forever? Name me one thing that does.
+
+“Ever seen one of those shrinking lakes in the desert? They dry up, splitting into ponds and islands, and everyone and everything that relies on that water – frogs, fish, crops, men and beasts – they’re all fucked, aren’t they? Of course, men can move to greener pastures, but the frogs and the fish? They die with that lake.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_undertaker03_askedEnd = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“This natural order you mentioned. Who determines it?”</text>
+          <def_link>5</def_link>
+          <checkOnAppear>aod.npc_undertaker03_askedOrder == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Might as well ask who determines that summer always follows spring. That’s just how things are. Wherever there are men, you’ll find lords whose lot is to rule and lay down the laws, soldiers to enforce these laws and fight for their lords, farmers to grow crops, merchants to trade, and all the way down to the very bottom. The natural order of things, like I said.
+
+“You try to change this order – you’ll be asking for trouble.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_undertaker03_askedOrder = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“You mentioned the end of the world?”</text>
+          <def_link>4</def_link>
+          <checkOnAppear>aod.npc_undertaker03_askedEnd == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I've got things to do. Come back later if you want to talk.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

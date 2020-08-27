@@ -1,0 +1,371 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>vignette_merchant</dlg_name>
+    <def_link>28</def_link>
+    <def_speaker_name>Linos</def_speaker_name>
+    <def_portrait>linos</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Linos the Skull owed his nickname to his appearance, and his appearance to the decades of service to the merchants guild. It was that service that changed an enthusiastic youth with blue eyes and wavy auburn hair into a dispassionate old man with a bald head and cold, almost colorless eyes sitting deep within the dark sockets. Business to Linos was a board game. He moved pieces and executed strategies, without taking any "human element" into consideration. A good opportunity shouldn't be missed solely because some people were standing in the way.
+
+"I can't believe that Gracius dared to come to Teron after all. That bastard. It's an insult."</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Linos_cam_01);</string>
+        <string>dlgTeleportTo(134, 118, 0, N);</string>
+        <string>addQuest(Map);</string>
+        <string>aod.quest_map_phase1 = true;</string>
+        <string>assignDialogue(linos_01, 1080);</string>
+        <string>vignette_mg_open();</string>
+        <string>PG_HelpText_01.setVisible(false);</string>
+        <string>addJournalChar(linos);</string>
+        <string>remQuest(VignetteMerchant);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Gracius?"</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>28</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"The fat trader, remember? We caught him peddling his wares in Teron six months ago and threw him out. Well, he's back in town again.
+
+"Talk to Neleos, the guildmaster of the assassins. Ask him to take care of this problem for us. Here's the money, along with a little extra for you. Make sure he tells Gracius that we wish to remind him that the fat bastard is *still* not welcome in this town before they cut his throat or however it is that they kill people."</npc_text>
+      <onLoadScripts>
+        <string>aod.vignette_merchant_kill = false;</string>
+        <string>aod.vignette_merchant_laws = false;</string>
+        <string>dlgChangeMoney(225);</string>
+        <string>dlgAddTextBoxMessage("You got 225 imperials from Linos");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"You'll kill a man for trading in your town?"</text>
+          <def_link>30</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What about the laws?"</text>
+          <def_link>31</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'll talk to Neleos."</text>
+          <def_link>48</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>29</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You're overdramatizing the situation. Did the trader give me any choice? No. If I do nothing now, tomorrow ten traders will open shops here without paying the guild. We must protect our interests, must we not?"</npc_text>
+      <onLoadScripts>
+        <string>aod.vignette_merchant_kill = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"What about the laws?"</text>
+          <def_link>31</def_link>
+          <checkOnAppear>aod.vignette_merchant_laws == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'll talk to Neleos."</text>
+          <def_link>48</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>30</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What about them? I'm not asking you to steal his purse, I'm asking you to pay the assassins to kill him. Must I do everything myself?"</npc_text>
+      <onLoadScripts>
+        <string>aod.vignette_merchant_laws = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"You'll kill a man for trading in your town?"</text>
+          <def_link>30</def_link>
+          <checkOnAppear>aod.vignette_merchant_kill == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'll talk to Neleos."</text>
+          <def_link>48</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>31</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>In the halcyon days of the Empire, the Emperor commanded his own guard. Apart from their regular duties of protection for the Emperor, they were trained as experts in infiltration and assassination. Many political and military opponents would meet with unexplainable misfortune or death in the rapture of night, ensuring the long-standing stability of the Empire. After the fall, without a master to serve, the guard disbanded into the chaos of the fallen empire. Once outside they found that even as the world lay in ruins, their peacekeeping services were in great demand. An Assassins' Order was established that later bore the proud name of the Regiment – the Boatmen of Styx.
+
+You enter the Boatmen of Styx guild. The business-like nature of the establishment is very clear. The hall is lacking any decoration or flamboyance and the patrons are mostly silent. There are no guards anywhere in the room.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(211, 106, 0, E);</string>
+        <string>useCameraBookmark(NPC_neleos_cam_01);</string>
+        <string>aod.exploration_location_TeronAG = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Talk to Neleos.</text>
+          <def_link>33</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>48</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>Neleos, the guildmaster of Teron's assassins, always smiled. He smiled when he talked to people, as if he was just told a good joke, and he smiled when he had to kill, which, in his mind, was a joke life played on his victims. Since the dead are good at keeping secrets, few people thought of Neleos as an assassin, and the general consensus was that Neleos was strictly an administrator of the guild, rather than someone who killed for a living.
+
+"Greetings, &lt;charname&gt;! Who crossed your guild this time?"</npc_text>
+      <onLoadScripts>
+        <string>dlgAddTextBoxMessage("You enter the Assassins Guild");</string>
+        <string>addJournalChar(neleos);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"This time?"</text>
+          <def_link>34</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Gracius, the trader."</text>
+          <def_link>35</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>33</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>"You think this is the first time we've been asked to eliminate unwanted players in the trading game? After the Empire fell, there were dozens of little trading guilds and companies. It was a very busy time for us. Now there is only one." Neleos gives you a polite 'thank you for your business' smile.
+
+"So, &lt;charname&gt;, who crossed your guild this time?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Gracius, the trader."</text>
+          <def_link>35</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>34</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>"I've heard of him. 200 imperials and he will bother you no more."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"200 imperials? What are you going to do? Kill him twice?"</text>
+          <def_link>36</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>35</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>Neleos chuckles. "I've never seen a merchant who wouldn't try to knock the price down. Then again, I've never seen a merchant who could actually kill someone, so the price stays. If you want Gracius dead, pay 200 imperials. If you don't want him dead, you go back to Linos and tell him that you've changed your mind."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[trading]"Come to think about it, maybe we should reconsider. After all, I'm sure that it's cheaper to convince Gracius to fall in line..."</text>
+          <def_link>38</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.trading &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>37</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>36</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>[success]"You'll make a fine merchant one day, &lt;master/mistress&gt; &lt;charname&gt;. 150 imperials."</npc_text>
+      <onLoadScripts>
+        <string>aod.vignette_merchant_trade_success = true;</string>
+        <string>rwd_civil(vignetteMerchant_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay 150 imperials. "Before I forget, tell Gracius that we wish to remind him that he's still not welcome in this town."</text>
+          <def_link>39</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>37</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>[failure]"I'm sure it is, &lt;master/mistress&gt; &lt;charname&gt;."</npc_text>
+      <onLoadScripts>
+        <string>aod.vignette_merchant_trade_fail = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay 200 imperials. "Before I forget, tell Gracius that we wish to remind him that he's still not welcome in this town."</text>
+          <def_link>39</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>38</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>"Not a problem. Will there be anything else today, &lt;master/mistress&gt; &lt;charname&gt;?"</npc_text>
+      <onLoadScripts>
+        <string>if(aod.vignette_merchant_trade_success) {dlgChangeMoney(-150); dlgAddTextBoxMessage("You pay 150 imperials to Neleos");}</string>
+        <string>if(aod.vignette_merchant_trade_fail) {dlgChangeMoney(-200); dlgAddTextBoxMessage("You pay 200 imperials to Neleos");}</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Pleasure doing business." Go rest and see Linos in the morning.</text>
+          <def_link>44</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>39</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Ah, &lt;charname&gt;! Good job. Gracius won't trouble us again. As they say "death solves all problems – no man, no problem." Linos laughs good-naturedly. "By the way, this is for you." He hands you a scroll. It looks like a map.
+
+"That's the real reason why Gracius is dead. This old map made him bold and greedy, made him think he can return and buy favors with it. I thought you would appreciate the irony. Show the map to Feng. I'd like to know what it is."</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(2100, 1);</string>
+        <string>dlgAddTextBoxMessage("You receive a map from Linos");</string>
+        <string>dlgTeleportTo(134, 118, 0, N);</string>
+        <string>useCameraBookmark(NPC_Linos_cam_01);</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>rwd_quest(vignetteMerchant);</string>
+        <string>aod.global_teron_vignette = false;</string>
+        <string>addQuest(MG_WorkTRN);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go pay Feng a visit.</text>
+          <def_link>50</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>45</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>44</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - vignette</npc_text>
+      <onLoadScripts>
+        <string>aod.vignette_merchant_linos = false;</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setAchievement("ACH_MERCHANT");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>45</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - leave to Feng</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(159, 72, 0, N);</string>
+        <string>aod.vignette_merchant_linos = false;</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setAchievement("ACH_MERCHANT");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>50</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

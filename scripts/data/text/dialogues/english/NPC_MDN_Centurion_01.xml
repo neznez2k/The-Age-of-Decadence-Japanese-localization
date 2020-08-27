@@ -1,0 +1,568 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.mdn_allowed_palace || aod.pc_member_aurelian</string>
+      <string>aod.npc_palace_centurion_met</string>
+      <string>aod.npc_palace_centurion_met || aod.gaelius_working</string>
+    </conditions>
+    <links>
+      <int>11</int>
+      <int>9</int>
+      <int>8</int>
+    </links>
+    <dlg_name>NPC_MDN_Centurion_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Centurion</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The entrance is blocked by a burly centurion, expertly handling the traffic and sending people away almost as fast as they come.
+
+“State your business,” says the centurion in a monotone voice.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_palace_centurion_met = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I want to talk to Lord Gaelius.”</text>
+          <def_link>2</def_link>
+          <checkOnAppear>aod.npc_gaelius_dead == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I want to talk to Lord Serenas. Master Strabos sent me.”</text>
+          <def_link>10</def_link>
+          <checkOnAppear>aod.quest_mg6_active</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'm here to see Dux Paullus."</text>
+          <def_link>11</def_link>
+          <checkOnAppear>aod.npc_paullus_mdn</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Show him the silver badge.</text>
+          <def_link>1</def_link>
+          <checkOnAppear>dlgOwnsItem(2178)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Always wanted to see the palace."</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It’s a fake,” says the centurion, barely glancing at the badge. “Last month, we crucified three men for selling these badges, but I guess people like you make it too tempting for them.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_centurion_talkedBadge = true;</string>
+        <string>dlgRemoveItem(2178, 1);</string>
+        <string>dlgAddItem(2176, 1);</string>
+        <string>createByCharMarker("CM_MDN_NewComer");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Do I even need a badge?”</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.mdn_allowed_palace</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Only if you’re one of the guards. Anyway, you can come in.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Only if you’re one of the guards. So, why do you want to get in so badly?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I want to talk to Lord Gaelius.”</text>
+          <def_link>2</def_link>
+          <checkOnAppear>aod.npc_gaelius_dead == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I want to talk to Lord Serenas. Master Strabos sent me.”</text>
+          <def_link>10</def_link>
+          <checkOnAppear>aod.quest_mg6_active</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'm here to see Dux Paullus."</text>
+          <def_link>11</def_link>
+          <checkOnAppear>aod.npc_paullus_mdn</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Always wanted to see the palace."</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Don't waste my time."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I want to talk to Lord Serenas. Master Strabos sent me.”</text>
+          <def_link>10</def_link>
+          <checkOnAppear>aod.quest_mg6_active</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Show him the map.</text>
+          <def_link>6</def_link>
+          <checkOnAppear>aod.npc_mdnCenturion_mapShown == false &amp;&amp; dlgOwnsItem(2100)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Show him the documents you took from Carrinas.</text>
+          <def_link>4</def_link>
+          <checkOnAppear>aod.quest_IG3_tookDocuments</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Show him the dead spy's reports.</text>
+          <def_link>4</def_link>
+          <checkOnAppear>dlgGetItemsCount(2135) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Lord Gaelius is expecting me. I bring him urgent news that he'll want to hear without delay."</text>
+          <def_link>12</def_link>
+          <checkOnAppear>(aod.quest_MG5_active &amp;&amp; aod.quest_MG5_reportStrabos == false) || aod.quest_TG6_active || aod.npc_pavola_reportStrabos || aod.quest_ig4_betrayedIG</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'm here to see Dux Paullus."</text>
+          <def_link>11</def_link>
+          <checkOnAppear>aod.npc_paullus_mdn</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Does Lord Gaelius want to talk to you? If you can't think of a reason, then the answer is 'no'."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Show him the map.</text>
+          <def_link>6</def_link>
+          <checkOnAppear>aod.npc_mdnCenturion_mapShown == false &amp;&amp; dlgOwnsItem(2100)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Show him the documents you took from Carrinas.</text>
+          <def_link>4</def_link>
+          <checkOnAppear>aod.quest_IG3_tookDocuments</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Show him the dead spy's reports.</text>
+          <def_link>4</def_link>
+          <checkOnAppear>dlgGetItemsCount(2135) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Lord Gaelius is expecting me. I bring him urgent news that he'll want to hear without delay."</text>
+          <def_link>12</def_link>
+          <checkOnAppear>(aod.quest_MG5_active &amp;&amp; aod.quest_MG5_reportStrabos == false) || aod.quest_TG6_active || aod.npc_pavola_reportStrabos || aod.quest_ig4_betrayedIG</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Ah, now this is interesting. Go in.”</npc_text>
+      <onLoadScripts>
+        <string>aod.mdn_allowed_palace = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go in.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - palace district</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - palace</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgTeleportToMarker(TM_Palace_Interior);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>VCO_EnterPalace.setActive(true);</string>
+        <string>setObjectRenderState(Exit_EnterPalace, 0);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It’s a map. What am I supposed to do with it?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_mdnCenturion_mapShown = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Show him the documents you took from Carrinas.</text>
+          <def_link>4</def_link>
+          <checkOnAppear>aod.quest_IG3_tookDocuments</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Show him the dead spy's reports.</text>
+          <def_link>4</def_link>
+          <checkOnAppear>dlgGetItemsCount(2135) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Still alive? Well, come on in.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go in.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You again? You aren't here to waste my time, are you?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I want to talk to Lord Serenas. Master Strabos sent me.”</text>
+          <def_link>10</def_link>
+          <checkOnAppear>aod.quest_mg6_active</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Show him the map.</text>
+          <def_link>6</def_link>
+          <checkOnAppear>aod.npc_mdnCenturion_mapShown == false &amp;&amp; dlgOwnsItem(2100)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Show him the documents you took from Carrinas.</text>
+          <def_link>4</def_link>
+          <checkOnAppear>aod.quest_IG3_tookDocuments</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Show him the dead spy's reports.</text>
+          <def_link>4</def_link>
+          <checkOnAppear>dlgGetItemsCount(2135) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Lord Gaelius is expecting me. I bring him urgent news that he'll want to hear without delay."</text>
+          <def_link>12</def_link>
+          <checkOnAppear>(aod.quest_MG5_active &amp;&amp; aod.quest_MG5_reportStrabos == false) || aod.quest_TG6_active || aod.npc_pavola_reportStrabos || aod.quest_ig4_betrayedIG</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'm here to see Dux Paullus."</text>
+          <def_link>11</def_link>
+          <checkOnAppear>aod.npc_paullus_mdn</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Guild?" demands the Centurion, unfazed by your eagerness.</npc_text>
+      <onLoadScripts>
+        <string>aod.mdn_allowed_palace = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I'm a soldier, not some guild rat."</text>
+          <def_link>13</def_link>
+          <checkOnAppear>aod.pc_member_guards || aod.quest_ig4_betrayedIG</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"The Commercium."</text>
+          <def_link>16</def_link>
+          <checkOnAppear>aod.pc_member_commercium</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I serve master Levir."</text>
+          <def_link>17</def_link>
+          <checkOnAppear>aod.pc_member_thieves</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"One rat's as grey as another. Well, come on in, 'soldier'."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go in.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You people do know the value of information, so whatever got you so excited has got to be good. Go in."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go in.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Your kind is a rare guest in this district. Go in, but remember that you will be watched."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go in.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Lord Serenas is expecting you. Go in.”</npc_text>
+      <onLoadScripts>
+        <string>aod.mdn_allowed_palace = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go in.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Go in. You're on the list."</npc_text>
+      <onLoadScripts>
+        <string>VCO_EnterPalace.setActive(true);</string>
+        <string>setObjectRenderState(Exit_EnterPalace, 1);</string>
+        <string>aod.mdn_allowed_palace = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Show him the silver badge.</text>
+          <def_link>1</def_link>
+          <checkOnAppear>dlgOwnsItem(2178) &amp;&amp; aod.npc_centurion_talkedBadge == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

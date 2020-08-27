@@ -1,0 +1,1415 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.fight_IG6_secondWave</string>
+      <string>aod.quest_ordu_attackStrength == 2 &amp;&amp; aod.fight_IG6_firstWave</string>
+      <string>aod.fight_IG6_firstWave</string>
+      <string>aod.quest_IG6_ready</string>
+      <string>aod.quest_IG6_preparations</string>
+    </conditions>
+    <links>
+      <int>3490</int>
+      <int>3511</int>
+      <int>3489</int>
+      <int>3485</int>
+      <int>3512</int>
+    </links>
+    <dlg_name>Quest_IG6_01</dlg_name>
+    <def_link>3476</def_link>
+    <def_speaker_name>Bass</def_speaker_name>
+    <def_portrait>Bass</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The pass changed in your absence. The towers are gone, replaced by a crude catapult and wooden barricades in front of the stone walls. The barricades don’t block the approach, but create a narrow corridor. The men look less like brigands and more like soldiers.
+
+“Drilled them every day,” says Bass as if reading your thoughts. “I told them that the Ordu will bugger them first and only then kill them, so they are sufficiently motivated to fight till the last breath. How was your trip?”</npc_text>
+      <onLoadScripts>
+        <string>cheatHP();</string>
+        <string>dlgTeleportToMarker(TM_Bass_PC_01);</string>
+        <string>dlgCam(110, 45, 7, 4410);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I did the best I could. So, what’s the plan?”</text>
+          <def_link>3477</def_link>
+          <checkOnAppear>aod.quest_ordu_attackStrength &gt;= 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I convinced them to stay on the plains.”</text>
+          <def_link>3503</def_link>
+          <checkOnAppear>aod.quest_ordu_attackStrength == 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3476</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The walls won’t hold them for long and the Ordu are better marksmen. If I put my men on the wall or the towers, they will be dead the moment they raise their heads. We can’t hold them all at the wall, but we can fight them here, a few at a time. That’s what the barricades are for – to narrow the way in. We light them up to keep them from climbing over them and use this baby,” he points at the catapult, “to keep them from rushing in all at once.”</npc_text>
+      <onLoadScripts>
+        <string>addQuest(IG6);</string>
+        <string>rwd_quest(IG5_01);</string>
+        <string>aod.jnl_ig5_phase3 = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“That’s the plan?”</text>
+          <def_link>3478</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What are you going to throw at them? Boulders?”</text>
+          <def_link>3480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3477</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“That’s the plan,” says Bass proudly.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Are you sure it’s going to work?”</text>
+          <def_link>3479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3478</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Would you believe me if I said yes?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What are you going to throw at them? Boulders?”</text>
+          <def_link>3480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3479</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Clay pots, filled with the black powder. I have enough for eight shots.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_IG6_preparations = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"How much time do we have?"</text>
+          <def_link>3527</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_ordu_attackStrength == 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3526</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3480</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Not a lot. Two hours at most."</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(IG5_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Let me see what I can do to help."</text>
+          <def_link>3525</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3526</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"They seem to be taking their sweet time getting here, so we have more than a few hours to kill."</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(IG5_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Let me see what I can do to help."</text>
+          <def_link>3512</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3527</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What can you do in such a short time?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[alchemy]Check the clay pots.</text>
+          <def_link>3482</def_link>
+          <checkOnAppear>aod.alchemy &gt;= 3</checkOnAppear>
+          <checksOnClick>
+            <string>aod.alchemy &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3483</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[crafting]Inspect the weapons.</text>
+          <def_link>3513</def_link>
+          <checkOnAppear>aod.crafting &gt;= 3</checkOnAppear>
+          <checksOnClick>
+            <string>aod.crafting &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3514</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[traps success]Set up a surprise party for the Ordu.</text>
+          <def_link>3516</def_link>
+          <checkOnAppear>aod.traps &gt;= 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[melee success]Give the guards a crash-course on killing people up close and personal.</text>
+          <def_link>3517</def_link>
+          <checkOnAppear>aod.dagger &gt;= 8 || aod.sword &gt;= 8 || aod.spear &gt;= 8 || aod.axe &gt;= 8 || aod.hammer &gt;= 8</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[ranged success]Give the guards a crash-course on killing people from a distance.</text>
+          <def_link>3519</def_link>
+          <checkOnAppear>aod.bow &gt;= 8 || aod.crossbow &gt;= 8 || aod.throwing &gt;= 8</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dodge success]Give the guards a crash-course on dodging blows.</text>
+          <def_link>3520</def_link>
+          <checkOnAppear>aod.dodge &gt;= 8</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[block success]Give the guards 'Getting the most out of your shield' crash-course.</text>
+          <def_link>3521</def_link>
+          <checkOnAppear>aod.block &gt;= 8</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[critical strike success]Show the guards how to increase their killing efficiency in three easy steps.</text>
+          <def_link>3522</def_link>
+          <checkOnAppear>aod.critical_strike &gt;= 7</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Never mind. Let's get this show started."</text>
+          <def_link>3529</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3487</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3525</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Feel yourself at home."</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(110, 45, 7, 4410);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[alchemy]Check the clay pots.</text>
+          <def_link>3482</def_link>
+          <checkOnAppear>aod.alchemy &gt;= 3 &amp;&amp; aod.quest_ig6_preparationAlchemy == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.alchemy &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3483</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[crafting]Inspect the weapons.</text>
+          <def_link>3513</def_link>
+          <checkOnAppear>aod.crafting &gt;= 3 &amp;&amp; aod.quest_ig6_preparationCrafting == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.crafting &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3514</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[traps success]Set up a surprise party for the Ordu.</text>
+          <def_link>3516</def_link>
+          <checkOnAppear>aod.traps &gt;= 4 &amp;&amp; aod.quest_ig6_preparationTraps == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[melee success]Give the guards a crash-course on killing people up close and personal.</text>
+          <def_link>3517</def_link>
+          <checkOnAppear>(aod.dagger &gt;= 8 || aod.sword &gt;= 8 || aod.spear &gt;= 8 || aod.axe &gt;= 8 || aod.hammer &gt;= 8) &amp;&amp; aod.quest_ig6_preparationMelee == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[ranged success]Give the guards a crash-course on killing people from a distance.</text>
+          <def_link>3519</def_link>
+          <checkOnAppear>(aod.bow &gt;= 8 || aod.crossbow &gt;= 8 || aod.throwing &gt;= 8) &amp;&amp; aod.quest_ig6_preparationRanged == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dodge success]Give the guards a crash-course on dodging blows.</text>
+          <def_link>3520</def_link>
+          <checkOnAppear>aod.dodge &gt;= 8 &amp;&amp; aod.quest_ig6_preparationDodge == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[block success]Give the guards 'Getting the most out of your shield' crash-course.</text>
+          <def_link>3521</def_link>
+          <checkOnAppear>aod.block &gt;= 8 &amp;&amp; aod.quest_ig6_preparationBlock == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[critical strike success]Show the guards how to increase their killing efficiency in three easy steps.</text>
+          <def_link>3522</def_link>
+          <checkOnAppear>aod.critical_strike &gt;= 7 &amp;&amp; aod.quest_ig6_preparationCS == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Never mind. Let's get this show started."</text>
+          <def_link>3529</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3487</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3512</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Alright, go check your gear. The Ordu will be here soon enough. When you're done, come and see me."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_IG6_ready = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3487</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3529</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>Bass did a pretty good job with the bombs. There isn’t much you can do there.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go back to Bass.</text>
+          <def_link>3512</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_ordu_attackStrength == 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3525</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3487</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3482</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>[success]Bass did a good job, but there is definitely room for improvement. You carefully remove the black powder and crude fuses and start from scratch. An hour later you have eight neatly packed bombs that will shred anything to pieces.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ig6_preparationAlchemy = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go back to Bass.</text>
+          <def_link>3512</def_link>
+          <checkOnAppear>aod.quest_ordu_attackStrength &lt; 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3487</def_link>
+          <checkOnAppear>aod.quest_ordu_attackStrength &lt; 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>You hear the Ordu drums in the distance. Looks like you ran out of time.</text>
+          <def_link>3528</def_link>
+          <checkOnAppear>aod.quest_ordu_attackStrength == 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3483</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>The swords are well forged and well maintained. There isn't much that you can do here.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go back to Bass.</text>
+          <def_link>3512</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_ordu_attackStrength == 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3525</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3487</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3513</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>[success]The swords are well forged and maintained, but it takes a real skill to sharpen a blade properly.
+
+Most people think that it takes a few swipes against a grindstone to give a blade a good edge. You need to bevel the edge slightly on each side with a hone and set the right edge for the right job.
+
+You get some oil and set to work. It takes you two hours to put a nice, razor-sharp edge on every sword, but it's time well spent.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ig6_preparationCrafting = true;</string>
+        <string>IG6_crafting();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go back to Bass.</text>
+          <def_link>3512</def_link>
+          <checkOnAppear>aod.quest_ordu_attackStrength &lt; 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3487</def_link>
+          <checkOnAppear>aod.quest_ordu_attackStrength &lt; 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>You hear the Ordu drums in the distance. Looks like you ran out of time.</text>
+          <def_link>3528</def_link>
+          <checkOnAppear>aod.quest_ordu_attackStrength == 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3514</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>Your take one of the clay pots with black powder from Bass, fill a bag with small rocks, grab a shovel, and set to work. It takes you an hour to finish your masterpiece and leave a surprise for anyone attempting to storm the fort.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ig6_preparationTraps = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>rwd_civil(Traps);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go back to Bass.</text>
+          <def_link>3512</def_link>
+          <checkOnAppear>aod.quest_ordu_attackStrength &lt; 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3487</def_link>
+          <checkOnAppear>aod.quest_ordu_attackStrength &lt; 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>You hear the Ordu drums in the distance. Looks like you ran out of time.</text>
+          <def_link>3528</def_link>
+          <checkOnAppear>aod.quest_ordu_attackStrength == 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3516</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>You gather the troops around and talk for an hour, sharing your extensive expertise in hacking and slashing.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ig6_preparationMelee = true;</string>
+        <string>IG6_trainMelee();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go back to Bass.</text>
+          <def_link>3512</def_link>
+          <checkOnAppear>aod.quest_ordu_attackStrength &lt; 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3487</def_link>
+          <checkOnAppear>aod.quest_ordu_attackStrength &lt; 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>You hear the Ordu drums in the distance. Looks like you ran out of time.</text>
+          <def_link>3528</def_link>
+          <checkOnAppear>aod.quest_ordu_attackStrength == 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3517</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>You gather the troops around and talk for an hour, showing how to hit a target from two hundred yards and explaining the importance of personal space.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ig6_preparationRanged = true;</string>
+        <string>IG6_trainRanged();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go back to Bass.</text>
+          <def_link>3512</def_link>
+          <checkOnAppear>aod.quest_ordu_attackStrength &lt; 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3487</def_link>
+          <checkOnAppear>aod.quest_ordu_attackStrength &lt; 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>You hear the Ordu drums in the distance. Looks like you ran out of time.</text>
+          <def_link>3528</def_link>
+          <checkOnAppear>aod.quest_ordu_attackStrength == 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3519</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>You gather the troops around and talk for an hour, explaining that they will live a lot longer if the enemy can't hit them and showing them a few moves.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ig6_preparationDodge = true;</string>
+        <string>IG6_trainDodge();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go back to Bass.</text>
+          <def_link>3512</def_link>
+          <checkOnAppear>aod.quest_ordu_attackStrength &lt; 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3487</def_link>
+          <checkOnAppear>aod.quest_ordu_attackStrength &lt; 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>You hear the Ordu drums in the distance. Looks like you ran out of time.</text>
+          <def_link>3528</def_link>
+          <checkOnAppear>aod.quest_ordu_attackStrength == 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3520</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>You gather the troops around and talk for an hour, explaining the metaphysics of shielding yourself from the world.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ig6_preparationBlock = true;</string>
+        <string>IG6_trainBlock();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go back to Bass.</text>
+          <def_link>3512</def_link>
+          <checkOnAppear>aod.quest_ordu_attackStrength &lt; 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3487</def_link>
+          <checkOnAppear>aod.quest_ordu_attackStrength &lt; 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>You hear the Ordu drums in the distance. Looks like you ran out of time.</text>
+          <def_link>3528</def_link>
+          <checkOnAppear>aod.quest_ordu_attackStrength == 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3521</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>You gather the troops around and talk for an hour, going over the best ways to maim the enemy. You start with the basics, like twisting the blade a bit when you stab someone, and finish with an inspiring personal story about killing a bear with your bare hands.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ig6_preparationCS = true;</string>
+        <string>IG6_trainCS();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go back to Bass.</text>
+          <def_link>3512</def_link>
+          <checkOnAppear>aod.quest_ordu_attackStrength &lt; 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3487</def_link>
+          <checkOnAppear>aod.quest_ordu_attackStrength &lt; 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>You hear the Ordu drums in the distance. Looks like you ran out of time.</text>
+          <def_link>3528</def_link>
+          <checkOnAppear>aod.quest_ordu_attackStrength == 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3522</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgCam(110, 45, 12, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3487</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - ran out of time</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_IG6_ready = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3528</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Good timing. The Ordu are already here. I’ll handle the catapult and keep them from rushing in all at once. You and my men will meet them face-to-face when they come. Get ready to entertain our visitors, &lt;charname&gt;.”</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(110, 45, 7, 4410);</string>
+        <string>dlgTeleportToMarker(TM_Bass_PC_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Ready or not, here they come.</text>
+          <def_link>3532</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.quest_ordu_attackStrength == 2 || aod.npc_belgutai_dead) &amp;&amp; aod.quest_ig6_preparationTraps</string>
+            <string>aod.npc_belgutai_dead == false &amp;&amp; aod.quest_ig6_preparationTraps</string>
+            <string>(aod.quest_ordu_attackStrength == 2 || aod.npc_belgutai_dead) &amp;&amp; aod.quest_ig6_preparationTraps == false</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3531</int>
+            <int>3533</int>
+            <int>3488</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3485</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>You see a hundred or so warriors charging toward the gate. A bomb hits the ground behind them, the force of explosion sending them flying. Only a few of them get up, looking around in confusion.
+
+They are rushed by the nearby Guards, eager to take advantage of the opportunity, but the Ordu recover fast and push forward.</npc_text>
+      <onLoadScripts>
+        <string>IG6_firstWave();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_IGRegroup_PC);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Show the visitors a good time.</text>
+          <def_link>3491</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3488</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>You see a hundred or so warriors charging toward the gate. A bomb hits the ground behind them, the force of explosion sending them flying. Only a few of them get up, looking around in confusion.
+
+They are rushed by the nearby Guards, eager to take advantage of the opportunity, but the Ordu recover fast and push forward. Belgutai joins them, leading the first wave himself to inspire his warriors and give them more courage.</npc_text>
+      <onLoadScripts>
+        <string>IG6_firstWave();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_IGRegroup_PC);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Show the visitors a good time.</text>
+          <def_link>3491</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3532</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>You see a hundred or so warriors charging toward the gate. A bomb hits the ground behind them, the force of explosion sending them flying. Only a few of them get up, looking around in confusion.
+
+They are rushed by the nearby Guards, eager to take advantage of the opportunity, but the Ordu recover fast and push forward. Your little trap, all but forgotten in the heat of the battle, goes off when the Ordu step through the gate. Three men go down, only two get up.</npc_text>
+      <onLoadScripts>
+        <string>IG6_firstWave();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_IGRegroup_PC);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Show the visitors a good time.</text>
+          <def_link>3491</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3531</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>You see a hundred or so warriors charging toward the gate. A bomb hits the ground behind them, the force of explosion sending them flying. Only a few of them get up, looking around in confusion.
+
+They are rushed by the nearby Guards, eager to take advantage of the opportunity, but the Ordu recover fast and push forward. Belgutai joins them, leading the first wave himself to inspire his warriors and give them more courage.
+
+Your little trap, all but forgotten in the heat of the battle, goes off when the Ordu step through the gate. Three men go down, only two get up.</npc_text>
+      <onLoadScripts>
+        <string>IG6_firstWave();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_IGRegroup_PC);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Show the visitors a good time.</text>
+          <def_link>3491</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3533</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Ordu 1</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addEnemyParty(IG6_Defenders, IG6_Ordu_FirstWave);</string>
+        <string>addEnemyParty(IG6_Ordu_FirstWave, IG6_Defenders);</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.fight_IG6_firstWave = true;</string>
+        <string>schedule(500, 0, IG6_belgutaiBattleCry);</string>
+        <string>aod.death_IG6_pass = true;</string>
+        <string>setCombatPerTargetPriority(5691, 5550, 100);</string>
+        <string>setCombatPerTargetPriority(5671, 5555, 100);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3491</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>Another group manages to get through the fire and explosions. The ground behind them is slick with blood and covered with mangled bodies and torn limbs. Not a pretty sight. Hopefully, it looks very discouraging to the Ordu.
+
+You see Thorgul among the attackers and salute him with your weapon. He doesn't return the gesture.</npc_text>
+      <onLoadScripts>
+        <string>aod.fight_IG6_firstWave = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Once more onto the breach...</text>
+          <def_link>3530</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3489</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>As if on cue, Belgutai's forces start withdrawing, leaving Thorgul's loyalists to their fate. You get ready to charge, when you notice that the fighting stopped.
+
+You turn your head and see rows of the Imperial Guards standing still at the other entrance to the pass.
+
+“Good show,” says their Commander.</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_ig6_phase2 = true;</string>
+        <string>addJournalChar(carbo);</string>
+        <string>aod.quest_IG6_end_fakeFight = true;</string>
+        <string>createByCharMarker("CM_Carbo");</string>
+        <string>dlgCam(90, 40, 8, 4420);</string>
+        <string>CarboArmy.showObjects();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>3493</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3511</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Ordu 2</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addEnemyParty(IG6_Defenders, IG6_Ordu_SecondWave);</string>
+        <string>addEnemyParty(IG6_Ordu_SecondWave, IG6_Defenders);</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.fight_IG6_secondWave = true;</string>
+        <string>aod.death_IG6_pass = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3530</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>You see the Ordu getting ready to attack. The catapult is silent. “Gotta give them one thing – they are persistent,” says Bass appearing next to you. “I hoped they would have run by now. Come, &lt;charname&gt;, don’t tell me you wanted to live forever.”
+
+Suddenly, the Ordu stop dead in their tracks. They stand there for a moment, then turn around and run. You turn your head and see rows of the Imperial Guards standing still at the other entrance to the pass.
+
+“Good show,” says their Commander.</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_ig6_phase2 = true;</string>
+        <string>aod.fight_IG6_secondWave = false;</string>
+        <string>setAchievement("ACH_300");</string>
+        <string>aod.quest_IG6_end_foughtAtPass = true;</string>
+        <string>createByCharMarker("CM_Carbo");</string>
+        <string>dlgCam(90, 40, 8, 4420);</string>
+        <string>CarboArmy.showObjects();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>3493</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3490</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carbo</portrait>
+      <speaker_name>Carbo</speaker_name>
+      <npc_text>“Commander Carbo,” says Bass, saluting. “I wasn’t sure you were going to come.”
+
+“And miss all this excitement?” laughs Carbo. “We are the Imperial Guards, Bass. We don’t leave our own. I’ve gotta give it to you, Bass. You held your end well. And this must be &lt;charname&gt;. Hell of a fight, &lt;son/girl&gt;. Get ready to travel. Dux Gaius Aetius Paullus wants to meet you.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(IG6_01);</string>
+        <string>aod.ending_mdn_faction_IG_passFight = true;</string>
+        <string>addJournalChar(carbo);</string>
+        <string>rwd_reputation(IG6_01);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_DLG_Carbo);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Carbo_Bass, 4410);</string>
+        <string>dlgCam(90, 40, 6, 4420);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Who is he?”</text>
+          <def_link>3494</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3493</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carbo</portrait>
+      <speaker_name>Carbo</speaker_name>
+      <npc_text>“Didn’t I say Dux? Commander-in-Chief, if you’re rusty on the ranks.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Talk to Bass before leaving.</text>
+          <def_link>3496</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_ordu_attackStrength == 1</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3492</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m ready to go, Commander.”</text>
+          <def_link>3495</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3494</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Too bad," says Bass. "The boys would really have liked a little exercise, since it's been a long time they've been waiting for this. Better luck next time, eh?"</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Bass_NPC, 4410);</string>
+        <string>dlgTeleportToMarker(TM_Bass_PC_01);</string>
+        <string>dlgCam(110, 45, 7, 4410);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What can you tell me about Paullus?”</text>
+          <def_link>3497</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3492</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING - start Caer-Tor</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.quest_IG7_talkToPaullus = true;</string>
+        <string>aod.ending_mdn_faction_IG = true;</string>
+        <string>aod.ending_mdn_town_tyrant = true;</string>
+        <string>aod.caerTor_IG_beforeGanezzar = true;</string>
+        <string>setAchievement("ACH_MAADORAN_IG");</string>
+        <string>SS_start("mdn_ending", "switchMission(\"The Fort.mis\");");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3495</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“That was fun,” says Bass. “We should do it again sometime.”</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Bass_NPC, 4410);</string>
+        <string>dlgTeleportToMarker(TM_Bass_PC_01);</string>
+        <string>dlgCam(110, 45, 7, 4410);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What can you tell me about Paullus?”</text>
+          <def_link>3497</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3496</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Paullus rules the Imperial Guards with an iron fist. He isn’t big on second opinions and such. He knows what’s best for the Guards and everyone else, so you either fall in line and stand behind him hundred and ten per cent, or you end up guarding a pass in the middle of fucking nowhere. If you’re lucky.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“And if you’re not?”</text>
+          <def_link>3498</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Is that why Carrinas ended up in Teron?”</text>
+          <def_link>3499</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3497</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Then you are given a shitty squad of people nobody likes and sent patrolling the wasteland. It’s a death sentence. You either take it and die in some skirmish or refuse and get crucified for insubordination.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Is that why Carrinas ended up in Teron?”</text>
+          <def_link>3499</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3498</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“They didn’t see eye to eye. Paullus hoped that Carrinas would come around, but he never did. They had a heated argument and the next day Carrinas was sent to Teron.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What was the argument about?”</text>
+          <def_link>3500</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3499</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Carrinas was tired of waiting, tired of sitting around. He thought that Paullus was doing nothing but surrounding himself with sycophants and building his own little dominion.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What do *you* think?”</text>
+          <def_link>3501</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3500</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“If you ask me, one lord is as bad as the next one, and the Imperial Guards’ top brass is no exception. When I first got this post, I was depressed for a week. Then I thought about it and realized that I got the best post there is. It’s nice and quiet and far away from all that shit. It’s my own little paradise on earth, even if it doesn't look like much.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What about Carbo?”</text>
+          <def_link>3502</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3501</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Carbo is Paullus’ lapdog. No man is more loyal to him and no man is better. He’s earned his stripes. Legionaries love him because despite his rank, he is one of them – he sleeps in the same tents, eats the same shit, and fights shoulder to shoulder with them. Some say that he’s a soldier at heart, but I suspect that he’s a killer at heart. He loves the thrill of a fight. Try to stay on his good side.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Travel to Caer-Tor.</text>
+          <def_link>3495</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3502</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“How the fuck did you do it?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Personal magnetism.”</text>
+          <def_link>3504</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3503</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“No shit. Well, the boys will be disappointed. Some of them, anyway. Care for some wine?”</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(IG5_01);</string>
+        <string>rwd_civil(IG5_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I think I've earned it.”</text>
+          <def_link>3505</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3504</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>Your celebration is interrupted by the sound of marching men. You step outside and see rows of battle-ready legionaries. Their officer walks toward you and Bass.
+
+“Commander Carbo!” says Bass without any enthusiasm, saluting him.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>addJournalChar(carbo);</string>
+        <string>createByCharMarker("CM_Carbo");</string>
+        <string>dlgCam(90, 40, 10, 4420);</string>
+        <string>CarboArmy.showObjects();</string>
+        <string>dlgTeleportToMarker(TM_DLG_Carbo_Bass, 4410);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Carbo);</string>
+        <string>dlgCam(90, 40, 6, 4420);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>3506</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3505</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carbo</portrait>
+      <speaker_name>Carbo</speaker_name>
+      <npc_text>“We've got your teary-eyed letter, Bass,” says Carbo, dragging his words, “and come all the way here to fight some savages, who appear to be missing. What happened, Bass? They took one look at your concraption,” he points at the catapult, “and ran away in fear?”
+
+“We were ready to fight,” reports Bass, “but &lt;charname&gt; here talked them out of it. Make peace, not war, &lt;he/she&gt; said and the Ordu agreed. Savages, Commander.”
+
+“Are you some kind of peacenik, &lt;charname&gt;?” inquires Carbo. “Think we should love our enemies? My men and I marched for ten days straight. Is this some kind of joke to you, &lt;boy/girl&gt;?”</npc_text>
+      <onLoadScripts>
+        <string>aod.ending_mdn_faction_IG_passPeace = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“No, Commander. I killed the khan and his men, and told the new khan to stay away from the pass.”</text>
+          <def_link>3507</def_link>
+          <checkOnAppear>aod.npc_thorgul_dead &amp;&amp; aod.npc_belgutai_dead &amp;&amp; aod.quest_ordu_promisedSupplies == false &amp;&amp; aod.quest_ordu_madoraanFall == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I didn’t know that help was on the way. To save the lives of these men, I made a deal with the Ordu – they stay on the other side of the mountains in exchange for food and steel.”</text>
+          <def_link>3509</def_link>
+          <checkOnAppear>aod.quest_ordu_promisedSupplies</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Isn’t bad peace better than good war?”</text>
+          <def_link>3510</def_link>
+          <checkOnAppear>aod.quest_ordu_madoraanFall</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3506</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carbo</portrait>
+      <speaker_name>Carbo</speaker_name>
+      <npc_text>“Well done then. You taught these bloody savages a little respect and showed them that one Imperial Guard is worth a hundred of them.” He looks at Bass and frowns. “If he’s a real Guard, of course.
+
+“Get ready to travel. Dux Gaius Aetius Paullus wants to meet you.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_IG6_end_killedLeaders = true;</string>
+        <string>rwd_reputation(IG6_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Who is he?”</text>
+          <def_link>3494</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3507</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carbo</portrait>
+      <speaker_name>Carbo</speaker_name>
+      <npc_text>“You offered to feed and arm our enemies? That’s treason. I would have executed you on the spot, but lucky for you Dux Gaius Aetius Paullus wants to meet you.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_IG6_end_promisedSupplies = true;</string>
+        <string>rwd_reputation(IG6_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Who is he?”</text>
+          <def_link>3494</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3509</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carbo</portrait>
+      <speaker_name>Carbo</speaker_name>
+      <npc_text>“A bad peace is worse than any war, especially a good war. A bad peace is a prelude to war as all it does is give your enemies time to grow stronger. It’s good only if you’re the weak one.
+
+“Anyway, we’ll have plenty of time to fill in the gaps in your education. Get ready to travel. Dux Gaius Aetius Paullus wants to meet you.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_IG6_end_delayedAttack = true;</string>
+        <string>rwd_reputation(IG6_04);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Who is he?”</text>
+          <def_link>3494</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3510</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

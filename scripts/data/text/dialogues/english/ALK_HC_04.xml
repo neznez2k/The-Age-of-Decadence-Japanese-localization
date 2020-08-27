@@ -1,0 +1,233 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.pc_usedStarChamber == 1</string>
+    </conditions>
+    <links>
+      <int>10</int>
+    </links>
+    <dlg_name>ALK_HC_04</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Meru</def_speaker_name>
+    <def_portrait>Meru</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>Meru</portrait>
+      <speaker_name>Meru</speaker_name>
+      <npc_text>“Are you ready, brother?” asks Meru, turning to his loremaster.
+
+“The Gods will guide my hand,” says the loremaster, bowing deeply.</npc_text>
+      <onLoadScripts>
+        <string>aod.alk_HC_loremasterRitual = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lore success]“What makes you think so, brother? What sign did the Gods give you?”</text>
+          <def_link>4</def_link>
+          <checkOnAppear>aod.lore &gt;= 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Find the chamber.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Meru</portrait>
+      <speaker_name>Meru</speaker_name>
+      <npc_text>“Are you ready, &lt;brother/sister&gt;?” asks Meru, turning to you.
+
+“My Lord!” cries the loremaster, alarmed. “Brother,” he corrects himself as Meru frowns. “The ritual is very complex! I've studied it for years and even then I'm not fully certain...”
+
+“You said it yourself, brother,” Meru says sternly. “You aren't fully certain because you don't have the Gods' blessing. &lt;He/She&gt; does.” He points at you.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Actually... The Gods want your loremaster to do the ritual. They feel he's ready."</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Find the chamber.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Meru</portrait>
+      <speaker_name>Meru</speaker_name>
+      <npc_text>“They do?” asks Meru, looking surprised. “Very well then!”
+
+“The Gods will guide my hand, I will not fail, Brother!” says the loremaster, bowing deeply.</npc_text>
+      <onLoadScripts>
+        <string>aod.alk_HC_loremasterRitual = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Find the chamber.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start ALK_HC_02</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Loremaster</speaker_name>
+      <npc_text>The loremaster frowns. “It’s the Gods’ will,” he finally says. “What more do you need?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“I want to know if the Gods gave you a sign. If they didn’t, this little undertaking is doomed to fail.”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Find the chamber.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Loremaster</speaker_name>
+      <npc_text>[failure]“Enough!” snaps the loremaster, ending the conversation. Meru didn't take the bait.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Find the chamber.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“What are you saying?” demands Meru, finally joining the conversation.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]“The Gods sent me here for a reason. They’ve chosen me to perform the ritual.”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Did they give you the sign?” asks Meru. He tries to sound indifferent but his eyes betray him.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[lore]“They whispered the sacred words into my ear, brother.” Recite the mantra.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lore &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Loremaster</speaker_name>
+      <npc_text>[failure]“IF the Gods did teach &lt;him/her&gt; the mantra, &lt;his/her&gt; memory failed &lt;him/her&gt;,” says the loremaster, enjoying the moment of triumph.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Find the chamber.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“&lt;He/She&gt; does know the mantra,” the loremaster admits reluctantly.
+
+“Then &lt;he/she&gt; will perform the ritual,” says Meru firmly. The loremaster bows to his master's wisdom.</npc_text>
+      <onLoadScripts>
+        <string>aod.alk_HC_loremasterRitual = 0;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Find the chamber.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,97 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Quest_Zamedi_02</dlg_name>
+    <def_link>92</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>In contrast to the rest of the tower, the control room is bright and well-lit. There are four large windows facing different directions and giving you a full view of the surrounding area. While in the old days it must have been quite a sight, now all you can see are sand and ruins.
+
+The center of the room is occupied by a complex control panel built around a large crystal semi-sphere. The panel projects shimmering images of the tower, but their purpose is unclear. There is a strange doorway connected to the machines sitting in the corners of the room. As far as you can tell, it leads nowhere.
+
+The ring the demon described is lying on one of the tables.</npc_text>
+      <onLoadScripts>
+        <string>aod.loc_zamedi_visitedTop = true;</string>
+        <string>dlgAddItem(1355, 1);</string>
+        <string>dlgTeleportToMarker(TM_TowerPanel);</string>
+        <string>dlgCam(110, 40, 15);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Examine the ring.</text>
+          <def_link>156</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lore &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>157</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>92</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>It doesn’t seem magical at all. It’s heavier than it looks and has three rotating bands with markings on them, but other than that, it’s a fairly mundane ring that won’t raise anyone’s eyebrows.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setWindowImage(item_towerRing);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Explore the area.</text>
+          <def_link>64</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>156</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[lore success]It doesn’t seem magical at all. It’s heavier than it looks and has three rotating bands with markings on them, but other than that, it’s a fairly mundane ring that won’t raise anyone’s eyebrows.
+
+Yet the three bands are somehow familiar. You turn the ring in your fingers until it comes to you - a crude drawing of three long stripes with similar markings. Something about remote control, but control of what?</npc_text>
+      <onLoadScripts>
+        <string>setWindowImage(item_towerRing);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Explore the area.</text>
+          <def_link>64</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>157</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>64</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

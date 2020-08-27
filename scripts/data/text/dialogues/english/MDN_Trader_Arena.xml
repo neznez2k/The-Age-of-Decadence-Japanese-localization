@@ -1,0 +1,275 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_mdnTraderArena_met</string>
+    </conditions>
+    <links>
+      <int>481</int>
+    </links>
+    <dlg_name>MDN_Trader_Arena</dlg_name>
+    <def_link>478</def_link>
+    <def_speaker_name>Arena Trader</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Looking to buy something new? Trade in your old junk? You came to the right place, trust me!
+
+“This humble store is all that stands between you and an untimely death. So, take my advice and spend your money now, while you’re still alive.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_mdnTraderArena_met = true;</string>
+        <string>dlgCam(15, 40, 7, 6100);</string>
+        <string>dlgTeleportToMarker(TM_DLG_ArenaTrader);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Browse the wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Do you have anything special?”</text>
+          <def_link>482</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>478</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>TRADE</npc_text>
+      <onLoadScripts>
+        <string>dlgTradeWithMe("Arena Trader");</string>
+        <string>dlgCam(15, 40, 15);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>479</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgCam(15, 40, 15);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>480</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Back for more, eh? My entire store is at your disposal, my friend."</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(15, 40, 7, 6100);</string>
+        <string>dlgTeleportToMarker(TM_DLG_ArenaTrader);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Browse the wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Do you have anything special?”</text>
+          <def_link>482</def_link>
+          <checkOnAppear>aod.npc_mdnTraderArena_asked_special == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Do you still have Zagros’ armor?”</text>
+          <def_link>484</def_link>
+          <checkOnAppear>aod.npc_mdnTraderArena_asked_special &amp;&amp; aod.npc_mdnTraderArena_bought_special == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>481</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Special? You’ve heard about Zagros the Mad? No? He was the best gladiator I’ve seen. He was quick as lightning and about as merciful. He was captured in battle and sent to this arena to die for his sins.
+
+“Zagros refused to die and killed everyone they sent against him. Hacked them to pieces like a madman, hence the name. Eventually, he was pardoned and given freedom, but he had nothing to go back to, so he stayed at the arena. Forged himself his own armor, murmillo-style, and kept on fighting. He wore the mantle of the champion for nine years, which has got to be some kind of record.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_mdnTraderArena_asked_special = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What happened to him?”</text>
+          <def_link>483</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Let me guess, if you have his armor.”</text>
+          <def_link>484</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>482</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“He got old. Lost some of his famous speed and paid for it with his life. He was challenged by three brothers. The only name I remember is Ronan for he was the one who killed Zagros – ran him through with his spear.
+
+“In his prime Zagros would have torn them apart with his bare hands, but he was no longer in his prime. He should have never agreed to this fight, not one against three, but he wasn’t the type to back down from a challenge.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Let me guess, if you have his armor.”</text>
+          <def_link>484</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>483</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I do,” nods the trader. “His helmet and the armguard. Forged from the finest iron ore, as good as any steel. I won’t sell them separately, so don’t ask, but I’ll give you a good price – 1200 imperials for the pair.”</npc_text>
+      <onLoadScripts>
+        <string>setWindowImage(item_zagros);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 1200 imperials.</text>
+          <def_link>485</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 1200</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading success]“I hope you don't expect me to pay the asking price. I'll give you the much needed benefit of the doubt and assume that you didn't just double what this armor is worth in your head. So let's say 800 coins. What do you say?”</text>
+          <def_link>486</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 800 &amp;&amp; aod.trading &gt;= 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I can't afford it.” Browse other wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>484</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Always a pleasure, my friend.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_mdnTraderArena_bought_special = true;</string>
+        <string>dlgChangeMoney(-1200);</string>
+        <string>dlgAddItemlist(UNQ_Zagros);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Browse the wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>485</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You drive a hard bargain, my friend, but I think Zagros would want you to have his armor.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_mdnTraderArena_bought_special = true;</string>
+        <string>dlgChangeMoney(-800);</string>
+        <string>dlgAddItemlist(UNQ_Zagros);</string>
+        <string>rwd_civil(Trading);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Browse the wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>486</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

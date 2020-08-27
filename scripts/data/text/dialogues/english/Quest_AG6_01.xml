@@ -1,0 +1,1119 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_ag6_escapedPalace</string>
+      <string>aod.fight_ag6_palaceGuardsDead</string>
+      <string>aod.quest_ag6_exitRoom</string>
+    </conditions>
+    <links>
+      <int>3430</int>
+      <int>3420</int>
+      <int>3428</int>
+    </links>
+    <dlg_name>Quest_AG6_01</dlg_name>
+    <def_link>3381</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You follow Darista to the palace. Guards and servants step aside the moment they see her - it's clear that she comes here often and doesn't need an audience to speak with Lord Gaelius.
+
+She takes you to quarters reserved for conversations that must remain private. A servant informs you that Lord Gaelius will be with you shortly and disappears.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Palace_Darista_01, 4600);</string>
+        <string>dlgTeleportToMarker(TM_Palace_PC_01);</string>
+        <string>dlgCam(45, 45, 7, 4600);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait.</text>
+          <def_link>3382</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3381</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Gaelius</portrait>
+      <speaker_name>Gaelius</speaker_name>
+      <npc_text>“So, you’re the one I must thank for taking care of Lorenza,” says Gaelius as he enters the room. His manners are very business-like and direct, like those of a man who moves from one important meeting to another. “You did the right thing. The woman was poison. Now I want you to finish the job.
+
+“My nephew, Serenas, has made an error in judgement, allowing himself to be convinced that he should be the new lord of House Aurelian. The boy is nothing more than a banner, giving the conspiracy a claim to the throne, but he's too blinded by the prospect of power to see it. I can order him killed, of course, but it will create complications I’d rather avoid.
+
+“He’s well-guarded by the conspirators as he’s far too important to them to die unexpectedly, so you'll have to be very good and very quick. Serenas is expecting a courier, who's currently enjoying the hospitality of one of my dungeons. This ring will let you in and get you close enough to him. The rest is up to you.”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Palace_Gaelius_01, 4100);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>addJournalChar(gaelius);</string>
+        <string>dlgCam(135, 45, 7, 4100);</string>
+        <string>dlgRotateToChar(1, 4100);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Consider it done, my lord.”</text>
+          <def_link>3383</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3382</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Gaelius</portrait>
+      <speaker_name>Gaelius</speaker_name>
+      <npc_text>“Excellent,” says Gaelius, as if being pleasantly surprised that a fine young &lt;man/woman&gt; like you has the right attitude in this day and age.
+
+He nods to Darista indicating that the audience is over.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Return to the guild with Darista.</text>
+          <def_link>3384</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Kill them both.</text>
+          <def_link>3396</def_link>
+          <checkOnAppear>aod.quest_AG5_talkedWithLevir &amp;&amp; aod.quest_AG5_warnedDarista == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3383</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Darista</portrait>
+      <speaker_name>Darista</speaker_name>
+      <npc_text>“Listen, &lt;charname&gt;. It goes without saying that we prefer if it was done in a way that doesn’t implicate the guild. So, if there is an opportunity, be creative. I’m not sure if you get a chance to have a drink with Serenas, but just in case,” she hands you a small vial and a couple of healing balms.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_darista_visitSerenas = true;</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_AG_Darista_01, 4600);</string>
+        <string>dlgTeleportToMarker(TM_AG_02);</string>
+        <string>addQuest(AG6);</string>
+        <string>if(aod.quest_AG5_talkedWithLevir) rwd_reputation(AG5_04);</string>
+        <string>dlgAddItemlist(AG5_DaristaPackage);</string>
+        <string>dlgCam(10, 45, 7, 4600);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“And if there isn’t?”</text>
+          <def_link>3385</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What do you know about the conspiracy? Who’s pulling Serenas’ strings?”</text>
+          <def_link>3386</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“How many men are guarding Serenas? How good are they?”</text>
+          <def_link>3394</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3384</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Darista</portrait>
+      <speaker_name>Darista</speaker_name>
+      <npc_text>“Four men, Pavola's veterans. How good? I'd be very surprised if they weren't the best he's got.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ag6_askMen = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“And if there isn’t an opportunity to be creative?”</text>
+          <def_link>3385</def_link>
+          <checkOnAppear>aod.quest_ag6_askCreative == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What do you know about the conspiracy? Who’s pulling Serenas’ strings?”</text>
+          <def_link>3386</def_link>
+          <checkOnAppear>aod.quest_ag6_askStrings == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Go get ready.</text>
+          <def_link>3388</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3394</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Darista</portrait>
+      <speaker_name>Darista</speaker_name>
+      <npc_text>“If there isn’t, just stick a knife in him and call it a day.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ag6_askCreative = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What do you know about the conspiracy? Who’s pulling Serenas’ strings?”</text>
+          <def_link>3386</def_link>
+          <checkOnAppear>aod.quest_ag6_askStrings == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“How many men are guarding Serenas? How good are they?”</text>
+          <def_link>3394</def_link>
+          <checkOnAppear>aod.quest_ag6_askMen == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Go get ready.</text>
+          <def_link>3388</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3385</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Darista</portrait>
+      <speaker_name>Darista</speaker_name>
+      <npc_text>“Better ask who isn’t. Strabos – the guildmaster of the Commercium. Legatus Pavola of the Imperial Guards. Some nobles, like Lorenza, always eager to stir some shit up. Gaelius has been far too lenient with them. He should have cleaned up the house a long time ago.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ag6_askStrings = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“And if there isn’t an opportunity to be creative?”</text>
+          <def_link>3385</def_link>
+          <checkOnAppear>aod.quest_ag6_askCreative == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“How many men are guarding Serenas? How good are they?”</text>
+          <def_link>3394</def_link>
+          <checkOnAppear>aod.quest_ag6_askMen == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Go get ready.</text>
+          <def_link>3388</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3386</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - AG</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3388</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>If you strike Gaelius first, you will give Darista a two-second warning, which is two seconds too long. You may still get her, but it’s a gamble. If you strike Darista first, you’ll have a higher chance of killing her outright, but that will give Gaelius time to call for help.
+
+The walls are thick enough to give Gaelius all the privacy his status requires, but loud shouts will definitely be heard.</npc_text>
+      <onLoadScripts>
+        <string>addParty(AG6_GaeliusGuards, 0);</string>
+        <string>createByCharMarker("CM_AG6_GaeliusGuard_01");</string>
+        <string>createByCharMarker("CM_AG6_GaeliusGuard_02");</string>
+        <string>addCharToParty(5120, AG6_GaeliusGuards, fighter);</string>
+        <string>addCharToParty(5121, AG6_GaeliusGuards, fighter);</string>
+        <string>aod.jnl_ag5a_phase2 = true;</string>
+        <string>PC_Traitor();</string>
+        <string>if(aod.ambush_ag_mdn == 0) aod.ambush_ag_mdn = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[critical strike]Kill Gaelius, then deal with Darista.</text>
+          <def_link>3397</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 6 &amp;&amp; aod.critical_strike &lt; 8</string>
+            <string>aod.critical_strike &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3399</int>
+            <int>3402</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[critical strike]Kill Darista, then deal with Gaelius.</text>
+          <def_link>3400</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3401</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3396</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You stab Gaelius in the neck and whirl around, hoping to take Darista by surprise. Unfortunately, she isn’t where she was a moment ago and your dagger slashes nothing but air.
+
+“What have you done?!” shouts the guildmaster, looking at Gaelius’ body in disbelief. “What the FUCK have you done?”
+
+Two guards rush into the room, taking positions around you.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>equipDaggerCS();</string>
+        <string>addCharToParty(4600, AG6_GaeliusGuards, fighter);</string>
+        <string>dlgTeleportToMarker(TM_Palace_Guard_01, 5120);</string>
+        <string>dlgTeleportToMarker(TM_Palace_Guard_02, 5121);</string>
+        <string>dlgRotateToChar(1, 4600);</string>
+        <string>dlgSetAnimation(anim_death_forward00, 0.95, 4100);</string>
+        <string>dlgKillCharacter(4100);</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>rwd_reputation(AG6_01);</string>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+        <string>schedule(400, 0, sfxPlayOnce, csMissSwingAir01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way out.</text>
+          <def_link>3398</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3397</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[partial success]You stab Gaelius in the neck and whirl around fast enough to slash Darista's throat, but not fast enough to kill or silence her.
+
+Choking on blood, she calls for help, then unfastens her axe from her belt. Two guards rush into the room, taking positions around you.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>equipDaggerCS();</string>
+        <string>addCharToParty(4600, AG6_GaeliusGuards, fighter);</string>
+        <string>dlgTeleportToMarker(TM_Palace_Guard_01, 5120);</string>
+        <string>dlgTeleportToMarker(TM_Palace_Guard_02, 5121);</string>
+        <string>dlgRotateToChar(1, 4600);</string>
+        <string>dlgSetAnimation(anim_death_forward00, 0.95, 4100);</string>
+        <string>dlgKillCharacter(4100);</string>
+        <string>dlgChangeCharacterHP(-25, 4600);</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>rwd_reputation(AG6_01);</string>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+        <string>schedule(300, 0, sfxPlayOnce, csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way out.</text>
+          <def_link>3398</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3399</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You stab Gaelius in the neck and whirl around fast enough to open up Darista's throat with your blade. She stumbles, and you strike again, quick as a viper. The second wound is fatal and she collapse into your arms, dying with the look of surprise on her face.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>equipDaggerCS();</string>
+        <string>dlgSetAnimation(anim_death_forward00, 0.95, 4100);</string>
+        <string>dlgSetAnimation(anim_death_forward01, 0.95, 4600);</string>
+        <string>dlgKillCharacter(4100);</string>
+        <string>dlgKillCharacter(4600);</string>
+        <string>aod.quest_ag6_exitRoom = true;</string>
+        <string>setAchievement("ACH_STONECOLD_KILLER");</string>
+        <string>rwd_reputation(AG6_01);</string>
+        <string>dlgCsRepTrain(2);</string>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+        <string>schedule(300, 0, sfxPlayOnce, csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Look around.</text>
+          <def_link>3427</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3402</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - look around palace room</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>VCO_AG6_PalaceRoom.setActive(true);</string>
+        <string>Exit_AG6_PalaceRoom.isRenderEnabled = true;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3427</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Rapidly, you stab Darista several times, yet she moves the moment she catches the flash of your blade and neither attack hits anything vital. Still, eight inches of steel isn’t something she can just shake off.
+
+Bleeding and weakened, Darista shields Gaelius, who finally comes to his sense and starts yelling for help. Two guards rush into the room, taking positions around you.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>equipDaggerCS();</string>
+        <string>dlgTeleportToMarker(TM_Palace_Gaelius_02, 4100);</string>
+        <string>dlgTeleportToMarker(TM_Palace_Guard_01, 5120);</string>
+        <string>dlgTeleportToMarker(TM_Palace_Guard_02, 5121);</string>
+        <string>addCharToParty(4600, AG6_GaeliusGuards, fighter);</string>
+        <string>addCharToParty(4100, AG6_GaeliusGuards, fighter);</string>
+        <string>dlgChangeCharacterHP(-25, 4600);</string>
+        <string>rwd_reputation(AG6_01);</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way out.</text>
+          <def_link>3398</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3400</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Rapidly, you stab Darista several times. She catches the flash of your blade and tries to move, but it’s too late. She falls to her knees, clutching her wound, then collapses.
+
+Gaelius finally comes to his sense and starts yelling for help. Two guards rush into the room, taking positions around you.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>equipDaggerCS();</string>
+        <string>dlgTeleportToMarker(TM_Palace_Guard_01, 5120);</string>
+        <string>dlgTeleportToMarker(TM_Palace_Guard_02, 5121);</string>
+        <string>dlgTeleportToMarker(TM_Palace_Gaelius_02, 4100);</string>
+        <string>addCharToParty(4100, AG6_GaeliusGuards, fighter);</string>
+        <string>dlgSetAnimation(anim_death_forward01, 0.95, 4600);</string>
+        <string>dlgKillCharacter(4600);</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>rwd_reputation(AG6_01);</string>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way out.</text>
+          <def_link>3398</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3401</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - inside room</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_AG6_guardsDead = true;</string>
+        <string>aod.fight_AG6_GaeliusGuards = true;</string>
+        <string>addEnemyToParty(1, AG6_GaeliusGuards);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>aod.death_AG6_gaelius = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3398</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>It's time to leave.</npc_text>
+      <onLoadScripts>
+        <string>VCO_AG6_PalaceRoom.setActive(false);</string>
+        <string>Exit_AG6_PalaceRoom.isRenderEnabled = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave the room.</text>
+          <def_link>3403</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_AG6_guardsDead</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3406</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Not yet.</text>
+          <def_link>3427</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3428</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You open the door and step into a hallway connecting two guard rooms with Gaelius’ quarters. The hallway is empty. Fortunately, the doors leading to the guards’ quarters are closed for the night.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ag6_exitRoom = false;</string>
+        <string>addParty(AG6_StairsGuards, 0);</string>
+        <string>createByCharMarker("CM_AG6_StairGuard_01");</string>
+        <string>createByCharMarker("CM_AG6_StairGuard_02");</string>
+        <string>addCharToParty(5122, AG6_StairsGuards, fighter);</string>
+        <string>addCharToParty(5123, AG6_StairsGuards, fighter);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go through the main door.</text>
+          <def_link>3407</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[impersonate]Put on the guards armor and go through the main door.</text>
+          <def_link>3419</def_link>
+          <checkOnAppear>dlgOwnsItem(415)</checkOnAppear>
+          <checksOnClick>
+            <string>aod.disguise &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3418</int>
+          </linksOnClick>
+          <scriptsOnClick>
+            <string>dlgUnequipArmor();</string>
+            <string>dlgEquipItem(415);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+      </answers>
+      <UID>3406</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>You open the door and step into a hallway connecting the guard rooms with Gaelius’ quarters. Several guards are standing outside, looking at you quizzically.
+
+“Where is Darista?” asks one of the guards.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ag6_exitRoom = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][persuasion]“Still with Gaelius. You didn’t hear it from me, but there will be a lot of changes in the morning.”</text>
+          <def_link>3404</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 10 &amp;&amp; aod.persuasion &gt;= 4 &amp;&amp; aod.streetwise &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3408</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]“She’s staying the night, but keep your mouth shut or she will kill you herself.”</text>
+          <def_link>3404</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3408</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3403</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“Something’s fishy going on here,” says one of the guards, his hand on his sword, “Let’s take &lt;him/her&gt; to the legatus.”
+
+Going to the legatus will be a one-way trip. Before the guards can stop you, you open the door and dart back inside. The guards follow you, stop when they see the bodies on the floor and draw their swords. Well, at least they are far from the rest of the guards.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Palace_Guard_01, 5120);</string>
+        <string>dlgTeleportToMarker(TM_Palace_Guard_02, 5121);</string>
+        <string>dlgTeleportToMarker(TM_Palace_PC_02);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>3398</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3404</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“That’s none of my business,” says the guard reasonably. “One of my men will escort you out. Nobody’s allowed to wander around the palace after dark.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(AG6_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Much obliged.” Leave.</text>
+          <def_link>3409</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3408</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You leave the palace and lay low for a few days. According to the rumors, Gaelius and Darista have been assassinated by a rogue Boatman. Serenas, the new Lord of House Aurelian, promised the good people of Maadoran that the &lt;man/woman&gt; responsible will be caught and executed publicly.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.jnl_ag5a_phase3 = true;</string>
+        <string>rwd_quest(AG6_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>It's time to go.</text>
+          <def_link>3429</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3409</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING - outside the palace</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.jnl_ag5a_phase3 = true;</string>
+        <string>aod.ending_mdn_faction_AG_failure = true;</string>
+        <string>aod.ending_mdn_town_serenas = true;</string>
+        <string>aod.gnz_assassin_start = true;</string>
+        <string>setAchievement("ACH_MAADORAN_AG_2");</string>
+        <string>SS_start("MDN_ending", "switchMission(\"Ganezzar.mis\");");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3429</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>You open the doors and step into a small but well-guarded hall that serves as a security hub between the west and east wings of the palace, separating and governing access to them. There are two guards with crossbows standing near the stairs leading down. Hearing the door open, they turn around and look at you.
+
+“Nobody's allowed to enter or leave,” says one of the guards.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Palace_PC_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I came with Darista.”</text>
+          <def_link>3410</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[critical strike]Kill them without making a sound.</text>
+          <def_link>3414</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3417</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3407</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>“I know Darista,” says the guard. “I don’t know you. So, now you have three options: wait for Darista, wait for Lord Gaelius, wait for the legatus.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][impersonate]“Well, maybe you should know me. Lord Gaelius is very displeased with his guards and I can see why. He wants me to oversee the recruiting and training of all palace guards. Starting tomorrow, there will be a lot of changes around here, so you boys better stay on my good side.”</text>
+          <def_link>3411</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.disguise) &gt;= 10 &amp;&amp; aod.streetwise &gt;= 4 &amp;&amp; aod.disguise &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3412</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][persuasion]“There are men out there who conspire against this House even as we speak. Lord Gaelius sent me to stop them. I don't mind waiting, but if these men escape, do you really want to be responsible for that?”</text>
+          <def_link>3411</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 10 &amp;&amp; aod.persuasion &gt;= 4 &amp;&amp; aod.streetwise &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3413</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3410</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[failure]“I don't see how we can get in trouble for following orders.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[critical strike]Kill them without making a sound.</text>
+          <def_link>3414</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3417</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3411</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[success]“My apologies, &lt;master/mistress&gt;. Didn’t recognize you. It won’t happen again!”</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(AG6_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“At ease, boys.” Leave.</text>
+          <def_link>3409</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3412</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[success]“Alright, alright. We did see you come in, so I guess we can make an exception and let you leave. Good luck with your mission.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(AG6_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Thanks.” Leave.</text>
+          <def_link>3409</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3413</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You stab the first guard and he goes down instantly, taking your dagger with him. The other guard raises his crossbow and fires almost point-blank, the force of the impact throwing you back.
+
+Yelling for help, the guard starts reloading his crossbow. Throwing caution to the wind, you run down the stairs but it's too late and the guards are everywhere.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>equipDaggerCS();</string>
+        <string>dlgKillCharacter(5122);</string>
+        <string>dlgSetAnimation(anim_death_forward01, 0.95, 5122);</string>
+        <string>dlgSetCombatAnimation(5123);</string>
+        <string>dlgRotateToChar(1, 5123);</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>dlgChangeRep(bodycount, 1);</string>
+        <string>dlgSetAnimation(anim_knockdown_back, 0.95);</string>
+        <string>changeHP(-20);</string>
+        <string>dlgTeleportToMarker(TM_Palace_Fight_PC);</string>
+        <string>sfxPlayOnce(csSuccessMetal01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>3415</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Die with dignity.</text>
+          <def_link>3416</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3414</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT 3</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>createPalaceFight();</string>
+        <string>aod.fight_ag6_palaceFight = true;</string>
+        <string>aod.fight_ag6_palaceGuardsDead = true;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3415</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You escape the palace and lay low for a few days. According to the rumors, Gaelius and Darista have been assassinated by a rogue Boatman. Serenas, the new Lord of House Aurelian, promised the good people of Maadoran that the &lt;man/woman&gt; responsible will be caught and executed publicly.</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_ag5a_phase3 = true;</string>
+        <string>rwd_quest(AG6_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>It's time to go.</text>
+          <def_link>3429</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3430</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3416</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You stab the first guard in the throat, taking him by surprise, and lunge at the other guard, driving your blade between the metal strips of his armor. The blade snaps, the guard opens his mouth to shout for help, you let go off the handle and break his neck in a well practiced motion.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>equipDaggerCS();</string>
+        <string>dlgKillCharacter(5122);</string>
+        <string>dlgKillCharacter(5123);</string>
+        <string>dlgSetAnimation(anim_death_forward01, 0.95, 5122);</string>
+        <string>dlgSetAnimation(anim_knockdown_back, 0.95, 5123);</string>
+        <string>dlgCsRepTrain(2);</string>
+        <string>sfxPlayOnce(csSuccessMetal01);</string>
+        <string>schedule(250, 0, sfxPlayOnce, csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Grab what you can and leave.</text>
+          <def_link>3409</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3417</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You open the doors and step into a small but well-guarded hall that serves as a security hub between the west and east wings of the palace, separating and governing access to them. There are two guards with crossbows standing near the stairs leading down.
+
+Hearing the door open, they turn around and look at you. You give them your best performance, portraying a tired guard who’s heading home after a long shift. The guards turn away, losing their interest in you.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Palace_PC_04);</string>
+        <string>rwd_civil(AG6_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3409</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3418</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[failure]You open the doors and step into a small but well-guarded hall that serves as a security hub between the west and east wings of the palace, separating and governing access to them. There are two guards with crossbows standing near the stairs leading down.
+
+Hearing the door open, they turn around and look at you. You do your best trying to walk and look like a guard, but they aren’t buying it. “Who are you?” asks one of the guards, his finger on the trigger.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Palace_PC_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][charisma]“I’m new. Didn’t they tell you?”</text>
+          <def_link>3421</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 4 &amp;&amp; aod.cha &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3422</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3419</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You look at the bodies surrounding you in disbelief. You thought you were a goner for sure, yet by some miracle you're still alive, although bleeding like a pig. The gods must surely love you like their own &lt;son/daughter&gt;.</npc_text>
+      <onLoadScripts>
+        <string>aod.fight_ag6_palaceFight = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3409</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3420</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[failure]“Nope,” says the guard, raising his crossbow. “Take a few steps back toward the wall and stay there until the legatus shows up.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[critical strike]Kill them without making a sound.</text>
+          <def_link>3414</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3417</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3421</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[success]“Since when do they send new recruits to the west wing?” asks one of the guards, more with anger than with suspicion.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][impersonate]“I come from a very distinguished family. My father had the honor of serving with the legatus, thus I don't need to start at the bottom with all the plebs. My family's achievements speak for themselves.”</text>
+          <def_link>3423</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.disguise) &gt;= 10 &amp;&amp; aod.streetwise &gt;= 4 &amp;&amp; aod.disguise &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3424</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][charisma]“Don't blame me – I go where they tell me to go. Trust me, I'd rather stay somewhere out of sight than stand near Lord Gaelius' doors all day.”</text>
+          <def_link>3425</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.cha &gt;= 8 &amp;&amp; aod.streetwise &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3426</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3422</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[failure]“I don't care who your father is,” says the guard. “You'll have to wait here all the same.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[critical strike]Kill them without making a sound.</text>
+          <def_link>3414</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3417</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3423</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[failure]“Look, I'm sorry, but we have our orders,” says the guard. “You'll have to wait here untill someone comes and sorts it out.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[critical strike]Kill them without making a sound.</text>
+          <def_link>3414</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3417</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3425</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Too good to serve with plebs, eh?” asks the guard, his attention instantly diverted from you to your little story. “Wait until everyone hears about it... Why are you standing there like an idiot? Get out of my sight!”</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(AG6_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3409</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3424</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Don't worry about it. We've been on the edge lately, that's all. You can go.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(AG6_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3409</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3426</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

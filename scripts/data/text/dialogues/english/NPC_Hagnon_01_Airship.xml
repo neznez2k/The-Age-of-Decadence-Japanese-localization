@@ -1,0 +1,323 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>NPC_Hagnon_01_Airship</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Hagnon</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Accompanied by two centurions, the Aurelian Legatus meets you at a ‘neutral’ spot between the Aurelian camp and the city walls. Involuntary, he glances up, at the gravity-defying fortress hovering in the air next to the castle, then looks at you.
+
+“If you think it changes anything –” says the Legatus, starting a well-rehearsed speech aimed to convince you that the arrival of the ship had no effect on his troops' morale.</npc_text>
+      <onLoadScripts>
+        <string>aod.airship_ganezzar = 5;</string>
+        <string>setWindowImage(gnz_hagnonTent);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Do you know what this thing can do, Legatus?”</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Enlighten me,” says the Legatus through clenched teeth.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“It’s the Pax Imperium, the finest ship of the Fleet ever built. It can evaporate your entire army in the blink of an eye, but the First Acolyte doesn’t want the bloodshed. I tried to explain that no blood would actually be spilled because Hellfyre – you look like an educated man, Legatus, I’m sure you’ve heard about Hellfyre and what it does to men – won’t leave nothing but ash, but he *insisted* that I speak to you first.”</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I *am* an educated man,” the Legatus says calmly. “The Pax Imperium was all but destroyed 400 years ago. It was towed away for repairs but never seen again, which means it was stripped for parts.
+
+“If the ship was fully operational, you wouldn’t have wasted your time trying to convince me. You'd have used it already.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“Of course it’s not *fully* operational, but it *is* operational, otherwise it wouldn’t be hovering up there as if it were light as a feather. Sadly, the shields don’t seem to be working, but it’s not like your crossbows and ballistae can do any real damage. The firing systems are in a fairly good shape though. The aim’s a bit off but with Hellfyre it’s not that big of an issue.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion]“I’m trying to convince you to leave because Meru doesn’t want to use Hellfyre that close to Ganezzar but he will if you give him no choice.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“You’re bluffing,” says the Legatus after studying your face for a while. “Tell Meru I'll see him on the battlefield if he dares.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Return to the city.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - failed</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.airship_ganezzar = 5;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.gnz_startPosition_castleExterior = 1;</string>
+        <string>switchMission("Ganezzar.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“I’ve read that the Pax Imperium had a crew of 49 men, including officers,” says the Legatus as if discussing latest rumors. He sounds calm but the very fact that he's still talking to you suggests that he isn't sure, to say the least.
+
+“Do you expect me to believe that you can handle it all by yourself?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][lore]“You need a 50-man crew to maintain the engines and the systems and to handle the ship in combat and when taking damage. Can you knock that ship out of the sky, Legatus? You can’t. Your army is a sitting duck and I can take my time to steer, aim, and fire a single Hellfyre missile, without having to worry about anything else.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.lore) &gt;= 15 &amp;&amp; aod.npc_gaelius_dead</string>
+            <string>(aod.persuasion + aod.lore) &gt;= 15</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>10</int>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Of course he doesn't,” scoffs the Legatus. “If the stories are true, it would destroy us *and* the city.”
+
+You notice that he no longer doubts your ability to unleash hell.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][charisma]“You're a reasonable man, Legatus. Lord Meru isn't. He's a fanatic who believes the Gods are coming to save us. Do you really think he'd hesitate to use this weapon? Would you bet the lives of your men on it?”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.cha) &gt;= 15 &amp;&amp; aod.npc_gaelius_dead</string>
+            <string>(aod.streetwise + aod.cha) &gt;= 15</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>10</int>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“So what do I tell Lord Gaelius?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You tell him to mind his own goddamn business. Tell him that he forced us to defend ourselves against this unprovoked aggression, but fortunately for him, we’re peaceful people.”</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“So what do I tell Lord Serenas?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You tell him to mind his own goddamn business. Tell him that he forced us to defend ourselves against this unprovoked aggression, but fortunately for him, we’re peaceful people.”</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Tell Meru we'll withdraw,” says the Legatus, “but it's far from over.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Return to the city.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Meru</portrait>
+      <speaker_name>Meru</speaker_name>
+      <npc_text>"I already know," says Meru. "The Gods have chosen you to deliver us from our enemies. Clearly, their faith in you wasn't misplaced. I want you to stay here as my guest. I insist."</npc_text>
+      <onLoadScripts>
+        <string>aod.airship_ganezzar_brokeSiege = 1;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setWindowImage(gnz_siege_meru_alone_01);</string>
+        <string>rwd_quest(GNZ_Airship_BrokeSiege);</string>
+        <string>rwd_reputation(GNZ_Airship_BrokeSiege);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Rest a while, you've earned it.</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Meru</portrait>
+      <speaker_name>Meru</speaker_name>
+      <npc_text>You spend the next few weeks enjoying finer things in life, wondering if the Gods indeed smile upon you, when Meru sends his servants to fetch you.
+
+"The holy Al-Akia is no more," he says, shaking his head in disbelief. "The Legatus stopped there on the way to Maadoran and blew up everything above the ground. It's over."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Show him the map.</text>
+          <def_link>14</def_link>
+          <checkOnAppear>aod.npc_meru_showedMap == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Is there anything I can do?"</text>
+          <def_link>12</def_link>
+          <checkOnAppear>aod.npc_meru_showedMap</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Meru</portrait>
+      <speaker_name>Meru</speaker_name>
+      <npc_text>“If it is your destiny to find the temple, find it and guard it with your life. The Gods will give you strength. Make sure that nothing is taken or disturbed. This task is more important than the struggle of petty lords and their illusions.”</npc_text>
+      <onLoadScripts>
+        <string>if(isQuestAdded(Meru_Temple) == false) addQuest(Meru_Temple);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Meru</portrait>
+      <speaker_name>Meru</speaker_name>
+      <npc_text>"Find the temple. It's our only hope now."</npc_text>
+      <onLoadScripts>
+        <string>if(isQuestAdded(Meru_Temple) == false) addQuest(Meru_Temple);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING - broke the siege</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.gnz_ending_airshipBrokeSiege = 1;</string>
+        <string>aod.gnz_startPosition_castleExterior = 1;</string>
+        <string>SS_start("gnz_ending", "switchMission(\"Ganezzar.mis\");");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

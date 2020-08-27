@@ -1,0 +1,186 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Quest_TG6_04</dlg_name>
+    <def_link>2888</def_link>
+    <def_speaker_name>Levir</def_speaker_name>
+    <def_portrait>Levir</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What do you want, &lt;charname&gt;?"</npc_text>
+      <onLoadScripts>
+        <string>setWindowImage(npc_levir_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“It’s done.”</text>
+          <def_link>2914</def_link>
+          <checkOnAppear>aod.npc_levir_reportTG6</checkOnAppear>
+          <checksOnClick>
+            <string>aod.quest_TG6_gaeliusKilled</string>
+            <string>aod.quest_TG6_gaeliusKilledByPoison</string>
+            <string>aod.quest_TG6_gaeliusKilledByBoatmen</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2914</int>
+            <int>2913</int>
+            <int>2915</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I couldn't get to Gaelius."</text>
+          <def_link>2934</def_link>
+          <checkOnAppear>aod.npc_levir_failedTG6</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2888</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’ve heard. His own courtesan, eh? I’m impressed.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(TG6_01);</string>
+        <string>rwd_quest(TG6_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“So, now what?”</text>
+          <def_link>2916</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2913</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’ve heard. You should have killed Cyrus too. Now, Gaelius’ death is on us.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(TG6_02);</string>
+        <string>rwd_quest(TG6_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“So, now what?”</text>
+          <def_link>2916</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2914</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’ve heard. Good job, &lt;charname&gt;. The Boatmen will be furious. Nobody likes being framed, but being framed in such a manner? Now, that’s embarrassing.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(TG6_03);</string>
+        <string>rwd_quest(TG6_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“So, now what?”</text>
+          <def_link>2916</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2915</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Lay low for a while. Let the dust settle, then we'll talk."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_levir_reportTG6 = false;</string>
+        <string>aod.jnl_tg6_phase6 = true;</string>
+        <string>aod.ending_mdn_faction_TG = 1;</string>
+        <string>setAchievement("ACH_MAADORAN_TG");</string>
+        <string>aod.global_mdn_crisisActive = false;</string>
+        <string>aod.quest_TG6_active = 0;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Lay low for a few days.</text>
+          <def_link>2942</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2916</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Maadoran - start Temple locked</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.quest_tg6_startTemple = 1;</string>
+        <string>cheatHP();</string>
+        <string>switchMission("Maadoran.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2942</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Couldn't get to him?" snaps Levir angrily. "I didn't send you to try and fail. I sent you to get it done.
+
+"Get out of my sight, &lt;charname&gt;. We're done here."</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_tg6_phase5 = true;</string>
+        <string>aod.npc_levir_failedTG6 = false;</string>
+        <string>aod.ending_mdn_faction_TG = 2;</string>
+        <string>aod.global_mdn_crisisActive = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2936</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2934</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - unlock Ganezzar</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>revealMapLocation("Ganezzar");</string>
+        <string>dlgAddTextBoxMessage("Ganezzar added to the map");</string>
+        <string>aod.gnz_thief_start = true;</string>
+        <string>addQuest(TG_ArriveGNZ);</string>
+        <string>switchMission("Maadoran.mis");</string>
+        <string>dlgFadeLongToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2936</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

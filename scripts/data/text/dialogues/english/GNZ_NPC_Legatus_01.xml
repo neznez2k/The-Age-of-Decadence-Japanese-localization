@@ -1,0 +1,218 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.pc_member_aurelian</string>
+      <string>aod.npc_gnz_newLegatus_met</string>
+    </conditions>
+    <links>
+      <int>1</int>
+      <int>4</int>
+    </links>
+    <dlg_name>GNZ_NPC_Legatus_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Legatus</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“State your business,” says the new Legatus – Hagnon's replacement. He doesn't look very friendly.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_gnz_newLegatus_met = true;</string>
+        <string>dlgCam(15, 40, 7, 8210);</string>
+        <string>dlgTeleportToMarker(TM_Meru_PC_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Watch the tone. I killed Meru right where you're standing right now.”</text>
+          <def_link>2</def_link>
+          <checkOnAppear>aod.pc_member_assassins</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’d like to take a look at Meru’s private library.”</text>
+          <def_link>5</def_link>
+          <checkOnAppear>aod.pc_member_assassins == 0</checkOnAppear>
+          <checksOnClick>
+            <string>dlgGetRep(aurelian) &gt;= 15</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“All by yourself, I'm sure. What do you want?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’d like to take a look at Meru’s private library.”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(aurelian) &gt;= 15</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(15, 40, 12, 1);</string>
+        <string>if(aod.pc_member_aurelian) dlgSetAnimation(anim_sit_chair_00_00, 0, 8210);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You again? Now what?”</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(15, 40, 7, 8210);</string>
+        <string>dlgTeleportToMarker(TM_Meru_PC_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’d like to take a look at Meru’s private library.”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(aurelian) &gt;= 15</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[aurelian reputation failure]“I don't have time for this. I have a city to run.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[aurelian reputation success]“Alright but make it quick,” says the Legatus, giving an order to one of his soldiers.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Visit the library.</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - library</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>switchMission("Ganezzar Castle Archive.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“&lt;Master/Mistress&gt; &lt;charname&gt;,” says the Legatus, giving you an informal salute. “What brings you here?”</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAmbientAnimation(8210);</string>
+        <string>dlgCam(15, 40, 7, 8210);</string>
+        <string>dlgTeleportToMarker(TM_Meru_PC_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’d like to take a look at Meru’s private library.”</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Nothing right now.” Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Follow me, Praetor.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Visit the library.</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

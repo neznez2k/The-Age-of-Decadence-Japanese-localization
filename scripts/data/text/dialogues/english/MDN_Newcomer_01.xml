@@ -1,0 +1,472 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>MDN_Newcomer_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Newcomer</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You see a woman who’s looking around with a mix of frustration and curiosity. Clearly, it’s her first visit to Maadoran and she finds everything fascinating, yet there is certain urgency on her face, underlining that she’s here for a reason.
+
+“Do you need something?” asks the woman noticing your interest.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_QST_Newcomer_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“If you want to get in, you need a badge.”</text>
+          <def_link>2</def_link>
+          <checkOnAppear>aod.npc_centurion_talkedBadge &amp;&amp; dlgOwnsItem(2176)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“A badge?” asks the woman, looking surprised. “How do I get one?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“Come tomorrow morning, pay the levy for the privilege – 250 imperials, get on the list and wait. Usually, it takes about five-six weeks.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I was just kidding. Talk to that centurion over there.” Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“I don’t believe you.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“I can’t wait that long,” says the woman.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“Well, your story touched me. I was going to sell my badge to a friend of mine, but instead I’m going to sell to you. It’s your lucky day.”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I was just kidding. Talk to that centurion over there.” Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“You know what, I think I’m going to pass.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Thanks! How much do you want for it?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“300 imperials: 250 for the badge plus 50 for the convenience of not having to wait for weeks.”</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“500 imperials – that’s the street value. Think of it as a short term investment. Use the badge, then sell it for 600-700. It’s a sellers’ market.”</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It’s more than fair, thank you.” She gives you the money, takes the badge, and walks away.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(300);</string>
+        <string>dlgRemoveItem(2176, 1);</string>
+        <string>rwd_quest(MDN_Newcomer_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[perception success]You see two guards walking toward you. Didn't the centurion say that they crucified three people for selling fake badges?</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Walk away.</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Complete the transaction.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I don’t know, it’s a lot of money,” says the woman. “I need to think about it.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What's there to think about? Tell you what, give me 350 and the badge is yours.”</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>Suddenly, two guards materialize out of nowhere. “What’s going on here?” asks the guard to your left, looking at the badge.
+
+“&lt;He/She&gt; offered me &lt;his/her&gt; badge. It’s not against the law, is it?” asks the woman nervously.
+
+“If you seek an audience, talk to the centurion over there,” says the guard helpfully, then turns to you. “First time offender? 500 imperials.”</npc_text>
+      <onLoadScripts>
+        <string>dlgRemoveItem(2176, 1);</string>
+        <string>createByCharMarker("CM_Badge_Guard_02");</string>
+        <string>createByCharMarker("CM_Badge_Guard_01");</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgRotateToChar(5202);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’m a victim too! I was sold this very badge earlier today!”</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>“Buying fake badges isn’t a crime. Trying to sell them is,” explains the guard patiently, “are you going to pay or not?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay the fine.</text>
+          <def_link>12</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 500</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What if I say no?”</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I don't have the money.”</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>“Then we'll throw you out of the city faster than you can blink. We don't need troublemakers here.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay the fine.</text>
+          <def_link>12</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 500</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I don't have the money.”</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>“Stay out of trouble, farm &lt;boy/girl&gt;.”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-500);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>“Then I guess you don't mind if we take a look. Now, keep in mind that you're in the palace district, &lt;boy/girl&gt;. We have a zero tolerance policy here and enough guards to enforce it. So, keep your eyes down and hands where I can see them.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetMoney() &lt; 200</string>
+            <string>dlgGetMoney() &gt;= 200 &amp;&amp; dlgGetMoney() &lt; 500</string>
+            <string>dlgGetMoney() &gt;= 500 &amp;&amp; dlgGetMoney() &lt; 600</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>15</int>
+            <int>16</int>
+            <int>17</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>“Less than two hundred? You really are broke, eh? Alright, I'll take what you have and forgive the rest. Consider yourself lucky.”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-200);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>“What do we have here? Well, I've seen worse, trust me. Alright, I'll take what you have and forget about the rest. Consider yourself lucky.”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-500);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>“What do you know, you do have five hundred imperials, after all. I'll take everything to teach you a lesson. It's under six hundred anyway, so what's the difference? Now, next time a guard asks you to pay the fine, pay the fucking fine, alright?”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-600);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>“What do you know, you do have five hundred imperials, after all. I'll take an extra hundred to teach you a lesson. Now, next time a guard asks you to pay the fine, pay the fucking fine, alright?”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-600);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - sold badge or walked away</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgDeleteCharacter(5201);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - got caught</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgDeleteCharacter(5201);</string>
+        <string>dlgDeleteCharacter(5202);</string>
+        <string>dlgDeleteCharacter(5203);</string>
+        <string>rwd_quest(MDN_Newcomer_01);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>20</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

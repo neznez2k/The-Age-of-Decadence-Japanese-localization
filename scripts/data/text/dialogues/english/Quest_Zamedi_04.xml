@@ -1,0 +1,1765 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Quest_Zamedi_04</dlg_name>
+    <def_link>92</def_link>
+    <def_speaker_name>Demon</def_speaker_name>
+    <def_portrait>Demon</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Where is the ring?” demands the demon.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_demon_waiting = false;</string>
+        <string>dlgTeleportToMarker(TM_TowerInt_02, 250);</string>
+        <string>dlgTeleportToMarker(TM_TowerInt_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I've decided to keep it.” Attack.</text>
+          <def_link>73</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[critical strike]Strike the demon at his weak spot.</text>
+          <def_link>145</def_link>
+          <checkOnAppear>aod.quest_zamedi_knowWeak</checkOnAppear>
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>146</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Put the ring on your finger. “Is it a proper way to address your new master, slave?”</text>
+          <def_link>104</def_link>
+          <checkOnAppear>aod.quest_zamedi_knowRing == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I know what the ring does.” Reduce the power to the minimum.</text>
+          <def_link>149</def_link>
+          <checkOnAppear>aod.quest_zamedi_knowRing</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity]Make a run for it.</text>
+          <def_link>141</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>143</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Give him the ring.</text>
+          <def_link>95</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_zamedi_dealNotKill</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>96</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>92</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgSetAttitude(250, 1, -10);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>aod.jnl_Zamedi_phase4 = true;</string>
+        <string>aod.fight_stoneDemon = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>73</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>[failure]You turn around and run as fast as you can. Then the tip of the demon's sword bursts out of your chest, shattering your hopes to retire from adventuring and go back to a safer life.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go into the light.</text>
+          <def_link>142</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>141</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>142</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>[success]You turn around and run as fast as you can, reaching the shimmering wall in no time and throwing yourself against it. Time slows down for a moment and you start praying that the wall won't push you back. Fortunately, it lets you through and you fall on the sand outside the tower.</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(Zamedi_01);</string>
+        <string>aod.quest_zamedi_escaped = true;</string>
+        <string>if(dlgOwnsItem(1355)) aod.zmd_demonStatus = 4;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Get up and keep running.</text>
+          <def_link>156</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>143</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - leave tower - desert road</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.jnl_Zamedi_phase6 = true;</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>switchMission("RDM_DesertRoad_01.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>156</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>[failure]Taking the demon by surprise, you spring up like a snake and strike at the weak spot, expecting the demon to shutter into a million pieces. Sadly, your attack leaves nothing but a small dent, which doesn't seem to have any effect on the demon.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>73</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>145</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>[success]Taking the demon by surprise, you spring up like a snake and strike at the weak spot. The demon jerks back, watching a fracture line appearing and spreading across his torso. Suddenly, the line glows from within and stops. Slowly, millimetre by millimetre, it starts sealing itself.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeCharacterHP(-15, 250);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Finish him.</text>
+          <def_link>73</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>146</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Taken by surprise, the demon stares at you, unable to respond or comprehend what just happened here. Finally, he shakes his head and reaches for his blades.
+
+“You've got to be the dumbest human I've ever seen,” says the demon and takes a step toward you.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>73</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[critical strike]Strike the demon at his weak spot.</text>
+          <def_link>145</def_link>
+          <checkOnAppear>aod.quest_zamedi_knowWeak</checkOnAppear>
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>146</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity]Make a run for it.</text>
+          <def_link>141</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>143</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>104</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>At first, you don't see any noticeable effect on the demon, but when he takes a step toward you, you notice that his movements are sluggish, lacking the quickness and fluidity you saw earlier.
+
+“I can still kill you,” growls the demon, but his arrogance is gone. Well, sluggish or not, he is still made of stone, whereas you're made of much softer materials.</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(ZMD_02);</string>
+        <string>dlgChangeTraining(dodge, -20, 250);</string>
+        <string>dlgChangeTraining(sword, -20, 250);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[critical strike]Strike the demon at his weak spot.</text>
+          <def_link>145</def_link>
+          <checkOnAppear>aod.quest_zamedi_knowWeak</checkOnAppear>
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>146</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I'll trade you the ring for some answers.”</text>
+          <def_link>151</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You mentioned treasure?”</text>
+          <def_link>148</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>73</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>149</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“There is no treasure,” says the demon, taking another step forward, “but I really need this ring.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[critical strike]Strike the demon at his weak spot.</text>
+          <def_link>145</def_link>
+          <checkOnAppear>aod.quest_zamedi_knowWeak</checkOnAppear>
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>146</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I'll trade you the ring for some answers.”</text>
+          <def_link>151</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>73</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>148</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Thank you,” says the demon, putting the ring on its finger and rotating the bands. “Are you ready for your reward?” He smiles and draws four blades out of nowhere with alarming speed.</npc_text>
+      <onLoadScripts>
+        <string>dlgRemoveItem(1355, 1);</string>
+        <string>aod.zmd_demonStatus = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Why? Didn’t I help you?”</text>
+          <def_link>97</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Well then... Come and get some.” Attack.</text>
+          <def_link>73</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[critical strike]Strike the demon at his weak spot.</text>
+          <def_link>145</def_link>
+          <checkOnAppear>aod.quest_zamedi_knowWeak</checkOnAppear>
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>146</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity]Make a run for it.</text>
+          <def_link>141</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>143</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>95</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Thank you,” says the demon, putting the ring on its finger and rotating the bands. “I promised to let you live, but to be completely honest with you, I don’t think I can do that.”</npc_text>
+      <onLoadScripts>
+        <string>dlgRemoveItem(1355, 1);</string>
+        <string>aod.zmd_demonStatus = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Why? Didn’t I help you?”</text>
+          <def_link>97</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Well then... Come and get some.” Attack.</text>
+          <def_link>73</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[critical strike]Strike the demon at his weak spot.</text>
+          <def_link>145</def_link>
+          <checkOnAppear>aod.quest_zamedi_knowWeak</checkOnAppear>
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>146</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity]Make a run for it.</text>
+          <def_link>141</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>143</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>96</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You did and for that I thank you. Unfortunately, solving one dilemma has created a new one. I’ve been stuck here for a *very* long time. Now I desire nothing but to leave this place. The ring makes it possible, but the witness complicates it.
+
+“Therefore, while I harbour no ill will toward you, I must do what’s rational and eliminate the witness to increase the odds of my own survival. You understand, don’t you?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“And if I promise to say nothing?”</text>
+          <def_link>98</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Well then... Come and get some.” Attack.</text>
+          <def_link>73</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[critical strike]Strike the demon at his weak spot.</text>
+          <def_link>145</def_link>
+          <checkOnAppear>aod.quest_zamedi_knowWeak</checkOnAppear>
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>146</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity]Make a run for it.</text>
+          <def_link>141</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>143</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>97</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Would you not promise anything at this point? The survival instinct compels you. Thus, I can’t accept your promise as a binding agreement.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][charisma]“Who’d believe me, when I can hardly believe my own eyes? If I tell them that a stone statue came to life and talked to me, they would think that I was drunk. No record of your ... kind survived the war.”</text>
+          <def_link>99</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.cha) &gt;= 14</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>101</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]“It’s not that simple. I was sent here by a powerful lord. If I don’t come back, he will send more men to discover what happened to me. A guarded tower implies something valuable being guarded. He won’t simply let it go. And it won’t be hard for them to track down a four-armed, seven-foot tall, horned demon. You are a rare, valuable prize, they will drag you back in chains and you will spend the rest of your infinitely-long life in a cage, entertaining guests and children.”</text>
+          <def_link>100</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>102</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>98</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]The demon shrugs, looking apologetic. “I can’t take that chance.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_zamedi_failedPersuasion = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“It’s not that simple. I was sent here by a powerful lord. If I don’t come back, he will send more men to discover what happened to me. A guarded tower implies something valuable being guarded. He won’t simply let it go. And it won’t be hard for them to track down a four-armed, seven-foot tall, horned demon. You are a rare, valuable prize, they will drag you back in chains and you will spend the rest of your infinitely-long life in a cage, entertaining guests and children.”</text>
+          <def_link>100</def_link>
+          <checkOnAppear>aod.quest_zamedi_failedStreetwise == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>102</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Well then... Come and get some.” Attack.</text>
+          <def_link>73</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[critical strike]Strike the demon at his weak spot.</text>
+          <def_link>145</def_link>
+          <checkOnAppear>aod.quest_zamedi_knowWeak</checkOnAppear>
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>146</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity]Make a run for it.</text>
+          <def_link>141</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>143</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>99</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“They might, they might not. Both options present risks, but it seems that the biggest risk is letting you go free.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_zamedi_failedStreetwise = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][charisma]“Who’d believe me, when I can hardly believe my own eyes? If I tell them that a stone statue came to life and talked to me, they would think that I was drunk. No record of your ... kind survived the war.”</text>
+          <def_link>99</def_link>
+          <checkOnAppear>aod.quest_zamedi_failedPersuasion == false</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.persuasion + aod.cha) &gt;= 14</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>101</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Well then... Come and get some.” Attack.</text>
+          <def_link>73</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[critical strike]Strike the demon at his weak spot.</text>
+          <def_link>145</def_link>
+          <checkOnAppear>aod.quest_zamedi_knowWeak</checkOnAppear>
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>146</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity]Make a run for it.</text>
+          <def_link>141</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>143</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>100</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Hmm, you may have a point there. My ‘kind’ was created by the Magi and never set foot outside of their arcane towers and domes. Perhaps I was wrong, perhaps taking your life isn’t necessary.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(ZMD_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Wait! Can I ask you a few questions before you leave? Your knowledge of the past is priceless!”</text>
+          <def_link>103</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>101</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Very well,” says the demon reluctantly. “I could crush any of your kind in single combat, but you are like insects, your numbers are nearly endless. Eventually even I would be overcome.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(ZMD_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Wait! Can I ask you a few questions before you leave? Your knowledge of the past is priceless!”</text>
+          <def_link>103</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>102</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’m glad that your simple mind can at least appreciate that fact. Alright, what is it you wish to know?”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_zamedi_talked = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Are you a living thing? A mechanism? A magical construct?”</text>
+          <def_link>106</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Your appearance is ... unusual.”</text>
+          <def_link>107</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Why were you created?”</text>
+          <def_link>108</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What happened to your master?”</text>
+          <def_link>109</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What happened to Zamedi?”</text>
+          <def_link>115</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m looking for the temple of Thor-Agoth. Can you help me find it?”</text>
+          <def_link>116</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>103</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Very well,” says the demon reluctantly. “What is it you wish to know?”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_zamedi_controlDemon = true;</string>
+        <string>aod.quest_zamedi_talked = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Are you a living thing? A mechanism? A magical construct?”</text>
+          <def_link>106</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Your appearance is ... unusual.”</text>
+          <def_link>107</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Why were you created?”</text>
+          <def_link>108</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What happened to your master?”</text>
+          <def_link>109</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What happened to Zamedi?”</text>
+          <def_link>115</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m looking for the temple of Thor-Agoth. Can you help me find it?”</text>
+          <def_link>116</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>151</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The war, of course. It tends to be hard on architecture.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_demon_talkedZamedi = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“But how did the tower survive?”</text>
+          <def_link>114</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>115</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The tower was built to withstand such attacks, designed by the finest minds in the Empire and using the latest techniques devised by the Magi to deflect or absorb any power a foe might bring to bear against it. Within these halls you’ll find energy shield generators, shock dampeners, heat sinks, reactive armor panels, all powered by the generator at its core... a true marvel of engineering. As you can see, nearly 400 years later and it’s still almost fully operational. I’m proud to have assisted in crafting such a wonder.
+
+“The city, I’m afraid, wasn’t so well built.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Who was your master?”</text>
+          <def_link>113</def_link>
+          <checkOnAppear>aod.npc_demon_talkedLivingThing &amp;&amp; aod.npc_demon_talkedAppearance &amp;&amp; aod.npc_demon_talkedCreated &amp;&amp; aod.npc_demon_talkedHappenedMaster &amp;&amp; aod.npc_demon_talkedTemple &amp;&amp; aod.npc_demon_talkedZamedi</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Are you a living thing? A mechanism? A magical construct?”</text>
+          <def_link>106</def_link>
+          <checkOnAppear>aod.npc_demon_talkedLivingThing == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Your appearance is ... unusual.”</text>
+          <def_link>107</def_link>
+          <checkOnAppear>aod.npc_demon_talkedAppearance == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Why were you created?”</text>
+          <def_link>108</def_link>
+          <checkOnAppear>aod.npc_demon_talkedCreated == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What happened to your master?”</text>
+          <def_link>109</def_link>
+          <checkOnAppear>aod.npc_demon_talkedHappenedMaster == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m looking for the temple of Thor-Agoth. Can you help me find it?”</text>
+          <def_link>116</def_link>
+          <checkOnAppear>aod.npc_demon_talkedTemple == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>114</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You will have to be more specific, human. I have no idea who you’re referring to.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_demon_talkedTemple = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“A god. He was the god known as the Artificer.”</text>
+          <def_link>110</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>116</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Ah, I understand. Another degeneration of your language. Agathoth, my master called him. Tor-Agathoth. Tor was some kind of honorific, though the Magi rarely used it. They built a ziggurat for him, I was told – an entire complex, though I don’t know where. As I said, I’ve never left this tower.
+
+“Look for my master’s records. Perhaps, they could be of help.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Who was your master?”</text>
+          <def_link>113</def_link>
+          <checkOnAppear>aod.npc_demon_talkedLivingThing &amp;&amp; aod.npc_demon_talkedAppearance &amp;&amp; aod.npc_demon_talkedCreated &amp;&amp; aod.npc_demon_talkedHappenedMaster &amp;&amp; aod.npc_demon_talkedTemple &amp;&amp; aod.npc_demon_talkedZamedi</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Are you a living thing? A mechanism? A magical construct?”</text>
+          <def_link>106</def_link>
+          <checkOnAppear>aod.npc_demon_talkedLivingThing == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Your appearance is ... unusual.”</text>
+          <def_link>107</def_link>
+          <checkOnAppear>aod.npc_demon_talkedAppearance == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Why were you created?”</text>
+          <def_link>108</def_link>
+          <checkOnAppear>aod.npc_demon_talkedCreated == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What happened to your master?”</text>
+          <def_link>109</def_link>
+          <checkOnAppear>aod.npc_demon_talkedHappenedMaster == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What happened to Zamedi?”</text>
+          <def_link>115</def_link>
+          <checkOnAppear>aod.npc_demon_talkedZamedi == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>110</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“If by ‘living thing’ you mean that I’m able to think independently, then yes, I am indeed a ‘living thing’. If only my former master could express himself so eloquently.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_demon_talkedLivingThing = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Who was your master?”</text>
+          <def_link>113</def_link>
+          <checkOnAppear>aod.npc_demon_talkedLivingThing &amp;&amp; aod.npc_demon_talkedAppearance &amp;&amp; aod.npc_demon_talkedCreated &amp;&amp; aod.npc_demon_talkedHappenedMaster &amp;&amp; aod.npc_demon_talkedTemple &amp;&amp; aod.npc_demon_talkedZamedi</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Your appearance is ... unusual.”</text>
+          <def_link>107</def_link>
+          <checkOnAppear>aod.npc_demon_talkedAppearance == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Why were you created?”</text>
+          <def_link>108</def_link>
+          <checkOnAppear>aod.npc_demon_talkedCreated == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What happened to your master?”</text>
+          <def_link>109</def_link>
+          <checkOnAppear>aod.npc_demon_talkedHappenedMaster == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What happened to Zamedi?”</text>
+          <def_link>115</def_link>
+          <checkOnAppear>aod.npc_demon_talkedZamedi == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m looking for the temple of Thor-Agoth. Can you help me find it?”</text>
+          <def_link>116</def_link>
+          <checkOnAppear>aod.npc_demon_talkedTemple == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>106</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“This form was given to me by my master. It’s a tribute to the Apis legion, though the additional arms were added so that I might better serve my function.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_demon_talkedAppearance = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Who was your master?”</text>
+          <def_link>113</def_link>
+          <checkOnAppear>aod.npc_demon_talkedLivingThing &amp;&amp; aod.npc_demon_talkedAppearance &amp;&amp; aod.npc_demon_talkedCreated &amp;&amp; aod.npc_demon_talkedHappenedMaster &amp;&amp; aod.npc_demon_talkedTemple &amp;&amp; aod.npc_demon_talkedZamedi</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Are you a living thing? A mechanism? A magical construct?”</text>
+          <def_link>106</def_link>
+          <checkOnAppear>aod.npc_demon_talkedLivingThing == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Why were you created?”</text>
+          <def_link>108</def_link>
+          <checkOnAppear>aod.npc_demon_talkedCreated == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What happened to your master?”</text>
+          <def_link>109</def_link>
+          <checkOnAppear>aod.npc_demon_talkedHappenedMaster == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What happened to Zamedi?”</text>
+          <def_link>115</def_link>
+          <checkOnAppear>aod.npc_demon_talkedZamedi == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m looking for the temple of Thor-Agoth. Can you help me find it?”</text>
+          <def_link>116</def_link>
+          <checkOnAppear>aod.npc_demon_talkedTemple == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>107</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Why were *you* created, human? No, don’t bother trying to answer, I’m sure it was something boringly mundane. Physical lust or some such biological concern. I, however, was created for a higher purpose: to assist my master in his magical experiments, to plumb the mysteries of the universe. Stone can withstand so much more than flesh, which needs only the slightest excuse to split and part from bone.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_demon_talkedCreated = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Who was your master?”</text>
+          <def_link>113</def_link>
+          <checkOnAppear>aod.npc_demon_talkedLivingThing &amp;&amp; aod.npc_demon_talkedAppearance &amp;&amp; aod.npc_demon_talkedCreated &amp;&amp; aod.npc_demon_talkedHappenedMaster &amp;&amp; aod.npc_demon_talkedTemple &amp;&amp; aod.npc_demon_talkedZamedi</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Are you a living thing? A mechanism? A magical construct?”</text>
+          <def_link>106</def_link>
+          <checkOnAppear>aod.npc_demon_talkedLivingThing == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Your appearance is ... unusual.”</text>
+          <def_link>107</def_link>
+          <checkOnAppear>aod.npc_demon_talkedAppearance == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What happened to your master?”</text>
+          <def_link>109</def_link>
+          <checkOnAppear>aod.npc_demon_talkedHappenedMaster == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What happened to Zamedi?”</text>
+          <def_link>115</def_link>
+          <checkOnAppear>aod.npc_demon_talkedZamedi == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m looking for the temple of Thor-Agoth. Can you help me find it?”</text>
+          <def_link>116</def_link>
+          <checkOnAppear>aod.npc_demon_talkedTemple == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>108</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I don’t know. He left after the attack, but never returned. He wasn’t the type to let a servant into his confidence. I can only assume that he was killed – knowing him, only death could have kept him from returning to his work.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_demon_talkedHappenedMaster = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“When did he leave?</text>
+          <def_link>112</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>109</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“382 years ago.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Who was your master?”</text>
+          <def_link>113</def_link>
+          <checkOnAppear>aod.npc_demon_talkedLivingThing &amp;&amp; aod.npc_demon_talkedAppearance &amp;&amp; aod.npc_demon_talkedCreated &amp;&amp; aod.npc_demon_talkedHappenedMaster &amp;&amp; aod.npc_demon_talkedTemple &amp;&amp; aod.npc_demon_talkedZamedi</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Are you a living thing? A mechanism? A magical construct?”</text>
+          <def_link>106</def_link>
+          <checkOnAppear>aod.npc_demon_talkedLivingThing == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Your appearance is ... unusual.”</text>
+          <def_link>107</def_link>
+          <checkOnAppear>aod.npc_demon_talkedAppearance == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Why were you created?”</text>
+          <def_link>108</def_link>
+          <checkOnAppear>aod.npc_demon_talkedCreated == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What happened to Zamedi?”</text>
+          <def_link>115</def_link>
+          <checkOnAppear>aod.npc_demon_talkedZamedi == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m looking for the temple of Thor-Agoth. Can you help me find it?”</text>
+          <def_link>116</def_link>
+          <checkOnAppear>aod.npc_demon_talkedTemple == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>112</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Marcus Domitius Crassus. Ambitious and loyal. Perhaps, too loyal.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Of House Crassus?”</text>
+          <def_link>117</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>113</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Yes, House Crassus. Have you heard of it? Does it stand still?” asks the demon with sudden hope.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“It does, but I have a feeling it’s not as you remember it. Lord Meru is too busy calling for a return to the worship of the gods and the restoration of their temples to be concerned with, well, whatever you are.”</text>
+          <def_link>118</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>117</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The worship of what?” asks the demon, looking very puzzled.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“The gods? They’re... well, they’re the gods. The beings who created the universe and everything in it? Who guide all our fates? They came to our world from their otherworldly realm in the hour of the Empire’s greatest need, to rescue it from the barbarians who sought to destroy it. At least, that’s what we’ve been told.”</text>
+          <def_link>119</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>118</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Otherworldly is about the only thing you got right,” chuckles the demon. “What happened to your kind, human? How did you fall so far?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I don’t know. No one does. If they weren’t gods, what were they then? Why did they come, if not to aid the Empire?”</text>
+          <def_link>120</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>119</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“They didn’t come. You brought them here. Your Empire’s greatest triumph and most terrible mistake. You created your own gods and in doing so, fashioned your own downfall. It’s rather poetic, don’t you think?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What do you mean by ‘created your own gods’?”</text>
+          <def_link>121</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>120</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Does the word ‘created’ confuse you? Am I not a living proof of how far your Art reached, at its height?
+
+“I do not know all the details – my master wasn’t the type to indulge curiosity, but he did discuss this project with other Magi while I was present. The greatest hurdle was to bring these gods, as you call them, here, to this plane. They laboured for over a year to locate a suitable conduit, but eventually the problem solved itself, the gods were given bodies, and the project moved forward again. And then the war started and, well, here we are.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Given bodies? Human bodies? I don’t understand, don’t the gods have their own bodies?”</text>
+          <def_link>122</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“How many gods did they bring?”</text>
+          <def_link>123</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Thank you for the answers.”</text>
+          <def_link>152</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_zamedi_controlDemon</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>155</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>121</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Seven. There were seven.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_demon_talkedHowMany = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Seven? I’ve heard differently.”</text>
+          <def_link>124</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>123</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Then you’ve heard wrong,” says the demon, emphasizing the word ‘wrong’.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So, the gods were here before the war?”</text>
+          <def_link>126</def_link>
+          <checkOnAppear>aod.npc_demon_talkedHowMany &amp;&amp; aod.npc_demon_talkedCreateGods &amp;&amp; aod.npc_demon_talkedWhoseBodies</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Given bodies? Human bodies? I don’t understand, don’t the gods have their own bodies?”</text>
+          <def_link>122</def_link>
+          <checkOnAppear>aod.npc_demon_talkedGivenBodies == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Thank you for the answers.”</text>
+          <def_link>152</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_zamedi_controlDemon</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>155</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>124</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Yes, given bodies. They were not of this realm, human, they did not have physical existence as you understand it. They required vessels to anchor their essence to this realm.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_demon_talkedGivenBodies = true;</string>
+        <string>addLore(16);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Were the Magi really trying to create gods?”</text>
+          <def_link>134</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Whose bodies were they given?”</text>
+          <def_link>135</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Thank you for the answers.”</text>
+          <def_link>152</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_zamedi_controlDemon</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>155</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>122</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Gods? Omnipotent beings controlling all aspects of mortal life? No. I’m merely using your rich vocabulary here.
+
+“I do not know exactly what the Magi hoped to achieve, but I can assure you that men like my master wouldn’t create anything they didn’t believe they could control.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_demon_talkedCreateGods = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“So, the gods were here before the war?”</text>
+          <def_link>126</def_link>
+          <checkOnAppear>aod.npc_demon_talkedHowMany &amp;&amp; aod.npc_demon_talkedCreateGods &amp;&amp; aod.npc_demon_talkedWhoseBodies</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Whose bodies were they given?”</text>
+          <def_link>135</def_link>
+          <checkOnAppear>aod.npc_demon_talkedWhoseBodies == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“How many gods did they bring?”</text>
+          <def_link>123</def_link>
+          <checkOnAppear>aod.npc_demon_talkedHowMany == false &amp;&amp; aod.npc_demon_talkedWhoseBodies</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Thank you for the answers.”</text>
+          <def_link>152</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_zamedi_controlDemon</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>155</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>134</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Are expendable people in such short supply now? People no one cares about, no one would miss? Have things really changed that much?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_demon_talkedWhoseBodies = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“So, the gods were here before the war?”</text>
+          <def_link>126</def_link>
+          <checkOnAppear>aod.npc_demon_talkedHowMany &amp;&amp; aod.npc_demon_talkedCreateGods &amp;&amp; aod.npc_demon_talkedWhoseBodies</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Were the Magi really trying to create gods?”</text>
+          <def_link>134</def_link>
+          <checkOnAppear>aod.npc_demon_talkedCreateGods == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“How many gods did they bring?”</text>
+          <def_link>123</def_link>
+          <checkOnAppear>aod.npc_demon_talkedHowMany == false &amp;&amp; aod.npc_demon_talkedCreateGods</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Thank you for the answers.”</text>
+          <def_link>152</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_zamedi_controlDemon</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>155</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>135</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Of course they were here before the war! Cause comes before effect, does it not?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Wait, you mean that the gods started the war?”</text>
+          <def_link>127</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>126</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“No, why would they? They were quite happy with the arrangement, they’d gotten what they wanted. No, the war was fought because of the gods, not at their behest. You’ve heard of the Qantari, I assume?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’ve heard of them, yes, but few records remain of them, besides that they were our enemy. How do they fit in?”</text>
+          <def_link>128</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>127</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“How do they fit in?” the demon looks at you in surprise. “Why, they started the whole mess. They were the ones who made contact with the gods in the first place. But they couldn’t quite figure out how to bring them here, to this world, from their own. So they came to your Empire for help. It was your Magi who found a solution.
+
+“For a while this academic alliance was proceeding perfectly, scholars from both powers working in harmony. My master even began spending most of his time at Al-Akia. But such things do not last with you humans, do they? One day, the Magi were all up in arms over something, they never told me what. But they blamed the Qantari for it. Blame turned to anger, then violence. They attacked the Qantari. So of course the Qantari didn’t take that lying down. When their fleet arrived, that’s when the war began in earnest.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Al-Akia?”</text>
+          <def_link>131</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>128</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“That’s where they brought forth the gods and gave them flesh. An entire town built for this sole purpose – if you can imagine such a wonder.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Who built it?”</text>
+          <def_link>132</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>131</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The Magi and the Qantari’s Servants, of course. Working together.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Servants?”</text>
+          <def_link>133</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>132</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Their Magi. Their full title was ‘The Servants of the Power of Creation’. An awkward phrase in your language. In native Qantari it is a single word, much more elegant, I assure you.
+
+“For a caste who referred to themselves as ‘Servants’, they were rather arrogant and conceited. Not that your own Magi lacked arrogance, but the Qantari turned it into an art form.
+
+“Perhaps it was the fact that the Magi were sworn to serve the Emperor that kept them at least somewhat grounded. The Servants served nothing but their own interests, ironically.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“And what happened to the gods?”</text>
+          <def_link>129</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>133</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I wouldn’t know. After the town of Zamedi was destroyed and my master left, my only link with the outside world was severed. Judging by your questions, I assume that the Empire has fallen and the Art of the Magi is gone from this world.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What makes you think that?”</text>
+          <def_link>130</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>129</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It’s really not that hard to deduce. You’re the first visitor to this tower in 382 years. The towers were never intended to run this long without maintenance. Yet no one has come, and though this tower and its power source remains, no magus has come to claim it as his own, either. This tells me two things: that there are no magi left and that access to the tower is restricted. The only reason that access would be restricted is fear. Men fear what they don’t understand, what they no longer have the knowledge to understand.
+
+“And it is clear from your questions that you haven’t the slightest idea of what is around you, not the workings of this tower nor the nature of constructs such as myself, not even of your own people’s history. This suggests that few records survived the war, and that your civilization has undergone a significant regression. A sad turn of events, but not an unexpected one.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Thank you for the answers.”</text>
+          <def_link>152</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_zamedi_controlDemon</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>155</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>130</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The ring?” reminds the demon. “You have no use for it.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Keep your word and give him the ring.</text>
+          <def_link>152</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I think I'll keep it. Just in case.”</text>
+          <def_link>154</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>155</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Good luck to you, human.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(Zamedi_01);</string>
+        <string>dlgRemoveItem(1355, 1);</string>
+        <string>aod.zmd_demonStatus = 1;</string>
+        <string>rwd_reputation(Zamedi_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait for him to leave.</text>
+          <def_link>64</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>152</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I should have killed you the moment you walked in,” says the demon with cold anger, drawing four blades out of nowhere.</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(Zamedi_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>73</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[critical strike]Strike the demon at his weak spot.</text>
+          <def_link>145</def_link>
+          <checkOnAppear>aod.quest_zamedi_knowWeak</checkOnAppear>
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>146</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity]Make a run for it.</text>
+          <def_link>141</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>143</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>154</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.jnl_Zamedi_phase5 = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>aod.quest_zamedi_demonLetGo = true;</string>
+        <string>dlgDeleteCharacter(250);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>64</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

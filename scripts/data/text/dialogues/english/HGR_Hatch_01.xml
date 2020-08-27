@@ -1,0 +1,152 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.hangar_panel_powered</string>
+    </conditions>
+    <links>
+      <int>6</int>
+    </links>
+    <dlg_name>HGR_Hatch_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You see a complex control panel built into the wall. Broken power tubes are filled with the dust of centuries.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(315, 45, 10);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Replace one of the power tubes.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgOwnsItem(1600) == false</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You carefully remove one of the broken tubes and replace it with a new one. The panel lights up, awaiting your command.</npc_text>
+      <onLoadScripts>
+        <string>dlgRemoveItem(1600, 1);</string>
+        <string>aod.hangar_panel_powered = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Open the hatch door.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The panel is powered up, awaiting your command.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(315, 45, 10);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Open the hatch door.</text>
+          <def_link>4</def_link>
+          <checkOnAppear>aod.HGR_hatchOpen == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Unfortunately, it appears that you're out of power tubes.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The floor trembles as if hit by an earthquake. The tremors increase, the ceiling cracks open and streams of sand pour from above. Slowly, the enormous double doors retreat into the rock, flooding the chamber with light.</npc_text>
+      <onLoadScripts>
+        <string>aod.HGR_hatchOpen = true;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>HatchOpen.showobjects();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

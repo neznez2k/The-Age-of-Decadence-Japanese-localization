@@ -1,0 +1,702 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_agathoth_met</string>
+    </conditions>
+    <links>
+      <int>9052</int>
+    </links>
+    <dlg_name>ZGT_NPC_Agathoth_01</dlg_name>
+    <def_link>9030</def_link>
+    <def_speaker_name>Agathoth</def_speaker_name>
+    <def_portrait>Agathoth</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>The god must be inside the sarcophagus. Could he still be alive after all these years? And if he is, then what? Kneel before him? Kill him? Can you even kill a god? Well, there’s only one way to find out.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(Agathoth_1);</string>
+        <string>if(aod.zgt_found_tomb == false) {if(aod.jnl_TG_Levir_Temple) aod.jnl_TG_Levir_Temple = 2; if(aod.jnl_TG_Senna_Temple) aod.jnl_TG_Senna_Temple = 2; if(isQuestAdded(TG_Glabrio_Temple)) aod.jnl_TG_Glabrio_Temple = 1; if(isQuestAdded(Meru_Temple)) aod.jnl_Meru_Temple = 1; if(aod.jnl_IG_Paullus_Temple) aod.jnl_IG_Paullus_Temple = 2; if(aod.jnl_IG_Carrinas_Temple) aod.jnl_IG_Carrinas_Temple = 2; if(aod.jnl_AG_Varro_Temple == 2) aod.jnl_AG_Varro_Temple = 3; if(aod.jnl_TG_Darista_Temple) aod.jnl_TG_Darista_Temple = 2; if(aod.jnl_MG_Athan_Temple) aod.jnl_MG_Athan_Temple = 2; if(aod.jnl_MG_Strabos_Temple) aod.jnl_MG_Strabos_Temple = 2; if(aod.jnl_Antidas_Temple) aod.jnl_Antidas_Temple = 2; aod.jnl_map = 8; rwd_quest(MQ_Temple_01); aod.zgt_found_tomb = true;}</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Open it.</text>
+          <def_link>9053</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Perhaps it’s best to leave it here, abandoned and forgotten. Tell your master that the temple doesn’t exist.</text>
+          <def_link>9055</def_link>
+          <checkOnAppear>aod.zgt_tomb_balzaar == 0</checkOnAppear>
+          <checksOnClick>
+            <string>aod.end_balzaar_rises</string>
+            <string>aod.alk_ritual_performed</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9063</int>
+            <int>9057</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone for now.</text>
+          <def_link>9047</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9030</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>The top hatch opens soundlessly. You know that what lies within was once a man, but like a wooden scaffold used to raise a stone temple, that humanity, other than in the vaguest outlines, has been discarded.
+
+The limbs have grown weighty and powerful, and a flat, alien face descends from an elongated skull. The back, now warped into a forward-curving hunch, is armored with chitinous layers; thick tentacles grow from the base of the head instead of hair, reaching almost to the legs. The skin is the deep blue of twilight sky or icy ocean, suggesting copper-based blood. Who knows what other surprises this strange form might hold?</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Agathoth_PC);</string>
+        <string>aod.npc_agathoth_met = true;</string>
+        <string>VCO_Tomb.setActive(0);</string>
+        <string>useCameraBookmark(Agathoth_1);</string>
+        <string>VCO_ReactorConsole.setActive(0);</string>
+        <string>setObjectRenderState(Tomb_Open, 1);</string>
+        <string>setObjectRenderState(Tomb_Up, 0);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>9032</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.temple_used_canister</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9031</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9053</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The god’s eyes open and blink dully.
+
+“It worked,” he says, exhaling with relief in an unmistakably human way. He turns his gaze to you, puzzled for a moment, then alarmed. “Where are my acolytes?” But he already knows the answer.
+
+Slowly, he rises from the sarcophagus and straightens to his full height, towering over you. The tentacles arc up into the air, pointing toward you over his shoulders. Two of them end in bulbous growths which part to reveal a pair of eyes. After a quick scan of the surroundings, the eyes wink shut and the tentacles relax again to rest along his spine.
+
+“How long?” he asks.</npc_text>
+      <onLoadScripts>
+        <string>createByCharMarker("CM_Elder_God");</string>
+        <string>setObjectRenderState(Tomb_Up, 1);</string>
+        <string>setObjectRenderState(Tomb_Open, 0);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Centuries.”</text>
+          <def_link>9034</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9032</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The god’s eyes open and blink dully.
+
+“It worked,” he says, exhaling with relief in an unmistakably human way. He turns his gaze to you, puzzled for a moment, then alarmed. “Where are my acolytes?” But he already knows the answer.
+
+Slowly, he rises from the sarcophagus and straightens to his full height, towering over you. The tentacles arc up into the air, pointing toward you over his shoulders. Two of them end in bulbous growths which part to reveal a pair of eyes. After a quick scan of the surroundings, the eyes wink shut and the tentacles relax again to rest along his spine.
+
+He blinks again, looking weak and disoriented. “What have you done?” demands the ‘god’, the tentacles flexing then relaxing, like the fists of a man trying to control his anger.</npc_text>
+      <onLoadScripts>
+        <string>createByCharMarker("CM_Elder_God");</string>
+        <string>dlgChangeStat(str, -5, 290);</string>
+        <string>dlgChangeStat(dex, -5, 290);</string>
+        <string>dlgChangeStat(per, -5, 290);</string>
+        <string>dlgChangeCharacterHP(-25, 290);</string>
+        <string>setObjectRenderState(Tomb_Up, 1);</string>
+        <string>setObjectRenderState(Tomb_Open, 0);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill it before it recovers its strength.</text>
+          <def_link>9033</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9031</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetAttitude(290, 1, -10);</string>
+        <string>setRtsCam();</string>
+        <string>aod.fight_agathoth = 1;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9033</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Centuries? The Magi...?” he leaves the question unfinished.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“The Magi are long gone.”</text>
+          <def_link>9035</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9034</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>A worried rumble sounds deep in his chest as he takes this in. “Who rules in the Magi’s stead?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Petty men lording over pitiful city-states.”</text>
+          <def_link>9048</def_link>
+          <checkOnAppear>aod.alk_ritual_performed == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.end_balzaar_rises</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9061</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Balzaar. He wants your head as an ornament for his throne.”</text>
+          <def_link>9037</def_link>
+          <checkOnAppear>aod.alk_ritual_performed</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Men rule this world now! Your kind is no longer welcome on this plane.”</text>
+          <def_link>9036</def_link>
+          <checkOnAppear>aod.alk_ritual_performed == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.end_balzaar_rises</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9061</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9035</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Is that so?” asks the god, the tentacles flexing then relaxing, like the fists of a man trying to control his anger.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Kill it before it recovers its strength.</text>
+          <def_link>9033</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9036</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Balzaar,” he breathes out, the tentacles flexing then relaxing, like the fists of a man trying to control his anger. “He used me!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“The Qantari used the Magi, the Magi used your kind, and Balzaar used you. Such is the way of the world.”</text>
+          <def_link>9038</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9037</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The god turns his head aside as if listening to something. “Balzaar,” he breathes out, the tentacles flexing then relaxing, like the fists of a man trying to control his anger. “He’s already here!”</npc_text>
+      <onLoadScripts>
+        <string>aod.alk_ritual_performed = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Are you certain? I know nothing about it.”</text>
+          <def_link>9062</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9061</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Then he didn’t have time to manifest his powers yet. One of your lords must have found a way to bring him back.
+
+“Kill him!” He doesn’t ask or bargain. He commands, expecting you to obey.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Why should I help you?”</text>
+          <def_link>9040</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9062</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“And so they returned to the dust of which they were made, a just reward for treachery. How long has Balzaar been here?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“A few weeks.”</text>
+          <def_link>9039</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9038</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Weeks?” Agathoth looks at you in disbelief. “Weeks?!” He tosses his head back and emits a sort of barking noise. Eventually you recognize the sound as laughter.
+
+“Kill him!” He doesn’t ask or bargain. He commands, expecting you to obey.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Why should I help you?”</text>
+          <def_link>9040</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9039</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Do not play the fool, human. Why else would you be here? Serve me and be rewarded. Or serve Balzaar.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What’s the difference?”</text>
+          <def_link>9041</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9040</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Balzaar wishes to put a world of chaos into order, serried ranks of slaves toiling at ziggurats, working together for the first time since your kind crawled out of primordial mud, like the gears in an intricate machine. No more wars, no more waste, just the stagnant harmony of obedience.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“And you? What do *you* want?”</text>
+          <def_link>9042</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9041</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I know this world for what it is. Humans will bow to any fool wearing a golden crown, but they hate and fear that which is different. A tribal mentality.
+
+“I could reveal myself once my powers return, but then I’d have to slay a few thousand men who’d rise against me, and then a few thousand more until I grow bored and destroy your kind, leaving but a few ‘seeds’ to start over.
+
+“I grow tired merely explaining it. Simply put, I need one of you to be the face that rules the tribes.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So that you may rule from the shadows.”</text>
+          <def_link>9043</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9042</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Yes, with your help. You will bring me the lords of your world and watch them bend the knee one by one. You will be the first of my servants, and speak with my voice, and the lords will bow to you too. This is my offer.”</npc_text>
+      <onLoadScripts>
+        <string>aod.zgt_startEnding = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“How do I kill Balzaar? He might be too powerful for me now.”</text>
+          <def_link>9044</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’d rather serve Balzaar.”</text>
+          <def_link>9036</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9043</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I will strengthen your body and mind. The rest you’ll do on your own.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Kneel before your god to receive your first gift.</text>
+          <def_link>9046</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9044</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The god raises his hands and the palms open up like a starfish’s mouth, bloodless and jagged. He places the palms on your head and you feel a strange rush of blood and then nothing at all.
+
+You wake up on the floor, feeling ... different. Something within you has changed.
+
+“Give it time,” says the god, pleased with his First Acolyte.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>DOOR_Reactor.lock();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9047</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9046</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Bring me one of these lords and I’ll raise him above all. Provided he kneels before me.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Why should I help you?”</text>
+          <def_link>9049</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Use *me*, Lord! I’m your most devoted servant.”</text>
+          <def_link>9058</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9048</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Do not play the fool, human. Why else would you be here? Serve me and be rewarded. Unless you’re here to kill me.”
+
+He tosses his head back and emits a sort of barking noise. Eventually you recognize the sound as laughter.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What do you mean?”</text>
+          <def_link>9050</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Kill it before it recovers its strength.</text>
+          <def_link>9033</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9049</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I know this world for what it is. Humans will bow to any fool wearing a golden crown, but they hate and fear that which is different. A tribal mentality.
+
+“I could reveal myself once my powers return, but then I’d have to slay a few thousand men who’d rise against me, and then a few thousand more until I grow bored and destroy your kind, leaving but a few ‘seeds’ to start over.
+
+“I grow tired merely explaining it. Simply put, I need one of you to be the face that rules the tribes.”</npc_text>
+      <onLoadScripts>
+        <string>aod.zgt_startEnding = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Convincing one of the lords to come here won’t be easy.”</text>
+          <def_link>9051</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9050</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I will strengthen your body and mind. The rest you’ll do on your own.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Kneel before your god to receive your first gift.</text>
+          <def_link>9046</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9051</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9047</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>aod.ending_men = 1;</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>SS_start("temple_ending", "disconnect();");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9055</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING - Balzaar takes over</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>aod.ending_balzaar = 2;</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>SS_start("temple_ending", "disconnect();");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9063</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You have your task. What are you waiting for, human?”</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(Agathoth_1);</string>
+        <string>dlgTeleportToMarker(TM_Agathoth_PC);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9047</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9052</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>Balzaar won’t buy it. He knows Agathoth is here and won’t accept anything short of his head. So you either kill Agathoth or die trying.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(Agathoth_1);</string>
+        <string>aod.zgt_tomb_balzaar = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Open it.</text>
+          <def_link>9053</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone for now.</text>
+          <def_link>9047</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9057</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“How many soldiers do you have? How far does your power reach?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Why should I help you then?”</text>
+          <def_link>9049</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[chosen one]“Many believe that I was chosen to lead mankind into a new age. Bestow your power upon me and I’ll deliver this world to you.”</text>
+          <def_link>9060</def_link>
+          <checkOnAppear>aod.pc_reputation_theChosenOne</checkOnAppear>
+          <checksOnClick>
+            <string>aod.npc_meru_dead</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9059</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9058</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>You realize that now that Ganezzar had fallen, your claim to fame is worthless. Oh well...</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Why should I help you then?”</text>
+          <def_link>9049</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9059</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I will strengthen your body and mind. The rest you’ll do on your own.”</npc_text>
+      <onLoadScripts>
+        <string>aod.zgt_chosen_one = true;</string>
+        <string>rwd_quest(ChosenOneGod);</string>
+        <string>aod.zgt_startEnding = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kneel before your god to receive your first gift.</text>
+          <def_link>9046</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9060</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

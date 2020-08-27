@@ -1,0 +1,223 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.loc_alakia_visited</string>
+    </conditions>
+    <links>
+      <int>6781</int>
+    </links>
+    <dlg_name>ALK_Intro_01</dlg_name>
+    <def_link>6780</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Meru's men cluster around the pyramid as if they wish to throw themselves upon it, but instead begin to whisk the sand from its markings with little horsehair brushes. In contrast to their vocal exchanges over the last week, they now speak in excited whispers. Eventually they shift their attention to the other structures, two men dusting them off and the third making notations on one of their charts. While they go about their examinations you deduce that the three piles of masonry stones are the tops of three towers. What you are seeing is the highest level of a sprawling complex, long buried beneath the sand.
+
+At last, the loremasters fall silent, nodding to themselves in satisfaction. Whatever their reasons, they have settled on the last tower as the one they like best.</npc_text>
+      <onLoadScripts>
+        <string>aod.loc_alakia_visited = true;</string>
+        <string>dlgCam(170, 45, 12, 6241);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>6783</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_IG_GNZ1 == 1</string>
+            <string>aod.alk_HD2 == 2 || aod.alk_MS == 1</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6805</int>
+            <int>6818</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6780</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Return to Al-Akia.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>End.</text>
+          <def_link>6785</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6781</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Loremaster</speaker_name>
+      <npc_text>One of the loremasters takes the legatus aside and says something to him. The legatus tries to argue but the loremaster insists. The legatus shrugs, walks to the tower top and disappears inside.
+
+“We wait,” says the loremaster, his eyes shining with religious fervor.</npc_text>
+      <onLoadScripts>
+        <string>aod.gnz_siegeComing = true;</string>
+        <string>aod.alk_MG8 = 1;</string>
+        <string>aod.jnl_MG_GNZ2 = 1;</string>
+        <string>dlgCam(15, 45, 8, 6242);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait.</text>
+          <def_link>6785</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6783</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Loremaster</speaker_name>
+      <npc_text>One of the loremasters takes the legatus aside and says something to him. The legatus nods, walks to the tower top and disappears inside.
+
+“We wait,” says the loremaster, his eyes shining with religious fervor.</npc_text>
+      <onLoadScripts>
+        <string>if(aod.alk_HD2 == 2) aod.alk_HD2 = 3;</string>
+        <string>dlgCam(15, 45, 8, 6242);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait.</text>
+          <def_link>6785</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6818</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Loremaster</speaker_name>
+      <npc_text>END - walk around</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgDeleteCharacter(6220, 1);</string>
+        <string>dlgDeleteCharacter(6210, 1);</string>
+        <string>dlgCam(45, 45, 15, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6785</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Loremaster</speaker_name>
+      <npc_text>“Legatus?” calls one of them - a bearded man acting as their leader.</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_IG_GNZ1 = 1;</string>
+        <string>aod.quest_IG_GNZ1 = 2;</string>
+        <string>dlgCam(15, 45, 8, 6242);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_PC_Loremaster);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What do you need?”</text>
+          <def_link>6806</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6805</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Loremaster</speaker_name>
+      <npc_text>“This is an ancient site of great significance. As you can see, the sands claimed it a long time ago. It would take decades to dig it out and we don’t have that long.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So what’s the plan then?”</text>
+          <def_link>6807</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6806</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Loremaster</speaker_name>
+      <npc_text>“According to the construction plans, the entire complex was built to minimize exposure to the outside elements. We believe that if you can make it all the way down, you should be able to gain access to the main building,” the man nods at the pyramid.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Me?”</text>
+          <def_link>6808</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6807</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Loremaster</speaker_name>
+      <npc_text>“We need you to go first and make sure that the way is clear. It is my understanding that the Imperial Guards were well compensated for the risk,” says the man impatiently.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’ll send one of my men.”</text>
+          <def_link>6809</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Alright.” Approach the tower.</text>
+          <def_link>6785</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6808</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Loremaster</speaker_name>
+      <npc_text>“No. What you may find below... it’s not for the eyes of ordinary men. Do you understand me?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Alright.” Approach the tower.</text>
+          <def_link>6785</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6809</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

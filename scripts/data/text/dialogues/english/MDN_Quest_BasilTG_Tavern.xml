@@ -1,0 +1,251 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.fight_basilTG_tavern</string>
+    </conditions>
+    <links>
+      <int>27</int>
+    </links>
+    <dlg_name>MDN_Quest_BasilTG_Tavern</dlg_name>
+    <def_link>24</def_link>
+    <def_speaker_name>Basil</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guildsman</speaker_name>
+      <npc_text>You find Basil talking to a well dressed man, backed by two grim-faced guards. The guards look at you as if they consider your very existence an insult.
+
+“As I was just explaining to Basileios,” says the man, smiling politely, “we have a bit of a problem. We have a lot of business interests in this district, as well as others, and we employ local ... collectors to keep things running smoothly. Imagine my surprise, when I was told that the collectors in this district ran into a problem and disappeared.
+
+“We’re always concerned for the well-being of our employees, so we asked around and, well, here we are. Now, I’ll be the first to admit that mistakes were made, but let’s not dwell on the past. Moving forward is what I’m here to discuss.”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Quest_Basil_TG_01);</string>
+        <string>dlgCam(315, 45, 10, 5150);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Who are you?”</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.pc_member_thieves &amp;&amp; aod.npc_levir_dead == 0</string>
+            <string>aod.ending_GNZ_faction_TG == 1</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>66</int>
+            <int>25</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guildsman</speaker_name>
+      <npc_text>The man raises an eyebrow. “I would have thought that it would be obvious. I represent the Forty Thieves. Now, we’re willing to overlook what happened,” he says looking at Basil. “Of course, payments would have to be resumed –”
+
+“Of course,” Basil says quickly.
+
+“– and examples would have to be made,” continues the man, looking at you. Basil shrinks and looks away. The bodyguards move toward you.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Start making examples of your own.</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guildsman</speaker_name>
+      <npc_text>[thief]The man raises an eyebrow. “I would have thought that it would be obvious. I represent the Forty Thieves. Now, we’re willing to overlook what happened,” he says looking at Basil. “Of course, payments would have to be resumed –”
+
+“Of course,” Basil says quickly.
+
+“– and as for you, &lt;charname&gt;, Levir says it's a misunderstanding. In the future, ask questions first before deciding to get involved in the local affairs.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(BasilTG_04);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>67</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>66</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - questline</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgDeleteCharacter(5150);</string>
+        <string>dlgDeleteCharacter(5151);</string>
+        <string>dlgDeleteCharacter(5152);</string>
+        <string>remQuest(Basil_TG);</string>
+        <string>aod.quest_BasilTG_status = 11;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>67</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT 2</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addEnemyToParty(1, BasilTG);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+        <string>dlgCam(315, 45, 10, 1);</string>
+        <string>narratePhrase("Ever a survivor, Basil darts outside the moment the thugs reach for their weapons.");</string>
+        <string>dlgTeleportToMarker(TM_Quest_Basil_03, 4740);</string>
+        <string>DOOR_Basil_01.close();</string>
+        <string>DOOR_Basil_01.lock();</string>
+        <string>aod.fight_basilTG_tavern = 1;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>26</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Oh shit,” says Basil. “We’re dead now. Dead! Do you realize what you’ve done?”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_NPC_Basil_01, 4740);</string>
+        <string>dlgTeleportToMarker(TM_PC_Basil_01);</string>
+        <string>dlgCam(290, 40, 8, 4740);</string>
+        <string>aod.fight_basilTG_tavern = 0;</string>
+        <string>aod.jnl_basil_TG = 1;</string>
+        <string>DOOR_Basil_01.unlock();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Relax, Basil. We’ve been through this before, haven’t we?”</text>
+          <def_link>28</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>27</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Been through this?” asks Basil in disbelief. “Just because you killed a few thugs doesn’t mean that you can take on the Forty fucking Thieves! They’ll squash you like a bug and me with you. I curse the day I met you! Curse it!”
+
+Basil moans and cries for some time, holding his head and blaming everyone he could think of for his misfortune. When he runs out of steam, he looks at you and asks, “So, now what?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Now I’ll go check on Quintus. After you pay me for my trouble, of course. One thousand imperials.”</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Now I’ll go check on Quintus.” Leave.</text>
+          <def_link>65</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>28</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“One thousand?” cries Basil. “Are you mad?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Well, if you don’t have any money, then you’re on your own. When the Forty Thieves’ thugs come to murder you, tell them that it wasn’t your fault. I’m sure they’ll understand.”</text>
+          <def_link>30</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Alright, pay me what you can then.”</text>
+          <def_link>31</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>29</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Alright, alright, I’ll pay you, but you’d better deliver,” says Basil angrily.</npc_text>
+      <onLoadScripts>
+        <string>changeMoney(1000);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Pleasure doing business, Basil.” Leave.</text>
+          <def_link>65</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>30</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Now that’s fair,” says Basil, breathing with relief. “Here is six hundred for you, but do me a favor and don’t get yourself killed. I can’t afford to pay you for trying, dying and then being forced to pay the Forty Thieves.”</npc_text>
+      <onLoadScripts>
+        <string>changeMoney(600);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I can see how that could be an inconvenience.” Leave.</text>
+          <def_link>65</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>31</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>65</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

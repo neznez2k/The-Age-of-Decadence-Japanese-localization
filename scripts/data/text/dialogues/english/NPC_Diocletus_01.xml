@@ -1,0 +1,274 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.pc_member_guards == 0</string>
+      <string>aod.npc_raenas_met == false</string>
+      <string>aod.npc_diocletus_met</string>
+    </conditions>
+    <links>
+      <int>17</int>
+      <int>16</int>
+      <int>14</int>
+    </links>
+    <dlg_name>NPC_Diocletus_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Diocletus</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You must be &lt;charname&gt;, one of Carrinas’ own. I assume it’s not a social call and you need something from me. What is it?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_diocletus_met = true;</string>
+        <string>dlgTeleportToMarker(TM_DLG_Diocletus_NPC, 8008);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Diocletus_PC);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Raenas is giving me a hard time on account of Carrinas. He can’t make up his mind so he sent me to gather support amongst his officers.”</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’ll be more than happy to back you up... that is, if you do me a small favor first.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What do you need?”</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Five pounds of blue steel. Our quartermaster, a man of legendary stinginess, refuses to sell it to me or anyone else. But you – you’re a different story, my friend. Dux Paullus himself in his infinite wisdom has blessed you with his attention. If I were you, I’d impart that point on the quartermaster.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I'll go get you your steel then.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I've got enough blue steel.” Give him 5 pounds.</text>
+          <def_link>15</def_link>
+          <checkOnAppear>dlgGetItemsCount(1400, 1, 0, 3) &gt;= 50</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I don’t have time for your errands.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I must confess it’s not the answer I was expecting to hear. Perhaps, our good legatus is right about you.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_diocletus_streetwise = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“Then I guess you’ll be taking my place and sacrificing yourself for the glory of the Imperial Guards. Good luck with that.”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“Nice try. Come and see me when you have the ingots.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“What, what?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You didn’t hear? It’s one of those desperate last stand deals. Seeing that I had the necessary experience and not a lot of options, Paullus decided to give the job to me, but Raenas thought that it was unfair to his men. Why should they be robbed of a chance to die for the glory of the regiment?”</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Who am I to argue with Dux Paullus? If he has confidence in you, so do I. Tell Raenas that you have my vote.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_CT01_votes = (aod.quest_CT01_votes + 1);</string>
+        <string>aod.npc_diocletus_vote = true;</string>
+        <string>rwd_civil(IG_CT_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Pleasure doing business with you, Centurion. Tell Raenas that you have my vote.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_CT01_votes = (aod.quest_CT01_votes + 1);</string>
+        <string>aod.npc_diocletus_vote = true;</string>
+        <string>dlgRemoveItem(1400, 50, 0, 1, 0, 3);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What can I do for you, &lt;charname&gt;?”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_Diocletus_NPC, 8008);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Diocletus_PC);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I have the blue steel.” Give him 5 pounds.</text>
+          <def_link>15</def_link>
+          <checkOnAppear>aod.npc_diocletus_vote == false &amp;&amp; dlgGetItemsCount(1400, 1, 0, 3) &gt;= 50</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I don’t have time for your errands.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear>aod.npc_diocletus_vote == false &amp;&amp; aod.npc_diocletus_streetwise == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Nothing at the moment.” Leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - bark Raenas not met</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>sayPhrase(8008, "Did you talk to Raenas yet?");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Keep walking.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

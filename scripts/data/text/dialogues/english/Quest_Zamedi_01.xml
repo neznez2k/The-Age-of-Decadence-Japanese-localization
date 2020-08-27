@@ -1,0 +1,549 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Quest_Zamedi_01</dlg_name>
+    <def_link>66</def_link>
+    <def_speaker_name>Demon</def_speaker_name>
+    <def_portrait>Demon</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>Surprisingly, the tower is anything but dead and quiet. A deep humming sound fills your ears, seeming to come from everywhere at once, and the floor under your feet is alive with vibrations. The air is thick and acrid, smelling of sulphur, rock oil, and other things you can’t identify.
+
+Strange machines lurk in every corner, barely leaving enough room for the massive staircase twisted around a giant cluster of metal pipes running from floor to ceiling in the centre of the room. In front of the pipes there is a stone statue of a demon reading a book.</npc_text>
+      <onLoadScripts>
+        <string>aod.ending_mdn_character_demon = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Approach.</text>
+          <def_link>67</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>66</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The demon is carved with exquisite craftsmanship; its pose conveying both deep contemplation and perfect tranquility. Your admiration quickly becomes alarm as, at your approach, the statue closes the book and turns to look at you in a single fluid motion, stone features alive with curiosity.
+
+“I do believe we have a visitor,” says the demon in amusement, its voice rough but surprisingly expressive. “Unfortunately, it appears that we are closed at the moment and I've been instructed to dispose of all visitors. This presents us with somewhat of a dilemma...”
+
+The demon’s voice shifts tone rapidly, from the authoritative ‘we are closed’ to regret, when he says ‘all visitors’.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_TowerInt_02);</string>
+        <string>aod.npc_demon_met = true;</string>
+        <string>aod.jnl_Zamedi_phase3 = true;</string>
+        <string>useCameraBookmark(CAM_Zamedi_02);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addJournalChar(demon);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Dispose?"</text>
+          <def_link>68</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Die, vile demon!" Slay this beast before it consumes your soul.</text>
+          <def_link>73</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>67</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetAttitude(250, 1, -10);</string>
+        <string>setRtsCam();</string>
+        <string>aod.jnl_Zamedi_phase4 = true;</string>
+        <string>aod.fight_stoneDemon = true;</string>
+        <string>aod.death_zamedi_demon = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>73</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Destroy. Kill. Render inanimate. Do you have any preferences? I am an expert in such matters, so if there is some sort of demise you would enjoy more, I am happy to oblige. I am familiar with more than a thousand ways to end a human life, and I am sure that I am capable of accommodating even the most exotic requests.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Wait, what are you?”</text>
+          <def_link>69</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>68</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Since it’s unlikely that you can understand the concept of a silicon-based life form, consider me a ‘stone guardian’. I was created by the master of this tower, though he appears to be long gone. Such is the nature of flesh - it doesn't last. Stone, on the other hand, lasts forever. A gift and a curse at the same time, really.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You mentioned a dilemma...”</text>
+          <def_link>70</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>69</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Ah, yes, very observant of you,” says the demon approvingly. “Yes indeed, a dilemma. Though my master’s instructions compel me to deprive all interlopers of their existence, I find myself in need of an agent at this time.
+
+“Should you be willing to become such an agent, I’d be willing to disregard my master’s instructions. And even reward you handsomely! You have come seeking treasure, have you not? Well, as the guardian of this tower, I am aware of all caches of treasure within, hidden or not. Help me and a great treasure will be yours, something that was given to me for personal safekeeping.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Well, when you put it that way... What can I do for you?”</text>
+          <def_link>71</def_link>
+          <checkOnAppear>aod.streetwise &lt; 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]"That part about the treasure was a bit overdone, don't you think?"</text>
+          <def_link>78</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>70</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“At the top of the tower is my master’s study. There you’ll find a triple flux rotary...,” the demon pauses on seeing the confusion on your face. “A steel ring with multiple bands. Bring it to me and our business will be concluded.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What does this ring do?”</text>
+          <def_link>72</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>71</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It buys your safe passage out of here, for a start. The rest is not your concern. Now, will you do what I ask or will you continue testing my limited patience?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Alright, I’ll help you.”</text>
+          <def_link>77</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Why can’t you get it yourself?”</text>
+          <def_link>74</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I know better than to trust a demon! How stupid do you think I am?"</text>
+          <def_link>76</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>72</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I would if I could, but, unfortunately, it’s a two-man job. The way to the study is blocked by a force-shield. I can disable it for only a moment, and the controls are on a lower level.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What's a force-field?”</text>
+          <def_link>75</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>74</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It's a thing that it's in my way. So, go get me the ring first and then I'll answer all your questions.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Alright, I’ll help you.”</text>
+          <def_link>77</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I know better than to trust a demon! How stupid do you think I am?"</text>
+          <def_link>76</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>75</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You really want me to answer that?” inquires the demon, drawing four blades out of thin air with alarming speed.
+
+“Make no mistake, human, the reason you still draw breath is because you can be of service to me. Convince me otherwise and I will slay you where you stand.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Die, vile demon!" Slay this beast before it consumes your soul.</text>
+          <def_link>73</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Alright, I’ll help you.”</text>
+          <def_link>77</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>76</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Come with me then,” says the demon. “Don’t touch anything and stay away from the pentagram, unless your existence bores you.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Follow the demon.</text>
+          <def_link>82</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>77</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Was it?” The demon seems disappointed. “I was quite certain that your kind responds well to material stimulus. Are you not driven by greed and personal gain?”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_zamedi_dealNotKill = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Riches lose their appeal fast when you’re dead.”</text>
+          <def_link>79</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>78</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Since you are so concerned about your existence, let’s go back to my original proposition: your assistance in a minor matter in exchange for your life. It may lack a certain flare, but like you said – riches lose their appeal fast when you’re dead.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"What do you need?"</text>
+          <def_link>81</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What makes you think you can kill me?”</text>
+          <def_link>80</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>79</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What makes you think I can’t?” The demon grins and draws four blades out of thin air with alarming speed.
+
+“Make no mistake, human, the reason you still draw breath is because you can be of service to me. Convince me otherwise and I will slay you where you stand.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"What do you need?"</text>
+          <def_link>81</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Die, vile demon!" Slay this beast before it consumes your soul.</text>
+          <def_link>73</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>80</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“At the top of the tower is my master’s study. There you’ll find a triple flux rotary...,” the demon pauses on seeing the confusion on your face. “A steel ring with multiple bands. Bring it to me and our business will be concluded.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Alright, I’ll help you.”</text>
+          <def_link>77</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>81</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>The demon enters one of the compartments, stopping near a machine with four glowing cylinders on top of it. It listens for a moment, then adjusts a dial and listens again. Satisfied, it approaches a hatch in the floor leading to a spiral staircase, and descends to a lower level.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Follow him.</text>
+          <def_link>83</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>82</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>You’re standing inside a large hall; the noise, vibrations, and smell are magnified tenfold. Metal pipes run along the walls and ceiling, connecting various machines with the central chamber. Reluctantly, you move closer. But then you stop, your mouth opening in amazement as you lay eyes on the alien object at the heart of the chamber.
+
+If you could somehow collect molten lava into a sphere, and set it to floating in midair, this is what it would look like. As you watch the sphere shivers and contracts, a corona of strange energy flaring up around it and discharging into the arcane symbols etched into the floor. Cables connect those symbols to strange machines in the corner of the room, and looking closely you can see that the symbols aren’t merely etchings, they are more like translucent pipes made from tempered glass. Though you can’t imagine how any glass could withstand the terrible heat, you can feel radiating from the sphere, even across the room.
+
+Whatever this mechanism produces, it is clearly being siphoned off by these machines and fed to the upper levels.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_TowerBasement_01);</string>
+        <string>dlgTeleportToMarker(TM_TowerBasement_02, 250);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>schedule(50, 0, centerCamera, 325, 40, 12);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What is it?”</text>
+          <def_link>84</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>83</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Star matter. That’s the best explanation I can give you, since talking about atoms stripped of particles with a negative charge would be a waste of time.
+
+“Now, you wait here and don’t touch anything.” The demon moves to a console and starts manipulating the controls.
+
+“I will overload the system for a brief moment. Not enough to result in catastrophic failure, but enough to disable the field blocking the entrance to the study. The system is autonomous, it will compensate for the disruption and the flow will resume in less than 30 seconds, so when I give you the signal, run upstairs as fast as you can. Trust me, you do not want to be caught in the field when it reactivates.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Got it.”</text>
+          <def_link>86</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Wait, I’m not sure about this.”</text>
+          <def_link>85</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“How will I get back?”</text>
+          <def_link>94</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>84</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The ring will let you pass through the force-field.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Alright, let's do it.”</text>
+          <def_link>86</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Wait, I’m not sure about this.”</text>
+          <def_link>85</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>94</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Too late to back out of our deal, mortal, the process has already started. Be ready to run in five... four... three... two... one... Now!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Run upstairs.</text>
+          <def_link>87</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>85</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Be ready to run in five... four... three... two... one... Now!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Run upstairs.</text>
+          <def_link>87</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>86</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>You run upstairs to the elevator. The forcefield is gone. You step inside and push the lever up.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_demon_waiting = true;</string>
+        <string>dlgTeleportToMarker(TM_TowerInt_03);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>ElevatorForcefield.isRenderEnabled = false;</string>
+        <string>aod.loc_zamedi_ElevatorForcefieldOff = true;</string>
+        <string>setGroupPassability(67, 29, 65, 31, 0, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Ride to the top of the tower.</text>
+          <def_link>138</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>87</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - top</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_zamedi_usedElevator = true;</string>
+        <string>switchMission("The Tower.mis");</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>138</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

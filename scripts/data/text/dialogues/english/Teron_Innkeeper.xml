@@ -1,0 +1,802 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.trn_inn_roomRented</string>
+    </conditions>
+    <links>
+      <int>46</int>
+    </links>
+    <dlg_name>Teron_Innkeeper</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Innkeeper</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What can I do for you?"</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_innkeeper_cam_01);</string>
+        <string>dlgTeleportToMarker(TM_Innkeeper_PC_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I need a room."</text>
+          <def_link>11</def_link>
+          <checkOnAppear>aod.trn_inn_roomRented == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Do you have time for a few questions?"</text>
+          <def_link>13</def_link>
+          <checkOnAppear>aod.trn_finished == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Do you know anyone who's been buying supplies regularly? Enough to feed a camp full of soldiers."</text>
+          <def_link>42</def_link>
+          <checkOnAppear>aod.quest_mineWine_askAround &amp;&amp; aod.quest_teronMine_complete == false &amp;&amp; aod.quest_teronMine_fight == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Maybe later." Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What do you need?"</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_innkeeper_cam_01);</string>
+        <string>dlgTeleportToMarker(TM_Innkeeper_PC_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Do you have time for a few questions?"</text>
+          <def_link>13</def_link>
+          <checkOnAppear>aod.trn_finished == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Do you know anyone who's been buying supplies regularly? Enough to feed a camp full of soldiers."</text>
+          <def_link>42</def_link>
+          <checkOnAppear>aod.quest_mineWine_askAround &amp;&amp; aod.quest_teronMine_complete == false &amp;&amp; aod.quest_teronMine_fight == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Maybe later." Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>46</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Sorry, can't help you there."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I need a room."</text>
+          <def_link>11</def_link>
+          <checkOnAppear>aod.trn_inn_roomRented == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Do you have time for a few questions?"</text>
+          <def_link>13</def_link>
+          <checkOnAppear>aod.trn_finished == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Thanks anyway." Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>42</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Innkeeper_PC_01);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"We out of daily rooms, but you can rent a room long-term. Stay as much as you want, provided you pay upfront. One hundred imperials. What do you say?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay 100 imperials.</text>
+          <def_link>45</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 100</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgChangeMoney(-100);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading]"Business is that bad? How about fifty?"</text>
+          <def_link>43</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 50</checkOnAppear>
+          <checksOnClick>
+            <string>aod.trading &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>44</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Maybe later." Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"Business is doing just fine. Now, do you want to rent a room or not?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay 100 imperials.</text>
+          <def_link>45</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 100</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgChangeMoney(-100);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Maybe later." Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>43</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Alright, I'll take your fifty. I tell ya, this fucking town..."</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(Trading);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay 50 imperials.</text>
+          <def_link>45</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgChangeMoney(-50);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+      </answers>
+      <UID>44</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Second floor, near the end of the hallway to your right. Put your valuables in the chest, I'll make sure that nobody touches them."</npc_text>
+      <onLoadScripts>
+        <string>aod.TRN_inn_roomRented = 1;</string>
+        <string>VCO_InnDoor.setActive(0);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Do you have time for a few questions?"</text>
+          <def_link>13</def_link>
+          <checkOnAppear>aod.trn_finished == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Thanks." Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>45</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Sure. What do you want to know?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Hear anything interesting?"</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.rumor_carrinasAssassination &amp;&amp; aod.npc_innkeeper_talkCarrinas == false</string>
+            <string>aod.rumor_carrinasAssassination == false &amp;&amp; aod.rumor_outpostDestroyed &amp;&amp; aod.npc_innkeeper_talkOutpost == false</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>24</int>
+            <int>19</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What do you think of Lord Antidas?"</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What can you tell me about House Daratan?"</text>
+          <def_link>27</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What can you tell me about prospectors?"</text>
+          <def_link>33</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Why are there so few towns?"</text>
+          <def_link>30</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Do you think it will ever get better?"</text>
+          <def_link>37</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Same shit, different day," shrugs the innkeeper.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'd like to ask you something else."</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Did you hear about the Aurelian outpost? I don't know what they were looking for in that mine, but it sure looks like they found more than they could handle. Half of that mountain is gone now.
+
+"I'm telling you - whatever it was, it was buried there for a reason. They should have left it alone, but you can't expect that much common sense from the Aurelians, can you? Everyone's obsessed with ancient magics, as if we have a fucking clue about what to do with them."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_innkeeper_talkOutpost = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"So, you think we should leave it alone?"</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Of course we should. No questions about it! Now, I'm not a learned man, but I know this much – we don't need fancy magics to grow crops or run a business. So, it seems to me that simple folks didn't need the magics then and they don't need it now. Gods know things are bad enough these days."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Maybe the magics can help?"</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Maybe they can and maybe they can't. Maybe they'll make things even worse. If we couldn't control it when we had all these magi running around, what makes you think we can do it now?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Why are there no magi anymore?"</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Who'd teach them? A gift or whatever you call it would only take you so far. I had a bright kid working for me once. He could do things with numbers like you wouldn't believe. Still, without someone to show him what to do with his talent, all he could do was amuse the locals.
+
+"Come to think about it, I've heard rumors that Meru got him a real magus. They say that he escaped certain death three times. Call him Thrice Blessed."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"So, what does he do for Meru?"</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You think Meru keeps me informed? Sends me personal letters with updates on important events?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'd like to ask you something else."</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Were you drunk last night? They killed Carrinas... right here in my fucking inn. Can you believe this shit? How am I supposed to run a business like that? One of these days I'm gonna have a talk with Neleos. Just you wait and see.
+
+"Now, we all knew that there was some bad blood between the Imperial Guards and the Boatmen, but bad blood is one thing and waging an open war is quite another. And what were they thinking, taking out Carrinas? That they would get away with it? Even I could have told them that it wasn't going to end well, and what do I know about running a guild? Nothing...
+
+"So, now we don't have no Boatmen and no Imperial Guards - not that they were guarding anything I personally give a shit about, mind you. I tell you, just when we think that things can't get any worse, they go and fucking surprise us."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'd like to ask you something else."</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"A great man," says the innkeeper without hesitation. "The town's blossomed under his wise rule. We're all very, very grateful, you can tell that to His Lordship!"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'm not..."</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Of course not. What am I saying? It's a perfectly normal question. People ask me that all the time and I always tell them what a great man Lord Antidas is. You can tell that to His Lordship."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'd like to ask you something else."</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>26</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"It is the noblest of Houses - a ray of light in utter darkness."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'll be sure to mention it to Lord Antidas. What about House Aurelian?"</text>
+          <def_link>28</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>27</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"House Aurelian controls Maadoran – the largest and richest city that dwarfs both Teron and Ganezzar. No matter what they tell you, &lt;charname&gt;, size does matter."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"What does Lord Gaelius want?"</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>28</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What does any Lord want? More power. He doesn't want to be restricted by his peers, nor does he want to put up with the Imperial Guards. He wants them to bend their knees to him. All of them. Teron. Ganezzar. Caer-Tor.
+
+"Now, some might say that Gaelius does a fine job running Maadoran and that maybe we should let him run the rest, but that's not gonna happen. At least not without a major bloodletting."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'd like to ask you something else."</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>29</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Why do you think? Many were destroyed during the war and many were destroyed after, when the in-fighting began. Every now and then people head out in a futile attempt to try to start a new life. Some last a few weeks. Others, if they pick the right spot, last a few decades. Sooner or later, they all fall."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Why?"</text>
+          <def_link>31</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>30</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"It's not easy out there. They say the land is dead. The air is poisonous and water is scarce. If that doesn't kill you, the raiders would."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"How do raiders survive there?"</text>
+          <def_link>32</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>31</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Raiders know the land better. They know where to find water and which areas to stay away from. Not to mention that raiding is easier than breaking your back all day, trying to get something to grow under the scorching sun."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'd like to ask you something else."</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>32</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What's there to tell? As long as artefacts fetch top coins, people will continue digging through ruins and praying for a lucky break. Unfortunately, there aren't many options today. Not in the towns. If you can hold a sword, you join the Guards and spend the next twenty years fighting. If you can't, you work for pittance or go scavenging."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"What can you find in the ruins?"</text>
+          <def_link>34</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>33</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"These days? Not much. Everything valuable was stripped clean centuries ago, but you know what fools are like. They hope to find something that's been overlooked and the stories don't help."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"The stories?"</text>
+          <def_link>35</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>34</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You know. The usual tales being passed around campfires. Glowing spires, lost cities, caves full of treasures. A few years back a caravan brought in a man. His legs were broken and he wasn't making much sense. Probably driven mad by pain and thirst. He claimed that he fell down some shaft in the middle of nowhere.
+
+"One minute he's walking and the next he's lying down at the bottom with his legs broken. He saw some passage and crawled through until he hit a metal door. He couldn't open it so he crawled back and managed to climb out somehow. The caravan picked him up a few days later.
+
+"When he told the story, some fools decided to drop everything and head out into the wasteland. Of course, they didn't find a shaft or a magic door, but they did run into some raiders on their way back. Four men ended up dead because some fool told them a story."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"What happened to that man?"</text>
+          <def_link>36</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>35</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"He died a few months later. Not much use for a man with broken legs, is there?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'd like to ask you something else."</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>36</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"We're heading into the opposite direction at the moment. It looks like Lord Antidas and Gaelius have some unfinished business and I don't see anything good coming out of it in the near future. Not that I don't support our Lord wholeheartedly – I do. He tells me to fight, I go and fight. No questions asked."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"You are full of optimism."</text>
+          <def_link>38</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>37</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I run the inn. I see people coming and going, but I don't see them bringing good news. These are hard times, &lt;charname&gt;. The only folks full of optimism around here are Meru's freaks. Well, the Imperial Guards are starting to get on my nerves with all this talk about restoring the Empire.
+
+"As if it was that fucking easy. It's not a broken bowl. The Empire's *gone* and talking about the good ol' days won't bring it back. Even if we all agree that restoring it is the most sensible option there is, that won't bring it back. I tell you, nothing's more dangerous than a fool who wants to make the world a better place."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"What about Meru's freaks?"</text>
+          <def_link>39</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>38</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"They talk all kinds of crazy shit. Apparently, Meru no longer calls himself a Lord. He's the First Acolyte now. The gods sent him a prophet because one lunatic clearly wasn't enough, so now there are two of them. Fools are buying it and many take it upon themselves to carry the message out. They say that they are running out of crosses in Maadoran. The more they crucify, the more they come."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"What's your take on it?"</text>
+          <def_link>40</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>39</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"My take is that the worst is yet to come. The day Meru gives them swords instead of speeches is the day Maadoran falls, and when it does..."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'd like to ask you something else."</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>40</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

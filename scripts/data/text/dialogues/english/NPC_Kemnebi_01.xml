@@ -1,0 +1,923 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_kemnebi_backAtMaadoran</string>
+      <string>aod.npc_kemnebi_talkedAfterFight</string>
+      <string>aod.npc_kemnebi_noGold</string>
+      <string>aod.npc_kemnebi_changeLevel</string>
+      <string>aod.npc_kemnebi_readyToGo</string>
+      <string>aod.npc_kemnebi_met</string>
+    </conditions>
+    <links>
+      <int>3413</int>
+      <int>3411</int>
+      <int>3406</int>
+      <int>3392</int>
+      <int>3391</int>
+      <int>3390</int>
+    </links>
+    <dlg_name>NPC_Kemnebi_01</dlg_name>
+    <def_link>3380</def_link>
+    <def_speaker_name>Kemnebi</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What do you want?” The man in front of you is in his fifties, his face is deeply lined and weathered, suggesting that its owner spends most of his time outside, probably in the wasteland.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_kemnebi_met = true;</string>
+        <string>dlgTeleportToMarker(TM_DLG_Kemnebi);</string>
+        <string>dlgCam(145, 40, 7, 4750);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I was just curious about what line of work you were in.”</text>
+          <def_link>3381</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Are you Kemnebi?”</text>
+          <def_link>3383</def_link>
+          <checkOnAppear>aod.npc_kemnebi_sentByGracius || aod.npc_kemnebi_sentByBasil</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3380</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The kind I don’t talk about with people I don’t know,” says the man, turning away.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Are you Kemnebi?”</text>
+          <def_link>3383</def_link>
+          <checkOnAppear>aod.npc_kemnebi_sentByGracius || aod.npc_kemnebi_sentByBasil</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3382</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3381</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(145, 40, 15);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3382</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Who wants to know?” asks the man, his hand casually reaching for his knife.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Gracius sent me. Said you might have some work for me.”</text>
+          <def_link>3384</def_link>
+          <checkOnAppear>aod.npc_kemnebi_sentByGracius</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Basil sent me. Said you might have some work for me.”</text>
+          <def_link>3385</def_link>
+          <checkOnAppear>aod.npc_kemnebi_sentByBasil</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3383</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Is that so?” says Kemnebi, relaxing visibly. “How is Gracius these days?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Dead. So, how about a job?”</text>
+          <def_link>3386</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3384</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Is that so?” says Kemnebi, relaxing visibly. “How is Basil these days?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Still alive, which is as good as it gets these days. So, how about a job?”</text>
+          <def_link>3386</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3385</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You see, the kind of work I do, it’s not for everyone. High mortality rate, as they say. Still want it?”</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_kemnebi_phase2 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Whose mortality?”</text>
+          <def_link>3387</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Sign me up.”</text>
+          <def_link>3388</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3386</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Ha!” laughs Kemnebi, slapping you on the shoulder. “You’ve got the gist of it. If you’re good at killing, it’s always other people that end up dead, aint it?
+
+“We leave in two hours. Don’t be late.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What’s the job?”</text>
+          <def_link>3389</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3387</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Alright. We leave in a couple of hours. Don’t be late.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What’s the job?”</text>
+          <def_link>3389</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3388</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Like I said, we leave in a couple of hours. If you find yourself something better to do, go ahead and do it. Otherwise, you know where to find me.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_kemnebi_readyToGo = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3382</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3389</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You again?”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_Kemnebi);</string>
+        <string>dlgCam(145, 40, 7, 4750);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Are you Kemnebi?”</text>
+          <def_link>3383</def_link>
+          <checkOnAppear>aod.npc_kemnebi_sentByGracius || aod.npc_kemnebi_sentByBasil</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3382</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3390</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Ready to go?”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_Kemnebi);</string>
+        <string>dlgCam(145, 40, 7, 4750);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Yes.”</text>
+          <def_link>3409</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Not yet.” Leave.</text>
+          <def_link>3382</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3391</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - ready to leave</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.npc_kemnebi_changeLevel = true;</string>
+        <string>switchMission("gracchusCamp.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3409</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Kemnebi makes you wait a bit longer, while he assembles a rag-tag team of men who aren’t strangers to violence and late-night excursions, and buys enough provisions to last for a week.
+
+“Anyone heard of Red Gracchus?” asks Kemnebi.
+
+“I was with him for a while,” says one of the men. “A mean old fuck. Are we going after him?”
+
+“The word is, he’s down on his luck,” says Kemnebi. “Lost most of his men in a botched raid, took a gut wound himself, so he’s back at his camp, weak and vulnerable. Just the way we like ‘em.”</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(cam_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Are you killing raiders? Are you some kind of militia?”</text>
+          <def_link>3394</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“How do you know about the botched raid?”</text>
+          <def_link>3395</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“How much money are we talking about?”</text>
+          <def_link>3396</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3392</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Nothing of that sort, &lt;son/girl&gt;,” assures you Kemnebi. “We exploit opportunities. As fate would have it, there’s an opportunity to walk into a practically unguarded raiders’ camp and liberate stolen goods.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_kemnebi_talkedMilitia = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“How do you know about the botched raid?”</text>
+          <def_link>3395</def_link>
+          <checkOnAppear>aod.npc_kemnebi_talkedHowKnow == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“How much money are we talking about?”</text>
+          <def_link>3396</def_link>
+          <checkOnAppear>aod.npc_kemnebi_talkedHowMuch == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Alright, let’s go then.”</text>
+          <def_link>3393</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3394</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The caravan master told me. They had proper guards for a change, so when Red Gracchus and his boys jumped them, they were ready and then some. They had a crate of black powder munitions with them too, so poor ol’ Gracchus didn’t know what hit him, quite literally.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_kemnebi_talkedHowKnow = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Are you killing raiders? Are you some kind of militia?”</text>
+          <def_link>3394</def_link>
+          <checkOnAppear>aod.npc_kemnebi_talkedMilitia == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“How much money are we talking about?”</text>
+          <def_link>3396</def_link>
+          <checkOnAppear>aod.npc_kemnebi_talkedHowMuch == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Alright, let’s go then.”</text>
+          <def_link>3393</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3395</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“A lot. Gracchus’s been at it for a very long time. Still, there’s only one way to know for sure.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_kemnebi_talkedHowMuch = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Are you killing raiders? Are you some kind of militia?”</text>
+          <def_link>3394</def_link>
+          <checkOnAppear>aod.npc_kemnebi_talkedMilitia == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“How do you know about the botched raid?”</text>
+          <def_link>3395</def_link>
+          <checkOnAppear>aod.npc_kemnebi_talkedHowKnow == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Alright, let’s go then.”</text>
+          <def_link>3393</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3396</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>The raiders’ camp seems quiet, if not abandoned. Kemnebi waits for a while, listening to every sound, before signaling to move forward.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Approach_01, 4750);</string>
+        <string>dlgTeleportToMarker(TM_Approach_02, 5027);</string>
+        <string>dlgTeleportToMarker(TM_Approach_03, 5028);</string>
+        <string>dlgTeleportToMarker(TM_Approach_04, 5029);</string>
+        <string>dlgTeleportToMarker(TM_Approach_05, 5030);</string>
+        <string>dlgTeleportToMarker(TM_Approach_06);</string>
+        <string>useCameraBookmark(cam_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Move.</text>
+          <def_link>3397</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3393</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>The team slowly moves forward, weapons ready. The tents obscure your view, but as you get closer, you see three men sitting around a dead campfire.
+
+“Kemnebi, you old goat fucker,” says a big man with a red beard. “Never thought I’d be happy to see your ugly mug again.”
+
+“And why is that?” asks Kemnebi cautiously.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Kemnebi_01, 4750);</string>
+        <string>dlgTeleportToMarker(TM_Kemnebi_02, 5028);</string>
+        <string>dlgTeleportToMarker(TM_Kemnebi_03, 5029);</string>
+        <string>dlgTeleportToMarker(TM_Kemnebi_04, 5027);</string>
+        <string>dlgTeleportToMarker(TM_Kemnebi_05);</string>
+        <string>dlgTeleportToMarker(TM_Kemnebi_06, 5030);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(cam_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>3398</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3397</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>“The Hundred Swords are coming and you’re going to help me kill as many of these greedy fucks as we can,” says Red Gracchus, smiling wide. 
+
+“Why would I do that?” asks Kemnebi.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>3399</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3398</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>“Because you’re fucked,” laughs Gracchus. “If you kill us, which would cost you at least a couple of men if not all, take the money and run, the Hundred Swords will chase you down and hack you to pieces. Of course, you can do the smart thing and leave right now, leaving me and the money to the mercs, but we both know that you aint the type to leave empty handed – or do smart things.
+
+“So, you want my money? It’s yours,” he kicks a large chest sitting between him and Kemnebi, “but you’re going to have to earn it, old friend.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>3412</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3399</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What do you think?” asks Kemnebi, turning to his group.</npc_text>
+      <onLoadScripts>
+        <string>dlgRotateToChar(1, 4750);</string>
+        <string>useCameraBookmark(cam_04);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Who are the Hundred Swords?”</text>
+          <def_link>3400</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Can we make it back with the money if the Hundred Swords go after us?”</text>
+          <def_link>3401</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3412</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“A bunch of rather unpleasant individuals. Used to be a good outfit back in the day, but they’ve fallen on hard times in recent years. They wouldn’t be here otherwise.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_kemnebi_talkedWhoAre = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Can we make it back with the money if the Hundred Swords go after us?”</text>
+          <def_link>3401</def_link>
+          <checkOnAppear>aod.npc_kemnebi_talkedMakeItBack == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“How many? Don’t tell me there is a hundred of them.”</text>
+          <def_link>3402</def_link>
+          <checkOnAppear>aod.npc_kemnebi_talkedWhoAre &amp;&amp; aod.npc_kemnebi_talkedMakeItBack</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3400</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Unlikely. They have good trackers. So, we leave now or we stand and fight.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_kemnebi_talkedMakeItBack = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Who are the Hundred Swords?”</text>
+          <def_link>3400</def_link>
+          <checkOnAppear>aod.npc_kemnebi_talkedWhoAre == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Against how many? Don’t tell me there is a hundred of them.”</text>
+          <def_link>3402</def_link>
+          <checkOnAppear>aod.npc_kemnebi_talkedWhoAre &amp;&amp; aod.npc_kemnebi_talkedMakeItBack</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3401</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Nah,” smiles Kemnebi. “The name is just for show. You hear that some lord hired the Hundred Swords, you sort of think that he hired a hundred fighting men. The fact that they waited that long tells me that they don’t have a lot of men left. A dozen or so would be my guess. So, are you in or out?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’m in.”</text>
+          <def_link>3404</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m out.” Return to Maadoran.</text>
+          <def_link>3403</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3402</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - return to Maadoran</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.jnl_kemnebi_phase3 = true;</string>
+        <string>aod.npc_kemnebi_dead = true;</string>
+        <string>switchMission("Maadoran.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3403</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>The rest of Kemnebi’s men either share your optimism or feel that it’s as good a day to die as any, as they decide to stay and fight, eyeing the chest with the longing usually reserved for the loved ones.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Wait.</text>
+          <def_link>3410</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3404</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>The Hundred Swords come a few hours later. You count only ten men, but they are well armed and look like they’ve been doing it for a long time, yet still around, which says all you need to know about them.
+
+“Nobody needs to die here,” shouts their leader. “Give us the gold and we’ll be on our way.”
+
+“Go fuck yourself,” shouts back Gracchus, rapidly firing two bolts from a fancy-looking crossbow.</npc_text>
+      <onLoadScripts>
+        <string>addCharToParty(1, "KemnebiGrachus", "fighter");</string>
+        <string>dlgTeleportToMarker(TM_Fight_KG_01);</string>
+        <string>dlgTeleportToMarker(TM_Fight_KG_02, 5025);</string>
+        <string>dlgTeleportToMarker(TM_Fight_KG_03, 4755);</string>
+        <string>dlgTeleportToMarker(TM_Fight_KG_04, 5026);</string>
+        <string>dlgTeleportToMarker(TM_Fight_KG_05, 4750);</string>
+        <string>dlgTeleportToMarker(TM_Fight_KG_06, 5027);</string>
+        <string>dlgTeleportToMarker(TM_Fight_KG_07, 5028);</string>
+        <string>dlgTeleportToMarker(TM_Fight_KG_08, 5029);</string>
+        <string>dlgTeleportToMarker(TM_Fight_KG_09, 5030);</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>dlgEquipItem(163, 0, 4755);</string>
+        <string>dlgLoadWeapon(4755);</string>
+        <string>useCameraBookmark(cam_05);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>3405</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3410</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.npc_kemnebi_noGold = true;</string>
+        <string>addEnemyParty(KemnebiGrachus, HundredSwords);</string>
+        <string>addEnemyParty(HundredSwords, KemnebiGrachus);</string>
+        <string>aod.quest_gracchus_fightSP = true;</string>
+        <string>aod.death_kemnebi_01 = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3405</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“No gold, eh?” sighs Kemnebi. “I had a feeling that it might be the case, when Gracchus didn’t try to negotiate with us.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_kemnebi_talkedAfterFight = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“And yet you stayed?”</text>
+          <def_link>3407</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3406</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“We were already here,” shrugs Kemnebi. “And I had an old score to settle with the Hundred Swords. So, all in all, the day hasn’t been a complete waste.
+
+“Take anything you see, kid. You’ve earned it.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3408</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3407</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - camp</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3408</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - bark Good luck</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>sayPhrase(4750, "Good luck, &lt;charname&gt;.");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3411</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What brings you here, &lt;charname&gt;?” inquires Kemnebi.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_Kemnebi);</string>
+        <string>dlgCam(145, 40, 7, 4750);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Do you have any more work for me?”</text>
+          <def_link>3414</def_link>
+          <checkOnAppear>aod.npc_kemnebi_askMoreWork == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3382</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3413</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I might, but not today. Keep checking in with me. I’m sure that something will come up.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_kemnebi_askMoreWork = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“So, you and Red Gracchus go way back?”</text>
+          <def_link>3415</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3414</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Stick around for as long as I have and you’ll go back a ways with plenty of folks too. I knew Pavola when he was a brash centurion. He gave me a spear thrust that I’ll never forget. Thought I was a goner for sure.
+
+“I almost killed Darista when she was greener than spring grass. We were fighting the Red Cloaks and she was just standing there, covered with blood, and looking through me like she didn’t know where she was anymore.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Were you a mercenary or a raider?”</text>
+          <def_link>3416</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3415</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You get to fight either way. The way I see it, a mercenary is a raider who gets paid to do it. So, when we had contracts, we were mercenaries. When we didn’t, well, contracts or not, we had to eat and when you make a living putting others into the ground..."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So, how did you start?”</text>
+          <def_link>3417</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3416</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Family business, you might say. My father, my uncle, my brothers – they were fighting men through and through. Served anyone who’d pay them, but never shied away from an opportunity to take what was theirs. Of course, ‘what was theirs’ usually meant ‘what they could take’, but I’m not the one to judge.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Is there anything you can teach me?"</text>
+          <def_link>3418</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3382</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3417</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Well, your shieldwork needs a bit of work. Let me show you how to angle it better..."</npc_text>
+      <onLoadScripts>
+        <string>dlgAddTextBoxMessage("Kemnebi grabs his shield and shows you how to angle it properly. When he's done, he gives you a few pointers on contract negotiations.");</string>
+        <string>rwd_training(Kemnebi);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3382</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3418</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

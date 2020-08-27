@@ -1,0 +1,967 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_tg3_foundPassage</string>
+      <string>aod.quest_tg3_robberleft</string>
+      <string>aod.quest_tg3_foughtBracchus &amp;&amp; aod.quest_tg3_foughtRobbers == false</string>
+      <string>aod.quest_tg3_foughtIolus &amp;&amp; aod.quest_tg3_foughtRobbers == false</string>
+      <string>aod.quest_tg3_foughtRobbers &amp;&amp; aod.quest_tg3_mobLeaderParty == false</string>
+      <string>aod.quest_tg3_foughtRobbers &amp;&amp; aod.quest_tg3_mobLeaderParty &amp;&amp; isAlive(1955)</string>
+      <string>aod.quest_tg3_foughtRobbers &amp;&amp; aod.quest_tg3_mobLeaderParty &amp;&amp; isAlive(1955) == false</string>
+    </conditions>
+    <links>
+      <int>42</int>
+      <int>30</int>
+      <int>15</int>
+      <int>29</int>
+      <int>30</int>
+      <int>43</int>
+      <int>30</int>
+    </links>
+    <dlg_name>Quest_TG3_04</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Bracchus</speaker_name>
+      <npc_text>You almost reach the gate when someone calls your name. Turning around you see two familiar guards stepping out from the shadows.
+
+"You're famous now, &lt;charname&gt;," says the older guard. "*Rich* and famous," adds the younger one, smiling unpleasantly.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Bracchus_PC);</string>
+        <string>dlgTeleportToMarker(TM_Bracchus_Start, 1891);</string>
+        <string>dlgTeleportToMarker(TM_Bracchus_Iolus, 1890);</string>
+        <string>dlgCam(315, 45, 8, 1891);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I thought we had a deal."</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Bracchus</speaker_name>
+      <npc_text>"We still do," says Bracchus levelly, "but things changed. The town is locked tight and there is a new heavy crew manning the gate. Lucky for you, we know another way out, but, as you've probably guessed it's gonna cost you extra.
+
+"A hundred imperials. We could have asked for more, a lot more, in fact," he glances at the cart, "but we're reasonable men. Of course, you can always try your luck with them," Bracchus nods in the direction of the gate.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Show me."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Go to the gate.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Iolus</speaker_name>
+      <npc_text>"Iolus will take you there. I have people to see." Bracchus walks away, disappearing into the night. Iolus takes you to what appears to be a perfectly fine, if a bit overgrown by vegetation, section of the wall.
+
+"It's an ancient postern, probably as old as the town itself. I found it when I was digging through the archives, and I figured I'd keep my mouth shut and make a few coins instead. Speaking of which..."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>Move_Gate_Wall();</string>
+        <string>dlgTeleportToMarker(TM_Iolus_Wall, 1890);</string>
+        <string>dlgCam(280, 45, 8, 1890);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay him.</text>
+          <def_link>4</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 100</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]"You could have asked for a lot more than a hundred imperials..."</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[perception success][persuasion]"You look nervous, which can only mean one thing: there is an ambush up ahead. Tell me what I need to know and I'll let you live."</text>
+          <def_link>6</def_link>
+          <checkOnAppear>aod.per &gt;= 8</checkOnAppear>
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Iolus</speaker_name>
+      <npc_text>[failure]"A bird in the hand is worth two in the bush," shrugs the guard.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay him.</text>
+          <def_link>4</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 100</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Forget about it." Go to the gate.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Iolus studies the wall looking for the right spot, then his hand disappears inside the vegetation and he pushes on something hard. You hear the sound of moving gears and then several stone blocks start rotating slowly, forming a narrow opening, barely big enough for a man to squeeze through.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Wall_Switch, 1890);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(280, 45, 8, 1890);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go through.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You push your hand through the vegetation, looking for a small hole in the wall. When you find it, you squeeze your hand inside and pull the hidden lever.
+
+You hear the sound of moving gears and then several stone blocks start rotating slowly, forming a narrow opening, barely big enough for a man to squeeze through.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg3_foundPassage = 0;</string>
+        <string>dlgTeleportToMarker(TM_Wall_Switch);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go through.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>42</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You send a man through and one by one pass the crates to the other side of the wall, leaving the cart behind. When the last man goes through, the blocks slowly move back, closing the wall behind you.
+
+Almost immediately, shadowy figures rise from the ground and move towards you. The good news is that the would-be robbers brought their own cart.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>tg3_createAmbush();</string>
+        <string>dlgTeleportToMarker(TM_Fight_Wall_Bracchus, 1891);</string>
+        <string>addCharToParty(1891, tg3_ambush, fighter);</string>
+        <string>Move_Fight_Wall();</string>
+        <string>dlgTeleportToMarker(TM_Iolus, 1890);</string>
+        <string>setObjectRenderState(OBJ_Cart_Ambush_1, 1);</string>
+        <string>dlgCam(100, 40, 15, 1);</string>
+        <string>setTravelingAllowed(1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>27</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Iolus</speaker_name>
+      <npc_text>[success]The tone of your question hits the right spot. The guard grows visibly nervous and starts looking around. "What do you mean?" he manages to ask weakly.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]"I think you know what I mean. I think you and your friend have a lot more in mind than a hundred coins. Tell me what I need to know and I'll let you live."</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Iolus</speaker_name>
+      <npc_text>[failure]"You wouldn't dare! House Daratan –"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>" – will have to do without you." Attack.</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Iolus</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_tg3_foughtIolus = true;</string>
+        <string>addEnemyToParty(1890, tg3_thieves);</string>
+        <string>dlgSetAttitude(1890, 1, -10);</string>
+        <string>setRtsCam();</string>
+        <string>aod.quest_tg3_fight = true;</string>
+        <string>aod.gameplay_questTG3_fight = true;</string>
+        <string>aod.fight_tg3_Iolus = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Iolus</speaker_name>
+      <npc_text>[success]"Alright," says the guard wearily. "Bracchus and some men he's recruited in the shanty town are waiting for you on the other side."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Open the passage and get out of here."</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intelligence success]"Open the passage and call Bracchus. Our chances will be higher if we take him out first."</text>
+          <def_link>14</def_link>
+          <checkOnAppear>aod.int &gt;= 7</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Iolus</speaker_name>
+      <npc_text>"What about me?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"He dies, you live. Of course, if you prefer the other way around..."</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Iolus</speaker_name>
+      <npc_text>Iolus studies the wall looking for the right spot, then his hand disappears inside the vegetation and he pushes on something hard. You hear the sound of moving gears and then several stone blocks start rotating slowly, forming a narrow opening, barely big enough for a man to squeeze through.
+
+"Bracchus," he calls quietly, after giving you a nervous glance. "They went to the gate... What do you think I mean? They're gone. You should have been the one taking them through it, not me. Come, let's go after them."
+
+Loudly cursing his partner's stupidity and his own fate, Bracchus steps through the opening.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Iolus, 1890);</string>
+        <string>dlgTeleportToMarker(TM_Bracchus_Wall, 1891);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go to the gate</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Bracchus, 1891);</string>
+        <string>dlgTeleportToMarker(TM_Iolus, 1890);</string>
+        <string>Move_Mob_Gate();</string>
+        <string>apmsstartdialogue(quest_tg3_05);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Aziz</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>apmsStartDialogue(Quest_TG3_Ending);</string>
+        <string>Aziz_End();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgSetZoom(8);</string>
+        <string>$RTSCamera.lookAtPC();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>28</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Bracchus</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_tg3_foughtBracchus = true;</string>
+        <string>addEnemyToParty(1891, tg3_thieves);</string>
+        <string>dlgSetAttitude(1891, 1, -10);</string>
+        <string>setRtsCam();</string>
+        <string>$RTSCamera.lookAtChar(1891);</string>
+        <string>dlgSetZoom(8);</string>
+        <string>aod.quest_tg3_fight = true;</string>
+        <string>aod.gameplay_questTG3_fight = true;</string>
+        <string>aod.fight_tg3_Bracchus = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You're standing in front of a narrow opening, barely big enough for a man to squeeze through.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Wall_Switch);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go through.</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[impersonate]Put on Bracchus' armor and go through first.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgOwnsItem(413) == false</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>34</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Don't go just yet.</text>
+          <def_link>28</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>It's a good idea, except you don't have his armor or a similar one.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go through.</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Don't go just yet.</text>
+          <def_link>28</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>34</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Robber</speaker_name>
+      <npc_text>You go through the postern and take several steps. "Bracchus is dead. Anyone else eager to die tonight?"
+
+Several shadowy figures rise from the ground and move towards you.
+
+"So, Bracchus is dead, eh?" says one of them. "I suppose I owe you for that. The fucker wanted half. Can you believe it?" He shakes his head, pulls out a spiked club, and checks one of the spikes. "Sharpened them this morning. Just for you."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>tg3_createAmbush();</string>
+        <string>Move_Fight_Wall();</string>
+        <string>setObjectRenderState(OBJ_Cart_Ambush_1, 1);</string>
+        <string>dlgCam(315, 45, 12, 1978);</string>
+        <string>setTravelingAllowed(1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]"I've just killed Bracchus who kept all of you in line, not that it would take much. Do you really think I can't handle the shanty town's inbred trash?"</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>21</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intimidate]"I've been very busy the last few days, killing people who got in my way. I don't mind killing a few more, but it's getting tiresome. So, take a good fucking look at me and tell me, do I look like your typical victim to you?"</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(bodycount) &gt;= 8</string>
+            <string>dlgGetRep(combat) &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>21</int>
+            <int>21</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Robber</speaker_name>
+      <npc_text>You go through the postern and take several steps. The would-be ambushers recognize the armor and get up from the ground, awaiting further instructions. The darkness hides your face, so as long as you can mimic Bracchus' voice and speech pattern, you should be able to fool them.</npc_text>
+      <onLoadScripts>
+        <string>tg3_createAmbush();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgEquipItem(413);</string>
+        <string>dlgTeleportToMarker(TM_Fight_Wall_PC);</string>
+        <string>setObjectRenderState(OBJ_Cart_Ambush_1, 1);</string>
+        <string>dlgCam(315, 45, 12, 1978);</string>
+        <string>setTravelingAllowed(1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[impersonate][streetwise]"Change of plans. Go to the gate and wait for them there."</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.disguise + aod.streetwise) &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>19</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Robber</speaker_name>
+      <npc_text>[failure]"So, Bracchus is dead, eh? I suppose I owe you for that. The fucker wanted half. Can you believe it?" He shakes his head, pulls out a spiked club, and checks one of the spikes. "Sharpened them this morning. Just for you."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]"I've just killed Bracchus who kept all of you in line, not that it would take much. Do you really think I can't handle the shanty town's inbred trash?"</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>21</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intimidate]"I've been very busy the last few days, killing people who got in my way. I don't mind killing a few more, but it's getting tiresome. So, take a good fucking look at me and tell me, do I look like your typical victim to you?"</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(bodycount) &gt;= 8</string>
+            <string>dlgGetRep(combat) &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>21</int>
+            <int>21</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Robber</speaker_name>
+      <npc_text>[success]"The gate? How are we supposed to jump them right in front of the gate? We don't want to fuck with the guards, they are your friends, not ours."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[impersonate][streetwise]"I took care of it. The guards will look the other way. Trust me."</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.disguise + aod.streetwise) &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>24</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Robber</speaker_name>
+      <npc_text>[failure]"Well, let's find out. The fucking suspense is killing me."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>27</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Robber</speaker_name>
+      <npc_text>[success]"You aint worth our time. Get the fuck outta here."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg3_talk = true;</string>
+        <string>aod.quest_tg3_robberleft = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I've changed my mind." Attack.</text>
+          <def_link>27</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>aod.quest_tg3_talk = false;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave for Maadoran.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_tg3_mobLeaderParty &amp;&amp; isAlive(1955)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>35</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Robber</speaker_name>
+      <npc_text>[failure]"We've killed all kinds. They all look the same when they're dying and know that their lives are about to end in a fucking ditch. Don't believe me? Well, a picture's worth a thousand words, maybe even more. Let me show you," he swings his club and steps forward.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>27</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Robber</speaker_name>
+      <npc_text>[failure]"Smells like bullshit to me. Nah, something's up. I think we'll stay here and see what develops."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>27</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave and go to the gate.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Robber</speaker_name>
+      <npc_text>[success]"Alright then," he turns around and walks toward the gate. His men follow him.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg3_robberleft = true;</string>
+        <string>aod.quest_tg3_talk = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait until they're gone and go to Maadoran.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_tg3_mobLeaderParty &amp;&amp; isAlive(1955)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>35</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>With Iolus dead, your only way of getting out of town is through the gate.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go to the gate.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Don't go right now.</text>
+          <def_link>28</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>29</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - bandits</npc_text>
+      <onLoadScripts>
+        <string>setRtsCam();</string>
+        <string>dlgFinish();</string>
+        <string>addEnemyParty(tg3_thieves, tg3_ambush);</string>
+        <string>addEnemyParty(tg3_ambush, tg3_thieves);</string>
+        <string>Move_Fight_Wall();</string>
+        <string>aod.quest_tg3_foughtRobbers = true;</string>
+        <string>aod.quest_tg3_fight = true;</string>
+        <string>aod.gameplay_questTG3_fight = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.fight_tg3_ambush = 1;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>27</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>With the robbers gone, the road to Maadoran is clear.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go to Maadoran.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Look around a bit first.</text>
+          <def_link>28</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>30</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mob Leader</speaker_name>
+      <npc_text>"I'll take my gold now," says the mob leader. "I've done my end of the bargain. You're through the gate." He's on guard; even if he expects you to honour the deal, he's ready for everything.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetCombatAnimation(1955);</string>
+        <string>if(aod.quest_tg3_robberleft) tg3_deleteRobbers();</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>36</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"A deal's a deal. Here is your crate."</text>
+          <def_link>37</def_link>
+          <checkOnAppear>aod.quest_tg2_crates &gt;= 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>35</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mob Leader</speaker_name>
+      <npc_text>"I'll take my gold now," says the mob leader. "I've done my end of the bargain. You're through the gate." He's on guard; even if he expects you to honour the deal, he's ready for everything.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetCombatAnimation(1955);</string>
+        <string>if(aod.quest_tg3_robberleft) tg3_deleteRobbers();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>36</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"A deal's a deal. Here is your crate."</text>
+          <def_link>37</def_link>
+          <checkOnAppear>aod.quest_tg2_crates &gt;= 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>43</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - leader</npc_text>
+      <onLoadScripts>
+        <string>removeCharFromParty(1955);</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>addEnemyToParty(1955, tg3_thieves);</string>
+        <string>dlgSetAttitude(1955, 1, -10);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.quest_tg3_fight = true;</string>
+        <string>aod.gameplay_questTG3_fight = true;</string>
+        <string>aod.fight_tg3_leaderAmbush = 1;</string>
+        <string>schedule(250, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>36</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mob Leader</speaker_name>
+      <npc_text>The man visibly relaxes and lowers his hammer. "Good luck," he says after a long pause, then picks up his crate and walks back to the town.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg2_crates --;</string>
+        <string>rwd_reputation(TG3_04);</string>
+        <string>dlgCarryBox(1955);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to Maadoran.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[critical strike]Now is the time to kill him.</text>
+          <def_link>38</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>39</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>37</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mob Leader</speaker_name>
+      <npc_text>[failure]You lunge at the mob leader, but the timing is off and you merely wound him. He whirls around; the crate with gold smashes into your face and blurs your vision. You see a flash of metal and suddenly pain erupts in your chest, drowning your screams and attempts to draw air. You die before your body hits the ground.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAnimation(anim_death_crit_xbow, 0.8);</string>
+        <string>dlgEquipItem(134, 0, 1955);</string>
+        <string>dlgSetAnimation(anim_power_2h, 0.25, 1955);</string>
+        <string>sc1955.setMeshHidden(i_box, true);</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+        <string>schedule(250, 0, sfxPlayOnce, csSuccessBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Rest in peace.</text>
+          <def_link>40</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>38</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Mob Leader</speaker_name>
+      <npc_text>[success]You lunge the moment the mob leader turns around, clapping your hand over the man's mouth as you ram your dagger between his ribs, then gently lower his body to the ground.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg2_crates ++;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>rwd_reputation(TG3_05);</string>
+        <string>dlgSetAnimation(anim_death_back00, 0.99, 1955);</string>
+        <string>sc1955.setMeshHidden(i_box, true);</string>
+        <string>dlgStealthPose(1);</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>aod.quest_tg3_fight = true;</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to Maadoran.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>39</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>40</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

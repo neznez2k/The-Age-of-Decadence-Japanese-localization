@@ -1,0 +1,432 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_AG5_restLorenza</string>
+    </conditions>
+    <links>
+      <int>60</int>
+    </links>
+    <dlg_name>Quest_AG5_03</dlg_name>
+    <def_link>23</def_link>
+    <def_speaker_name>Lorenza</def_speaker_name>
+    <def_portrait>Lorenza</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>Darista is dead. You'd better leave soon.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go back to Lorenza.</text>
+          <def_link>70</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Look around.</text>
+          <def_link>71</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - look around</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>71</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Is it done?" inquires Lorenza. She smiles and seems calm, but her eyes betray the pressure she's under.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_TalkLorenza_PC);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>if(aod.ambush_ag_mdn == 0) aod.ambush_ag_mdn = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Darista is dead.”</text>
+          <def_link>55</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>70</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Excellent. I was told that the vulgar woman was quite a fighter, but I guess the rumors of her prowess were vastly exaggerated.
+
+“Well, it’s getting late and the Boatmen must be looking everywhere for you, so why don’t you spend the night here? Tomorrow will be a different day,” says Lorenza with a smile.</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_ag5_phase4a = true;</string>
+        <string>rwd_quest(AG5_02);</string>
+        <string>rwd_reputation(AG5_02);</string>
+        <string>aod.gnz_assassin_start = 1;</string>
+        <string>setAchievement("ACH_MAADORAN_AG_2");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“The Boatmen are looking for me?”</text>
+          <def_link>57</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Are you offering...”</text>
+          <def_link>56</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>55</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Offering what?” asks Lorenza in confusion. “Oh... Good gods, &lt;charname&gt;, I’m a lady of House Calani. I don’t sleep with the help.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You mentioned that the Boatmen are looking for me.”</text>
+          <def_link>57</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>56</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What did you expect? You killed their guildmaster. I’m quite certain that they take such things fairly seriously.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“But you said that Hamza would take over and things would go back to normal.”</text>
+          <def_link>58</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You promised to elevate me.”</text>
+          <def_link>59</def_link>
+          <checkOnAppear>aod.quest_AG4_lorenzaPower</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>57</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Back to normal for *me*, &lt;charname&gt;. As for you, I’d suggest to leave the city in a hurry and wait it out in Ganezzar. Tell Meru that you’re a reformed Boatman. That you saw the light, heard voices, and such. He’s bound to buy that.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_TG5_talkedBackNormal = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“You promised to elevate me.”</text>
+          <def_link>59</def_link>
+          <checkOnAppear>aod.quest_TG5_talkedElevateMe == false &amp;&amp; aod.quest_AG4_lorenzaPower</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Rest til morning.</text>
+          <def_link>72</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>58</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“And I will, *after* I take control of the city. Such things don’t happen overnight. I’m flattered, of course, that you give me that much credit, but even I can only do so much and so fast.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_TG5_talkedElevateMe = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Didn't you say that Hamza would take over and things would go back to normal?”</text>
+          <def_link>58</def_link>
+          <checkOnAppear>aod.quest_TG5_talkedBackNormal == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Rest til morning.</text>
+          <def_link>72</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>59</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - rest until morning</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_AG5_restLorenza = true;</string>
+        <string>aod.ending_mdn_faction_AG_failure = true;</string>
+        <string>aod.ending_mdn_town_serenas = true;</string>
+        <string>aod.npc_gaelius_dead = true;</string>
+        <string>switchMission("Maadoran.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>72</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You wake up in the morning, feeling surprisingly well rested. Your wounds have been cleaned and bandaged, and there is a meal on the table waiting for you.
+
+You eat and go look for Lorenza.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_AG5_restLorenza = false;</string>
+        <string>cheatHP();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Talk to Lorenza.</text>
+          <def_link>73</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>60</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Well, good morrow to you, &lt;master/mistress&gt; &lt;charname&gt;! Didn’t I tell you that today will be a different day? As it turned out, lord Gaelius died in his sleep last night. I must say, his timing was always beyond reproach.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So, who rules Maadoran now?”</text>
+          <def_link>61</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>73</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“His nephew. Lord Serenas the Victorious. He’s still inexperienced, so I’ll be helping him, along with lord Senna and master Strabos. The triumvirate, so to speak.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What about my reward?”</text>
+          <def_link>62</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_AG4_lorenzaKnowledge</string>
+            <string>aod.quest_AG4_lorenzaPower</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>63</int>
+            <int>64</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>61</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The money’s here, as promised. Would you like to count it?”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(10000);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“No need. Now, I might stick around for a few more days. I hope you don't have a problem with that.”</text>
+          <def_link>65</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>62</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The trinkets, right? Levir, the guildmaster of the thieves, found an ancient machine in the catacombs beneath the city. He spent years looking for parts, which is how it came to my attention. He acquired the last part very recently.
+
+“I hope that this information is a suitable payment for your services. One of my servants will take you there when you're ready.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_lorenza_goToCatacombs = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I'd like to go there now.”</text>
+          <def_link>67</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Some other time.” Leave.</text>
+          <def_link>69</def_link>
+          <checkOnAppear>aod.devFullGame</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>63</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“All in due time, &lt;charname&gt;. The Empire wasn’t built in one day, you know. Go to Ganezzar and wait it out, while I sort out your conflict with the Boatmen. All will be forgotten when you come back.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(AG5_Lorenza_Power);</string>
+        <string>aod.npc_lorenza_favorAG = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“And if I decide to stick around?”</text>
+          <def_link>65</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>64</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It’s a free city, but don’t say I didn’t warn you.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Alright, I'll go to Ganezzar then, but I'll be back to finish this conversation one day."</text>
+          <def_link>66</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>69</def_link>
+          <checkOnAppear>aod.dev_fullGame</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>65</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING - go to Ganezzar</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.ending_mdn_faction_AG_failure = true;</string>
+        <string>aod.ending_mdn_town_serenas = true;</string>
+        <string>SS_start("MDN_ending", "switchMission(\"Ganezzar.mis\");");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>66</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>69</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Certainly. Let me make the arrangements...”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Wait for the servant and go see what Levir’s been up to.</text>
+          <def_link>68</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>67</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go to the catacombs</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_HealingMachine_fromLorenza = true;</string>
+        <string>aod.npc_lorenza_goToCatacombs = false;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_HealingMachine_AG = true;</string>
+        <string>switchMission("Quest_HealingMachine.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>68</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

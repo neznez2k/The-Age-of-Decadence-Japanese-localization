@@ -1,0 +1,303 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Quest_TG3_Flavius</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Flavius</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You picked a hell of a night for smuggling. Carrinas is dead. The Boatmen attacked the Imperial Guards; we're still tallying up the dead. Cado's thugs – that's your outfit, isn't it? – ambushed the Commercium's men and took a fortune in gold, as if we didn't have enough trouble for one fucking night. The word got out, courtesy of Linos, no doubt, and now there is a mob in front of the gate, stopping anyone trying to leave.
+
+"So, what's so important that it can't wait a..." Flavius stops mid-sentence. "The gold, isn't it? You're out of your mind if you think that I'll get involved in all that."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"You owe me."</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"The deal was I tell my men to look the other way when you smuggle some shit while everything is nice and quiet. Not help you smuggle a fucking shipment of gold when the town is locked tighter than a virgin's legs in a whorehouse."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"So, what *can* you do?"</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You're not listening. The town is sealed. Until everything is sorted out, nobody but Dellar has the authority to let anyone in or out. My job now is to maintain order and keep things from getting worse."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Then don't let me keep you from it. I've heard that there is a mob in front of the gates. It's a riot waiting to happen, so why don't you do your job and we'll call it even."</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I serve House Daratan, not you, in case you have forgotten."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]"Let the mob stay in control too long and they might develop a taste for it. If you don't remind them who runs this town today, tomorrow you may not be able to."</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]"Flavius, you were much easier to deal with when you were knee-deep in shit, much like the rest of us. If I don't leave Teron tonight, I'll do my very best to drag you down from that high horse of yours. I'm sure that Kaeso will be more than happy to help me."</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[daratan liegeman][daratan reputation success]"You and me both, buddy, each in our own way."</text>
+          <def_link>12</def_link>
+          <checkOnAppear>dlgOwnsRank(36) &amp;&amp; dlgGetRep(daratan) &gt;= 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Flavius shakes his head. "The mob is your problem, not mine."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg3_flaviusPersFail = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]"Flavius, you were much easier to deal with when you were knee-deep in shit, much like the rest of us. If I don't leave Teron tonight, I'll do my very best to drag you down from that high horse of yours. I'm sure that Kaeso will be more than happy to help me."</text>
+          <def_link>11</def_link>
+          <checkOnAppear>aod.quest_tg3_flaviusStreetFail == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"Threaten all you want, &lt;charname&gt;. I said I will look the other way, not fight your battles for you."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg3_flaviusStreetFail = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]"Let the mob stay in control too long and they might develop a taste for it. If you don't remind them who runs this town today, tomorrow you may not be able to."</text>
+          <def_link>10</def_link>
+          <checkOnAppear>aod.quest_tg3_flaviusPersFail == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Alright. I'll deal with the mob. Then you're on your own. Follow me."</npc_text>
+      <onLoadScripts>
+        <string>dlgSetCombatAnimation(1955);</string>
+        <string>dlgSetCombatAnimation(1956);</string>
+        <string>dlgSetCombatAnimation(1957);</string>
+        <string>dlgSetCombatAnimation(1958);</string>
+        <string>dlgSetCombatAnimation(1959);</string>
+        <string>dlgSetCombatAnimation(1960);</string>
+        <string>aod.quest_tg3_talk = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Follow Flavius and his men.</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Alright. I'll deal with the mob. Then you're on your own. Follow me."</npc_text>
+      <onLoadScripts>
+        <string>dlgSetCombatAnimation(1955);</string>
+        <string>dlgSetCombatAnimation(1956);</string>
+        <string>dlgSetCombatAnimation(1957);</string>
+        <string>dlgSetCombatAnimation(1958);</string>
+        <string>dlgSetCombatAnimation(1959);</string>
+        <string>dlgSetCombatAnimation(1960);</string>
+        <string>aod.quest_tg3_talk = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Follow Flavius and his men.</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - mob</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>StartMob();</string>
+        <string>setRtsCam();</string>
+        <string>dlgCam(225, 45, 15, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>It looks like the mob is controlling all roads leading to the gate. Makeshift barricades block side streets; fires burning in the middle of the main street illuminate the area, making sure that nobody gets through undetected. Rough looking men, made fearless by the rumors of the fortune coming their way, are determined to keep it from slipping through their fingers, no matter the cost.
+
+Flavius gives an order and his legionaries slowly move forward, banging their swords on shields with every step.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>FlaviusGuards.showObjects();</string>
+        <string>useCameraBookmark(CAM_FlaviusGuards);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Watch the show.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The mob, self-encouraged by angry shouts of defiance, meets the legionaries' attack, holding the line for a few heartbeats, and then falls back, leaving behind dead and wounded men. The legionaries do more than kill a score of men, they kill hope. Almost instantly, the mob breaks apart - men run in different directions, and within moments the square is empty and the way to the town gate is clear.
+
+"Consider the debt settled," says Flavius.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgDeleteCharacter(1955);</string>
+        <string>dlgDeleteCharacter(1956);</string>
+        <string>dlgDeleteCharacter(1957);</string>
+        <string>dlgDeleteCharacter(1958);</string>
+        <string>dlgDeleteCharacter(1959);</string>
+        <string>dlgDeleteCharacter(1960);</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportToMarker(TM_FlaviusMob_PC_01);</string>
+        <string>dlgTeleportToMarker(TM_FlaviusMob_01, 1420);</string>
+        <string>dlgCam(45, 45, 8, 1420);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to the gate.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - gate</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgDeleteCharacter(1420);</string>
+        <string>aod.quest_tg3_status = 3;</string>
+        <string>FlaviusGuards.hideObjects();</string>
+        <string>Move_Mob_Gate();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

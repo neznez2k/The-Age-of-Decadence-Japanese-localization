@@ -1,0 +1,153 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>dlgOwnsItem(904)</string>
+    </conditions>
+    <links>
+      <int>4</int>
+    </links>
+    <dlg_name>ITEM_Respirator_02</dlg_name>
+    <def_link>6</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>A strange mask of unknown purpose.</npc_text>
+      <onLoadScripts>
+        <string>setWindowImage(item_respirator2);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lore]Examine it.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lore &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You have no idea what it is.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You're fairly certain that this is a breathing apparatus of the Old Empire. When charged with magical energies, it will allow you to breath in toxic environments.
+
+It needs one power tube to function properly.</npc_text>
+      <onLoadScripts>
+        <string>if(dlgGetItemsCount(903) == 1) {dlgRemoveItem(903, 1); dlgAddItem(904, 1);}</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Insert a power tube.</text>
+          <def_link>5</def_link>
+          <checkOnAppear>dlgGetItemsCount(1600) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The apparatus needs a power tube to function properly.</npc_text>
+      <onLoadScripts>
+        <string>setWindowImage(item_respirator2);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Insert a power tube.</text>
+          <def_link>5</def_link>
+          <checkOnAppear>dlgGetItemsCount(1600) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You insert a power tube into the slot. The apparatus absorbs the charge and  the drums comes to life, expelling dust.</npc_text>
+      <onLoadScripts>
+        <string>dlgRemoveItem(904, 1);</string>
+        <string>dlgRemoveItem(1600, 1);</string>
+        <string>dlgAddItem(909, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

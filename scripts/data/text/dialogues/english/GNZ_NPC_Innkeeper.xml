@@ -1,0 +1,186 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.GNZ_inn_roomRented</string>
+    </conditions>
+    <links>
+      <int>46</int>
+    </links>
+    <dlg_name>GNZ_NPC_Innkeeper</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Innkeeper</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"May the Gods' blessings be upon you, stranger."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Innkeeper_PC_01);</string>
+        <string>dlgCam(255, 45, 6, 9060);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I need a room."</text>
+          <def_link>11</def_link>
+          <checkOnAppear>aod.gnz_inn_roomRented == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Maybe later." Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"May the Gods' blessings be upon you."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Innkeeper_PC_01);</string>
+        <string>dlgCam(255, 45, 6, 9060);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>46</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Innkeeper_PC_01);</string>
+        <string>dlgCam(255, 45, 10);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"The city is overcrowded. I can't go lower than two hundred imperials."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay 200 imperials.</text>
+          <def_link>45</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 200</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgChangeMoney(-200);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading]"I thought price gouging was forbidden. Wait til Brother Meru hears about it..."</text>
+          <def_link>43</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 100</checkOnAppear>
+          <checksOnClick>
+            <string>aod.trading &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>44</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"These are hard times for everyone. Do what you must, &lt;brother/sister&gt;."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay 200 imperials.</text>
+          <def_link>45</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 200</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgChangeMoney(-200);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>43</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Wait, let's not get hasty. I may have ... misjudged the situation. I'll be honored to offer you a room for a hundred imperials."</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(Trading);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay 100 imperials.</text>
+          <def_link>45</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgChangeMoney(-100);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+      </answers>
+      <UID>44</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Your room is on the second floor, behind the stairs. Enjoy your stay, &lt;brother/sister&gt;."</npc_text>
+      <onLoadScripts>
+        <string>aod.GNZ_inn_roomRented = 1;</string>
+        <string>VCO_InnDoor.setActive(0);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Thanks." Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>45</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

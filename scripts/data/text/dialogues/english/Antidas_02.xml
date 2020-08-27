@@ -1,0 +1,1773 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_mg3_antidasGratitude</string>
+      <string>aod.quest_hd2_talkAboutMapNow</string>
+      <string>aod.TPTA_showMap</string>
+      <string>aod.npc_antidas_metInMg2</string>
+      <string>aod.npc_dellar_test &amp;&amp; aod.npc_antidas_metInCassiusBetray</string>
+      <string>aod.npc_dellar_test &amp;&amp; aod.npc_antidas_met</string>
+      <string>aod.npc_dellar_tricked &amp;&amp; aod.npc_antidas_met == false</string>
+      <string>aod.npc_antidas_met &amp;&amp; aod.quest_mg3_antidasGratitude == false</string>
+      <string>aod.quest_ig3_showMap</string>
+    </conditions>
+    <links>
+      <int>21</int>
+      <int>70</int>
+      <int>15</int>
+      <int>16</int>
+      <int>5</int>
+      <int>5</int>
+      <int>11</int>
+      <int>16</int>
+      <int>15</int>
+    </links>
+    <dlg_name>Antidas_02</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Antidas</def_speaker_name>
+    <def_portrait>Antidas</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>君はアンティダスの広間に立ち、富と権力の印に囲まれていた。どちらを向いてもエキゾチックなタペストリーや絵画、珍しい花瓶や煌めく彫像を見ることができる。絢爛とした柱が広間に建ち並び、アンティダス卿の座する玉座へと至る。彼は援助と好意を求める請願者のグループに謁見を許していた。兵士達は見張りをしており、トラブルの兆しが見えた瞬間にいつでもアンティダスを守り広間を虐殺の場にする用意があった。
+
+You wait for your turn and then approach the throne.
+
+"Dellar says that you've done me a service. He thinks that we can use a &lt;man/woman&gt; of your abilities. Is that why you're here? To offer me your services?"</npc_text>
+      <onLoadScripts>
+        <string>dlgUnequipHands();</string>
+        <string>useCameraBookmark(NPC_Antidas_Cam_01);</string>
+        <string>dlgTeleportTo(170, 229, 0, N);</string>
+        <string>aod.npc_antidas_met = true;</string>
+        <string>addJournalChar(antidas);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Yes, master."</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"My Lord, I was told that you'd want to see this." Show him the map.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I accept. Swear your fealty to me and we shall consider the matters settled."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I swear my fealty to you, my Lord."</text>
+          <def_link>3</def_link>
+          <checkOnAppear>aod.etiquette &lt; 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[etiquette success]"I swear to serve you, your Cause, and House Daratan faithfully, never cause you harm and will observe my homage to you completely against all persons in good faith and without deceit."</text>
+          <def_link>4</def_link>
+          <checkOnAppear>aod.etiquette &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I accept. Swear your fealty to me and add your strength to mine."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I swear my fealty to you, my Lord."</text>
+          <def_link>3</def_link>
+          <checkOnAppear>aod.etiquette &lt; 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[etiquette success]"I swear to serve you, your Cause, and House Daratan faithfully, never cause you harm and will observe my homage to you completely against all persons in good faith and without deceit."</text>
+          <def_link>4</def_link>
+          <checkOnAppear>aod.etiquette &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>61</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Antidas nods. "Serve me faithfully and you'll be aptly rewarded."</npc_text>
+      <onLoadScripts>
+        <string>dlgAddRank(36);</string>
+        <string>rwd_reputation(HD_Liegeman_01);</string>
+        <string>aod.pc_liegemanDaratan = true;</string>
+        <string>aod.npc_antidas_allowedToSeeHim = true;</string>
+        <string>setAchievement("ACH_LIEGEMAN_HD");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"My Lord, I was told that you'd want to see this." Show him the map.</text>
+          <def_link>15</def_link>
+          <checkOnAppear>aod.npc_antidas_talkedAboutMap == false &amp;&amp; aod.quest_MQ_seeAntidas</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I will, my Lord. There is something else I'd like to tell you."</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Antidas nods, being clearly pleased with your oath. "&lt;Men/Women&gt; like you are hard to find these days. I have faith in you. Serve me faithfully and you'll be aptly rewarded." He removes one of his rings and gives it to you.</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(Antidas_01);</string>
+        <string>rwd_reputation(HD_Liegeman_02);</string>
+        <string>dlgAddRank(36);</string>
+        <string>dlgAddItem(1310, 1);</string>
+        <string>aod.pc_liegemanDaratan = true;</string>
+        <string>aod.npc_antidas_allowedToSeeHim = true;</string>
+        <string>setAchievement("ACH_LIEGEMAN_HD");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"My Lord, I was told that you'd want to see this." Show him the map.</text>
+          <def_link>15</def_link>
+          <checkOnAppear>aod.npc_antidas_talkedAboutMap == false &amp;&amp; aod.quest_MQ_seeAntidas</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I will, my Lord. There is something else I'd like to tell you."</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Dellar says you did well. He thinks that we can use a &lt;man/woman&gt; of your abilities. Swear your fealty to me and we shall consider the matters settled."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(170, 229, 0, N);</string>
+        <string>useCameraBookmark(NPC_Antidas_Cam_01);</string>
+        <string>aod.npc_dellar_test = false;</string>
+        <string>aod.npc_antidas_met = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I swear my fealty to you, my Lord."</text>
+          <def_link>3</def_link>
+          <checkOnAppear>aod.etiquette &lt; 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[etiquette success]"I swear to serve you, your Cause, and House Daratan faithfully, never cause you harm and will observe my homage to you completely against all persons in good faith and without deceit."</text>
+          <def_link>4</def_link>
+          <checkOnAppear>aod.etiquette &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"My Lord, I was told that you'd want to see this." Show him the map.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>君はアンティダスの広間に立ち、富と権力の印に囲まれていた。どちらを向いてもエキゾチックなタペストリーや絵画、珍しい花瓶や煌めく彫像を見ることができる。絢爛とした柱が広間に建ち並び、アンティダス卿の座する玉座へと至る。彼は援助と好意を求める請願者のグループに謁見を許していた。兵士達は見張りをしており、トラブルの兆しが見えた瞬間にいつでもアンティダスを守り広間を虐殺の場にする用意があった。
+
+You wait for your turn and then approach the throne.</npc_text>
+      <onLoadScripts>
+        <string>dlgUnequipHands();</string>
+        <string>useCameraBookmark(NPC_Antidas_Cam_01);</string>
+        <string>dlgTeleportTo(170, 229, 0, N);</string>
+        <string>aod.npc_antidas_met = true;</string>
+        <string>addJournalChar(antidas);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"My Lord, I was told that you'd want to see this." Show him the map.</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[etiquette success]"My Lord. I beg forgiveness for my unannounced intrusion, but I was given little choice. I was entrusted with a tribute for you, which I was honour-bound to deliver."</text>
+          <def_link>12</def_link>
+          <checkOnAppear>aod.etiquette &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I don't have a habit of talking to those who come into my home uninvited, but you went to great lengths to seek my audience. The least I can do is give you a chance.
+
+"Call Dellar, tell him to put &lt;his/her&gt; skills to the test. If &lt;he/she&gt; survives it, bring &lt;him/her&gt; back to me."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_dellar_tricked = false;</string>
+        <string>aod.npc_dellar_test = true;</string>
+        <string>aod.npc_dellar_met = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Honor is a rare trait these days. It's what separates us from savages and keeps the spirit of the Empire alive."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Hand him the map.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Do you believe in destiny, &lt;charname&gt;?" Before you have a chance to answer, Antidas continues. "I've spent more than a decade trying to find the temple and fulfill the prophecy. I've wasted a fortune and lost more men than I'd dare to admit, and just when I've decided to give up, you show up with another map. Coincidence? I don't believe in those.
+
+"It is said that every man is given a chance to change his fate, to ascend to greatness and immortality, to rise above the ordinary and serve a cause greater than self-interest. You didn't come here by accident. Fate guided you here and it will guide you to the temple."</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(MQ_Antidas_01);</string>
+        <string>rwd_reputation(MQ_Antidas_01);</string>
+        <string>aod.npc_antidas_talkedAboutMap = true;</string>
+        <string>aod.npc_antidas_allowedToSeeHim = true;</string>
+        <string>if(aod.TPTA_showMap) aod.TPTA_showMap = false;</string>
+        <string>if(aod.quest_ig3_showMap) aod.quest_ig3_showMap = false;</string>
+        <string>useCameraBookmark(NPC_Antidas_Cam_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"The temple? The prophecy? Another map?"</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"We spoke of destiny earlier," says Antidas, giving you the map you wrestled from the Commercium.
+
+"You know, of course, that our Empire had lasted thousands of years. Through military and diplomatic victories we had conquered the known world. An era of peace and prosperity was about to begin when the accursed Qantari came. Taller than any human, with glowing eyes and sharp claws, they came from the depth of the underworld and attacked without warning, slaughtering men and women alike. We fought the devils tooth and nail, but when the victory was at hand, they called forth their gods."</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(MQ_Antidas_01);</string>
+        <string>rwd_reputation(MQ_Antidas_01);</string>
+        <string>aod.npc_antidas_talkedAboutMap = true;</string>
+        <string>aod.npc_antidas_allowedToSeeHim = true;</string>
+        <string>if(aod.TPTA_showMap) aod.TPTA_showMap = false;</string>
+        <string>if(aod.quest_ig3_showMap) aod.quest_ig3_showMap = false;</string>
+        <string>useCameraBookmark(NPC_Antidas_Cam_01);</string>
+        <string>dlgAddItem(2100, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>71</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>70</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Can you imagine a living horror towering over a battlefield and sweeping it with its arms, tearing flesh and armor with its talons? Our only chance was to reach into the higher planes and summon allies who could help us even the odds. Eventually the call was answered and the allies came. They burned the Qantari and their gods, leaving nothing but ashes. They saved us, but it was too late. The Empire had fallen, for too much had been destroyed. Saddened, our allies, the Lords of the higher planes, left us to rebuild and restore, but as you can see, we are still living in our crumbling towns, still fighting each other like savages."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>71</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"My apologies," says Antidas with a faint smile.
+
+"You know, of course, that our Empire had lasted thousands of years. Through military and diplomatic victories we had conquered the known world. An era of peace and prosperity was about to begin when the accursed Qantari came. Taller than any human, with glowing eyes and sharp claws, they came from the depth of the underworld and attacked without warning, slaughtering men and women alike. We fought the devils tooth and nail, but when the victory was at hand, they called forth their gods.
+
+"Can you imagine a living horror towering over a battlefield and sweeping it with its arms, tearing flesh and armor with its talons? Our only chance was to reach into the higher planes and summon allies who could help us even the odds. Eventually the call was answered and the allies came. They burned the Qantari and their gods, leaving nothing but ashes. They saved us, but it was too late. The Empire had fallen, for too much had been destroyed. Saddened, our allies, the Lords of the higher planes, left us to rebuild and restore, but as you can see, we are still living in our crumbling towns, still fighting each other like savages."</npc_text>
+      <onLoadScripts>
+        <string>addLore(3);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Three Lords of the higher planes, or the High Lords, as they are most commonly referred to, have answered our call. Gla'ath-Zor the Dreamer, Bar-Hathor the Flamewalker, and Thor-Agoth the Artificer.
+
+"The Artificer had taught our Magi much and built many wondrous machines and engines of war. According to the legends, the Magi had attended a temple built by Thor-Agoth and studied the Arcane Art there. The centuries-old accounts describe the engines of war and "divine" weapons in great details.</npc_text>
+      <onLoadScripts>
+        <string>addLore(4);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>72</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I don't know if the weapons are still there. I don't know if the temple is still there, but I believe there is a reason why another copy of the map has found its way to me. It's fate, &lt;charname&gt;. It has to be.
+
+"Over the years I've sent several expeditions to find the temple and bring me the weapons of the gods. They've all failed, one way or another. Looking at you, I'm beginning to think that sending large expeditions was a mistake. Large groups attract too much attention. They are slow and suffer from the all too familiar intrigues and inner squabbles. They are vulnerable to spies and saboteurs. They cost a fortune. But one &lt;man/woman&gt;... One resourceful &lt;man/woman&gt; with nothing to lose but everything to gain... Yes, I can see my mistake now."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>72</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I want you to find the temple for me, &lt;charname&gt;. If you do, you will be rewarded and elevated beyond your wildest dreams. If you do, we'll reshape the world and plant a seed of a new Empire. We'll do away with petty squabbles over broken towns and domains, we will unite our people and give them goals worthy of the banners that once flew over this land.
+
+"Go to Maadoran. Find Domitius Ulpius. He's led one of the expeditions. He was convinced that the Magi towers hold the key to the map, but there is only one tower left intact – the tower of Zamedi. The tower is sealed, as are most ancient places of wonder that House Aurelian deemed too dangerous. Gaelius would rather bury the past than face it.
+
+"Find Domitius. If there is a way in, he'll help you find it. If not, seek answers elsewhere."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_map_phase5 = true;</string>
+        <string>revealMapLocation("Maadoran");</string>
+        <string>dlgAddTextBoxMessage("Maadoran added to the map");</string>
+        <string>aod.quest_MQ_findDomitius = true;</string>
+        <string>tutorial_map_start();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I'll do my best, my Lord."</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_hd2_talkAboutMap || aod.quest_hd2_talkAboutMapNow</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>34</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I expect nothing less from you."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_antidas_askAboutHouse = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Before I go... I have this ring..."</text>
+          <def_link>18</def_link>
+          <checkOnAppear>aod.quest_galbo_speakWithAntidas &amp;&amp; dlgOwnsItem(1350) &amp;&amp; aod.streetwise &lt; 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]"I too believe in destiny, my Lord. This ring has been in my family for generations, given to my forefathers for safekeeping by General Galbo himself. It is, without a doubt, one of the most important relics of the Empire, and its reappearance is a great omen! It is yours, my Lord."</text>
+          <def_link>19</def_link>
+          <checkOnAppear>aod.quest_galbo_speakWithAntidas &amp;&amp; dlgOwnsItem(1350) &amp;&amp; aod.streetwise &gt;= 3</checkOnAppear>
+          <checksOnClick>
+            <string>aod.npc_cassius_betrayal || aod.quest_killCassius_doesntLeave</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>41</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I want to learn more about your House, my Lord."</text>
+          <def_link>48</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.cha &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>49</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"There is something else, my Lord..."</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[charisma failure]"We don't have time for history lessons."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_antidas_askAboutHouse = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Before I go... I have this ring..."</text>
+          <def_link>18</def_link>
+          <checkOnAppear>aod.quest_galbo_speakWithAntidas &amp;&amp; dlgOwnsItem(1350) &amp;&amp; aod.streetwise &lt; 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]"I too believe in destiny, my Lord. This ring has been in my family for generations, given to my forefathers for safekeeping by General Galbo himself. It is, without a doubt, one of the most important relics of the Empire, and its reappearance is a great omen! It is yours, my Lord."</text>
+          <def_link>19</def_link>
+          <checkOnAppear>aod.quest_galbo_speakWithAntidas &amp;&amp; dlgOwnsItem(1350) &amp;&amp; aod.streetwise &gt;= 3</checkOnAppear>
+          <checksOnClick>
+            <string>aod.npc_cassius_betrayal || aod.quest_killCassius_doesntLeave</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>41</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"There is something else, my Lord..."</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>48</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"We have to ... we *must* turn this ship around before it's too late. Many will die, but they will die for something worth fighting for. How many die every day squabbling over nothing?
+
+"Find the temple, &lt;charname&gt;, and together we'll write history!"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Before I go... I have this ring..."</text>
+          <def_link>18</def_link>
+          <checkOnAppear>aod.quest_galbo_speakWithAntidas &amp;&amp; dlgOwnsItem(1350) &amp;&amp; aod.streetwise &lt; 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]"I too believe in destiny, my Lord. This ring has been in my family for generations, given to my forefathers for safekeeping by General Galbo himself. It is, without a doubt, one of the most important relics of the Empire, and its reappearance is a great omen! It is yours, my Lord."</text>
+          <def_link>19</def_link>
+          <checkOnAppear>aod.quest_galbo_speakWithAntidas &amp;&amp; dlgOwnsItem(1350) &amp;&amp; aod.streetwise &gt;= 3</checkOnAppear>
+          <checksOnClick>
+            <string>aod.npc_cassius_betrayal || aod.quest_killCassius_doesntLeave</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>41</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>56</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"The realm needs a king," states Antidas firmly. "Had Gaelius been a worthy leader, I would have bent my knee and served him as faithfully as my House had served the Empire, but he isn't. He doesn't care about our past, our glory. He doesn't want to rebuild. He simply wants to rule these ruins, sitting on them like a squatter."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Before I go... I have this ring..."</text>
+          <def_link>18</def_link>
+          <checkOnAppear>aod.quest_galbo_speakWithAntidas &amp;&amp; dlgOwnsItem(1350) &amp;&amp; aod.streetwise &lt; 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]"I too believe in destiny, my Lord. This ring has been in my family for generations, given to my forefathers for safekeeping by General Galbo himself. It is, without a doubt, one of the most important relics of the Empire, and its reappearance is a great omen! It is yours, my Lord."</text>
+          <def_link>19</def_link>
+          <checkOnAppear>aod.quest_galbo_speakWithAntidas &amp;&amp; dlgOwnsItem(1350) &amp;&amp; aod.streetwise &gt;= 3</checkOnAppear>
+          <checksOnClick>
+            <string>aod.npc_cassius_betrayal || aod.quest_killCassius_doesntLeave</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>41</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"There is something else, my Lord..."</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>57</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"My father had requested a reading when I was born. His star-gazer had foretold that I would be the one to bring glory to this House and make it rise again. I lived under the shadow of the prophecy all my life. I tried to follow the path set by my ancestors, but my time hadn't come yet and fate punished me for my arrogance.
+
+"Now, this," he gestures around him, "is all I have left, but with your help I *will* prevail. Feng told me that I needed powerful artefacts to secure a victory, but I believe that fate sent you to me for a reason. It is the temple's artefacts that will tip the scales and give me strength to unite this land under my rule, not rings and amulets. Find the temple, &lt;charname&gt;, and together we'll write history!"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Before I go... I have this ring..."</text>
+          <def_link>18</def_link>
+          <checkOnAppear>aod.quest_galbo_speakWithAntidas &amp;&amp; dlgOwnsItem(1350) &amp;&amp; aod.streetwise &lt; 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]"I too believe in destiny, my Lord. This ring has been in my family for generations, given to my forefathers for safekeeping by General Galbo himself. It is, without a doubt, one of the most important relics of the Empire, and its reappearance is a great omen! It is yours, my Lord."</text>
+          <def_link>19</def_link>
+          <checkOnAppear>aod.quest_galbo_speakWithAntidas &amp;&amp; dlgOwnsItem(1350) &amp;&amp; aod.streetwise &gt;= 3</checkOnAppear>
+          <checksOnClick>
+            <string>aod.npc_cassius_betrayal || aod.quest_killCassius_doesntLeave</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>41</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"There is something else, my Lord..."</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>58</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(167, 163, 0, S);</string>
+        <string>tutorial_map();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"It'd better be important, &lt;charname&gt;."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(170, 229, 0, N);</string>
+        <string>useCameraBookmark(NPC_Antidas_Cam_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"My Lord, I'd like to pledge my services to you and your House."</text>
+          <def_link>61</def_link>
+          <checkOnAppear>aod.pc_liegemanDaratan == false &amp;&amp; aod.professionID != 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Here is the proof, my Lord." Give him the evidence.</text>
+          <def_link>69</def_link>
+          <checkOnAppear>aod.quest_mg2_hasEvidence</checkOnAppear>
+          <checksOnClick>
+            <string>aod.quest_mg2_poor_fake &amp;&amp; aod.quest_mg2_realEvidence == false</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>64</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"My Lord, did you want to talk to me?"</text>
+          <def_link>70</def_link>
+          <checkOnAppear>aod.quest_hd2_talkAboutMap</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"My Lord, I was told that you will want to see this." Show him the map.</text>
+          <def_link>15</def_link>
+          <checkOnAppear>aod.npc_antidas_talkedAboutMap == false &amp;&amp; aod.quest_MQ_seeAntidas</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I have this ring..."</text>
+          <def_link>18</def_link>
+          <checkOnAppear>aod.quest_galbo_speakWithAntidas &amp;&amp; dlgOwnsItem(1350) &amp;&amp; aod.streetwise &lt; 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]"My Lord, this ring has been in my family for generations, given to my forefathers for safekeeping by General Galbo himself. It is, without a doubt, one of the most important relics of the Empire, and its reappearance is a great omen! It is yours, my Lord."</text>
+          <def_link>19</def_link>
+          <checkOnAppear>aod.quest_galbo_speakWithAntidas &amp;&amp; dlgOwnsItem(1350) &amp;&amp; aod.streetwise &gt;= 3</checkOnAppear>
+          <checksOnClick>
+            <string>aod.npc_cassius_betrayal || aod.quest_killCassius_doesntLeave</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>41</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I have convinced the remaining Guards to join your House."</text>
+          <def_link>22</def_link>
+          <checkOnAppear>aod.global_teron_ig_joins_daratan &amp;&amp; aod.quest_mg3_finished == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"You should finish the Imperial Guards."</text>
+          <def_link>23</def_link>
+          <checkOnAppear>aod.global_teron_ig_joins_daratan == false &amp;&amp; aod.quest_mg3_finished == false &amp;&amp; aod.quest_mg3_started &amp;&amp; aod.global_teron_daratan_destroys_ig == false &amp;&amp; aod.quest_mg3_failFinishIG == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Anything I can do to help?"</text>
+          <def_link>17</def_link>
+          <checkOnAppear>aod.npc_dellar_talkedAboutQuests == false &amp;&amp; aod.npc_dellar_questsGiven == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I want to learn more about your House, my Lord."</text>
+          <def_link>48</def_link>
+          <checkOnAppear>aod.npc_antidas_askAboutHouse</checkOnAppear>
+          <checksOnClick>
+            <string>aod.cha &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>49</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Talk to Dellar. There are some things he needs help with."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_dellar_help = true;</string>
+        <string>aod.npc_dellar_startHelp = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I will." Leave.</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Dellar tests</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.npc_dellar_startTest = true;</string>
+        <string>dlgTeleportTo(170, 187, 0, N);</string>
+        <string>useCameraBookmark(NPC_Dellar_Cam_01);</string>
+        <string>dlgSetZoom(8);</string>
+        <string>apmsstartdialogue(dellar_01);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Antidas examines the ring and returns it to you.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_galbo_speakWithAntidas = false;</string>
+        <string>aod.quest_galbo_phase3c = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"There is something else, my Lord..."</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"The Galbo's ring? Could it be? Send for Feng, now!"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_galbo_speakWithAntidas = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Half an hour later Feng shows up and gives the best theatrical performance you've ever seen. If you didn't know better... Well, Antidas doesn't, besides, deep down he wants to believe. He buys the whole act and puts the ring on his finger with a shaking hand, probably expecting the ghost of General Galbo to appear and bless him.
+
+"A ring for a ring," says Antidas. He takes off a heavy gold ring with the Daratan insignia and gives it to you.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_galbo_speakWithAntidas = false;</string>
+        <string>dlgRemoveItem(1350, 1);</string>
+        <string>dlgAddItem(1330, 1);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>rwd_quest(GalboRing_01);</string>
+        <string>dlgTeleportTo(169, 230, 0, NE, 1000);</string>
+        <string>aod.quest_galbo_phase3a = true;</string>
+        <string>rwd_reputation(GalboRing_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>59</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Feng ring</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(167, 163, 0, S);</string>
+        <string>dlgTeleportTo(157, 78, 0, E, 1000);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>59</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I owe you my gratitude, &lt;charname&gt;. You've helped me to get rid of a snake in my own backyard. I won't forget it."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg3_antidasGratitude = false;</string>
+        <string>dlgTeleportTo(170, 229, 0, N);</string>
+        <string>useCameraBookmark(NPC_Antidas_Cam_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"You should finish the job then."</text>
+          <def_link>23</def_link>
+          <checkOnAppear>aod.global_teron_ig_joins_daratan == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I have convinced the remaining Guards to join your House."</text>
+          <def_link>22</def_link>
+          <checkOnAppear>aod.global_teron_ig_joins_daratan</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"You are welcome, my Lord. May we talk about something else?"</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Excellent news, &lt;charname&gt;. I owe you a lot more than my thanks then." He removes a dagger from his belt and gives it to you. "It's tempered steel, the work of famous Al-Dashir. The edge is exceptional."</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItemlist(quest_mg3_antidas_dagger);</string>
+        <string>aod.quest_mg3_finished = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Thank you, my Lord." Leave and go see Linos.</text>
+          <def_link>28</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"The Guards? They are no longer a threat."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]"Yet. When they rebuild and replenish their strength, they will become a threat once again, and this time they'd have a score to settle."</text>
+          <def_link>24</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>mround(aod.persuasion + aod.cha + (dlgGetRep(daratan)/4)) &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>29</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"They leave me no choice, do they?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"None, my Lord."</text>
+          <def_link>30</def_link>
+          <checkOnAppear>aod.etiquette &lt; 4 || aod.int &lt; 8</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[etiquette][intelligence]"I wouldn't dare to suggest that you have no choices, my Lord. In fact, quite the opposite is true – a Lord isn't bound by circumstances and can do what lesser men can't. However..."</text>
+          <def_link>31</def_link>
+          <checkOnAppear>aod.etiquette &gt;= 4 &amp;&amp; aod.int &gt;= 8</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>29</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"There is neither glory nor honour in massacring a handful of survivors."</npc_text>
+      <onLoadScripts>
+        <string>if(aod.streetwise &lt; 5) aod.quest_mg3_failFinishIG = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"You are right, My Lord. I'll convince them to join your House." Leave.</text>
+          <def_link>25</def_link>
+          <checkOnAppear>aod.streetwise &lt; 5 || aod.int &lt; 8</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][intelligence]"Perhaps, the assassins can take the blame for it. After all, if both parties are fully wiped out, who can tell what really happened?"</text>
+          <def_link>26</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 5 &amp;&amp; aod.int &gt;= 8</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"That's the problem. When nobody knows what happened, people would believe what they want to believe. I'm sure that the enemies of our House would make it very easy for everyone to believe that we're responsible for the massacre."</npc_text>
+      <onLoadScripts>
+        <string>if(aod.streetwise &lt; 5 || aod.int &lt; 8) aod.quest_mg3_failFinishIG = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"You are right, My Lord. I'll convince them to join your House." Leave.</text>
+          <def_link>25</def_link>
+          <checkOnAppear>aod.streetwise &lt; 5 || aod.int &lt; 8</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][intelligence]"Then leave behind a 'witness'. Leave one Guard alive and either threaten or pay him to tell everyone that the assassins killed everyone. Just don't forget to slit his throat before House Aurelian can get their hands on him."</text>
+          <def_link>27</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 5 &amp;&amp; aod.int &gt;= 8</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>26</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You have a devious mind, &lt;charname&gt;. I'm glad that you're on my side.
+
+"Dellar, you've heard the conversation. Do it." Dellar bows and leaves without saying a word.</npc_text>
+      <onLoadScripts>
+        <string>aod.global_teron_daratan_destroys_ig = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave and go see Linos.</text>
+          <def_link>28</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>27</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"There is always a choice! I refuse to be a slave of the circumstances.
+
+"You're good with words, &lt;charname&gt;, and your silver tongue has already slain more men than most swords. Talk to the survivors. Get them to join my House and don't come back until you do."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg3_failFinishIG = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>30</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"However?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]"While I'm sure that you will have many opportunities to triumph over your enemies, I'm not sure if a better chance will ever present itself. Why miss it?"</text>
+          <def_link>32</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>mround(aod.persuasion + aod.cha + (dlgGetRep(daratan)/4)) &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>33</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>31</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"Because once the killing starts, it's hard to predict when it would stop. Yesterday you convinced me to kill one man and today I woke up to find that two guilds were wiped out by the violence that followed.
+
+"Today you're asking me to kill a score of men. What would I wake up to tomorrow?
+
+"You're good with words, &lt;charname&gt;, and your silver tongue has already slain more men than most swords. Talk to the survivors. Get them to join my House and don't come back until you do."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg3_failFinishIG = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>32</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"It's hard to argue with you, &lt;charname&gt;. Very well. I'll listen to your counsel once again.
+
+"Dellar, you've heard the conversation. Kill them all." Dellar bows and leaves without saying a word.</npc_text>
+      <onLoadScripts>
+        <string>aod.global_teron_daratan_destroys_ig = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>28</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>33</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - leave to MG - same district</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>useCameraBookmark(NPC_Linos_Cam_01);</string>
+        <string>dlgTeleportTo(134, 118, 0, N);</string>
+        <string>apmsStartDialogue(Quest_mg3_03);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>28</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - leave to Mercato - same district</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>dlgTeleportTo(196, 56, 0, E);</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Dellar!" beckons Antidas. "This matter that we've discussed... Do you think &lt;charname&gt; can handle it? &lt;He/She&gt; shows promise, does &lt;he/she&gt; not?"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_hd2_talkAboutMap = false;</string>
+        <string>aod.quest_hd2_talkAboutMapNow = false;</string>
+        <string>aod.npc_antidas_askAboutHouse = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait.</text>
+          <def_link>35</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>34</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"&lt;He/She&gt; gets my vote," says Dellar. "Walk with me, &lt;charname&gt;."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(169, 230, 0, SE, 1070);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Follow Dellar outside.</text>
+          <def_link>37</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>35</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start HD2</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(NPC_Dellar_Cam_01);</string>
+        <string>dlgTeleportTo(170, 187, 0, N);</string>
+        <string>dlgTeleportTo(170, 189, 0, S, 1070);</string>
+        <string>dlgSetZoom(8);</string>
+        <string>apmsstartdialogue(quest_hd2_01);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>37</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"The Galbo's ring? Could it be? This should be a good test for our new loremaster. Dellar, ask Cassius to join us."</npc_text>
+      <onLoadScripts>
+        <string>if(aod.npc_cassius_betrayal == false) {aod.quest_killCassius_doesntLeave = false; aod.npc_antidas_metInCassiusBetray = true; aod.npc_cassius_betrayal = true; dlgDeleteCharacter(1000); dlgDeleteCharacter(1330); tbd_loremaster_door_02.unlock(); tbd_loremaster_door_02.open(); aod.npc_feng_fledTeron = true; aod.exploration_fengHatchOpen = true; aod.ending_character_feng_01 = true; aod.ending_character_cassius_02 = true; aod.ending_loremaster = true; aod.npc_cassius_daratan = true; rwd_reputation(Cassius_04);}</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Could this day get any worse?</text>
+          <def_link>42</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>41</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cassius</portrait>
+      <speaker_name>Cassius</speaker_name>
+      <npc_text>Cassius takes the ring and examines it slowly, doing his best to impress Lord Antidas with his skills and prove his value.
+
+"I doubt that the ring is genuine," he says after an appropriately long pause, trying to sound impartial and show that he was open to the possibility of it being magical in the first place.
+
+"There is no patina, yet we're supposed to believe that the ring is hundreds years old. The runes are gibberish, and I daresay that there is nothing magical about this ring at all."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_galbo_speakWithAntidas = false;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(169, 230, 0, NE, 1010);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take the ring and leave.</text>
+          <def_link>47</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]"How many magic rings have you handled, master Cassius?"</text>
+          <def_link>43</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>42</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cassius</portrait>
+      <speaker_name>Cassius</speaker_name>
+      <npc_text>"None. Magic rings aren't exactly common."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Then it's fair to say that you wouldn't recognize one if you saw it?"</text>
+          <def_link>44</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>43</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cassius</portrait>
+      <speaker_name>Cassius</speaker_name>
+      <npc_text>"This ring looks like it was made yesterday!" exclaims Cassius, looking at Antidas for support.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"It's a magical ring. Do you expect it to age like a common ring? Your understanding of such matters is truly limited, -master- Cassius."</text>
+          <def_link>45</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>44</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cassius</portrait>
+      <speaker_name>Cassius</speaker_name>
+      <npc_text>"Of what matters?" snaps Cassius. "Magic and sorcery? I have no interest in fairy tales!"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Take the ring and leave.</text>
+          <def_link>47</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]"So, in other words, you don't think that it's a magic ring because you don't believe in such things? Not because you are absolutely certain and can prove it?"</text>
+          <def_link>46</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>45</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Thank you for your opinion, master Cassius," Antidas interrupts smoothly. "I shall accept the ring as a tribute, regardless of its origin. After all, a gift is a gift..."</npc_text>
+      <onLoadScripts>
+        <string>dlgRemoveItem(1350, 1);</string>
+        <string>rwd_quest(GalboRing_01);</string>
+        <string>rwd_civil(GalboRing_01);</string>
+        <string>rwd_reputation(GalboRing_01);</string>
+        <string>aod.quest_galbo_phase3b = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Thank you, my Lord." Leave.</text>
+          <def_link>60</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>46</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Cassius ring failure</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(167, 163, 0, S);</string>
+        <string>dlgTeleportTo(183, 209, 1, W, 1010);</string>
+        <string>aod.quest_galbo_phase3d = true;</string>
+        <string>rwd_reputation(GalboRing_02);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>47</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[charisma success]"Our House was born during the battle of Dar Attan, where Legatus Legionis Tiberius Catulus, our great ancestor, had shown the world the true meaning of courage.
+
+"With less than a full legion, Catulus faced twenty thousand men and stood his ground. He could have retreated and waited for reinforcements, but cowards never accomplish anything. Catulus saw an opportunity and he took it. After the battle, the Emperor himself named Catulus the Dux per Dar Attan, calling him dux bellorum – the dux of battles – the highest honour for a warrior.
+
+"Only a few hundred men survived the battle. Instead of disbanding them, the Emperor ordered them to rebuild the legion and gave it the name Darattan to commemorate the battle and my ancestor's bravery."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_antidas_askAboutHouse = false;</string>
+        <string>rwd_training(Antidas);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"The story is most inspiring, my Lord."</text>
+          <def_link>51</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"In other words, thousands of men died for your ancestor's ambitions?"</text>
+          <def_link>52</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>49</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Cassius ring success</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(167, 163, 0, S);</string>
+        <string>dlgTeleportTo(183, 209, 1, W, 1010);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>60</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"It certainly is. Tiberius Catulus had set standards against which every Lord of this House has been measured. Within a century, a humble House had become the most powerful and influential House. We were at the forefront of every war, every battle. Daratan legions had always stood their ground, no matter the odds, but the war with those Qantari demons was unlike any other and had taken a large toll. It had sapped our strength and power. The first had become the last."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>58</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>51</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"They died in battle, like soldiers should!" snaps Antidas. "They fought for their country won by men willing to die for the high and noble aspirations of those who led them to glory! This is how empires are forged – in blood, steel, and raw ambitions!
+
+"This is the path we must follow, if we want to see this land restored to its former glory, its former *purpose*."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"How many people will die if you do?"</text>
+          <def_link>53</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"So, the land will get a purpose, and you'll get the crown for your trouble?"</text>
+          <def_link>57</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>52</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Many will die, but believe me, &lt;charname&gt;, it is the lesser evil. Look around you. Do you see a future for us, for this land where we're heading?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"There must be another way."</text>
+          <def_link>50</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I don't."</text>
+          <def_link>56</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>53</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"If you find it, let me know."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Before I go... I have this ring..."</text>
+          <def_link>18</def_link>
+          <checkOnAppear>aod.quest_galbo_speakWithAntidas &amp;&amp; dlgOwnsItem(1350) &amp;&amp; aod.streetwise &lt; 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]"I too believe in destiny, my Lord. This ring has been in my family for generations, giving to my forefathers for safekeeping by General Galbo himself. It is, without a doubt, one of the most important relics of the Empire, and its reappearance is a great omen! It is yours, my Lord."</text>
+          <def_link>19</def_link>
+          <checkOnAppear>aod.quest_galbo_speakWithAntidas &amp;&amp; dlgOwnsItem(1350) &amp;&amp; aod.streetwise &gt;= 3</checkOnAppear>
+          <checksOnClick>
+            <string>aod.npc_cassius_betrayal || aod.quest_killCassius_doesntLeave</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>41</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"There is something else, my Lord..."</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>50</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - convinced Antidas</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>dlgTeleportTo(134, 118, 0, N);</string>
+        <string>useCameraBookmark(NPC_Linos_Cam_01);</string>
+        <string>apmsStartDialogue(quest_mg2_04);</string>
+        <string>aod.quest_mg2_hasEvidence = false;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>63</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Antidas opens the scroll and looks at it for a long time, being lost in his thoughts. Finally, he carefully puts the documents away and says: "Carrinas is a dead man. You've done well, &lt;charname&gt;.
+
+"However," Antidas looks straight at you, "if the merchant guild is so interested in seeing the Imperial Guards decimated, I'd expect them to contribute to such a cause very, very generously."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"How generously, my Lord?"</text>
+          <def_link>62</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>69</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Waging wars is a very costly business. We can start with fifty thousand in gold. Now, if you'll excuse me, I have more pressing matters to attend to."</npc_text>
+      <onLoadScripts>
+        <string>if(aod.quest_mg2_forgedEvidence == false) aod.quest_mg2_phase3b = true;</string>
+        <string>if(aod.quest_mg2_forgedEvidence) aod.quest_mg2_phase3c = true;</string>
+        <string>rwd_civil(MG2_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I'll let Master Linos know." Leave.</text>
+          <def_link>63</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>62</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[intelligence failure]Antidas opens the scroll, reads it slowly, and then sets it aside. "It's a very convincing document, but perhaps it's too convincing. How did it fall into your hands?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'm not at liberty to name my sources, my Lord."</text>
+          <def_link>67</def_link>
+          <checkOnAppear>aod.streetwise &lt; 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]"Carrinas couldn't keep Caer-Tor in the dark, so he sent them a letter outlining his plans to gain their support. We were watching the roads and managed to intercept his courier."</text>
+          <def_link>65</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 3</checkOnAppear>
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>66</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success][etiquette]"Our guild has always been a loyal and zealous servant of House Daratan. We've taken upon ourselves to watch all those who mean you harm, which is how we came upon this letter."</text>
+          <def_link>65</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 3</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.etiquette + aod.streetwise) &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>66</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>64</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"Still... It's too convenient. Carrinas can be trying to provoke me into moving against him, in which case I'd play into his hands. You need to do better."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>68</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>65</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Yes, I suppose it makes sense. Very well, I'll deal with Carrinas.
+
+"However..." Antidas looks straight at you, "if the merchants guild is so interested in seeing the Imperial Guards decimated, I'd expect them to contribute to such a cause very, very generously."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_phase3c = true;</string>
+        <string>rwd_civil(MG2_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I'll let Master Linos know." Leave.</text>
+          <def_link>63</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>66</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I believe I've made it clear that I won't act on rumors. Get me something I can use."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>68</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>67</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Antidas failure</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportTo(167, 163, 0, S);</string>
+        <string>aod.quest_mg2_merchant_failure = true;</string>
+        <string>dlgSetZoom(10);</string>
+        <string>remQuest(MG2a);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>68</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

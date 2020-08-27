@@ -1,0 +1,134 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>IG_Fort_Guard_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Guard</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You are standing in front of the Imperial Guards' barracks. The building is well fortified. By the looks of it, the fort is designed to hold off enemy forces attacking from the inside of the town.
+
+"State your business," demands one of the guards.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(215, 57, 0, E);</string>
+        <string>dlgTeleportTo(217, 57, 0, W, 1340);</string>
+        <string>useCameraBookmark(NPC_fortGuard_cam_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I want to join the Imperial Guards."</text>
+          <def_link>1</def_link>
+          <checkOnAppear>aod.quest_IG1_started == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.pc_member_none == false</string>
+            <string>aod.str == 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5</int>
+            <int>4</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"It's your lucky day then. We're hiring." The guard moves to the side and lets you in.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go inside.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start IG1</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>aod.quest_IG1_started = true;</string>
+        <string>dlgCreateCharacter("Recruit", 1510, 1510, 222, 52, 0, N);</string>
+        <string>dlgCreateCharacter("Recruit", 1511, 1511, 220, 52, 0, N);</string>
+        <string>dlgCreateCharacter("Guard", 1520, 1520, 225, 53, 0, W);</string>
+        <string>dlgCreateCharacter("Guard", 1520, 1521, 219, 53, 0, E);</string>
+        <string>dlgTeleportTo(223, 52, 0, N);</string>
+        <string>useCameraBookmark(quest_IG1_cam_02);</string>
+        <string>apmsstartdialogue(quest_ig1);</string>
+        <string>dlgHideWeapons();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgTeleportTo(210, 57, 0, W);</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[strength failure]"You aren't exactly an Imperial Guard material, &lt;boy/girl&gt;. Go put on some muscles."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"We've just finished recruiting, but feel free to check back in a few weeks."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

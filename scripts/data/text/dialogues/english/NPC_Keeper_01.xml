@@ -1,0 +1,590 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>NPC_Keeper_01</dlg_name>
+    <def_link>5181</def_link>
+    <def_speaker_name>Keeper of Tales</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The woman before you is not what you expected. Wide, curious eyes stare at you from a heart-shaped face, free from lines or wrinkles. She tilts her head, examining you as one might examine a curious insect found under a rock. She says something in her language, her tone querying.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(80, 45, 6, 4815);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Keeper);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lore]Translate.</text>
+          <def_link>5182</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lore &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5184</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5181</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You have no idea what she is saying.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5183</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5182</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgCam(80, 45, 12, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5183</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Your Ordu is a bit rusty, but you can understand her.
+
+“Have you come to listen to my tales?” asks the woman again, this time more slowly.</npc_text>
+      <onLoadScripts>
+        <string>if(aod.npc_ord_spokeKeeper == 0) rwd_civil(ORD_SpokeKeeper);</string>
+        <string>aod.npc_ord_spokeKeeper = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Yes. I have many questions.”</text>
+          <def_link>5185</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Maybe later.” Leave.</text>
+          <def_link>5183</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5184</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What do you want to know?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Who are you?”</text>
+          <def_link>5186</def_link>
+          <checkOnAppear>aod.npc_keeperTales_talkedWhoAreYou == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Tell me of your people.”</text>
+          <def_link>5189</def_link>
+          <checkOnAppear>aod.npc_keeperTales_talkedYourPeople == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Thorgul mentioned a battle with a Tngri.”</text>
+          <def_link>5193</def_link>
+          <checkOnAppear>aod.npc_keeperTales_talkedBattle == false &amp;&amp; aod.npc_thorgul_talkedTngri</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5183</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5185</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I am the Keeper of Tales. A people without a past are a people without a future. It is my duty to ensure that my tribe has a future.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_keeperTales_talkedWhoAreYou = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Where do these tales come from?”</text>
+          <def_link>5187</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5186</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Stories are living things. Every day, untold stories are born. And others pass on the lips of the dying, untold and ever unheard. It is the duty of a keeper to listen, to harvest these stories and safeguard them.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What happens when a keeper dies?”</text>
+          <def_link>5188</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5187</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Before their hair turns gray, each keeper takes two apprentices. They labour day and night to commit the tales to memory, practicing their retelling until one of them is chosen to become the next keeper.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What happens to the apprentice who isn’t chosen?”</text>
+          <def_link>5192</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5188</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“That one has their tongue ritually removed and burned, an offering of appeasement to the Tngri, for being unable to properly honour the stories entrusted to them.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Tngri?”</text>
+          <def_link>5193</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I have many questions.”</text>
+          <def_link>5185</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5192</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“We are people of the plains. You root yourself to one place, we move freely, from one place to another. You are strangers to each other, we are a tribe bound by blood.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_keeperTales_talkedYourPeople = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’ve seen some Ordu living in our towns.”</text>
+          <def_link>5190</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5189</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I saw many people living like us – moving across the plains, building nothing, burdened by nothing. They don’t want to live in the stone dwellings and grow weak and soft. Your eagle warriors live in tents, close to the earth because the earth-mother gives them strength. Soft pillows make soft men.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Eagle warriors?”</text>
+          <def_link>5191</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5190</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“When they go to battle, they display the eagle totem – a symbol of ferocity and vision. We call them the eagle warriors. They are the chosen enemy of the people.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Yes. I have many questions.”</text>
+          <def_link>5185</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5191</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“A long time ago, when the Great War raged across the land, the tribes fought as one, united people. And so mighty were they that a Tngri himself decided to test their strength.
+
+“The Tngri summoned his servants and commanded them to carry him in his golden palanquin to the camp of a great khan. There the Tngri challenged the great khan, claiming his strength to be the greater and demanding that the tribes of the people bow and offer tribute.
+
+“Though the Tngri was mighty and terrible to behold, the great khan was unafraid. Pointing at the many tumens standing ready behind him, the great khan refused to offer tribute. To prove the strength of the people, the khan welcomed the Tngri to test their strength three times, should he so desire.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_keeperTales_talkedBattle = true;</string>
+        <string>addLore(13);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>5194</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5193</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Angered at the khan’s insolence, the Tngri clapped his hands and darkness swallowed the sun, casting the land into shadow. Thunder and lightning came then, piercing the darkness and striking at the camps of the people, wreaking terrible havoc.
+
+“After a time, the Tngri clapped his hands again, dismissing the storm and uncovering the sun, so that the people could take stock of the damage and know the true measure of the Tngri’s strength. But instead of disarray, the Tngri found the grim-faced people crouched, waiting for the great khan’s signal.
+
+“Now the great khan clapped his own hands and a hundred thousand warriors stood and aimed their bows into the air, loosening as one. Black-shafted arrows rose in the tens of thousands, a dark swarm to block out the sun, raining death down on the Tngri and his servants.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>5195</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5194</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Angered, the Tngri clapped his hands again and fiery rivers sprang up from the earth, flowing into the camps of the people, devouring everything in their path like a wildfire that rages over summer grass.
+
+“Men fell screaming by the thousands, yet the great khan stood firm, protected by armor that even the fire could not scorch. He clapped again and fire dragons issued from the water and sped up toward the Tngri and his servants, leaving coils of smoke in their wake.
+
+“The Tngri raised a mighty shield, but the fire dragons were relentless, pounding again and again at the Tngri’s defenses. Soon, even the Tngri tired. His arms weakened and dropped for but a moment, yet that moment was enough for the fire dragons to penetrate his defenses and cause much carnage amongst his servants.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>5196</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5195</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Wounded and enraged, the Tngri stood alone, his palanquin turned, his servants slaughtered. It was then that he knew the power of the people, but it was too late to turn back. Mustering all of his remaining strength, the Tngri clapped one last time, falling to his knees from the exertion.
+
+“The ground itself begin to shake violently, splitting apart with a great roaring howl, swallowing men and horses alike as the full wrath of the Tngri fell upon the people. Yet when the sky cleared, instead of a broken people, the Tngri saw the tumens standing ready to attack. That’s when the Tngri first knew fear, for now he knew that neither the air, nor fire, nor earth magic could defeat the people.
+
+“The khan clapped and the tumens descended on the Tngri like a pack of steppe wolves on an injured lamb. Three days and three nights did the battle last, for even a wounded Tngri is still a Tngri, but in the end he was slain, his body quartered and the pieces burned, the ashes cast to the four winds. The people were victorious, and celebrated that night in honor of the Tngri, for giving his life to add to the glory of the people.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Did this Tngri ever have a name?”</text>
+          <def_link>5197</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Do Tngri normally travel in golden palanquins in your stories?”</text>
+          <def_link>5198</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5196</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Ynghaanshungge, was he was called, and Yuan-Shagga, and Shuun-ae the Shining-Serpent.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_keeperTales_talkedTngriName = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Do Tngri normally travel in golden palanquins in your stories?”</text>
+          <def_link>5198</def_link>
+          <checkOnAppear>aod.npc_keeperTales_talkedPalanquin == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Tell me of these Tngri who wear flesh.”</text>
+          <def_link>5199</def_link>
+          <checkOnAppear>aod.npc_keeperTales_mentionedFlesh</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5197</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The Tngri are spirits. They do not require the things of the flesh when they are in the spirit form, but when they wear flesh, they suffer its burdens as we do.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_keeperTales_talkedPalanquin = true;</string>
+        <string>aod.npc_keeperTales_mentionedFlesh = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Did this Tngri ever have a name?”</text>
+          <def_link>5197</def_link>
+          <checkOnAppear>aod.npc_keeperTales_talkedTngriName == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Tell me of these Tngri who wear flesh.”</text>
+          <def_link>5199</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5198</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“A long time ago there lived a great shaman named Adad. Like many shamans, he sought power over the Tngri, but it’s easier to catch drifting smoke than it is to catch a Tngri, for the Tngri are spirits and formless as spirits are.
+
+“One day, frustrated with his failures, Adad decided to venture into the spirit realm and steal the secrets from the Tngri. Yet, no mortal can enter this realm and escape unscathed for the Tngri don’t forgive the trespassers and guard their secrets well.
+
+“So the clever shaman fashioned a mask out of pure crystal to make him look like a Tngri. Donning his mask, the shaman gathered his courage and uttered the words that unlocked the Shadow Gate, the doorway between the realm of the living and the unliving. The Tngri, who are numbered ninety and nine, mistook him for one of their own for when they looked upon him, for they saw nothing but the light playing off the mask’s facets.”</npc_text>
+      <onLoadScripts>
+        <string>addLore(14);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>5200</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5199</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“So hidden, Adad journeyed deep into the spirit realm, to its heart, to the Well of Whispers. There he cast his heart’s desire into the well, asking of it three questions. The well whispered its secrets to Adad, teaching Adad the secrets of binding a Tngri in flesh, and how to lay the wards – nine times nine – to keep it bound. Rejoicing, Adad hurried to return to the physical realm, in his excitement forgetting that one question remained unanswered.
+
+“When Adad arrived home, he called upon all the shamans to lend their strengths to his, so that they might bind the Tngri to their will.
+
+“When the shamans come, they told Adad to make a Tngri into a dog, but Adad shook his head and said: “A Tngri isn’t a dog to follow you around.” Then the shamans told Adad to make a Tngri into a bull, but Adad shook his head once again and said: “A Tngri isn’t a bull to plough your land.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>5201</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5200</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What body would befit a Tngri then, o wise Adad?” asked the shamans. “A man’s body, for a man rules supreme over all animals and Tngri will be insulted if we offer less. We must honor the Tngri and then the Tngri will honor us,” said Adad and the shamans agreed.
+
+“They fashioned seven bodies and invoked seven Tngri, offering the bodies to them. The Tngri accepted and filled the bodies with their essence, becoming flesh, taking their first steps, and learning the ways of the mortals.
+
+“At first the Tngri were delighted by the vessels the shamans had prepared for them, revelling in the pleasures of the flesh. But that delight turned to anger when they discovered that the shamans had bound them with wards - nine times nine - so that they could not escape their new bodies. They raged and thrashed in their prisons of flesh, twisting those vessels into monstrous forms.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>5202</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5201</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Horrified, the shamans tried to stop them, but it was then that Adad remembered the third question he had asked of the Well of Whispers, the one that, in his excitement, he had not waited for the answer for. For though Adad knew the secrets of calling spirit and binding it to flesh, he knew not how to prevent the Tngri from exerting their influence over the flesh.
+
+“And this is how the Tngri came to wear flesh and live amongst men.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“This shaman Adad, who was he?”</text>
+          <def_link>5203</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What happened to these seven Tngri?”</text>
+          <def_link>5204</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Thank you.” Leave.</text>
+          <def_link>5183</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5202</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Adad was not of the people, but he knew our ways well.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_keeperTales_talkedAdad = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What happened to these seven Tngri?”</text>
+          <def_link>5204</def_link>
+          <checkOnAppear>aod.npc_keeperTales_talkedSevenTngri == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Thank you.” Leave.</text>
+          <def_link>5183</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5203</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Some were slain in the Great War. Some are roaming the world to this day, seeking vengeance on the shamans who imprisoned them inside their bodies.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_keeperTales_talkedSevenTngri = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Are there any shamans left?”</text>
+          <def_link>5205</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5204</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“We haven't had a shaman since the Great War. Our traditions forbid us, for as long as we have no shamans, the Tngri won't be able to find us.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“This shaman Adad, who was he?”</text>
+          <def_link>5203</def_link>
+          <checkOnAppear>aod.npc_keeperTales_talkedAdad == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Thank you.” Leave.</text>
+          <def_link>5183</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5205</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

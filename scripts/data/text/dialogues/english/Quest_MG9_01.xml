@@ -1,0 +1,138 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Quest_MG9_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You join a small group of refugees fleeing the town, hoping that you’ll be allowed to leave unmolested, but the legionaries quickly spot you and drag you to the legatus’ tent despite your protests.
+
+The legatus gives you a hard look aimed to remind you of your own mortality but says nothing. Instead, another man steps out from the shadows.
+
+“Good to see you again, &lt;charname&gt;,” says Maseus. “Master Strabos has a task for you.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg9_legatusStop = true;</string>
+        <string>setWindowImage(gnz_hagnonTent_Maseus);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What does the magistratus desire?”</text>
+          <def_link>1</def_link>
+          <checkOnAppear>aod.npc_strabos_expelled_you == false &amp;&amp; aod.quest_mg6_strabosMagistratus</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What does Strabos desire?”</text>
+          <def_link>1</def_link>
+          <checkOnAppear>aod.npc_strabos_expelled_you == false &amp;&amp; aod.quest_mg6_strabosMagistratus == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“He threw me out, remember?”</text>
+          <def_link>3</def_link>
+          <checkOnAppear>aod.npc_strabos_expelled_you</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“We know that Meru sent you to Caer-Tor. Paullus is still sitting on the fence, which means that he’s mulling both offers. I don’t know what game Athanasius is playing, but you have to convince Paullus to put an end to this nonsense.”</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_MG_GNZ3 = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Which nonsense in particular are you referring to?”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“He does have a bit of a temper,” says Maseus, smiling uncomfortably. “Master Strabos says that he’ll welcome you back as if you were his own &lt;son/daughter&gt; and shower you with money, provided...”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Provided?”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Provided you won’t fuck up again. His words, not mine. Master Strabos insisted that I pass the message as it was spoken.
+
+“We know that Meru sent you to Caer-Tor. Paullus is still sitting on the fence, which means that he’s mulling both offers. I don’t know what game Athanasius is playing, but you have to convince Paullus to put an end to this nonsense.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Which nonsense in particular are you referring to?”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Meru,” Maseus says quietly. “Ganezzar must fall.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - world map</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>apmsStartMapScreen();</string>
+        <string>apmsMapWorld();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

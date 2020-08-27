@@ -1,0 +1,239 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>MDN_GateTrade_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Trader</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>You enter the Trade district, the glittering heart of Maadoran's economy. A stream of merchants and their goods flow through the arteries of this district, the tide ebbing and flowing, but never ceasing. Towering over the district is the golden dome of the Commercium headquarters. Once a temple to the old gods, now a place of worship for the only god the Commercium truly believes in, money.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Gate_AD_to_MD);</string>
+        <string>useCameraBookmark(CAM_introTrade_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Pay, pay, pay!” says one of the traders, heading out and cursing loudly. “Pay to reach the city, pay to enter the city, pay for the privilege to sell my own wares! Where does it stop?”</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>useCameraBookmark(CAM_introTrade_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Why do you come here then?”</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“As much as I hate to admit it, but it is the only real market. Nothing else comes close, so you either starve yourself, selling your wares to the few villages and outposts that are still around, or you pay through the nose to take your wares to Maadoran. What other choice is there?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Aren’t you with the Commercium?”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Who’s running the Commercium here?”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Why do you stay out of small towns?”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_GateTradeEvent_01, 6010);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I work for myself. That’s why I went into trading to begin with. It’s not easy and you have to stay out of smaller towns, but Maadoran is big enough to handle all the trading it does now and then some. Of course, we have to rent stalls from the Commercium and pay them a hefty cut at the end of the day, but like I said, what other choice is there?”</npc_text>
+      <onLoadScripts>
+        <string>aod.mdn_gateTrade_workCommercium = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Why do you stay out of small towns?”</text>
+          <def_link>6</def_link>
+          <checkOnAppear>aod.mdn_gateTrade_smallTown == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Who’s running the Commercium here?”</text>
+          <def_link>5</def_link>
+          <checkOnAppear>aod.mdn_gateTrade_runCommercium == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Strabos. He’s alright, if you pay on time and keep your word. Of course, if you miss the payment or try to skip town, it’s another story, but that’s the nature of the business.”</npc_text>
+      <onLoadScripts>
+        <string>aod.mdn_gateTrade_runCommercium = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Why do you stay out of small towns?”</text>
+          <def_link>6</def_link>
+          <checkOnAppear>aod.mdn_gateTrade_smallTown == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Aren’t you with the Commercium?”</text>
+          <def_link>4</def_link>
+          <checkOnAppear>aod.mdn_gateTrade_workCommercium == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Small towns can only handle so much business. So, if you bring your wares there, you’ll be taking business from the Commercium and they won’t like it one bit. Of course, you can sell directly to them, but it won’t even cover the trip.
+
+“So, like I said, you either go to Maadoran or service villages and outposts, and they can’t afford to pay much. If they pay you with produce and ore, you still need to sell it, which brings us back to Maadoran.”</npc_text>
+      <onLoadScripts>
+        <string>aod.mdn_gateTrade_smallTown = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What about Ganezzar?”</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I tend to stay away from it. The market is smaller, so you sell less and at lower prices, but you pay the same levies. Not to mention that ever since Meru started preaching, Ganezzar is ruled by mobs of zealots, while the guards do nothing to reign them in. If you want my advice, stay away from it too.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Aren’t you with the Commercium?”</text>
+          <def_link>4</def_link>
+          <checkOnAppear>aod.mdn_gateTrade_workCommercium == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Who’s running the Commercium here?”</text>
+          <def_link>5</def_link>
+          <checkOnAppear>aod.mdn_gateTrade_runCommercium == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

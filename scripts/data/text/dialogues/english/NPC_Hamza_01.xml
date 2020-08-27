@@ -1,0 +1,634 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_AG4_hamzaReady</string>
+      <string>aod.npc_hamza_met</string>
+    </conditions>
+    <links>
+      <int>3263</int>
+      <int>3268</int>
+    </links>
+    <dlg_name>NPC_Hamza_01</dlg_name>
+    <def_link>3267</def_link>
+    <def_speaker_name>Hamza</def_speaker_name>
+    <def_portrait>Hamza</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Old Hamza was a man of few words. He never had much use for them in his line of work. You get a job, you get it done, you get paid. If you do a good job, there will be more jobs. What's there to talk about?
+
+Hamza joined the Boatmen when he was fourteen, when things were simple. These days everything was changing too fast and it didn't sit well with him. The Boatmen never bowed down to nobody and that was a good thing. Made Hamza proud. These days... These days, the business was good, but the guild was practically eating out of Gaelius' hand and Hamza wasn't sure he liked where things were going.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(105, 45, 7, 4610);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Hamza_01);</string>
+        <string>addJournalChar(hamza);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Approach.</text>
+          <def_link>3258</def_link>
+          <checkOnAppear>aod.quest_AG4_talkToHamza</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3265</def_link>
+          <checkOnAppear>aod.quest_AG4_talkToHamza == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3267</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You find Hamza going over the details with several men. He gives you a quick look and continues.
+
+“... go in light, dressed as beggars. You’ll take different routes to attract less attention. The target is the old temple – the Forty Thieves’ headquarters. Get inside, take out the guards, and wait for me. Don’t touch Levir – we have no reason to make it personal. Questions?”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_AG4_hamzaReady = true;</string>
+        <string>aod.quest_AG4_talkToHamza = false;</string>
+        <string>aod.npc_hamza_met = true;</string>
+        <string>aod.quest_ag4_phase1b = true;</string>
+        <string>dlgTeleportToMarker(TM_DLG_Hamza_01);</string>
+        <string>createByCharMarker("CM_Cyrus_AG");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“How are we going to take the gold out?”</text>
+          <def_link>3259</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Who’s Levir?”</text>
+          <def_link>3260</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Disguising ourselves is the only way in?"</text>
+          <def_link>3283</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’ll go get ready.” Leave.</text>
+          <def_link>3265</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3258</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“One problem at a time, &lt;charname&gt;. So, once again: get in, take out the guards, sit tight. Clear?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_hamza_takeTheGoldOut = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Who’s Levir?”</text>
+          <def_link>3260</def_link>
+          <checkOnAppear>aod.npc_hamza_whosLevir == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Disguising ourselves is the only way in?"</text>
+          <def_link>3283</def_link>
+          <checkOnAppear>aod.npc_hamza_disguise == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’ll go get ready.” Leave.</text>
+          <def_link>3265</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3259</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Levir is their guildmaster. He isn’t bad, for a thief.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_hamza_whosLevir = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“But aren't we going to kill his men and take his gold?”</text>
+          <def_link>3261</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3260</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It’s not personal. Levir will understand. Besides, it’s not his gold. He can keep what’s his, but a lord’s hoard belongs to a lord.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Why?”</text>
+          <def_link>3262</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3261</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Because Lord Gaelius wants it like that, that’s why. If Levir was smarter, he would have sent the gold away. Unfortunately, he didn't, so now it’s our problem.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“How are we going to take the gold out?”</text>
+          <def_link>3259</def_link>
+          <checkOnAppear>aod.npc_hamza_takeTheGoldOut == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Disguising ourselves is the only way in?"</text>
+          <def_link>3283</def_link>
+          <checkOnAppear>aod.npc_hamza_disguise == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’ll go get ready.” Leave.</text>
+          <def_link>3265</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3262</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"It's the easiest way in. If you prefer the hard way, suit yourself."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_hamza_disguise = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“How are we going to take the gold out?”</text>
+          <def_link>3259</def_link>
+          <checkOnAppear>aod.npc_hamza_takeTheGoldOut == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Who’s Levir?”</text>
+          <def_link>3260</def_link>
+          <checkOnAppear>aod.npc_hamza_whosLevir == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’ll go get ready.” Leave.</text>
+          <def_link>3265</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3283</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Ready?”</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(105, 45, 7, 4610);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Hamza_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Yes.”</text>
+          <def_link>3264</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Almost.” Leave.</text>
+          <def_link>3265</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3263</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Then put on one of these robes and let’s go. They're the real deal, down to the lice,” smirks Hamza.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_AG4_hamzaReady = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Put on the robe and go to Slums.</text>
+          <def_link>3266</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3264</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgCam(70, 45, 15, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3265</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start AG4</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>switchMission("Quest_AG4.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3266</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Something on your mind?” inquires Hamza.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(105, 45, 7, 4610);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Hamza_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“This deal I made with Levir...”</text>
+          <def_link>3270</def_link>
+          <checkOnAppear>aod.quest_ag4_dealWithLevir &amp;&amp; aod.npc_hamza_askedAboutLevir == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“So, are we working for Gaelius now?”</text>
+          <def_link>3271</def_link>
+          <checkOnAppear>aod.npc_hamza_askedAboutGaelius == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“How long have you been with the guild?”</text>
+          <def_link>3274</def_link>
+          <checkOnAppear>aod.npc_hamza_askedAboutHowLong == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Any tricks of the trade?"</text>
+          <def_link>3280</def_link>
+          <checkOnAppear>aod.npc_hamza_training == 0</checkOnAppear>
+          <checksOnClick>
+            <string>dlgGetRep(assassins) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3281</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3265</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3268</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It’s between you and Levir,” says Hamza. “You gave him your word. I expect you to honor it. The last thing we want is more trouble with the thieves.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_hamza_askedAboutLevir = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“So, are we working for Gaelius now?”</text>
+          <def_link>3271</def_link>
+          <checkOnAppear>aod.npc_hamza_askedAboutGaelius == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“How long have you been with the guild?”</text>
+          <def_link>3274</def_link>
+          <checkOnAppear>aod.npc_hamza_askedAboutHowLong == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3265</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3270</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Looks that way,” says Hamza, showing no interest in the subject.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_hamza_askedAboutGaelius = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“It doesn’t bother you?”</text>
+          <def_link>3272</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3271</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’m old. Way past the point of letting things I can’t change bother me.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Simple as that, eh?”</text>
+          <def_link>3273</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3272</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Simple as that,” nods Hamza. “Look, I wish things were different. A lot of things. You start letting all these things bother you, you won’t have time to do anything else.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So, you don’t like working for Gaelius after all?”</text>
+          <def_link>3278</def_link>
+          <checkOnAppear>aod.npc_hamza_askedAboutLike</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“How long have you been with the guild?”</text>
+          <def_link>3274</def_link>
+          <checkOnAppear>aod.npc_hamza_askedAboutHowLong == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3265</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3273</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“My uncle brought me in when I turned fourteen, figuring that I was old enough to ‘work’. I’ve been here ever since.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_hamza_askedAboutHowLong = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Ever wished that your uncle took you to a different guild?”</text>
+          <def_link>3275</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“So, what was it like back then?”</text>
+          <def_link>3277</def_link>
+          <checkOnAppear>aod.npc_hamza_askedAboutLike == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3274</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I did. Almost left the guild once, but couldn’t go through with it. The Boatmen are my family. They’re all I have now, so I guess I’ll stick with them a while longer.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I didn’t know that the Boatmen were taking such young recruits.”</text>
+          <def_link>3276</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3275</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It was a different time. The guildmaster did raise an eyebrow, then looked at me and said, “Taking lives is an honorable job for honorable men. Are you an honorable man, young Hamza?” I was scared that he would turn me down, so I nodded, hoping for the best, and that was it.
+
+“I killed my first man a week later. Stabbed him at least ten times and watched him bleed to death. I remember standing there, covered in blood, still in shock, looking at the dying, pleading trader and thinking that it didn’t feel very honorable. Thought that maybe I did it wrong.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So, what was it like back then?”</text>
+          <def_link>3277</def_link>
+          <checkOnAppear>aod.npc_hamza_askedAboutLike == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3276</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“We were nobody’s men. Didn’t bow to anyone, didn’t take anyone’s orders. The way it should be.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_hamza_askedAboutLike = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“So, are we working for Gaelius now?”</text>
+          <def_link>3271</def_link>
+          <checkOnAppear>aod.npc_hamza_askedAboutGaelius == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“So, you don’t like working for Gaelius after all?”</text>
+          <def_link>3278</def_link>
+          <checkOnAppear>aod.npc_hamza_askedAboutGaelius</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3277</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Not exactly a dream come true, is it? Then again, maybe Darista is right. Maybe that’s the better way. The girl always had a good head on her shoulders, so maybe she sees something I don’t.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Why aren’t you a guildmaster?”</text>
+          <def_link>3279</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3278</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Never wanted the headache. I had my chance to step in, but Darista wanted it more and I let her. So far, she steered us right, so I’ll stand by her.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3265</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3279</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[reputation failure]"Nothing comes to mind."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Change the conversation.</text>
+          <def_link>3268</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3280</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[reputation success]"Why not? Watch and learn..."
+
+Hamza shows you a few moves, improving your survival odds.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_hamza_training = 1;</string>
+        <string>rwd_training(Hamza);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Talk about something else.</text>
+          <def_link>3268</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3281</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

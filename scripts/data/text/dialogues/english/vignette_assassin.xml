@@ -1,0 +1,938 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.vignette_assassin_fight</string>
+      <string>aod.vignette_assassin_MG</string>
+    </conditions>
+    <links>
+      <int>67</int>
+      <int>79</int>
+    </links>
+    <dlg_name>vignette_assassin</dlg_name>
+    <def_link>66</def_link>
+    <def_speaker_name>ネレオス</def_speaker_name>
+    <def_portrait>Neleos</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>テロンの暗殺者のギルドマスターであるネレオスは、いつも笑っていた。彼は人と話をする時には、まるで面白い冗談を聞いたかのように笑い、殺さなければならない時も彼は笑った。彼の中ではそれは、標的になった者達の命を張った冗談に思えたのだ。死者は秘密を守るのが得意なため、ネレオスを暗殺者だと思っている者はほとんどいなかった。彼は単にギルドの管理をしている人間であって、生活のために人を殺す人間ではないというのが大方の認識だった。
+
+「いい所に来たな、&lt;charname&gt;。今朝町に来た商人について依頼があったところだ。彼の名はグラシアス。今は宿にいる。彼は明日の朝までに死ななくてはならない。コンメルキウム─商人のギルド─が特別な依頼をしてきてな。グラシアスを殺す前に、彼にこう伝えてくれ。彼はこの町では＊まだ＊歓迎されていないということを思い出してほしいとコンメルキウムが望んでいると。報酬は５０インペリアルだ。前金で１０、 残りは終わった時にな。何か質問は？」</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_neleos_cam_01);</string>
+        <string>dlgCreateCharacter("グラシアス", 1170, 1170, 6, 247, 0, S);</string>
+        <string>dlgCreateCharacter("護衛", 1190, 1190, 6, 249, 0, S);</string>
+        <string>aod.exploration_locationSign_AG = true;</string>
+        <string>dlgAddTextBoxMessage("君は１０インペリアルを得た");</string>
+        <string>dlgChangeMoney(10);</string>
+        <string>aod.vignette_assassin_dead = false;</string>
+        <string>aod.vignette_assassin_money = false;</string>
+        <string>dlgRotateToChar(1020);</string>
+        <string>tbd_door_assassin_01.unlock();</string>
+        <string>assignDialogue(neleos_01, 1020);</string>
+        <string>PG_HelpText_01.setVisible(false);</string>
+        <string>addJournalChar(neleos);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「５０だけ&lt;/na&gt;&lt;ka/no&gt;？」</text>
+          <def_link>45</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>「来たばかりなのに、もう殺したいと思われてるの&lt;ka/mu&gt;？」</text>
+          <def_link>46</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>「いや。数時間後には残りをもらいにくる&lt;yo/&gt;&lt;mu/wa&gt;」その前に買い物に行く。</text>
+          <def_link>78</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>「数時間後には残りをもらいにくる&lt;yo/&gt;&lt;mu/wa&gt;」夜中まで待ち、宿へ向かう。</text>
+          <def_link>64</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>66</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>「最高の依頼とは言えないが、この商人には護衛がいないと思えばいい依頼さ。肩慣らしだと思えよ、な？」</npc_text>
+      <onLoadScripts>
+        <string>aod.vignette_assassin_money = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「来たばかりなのに、もう殺したいと思われてるの&lt;ka/mu&gt;？」</text>
+          <def_link>46</def_link>
+          <checkOnAppear>aod.vignette_assassin_dead == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>「数時間後には残りをもらいにくる&lt;yo/&gt;&lt;mu/wa&gt;」その前に買い物に行く。</text>
+          <def_link>78</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>「数時間後には残りをもらいにくる&lt;yo/&gt;&lt;mu/wa&gt;」夜中まで待ち、宿へ向かう。</text>
+          <def_link>64</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>45</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>「近頃は敵を作るにはそんなに時間はかからんもんだよ。コンメルキウムは交易の取り締まりを厳しくしているし、しばらくの間俺たちも忙しくなるだろうな」</npc_text>
+      <onLoadScripts>
+        <string>aod.vignette_assassin_dead = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「５０だけ&lt;/na&gt;&lt;ka/no&gt;？」</text>
+          <def_link>45</def_link>
+          <checkOnAppear>aod.vignette_assassin_money == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>「数時間後には残りをもらいにくる&lt;yo/&gt;&lt;mu/wa&gt;」その前に買い物に行く。</text>
+          <def_link>78</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>「数時間後には残りをもらいにくる&lt;yo/&gt;&lt;mu/wa&gt;」夜中まで待ち、宿へ向かう。</text>
+          <def_link>64</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>46</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go to the MG</npc_text>
+      <onLoadScripts>
+        <string>setGroupPassability(126, 109, 130, 109, 0, 0);</string>
+        <string>setGroupPassability(126, 106, 126, 108, 0, 0);</string>
+        <string>setGroupPassability(127, 106, 129, 106, 0, 0);</string>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(126, 112, 0, N);</string>
+        <string>sayPhrase(2002, "ようこそ、&lt;charname&gt;。必要なものがあればどうぞお申し付け下さい。");</string>
+        <string>aod.vignette_assassin_MG = true;</string>
+        <string>setRtsCam();</string>
+        <string>tbd_mg_door_05.lock();</string>
+        <string>tbd_mg_door_06.lock();</string>
+        <string>aod.jnl_vignette_assassin = 1;</string>
+        <string>dlgCam(25, 45, 10, 2002);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>78</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>もうすぐ暗くなる。宿へ行った方がいいだろう。</npc_text>
+      <onLoadScripts>
+        <string>dlgSetZoom(10);</string>
+        <string>$RTSCamera.setYZAngle(45);</string>
+        <string>$RTSCamera.setXYAngle(0);</string>
+        <string>dlgTeleportTo(124, 111, 0, S);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>宿へ行く。</text>
+          <def_link>64</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>setGroupPassability(126, 109, 130, 109, 0, 1);</string>
+            <string>setGroupPassability(126, 106, 126, 108, 0, 1);</string>
+            <string>setGroupPassability(127, 106, 129, 106, 0, 1);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>まだ行かない。</text>
+          <def_link>69</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>79</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>君はおびただしいへこみや突起を足場にしてぼろぼろになった壁を簡単に登り、その宿屋の窓にたどり着き部屋の中へと滑り込む。標的の商人は起きていて、従者と話しながらチェストを指差している。従者は戦闘員のようには見えなかった。─おそらくは地元のごろつきで、わずかな報酬で客に見せかけの安心感を売っている手合いだろう。
+
+君の存在を察知して、商人は振り向いた。彼は自分に狙いをつけているクロスボウと、そこに装填されているボルトが鈍く光るのを見て何かを言おうと口を開く。─抗議か、あるいは命乞いをするために。それでも、恐怖が勝り彼はクロスボウを見つめ続けた。まるで蛇に魅入られたウサギのように。従者の方はやっと我に返り剣に手を伸ばし始める。</npc_text>
+      <onLoadScripts>
+        <string>dlgadditem(161, 1);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(5, 245, 0, N);</string>
+        <string>dlgRotateToChar(1170);</string>
+        <string>dlgRotateToChar(1, 1170);</string>
+        <string>useCameraBookmark(vignette_room_04);</string>
+        <string>dlgEquipItem(161);</string>
+        <string>dlgLoadWeapon();</string>
+        <string>dlgSetAnimation(anim_regular_xbow2h, 0.5);</string>
+        <string>dlgSetAnimation(anim_getready_1h, 0.25, 1190);</string>
+        <string>dlgSetAnimation(anim_dodge_back, 0.085, 1170);</string>
+        <string>aod.vignette_assassin_MG = false;</string>
+        <string>tbd_mg_door_05.unlock();</string>
+        <string>tbd_mg_door_06.unlock();</string>
+        <string>dlgadditem(301, 5);</string>
+        <string>aod.jnl_vignette_assassin = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>商人を殺す。</text>
+          <def_link>48</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>64</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>君はグラシアスに、この町では彼は歓迎されていないのだと伝え、引き金を引いた。ボルトはグラシアスの胸に命中し、その衝撃で彼は床に投げ出される。従者は君の方を見、そして彼の主の死体を見た。どうするべきか決めかねているようだ。
+
+傷跡から見るに、この従者はなかなか経験が豊富だ。彼はマヌケに見えるかもしれないが、明らかに強力な攻撃を繰り出すことができるのだ。侮ってはいけない。</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAnimation(anim_death_back04, 0.95, 1170);</string>
+        <string>dlgKillCharacter(1170);</string>
+        <string>dlgSetAnimation(anim_combat_1h_00, 0.5, 1190);</string>
+        <string>dlgUnloadWeapon();</string>
+        <string>dlgChangeRep(bodycount, 1);</string>
+        <string>sfxPlayOnce(AudioCsRangedBody01);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>assignCombatScheme(lowtrained, 1190);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>従者が勇気を奮い起こしている間にクロスボウを装填する。</text>
+          <def_link>81</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion]「報酬は一人分しかもらっていない&lt;mu/wa&gt;。&lt;ore/watashi&gt;はタダ働きはしないから、安心して剣を置&lt;ke/&gt;&lt;/ki&gt;&lt;/nasai&gt;。&lt;omae/anata&gt;が生きたままこの場を去って、それで&lt;ore/watashi&gt;の仕事は終わり&lt;da/&gt;」</text>
+          <def_link>52</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>49</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity][critical strike]「受け取&lt;re/&gt;&lt;/ri&gt;&lt;/nasai&gt;！」従者の方へクロスボウを投げる。 彼の注意が逸れたら、ボルトを掴み短剣のように持ち、喉を狙いながら突く。</text>
+          <def_link>55</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.dex &gt;= 7 &amp;&amp; aod.dex &lt; 9 &amp;&amp; aod.critical_strike &gt;= 3) || (aod.critical_strike &gt;= 3 &amp;&amp; aod.critical_strike &lt; 4 &amp;&amp; aod.dex &gt;= 7)</string>
+            <string>aod.dex &gt;= 9 &amp;&amp; aod.critical_strike &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>54</int>
+            <int>53</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>48</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>[success]従者は君を見て、勝算をはかっている。そして、彼はうなずき剣を下ろした。</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAnimation(anim_combat_1h_03, 0.5, 1190);</string>
+        <string>dlgRotateToChar(1190);</string>
+        <string>rwd_civil(vignetteAssassin_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]「グラシアスのテロンでの友人は&lt;omae/anata&gt;と&lt;ore/watashi&gt;だけだったと言っていい&lt;darou/desyou&gt;&lt;/ne&gt;。&lt;ore/watashi&gt;は彼に安息を与えて&lt;yatta/ageta&gt;&lt;ga/kedo&gt;、&lt;omae/anata&gt;がそこで口を開けて突っ立っていてくれなければできなかった。グラシアスは&lt;ore/watashi&gt;たちにお礼がしたいんじゃないかな。&lt;omae/anata&gt;もそう思わない&lt;ka/mu&gt;？」そう言って頭でチェストを指す。</text>
+          <def_link>51</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 4 &amp;&amp; aod.per &lt; 7</string>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 4 &amp;&amp; aod.per &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>50</int>
+            <int>56</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>49</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>[success]「山分けにしようか」従者はチェストをひっくり返し中身をぶちまけて、ささやかな戦利品を分ける線を引いてみせた。
+
+君は自分の分け前を受け取り、部屋を出ようとした時、商人が何かの羊皮紙を握りしめているのに気付く。</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItemlist(vignette_chest);</string>
+        <string>dlgTeleportTo(7, 247, 0, E, 1190);</string>
+        <string>dlgSetAnimation(anim_ambient_2h_00, 0.5);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgRotateToChar(1190);</string>
+        <string>dlgStealthPose(1190);</string>
+        <string>rwd_civil(vignetteAssassin_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>羊皮紙を持って立ち去る。</text>
+          <def_link>60</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>50</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>[perception success]「山分けにしようか」従者はチェストをひっくり返し中身をぶちまけて、ささやかな戦利品を分ける線を引いてみせた。
+
+君は自分の分け前を受け取り、部屋を出ようとした時、商人が何かの羊皮紙を握りしめているのに気付く。 それを取ると、君は近くの床に小さな灰色の球体が落ちているのを見つける。君はその球体を拾い丹念に調べた。珍しい金属の球体で、周りにいくつかの溝が走っている。考古学者に聞けば何かわかるかもしれない。</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItemlist(vignette_chest);</string>
+        <string>dlgTeleportTo(7, 247, 0, E, 1190);</string>
+        <string>dlgSetAnimation(anim_ambient_2h_00, 0.5);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgRotateToChar(1190);</string>
+        <string>dlgStealthPose(1190);</string>
+        <string>rwd_civil(vignetteAssassin_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>出て行く。</text>
+          <def_link>60</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>56</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>[failure]「俺が助けを呼ぶ前に今すぐ出ていった方がいい」従者は今にも襲いかかってきそうだ。君が立ち去ろうとしたその時、死んだ商人が何かの羊皮紙を握りしめているのに気付く。</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAnimation(anim_combat_1h_00, 0.5, 1190);</string>
+        <string>dlgRotateToChar(1190);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>戦う。</text>
+          <def_link>59</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>羊皮紙を取って立ち去る。</text>
+          <def_link>60</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>51</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>[failure]従者は君を見て、勝算をはかっている。そして結論が出たらしく、襲いかかってきた。</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>戦う。</text>
+          <def_link>57</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>52</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>[success]ボルトの切っ先が従者の無防備な喉を貫き、動脈を切断して気管に血を溢れさせる。彼は白目をむきながら音もなく倒れた。</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(161, 1, 1190);</string>
+        <string>dlgRemoveItem(161, 1);</string>
+        <string>dlgTeleportTo(6, 248, 0, N);</string>
+        <string>dlgSetAnimation(anim_death_forward00, 0.95, 1190);</string>
+        <string>dlgSetAnimation(anim_regular_dagger, 0.4);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgKillCharacter(1190);</string>
+        <string>sfxPlayOnce(csSuccessMetal01);</string>
+        <string>dlgCsRepTrain(1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>部屋を漁る。</text>
+          <def_link>58</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>53</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>[success]従者は横に避け、ボルトの切っ先が首の傷を切り裂き体力を削いだ。血が噴き出し、青ざめた従者が襲いかかってくる。</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(161, 1, 1190);</string>
+        <string>dlgRemoveItem(161, 1);</string>
+        <string>dlgSetCharacterHP(25, 1190);</string>
+        <string>dlgTeleportTo(6, 248, 0, N);</string>
+        <string>dlgSetAnimation(anim_regular_dagger, 0.4);</string>
+        <string>dlgSetAnimation(anim_washit_back, 0.5, 1190);</string>
+        <string>aod.vignette_assassin_xbow = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>戦う。</text>
+          <def_link>59</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>54</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>[failure]従者は素早く横に移動し、剣の柄で君を殴る。彼は腐った歯を露わにしながら不快な笑みを浮かべ、襲いかかってきた。</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(161, 1, 1190);</string>
+        <string>dlgRemoveItem(161, 1);</string>
+        <string>dlgTeleportTo(6, 248, 0, N);</string>
+        <string>dlgSetAnimation(anim_regular_dagger, 0.4);</string>
+        <string>dlgSetAnimation(anim_dodge_back, 0.5, 1190);</string>
+        <string>dlgChangeCharacterHP(-5);</string>
+        <string>aod.vignette_assassin_xbow = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>戦う。</text>
+          <def_link>57</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>55</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - advantage guard</npc_text>
+      <onLoadScripts>
+        <string>aod.vignette_assassin_fight = true;</string>
+        <string>aod.vignette_assassin_inn = false;</string>
+        <string>dlgSetAttitude(1190, 1, -10);</string>
+        <string>setRtsCam();</string>
+        <string>aod.gameplay_vignetteBodyguard_fight = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.fight_vignette_assassin = true;</string>
+        <string>schedule(50, 0, centerCameraNPC, 345, 40, 14, 1190);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>57</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - advantage PC</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAttitude(1190, 1, -10);</string>
+        <string>aod.vignette_assassin_fight = true;</string>
+        <string>aod.vignette_assassin_inn = false;</string>
+        <string>setRtsCam();</string>
+        <string>aod.gameplay_vignetteBodyguard_fight = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.fight_vignette_assassin = true;</string>
+        <string>schedule(50, 0, centerCameraNPC, 345, 40, 14, 1190);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>59</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - reload and move back</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAttitude(1190, 1, -10);</string>
+        <string>aod.vignette_assassin_fight = true;</string>
+        <string>aod.vignette_assassin_inn = false;</string>
+        <string>setRtsCam();</string>
+        <string>aod.gameplay_vignetteBodyguard_fight = true;</string>
+        <string>dlgLoadWeapon();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportTo(5, 244, 0, N);</string>
+        <string>aod.fight_vignette_assassin = true;</string>
+        <string>schedule(50, 0, centerCameraNPC, 345, 40, 14, 1190);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>81</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - loot the room</npc_text>
+      <onLoadScripts>
+        <string>aod.vignette_assassin_fight = true;</string>
+        <string>aod.vignette_assassin_inn = false;</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgSetZoom(9);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>58</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>宿を出ますか？</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(vignette_room_cam_06);</string>
+        <string>dlgTeleportTo(5, 249, 0, N);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>立ち去る。</text>
+          <def_link>68</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>71</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>もう少し見て回る。</text>
+          <def_link>69</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>67</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>君が部屋を出ようとした時、商人が何かの羊皮紙を握りしめているのに気付く。それはまるで、その羊皮紙が彼を守ってくれるとでも思っていたかのようだった。古い地図のようだが、もしかしたら、考古学者が役に立つかもしれない。</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(vignette_room_04);</string>
+        <string>dlgRemoveItem(409, 1, 0, 1190);</string>
+        <string>dlgRemoveItem(1108, 1, 0, 1190);</string>
+        <string>dlgRemoveItem(121, 1, 0, 1190);</string>
+        <string>dlgTeleportTo(6, 248, 0, SE);</string>
+        <string>dlgSetAnimation(anim_stealth_00, 0.5);</string>
+        <string>aod.vignette_assassin_fight = false;</string>
+        <string>dlgUnequipSlot(6);</string>
+        <string>dlgUnequipSlot(7);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>羊皮紙を拾って出て行く。</text>
+          <def_link>60</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>68</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>[perception success]君が部屋を出ようとした時、商人が何かの羊皮紙を握りしめているのに気付く。それはまるで、その羊皮紙が彼を守ってくれるとでも思っていたかのようだった。古い地図のようだが、売れば何かの足しにはなるだろう。それを取ると、君は近くの床に小さな灰色の球体が落ちているのを見つける。君はその球体を拾い丹念に調べた。珍しい金属の球体で、周りにいくつかの溝が走っている。考古学者に聞けば何かわかるかもしれない。</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(vignette_room_04);</string>
+        <string>dlgRemoveItem(409, 1, 0, 1190);</string>
+        <string>dlgRemoveItem(1108, 1, 0, 1190);</string>
+        <string>dlgRemoveItem(121, 1, 0, 1190);</string>
+        <string>dlgTeleportTo(6, 248, 0, SE);</string>
+        <string>dlgSetAnimation(anim_stealth_00, 0.5);</string>
+        <string>aod.vignette_assassin_fight = false;</string>
+        <string>dlgUnequipSlot(6);</string>
+        <string>dlgUnequipSlot(7);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgAddItem(2110, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>立ち去る。</text>
+          <def_link>60</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>71</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>「グラシアスの奴はどうなった？」</npc_text>
+      <onLoadScripts>
+        <string>VCO_vignette_01.setActive(0);</string>
+        <string>VCO_vignette_02.setActive(0);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>dlgAddItem(2100, 1);</string>
+        <string>useCameraBookmark(NPC_neleos_cam_01);</string>
+        <string>dlgDeleteCharacter(1190);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>dlgTeleportTo(211, 106, 0, E);</string>
+        <string>remQuest(VignetteAssassin);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「あの世で楽しくやってる&lt;yo/&gt;&lt;mu/wa&gt;。報酬は？」</text>
+          <def_link>61</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>60</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>「ほら」</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(vignetteAssassin);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「どうも。ところでこの地図が何だかわかる&lt;ka/mu&gt;？」ネレオスに地図を見せる。</text>
+          <def_link>62</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>61</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>「ずいぶん古いな。考古学者のフォンに聞いてみろ。奴なら知ってるはずだ。」</npc_text>
+      <onLoadScripts>
+        <string>addQuest(Map);</string>
+        <string>aod.quest_map_phase1 = true;</string>
+        <string>aod.global_teron_vignette = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「いくつか質問してもいい&lt;ka/mu&gt;？」</text>
+          <def_link>72</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>「そうする&lt;yo/&gt;」考古学者のフォンの所へ行く。</text>
+          <def_link>63</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>「そうする&lt;yo/&gt;」立ち去る。</text>
+          <def_link>70</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>62</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - vignette - Feng</npc_text>
+      <onLoadScripts>
+        <string>aod.vignette_assassin_guild = false;</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportTo(159, 72, 0, N);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>schedule(50, 0, centerCamera, 315, 40, 13);</string>
+        <string>endVignette();</string>
+        <string>setAchievement("ACH_ASSASSIN");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>63</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - vignette</npc_text>
+      <onLoadScripts>
+        <string>aod.vignette_assassin_guild = false;</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setAchievement("ACH_ASSASSIN");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>70</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>69</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>「何を知りたいんだ？」</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_neleos_timeForQuestions = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「&lt;ore/watashi&gt;たちがこんなに大っぴらに活動してることに驚いている&lt;mu/wa&gt;」</text>
+          <def_link>73</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>「どうやって正規の稼業になった&lt;nda/no&gt;？」</text>
+          <def_link>75</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>72</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>「そうじゃなかった時代なんてあるのか？　わずかな金で問題を解決してくれる者がいない場所があるんだったら教えてくれ。そして今の時代、誰もが問題を抱えている。俺たちがいなければ、哀れなやつらは治安の悪い場所へ出向かなくちゃならないだろう。─強盗に襲われたり殺されたりする危険のある場所にだ。そして俺たちが決して雇ったりしないような類いの奴と取引をしなければならない」
+
+「明日俺たちが店じまいをしたとして、殺人がなくなると思うか？」</npc_text>
+      <onLoadScripts>
+        <string>aod.info_neleos_openly = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「問題を解決する方法は他にもある&lt;darou/desyou&gt;」</text>
+          <def_link>74</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>73</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>「それは依頼人に言ってくれ。殺人を心に抱いたやつが来たとして、そいつが何か別の提案に耳を傾けると思うか？　あなたは正しい決断をした、この問題もすぐに解決するでしょう、と言われたいだろうよ」</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>「どうやって正規の稼業になった&lt;nda/no&gt;？」</text>
+          <def_link>75</def_link>
+          <checkOnAppear>aod.info_neleos_business == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>「また&lt;/ne&gt;&lt;na/&gt;」考古学者のフォンの所へ行く。</text>
+          <def_link>63</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>「また&lt;/ne&gt;&lt;na/&gt;」立ち去る。</text>
+          <def_link>70</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>74</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>「ステュクスの漕手が軍の部隊だった時代があったのさ。彼らは皇帝の正式な護衛で、そのためには何でもやっていたという。非公式には、彼らの望まぬ者たちを河の向こうへ連れて行く任務を与えられていた」
+
+「帝国が崩壊すると、そいつらは専門知識と軍事規律を市場にもたらした。聞いた話では、かなり荒れた日々だったそうだ。誰も漕手たちを止めることができない。人々は波打つようにステュクスの河を渡った。すぐに手に負えない事態になって、自然とルールが定められるようになった」</npc_text>
+      <onLoadScripts>
+        <string>aod.info_neleos_business = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「ルールが定められた？」</text>
+          <def_link>76</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>75</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>「食べる場所で糞をするな。貴族には敬意を示し、彼らの領分に干渉をするな。領主をいたずらに怯えさせ、猜疑心を強めさせたくはないだろう。そんなことをしても何もいいことはない。仕事は他にいくらでもある。」
+
+「俺たちのターゲットになる奴は、俺たちが手を下さなくともいずれ他の奴に命を奪われるんだろうと思ってるよ。他のやつがやれば雑な仕事になるところを、俺たちは上手くきれいにやる。誰だってきれいな方がいいだろう」</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>「この翼のある頭蓋骨はあんまり仕事らしくない。できれば、もっと遠回しな何かが…」</text>
+          <def_link>77</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>76</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>「これは最初の漕手たちのエンブレムだ。俺たちの誇り高い血統を表し、正しいメッセージを送ってくれる。”個人的な問題に気をつけろ、なぜなら…”」ネレオスはニヤリと笑った。</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>「&lt;ore/watashi&gt;たちがこんなに大っぴらに活動してることに驚いている&lt;mu/wa&gt;」</text>
+          <def_link>73</def_link>
+          <checkOnAppear>aod.info_neleos_openly == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>「また&lt;/ne&gt;&lt;na/&gt;」考古学者のフォンの所へ行く。</text>
+          <def_link>63</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>「また&lt;/ne&gt;&lt;na/&gt;」立ち去る。</text>
+          <def_link>70</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>77</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

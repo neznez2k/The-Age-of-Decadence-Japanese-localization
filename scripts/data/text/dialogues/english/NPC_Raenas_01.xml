@@ -1,0 +1,459 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.pc_member_guards == 0 &amp;&amp; aod.ending_gnz_IG_joins_HA</string>
+      <string>aod.pc_member_guards == 0</string>
+      <string>aod.npc_raenas_gaveMen == false &amp;&amp; aod.quest_CT01_votes &gt;= 3</string>
+      <string>aod.npc_raenas_gaveMen == false &amp;&amp; aod.quest_CT01_votes &gt;= 2</string>
+      <string>aod.npc_raenas_met</string>
+    </conditions>
+    <links>
+      <int>18</int>
+      <int>17</int>
+      <int>10</int>
+      <int>9</int>
+      <int>8</int>
+    </links>
+    <dlg_name>NPC_Raenas_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Raenas</def_speaker_name>
+    <def_portrait>Raenas</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What do you want, *Centurion*?” asks Raenas with contempt, his square jaws tightening.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_raenas_met = true;</string>
+        <string>dlgTeleportToMarker(TM_DLG_Raenas_NPC, 8006);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Raenas_PC);</string>
+        <string>aod.quest_IG_CaerTor = 2;</string>
+        <string>dlgCam(15, 45, 6, 8006);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’m reporting for duty.”</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I have no use for you.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Even though Dux Paullus does?”</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“If he wanted me to take you under my command, he would have given me an order. He didn’t, which tells me all I need to know – he doesn’t trust a traitor any more than I do.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]“Maybe he does, maybe he doesn’t, but he needs plausible deniability in case the mission goes south and if I lead the team, he can blame it on Carrinas.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]“He has a job for me. I assume the job’s important. Are you sure you want to be blamed if the mission fails because you refused to support it?”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]“He didn’t give you an order because he’s testing you. Paullus wants to see if you’re a man who can see the big picture and make the right decisions without being told what they are first.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 12</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“I don’t think you’re hearing me, &lt;son/girl&gt;. Neither Carrinas nor those who serve him are welcome here. Tell you what, if even two of my own centurions accept a newly minted *centurion* like you as their peer, I’ll take your sorry ass and do my best to make a real soldier out of you.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_raenas_quest = true;</string>
+        <string>aod.quest_CT01_votes = 0;</string>
+        <string>aod.quest_IG_CaerTor = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“If the mission is so important, why entrust it to a freshly minted centurion?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[body count]“My reputation speaks for itself.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(bodycount) &gt;= 50</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[reputation]“Do your question my loyalty to the Imperial Guards?”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(guards) &gt;= 15</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“It was never about you... Alright, I'll give you five men. Neither the best nor the brightest but good enough to get the job done.
+
+“Dismissed.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_raenas_gaveMen = true;</string>
+        <string>rwd_reputation(IG_CT_02);</string>
+        <string>aod.quest_IG_CaerTor = 2;</string>
+        <string>rwd_civil(IG_CT_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“So what’s your problem with Carrinas?”</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Was there anything else, Centurion?”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_Raenas_NPC, 8006);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Raenas_PC);</string>
+        <string>dlgCam(15, 45, 6, 8006);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“So what’s your problem with Carrinas?”</text>
+          <def_link>11</def_link>
+          <checkOnAppear>aod.npc_raenas_carrinas == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I should have asked for three votes, but what's done is done. Alright, I'll give you five men. Neither the best nor the brightest but good enough to get the job done.
+
+“Dismissed.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_raenas_gaveMen = true;</string>
+        <string>rwd_reputation(IG_CT_01);</string>
+        <string>aod.quest_IG_CaerTor = 2;</string>
+        <string>dlgCam(15, 45, 6, 8006);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Raenas_PC);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“So what’s your problem with Carrinas?”</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You got all three of these bums to agree on something? Now that's something you don't see every day. Alright, I'll give you five men. Neither the best nor the brightest but good enough to get the job done.
+
+“Dismissed.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_raenas_gaveMen = true;</string>
+        <string>rwd_reputation(IG_CT_02);</string>
+        <string>aod.quest_IG_CaerTor = 2;</string>
+        <string>dlgCam(15, 45, 6, 8006);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Raenas_PC);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“So what’s your problem with Carrinas?”</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(15, 45, 12, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“He betrayed us. Betrayed what we stand for. We’ve defended this land since the fall of the Empire, sacrificed and bled for it, and he’s undone it all when he attacked Teron like a common brigand,” says Raenas, spitting on the ground for emphasis.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_raenas_carrinas = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“He had his reasons.”</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Every raider we’ve ever nailed to a cross had *reasons*,” says Raenas, his face growing redder by the moment. “They all get weepy and teary-eyed when they tell you their story, but strip away the bullshit and it’s always the same one: take what you want by force and kill whoever gets in your way. How’s that different from what Carrinas has done?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You have a point there.”</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“It’s different. Carrinas is not a raider. As for Teron, something had to be done.”</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Carrinas didn’t have the authority,” says Raenas, folding his arms. It’s plain that to him the distinction of authority is absolute. “It was not his place to make that decision.
+
+“The Imperial Guard survived the fall of the Empire and the chaos that followed thanks to structure and order. Every man knows his place and every man follows his orders. Unto death.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You put much faith in orders.”</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I'm glad you see it this way, Centurion. The Imperial Guard survived the fall of the Empire and the chaos that followed thanks to structure and order. Every man knows his place and every man follows his orders. Unto death.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You put much faith in orders.”</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“When you give a man an order, you relieve him of doubt. You are giving him a clear path to follow. That is as important as meat and wine to a soldier. Give a man with a sword the freedom to make decisions and you invite chaos, bloodshed, slaughter.
+
+“In the Imperial Guard, rank is based on wisdom, and wisdom comes from experience. I can command a legion and achieve my objectives, but unlike Carrinas, I know the limits of my wisdom. I *know* that I am not experienced enough to make decisions for the Imperial Guard.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“And Paullus is?”</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Paullus is. Lords are born to their titles, but here not only does every officer earn his command, he must prove his worth every day. Paullus is the Dux because he’s the best man for the job, not because he was born to the right family or bought his title. You would do well to keep that in mind and show Paullus the respect he deserves.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Please direct all your inquiries to Dux Paullus.”</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(15, 45, 6, 8006);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Raenas_PC);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Please direct all your inquiries to Legatus Carbo.”</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(15, 45, 6, 8006);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Raenas_PC);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

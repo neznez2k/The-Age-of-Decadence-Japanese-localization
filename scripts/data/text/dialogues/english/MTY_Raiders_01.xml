@@ -1,0 +1,745 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.mty_RaidersWon</string>
+      <string>aod.mty_raiderLeader_met</string>
+      <string>aod.quest_basil_helped</string>
+      <string>dlgGetRep(bodycount) &gt;= 20</string>
+    </conditions>
+    <links>
+      <int>6195</int>
+      <int>6221</int>
+      <int>6184</int>
+      <int>6183</int>
+    </links>
+    <dlg_name>MTY_Raiders_01</dlg_name>
+    <def_link>6185</def_link>
+    <def_speaker_name>Daneus</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[bodycount success]“You’re &lt;charname&gt;, aren’t you?” asks the leader of the group – a man with a sloping forehead, close-set eyes, and a square jaw.
+
+“I’ve heard about you. A &lt;man/woman&gt; after my own heart.”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Leader_01);</string>
+        <string>dlgCam(290, 40, 7, 5856);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What’s going on here?”</text>
+          <def_link>6189</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6183</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You’re &lt;charname&gt;, aren’t you?” asks the leader – a man with a sloping forehead, close-set eyes, and a square jaw.
+
+“I saw you fight in the arena. Quite a sight, my friend.”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Leader_01);</string>
+        <string>dlgCam(290, 40, 7, 5856);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What’s going on here?”</text>
+          <def_link>6189</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6184</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Who the fuck are you?” demands the leader – a man with a sloping forehead, close-set eyes, and a square jaw.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Leader_01);</string>
+        <string>dlgCam(290, 40, 7, 5856);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Just passing by.”</text>
+          <def_link>6186</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[Imperial Guards]“This village is now under protection of the Imperial Guards. You have five minutes to leave the area.”</text>
+          <def_link>6217</def_link>
+          <checkOnAppear>aod.pc_member_guards</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[impersonate]“This village is now under protection of the Imperial Guards. You have five minutes to leave the area.”</text>
+          <def_link>6214</def_link>
+          <checkOnAppear>aod.pc_member_guards == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.disguise &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6218</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6185</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.mty_meetingRaiders = false;</string>
+        <string>addEnemyToParty(1, MonasteryRaiders);</string>
+        <string>if(isAlive(5856)) sayPhrase(5856, "Kill &lt;him/her&gt;!");</string>
+        <string>aod.fight_mtyRaidersOutside = true;</string>
+        <string>dlgCam(320, 40, 15, 1);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6180</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Not one of *them* then?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“One of them?”</text>
+          <def_link>6187</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.gender == 0</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6188</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6186</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The fucking rats on the other side of the bridge! Who the fuck do you think I’m talking about? Anyway, we need every man we can get, so this is your chance to join a real crew and make some money. How ‘bout it, friend?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Tell me more.”</text>
+          <def_link>6189</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6187</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The fucking rats on the other side of the bridge! Whom the fuck do you think I’m talking about? Anyway, we need every man – woman, whatever – we can get, so this is your chance to join a real crew and make some money. How ‘bout it, friend?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Tell me more.”</text>
+          <def_link>6189</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6188</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“We’re honest travelers,” grins the man. “We sought, uh, shelter from the storm but were denied hospitality. What is this world coming to? I say that such uncivilized behavior should not be tolerated. It’s our sacred duty to teach them a lesson.
+
+“Are you with us? I’ll give you a tenth of everything we take.”</npc_text>
+      <onLoadScripts>
+        <string>aod.mty_raiderLeader_met = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“A tenth? Sign me up!”</text>
+          <def_link>6190</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[strength][dexterity]Push him off the cliff.</text>
+          <def_link>6193</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.str + aod.dex) &gt;= 16</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6194</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[Imperial Guards]“This village is now under protection of the Imperial Guards. You have five minutes to leave the area.”</text>
+          <def_link>6217</def_link>
+          <checkOnAppear>aod.pc_member_guards</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[impersonate]“This village is now under protection of the Imperial Guards. You have five minutes to leave the area.”</text>
+          <def_link>6214</def_link>
+          <checkOnAppear>aod.pc_member_guards == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.disguise &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6218</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6182</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6189</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Quit fucking around. Are you with us or not?”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Leader_01);</string>
+        <string>dlgCam(290, 40, 7, 5856);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I'm in.”</text>
+          <def_link>6190</def_link>
+          <checkOnAppear>aod.mty_attackOffer == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'm ready."</text>
+          <def_link>6191</def_link>
+          <checkOnAppear>aod.mty_attackOffer</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[strength][dexterity]Push him off the cliff.</text>
+          <def_link>6193</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.str + aod.dex) &gt;= 16</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6194</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6182</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6221</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“You don't look like a Guard. Fuck off!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Kill 'em all.</text>
+          <def_link>6180</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[strength][dexterity]Push him off the cliff.</text>
+          <def_link>6193</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.str + aod.dex) &gt;= 16</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6194</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6182</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6214</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I don’t see any Guards,” says the man, his face turning red with anger.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Kill 'em all.</text>
+          <def_link>6180</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]“Why send more than one Guard to deliver a message? Is anyone here too fucking dumb to disregard it?”</text>
+          <def_link>6215</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6216</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[strength][dexterity]Push him off the cliff.</text>
+          <def_link>6193</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.str + aod.dex) &gt;= 16</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6194</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6182</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6217</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Leader</speaker_name>
+      <npc_text>[success]“I don’t see any Guards,” says the man, his face turning red with anger.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Kill 'em all.</text>
+          <def_link>6180</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]“Why send more than one Guard to deliver a message? Is anyone here too fucking dumb to disregard it?”</text>
+          <def_link>6215</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6216</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[strength][dexterity]Push him off the cliff.</text>
+          <def_link>6193</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.str + aod.dex) &gt;= 16</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6194</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6182</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6218</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Leader</speaker_name>
+      <npc_text>[failure]“I ain't buying it. Fuck off!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Kill 'em all.</text>
+          <def_link>6180</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[strength][dexterity]Push him off the cliff.</text>
+          <def_link>6193</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.str + aod.dex) &gt;= 16</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6194</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6182</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6215</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“So, you want us to take your word for it? Is that it?” asks the raider, still clinging to hope.
+
+Realizing that it's over, one way or another, several men take their belongings and walk away.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgDeleteCharacter(5853);</string>
+        <string>dlgDeleteCharacter(5855);</string>
+        <string>dlgDeleteCharacter(5857);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]“I was told to deliver the message. Believe it or not, we have very strict rules about crucifying people. After all, we’re the law around here. Have to act within proper guidelines and shit.”</text>
+          <def_link>6215</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 12 &amp;&amp; aod.persuasion &gt;= 4 &amp;&amp; aod.streetwise &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6219</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6182</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6216</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“If you want it so fucking badly, it's yours. There's nothing there anyway.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(MTY_01);</string>
+        <string>rwd_reputation(MTY_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait for the raiders to leave.</text>
+          <def_link>6220</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6219</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - raiders left</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.mty_raidersLeft = true;</string>
+        <string>aod.mty_meetingRaiders = false;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>sd(MTY_Villagers_01);</string>
+        <string>aod.jnl_elixir = 2;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6220</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“That’s the spirit! So, we’re going to build a bridge – nothing fancy, of course, but good enough to get us across. Then we get to the other side and throw those fuckers down. That’s the plan.”</npc_text>
+      <onLoadScripts>
+        <string>aod.mty_attackOffer = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I like it.”</text>
+          <def_link>6191</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'll go get ready then." Leave.</text>
+          <def_link>6182</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>You've heard enough. Kill them all.</text>
+          <def_link>6180</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6190</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Good. You’re going to lead the assault. I’ll watch the rear, make sure there are no surprises, you know.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mnst_stormed = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Let's do it!”</text>
+          <def_link>6192</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6191</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - storm</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>MTY_StormWalls();</string>
+        <string>aod.fight_mty_storm = 1;</string>
+        <string>schedule(150, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6192</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>[failure]You give the man a good push, excepting him to fall off the cliff and disappear, but somehow he manages to remain standing.
+
+He looks at you funny as if trying to understand what just happened here, then the realization dawns on him. His eyes widen, shock and rage twist his face. Things are about to get ugly.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetCombatAnimation(1);</string>
+        <string>dlgSetCombatAnimation(5856);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>6180</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6193</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>[success]You give the man a good push, forcing him to take a step back to balance himself, then another. Unfortunately for him, the second step finds nothing but air and the man falls backwards, desperately waving his arms.</npc_text>
+      <onLoadScripts>
+        <string>dlgDeleteCharacter(5856);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetCombatAnimation(1);</string>
+        <string>changeRep(bodycount, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill the rest.</text>
+          <def_link>6180</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6194</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Enjoying the spoils?”</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(350, 40, 7, 5856);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’d love to, except there aren’t any.”</text>
+          <def_link>6196</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6195</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Sadly, the rumors of the wealth were vastly exaggerated. You just can’t trust anyone these days.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Whatever’s in that chest, I want my share.”</text>
+          <def_link>6197</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6196</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Well, that’s too fucking bad, ‘cause you ain’t getting it. It’s barely enough for the three of us. Next time, eh?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Kill him and his men.</text>
+          <def_link>6198</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Walk away.</text>
+          <def_link>6199</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6197</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - inside</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addEnemyToParty(1, MonasteryRaidersInterior);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+        <string>aod.fight_mty_monasteryRaidersInterior = 1;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6198</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - left</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgDeleteCharacter(5851);</string>
+        <string>dlgDeleteCharacter(5854);</string>
+        <string>dlgDeleteCharacter(5856);</string>
+        <string>aod.mty_DaneusTookElixir = true;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6199</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6182</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

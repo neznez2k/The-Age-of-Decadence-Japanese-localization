@@ -1,0 +1,652 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.tsq_shanty_kebab</string>
+    </conditions>
+    <links>
+      <int>1982</int>
+    </links>
+    <dlg_name>TSQ_Shanty</dlg_name>
+    <def_link>1961</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Kebab Seller</speaker_name>
+      <npc_text>You see a dark-skinned man cooking kebabs over hot coals. "Come," he says with a strange accent. "Good food, very cheap. Special recipe. Make you strong. Like ox."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(140, 11, 0, S);</string>
+        <string>dlgTeleportTo(140, 9, 0, N, 2085);</string>
+        <string>useCameraBookmark(TSQ_Shanty_cam_01);</string>
+        <string>assignDialogue(TSQ_Shanty, 2085);</string>
+        <string>aod.tsq_shanty_cookMet = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Sure." Throw him a coin.</text>
+          <def_link>1955</def_link>
+          <checkOnAppear>aod.tsq_shanty_thief == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Do you know anyone who's been buying supplies on a regular basis lately? Enough to feed a camp full of soldiers?"</text>
+          <def_link>1984</def_link>
+          <checkOnAppear>aod.quest_mineWine_askAround &amp;&amp; aod.quest_teronMine_complete == false &amp;&amp; aod.quest_teronMine_fight == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Maybe later."</text>
+          <def_link>1965</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1961</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You are about to put your money away, when, suddenly, a man standing nearby snatches the coin bag out of your hand and starts running, pushing people out of his way and calling for help.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-20);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>createByCharMarker("CM_ShantyTownThief");</string>
+        <string>dlgTeleportTo(140, 11, 0, E);</string>
+        <string>useCameraBookmark(TSQ_Shanty_cam_02);</string>
+        <string>aod.tsq_shanty_thief = true;</string>
+        <string>dlgSetRunAnimation(2086);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[dexterity]Run after him.</text>
+          <def_link>1958</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1959</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[throwing]Don't let him get away.</text>
+          <def_link>1964</def_link>
+          <checkOnAppear>aod.throwing &gt;= 3 &amp;&amp; dlgOwnsThrowing()</checkOnAppear>
+          <checksOnClick>
+            <string>aod.throwing &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1957</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[bow]Don't let him get away.</text>
+          <def_link>1964</def_link>
+          <checkOnAppear>aod.bow &gt;= 3 &amp;&amp; dlgOwnsBow() &amp;&amp; dlgOwnsMissile(1)</checkOnAppear>
+          <checksOnClick>
+            <string>aod.bow &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1957</int>
+          </linksOnClick>
+          <scriptsOnClick>
+            <string>removeMissile();</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[crossbow]Don't let him get away.</text>
+          <def_link>1964</def_link>
+          <checkOnAppear>aod.crossbow &gt;= 3 &amp;&amp; dlgOwnsXbow() &amp;&amp; dlgOwnsMissile(1)</checkOnAppear>
+          <checksOnClick>
+            <string>aod.crossbow &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1957</int>
+          </linksOnClick>
+          <scriptsOnClick>
+            <string>removeMissile();</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>He probably needs the money more than you do.</text>
+          <def_link>1981</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1955</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You hit the thief between the shoulder blades, the impact throwing him to the ground. The man twitches a few times and then stops moving.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(151, 11, 0, NE, 2086);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetAnimation(anim_death_back01, 0.99, 2086);</string>
+        <string>dlgKillCharacter(2086);</string>
+        <string>useCameraBookmark(TSQ_Shanty_cam_03);</string>
+        <string>rwd_quest(TRN_Shanty_01);</string>
+        <string>dlgChangeRep(bodycount, 1);</string>
+        <string>sfxPlayOnce(AudioCsRangedBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take your money.</text>
+          <def_link>1970</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1957</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You run after the thief, but he's too fast and you quickly lose the sight of him and give up.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(175, 72, 0, N);</string>
+        <string>useCameraBookmark(TSQ_Shanty_cam_04);</string>
+        <string>dlgDeleteCharacter(2086);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go back to the shanty town.</text>
+          <def_link>1981</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1958</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[success]Your chase the thief through the streets and alleys, slowly gaining on him. The chase comes to an abrupt end, when the thief runs into a guard and stops.
+
+"What's going on here?" barks the guard.
+
+"I was minding my own business, when &lt;he/she&gt;," the thief points at you, "pulled out a knife and ran after me."
+
+"I see...," says the guard. "Well, we won't tolerate this kind of behaviour in Teron, that's for sure. How do you answer these charges?"</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(TSQ_Shanty_cam_06);</string>
+        <string>dlgCreateCharacter("ダラタンの衛兵", 2087, 2087, 223, 127, 0, S);</string>
+        <string>dlgTeleportTo(222, 126, 0, SE, 2086);</string>
+        <string>dlgSetAmbientAnimation(2086);</string>
+        <string>dlgTeleportTo(223, 125, 0, N);</string>
+        <string>dlgSetAmbientAnimation();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"This man stole from me."</text>
+          <def_link>1960</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1959</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>"Is that so? Do you have witnesses? If not, I'd think twice before accusing honest people. Beat it."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>1971</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[praetor]"One word to Lord Antidas, and you'll be dead before the day is over. Now give me back my money."</text>
+          <def_link>1972</def_link>
+          <checkOnAppear>aod.pc_member_daratan</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[assassin]"Only a fool will steal from the Boatmen."</text>
+          <def_link>1973</def_link>
+          <checkOnAppear>aod.pc_member_assassins</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[body count]"I take it, you don't know who I am."</text>
+          <def_link>1977</def_link>
+          <checkOnAppear>dlgGetRep(bodycount) &gt;= 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[thief]"Wait ‘til Cado hears about this shit."</text>
+          <def_link>1980</def_link>
+          <checkOnAppear>aod.pc_member_thieves</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Fuck it." Leave.</text>
+          <def_link>1981</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1960</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You aim is off the mark and the man turns a corner and disappears from sight before you get another chance.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(168, 25, 0, N);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>useCameraBookmark(TSQ_Shanty_cam_05);</string>
+        <string>dlgSetRunAnimation(2086);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[dexterity]Run after him.</text>
+          <def_link>1958</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1959</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1964</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - shanty</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1965</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - shanty - assassin</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgDeleteCharacter(2086);</string>
+        <string>aod.tsq_shanty_kebab = true;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1983</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - town</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addParty(TSQShantyFight, 0);</string>
+        <string>addCharToParty(2086, TSQShantyFight, fighter);</string>
+        <string>addCharToParty(2087, TSQShantyFight, fighter);</string>
+        <string>addEnemyToParty(1, TSQShantyFight);</string>
+        <string>dlgEquipItem(101, 0, 2086);</string>
+        <string>dlgChangeMoney(20, 2086);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>aod.tsq_shanty_kebab = true;</string>
+        <string>aod.tsq_shanty_killedGuard = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1968</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You walk to the recently deceased and collect your coins spilled from the bag, carefully wiping off blood. Unfortunately, the man doesn't have anything else. Nothing but a burden on society.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(20);</string>
+        <string>dlgTeleportTo(151, 12, 0, SE);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1981</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1970</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>"Whoa! Easy there! Do you know what the penalty is for attacking a guard? I'm giving you one last chance to walk away."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>1968</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Fuck it." Leave.</text>
+          <def_link>1981</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1971</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>"Um, yes, of course. The money." The guard hurriedly grabs your coin bag from the thief and gives it to you.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(20);</string>
+        <string>rwd_quest(TRN_Shanty_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1981</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1972</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>"Assassin? You? Hah!" laughs the guard. "Prove it."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[critical strike]Prove it.</text>
+          <def_link>1975</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1974</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Fuck it." Leave.</text>
+          <def_link>1981</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1973</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[success]His laughter dies in his throat as your blade opens it up. The guard looks at you with disbelief and falls down dead.
+
+The thief looks at the body with the same disbelief, then pulls out your coin bag from his sash and gives it to you with a shaking hand.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAnimation(anim_death_forward01, 0.95, 2087);</string>
+        <string>dlgKillCharacter(2087);</string>
+        <string>dlgChangeMoney(20);</string>
+        <string>rwd_reputation(TRN_Shanty_01);</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>rwd_quest(TRN_Shanty_01);</string>
+        <string>aod.tsq_shanty_killedGuard = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>sfxPlayOnce(csSuccessMetal01);</string>
+        <string>aod.tsq_shanty_finished = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1983</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1974</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[failure]Your attack lacks precision and rings off the guard's armor.
+
+"Assassin, my ass," says the guard calmly, drawing his sword. The thief shrugs and joins him, pulling out a dagger.</npc_text>
+      <onLoadScripts>
+        <string>sfxPlayOnce(csMissSwingMetal01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>1968</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1975</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>"Well, fuck, enlighten me," says the guard.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"The name's &lt;charname&gt;. Rings any bells?"</text>
+          <def_link>1978</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(bodycount) &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1979</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1977</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[failure]"Yeah, I've heard about you." He turns to the thief and says, "Offed a few men and thinks it's something. I tell ya, you can find all kinda crazy in this town."
+
+"Kindly fuck off now. You're disturbing the peace."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>1968</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Fuck it." Leave.</text>
+          <def_link>1981</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1978</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[success]"Really? I thought you'd be taller."
+
+"Give me the money, you idiot," yells the guard at the thief, grabbing the coin bag and giving it to you.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(20);</string>
+        <string>rwd_quest(TRN_Shanty_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1981</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1979</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>"You steal from your own, you idiot?" yells the guard at the thief, backhanding him across the face. He grabs your coin bag from the dazed thief and gives it to you.
+
+"It happens, alright? Now, beat it."</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(20);</string>
+        <string>rwd_quest(TRN_Shanty_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1981</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1980</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Kebab Seller</speaker_name>
+      <npc_text>"You didn't take your kebab. Here," he gives you a stick with several small pieces of sizzling meat skewered on it. The meat is chewy but flavourful. It doesn't make you feel any stronger though. Not that you really expected it, of course.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(140, 11, 0, S);</string>
+        <string>dlgTeleportTo(140, 9, 0, N, 2085);</string>
+        <string>useCameraBookmark(TSQ_Shanty_cam_01);</string>
+        <string>dlgDeleteCharacter(2086);</string>
+        <string>aod.tsq_shanty_kebab = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1965</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1981</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Kebab Seller</speaker_name>
+      <npc_text>"You didn't take your kebab. Here," he gives you a stick with several small pieces of sizzling meat skewered on it. The meat is chewy but flavourful. It doesn't make you feel any stronger though. Not that you really expected it, of course.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(140, 11, 0, S);</string>
+        <string>dlgTeleportTo(140, 9, 0, N, 2085);</string>
+        <string>useCameraBookmark(TSQ_Shanty_cam_01);</string>
+        <string>dlgDeleteCharacter(2086);</string>
+        <string>aod.tsq_shanty_kebab = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1965</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1982</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Kebab Seller</speaker_name>
+      <npc_text>"I mind my own business," he says apologetically.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Give me a kebab." Throw him a coin.</text>
+          <def_link>1955</def_link>
+          <checkOnAppear>aod.tsq_shanty_thief == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1965</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1984</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

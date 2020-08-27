@@ -1,0 +1,565 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_neros_met</string>
+    </conditions>
+    <links>
+      <int>19</int>
+    </links>
+    <dlg_name>NPC_Neros_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Neros</speaker_name>
+      <npc_text>“What do you want?” asks Neros, a skinny man with a scarred face.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Quest_Package_01, 5250);</string>
+        <string>aod.npc_neros_met = true;</string>
+        <string>dlgTeleportToMarker(TM_QST_Package_Neros_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I have a package for you. You owe me 3,000 imperials.”</text>
+          <def_link>1</def_link>
+          <checkOnAppear>aod.quest_package_accepted</checkOnAppear>
+          <checksOnClick>
+            <string>aod.per == 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>15</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[traps success]"I was asked to deliver this package to you. Lucky for you, I know a bomb when I see it."</text>
+          <def_link>13</def_link>
+          <checkOnAppear>aod.traps &gt;= 5 &amp;&amp; aod.quest_package_accepted</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>rwd_civil(Traps);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[traps success]“I have a package for you. You owe me 3,000 imperials.” Back away from him slowly.</text>
+          <def_link>20</def_link>
+          <checkOnAppear>aod.traps &gt;= 5 &amp;&amp; aod.quest_package_accepted</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>rwd_civil(Traps);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Nothing." Leave.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Neros</speaker_name>
+      <npc_text>"You again? What do you want now?"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_QST_Package_Neros_01);</string>
+        <string>dlgTeleportToMarker(TM_Quest_Package_01, 5250);</string>
+        <string>aod.npc_neros_met = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I have a package for you. You owe me 3,000 imperials.”</text>
+          <def_link>1</def_link>
+          <checkOnAppear>aod.quest_package_accepted &amp;&amp; aod.quest_package_gaveToNeros == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.per == 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>15</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[traps success]"I was asked to deliver this package to you. Lucky for you, I know a bomb when I see it."</text>
+          <def_link>13</def_link>
+          <checkOnAppear>aod.traps &gt;= 5 &amp;&amp; aod.quest_package_accepted &amp;&amp; aod.quest_package_gaveToNeros == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>rwd_civil(Traps);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[traps success]“I have a package for you. You owe me 3,000 imperials.” Back away from him slowly.</text>
+          <def_link>20</def_link>
+          <checkOnAppear>aod.traps &gt;= 5 &amp;&amp; aod.quest_package_accepted &amp;&amp; aod.quest_package_gaveToNeros == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>rwd_civil(Traps);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Nothing." Leave.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You out of your fucking mind?” asks Neros, taking the package and starting to unwrap it. As he pulls on some cord, the package explodes with a loud bang, splattering the room with blood and throwing you across the room.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_QST_Package_Neros_04);</string>
+        <string>dlgSetAnimation(anim_death_forward00, 0.95, 5251);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgKillCharacter(5251);</string>
+        <string>dlgSetAnimation(anim_knockdown_back, 0.95);</string>
+        <string>changeHP(-15);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.pc_member_assassins</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You out of your fucking mind?” asks Neros, taking the package and starting to unwrap it. When Neros pulls on some cord, you fling yourself away just as the package explodes with a loud bang, splattering the room with blood.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_QST_Package_Neros_04);</string>
+        <string>dlgSetAnimation(anim_death_forward00, 0.95, 5251);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgKillCharacter(5251);</string>
+        <string>dlgSetAnimation(anim_knockdown_back, 0.95);</string>
+        <string>changeHP(-5);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.pc_member_assassins</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[perception: precognition]“You out of your fucking mind?” asks Neros, taking the package and starting to unwrap it.
+
+Suddenly, you see everything - clearly confused Neros, the youth’s strange request, the package - in a very different light. When Neros pulls on some cord, you fling yourself away just as the package explodes with a loud bang, splattering the room with blood.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_QST_Package_Neros_04);</string>
+        <string>dlgSetAnimation(anim_death_forward00, 0.95, 5251);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgKillCharacter(5251);</string>
+        <string>dlgSetAnimation(anim_knockdown_back, 0.95);</string>
+        <string>changeHP(-5);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.pc_member_assassins</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Neros</speaker_name>
+      <npc_text>"A bomb? What the fuck are you talking about? Who gave it to you?"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_package_gaveToNeros = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Describe the youth.</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Neros</speaker_name>
+      <npc_text>"The Calvus kid? Motherfucker! Wait till I get my hands on him. Thanks for the warning. Here's something for your trouble."</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(MDN_Package_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[trading]"That's all your life worth you? A hundred coins?"</text>
+          <def_link>18</def_link>
+          <checkOnAppear>aod.trading &gt;= 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Thug</speaker_name>
+      <npc_text>Neros’ men rush inside. They look at what’s left of their boss, then at you.
+
+“&lt;He/She&gt;’s a Boatman,” says one of them suddenly. “I saw &lt;him/her&gt; at the guild. They sent a fucking assassin! Kill &lt;him/her&gt;!”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_QST_Package_Neros_02);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>createByCharMarker("CM_Neros_Guard_01");</string>
+        <string>createByCharMarker("CM_Neros_Guard_02");</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>dlgSetCombatAnimation(5253);</string>
+        <string>dlgSetCombatAnimation(5254);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>addParty(NerosGuards, 0);</string>
+        <string>addCharToParty(5253, NerosGuards, fighter);</string>
+        <string>addCharToParty(5254, NerosGuards, fighter);</string>
+        <string>addEnemyToParty(1, NerosGuards);</string>
+        <string>aod.jnl_package_phase4 = true;</string>
+        <string>aod.fight_nerosGuards = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Thug</speaker_name>
+      <npc_text>Neros’ men rush inside. They look at what’s left of their boss, then at you.
+
+“What the fuck happened here?” demands one of them.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_QST_Package_Neros_02);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>createByCharMarker("CM_Neros_Guard_01");</string>
+        <string>createByCharMarker("CM_Neros_Guard_02");</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>dlgSetCombatAnimation(5253);</string>
+        <string>dlgSetCombatAnimation(5254);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I don’t know. Someone asked me to deliver a package.”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Thug</speaker_name>
+      <npc_text>“You do that often?” asks the thug. “Deliver packages for other people?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You won't believe me if I tell you.”</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]“Do you really think that I’d try to blow up your boss while standing next to him? I’ve got played, but if you help me find the fucker, I promise that he’ll pay for this.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[thief]“Ask me another fucking question and I’ll rip out your tongue. One word to Levir and you’re all dead men.”</text>
+          <def_link>10</def_link>
+          <checkOnAppear>aod.pc_member_thieves</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Thug</speaker_name>
+      <npc_text>[failure]“You don’t really think you’re walking out of here, do you?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Thug</speaker_name>
+      <npc_text>“You’re right. I won’t. Kill &lt;him/her&gt;!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Thug</speaker_name>
+      <npc_text>[success]“Alright. Let’s say, I believe you. What do you need?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Did your boss buy a gambling debt recently?”</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Thug</speaker_name>
+      <npc_text>“We didn’t know, I swear. Are you going to find the fucker who did it?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Did your boss buy a gambling debt recently?”</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Thug</speaker_name>
+      <npc_text>“He buys them all the time. It’s good business.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Describe the youth.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Thug</speaker_name>
+      <npc_text>“The Calvus kid? I thought we had him. He nearly shat himself, when we had a little chat. Who knew, eh?
+
+“You can find him in the Palace District.”</npc_text>
+      <onLoadScripts>
+        <string>VCO_CalvusHome.setActive(true);</string>
+        <string>aod.jnl_package_phase2 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - finished quest</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>aod.jnl_package_phase3 = true;</string>
+        <string>rwd_quest(MDN_Package_01);</string>
+        <string>dlgTeleportToMarker(TM_QST_Package_Neros_03);</string>
+        <string>DOOR_Neros_01.close();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - outside</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgTeleportToMarker(TM_QST_Package_Neros_03);</string>
+        <string>setRtsCam();</string>
+        <string>DOOR_Neros_01.close();</string>
+        <string>DOOR_Neros_01.lock();</string>
+        <string>dlgDeleteCharacter(5253);</string>
+        <string>dlgDeleteCharacter(5254);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Neros</speaker_name>
+      <npc_text>"How do I know you weren't in on it? You brought me this fucking package, said that it's a bomb, and now you're asking for a reward. You think I'm stupid or something? Get outta here."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Teach him some manners.</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - manners</npc_text>
+      <onLoadScripts>
+        <string>createByCharMarker("CM_Neros_Guard_01");</string>
+        <string>createByCharMarker("CM_Neros_Guard_02");</string>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>addParty(NerosGuards, 0);</string>
+        <string>addCharToParty(5251, NerosGuards, fighter);</string>
+        <string>addCharToParty(5253, NerosGuards, fighter);</string>
+        <string>addCharToParty(5254, NerosGuards, fighter);</string>
+        <string>addEnemyToParty(1, NerosGuards);</string>
+        <string>aod.fight_nerosGuardsManners = true;</string>
+        <string>aod.jnl_package_phase2a = true;</string>
+        <string>VCO_CalvusHome.setActive(true);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>21</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

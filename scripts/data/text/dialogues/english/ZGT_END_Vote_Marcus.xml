@@ -1,0 +1,158 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>ZGT_END_Vote_Marcus</dlg_name>
+    <def_link>9365</def_link>
+    <def_speaker_name>Marcus</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“We have nothing to talk about,” says the Second Acolyte, his eyes betraying his nervousness.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_Marcus);</string>
+        <string>dlgCam(335, 45, 6, 9021);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Funny, that’s what Meru said before the Gods struck him dead.”</text>
+          <def_link>9367</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9365</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’m a pious man,” protests the Second Acolyte, suddenly pale.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“So was Meru. The Gods demand our obedience in all things, big and small. That’s how they test our devotion. You see, anyone can claim to be a believer and say the right things. Not everyone can do the right thing.”</text>
+          <def_link>9369</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9368</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9367</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“I can!” proclaims the Second Acolyte, taking the bait.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Then cast aside your ambitions and open your heart to the divine. Don’t you see what the Gods have in store for you? Are you that blind?”</text>
+          <def_link>9371</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9368</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“No, I see it. I see it very clearly,” says the Second Acolyte, blinking his near-sighted eyes.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][charisma]“It’s glorious, isn’t it, brother? Meru was tasked with preparing the world for the Gods’ return. I’m tasked with forging a mighty kingdom and conquering the Gods’ enemies, but it is your destiny that is the noblest and most wondrous of all, for this kingdom is for you!”</text>
+          <def_link>9369</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.cha) &gt;= 18</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9370</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9371</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“For me?” gasps the Second Acolyte, his doubts long forgotten now.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Who else? Of course, if you’d rather take my place and lead the faithful in battles, sleeping in tents and bathing in blood, I’d gladly switch places...”</text>
+          <def_link>9372</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9370</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“But that’s not what the Gods want,” the Second Acolyte says quickly, displaying a rare insight into theological matters. “We must follow the divine plan, &lt;brother/sister&gt;. You have my vote.”</npc_text>
+      <onLoadScripts>
+        <string>aod.end_chosen_votes += 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9380</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9372</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“You're wasting my time,” snaps the Second Acolyte. “I waited for years for this opportunity!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9380</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9369</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>assignDialogue("", 9021);</string>
+        <string>dlgCam(0, 45, 10);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9380</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

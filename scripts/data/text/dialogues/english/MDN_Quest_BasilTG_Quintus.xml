@@ -1,0 +1,204 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.fight_basilTG_quintus</string>
+    </conditions>
+    <links>
+      <int>9</int>
+    </links>
+    <dlg_name>MDN_Quest_BasilTG_Quintus</dlg_name>
+    <def_link>5</def_link>
+    <def_speaker_name>Quintus</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You see Quintus arguing with two thugs over payments. It doesn’t look like he has the money, but the thugs are willing to take a piece of his business instead. Quintus doesn’t seem to be very eager to take partners.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(170, 45, 8, 4745);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“How’s business, Quintus? Any problems?”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Thug</speaker_name>
+      <npc_text>Quintus closes his eyes for a moment, clearly wishing that he wasn’t here. When he opens them, discovering that he’s still standing right where he was, he sighs and says, “I’m paying the Forty Thieves now.”
+
+The thugs look at you, confused. “Who the fuck are you?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“A silent partner. Quintus runs the business, I deal with problems. You know how it is. Different people – different opinions on who owes whom what. Personally, I find that people become a lot more agreeable when they are dead.”</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Thug</speaker_name>
+      <npc_text>“Is that right?” says one of the thugs, putting his hand on his scimitar.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Let’s find out.” Attack.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addEnemyToParty(1, QuintusTG);</string>
+        <string>narratePhrase("No longer the center of the thugs' attention, Quintus dives into one of the compartments, leaving the battlefield to you.");</string>
+        <string>DOOR_Quintus_01.close();</string>
+        <string>DOOR_Quintus_01.lock();</string>
+        <string>dlgTeleportToMarker(TM_Quest_Quintus_01, 4745);</string>
+        <string>aod.fight_basilTG_quintus = 1;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Thank you, &lt;charname&gt;,” Quintus says gratefully. “If there is anything I can do for you –”</npc_text>
+      <onLoadScripts>
+        <string>aod.fight_basilTG_quintus = 0;</string>
+        <string>dlgTeleportToMarker(TM_NPC_Quintus_01, 4745);</string>
+        <string>dlgTeleportToMarker(TM_PC_Quintus_01);</string>
+        <string>DOOR_Quintus_01.unlock();</string>
+        <string>aod.jnl_basil_TG = 2;</string>
+        <string>dlgCam(170, 45, 6, 4745);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“You can pay me for my trouble.”</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Don't mention it.” Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Of course, of course. I was just about to,” says Quintus, giving you a small bag.</npc_text>
+      <onLoadScripts>
+        <string>changeMoney(400);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Are you holding out on me, Quintus?”</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Thanks.” Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“But if I start paying you what I used to pay the Forty Thieves, what’s the difference? At least when I paid the guild, I had nothing else to worry about it. Now they can come and kill me at any time just to make a point.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I didn’t come to you, Quintus, did I? You came to me and now it’s too late to back out. So stop whining and pay me.”</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Alright, don't worry about it.” Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Here is your money,” says Quintus, keeping his head down and avoiding looking you in the eyes.</npc_text>
+      <onLoadScripts>
+        <string>changeMoney(400);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’ll be in touch.” Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

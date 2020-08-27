@@ -1,0 +1,692 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_hd2_fightDecius</string>
+      <string>aod.quest_hd2_envoySohrabSuccess</string>
+    </conditions>
+    <links>
+      <int>1812</int>
+      <int>1795</int>
+    </links>
+    <dlg_name>Quest_HD2_03</dlg_name>
+    <def_link>1782</def_link>
+    <def_speaker_name>Carrinas</def_speaker_name>
+    <def_portrait>Carrinas</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Commander Marcus Carrinas arrives on time. His men enter first and take positions near the wall, blocking the holes. You need to get rid of them or you'll never make it out of there alive.
+
+"Where are the documents?" asks Carrinas impatiently as he walks in.</npc_text>
+      <onLoadScripts>
+        <string>delCharTag(TeronKeyNPC, 1120);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Where is my money?"</text>
+          <def_link>1784</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_hd2_askedLess</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1783</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1782</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Carrinas throws you a small leather bag. "The documents? Don't make me ask you again."</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(1000);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Provoke the guards to get them away from the wall.</text>
+          <def_link>1785</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Tell your men to wait outside."</text>
+          <def_link>1788</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1783</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Don't fuck with me, &lt;charname&gt;. Where are the documents?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Provoke the guards to get them away from the wall.</text>
+          <def_link>1785</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Tell your men to wait outside."</text>
+          <def_link>1788</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1784</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>You pull out a weapon, the guards step forward and almost immediately two bolts hit Carrinas in the back, throwing him across the room.</npc_text>
+      <onLoadScripts>
+        <string>delCharTag(TeronKeyNPC, 1120);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>dlgSetAnimation(anim_death_back00, 0.99, 1120);</string>
+        <string>dlgTeleportTo(62, 148, 1, SW, 1475);</string>
+        <string>dlgTeleportTo(60, 148, 1, SE, 1480);</string>
+        <string>dlgSetCombatAnimation(1475);</string>
+        <string>dlgSetCombatAnimation(1480);</string>
+        <string>dlgKillCharacter(1120);</string>
+        <string>aod.jnl_hd2 = 4;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>1786</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1785</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>The door flies open and within seconds the room is filled with the Imperial Guards. They tend to Carrinas, but the Boatmen know their business well and the Commander is beyond help now. They play the blame game, arguing who failed to protect Carrinas: those who were with him or those who failed to secure the area. The squabble doesn't last long. The Guards split in several groups and go after the assassins, leaving Decius to keep an eye on you and the Commander's body.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(60, 147, 1, SE, 1475);</string>
+        <string>dlgTeleportTo(61, 146, 1, NW);</string>
+        <string>dlgDeleteCharacter(1480);</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>if(aod.quest_hd2_envoySohrabSuccess) {dlgSetAmbientAnimation(2055); dlgTeleportTo(60, 146, 1, N, 2055);}</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>1787</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_hd2_envoySohrabSuccess</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1806</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1786</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>Decius</speaker_name>
+      <npc_text>"I know you had something to do with it," says Decius in a tone that tells you what's coming next. He pulls out a sword and tests the blade's sharpness, seemingly lost in this process. "You did, didn't you?"
+
+He continues before you can say anything. "They will have questions. You'll lie just like you did today. Antidas will get involved. Is that what you hope for? I wouldn't, if I was you. I don't care why you did it. I just want to see you pay for it. I want to see a bit of fucking justice in this otherwise shitty life. Is it too much to ask for?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>1807</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1787</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>Decius</speaker_name>
+      <npc_text>"I know you had something to do with it," says Decius in a tone that tells you what's coming next. He pulls out a sword and tests the blade's sharpness, seemingly lost in this process. "You did, didn't you?"
+
+He continues before you can say anything. "They will have questions. You'll lie just like you did today. Antidas will get involved. Is that what you hope for? I wouldn't, if I were you. I don't care why you did it, I just want to see you pay for it. I want to see a bit of fucking justice in this otherwise shitty life. Is it too much to ask for?"
+
+He looks at Sohrab. "You best be on your way, master Sohrab."</npc_text>
+      <onLoadScripts>
+        <string>dlgRotateToChar(2055, 1475);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>1807</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1806</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Why?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"What if – hypothetically speaking, of course – Caer-Tor is less than thrilled with your plans?" Show him that letter you got from Cado. "What if –"</text>
+          <def_link>1789</def_link>
+          <checkOnAppear>dlgOwnsItem(2140)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]"Because I saw good Decius talking to Dellar, which makes me wonder about Severus. Is there anyone loyal left in your camp? So, if it's all the same to you, can we please talk privately? Surely, you don't think that you need more men to handle me?"</text>
+          <def_link>1791</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1792</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1788</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Enough," snaps Carrinas. "Wait outside, don't let anyone in," he tells the guards and takes a step toward you. The guards move away from the wall and almost immediately two bolts hit Carrinas in the back, throwing him across the room.</npc_text>
+      <onLoadScripts>
+        <string>delCharTag(TeronKeyNPC, 1120);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportTo(61, 147, 1, S, 1120);</string>
+        <string>dlgSetAnimation(anim_death_back00, 0.99, 1120);</string>
+        <string>dlgTeleportTo(62, 148, 1, SW, 1475);</string>
+        <string>dlgTeleportTo(60, 148, 1, SE, 1480);</string>
+        <string>dlgSetCombatAnimation(1475);</string>
+        <string>dlgSetCombatAnimation(1480);</string>
+        <string>dlgSetAnimation(anim_dodge_back, 0.1);</string>
+        <string>dlgKillCharacter(1120);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>1790</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1789</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>The door flies open and within seconds the room is filled with Imperial Guards. They tend to Carrinas, but the Boatmen know their business well and the Commander is beyond help now. They play the blame game, arguing who failed to protect Carrinas: those who were with him or those who failed to secure the area. The squabble doesn't last long. The Guards split in several groups and go after the assassins, leaving a man to guard the Commander's body. You're free to go.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(60, 147, 1, SE, 1480);</string>
+        <string>dlgTeleportTo(61, 146, 1, NW);</string>
+        <string>dlgDeleteCharacter(1475);</string>
+        <string>dlgSetAmbientAnimation(1480);</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>if(aod.quest_hd2_envoySohrabSuccess) dlgSetAmbientAnimation(2055);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1809</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1790</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"These men are my personal guards. I trust them with my life!"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]"Enemies don't betray you, Commander, only friends do. Your trust is not a badge of honor, but an opportunity, unless you think that their ambitions go no higher than guarding your life."</text>
+          <def_link>1818</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1792</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1791</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"These men are my personal guards. I trust them with my life!"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]"Enemies don't betray you, Commander, only friends do. Your trust is not a badge of honor, but an opportunity, unless you think that their ambitions go no higher than guarding your life."</text>
+          <def_link>1802</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1799</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[etiquette]"We respect your right to decide whom to trust, and we certainly hope that you can grant Lord Gaelius the same courtesy. He doesn't wish for his words to be repeated and he doesn't know your men as well as you do."</text>
+          <def_link>1802</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.etiquette &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1799</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1801</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Carrinas' jaw muscles tighten. "What did you talk to Dellar about, Decius?" he says quietly.
+
+"Commander!" says Decius in disbelief, "I'd never betray you. You *know* that. Why would I –"</npc_text>
+      <onLoadScripts>
+        <string>dlgRotateToChar(1475, 1120);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Because you're an ambitious man, Decius, who wants to command, not to shadow Carrinas. Believe me, I understand."</text>
+          <def_link>1789</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1792</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"No," says Carrinas with sudden firmness. "You want me to trust you, a &lt;man/woman&gt; working for my enemies, and doubt brothers in arms."
+
+He laughs. It's not a good laugh. "Kill this lying sack of shit."
+
+The guards step forward and almost immediately two bolts hit Carrinas in the back, throwing him across the room.</npc_text>
+      <onLoadScripts>
+        <string>delCharTag(TeronKeyNPC, 1120);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportTo(61, 147, 1, S, 1120);</string>
+        <string>dlgSetAnimation(anim_death_back00, 0.99, 1120);</string>
+        <string>dlgTeleportTo(62, 148, 1, SW, 1475);</string>
+        <string>dlgTeleportTo(60, 148, 1, SE, 1480);</string>
+        <string>dlgSetCombatAnimation(1475);</string>
+        <string>dlgSetCombatAnimation(1480);</string>
+        <string>dlgSetAnimation(anim_dodge_back, 0.1);</string>
+        <string>dlgKillCharacter(1120);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>1790</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1818</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Commander Marcus Carrinas arrives on time. His men enter first and take positions near the wall, blocking the holes. You need to get rid of them or you'll never make it out of there alive.
+
+"Master Sohrab," says Carrinas as he walks in. "I'm glad to see you again. I hope you will forgive me, if we skip the pleasantries and go straight to business. I was told that you have a proposition for me. So, what can Lord Gaelius do for me and, most importantly, what does he expect in return?"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(61, 147, 1, SW, 1120);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>1798</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_hd1_threatenedSohrab</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1796</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1795</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"&lt;He/She&gt; said &lt;he/she&gt; will chop off my fingers!" shrieks Sohrab suddenly. "&lt;He/She&gt; made me do it."
+
+"Don't worry, master Sohrab," says Carrinas with a smile. "Your fingers are safe with us. As for &lt;master/mistress&gt; &lt;charname&gt;...," he turns to his guards and nods.
+
+The guards step forward and almost immediately two bolts hit Carrinas in the back, throwing him across the room.</npc_text>
+      <onLoadScripts>
+        <string>delCharTag(TeronKeyNPC, 1120);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportTo(61, 147, 1, S, 1120);</string>
+        <string>dlgSetAnimation(anim_death_back00, 0.99, 1120);</string>
+        <string>dlgTeleportTo(62, 148, 1, SW, 1475);</string>
+        <string>dlgTeleportTo(60, 148, 1, SE, 1480);</string>
+        <string>dlgSetCombatAnimation(1475);</string>
+        <string>dlgSetCombatAnimation(1480);</string>
+        <string>dlgSetAnimation(anim_dodge_back, 0.1);</string>
+        <string>dlgSetAnimation(anim_dodge_back, 0.1, 2055);</string>
+        <string>dlgKillCharacter(1120);</string>
+        <string>aod.quest_hd2_sohrabBetrayal = true;</string>
+        <string>aod.jnl_hd2 = 5;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>1786</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1796</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Sohrab</portrait>
+      <speaker_name>Sohrab</speaker_name>
+      <npc_text>"Lord Gaelius, um, offers..." Sohrab looks at you desperately.</npc_text>
+      <onLoadScripts>
+        <string>dlgRotateToChar(1, 1120);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]"Master Sohrab isn't comfortable discussing these very private matters in the presence of others. I think it would be best if your guards waited outside."</text>
+          <def_link>1801</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1799</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1798</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Alright," says Carrinas. "Wait outside, don't let anyone in," he tells the guards and takes a step toward you. The guards move away from the wall and almost immediately two bolts hit Carrinas in the back, throwing him across the room.</npc_text>
+      <onLoadScripts>
+        <string>delCharTag(TeronKeyNPC, 1120);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportTo(61, 147, 1, S, 1120);</string>
+        <string>dlgSetAnimation(anim_death_back00, 0.99, 1120);</string>
+        <string>dlgTeleportTo(62, 148, 1, SW, 1475);</string>
+        <string>dlgTeleportTo(60, 148, 1, SE, 1480);</string>
+        <string>dlgSetCombatAnimation(1475);</string>
+        <string>dlgSetCombatAnimation(1480);</string>
+        <string>dlgSetAnimation(anim_dodge_back, 0.1);</string>
+        <string>dlgSetAnimation(anim_dodge_back, 0.1, 2055);</string>
+        <string>dlgKillCharacter(1120);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>1790</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1799</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"State your business, master Sohrab," says Carrinas ignoring you. His tone is that of a man losing his patience.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Provoke the guards to get them away from the wall.</text>
+          <def_link>1786</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1802</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Decius</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgSetAttitude(1475, 1, -10);</string>
+        <string>aod.quest_hd2_fightDecius = true;</string>
+        <string>setRtsCam();</string>
+        <string>if(aod.quest_hd2_envoySohrabSuccess) dlgTeleportTo(7, 236, 0, E, 2055);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1807</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"Well done, &lt;charname&gt;. The old man is very impressed. He asked me to give you a gift and some spending money before you leave." He gives you an iron praetorian armor and a leather bag.
+
+"Any idiot can put a few pieces of metal together and call it armor, but it takes a master to do it right, to give you the protection you need without slowing you down. I hope it will serve you well, &lt;charname&gt;."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>dlgTeleportTo(170, 187, 0, N);</string>
+        <string>dlgSetZoom(8);</string>
+        <string>useCameraBookmark(NPC_Dellar_Cam_01);</string>
+        <string>TeronDayTime();</string>
+        <string>AG2_Level.hideObjects();</string>
+        <string>aod.jnl_hd2 = 3;</string>
+        <string>dlgAddItemlist(quest_hd2_reward01);</string>
+        <string>rwd_quest(HD2_01);</string>
+        <string>rwd_reputation(HD2_05);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"So, what now?"</text>
+          <def_link>1810</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1809</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"The old man said you know what you have to do. Good luck, &lt;charname&gt;. You're going to need it."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1811</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1810</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - questline - walk around Teron</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.ending_town_02 = true;</string>
+        <string>setAchievement("ACH_TERON_HD");</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportToMarker(TM_Map_Palace);</string>
+        <string>TRN_daratanFort();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.global_trn_crisisActive = 0;</string>
+        <string>apmsPlayMusic(custom, 13, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1811</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>There's nothing left for you to do here.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(Quest_HD2_01);</string>
+        <string>dlgTeleportTo(61, 146, 1, N);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave the inn.</text>
+          <def_link>1815</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_hd2_sohrabBetrayal</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1817</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Look around some more.</text>
+          <def_link>1813</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1812</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - look around</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1813</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"You've outdone yourself this time, &lt;charname&gt;. You have all the grace of a fucking elephant in a porcelain shop. Our House is implicated in the death of the Imperial Guards Commander. The Imperial Guards want your head because you killed Decius, so I'd avoid them like a plague, if I were you."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>dlgTeleportTo(170, 187, 0, N);</string>
+        <string>dlgSetZoom(8);</string>
+        <string>useCameraBookmark(NPC_Dellar_Cam_01);</string>
+        <string>TeronDayTime();</string>
+        <string>AG2_Level.hideObjects();</string>
+        <string>rwd_reputation(HD2_03);</string>
+        <string>rwd_quest(HD2_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"So, what now?"</text>
+          <def_link>1810</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1815</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"Are you that fucking stupid, &lt;charname&gt;? You threaten to chop a man's fingers off and then put your life in his hands? Your life! You put this House's future in his hands! You're lucky that Carrinas ended up dead, otherwise I would have killed you myself.
+
+"The old man is done with you, &lt;charname&gt;. You cause more problems than you solve."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>dlgTeleportTo(170, 187, 0, N);</string>
+        <string>dlgSetZoom(8);</string>
+        <string>useCameraBookmark(NPC_Dellar_Cam_01);</string>
+        <string>TeronDayTime();</string>
+        <string>AG2_Level.hideObjects();</string>
+        <string>rwd_quest(HD2_02);</string>
+        <string>rwd_reputation(HD2_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1811</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1817</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

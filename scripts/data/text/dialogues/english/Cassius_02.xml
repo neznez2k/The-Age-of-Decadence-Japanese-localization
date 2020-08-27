@@ -1,0 +1,882 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_cassius_cheat</string>
+      <string>aod.npc_cassius_scroll</string>
+      <string>aod.npc_cassius_inFavor</string>
+      <string>aod.npc_cassius_threatened &amp;&amp; dlgGetRep(daratan) &gt;= 10</string>
+      <string>aod.npc_cassius_threatened &amp;&amp; dlgGetRep(daratan) &lt; 10</string>
+      <string>aod.npc_cassius_hovel &amp;&amp; dlgGetRep(daratan) &gt;= 5</string>
+      <string>aod.npc_cassius_hovel &amp;&amp; dlgGetRep(daratan) &lt; 5</string>
+    </conditions>
+    <links>
+      <int>134</int>
+      <int>100</int>
+      <int>120</int>
+      <int>136</int>
+      <int>116</int>
+      <int>136</int>
+      <int>116</int>
+    </links>
+    <dlg_name>Cassius_02</dlg_name>
+    <def_link>120</def_link>
+    <def_speaker_name>Cassius</def_speaker_name>
+    <def_portrait>Cassius</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"&lt;Master/Mistress&gt; &lt;charname&gt;," says Cassius bowing his head slightly. "How may I be of assistance?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I want to ask you some questions."</text>
+          <def_link>132</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Nothing, master Cassius." Leave.</text>
+          <def_link>102</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>120</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"&lt;Master/Mistress&gt; &lt;charname&gt;," says Cassius coldly. "You will find that I'm a man of my word. Your *reward* for not killing me is in this bag. These are all the ingots I could acquire on such a short notice, but I trust they will be sufficient.
+
+"If you are skilled enough to work with different aleiers, you should have no problems forging anything you need. The rest will come with practice."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_cassius_scroll = false;</string>
+        <string>dlgAddItemlist(TRN_CassiusReward);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I have some questions."</text>
+          <def_link>101</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>100</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Questions? A bit too late to seek my wisdom now, don't you think? My debt to you is paid and our business is concluded."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'm working for Lord Antidas, same as you."</text>
+          <def_link>133</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(daratan) &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>137</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>101</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Are you here to threaten me again, &lt;Master/Mistress&gt; &lt;charname&gt;?"</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_cassius_cheat = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I had some questions."</text>
+          <def_link>135</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>134</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Questions? A bit too late to seek my wisdom now, don't you think?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'm working for Lord Antidas, same as you."</text>
+          <def_link>133</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(daratan) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>137</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>135</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Same as me? I'm his Lordship's *personal* loremaster!" states Cassius arrogantly. "Come back when you're a &lt;man/woman&gt; of note. Then I'll answer your questions."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>102</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>133</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Yes, you appear to be in favour of House Daratan. Your name is all I hear. How may I be of assistance?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I want to ask you some questions."</text>
+          <def_link>132</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>137</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Come back when you're a &lt;man/woman&gt; of note. Then I'll answer your questions."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>102</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>116</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Ah, &lt;master/mistress&gt; &lt;charname&gt;... You appear to be in favour lately. Your name is all I hear. If I recall correctly, you had some questions for me?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Yes, I do."</text>
+          <def_link>132</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>136</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What do you want to know, &lt;charname&gt;?"</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_cassius_inFavor = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I want to learn more about the war with the Qantari and the summoned 'allies'."</text>
+          <def_link>103</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What do you think this is?" Show him the prospector's amulet.</text>
+          <def_link>114</def_link>
+          <checkOnAppear>dlgGetItemsCount(901) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What do you think this is?" Show him the "Jellyfish" artefact.</text>
+          <def_link>117</def_link>
+          <checkOnAppear>dlgGetItemsCount(2160) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Have you heard of Ibn Hadad al-Sarabi?"</text>
+          <def_link>121</def_link>
+          <checkOnAppear>aod.npc_storyteller_hadad</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"A storyteller told me that he saw an interesting drawing in Lord Gaelius' library. It showed the Magi and the Qantari overseeing the construction of some kind of town."</text>
+          <def_link>131</def_link>
+          <checkOnAppear>aod.npc_storyteller_drawing &amp;&amp; aod.npc_cassius_drawing == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I saw an old orrery the other day. According to it, there was a full planetary alignment just before the war. Do you know anything about it?”</text>
+          <def_link>138</def_link>
+          <checkOnAppear>aod.quest_TeronThessalos_alignment &amp;&amp; aod.quest_TeronThessalos_talkCassius == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Is there anything you can teach me?"</text>
+          <def_link>141</def_link>
+          <checkOnAppear>aod.npc_cassius_gotTraining == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"About that drawing... Ever heard of a place called Al-Akia?"</text>
+          <def_link>142</def_link>
+          <checkOnAppear>aod.npc_cassius_drawing &amp;&amp; aod.quest_grainTruth_status == 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Nothing, master Cassius." Leave.</text>
+          <def_link>102</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>132</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Al-Akia? I can't say I have although..."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_grainTruth_status = 4;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Although?"</text>
+          <def_link>143</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>102</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>142</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Cassius reaches inside the sleeve of his robes and produces a scroll.
+
+"There came a great disturbance in the town of Lakia by the Nazvian Sea, with confusion and flight. [...]And all the people fled from the ships of the kingdom of Q'antaar, which had crossed the sea, inflicting every kind of punishment upon the people of Lakia. [...]The Imperial army, being blessed and varying in design, fell upon the enemy. Slain were the men, their ships set aflame, the women taken into bondage...
+
+"A single year did come to pass, and again a great number of Q'antaari ships crossed the sea. The ships carried an army larger than had ever been witnessed, and never had the Words of Power afforded such benefit to a coming invasion."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Keep reading.</text>
+          <def_link>144</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>102</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>143</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"War did come, and like the army who brought it, the magnitude humbled all that came before. Men and towns burned alike and even the seas stirred with the fury of war. The sun became as night, and the moon ceased to shine. The war continued with the passing of many years and although countless thousands had died, [...]The Q'antaari Servants of Power called upon the Gods of Chaos, who came forth like an eruption consuming the armies and fleets of men[...]
+
+"Then the High Mages summoned [...]beings, which have no king and deign superiority to all that came before them. Moreover, immortality deifies them within the mortal domain, exalting them far beyond kings and champions. They did then condemn the Gods of Chaos and their forces, casting them into the abyss, and breaking their malefic hold upon the land. The cities lay in ruin, the rivers did no longer flow, the mountains had tumbled, and the dead did strew the whole land. The Wrath of Power brought down both the wicked kingdom of Q'antaar and the glorious [...]Empire.
+
+"The Gods returned to their kingless realm, for everyone must go to the place from which he comes. The Empire has fallen..."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"So you think that Al-Akia and this town of Lakia are the same place?"</text>
+          <def_link>145</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>102</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>144</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Most likely," nods Cassius.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Can I ask you something else?"</text>
+          <def_link>132</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>102</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>145</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Actually, I wrote a tractate on the Qantari's allies twelve years ago, when Lord Meru was looking for a new loremaster. The allies, as you call them, had a number of different names, which reflects how little we know about them. Most texts we have now have been written long after the events in question. They reflect beliefs of those who wrote them.
+
+"Some wanted to believe in higher powers and thought our allies to be long forgotten gods, finally returning to aid their children in the hour of need. Others believed – quite arrogantly, I might add - that the allies were kings of the otherworldly realms, peers of the Emperor.
+
+"Even the names are spelled in so many different ways that it's almost impossible to tell what the original names were. The one we call Thor-Agoth, for example, was originally referred to as Tor-Athagoth and Thoragoth. Even the very nature of the High Lords is debatable.
+
+"Many accounts describe the four Qantari Gods as terrifying beast-like creatures. For example, there are several different accounts of the battle of Estios all claiming the same thing: Ull-Xerath rose from the deep and attacked the legions of General Kesion, slaughtering over a thousand soldiers before the magi forced him to retreat."</npc_text>
+      <onLoadScripts>
+        <string>addLore(6);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"A single being killed over a thousand soldiers?"</text>
+          <def_link>104</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>103</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Have you ever read Ammanas?" Cassius smiles and starts reciting:
+
+"In the battle of Zaghoss Lord Hezbenus sent forth his five beasts in advance of the phalanx. Neither the Galatians themselves nor their horses had previously seen such beasts, and they were so confused by the unexpected sight, that they turned and fled in a disorderly route before they were within bowshot. The beasts ploughed through the remaining Galatians legionaries with a devastating effect.
+
+"The slowly marching beasts, frightful with their wrinkled bodies, were a hideous spectacle, dreadful beyond every form of horror, as I have often declared."
+
+"Do you know what these hideous beasts were? Elephants. So, take what you read with a grain of salt."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"What happened to the gods?"</text>
+          <def_link>105</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>104</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"It's a good question. It is said that the Qantari's gods were "cast into the abyss" and that our gods have departed shortly after. Myths and legends rarely give you the answers you seek, &lt;charname&gt;."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Can I ask you something else?"</text>
+          <def_link>132</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>102</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>105</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I've never seen anything like it before. It's definitely an artefact, but as to what it does, I'm not entirely sure."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Can I ask you something else?"</text>
+          <def_link>132</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>102</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>114</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>if(aod.global_Teron_IGTookOver &amp;&amp; aod.npc_cassius_daratan) dlgTeleportToMarker(TM_DLG_Feng_01);</string>
+        <string>if(aod.global_Teron_IGTookOver == false || aod.npc_cassius_daratan == false) dlgTeleportToMarker(TM_PalaceEnd_PC_01);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>102</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"How interesting... It appears that the crystal is storing power, maybe even generating or converting it. This artefact reminds me of the power tubes, which begs the question - what does it do that the tubes can't? Unless the power it stores is somehow unique and can be recognized by the receiving device, which would make it, well, a key.
+
+"If you ever find the door that this key opens, do me a favor and let me know. I'd love to take a look."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Can I ask you something else?"</text>
+          <def_link>132</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>102</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>117</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"The First of the Magi," nods Cassius, "and sadly, the last of the Magi as the Order fell when the Empire did. Truly, a tragic loss. Empires come and go, but it pains me to think of the lost knowledge."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Do you believe the stories then?"</text>
+          <def_link>122</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>121</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"If not through stories, how are we to look into the past? Each story has that proverbial grain of truth that makes searching worthwhile. A true loremaster will peel a story like an onion, until he finds that seed of truth.
+
+"Do you have time for a story, &lt;charname&gt;?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Yes."</text>
+          <def_link>123</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Not right now. Can I ask you something else?"</text>
+          <def_link>132</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"No." Leave.</text>
+          <def_link>102</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>122</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"It is said that Ibn Hadad gained much of his wisdom meditating, his mind traveling where his body was unable to. One day, Ibn Hadad meditated with a certain purpose in mind – he was seeking a way to gain power over demons, a way to have them delivered into his hands so that he might question them.
+
+"Eventually the sacred geometry he sought was revealed to him. Ibn Hadad ordered his brothers to prepare the ground and draw a large seal and inscribe the words of power within it. When they completed their work, a man appeared in the circle of the seal."</npc_text>
+      <onLoadScripts>
+        <string>addLore(7);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>124</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>123</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Who are you?" asked Ibn Hadad, but the man shot him a glance of anger and rage, and said: "But how shall I answer thee, for thou art a son of man, whereas I was born of the stars, so that no word of our heavenly kind addressed to the earth-born can be overweening.
+
+"So ask me not many things, for thy kingdom after a little time is to be disrupted, and thy glory is but for a season. And short will be thy tyranny over us, and then we shall have free range over mankind, so as that they shall revere us as if we were gods, not knowing, men that they are, the words of power over us."
+
+"Ibn Hadad dismissed his brothers and addressed the demon as follows: "By the seal that binds your power, which is infinitely above mine, because you know what is going on in the higher as well as in the lower spheres, I order you to reveal all that you know to me."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>125</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>124</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"The demon smiled and said: "It is perhaps not to be wondered at that a magus as wise and mighty on earth as thou art, who hast acquired almost all the knowledge that it is possible for a mortal man to possess, should long for knowledge of the supernatural from the region of the unseen; but I must advise thee to desist from this ambition: it will not be of any use or pleasure to thee."
+
+"No," insisted Ibn Hadad, "nothing will induce me to abstain from increasing my knowledge, for it is that, and not silver or gold, that I have set my heart upon."
+
+"If my advice is to no purpose," said the demon, "I will proceed to open for thee the hidden secrets, but it will be necessary to release me from the chain thou hast put round me when I was made captive."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>126</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>125</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Ibn Hadad did as suggested and removed the invisible chains binding the demon. Scarcely had he done so, when a thunder clap passed through the air, which made the whole place vibrate. At the same moment the demon seemed to have grown into a terrible giant, his eyes looked like two great, gleaming fires and his arms extended to enormous proportions – looking as though they would catch hold of the extreme ends of the earth.
+
+"Ibn Hadad trembled at the sight, his heart seemed to stand still from terror, and he was about to call for help; but his whole body was paralysed, his tongue refused its duty, and in the midst of this he was seized by the demon by arm and neck and thrown into the air, and he became senseless."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"What happened next?"</text>
+          <def_link>127</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>126</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"This is all I know. Very few of the older tales have been well preserved. Many are nothing but fragments, bit and pieces without beginning and end. That's where storytellers step in and fill in the blanks with what their audience wants to hear.
+
+"I've heard several retellings of this story. In one, Ibn Hadad had a magic ring with which he defeated the demon. In another, the demon took all his powers and Ibn Hadad went on a quest to gain them back and learned the demon's name, which was Baalzurath, to gain power over him. In truth, I'm not even sure there was a demon, but those are the old tales for you. They dance around the truth, like a moth around a flame, never losing the sight of it, but never approaching too close."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"So, what do you think this tale is about?"</text>
+          <def_link>128</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>127</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Without more stories to cross-examine it with, it's almost impossible to tell. Maybe it's a cautionary tale where the demon represents the danger of power that a mere man wasn't meant to understand. Maybe it's a distorted account of a rather mundane event. If you noticed, the conversation started between two men, so maybe it was an argument between two Magi where some magic was used."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Why did Ibn Hadad call him a demon then?"</text>
+          <def_link>129</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>128</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Why indeed. Perhaps the man was his rival and those who had written the original account weren't kind to him. I've certainly seen worse epithets applied to men."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Could there be any connection to the Qantari "demons"?"</text>
+          <def_link>130</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>129</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I don't see how. This story seems to take place before the war, before the demons even showed up. Besides, as far as I know, the Magi fought the demons; they didn't converse with them."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"A storyteller told me that he saw an interesting drawing in Lord Gaelius' library. It showed the Magi and the Qantari overseeing the construction of some kind of town."</text>
+          <def_link>131</def_link>
+          <checkOnAppear>aod.npc_storyteller_drawing &amp;&amp; aod.npc_cassius_drawing == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Can I ask you something else?"</text>
+          <def_link>132</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>102</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>130</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Now that's interesting. Perhaps, you should take a look at this drawing yourself if you get an opportunity. I've never heard of such a thing, but I admit that we don't know much about the war or what led to it.
+
+"What we know today is little more than a fairy tale. The enemy came and brought horrible monsters with them. We fought so bravely that divine allies came to our aid to help us in our hour of need. The enemy was vanquished and the divine allies left.
+
+"There is obviously more to it. Why did the Qantari attack us? What did they want? Our land? I find it hard to believe. Unfortunately, we have more questions than answers in this matter, but if you find anything else, I'd like to see it."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_cassius_drawing = true;</string>
+        <string>if(aod.quest_grainTruth_status &lt; 3) {aod.quest_grainTruth_status = 1; addQuest(GrainOfTruth);}</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Can I ask you something else?"</text>
+          <def_link>132</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>102</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>131</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“An event of that magnitude? An event that takes place once every three hundred million years? One can’t consider himself well-read if one hasn’t devoted an appropriate amount of time to familiarize oneself with it.
+
+“It was a time of hope and speculation. What does it mean for mankind? What does it bring? And most importantly, how may we benefit ourselves and have we done everything we could to do so?”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_TeronThessalos_talkCassius = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What do you mean?”</text>
+          <def_link>139</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>138</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You have to wonder how many times lightning caused fire before we learned what to do with it. Fortunately, lightning strikes are fairly common, full alignments – not so much. The Empire wanted to ensure that all possibilities would be considered, that they would be ready for anything.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Did anything come out of it?”</text>
+          <def_link>140</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>139</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“If it did, they kept it under wraps. An arcane breakthrough isn’t something you scream about from the rooftops.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Can I ask you something else?"</text>
+          <def_link>132</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>102</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>140</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Why, certainly. I'm not sure where to start as you aren't what I would call a scholar. Well, let's try the basics..."
+
+Cassius subjects you to a remarkably painful lesson on metallurgy, history, and good manners. Fortunately, you manage to pick up a thing or two before your mind goes into self-preservation mode.</npc_text>
+      <onLoadScripts>
+        <string>rwd_training(Cassius);</string>
+        <string>aod.npc_cassius_gotTraining = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Can I ask you something else?"</text>
+          <def_link>132</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>102</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>141</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

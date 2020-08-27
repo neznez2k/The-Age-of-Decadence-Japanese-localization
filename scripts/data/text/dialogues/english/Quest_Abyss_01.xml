@@ -1,0 +1,1323 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Quest_Abyss_01</dlg_name>
+    <def_link>4420</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Venture into the Abyss?</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Crater_TopNoFog_01);</string>
+        <string>dlgCam(195, 45, 10);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Yes.</text>
+          <def_link>4433</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_abyss_enteredChamber</string>
+            <string>aod.quest_abyss_reachedBottom</string>
+            <string>aod.quest_abyss_reached6thStop</string>
+            <string>aod.quest_abyss_reached5thStop</string>
+            <string>aod.quest_abyss_reached3rdStop</string>
+            <string>aod.quest_abyss_reached2ndStop</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4509</int>
+            <int>4470</int>
+            <int>4465</int>
+            <int>4508</int>
+            <int>4442</int>
+            <int>4434</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>No.</text>
+          <def_link>4436</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4420</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The fog envelopes you, so thick you can hardly see to place one foot in front of the other, and with it an absolute hush leaving only the sound of your own breath. After your first couple steps, you begin to wonder how anyone can find their way at all, and as if responding to your thoughts the fog begins to recede, allowing you to see at least some of your surroundings.
+
+The ground is as clean swept as a moneylender’s sidewalk. Nothing here, not so much as a pebble, has been left unclaimed by fortune hunters.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Crater_FirstStop);</string>
+        <string>theSun.brightness = 0;</string>
+        <string>theSun.apply();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(CAM_1stStop_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go forward.</text>
+          <def_link>4434</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4433</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The path is easy enough to follow and you keep walking until you are able to discern the mounds alongside you are bones, not skeletons as such, but piles of disconnected human bones in such numbers you cannot even hazard an estimate of the number of dead. A sudden gust of wind dislodges a skull from its resting place and it rolls free on the ground. When the skull reaches a spot a few feet to your left, it stops as if caught and held by an unseen hand, then shatters, sending fragments of bone flying in all directions.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Crater_SecondStop);</string>
+        <string>useCameraBookmark(CAM_SecondStop);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>thelevelinfo.fogdensity = 0.0012;</string>
+        <string>thelevelinfo.apply();</string>
+        <string>aod.quest_abyss_reached2ndStop = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[perception]Examine the area.</text>
+          <def_link>4435</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per &gt;= 6 &amp;&amp; aod.quest_abyss_trueName</string>
+            <string>aod.per &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4437</int>
+            <int>4452</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4434</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You see nothing of interest.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>It is plainly too dangerous to continue. You have to go back.</text>
+          <def_link>4436</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4435</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - top</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgTeleportToMarker(TM_Crater_Top);</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>thelevelinfo.fogdensity = "0.0025";</string>
+        <string>thelevelinfo.apply();</string>
+        <string>theSun.brightness = 1.6;</string>
+        <string>theSun.apply();</string>
+        <string>dlgCam(195, 45, 15);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4436</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Knowing what to look for, it doesn’t take you long to find it. It’s a big, broken stone block protruding from the ground to your right, with a barely visible letter ‘M’ scratched on its surface. You examine the area carefully, but fail to find any other letters.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>What could it possibly mean?</text>
+          <def_link>4439</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lore &lt; 5 &amp;&amp; aod.quest_abyss_trueName</string>
+            <string>aod.lore &gt;= 5 &amp;&amp; aod.quest_abyss_trueName</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4440</int>
+            <int>4441</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4437</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]The only object of interest is a big, broken stone block protruding from the ground to your right. A barely visible letter ‘M’ is scratched on its surface. You examine the area carefully but fail to find any other letters.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>What could it possibly mean?</text>
+          <def_link>4439</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lore &lt; 5 &amp;&amp; aod.quest_abyss_trueName</string>
+            <string>aod.lore &gt;= 5 &amp;&amp; aod.quest_abyss_trueName</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4440</int>
+            <int>4441</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4452</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You have absolutely no idea.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go in that direction anyway.</text>
+          <def_link>4442</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4439</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[lore failure]Feng told you that Einar’s name was the key, but neither Einar nor Enarion have an ‘M’ in them. Curiouser and curiouser.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go in that direction.</text>
+          <def_link>4442</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4440</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[lore success]Feng told you that Einar’s name was the key, but neither Einar nor Enarion have an ‘M’ in them. However, Einar didn’t write his name in the Imperial language, he wrote it in a language few men would understand. For some reason, the Scanian letter ‘E’ is written on its side, like an Imperial ‘M’. The next letter you need to look for is a proper ‘I’. ‘N’ looks like a cross, ‘A’ like ‘F’ with diagonal bars, and ‘R’ like ‘R’.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_abyss_knowLetters = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go in that direction.</text>
+          <def_link>4442</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4441</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You follow the path for a while and as you stumble on a broken column, half buried in the rubble, lightning strikes a few feet away, the instant clap of thunder deafening you. Blinking furiously you stagger back as a white fireball appears, hovering in the air before you. For a moment the entire area is flooded with eerie light, then it explodes.
+
+Deafened, blinded, burned, you manage to get up.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Crater_ThirdStop);</string>
+        <string>thelevelinfo.fogdensity = 0.0006;</string>
+        <string>thelevelinfo.apply();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(CAM_3rdStop_01);</string>
+        <string>aod.quest_abyss_reached3rdStop = true;</string>
+        <string>theSun.brightness = 0;</string>
+        <string>theSun.apply();</string>
+        <string>dlgChangeCharacterHP(-5);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[perception]Examine the area.</text>
+          <def_link>4443</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per &gt;= 6 &amp;&amp; aod.int &gt;= 7 &amp;&amp; aod.quest_abyss_knowLetters</string>
+            <string>aod.per &gt;= 7 &amp;&amp; aod.int &gt;= 7 &amp;&amp; aod.quest_abyss_knowLetters == false</string>
+            <string>aod.per &gt;= 7 &amp;&amp; aod.int &lt; 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4444</int>
+            <int>4445</int>
+            <int>4512</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4442</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You find no clues or signs of any kind.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Keep walking.</text>
+          <def_link>4446</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Turn back.</text>
+          <def_link>4436</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4443</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[perception success][intelligence failure]Your eagle eye didn't miss anything but your bird brain couldn't add the pieces together.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Keep walking.</text>
+          <def_link>4446</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Turn back.</text>
+          <def_link>4436</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4512</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[intelligence success]After a few minutes of fruitless searching, you realize that the ‘I’ you’re looking for is the half-buried column.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go in the direction the column is pointing.</text>
+          <def_link>4448</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4444</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[intelligence success]After a careful search, you’re convinced that the only object of interest is the half-buried column.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go in the direction the column is pointing.</text>
+          <def_link>4451</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4445</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You’ve only taken a few more steps when lightning strikes again, this time conjuring several glowing balls of energy. They float in the air around you, darting at random and crackling with sparks. Slowly, you begin to back away, but at your first step one of the balls lurches toward you.
+
+The explosion blows a fist sized hole in your side and you fall down, dead.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>The Abyss claims another victim.</text>
+          <def_link>4447</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4446</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4447</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You continue to pick your way through the rubble until your ears prick up at an unpleasant groaning sound ahead. You come upon an erect cross of heavy timber. A man is hanging from the structure on four great black nails, and he is still alive, moaning loudly. Well, you were looking for a cross, although this isn’t exactly what you expected.
+
+“Kill me,” begs the man. Looking down at a sudden weight pulling on your hand, you realize you are holding a sword.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Crater_FourthStop);</string>
+        <string>crucifixAlive.isRenderEnabled = true;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(CAM_4thStop_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill him.</text>
+          <def_link>4449</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Free him.</text>
+          <def_link>4450</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4448</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You continue to pick your way through the rubble until your ears prick up at an unpleasant groaning sound ahead. You come upon an erect cross of heavy timber. A man is hanging from the structure on four great black nails, and he is still alive, moaning loudly.
+
+“Kill me,” begs the man. Looking down at a sudden weight pulling on your hand, you realize you are holding a sword.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Crater_FourthStop);</string>
+        <string>crucifixAlive.isRenderEnabled = true;</string>
+        <string>useCameraBookmark(CAM_4thStop_01);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill him.</text>
+          <def_link>4449</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Free him.</text>
+          <def_link>4450</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4451</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You lunge forward in a killing thrust and the man falls free, as if magically released from his bonds. Slowly he gets up, takes a few unsteady steps, and walks off into the fog. Suddenly dizzy, you fall to your knees.
+
+Your eyes close for a moment, and when you open them you are lying under the cross. Where the man had been, a skeleton now hangs. It is yellow with age and has hung undisturbed for a very long time.</npc_text>
+      <onLoadScripts>
+        <string>crucifixAlive.isRenderEnabled = false;</string>
+        <string>crucifixDead.isRenderEnabled = true;</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go in the direction the cross is pointing.</text>
+          <def_link>4453</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4449</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You manage to wrestle the man down from the cross and pour him some water. Before your eyes his wounds vanish and his color returns. The man rises, stronger and taller than you had supposed. You could have sworn that he was your height and now he towers over you like a giant. Angrily, he lifts you by the throat and flings you away like a child discarding a doll. You roll in the dirt and dust and bits of stone, clutching your smashed trachea. If you had known it to be your dying breath, you would at least have filled your lungs...
+
+When you open your eyes, you find yourself lying under the cross. Where the man had been, a skeleton now hangs. It is yellow with age and has hung undisturbed for a very long time.</npc_text>
+      <onLoadScripts>
+        <string>crucifixAlive.isRenderEnabled = false;</string>
+        <string>crucifixDead.isRenderEnabled = true;</string>
+        <string>dlgChangeCharacterHP(-5);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go in the direction the cross is pointing.</text>
+          <def_link>4453</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4450</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Traveller</speaker_name>
+      <npc_text>You walk on until a grim shadow resolves into a cairn of skulls among ruins. As you come closer, you find your fears fading away, to be replaced by a deep, encompassing calm.
+
+“I envy them,” a voice whispers to you from behind.
+
+You spin. Although you can see a hundred meters behind you along the path, a man has somehow appeared only a few feet away. His manner is easygoing and relaxed, as if you were two travellers exchanging a few friendly words before continuing on your way.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Crater_FifthStop);</string>
+        <string>createByCharMarker("CM_AbyssManSpecter");</string>
+        <string>useCameraBookmark(CAM_5thStop_01);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_abyss_reached5thStop = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Why?”</text>
+          <def_link>4454</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4453</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Traveller</speaker_name>
+      <npc_text>“They have found peace, or peace has found them. Either way... What about you? What do *you* seek?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Power.”</text>
+          <def_link>4455</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Riches.”</text>
+          <def_link>4471</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Knowledge.”</text>
+          <def_link>4457</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Fame and glory.”</text>
+          <def_link>4473</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m not seeking anything. I’m just passing through.”</text>
+          <def_link>4474</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4454</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Traveller</speaker_name>
+      <npc_text>“And what are you going to do with it when you find it?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>...</text>
+          <def_link>4474</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4455</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Traveller</speaker_name>
+      <npc_text>“You won’t find them here, so you might as well turn back.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>...</text>
+          <def_link>4474</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4471</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Traveller</speaker_name>
+      <npc_text>“The Magi were obsessed with knowledge. Where are they now?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Are you suggesting men should better live in ignorance?”</text>
+          <def_link>4472</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4457</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Traveller</speaker_name>
+      <npc_text>“Men should know their limits, but the best scholars never do.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>...</text>
+          <def_link>4474</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4472</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Traveller</speaker_name>
+      <npc_text>“I sought fame and glory myself once, long ago. It cost me everything...”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>...</text>
+          <def_link>4474</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4473</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Without warning the ground rumbles and begins to shake. The forbidding monument collapses, sending skulls skittering in every direction and throwing you to the ground. When you get up, the man is gone.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgDeleteCharacter(4912);</string>
+        <string>skullPile.isRenderEnabled = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[perception]Examine the area.</text>
+          <def_link>4459</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per &gt;= 7 &amp;&amp; aod.quest_abyss_knowLetters</string>
+            <string>aod.per &gt;= 8 &amp;&amp; aod.quest_abyss_knowLetters == false</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4464</int>
+            <int>4463</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4474</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You return to the area where you saw a pile of skulls and a mysterious man. Both are gone.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>theSun.brightness = 0; theSun.apply();</string>
+        <string>thelevelinfo.fogdensity = 0.0025; thelevelinfo.apply();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[perception]Examine the area.</text>
+          <def_link>4459</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per &gt;= 7 &amp;&amp; aod.quest_abyss_knowLetters</string>
+            <string>aod.per &gt;= 8 &amp;&amp; aod.quest_abyss_knowLetters == false</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4464</int>
+            <int>4463</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4508</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You find no clues or signs of any kind.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Keep walking.</text>
+          <def_link>4462</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Turn back.</text>
+          <def_link>4436</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4459</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You take a few hesitant steps, unsure of the direction, and nothing happens. With growing confidence, you walk on until the breeze at your back instantly swells into a powerful wind, lifting you off the ground. Weightless, you hang in the air, struggling against the slowly increasing pressure. Fortunately, your vital organs give up first, and you are released from this world. Your body turns this way and that in the air, twisted and broken by unseen forces, until when the last drop of blood is spent it crashes to the ground.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>The Abyss claims another victim.</text>
+          <def_link>4447</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4462</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Eventually, you find the next mark. It looks like a crude drawing of a tree with two branches, both on one side. You have no idea what it means, but it’s the only object of interest.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go in the direction the sign is pointing.</text>
+          <def_link>4465</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4463</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]It doesn’t take you long to find the next symbol, carved into the surface of a stone block. Only one letter to go.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go in the direction the sign is pointing.</text>
+          <def_link>4465</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4464</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Although the path is perfectly level, your breathing becomes strained and the air thick and heavy in your lungs. Weak and disoriented, head pounding, you’re forced to stop. You vaguely recall that you’re searching for some kind of mark, but you can’t remember why. When you study your surroundings, you find that you can’t focus on anything. The details of the landscape swirl around you, blending together in a confused blur.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Crater_SixthStop);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(CAM_6thStop_01);</string>
+        <string>thelevelinfo.fogdensity = 0.0025;</string>
+        <string>thelevelinfo.apply();</string>
+        <string>aod.quest_abyss_reached6thStop = true;</string>
+        <string>theSun.brightness = 0; theSun.apply();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[constitution][strength]Gather your resolve and push on.</text>
+          <def_link>4466</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.con + aod.str) &gt;= 14 &amp;&amp; aod.con &gt;= 6 &amp;&amp; aod.str &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4467</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Use the breathing apparatus.</text>
+          <def_link>4507</def_link>
+          <checkOnAppear>dlgOwnsItem(902) || dlgOwnsItem(904) || dlgOwnsItem(909)</checkOnAppear>
+          <checksOnClick>
+            <string>dlgOwnsItem(909)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4513</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[lore success]Use the prospector's amulet.</text>
+          <def_link>4507</def_link>
+          <checkOnAppear>dlgOwnsItem(901) &amp;&amp; aod.lore &gt;= 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgRemoveItem(901, 1);</string>
+            <string>dlgAddItem(902, 1);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[lore success]Use the strange mask.</text>
+          <def_link>4507</def_link>
+          <checkOnAppear>dlgOwnsItem(903) &amp;&amp; aod.lore &gt;= 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgRemoveItem(903, 1);</string>
+            <string>dlgAddItem(904, 1);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Go back while you can.</text>
+          <def_link>4436</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4465</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Praying that the magic is still there, you put on the mask and take a deep breath. Nothing.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[constitution][strength]Gather your resolve and push on.</text>
+          <def_link>4466</def_link>
+          <checkOnAppear>aod.quest_abyss_failedStrConCheck == false</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.con + aod.str) &gt;= 14 &amp;&amp; aod.con &gt;= 6 &amp;&amp; aod.str &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4467</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Use a power tube to charge the mask.</text>
+          <def_link>4468</def_link>
+          <checkOnAppear>dlgOwnsItem(1600)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Go back while you can.</text>
+          <def_link>4436</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4507</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You sit down to catch your breath, but the longer you wait, the worse it gets. You feel as though your very life is draining away, but are unable to form an opinion on this seemingly unimportant fact. You are bleeding from your nose and ears, and your head feels as if it is being split open from within.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeCharacterHP(-5);</string>
+        <string>aod.quest_abyss_failedStrConCheck = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Use the breathing apparatus.</text>
+          <def_link>4507</def_link>
+          <checkOnAppear>dlgOwnsItem(902) || dlgOwnsItem(904) || dlgOwnsItem(909)</checkOnAppear>
+          <checksOnClick>
+            <string>dlgOwnsItem(909)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4513</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[lore success]Use the prospector's amulet.</text>
+          <def_link>4507</def_link>
+          <checkOnAppear>dlgOwnsItem(901) &amp;&amp; aod.lore &gt;= 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgRemoveItem(901, 1);</string>
+            <string>dlgAddItem(902, 1);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[lore success]Use the strange mask.</text>
+          <def_link>4507</def_link>
+          <checkOnAppear>dlgOwnsItem(903) &amp;&amp; aod.lore &gt;= 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgRemoveItem(903, 1);</string>
+            <string>dlgAddItem(904, 1);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Go back while you can.</text>
+          <def_link>4436</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4466</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You feel like shit, but ignoring the agony you force yourself to go on. Eventually, the pain recedes and it gets a bit easier to breathe. The dizziness and blurred vision stop, and ahead you see the final mark.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMaxHp(-5);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go in the direction it's pointing.</text>
+          <def_link>4470</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4467</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>On the verge of losing consciousness, you grab the precious power tube with shaking fingers and push it into the right slot.
+
+Suddenly, the twin ‘drums’ come to life, whirring and humming. At first, you feel nothing at all, but within a few seconds, the pain goes down and it gets a bit easier to breathe. The dizziness and the swirling stop and you see the last mark.</npc_text>
+      <onLoadScripts>
+        <string>AbyssChargeRespirator();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go in the direction the column is pointing.</text>
+          <def_link>4470</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4468</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>At first, you feel nothing at all, but within a few seconds, the pain goes down and it gets a bit easier to breathe. The dizziness and the swirling stop and you see the last mark.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go in the direction the column is pointing.</text>
+          <def_link>4470</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4513</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>After several more halting steps, the pressure suddenly ceases and the fog melts away.
+
+You have arrived at the bottom of the crater. You aren’t really sure what you expected to find, but discovering a cracked slab of concrete – opus caementicium – does take you by surprise. From the juncture where the concrete disappears into the walls of the crater you can see it was part of a much larger structure, a structure that was hidden deep beneath the city, and must have been the target of the attack.
+
+The crack is large enough for you to squeeze through.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Crater_Bottom);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>thelevelinfo.fogdensity = "0.00025";</string>
+        <string>thelevelinfo.apply();</string>
+        <string>useCameraBookmark(CAM_Bottom_01);</string>
+        <string>aod.quest_abyss_reachedBottom = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>A dark hole in the bottom of the crater? Sign me up!</text>
+          <def_link>4475</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Sounds like a one-way trip. I’d rather go back.</text>
+          <def_link>4436</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4470</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You find yourself in a dark and cramped chamber, a reinforced sub-basement of the building destroyed during the attack. The walls were blackened in the disaster, and the floor is half buried in sand and rubble.
+
+In the middle of the room stands a massive, dented metal cylinder, made from an unfamiliar alloy. When your eyes get used to the darkness, you notice cables snaking out from the tank to four machines, sitting in the four corners of the chamber. Three are still and silent. One appears to be still working.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_InsideChamber_02);</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>thelevelinfo.fogdensity = "0";</string>
+        <string>thelevelinfo.apply();</string>
+        <string>useCameraBookmark(CAM_chamber_01);</string>
+        <string>thesun.ambient = "0.05 0.05 0.05 1";</string>
+        <string>theSun.apply();</string>
+        <string>abyssThunder.stop();</string>
+        <string>setAchievement("ACH_ABYSS");</string>
+        <string>rwd_quest(MDN_Abyss_01);</string>
+        <string>aod.quest_abyss_enteredChamber = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Examine the tank.</text>
+          <def_link>4476</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4475</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Although heavily damaged, the tank is still sealed. There is a console on one side and a small glass aperture on the top. Cleaning away as much as you can of the grime, you take a look inside.
+
+There is a body within, submerged in some murky liquid. Only the face is plainly visible and it isn’t human. The cranium is bulging and distorted, with a too low nasal bridge, deep, elongated eye sockets, a lipless mouth, and over all, dark, leathery skin. You can’t be certain, but there may be gills behind the rudimentary ears.
+
+The eyes themselves are black, opaque, and thankfully empty. If the creature is alive, it doesn’t seem to be aware of your presence.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_InsideChamber_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Who are you?”</text>
+          <def_link>4477</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4476</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The eyes remain vacant, the body as perfectly still as its tomb.
+
+The sudden sound of footsteps makes you spin around, and you flinch away from a painfully bright light. With an effort you maintain your balance, and opening your eyes find yourself standing in the middle of a desert, the sole feature of note being the tall man standing before you. He is dressed in rich robes, and has a black beard and dark, intelligent eyes that study you intently. You glance behind to find nothing but endless desert.
+
+“Are you ready?” asks the man.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>createByCharMarker("CM_Abyss_DesertMan");</string>
+        <string>dlgTeleportToMarker(TM_Vision_Desert);</string>
+        <string>thesun.ambient = "0.34 0.34 0.30 1";</string>
+        <string>theSun.brightness = 1.6;</string>
+        <string>theSun.apply();</string>
+        <string>useCameraBookmark(CAM_desert_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Ready for what?”</text>
+          <def_link>4478</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4477</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Excellent,” nods the man ignoring your question. “The path you’ll have to walk won’t be easy, but I know that you will do well and endure the trials. We wouldn’t have chosen you otherwise.”
+
+Your chest swells with pride you didn’t feel a moment ago, your body moves on its own accord, and you salute. The man nods again, pleased with your reaction.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Who are you?”</text>
+          <def_link>4479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4478</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Soon,” smiles the man. Like a marionette, you feel your strings being pulled by some other entity, making you follow a script you do not understand.
+
+“Your body, strong as it is, will need to be made even stronger to be able to hold the Gift. The wards will have to be tattooed deep into your skin. I know that soldiers aren’t strangers to tattoos, but this one will be different. It will be painful, more pain that you can comprehend.” The man looks straight at you.
+
+“But you *are* a soldier, Galath,” he continues after a pause. “You know better than anyone that there is no gain without pain. And you will have to gain a lot.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Galath?”</text>
+          <def_link>4480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4479</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>In the next instant, you find yourself returned to the grim darkness of the cellar. The creature in the tank shows no more sign of life than before.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_InsideChamber_02);</string>
+        <string>theSun.brightness = 0;</string>
+        <string>thesun.ambient = "0.05 0.05 0.05 1";</string>
+        <string>theSun.apply();</string>
+        <string>useCameraBookmark(CAM_chamber_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Why did you show it to me?”</text>
+          <def_link>4481</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4480</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The light winks out for a moment, leaving complete darkness, and when it returns, you are walking down a hall towards a much larger chamber, the largest you have ever seen. The murmur of conversation stills at your approach and when you enter, the great crowd awaiting you stand in perfect, quiet ranks.
+
+Behind them the walls are covered in pipes and gauges and dials, an unfathomable labyrinth of copper and glass. The device, whatever it is, makes the only sound, a deep and menacing throb you can feel through the soles of your feet.
+
+You are overcome with a childlike awe that is somehow not your own. Alongside another person’s disbelief at being chosen, you wonder ‘Chosen for what?’</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Vision_Chamber_01);</string>
+        <string>useCameraBookmark(CAM_Summoning_01);</string>
+        <string>setWindowImage(alk_chamberIntro);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>4482</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4481</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Again without your will you walk toward the room’s centerpiece – seven sarcophagi arranged in a circle, each standing at an angle of about forty degrees. Without turning, you know that six people walk behind you, six others who were chosen to receive the Gift.
+
+The servants remove the simple robes you have been provided for the ceremony, beneath which you are naked, then help you into one of the sarcophagi. The interior is molded to your body, but unpleasantly cold. They secure your arms and legs, and lower a bizarrely shaped helmet over your head. The lid descends smoothly to enclose you and your mind races in preparation for what is to come.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Vision_Chamber_02);</string>
+        <string>useCameraBookmark(CAM_Summoning_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>4483</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4482</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Once again you find yourself returned to the grim darkness of the cellar. The creature in the tank shows no more sign of life than before.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_InsideChamber_02);</string>
+        <string>useCameraBookmark(CAM_chamber_01);</string>
+        <string>setWindowImage();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What are you?”</text>
+          <def_link>4484</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4483</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Your body floats in a void endless and absolute, a darkness beyond light or hope. Your mind dreams. You have dreamed for a very long time, months, or perhaps years. The dreams are vivid, alien, often terrifying and very real. If not for their outlandish nature, you would not be certain they are dreams at all.
+
+At the end of this eternity, you are awakened. You scream in torment as a vital part of you is torn free and discarded, not from your body, but from your very soul. The agony is unbearable, the wound fatal. You feel the cold of deepest night. You are dying, at least a part of you is. But another part seems to be waking.
+
+You open your eyes and find yourself closely confined. You see the inside of a tank filled with water, a tiny window above. Unfamiliar faces look down at you through the glass. They are smiling to each other, pleased. You reach toward them, but not with your hand. You are reaching with your mind, with pure will, with an instinct that is not your own, that is not, in fact, human.</npc_text>
+      <onLoadScripts>
+        <string>addLore(9);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4511</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4484</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - enter chamber from top</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportToMarker(TM_InsideChamber_01);</string>
+        <string>abyss_enterChamber();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4509</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4511</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

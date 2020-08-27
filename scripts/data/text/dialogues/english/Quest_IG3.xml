@@ -1,0 +1,1751 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_ig3_killed_antidas</string>
+      <string>aod.quest_hd2_joinedIG</string>
+      <string>aod.quest_mg2_joinedIG</string>
+      <string>aod.quest_ag2_joinedIG</string>
+      <string>aod.quest_ig2_noticed</string>
+      <string>aod.quest_ig3_palace</string>
+    </conditions>
+    <links>
+      <int>599</int>
+      <int>623</int>
+      <int>614</int>
+      <int>629</int>
+      <int>566</int>
+      <int>612</int>
+    </links>
+    <dlg_name>Quest_IG3</dlg_name>
+    <def_link>565</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Centurion</speaker_name>
+      <npc_text>"We're almost done. What's left is a little formality. We have to notify Antidas that we've invoked the Charter and taken steps to protect Teron from further attacks. Make sure he understands that these steps won't affect his affairs and that he's free to do whatever it is he normally does. Like I said, it's a formality.
+
+"We have to make it look official and proper, so we'll send six guards with you. For ceremonial purposes."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(224, 56, 0, N, 1130);</string>
+        <string>dlgTeleportTo(224, 57, 0, S);</string>
+        <string>aod.quest_ig3_normal_soldiers = true;</string>
+        <string>useCameraBookmark(quest_ig3_cam_08);</string>
+        <string>apmsStopMusic(2); apmsPlayMusic(custom, 1, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to the Daratan compound.</text>
+          <def_link>612</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>565</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Centurion</speaker_name>
+      <npc_text>"The Commander wants to have a word with you. Wait here."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ig2_noticed = false;</string>
+        <string>dlgTeleportTo(224, 56, 0, N, 1130);</string>
+        <string>dlgTeleportTo(224, 57, 0, S);</string>
+        <string>useCameraBookmark(quest_ig3_cam_08);</string>
+        <string>apmsStopMusic(2); apmsPlayMusic(custom, 1, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait.</text>
+          <def_link>567</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>566</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carrinas</portrait>
+      <speaker_name>Carrinas</speaker_name>
+      <npc_text>"At ease, soldier." Commander Carrinas walks in and gives you a quick nod.
+
+"I've heard good things about you. You know how to use your head and you can hold your own in a fight.
+
+"Here is the situation. House Daratan is a dying House, yet Antidas is clinging to Teron and dragging it down with him. Now, the Charter allows us to step in - temporarily - and defend any and all Imperial property, if they are in direct danger of being attacked, but that's as far as we can go. If we dared to attack a House, we'd have to deal with the combined power of all the Houses, which would only further strengthen House Aurelian.
+
+"However, if House Daratan were to strike at us, violating the Charter and demonstrating Antidas' inability to reason and govern, then it would be an entirely different story. The Charter grants us both the right to defend ourselves and the duty to deal with warmongers to protect other Houses."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(224, 56, 0, N, 1120);</string>
+        <string>dlgTeleportTo(223, 56, 0, NE, 1130);</string>
+        <string>addJournalChar(carrinas);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>568</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>567</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carrinas</portrait>
+      <speaker_name>Carrinas</speaker_name>
+      <npc_text>"Thus, our plan is simple – we'll provoke Antidas into attacking our delegation, which you will lead. Don't worry, I'll give you enough chems to ensure your survival. When Antidas falls, it's over.
+
+"However, if there was a way to avoid the bloodshed... It would strengthen our claim and position. Do what you can, &lt;charname&gt;. I know you won't let me down."</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItemlist(IG3_Supplies);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"The Charter?"</text>
+          <def_link>569</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>568</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carrinas</portrait>
+      <speaker_name>Carrinas</speaker_name>
+      <npc_text>"I won't argue with you that House Daratan is a dying House, so maybe you did the right thing. Now, the Charter allows us to step in – temporarily – and defend any and all Imperial property, if they are in direct danger of being attacked, but that's as far as we can go. If we dared to attack a House, we'd have to deal with the combined power of all the Houses, which would only further strengthen House Aurelian.
+
+"However, if House Daratan were to strike at us, violating the Charter and demonstrating Antidas' inability to reason and govern, then it would be an entirely different story. The Charter grants us both the right to defend ourselves and the duty to deal with warmongers to protect other Houses."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>624</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>623</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carrinas</portrait>
+      <speaker_name>Carrinas</speaker_name>
+      <npc_text>"Thus, our plan is simple – we'll provoke Antidas into attacking our delegation, which you will lead to add insult to injury. Don't worry, I'll give you enough chems to ensure your survival. When Antidas falls, it's over.
+
+"However, if there was a way to avoid the bloodshed... It would strengthen our claim and position and give you a chance to prove yourself to me, Praetor."</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItemlist(IG3_Supplies);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"The Charter?"</text>
+          <def_link>569</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>624</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carrinas</portrait>
+      <speaker_name>Carrinas</speaker_name>
+      <npc_text>"The Noble Houses' scheming and greed had brought down the Empire. Carving the land into lordships was easy. Figuring out what to do with the Imperial army, before it would become a real problem, wasn't. In the end, the Houses had agreed that maintaining a strong army protecting the land and keeping the barbarian hordes at bay was in everyone's best interest. Obviously, such a weapon couldn't be wielded by a single hand, and so the Charter outlining what the army can and cannot do was drafted and signed. The goal was to keep the soldiers well fed, ready, and away from the Houses' domains.
+
+"Over the centuries the Houses' numbers and power dwindled, ours grew. It's time to take the next step."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Why are you doing it?"</text>
+          <def_link>622</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.cha &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>617</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Go to the Daratan compound.</text>
+          <def_link>612</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>569</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>The tower guards take aim, but Dellar gestures and they lower their crossbows. "Lord Antidas has been expecting you."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(170, 180, 0, N);</string>
+        <string>dlgTeleportTo(171, 180, 0, N, 1120);</string>
+        <string>dlgTeleportTo(171, 182, 0, S, 1070);</string>
+        <string>quest_ig3_normal_soldiers();</string>
+        <string>useCameraBookmark(quest_ig3_cam_01);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.ending_faction_IG = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go in.</text>
+          <def_link>613</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_hd2_joinedIG</string>
+            <string>aod.quest_mg2_joinedIG</string>
+            <string>aod.pc_liegemanDaratan</string>
+            <string>aod.quest_ag2_joinedIG</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>626</int>
+            <int>627</int>
+            <int>632</int>
+            <int>631</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>612</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>Antidas</speaker_name>
+      <npc_text>You enter the hall of Antidas, half a dozen Imperial Guards trailing behind you.
+
+Wherever you look you see exotic tapestries and paintings, rare vases, gleaming statues. Ornate pillars run the length of the hall, all the way to the throne itself, where Lord Antidas is sitting in front of his audience, a group of petitioners seeking his aid and favour. Soldiers of the House stand guard, ready to shield Antidas and turn the hall into a slaughterhouse at the first sign of trouble.
+
+The petitioners look at you and your men with a mixture of fear and curiosity, waiting for Antidas to give the order. Dellar steps forward and puts his hand on the pommel of his sword. "Let the traitor speak," says Antidas.
+
+"You swore an oath, &lt;charname&gt;. Gave me your word... Well, we all see its value now. What does your new master want? Speak and begone!"</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(169, 230, 0, SE, 1070);</string>
+        <string>dlgTeleportTo(167, 227, 0, E, 1400);</string>
+        <string>dlgTeleportTo(173, 227, 0, W, 1401);</string>
+        <string>dlgTeleportTo(167, 223, 0, NE, 1390);</string>
+        <string>dlgTeleportTo(173, 223, 0, NW, 1391);</string>
+        <string>dlgCreateCharacter("Daratan Captain", 1880, 1880, 171, 230, 0, S);</string>
+        <string>dlgCreateCharacter("Daratan Spearman", 1881, 1881, 168, 229, 0, SE);</string>
+        <string>dlgCreateCharacter("Daratan Spearman", 1882, 1882, 172, 229, 0, SW);</string>
+        <string>useCameraBookmark(quest_ig3_cam_04);</string>
+        <string>dlgTeleportTo(170, 227, 0, N);</string>
+        <string>addParty(IG3Daratan, 0);</string>
+        <string>addCharToParty(1060, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1070, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1880, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1400, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1401, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1390, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1391, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1881, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1882, IG3Daratan, fighter);</string>
+        <string>dlgSetZoom(15);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Provoke Antidas.</text>
+          <def_link>571</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"My Lord. I'm sure you're aware of the situation..."</text>
+          <def_link>573</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>632</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>Antidas</speaker_name>
+      <npc_text>You enter the hall of Antidas, a half dozen Imperial Guards trailing behind you.
+
+Wherever you look, you see exotic tapestries and paintings, rare vases, gleaming statues. Ornate pillars run the length of the hall, all the way to the throne itself, where Lord Antidas is sitting in front of his audience, a group of petitioners seeking his aid and favour. Soldiers of the House stand guard, ready to shield Antidas and turn the hall into a slaughterhouse at the first sign of trouble.
+
+The petitioners look at you and your men with a mixture of fear and curiosity, waiting for Antidas to give the order. Dellar steps forward and puts his hand on the pommel of his sword. "Let &lt;him/her&gt; speak," says Antidas.
+
+"I was told that all Boatmen were dead, yet here you stand before me. Considering that you don't stand alone," he gestures at the Imperial Guards, "you're the reason why Carrinas is still breathing, why your brethren are dead, and why my town is being attacked even as we speak. So, what does your new master want? Speak and begone!"</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(169, 230, 0, SE, 1070);</string>
+        <string>dlgTeleportTo(167, 227, 0, E, 1400);</string>
+        <string>dlgTeleportTo(173, 227, 0, W, 1401);</string>
+        <string>dlgTeleportTo(167, 223, 0, NE, 1390);</string>
+        <string>dlgTeleportTo(173, 223, 0, NW, 1391);</string>
+        <string>dlgCreateCharacter("Daratan Captain", 1880, 1880, 171, 230, 0, S);</string>
+        <string>dlgCreateCharacter("Daratan Spearman", 1881, 1881, 168, 229, 0, SE);</string>
+        <string>dlgCreateCharacter("Daratan Spearman", 1882, 1882, 172, 229, 0, SW);</string>
+        <string>useCameraBookmark(quest_ig3_cam_04);</string>
+        <string>dlgTeleportTo(170, 227, 0, N);</string>
+        <string>addParty(IG3Daratan, 0);</string>
+        <string>addCharToParty(1060, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1070, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1880, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1400, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1401, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1390, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1391, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1881, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1882, IG3Daratan, fighter);</string>
+        <string>dlgSetZoom(15);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Provoke Antidas.</text>
+          <def_link>571</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"My Lord. I'm sure you're aware of the situation..."</text>
+          <def_link>573</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>631</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>Antidas</speaker_name>
+      <npc_text>You enter the hall of Antidas, a half dozen Imperial Guards trailing behind you.
+
+Wherever you look, you see exotic tapestries and paintings, rare vases, gleaming statues. Ornate pillars run the length of the hall, all the way to the throne itself, where Lord Antidas is sitting in front of his audience, a group of petitioners seeking his aid and favour. Soldiers of the House stand guard, ready to shield Antidas and turn the hall into a slaughterhouse at the first sign of trouble.
+
+The petitioners look at you and your men with a mixture of fear and curiosity, waiting for Antidas to give the order. Dellar steps forward and puts his hand on the pommel of his sword. "Let &lt;him/her&gt; speak," says Antidas.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(169, 230, 0, SE, 1070);</string>
+        <string>dlgTeleportTo(167, 227, 0, E, 1400);</string>
+        <string>dlgTeleportTo(173, 227, 0, W, 1401);</string>
+        <string>dlgTeleportTo(167, 223, 0, NE, 1390);</string>
+        <string>dlgTeleportTo(173, 223, 0, NW, 1391);</string>
+        <string>dlgCreateCharacter("Daratan Captain", 1880, 1880, 171, 230, 0, S);</string>
+        <string>dlgCreateCharacter("Daratan Spearman", 1881, 1881, 168, 229, 0, SE);</string>
+        <string>dlgCreateCharacter("Daratan Spearman", 1882, 1882, 172, 229, 0, SW);</string>
+        <string>useCameraBookmark(quest_ig3_cam_04);</string>
+        <string>dlgTeleportTo(170, 227, 0, N);</string>
+        <string>addParty(IG3Daratan, 0);</string>
+        <string>addCharToParty(1060, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1070, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1880, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1400, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1401, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1390, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1391, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1881, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1882, IG3Daratan, fighter);</string>
+        <string>dlgSetZoom(15);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Provoke Antidas.</text>
+          <def_link>571</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"My Lord. I'm sure you're aware of the situation..."</text>
+          <def_link>573</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>613</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>Antidas</speaker_name>
+      <npc_text>You enter the hall of Antidas, a half dozen Imperial Guards trailing behind you.
+
+Wherever you look, you see exotic tapestries and paintings, rare vases, gleaming statues. Ornate pillars run the length of the hall, all the way to the throne itself, where Lord Antidas is sitting in front of his audience, a group of petitioners seeking his aid and favour. Soldiers of the House stand guard, ready to shield Antidas and turn the hall into a slaughterhouse at the first sign of trouble.
+
+The petitioners look at you and your men with a mixture of fear and curiosity, waiting for Antidas to give the order. Dellar steps forward and puts his hand on the pommel of his sword. "Let the traitor speak," says Antidas.
+
+"You were one of my praetors, &lt;charname&gt;. You were trusted, yet now you stand with the enemy that attacks my town as we speak. Was my bread not to your liking?"</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(169, 230, 0, SE, 1070);</string>
+        <string>dlgTeleportTo(167, 227, 0, E, 1400);</string>
+        <string>dlgTeleportTo(173, 227, 0, W, 1401);</string>
+        <string>dlgTeleportTo(167, 223, 0, NE, 1390);</string>
+        <string>dlgTeleportTo(173, 223, 0, NW, 1391);</string>
+        <string>dlgCreateCharacter("Daratan Captain", 1880, 1880, 171, 230, 0, S);</string>
+        <string>dlgCreateCharacter("Daratan Spearman", 1881, 1881, 168, 229, 0, SE);</string>
+        <string>dlgCreateCharacter("Daratan Spearman", 1882, 1882, 172, 229, 0, SW);</string>
+        <string>useCameraBookmark(quest_ig3_cam_04);</string>
+        <string>dlgTeleportTo(170, 227, 0, N);</string>
+        <string>addParty(IG3Daratan, 0);</string>
+        <string>addCharToParty(1060, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1070, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1880, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1400, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1401, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1390, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1391, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1881, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1882, IG3Daratan, fighter);</string>
+        <string>dlgSetZoom(15);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Provoke Antidas.</text>
+          <def_link>571</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"My Lord. I'm sure you're aware of the situation..."</text>
+          <def_link>573</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>626</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>Antidas</speaker_name>
+      <npc_text>You enter the hall of Antidas, a half dozen Imperial Guards trailing behind you.
+
+Wherever you look, you see exotic tapestries and paintings, rare vases, gleaming statues. Ornate pillars run the length of the hall, all the way to the throne itself, where Lord Antidas is sitting in front of his audience, a group of petitioners seeking his aid and favour. Soldiers of the House stand guard, ready to shield Antidas and turn the hall into a slaughterhouse at the first sign of trouble.
+
+The petitioners look at you and your men with a mixture of fear and curiosity, waiting for Antidas to give the order. Dellar steps forward and puts his hand on the pommel of his sword. "Let &lt;him/her&gt; speak," says Antidas.
+
+"I see that you brought me the evidence you've promised me, &lt;charname&gt;. Did you bring these men or did they bring you? Explain yourself."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(169, 230, 0, SE, 1070);</string>
+        <string>dlgTeleportTo(167, 227, 0, E, 1400);</string>
+        <string>dlgTeleportTo(173, 227, 0, W, 1401);</string>
+        <string>dlgTeleportTo(167, 223, 0, NE, 1390);</string>
+        <string>dlgTeleportTo(173, 223, 0, NW, 1391);</string>
+        <string>dlgCreateCharacter("Daratan Captain", 1880, 1880, 171, 230, 0, S);</string>
+        <string>dlgCreateCharacter("Daratan Spearman", 1881, 1881, 168, 229, 0, SE);</string>
+        <string>dlgCreateCharacter("Daratan Spearman", 1882, 1882, 172, 229, 0, SW);</string>
+        <string>useCameraBookmark(quest_ig3_cam_04);</string>
+        <string>dlgTeleportTo(170, 227, 0, N);</string>
+        <string>addParty(IG3Daratan, 0);</string>
+        <string>addCharToParty(1060, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1070, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1880, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1400, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1401, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1390, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1391, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1881, IG3Daratan, fighter);</string>
+        <string>addCharToParty(1882, IG3Daratan, fighter);</string>
+        <string>dlgSetZoom(15);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"You should have listened to me when I came to you, my Lord."</text>
+          <def_link>628</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>627</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>Antidas</speaker_name>
+      <npc_text>"Should I listen to everyone who comes to me, lest they join my enemies? No matter. Speak your words and begone."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Provoke Antidas.</text>
+          <def_link>571</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"My Lord. I'm sure you're aware of the situation..."</text>
+          <def_link>573</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>628</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>Antidas</speaker_name>
+      <npc_text>"My Lord. Commander Carrinas has ordered me to inform you that the Imperial Guards have invoked the Charter and have taken steps to secure Teron and protect it from future attacks. We're here to assure you that these steps will not interfere with your affairs and that you're free to rule the town, and especially your compound, as you see fit."
+
+"Free to rule my compound?" explodes Antidas predictably. "It's MY town and if Carrinas thinks that he can take it from me, he is in for a surprise. Kill them! Kill them all!"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fall back and try not to get killed.</text>
+          <def_link>572</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity][critical strike]Go after Antidas. Be a hero.</text>
+          <def_link>633</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 9</string>
+            <string>aod.dex &gt;= 6 &amp;&amp; aod.dodge &gt;= 5</string>
+            <string>aod.dex &gt;= 6 &amp;&amp; aod.block &gt;= 5 &amp;&amp; dlgHasShieldEquipped()</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>634</int>
+            <int>635</int>
+            <int>636</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>571</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[dexterity failure]You slowly move toward Antidas, but one of his spearmen drives you back with a quick and painful jab.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeCharacterHP(-5);</string>
+        <string>aod.quest_ig3_triedCS = true;</string>
+        <string>dlgSetCombatAnimation(1070); dlgSetCombatAnimation(1880); dlgSetCombatAnimation(1881); dlgSetCombatAnimation(1882);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>572</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>633</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[dexterity failure][dodge success]You move toward Antidas. One of his spearmen tries to drive you back, but you easily dodge his attack and get past him.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Quest_IG3_CS_01);</string>
+        <string>setRtsCam();</string>
+        <string>dlgcam(45,45,8,1060);</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.quest_ig3_triedCS = true;</string>
+        <string>dlgSetCombatAnimation(1070); dlgSetCombatAnimation(1880); dlgSetCombatAnimation(1881); dlgSetCombatAnimation(1882);</string>
+        <string>sfxPlayOnce(csMissSwingAir01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[critical strike]Kill Antidas. It's now or never!</text>
+          <def_link>637</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 3 &amp;&amp; aod.critical_strike &lt; 5</string>
+            <string>aod.critical_strike &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>638</int>
+            <int>639</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>635</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[dexterity failure][block success]You move toward Antidas. One of his spearmen tries to drive you back, but you easily block his attack and get past him.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Quest_IG3_CS_01);</string>
+        <string>setRtsCam();</string>
+        <string>dlgcam(45,45,8,1060);</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.quest_ig3_triedCS = true;</string>
+        <string>dlgSetCombatAnimation(1070); dlgSetCombatAnimation(1880); dlgSetCombatAnimation(1881); dlgSetCombatAnimation(1882);</string>
+        <string>sfxPlayOnce(csMissSwingShield01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[critical strike]Kill Antidas. It's now or never!</text>
+          <def_link>637</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 3 &amp;&amp; aod.critical_strike &lt; 5</string>
+            <string>aod.critical_strike &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>638</int>
+            <int>639</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>636</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[dexterity success]You dart toward Antidas before his guards can react and try to stop you.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Quest_IG3_CS_01);</string>
+        <string>setRtsCam();</string>
+        <string>dlgcam(45,45,8,1060);</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.quest_ig3_triedCS = true;</string>
+        <string>dlgSetCombatAnimation(1070); dlgSetCombatAnimation(1880); dlgSetCombatAnimation(1881); dlgSetCombatAnimation(1882);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[critical strike]Kill Antidas. It's now or never!</text>
+          <def_link>637</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 3 &amp;&amp; aod.critical_strike &lt; 5</string>
+            <string>aod.critical_strike &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>638</int>
+            <int>639</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>634</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You missed. Ok, now you are fucked.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>sfxPlayOnce(csMissSwingAir01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight for your life.</text>
+          <def_link>572</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>637</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Antidas goes down and you don't expect him to get up, yet somehow he does, looking angrier than ever. Must be divine intervention you've heard so much about.
+
+*Antidas lose 30 hit points*</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeCharacterHP(-30, 1060);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Finish him off.</text>
+          <def_link>572</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>638</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Antidas goes down, tries to get up, still in disbelief, but his strength has abandoned him and he slumps back, dead or dying.</npc_text>
+      <onLoadScripts>
+        <string>quest_ig3_antidasDeathReaction();</string>
+        <string>dlgSetAnimation(anim_death_forward01, 0.95, 1060);</string>
+        <string>dlgKillCharacter(1060);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgcamPC(75,50,8);</string>
+        <string>dlgRotateToChar(1, 1070);</string>
+        <string>dlgRotateToChar(1, 1880);</string>
+        <string>dlgRotateToChar(1, 1881);</string>
+        <string>dlgRotateToChar(1, 1882);</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>572</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>639</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - palace</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ig3_killed_antidas = true;</string>
+        <string>dlgEquipItem(110, 0, 1070);</string>
+        <string>dlgEquipItem(166, 0, 1060);</string>
+        <string>if(isAlive(1060)) dlgTeleportTo(170, 232, 0, S, 1060);</string>
+        <string>dlgFinish();</string>
+        <string>addEnemyParty(IG3Soldiers, IG3Daratan);</string>
+        <string>addEnemyParty(IG3Daratan, IG3Soldiers);</string>
+        <string>setRtsCam();</string>
+        <string>dlgSetZoom(8);</string>
+        <string>aod.quest_ig3_phase2a = true;</string>
+        <string>aod.ending_town_01 = true;</string>
+        <string>rwd_reputation(IG3_01);</string>
+        <string>dlgAddRank(26);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgEquipItem(1116, 0, 1070);</string>
+        <string>apmsStopMusic(); apmsPlayMusic(custom, 1, 1);</string>
+        <string>aod.gameplay_questIG3_fight = true;</string>
+        <string>if(aod.quest_ig3_triedCS == false) dlgTeleportToMarker(TM_Quest_IG3_startCombat_01);</string>
+        <string>aod.fight_ig3_palace = 1;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>572</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carrinas</portrait>
+      <speaker_name>Carrinas</speaker_name>
+      <npc_text>"Ready to go?"</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(Quest_MG2_Cam_05);</string>
+        <string>dlgTeleportTo(232, 56, 1, S);</string>
+        <string>dlgTeleportTo(232, 55, 1, N, 1120);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Yes." Go to the Daratan compound.</text>
+          <def_link>612</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Why are you doing this?"</text>
+          <def_link>622</def_link>
+          <checkOnAppear>aod.npc_carrinas_why == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.cha &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>617</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Not yet." Leave.</text>
+          <def_link>615</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>614</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>615</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>Antidas</speaker_name>
+      <npc_text>"I'm aware that I'm under siege in my own town. If Carrinas wants war, he'll get it."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][trading]"Is Teron worth fighting for, my Lord? Your ambitions go no further these days?"</text>
+          <def_link>574</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.trading) &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>575</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>573</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>Antidas</speaker_name>
+      <npc_text>[failure]"Is that why Carrinas wants it? Because his ambitions are limited? I don't think this conversation is going anywhere. Kill them all."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fall back and try not to get killed.</text>
+          <def_link>572</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity][critical strike]Go after Antidas. Be a hero.</text>
+          <def_link>633</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 9</string>
+            <string>aod.dex &gt;= 6 &amp;&amp; aod.dodge &gt;= 5</string>
+            <string>aod.dex &gt;= 6 &amp;&amp; aod.block &gt;= 5 &amp;&amp; dlgHasShieldEquipped()</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>634</int>
+            <int>635</int>
+            <int>636</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>574</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>Antidas</speaker_name>
+      <npc_text>[success]"And how would my ambitions be served by giving up the only town I control?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][trading]"Both you and Carrinas want the same thing – to see the Empire restored, but you lack an army and Carrinas lacks the legitimacy. United, you will be unstoppable. So, I ask you again, my Lord, is Teron worth fighting for when you have so much more within your grasp?"</text>
+          <def_link>576</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.trading) &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>577</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>575</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>Antidas</speaker_name>
+      <npc_text>[failure]"Do you really expect me to believe that Carrinas will lend me his army? Just like that? You're either delusional or lying. Either way, this conversation is over. Kill them all."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fall back and try not to get killed.</text>
+          <def_link>572</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity][critical strike]Go after Antidas. Be a hero.</text>
+          <def_link>633</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 9</string>
+            <string>aod.dex &gt;= 6 &amp;&amp; aod.dodge &gt;= 5</string>
+            <string>aod.dex &gt;= 6 &amp;&amp; aod.block &gt;= 5 &amp;&amp; dlgHasShieldEquipped()</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>634</int>
+            <int>635</int>
+            <int>636</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>576</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>Antidas</speaker_name>
+      <npc_text>[success]"It is a lot to accept on faith. Yes, my ambitions go a lot further than this town, but this town is all I have at the moment. Only a fool would hand it over without getting anything in return.
+
+Talk to Carrinas. Tell him I'm willing to consider a deal."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Thank you, my Lord." Leave.</text>
+          <def_link>578</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>577</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carrinas</portrait>
+      <speaker_name>Carrinas</speaker_name>
+      <npc_text>"Any news?"</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(171, 180, 0, W, 1120);</string>
+        <string>dlgTeleportTo(170, 180, 0, E);</string>
+        <string>useCameraBookmark(quest_ig3_cam_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Antidas is willing to back you up and hand the town over to you. He sees it as an investment, so he wants guarantees and assurances that he will get his return."</text>
+          <def_link>579</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>578</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carrinas</portrait>
+      <speaker_name>Carrinas</speaker_name>
+      <npc_text>"I sent you there to convince him to leave without a fight, not to promise him the world!"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"My apologies."</text>
+          <def_link>580</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading][streetwise]"Why not promise him the world though? Tell Antidas what he wants to hear and when the time comes you will decide what to give him, if anything. You know what they say, better break your word than do worse in keeping it."</text>
+          <def_link>581</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.trading + aod.streetwise) &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>583</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion][trading]"You need a Noble partner and Antidas is perfect, because he's easy to control. Without him, your campaign is a nothing but a power grab. With him, it's a Cause, good and noble."</text>
+          <def_link>581</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.trading) &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>583</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>579</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carrinas</portrait>
+      <speaker_name>Carrinas</speaker_name>
+      <npc_text>"Go back and finish the job. I want Antidas' head before sundown."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Salute and leave.</text>
+          <def_link>585</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>580</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carrinas</portrait>
+      <speaker_name>Carrinas</speaker_name>
+      <npc_text>[failure]"Too complicated, &lt;charname&gt;. Go back and finish the job. I want Antidas' head before sundown."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Salute and leave.</text>
+          <def_link>585</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>581</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carrinas</portrait>
+      <speaker_name>Carrinas</speaker_name>
+      <npc_text>[success]"You don't understand. I can't make any deals with Antidas. I don't have the authority and Caer-Tor – our headquarters - will never go for it."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"They don't need to know. We'll deal with them when the time comes."</text>
+          <def_link>584</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intelligence success]"Make Antidas the Emperor and you won't have to worry about Caer-Tor ever again."</text>
+          <def_link>587</def_link>
+          <checkOnAppear>aod.int &gt;= 7</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>583</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carrinas</portrait>
+      <speaker_name>Carrinas</speaker_name>
+      <npc_text>"We?" Carrinas smirks. "You'll go far, &lt;charname&gt;. Very well, let's do it."
+
+He gives instructions to his scribe and a few minutes later you're holding a document recognizing House Daratan's excellence in governing and granting it domain over all cities, towns, and villages that would require the Imperial Guards' protection.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ig3_document = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take the document to Antidas.</text>
+          <def_link>585</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>This is a very valuable document. Take it and get out of Teron as fast as you can.</text>
+          <def_link>586</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>584</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carrinas</portrait>
+      <speaker_name>Carrinas</speaker_name>
+      <npc_text>"Make him Emperor? Are you mad?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Just a thought."</text>
+          <def_link>588</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Caer-Tor doesn't need to know. We'll deal with them when the time comes."</text>
+          <def_link>584</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intelligence success]"Caer-Tor will only bow to an Emperor. An Emperor who will owe everything to you and, if you play it right, will be nothing but your puppet."</text>
+          <def_link>589</def_link>
+          <checkOnAppear>aod.int &gt;= 8</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>587</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carrinas</portrait>
+      <speaker_name>Carrinas</speaker_name>
+      <npc_text>"Keep these thoughts to yourself. Go back and finish the job. I want Antidas' head before sundown."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Salute and leave.</text>
+          <def_link>585</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>588</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carrinas</portrait>
+      <speaker_name>Carrinas</speaker_name>
+      <npc_text>Carrinas stays silent for a long time, then he smiles. In his mind he's already ruling the Empire, either as the real power behind the throne or as a dictator. After all, accidents happen to everyone, even Emperors.
+
+"You'll go far, &lt;charname&gt;. Very well, let's do it."
+
+He gives instructions to his scribe and a few minutes later you're holding a document recognizing House Daratan virtues and commitment, and proclaiming Lord Antidas the Emperor and giving him domain over all lands, once they are liberated by the Imperial Guards.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ig3_emperor = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take the document to Antidas.</text>
+          <def_link>585</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>This is a very valuable document. Take it and get out of Teron as fast as you can.</text>
+          <def_link>586</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>589</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING - escape Teron</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>removePcMember();</string>
+        <string>aod.quest_ig3 = 4;</string>
+        <string>aod.ending_igChoices = true;</string>
+        <string>aod.ending_tookDocuments = true;</string>
+        <string>aod.ending_town_03 = true;</string>
+        <string>aod.quest_IG3_tookDocuments = true;</string>
+        <string>aod.mdn_tookDocuments_start = true;</string>
+        <string>setAchievement("ACH_TERON_IG");</string>
+        <string>PC_Traitor();</string>
+        <string>StartTeronEnding();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>586</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>Antidas</speaker_name>
+      <npc_text>"Was your mission successful?"</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(170, 229, 0, N);</string>
+        <string>useCameraBookmark(NPC_Antidas_Cam_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"No, my Lord."</text>
+          <def_link>590</def_link>
+          <checkOnAppear>aod.quest_ig3_document == false &amp;&amp; aod.quest_ig3_emperor == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Give him the document.</text>
+          <def_link>591</def_link>
+          <checkOnAppear>aod.quest_ig3_document || aod.quest_ig3_emperor</checkOnAppear>
+          <checksOnClick>
+            <string>aod.quest_ig3_emperor</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>594</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>585</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>Antidas</speaker_name>
+      <npc_text>"As I thought. You've wasted my time with empty promises. I'm done talking." He draws his sword. "Kill them all."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fall back and try not to get killed.</text>
+          <def_link>572</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity][critical strike]Go after Antidas. Be a hero.</text>
+          <def_link>633</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 9</string>
+            <string>aod.dex &gt;= 6 &amp;&amp; aod.dodge &gt;= 5</string>
+            <string>aod.dex &gt;= 6 &amp;&amp; aod.block &gt;= 5 &amp;&amp; dlgHasShieldEquipped()</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>634</int>
+            <int>635</int>
+            <int>636</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>590</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>Antidas</speaker_name>
+      <npc_text>"Impressive. How did you talk Carrinas into it?"</npc_text>
+      <onLoadScripts>
+        <string>aod.ending_town_03 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I have my talents, my Lord. Do we have a deal?"</text>
+          <def_link>592</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>591</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>Antidas</speaker_name>
+      <npc_text>"Yes. Teron belongs to Carrinas now. I'll inform my peers."</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(IG3_02);</string>
+        <string>dlgAddRank(27);</string>
+        <string>rwd_civil(IG3_01);</string>
+        <string>setAchievement("ACH_DIPLOMAT");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Thank you, my Lord."</text>
+          <def_link>596</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>592</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>Antidas</speaker_name>
+      <npc_text>"An Emperor? You are a &lt;man/woman&gt; of rare talents, my friend. I assume there is a catch. What is it?"</npc_text>
+      <onLoadScripts>
+        <string>aod.ending_town_04 = true;</string>
+        <string>aod.ending_antidas_emperor = true;</string>
+        <string>aod.ending_igChoices = true;</string>
+        <string>rwd_reputation(IG3_03);</string>
+        <string>dlgAddRank(28);</string>
+        <string>rwd_civil(IG3_02);</string>
+        <string>setAchievement("ACH_KINGMAKER");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"A minor logical condition. Carrinas will make you an Emperor, if you deal with Caer-Tor."</text>
+          <def_link>595</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>594</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>Antidas</speaker_name>
+      <npc_text>Antidas smiles. "With great pleasure, my friend. I'll not forget what you've done for me." He takes off one of his rings and gives it to you. "A small token of my appreciation."</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(1310, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Thank you, my Lord."</text>
+          <def_link>596</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_mg2_joinedIG</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>640</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>595</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carrinas</portrait>
+      <speaker_name>Carrinas</speaker_name>
+      <npc_text>"You have my gratitude, &lt;charname&gt;. I must admit that only now I'm beginning to realize the brilliance of your plan. With a few well chosen words you saved at least a quarter of my men and increased our ranks with the Daratan forces. Neither Gaelius nor Caer-Tor can say anything because Antidas has made everything legitimate.
+
+"Speaking of Gaelius, he is bound to respond, which is why you're going to Maadoran. Whatever he's planning, I want us to be ready and waiting. You have proven yourself to me, so the honour is yours. I'm promoting you to Centurion. If you are to be my emissary, the rank will come in handy.
+
+"You have three days. I have arranged for you to get special training. Now that the town is mine, every guildmaster is dying to do me favors. Linos was kind enough to agree to train you in his art. In your spare time, I want you to do nothing but fight until you can no longer stand. There will be plenty of time to rest when we're all dead. Dismissed!"</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(170, 180, 0, E);</string>
+        <string>useCameraBookmark(quest_ig3_cam_02);</string>
+        <string>rwd_quest(IG3_01);</string>
+        <string>dlgTeleportTo(170, 189, 0, S, 1070);</string>
+        <string>dlgTeleportTo(167, 231, 0, E, 1400);</string>
+        <string>dlgTeleportTo(173, 231, 0, W, 1401);</string>
+        <string>dlgTeleportTo(167, 205, 0, S, 1390);</string>
+        <string>dlgTeleportTo(173, 205, 0, S, 1391);</string>
+        <string>dlgDeleteCharacter(1880);</string>
+        <string>dlgDeleteCharacter(1881);</string>
+        <string>dlgDeleteCharacter(1882);</string>
+        <string>if(aod.quest_ig3_normal_soldiers) deleteIg3NormalSoldiers();</string>
+        <string>if(aod.quest_ig3_elite_soldiers) deleteIg3EliteSoldiers();</string>
+        <string>rwd_training(IG3_02);</string>
+        <string>dlgDelRank(37);</string>
+        <string>dlgAddRank(50);</string>
+        <string>setAchievement("ACH_CENTURION");</string>
+        <string>rwd_reputation(IG_Centurion);</string>
+        <string>aod.quest_ig3_postPalace = 1;</string>
+        <string>aod.quest_ig3 = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Three days later...</text>
+          <def_link>598</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>596</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carrinas</portrait>
+      <speaker_name>Carrinas</speaker_name>
+      <npc_text>"You have my gratitude, &lt;charname&gt;. I must admit that only now I'm beginning to realize the brilliance of your plan. With a few well chosen words you saved at least a quarter of my men and increased our ranks with the Daratan forces. Neither Gaelius nor Caer-Tor can say anything because Antidas has made everything legitimate.
+
+"Speaking of Gaelius, he is bound to respond, which is why you're going to Maadoran. Whatever he's planning, I want us to be ready and waiting. You have proven yourself to me, so the honour is yours. I'm promoting you to Centurion. If you are to be my emissary, the rank will come in handy.
+
+"Your talents are undeniable, but you’re a soldier now. You have three days. I want you to do nothing but fight until you can no longer stand. There will be plenty of time to rest when we're all dead. Dismissed!"</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(170, 180, 0, E);</string>
+        <string>useCameraBookmark(quest_ig3_cam_02);</string>
+        <string>rwd_quest(IG3_01);</string>
+        <string>dlgTeleportTo(170, 189, 0, S, 1070);</string>
+        <string>dlgTeleportTo(167, 231, 0, E, 1400);</string>
+        <string>dlgTeleportTo(173, 231, 0, W, 1401);</string>
+        <string>dlgTeleportTo(167, 205, 0, S, 1390);</string>
+        <string>dlgTeleportTo(173, 205, 0, S, 1391);</string>
+        <string>dlgDeleteCharacter(1880);</string>
+        <string>dlgDeleteCharacter(1881);</string>
+        <string>dlgDeleteCharacter(1882);</string>
+        <string>if(aod.quest_ig3_normal_soldiers) deleteIg3NormalSoldiers();</string>
+        <string>if(aod.quest_ig3_elite_soldiers) deleteIg3EliteSoldiers();</string>
+        <string>rwd_training(IG3_03);</string>
+        <string>dlgDelRank(37);</string>
+        <string>dlgAddRank(50);</string>
+        <string>setAchievement("ACH_CENTURION");</string>
+        <string>rwd_reputation(IG_Centurion);</string>
+        <string>aod.quest_ig3_postPalace = 1;</string>
+        <string>aod.quest_ig3 = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Three days later...</text>
+          <def_link>598</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>640</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go to barracks</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportTo(241, 61, 0, E);</string>
+        <string>if(aod.ending_mg_carrinas_01) {aod.ending_mg_carrinas_01 = false; aod.ending_mg_carrinas_02 = true;}</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setAchievement("ACH_TERON_IG");</string>
+        <string>aod.global_trn_crisisActive = 0;</string>
+        <string>dlgCureStat(all);</string>
+        <string>cheatHP();</string>
+        <string>VCO_IG3_Carrinas.setActive(1);</string>
+        <string>addQuest(IG3_PostPalace);</string>
+        <string>sayPhrase(1150, "Carrinas wants to see you. He's at the palace now.");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>598</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carrinas</portrait>
+      <speaker_name>Carrinas</speaker_name>
+      <npc_text>"I'm glad to see that you're still with us. We lost a lot of good men today, but the town belongs to us now. Antidas is dead and House Daratan is no more. We're one step closer to our goal, thanks to you.
+
+"You're good in a fight, &lt;charname&gt;, but where we're going, you'd have to be better than most.
+
+"Centurion! We have three days. I want this legionary to do nothing but fight until &lt;he/she&gt; can no longer stand. There will be plenty of time to rest when we're all dead. Dismissed!"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(170, 180, 0, E);</string>
+        <string>dlgTeleportTo(171, 180, 0, W, 1120);</string>
+        <string>useCameraBookmark(quest_ig3_cam_02);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>deleteDaratanFaction();</string>
+        <string>if(aod.quest_ig3_normal_soldiers) deleteIg3NormalSoldiers();</string>
+        <string>if(aod.quest_ig3_elite_soldiers) deleteIg3EliteSoldiers();</string>
+        <string>removeCharFromParty(1);</string>
+        <string>setAchievement("ACH_KINGSLAYER");</string>
+        <string>rwd_quest(IG3_01);</string>
+        <string>aod.quest_ig3_postPalace = 2;</string>
+        <string>rwd_training(IG3_01);</string>
+        <string>aod.quest_ig3 = 3;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Three days later...</text>
+          <def_link>598</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>599</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carrinas</portrait>
+      <speaker_name>Carrinas</speaker_name>
+      <npc_text>[charisma success]"Why? I spent most of my life in the wasteland, keeping the cities safe from the Ordu, raiders, desert tribes, and everything else that's lurking out there and waiting for an opportunity to strike – an opportunity we've never given them.
+
+"We've lost a lot of men over the years, but when your life consists of nothing but skirmishes, battles, and ambushes, losing men becomes part of the game. It becomes just another cost of keeping a legion out there. The attrition rate."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_carrinas_why = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>618</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>617</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carrinas</portrait>
+      <speaker_name>Carrinas</speaker_name>
+      <npc_text>[charisma failure]"We don't have time for this right now."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_carrinas_why = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to the Daratan compound.</text>
+          <def_link>612</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>615</def_link>
+          <checkOnAppear>aod.quest_mg2_joinedIG</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>622</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carrinas</portrait>
+      <speaker_name>Carrinas</speaker_name>
+      <npc_text>"I'd never questioned it, until I came to Teron. All I could think was "is this what we're fighting for?" So that cutthroats, thieves, and whores can go about their business without having to worry about anything else? I have more respect for my enemies, than for those we are defending.
+
+"Then I realized that there was only one way to make the deaths of all those who had fallen meaningful. We had to take over and save those who could be saved, show them that they could live lives that are worth living, instead of swimming in shit and fighting for crumbs."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"What if they don't want to be saved?"</text>
+          <def_link>619</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What about the Lords of the realm?"</text>
+          <def_link>620</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What does Caer-Tor think about it?"</text>
+          <def_link>621</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>618</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carrinas</portrait>
+      <speaker_name>Carrinas</speaker_name>
+      <npc_text>"If not for us, the Ordu would have razed these towns to the ground a long time ago. Their lives are bought and paid for by the blood of my men. They don't have a say anymore."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_carrinas_saved = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"What about the Lords of the realm?"</text>
+          <def_link>620</def_link>
+          <checkOnAppear>aod.npc_carrinas_lords == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What does Caer-Tor think about it?"</text>
+          <def_link>621</def_link>
+          <checkOnAppear>aod.npc_carrinas_caertor == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Go to the Daratan compound.</text>
+          <def_link>612</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>615</def_link>
+          <checkOnAppear>aod.quest_mg2_joinedIG</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>619</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carrinas</portrait>
+      <speaker_name>Carrinas</speaker_name>
+      <npc_text>"They've led us into this mess in the first place. Would you trust them to lead us out?"</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_carrinas_lords = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"What does Caer-Tor think about it?"</text>
+          <def_link>621</def_link>
+          <checkOnAppear>aod.npc_carrinas_caertor == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What if they don't want to be saved?"</text>
+          <def_link>619</def_link>
+          <checkOnAppear>aod.npc_carrinas_saved == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Go to the Daratan compound.</text>
+          <def_link>612</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>615</def_link>
+          <checkOnAppear>aod.quest_mg2_joinedIG</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>620</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carrinas</portrait>
+      <speaker_name>Carrinas</speaker_name>
+      <npc_text>"The Dux is content. He has grown too comfortable in Caer-Tor and doesn't want to be drawn into a war he can lose."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_carrinas_caertor = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"What if they don't want to be saved?"</text>
+          <def_link>619</def_link>
+          <checkOnAppear>aod.npc_carrinas_saved == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What about the Lords of the realm?"</text>
+          <def_link>620</def_link>
+          <checkOnAppear>aod.npc_carrinas_lords == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Go to the Daratan compound.</text>
+          <def_link>612</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>615</def_link>
+          <checkOnAppear>aod.quest_mg2_joinedIG</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>621</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carrinas</portrait>
+      <speaker_name>Carrinas</speaker_name>
+      <npc_text>"Ready for more work? It's right up your alley," says Carrinas, smirking at the word 'alley'.
+
+"Here is the situation. House Daratan is a dying House, yet Antidas is clinging to Teron, dragging it down with him. Now, the Charter allows us to step in – temporarily – and defend any and all Imperial property, if they are in direct danger of being attacked, but that's as far as we can go. If we dare attacking a House, we'd have to deal with the combined power of all Houses, which would only strengthen House Aurelian even more.
+
+"However, if House Daratan were to strike at us, violating the Charter and demonstrating Antidas' inability to reason and govern, then it would be an entirely different story. The Charter grants us both the right to defend ourselves and the duty to deal with warmongers to protect other Houses."</npc_text>
+      <onLoadScripts>
+        <string>apmsStopMusic(2); apmsPlayMusic(custom, 1, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>630</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>629</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carrinas</portrait>
+      <speaker_name>Carrinas</speaker_name>
+      <npc_text>"Thus, our plan is simple – to provoke Antidas into attacking our delegation, which you will lead as your experience will be a great asset there. Don't worry; I'll give you six of my best men. They will shred everyone in their path to pieces, trust me. When Antidas falls, it's over."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ig3_elite_soldiers = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"The Charter?"</text>
+          <def_link>569</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>630</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

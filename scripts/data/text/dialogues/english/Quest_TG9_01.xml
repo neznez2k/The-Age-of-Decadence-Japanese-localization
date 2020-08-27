@@ -1,0 +1,451 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Quest_TG9_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Hagnon</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You join a small group of refugees fleeing the town. At the first checkpoint you tell the soldiers that you want to see Legatus Hagnon and they escort you to a large tent in the middle of the encampment.
+
+“Who are you?” asks the Legatus – a clean-shaven man exuding confidence and determination.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_hagnon_met = true;</string>
+        <string>setWindowImage(gnz_hagnonTent);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Introduce yourself.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Ah yes,” he says casually. “Lord Senna did mention that the local, um, elements might help us get inside. Is that what you’re here for?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“We can get you into the castle. The magus is dead, so he won't be a problem.”</text>
+          <def_link>10</def_link>
+          <checkOnAppear>aod.quest_TG9_gates == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“We can't get you to the castle, but we can open the gates for you.”</text>
+          <def_link>27</def_link>
+          <checkOnAppear>aod.quest_TG9_gates == 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Alright,” says the Legatus, looking almost disappointed. There isn’t much glory in sneaking through the back door, but it’s better than dying trying to storm the walls.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[Side with Levir]“Let’s go.” Take them to the castle.</text>
+          <def_link>12</def_link>
+          <checkOnAppear>aod.quest_tg8_toldMeru == false &amp;&amp; aod.npc_levir_dead == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[Side with the nobles]“Let’s go.” Take them to the castle.</text>
+          <def_link>12</def_link>
+          <checkOnAppear>aod.quest_tg8_toldMeru == false &amp;&amp; aod.npc_levir_dead</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[Side with Glabrio]“Not so fast. What do we get out of it?”</text>
+          <def_link>14</def_link>
+          <checkOnAppear>aod.quest_tg8_toldMeru == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.npc_levir_dead</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>20</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Wait. Meru knows. He forced me to do it. His men will be waiting for you in the tunnels.”</text>
+          <def_link>25</def_link>
+          <checkOnAppear>aod.quest_tg8_toldMeru</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Let’s go.” Lead them to the ambush.</text>
+          <def_link>11</def_link>
+          <checkOnAppear>aod.quest_tg8_toldMeru</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"That will do," nods the Legatus. "I'll give you a couple of my men. Just in case."</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(TG9_04);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take his men to the tower.</text>
+          <def_link>28</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>27</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start ambush</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.npc_glabrio_betrayed = true;</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.quest_TG9_ambush = 1;</string>
+        <string>switchMission("Quest_TG9_02.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start tower infiltration</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.npc_glabrio_betrayed = true;</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>switchMission("Quest_GNZ_TowerInfiltration.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>28</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start Glabrio fight</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.npc_glabrio_betrayed = true;</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>switchMission("Quest_TG9_01.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - take Ganezzar Glabrio</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>switchMission("Quest_TG9_01.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - return to Glabrio</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.npc_hagnon_refused = true;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Get?” asks the Legatus, looking confused. “You’re looking for a reward? Ask Levir.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’m working for Glabrio now. If you want Ganezzar, you deal with him, not Levir.”</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Get?” asks the Legatus, looking confused. “You’re looking for a reward? Ask Senna.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’m working for Glabrio now. If you want Ganezzar, you deal with him, not Senna.”</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I know nothing about a deal,” says the Legatus, liking this conversation less and less. “What does he want?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What everyone wants – a bigger piece of the pie. What’s going to happen after you take Ganezzar?”</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’ll establish order and wait until House Aurelian appoints a praefectus to govern the city.” You can see that he’s looking forward to the task.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]“Glabrio can help you. He knows the city better than anyone and he’s a well-respected guildmaster.”</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>18</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intelligence success]“If you could take the city on your own, you would have done it already. You don’t have enough men, which means that sooner or later House Aurelian will make a deal with the Imperial Guards.”</text>
+          <def_link>19</def_link>
+          <checkOnAppear>aod.int &gt;= 7</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“So be it,” snaps the Legatus.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]“But it doesn’t have to be this way. Share your power with Glabrio and the city will be yourself by nightfall.”</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 9</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>23</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][trading]“The way I see it, you’ll have to share Ganezzar one way or another. Now, whom would you rather share it with, Glabrio or Paullus?”</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.trading + aod.streetwise) &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>23</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“Out of the question!” says the Legatus, his tone is that of a man who’s made a decision and isn’t going to change it. “Tell Glabrio that I *order* him to deliver the town to me in 24 hours. If he takes a minute longer, I’ll feed him to my dogs.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[Side with Levir]“Alright. I’ll take you to the castle.”</text>
+          <def_link>12</def_link>
+          <checkOnAppear>aod.npc_levir_dead == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[Side with the nobles]“Alright. I’ll take you to the castle.”</text>
+          <def_link>12</def_link>
+          <checkOnAppear>aod.npc_levir_dead</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Return to Glabrio.</text>
+          <def_link>24</def_link>
+          <checkOnAppear>aod.temp</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“He’s a *thief*!” snaps the Legatus. You notice that the Legatus doesn’t seem to object to the deal itself. One step at a time then.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]“He is a *guildmaster*, which means that he has the means to help you. Ganezzar won’t welcome you with open arms. You *will* need local support.”</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 9</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>23</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]“Do you have a standing offer to hand you over the city from law-abiding citizens?”</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>23</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion][trading]“So is Levir but you don’t see lord Senna complaining. You know why? He recognizes a good opportunity where he sees it and if you want to advance, I suggest you do the same.”</text>
+          <def_link>17</def_link>
+          <checkOnAppear>aod.npc_levir_dead == false</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.persuasion + aod.trading) &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>23</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion][trading]“So was Levir but you don’t see lord Senna complaining. You know why? He recognizes a good opportunity where he sees it and if you want to advance, I suggest you do the same.”</text>
+          <def_link>17</def_link>
+          <checkOnAppear>aod.npc_levir_dead</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.persuasion + aod.trading) &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>23</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“He can run Lowtown,” says the Legatus, grinding his teeth, “if he delivers the town in 24 hours.”</npc_text>
+      <onLoadScripts>
+        <string>aod.ending_GNZ_faction_TG = 1;</string>
+        <string>rwd_civil(TG9_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Get your men ready, Legatus.” Take them to the castle.</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Are you touched in the head? Or have a death wish? Get the fuck out of here before I change my mind. And tell Meru that Ganezzar *will* fall. The Imperial Guards are on the way.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Return to Ganezzar.</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING - IG joins HA</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>rwd_reputation(TG8_05);</string>
+        <string>aod.jnl_TG9 = 2;</string>
+        <string>aod.ending_GNZ_faction_TG = 2;</string>
+        <string>aod.ending_gnz_IG_joins_HA = true;</string>
+        <string>SS_start("gnz_ending", "switchMission(\"Ganezzar.mis\");");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>26</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

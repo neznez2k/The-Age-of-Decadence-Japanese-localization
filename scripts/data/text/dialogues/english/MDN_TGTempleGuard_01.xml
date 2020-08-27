@@ -1,0 +1,176 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>(aod.npc_levir_dead &amp;&amp; aod.ending_mdn_faction_TG != 2) || aod.ending_GNZ_faction_TG == 1 || aod.quest_TG9_ambush == 2</string>
+    </conditions>
+    <links>
+      <int>13</int>
+    </links>
+    <dlg_name>MDN_TGTempleGuard_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Thief</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What the fuck do you want?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I want to join you."</text>
+          <def_link>1</def_link>
+          <checkOnAppear>pcHasFaction() == false &amp;&amp; aod.pc_exMember_thieves == false &amp;&amp; aod.mdn_finished == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I used to work with Cado back in Teron."</text>
+          <def_link>9</def_link>
+          <checkOnAppear>pcHasFaction() == false &amp;&amp; aod.pc_exMember_thieves &amp;&amp; aod.mdn_finished == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'm &lt;charname&gt;. Ask me what the fuck I want one more time and I'll cut your tongue out."</text>
+          <def_link>10</def_link>
+          <checkOnAppear>aod.npc_levir_goMeetHim</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You and the rest of the Slums. Get out of here."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Then go back to Teron, what are you wasting my time for?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Thought you'd be taller. Alright, follow me."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_levir_goMeetHim = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go inside.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The man walks past the beggars who keep their eyes down and pushes one of the bricks in. A section of the wall slides in, revealing a large, well-lit hall.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_TG_Entrance_Show_2);</string>
+        <string>dlgTeleportToMarker(TM_TG_Entrance_Show_1, 4030);</string>
+        <string>dlgCam(325, 45, 6, 4030);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Enter the guild.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go inside</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>createByCharMarker("CM_Levir");</string>
+        <string>dlgTeleportToMarker(TM_TG_GuardOutside, 4030);</string>
+        <string>sd(npc_levir_01);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You're fucking dead, &lt;charname&gt;. You hear me?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave while you can.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

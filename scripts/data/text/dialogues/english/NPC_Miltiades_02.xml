@@ -1,0 +1,864 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_miltiades_lord</string>
+      <string>aod.npc_miltiades_maadoranNobleFight</string>
+      <string>aod.npc_miltiades_maadoranThievesFight</string>
+      <string>aod.npc_miltiades_waitingNobleHouse</string>
+      <string>aod.npc_miltiades_waitingArenaHouse</string>
+    </conditions>
+    <links>
+      <int>2854</int>
+      <int>2843</int>
+      <int>2851</int>
+      <int>2853</int>
+      <int>2852</int>
+    </links>
+    <dlg_name>NPC_Miltiades_02</dlg_name>
+    <def_link>2849</def_link>
+    <def_speaker_name>Miltiades</def_speaker_name>
+    <def_portrait>Miltiades</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>You hear the sounds of a heated argument coming from a nearby house. You're pretty sure that one of the voices belongs to Miltiades.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_PC_Miltiades_01);</string>
+        <string>createByCharMarker("CM_Miltiades_01");</string>
+        <string>createByCharMarker("CM_Miltiades_Thief_01");</string>
+        <string>createByCharMarker("CM_Miltiades_Thief_02");</string>
+        <string>createByCharMarker("CM_Miltiades_Thief_03");</string>
+        <string>aod.npc_miltiades_findInMaadoran = false;</string>
+        <string>dlgCam(225, 45, 10, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go inside.</text>
+          <def_link>2819</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2849</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"&lt;charname&gt;!" yells Miltiades. "What a pleasant surprise! You have no idea how happy I am to see you!"
+
+He's standing against the wall, facing two men whose intentions aren't hard to figure out.
+
+"You want something?" asks one of the men in a threatening manner.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_PC_Miltiades_02);</string>
+        <string>dlgRotateToChar(1, 5071);</string>
+        <string>dlgRotateToChar(1, 2090);</string>
+        <string>aod.npc_miltiades_metMaadoran = true;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgCam(230, 40, 8, 2090);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"He owes me money. It will be harder to collect if he's dead."</text>
+          <def_link>2820</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"No." Leave Miltiades to his fate.</text>
+          <def_link>2856</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2819</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Steel flashes, Miltiades makes a chocking sound, then slides down against the wall, blood pouring from his open throat. Not a good end, but he hardly deserved a better one.</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(MDN_Miltiades_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2850</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2856</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Miltiades dead</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgRobCharacter(2090, 5070, true, false, true);</string>
+        <string>dlgDeleteCharacter(5070);</string>
+        <string>dlgDeleteCharacter(5071);</string>
+        <string>dlgDeleteCharacter(5072);</string>
+        <string>dlgSetAnimation(anim_death_forward01, 0.95, 2090);</string>
+        <string>dlgKillCharacter(2090);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.jnl_Militiades_phase4 = true;</string>
+        <string>aod.ending_mdn_miltiades = 1;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2850</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Thug</speaker_name>
+      <npc_text>"You aren’t the only one. He owes a lot of money to a lot of people."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'm sure he does. Now, I’ll get paid first, then everyone else can squabble over what's left."</text>
+          <def_link>2821</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2820</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Thug</speaker_name>
+      <npc_text>"I'm working for Levir," says the man. "The Forty Thieves' boss. Still want to get paid first?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"If Levir wanted to get paid first, he should have sent more men."</text>
+          <def_link>2828</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"My apologies. I didn't know who you were with."</text>
+          <def_link>2830</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[thief]"Relax, we're on the same side. My name's &lt;charname&gt;. Rings a bell?"</text>
+          <def_link>2831</def_link>
+          <checkOnAppear>aod.pc_member_thieves</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2821</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Thug</speaker_name>
+      <npc_text>“Maybe he sent enough,” says the man casually, his hand reaching for his axe.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Let's find out.” Attack.</text>
+          <def_link>2829</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2828</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - hovel</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addParty(Miltiades_Thieves, 0);</string>
+        <string>addCharToParty(5070, Miltiades_Thieves, fighter);</string>
+        <string>addCharToParty(5071, Miltiades_Thieves, fighter);</string>
+        <string>addCharToParty(5072, Miltiades_Thieves, fighter);</string>
+        <string>aod.npc_miltiades_maadoranThievesFight = true;</string>
+        <string>dlgTeleportToMarker(TM_NPC_Miltiades_Ambush, 5072);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Miltiades_01, 2090);</string>
+        <string>DOOR_MiltSlums.lock();</string>
+        <string>addEnemyToParty(1, Miltiades_Thieves);</string>
+        <string>setCharacterInvincible(2090, 1);</string>
+        <string>dlgSetAnimation(anim_stealth_00, 0.5, 2090);</string>
+        <string>narratePhrase($spec_msg_miltiadesThievesFight);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2829</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Thug</speaker_name>
+      <npc_text>“An honest mistake,” smiles the man. “Think nothing of it.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2856</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2830</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Thug</speaker_name>
+      <npc_text>“Are you saying he's with you?” asks the man. “I didn't know. No hard feelings, right?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“None whatsoever.” Wait for them to leave.</text>
+          <def_link>2822</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2831</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I don't know how to thank you," says Miltiades with relief.</npc_text>
+      <onLoadScripts>
+        <string>dlgDeleteCharacter(5070);</string>
+        <string>dlgDeleteCharacter(5071);</string>
+        <string>dlgDeleteCharacter(5072);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_NPC_Miltiades_01, 2090);</string>
+        <string>dlgTeleportToMarker(TM_PC_Miltiades_03);</string>
+        <string>dlgCam(230, 40, 8, 2090);</string>
+        <string>dlgRotateToChar(1, 2090);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"You can pay me for my trouble and we'll call it even."</text>
+          <def_link>2823</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2822</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I don't know how to thank you," says Miltiades with relief.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_PC_Miltiades_03);</string>
+        <string>aod.npc_miltiades_maadoranThievesFight = false;</string>
+        <string>dlgSetAmbientAnimation(2090);</string>
+        <string>dlgCam(230, 40, 8, 2090);</string>
+        <string>dlgRotateToChar(1, 2090);</string>
+        <string>DOOR_MiltSlums.unlock();</string>
+        <string>rwd_reputation(MDN_Miltiades_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"You can pay me for my trouble and we'll call it even."</text>
+          <def_link>2823</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2851</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"&lt;charname&gt;, you know I love you like my own &lt;brother/sister&gt;, but if I had any money, don't you think I would have given it to the Forty Thieves? You don’t mess around with these guys."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I thought you had something big going?"</text>
+          <def_link>2824</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2823</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I did, I swear to you, but my partner screwed me over. I know, I know. I had it coming, but still... How is it fair? I had two thousand imperials set aside for you and the bastard took them. I told him that it's your money, but he laughed and said that if you want the money, you can go and get it from him yourself."</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_Militiades_phase3 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Let me see if I get this straight. If I go with you to your ex-partner and knock some sense into him, I get two thousand imperials?"</text>
+          <def_link>2825</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2824</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Yes, of course. It's your money!"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I know it's my money. I just want you to be sure that the money is there, because if it isn't, I’ll get very upset. Do you want me to get very upset?"</text>
+          <def_link>2826</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2825</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Why would I lie to you, &lt;charname&gt;?"</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_miltiades_waitingArenaHouse = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Because you're a fucking liar? Anyway, let's go get my money."</text>
+          <def_link>2833</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"You know what? This doesn't smell right. Whatever it is, I'm out."</text>
+          <def_link>2832</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2826</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You really do have trust issues, &lt;charname&gt;,” says Miltiades. “You can't go through life thinking that everyone's out to get you. It's not healthy, you know.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I'll think about it.” Leave.</text>
+          <def_link>2827</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2832</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(230, 40, 12, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2827</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"So, do you want your money or not?"</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(230, 40, 8, 2090);</string>
+        <string>dlgTeleportToMarker(TM_PC_Miltiades_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Alright, let's go."</text>
+          <def_link>2833</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2827</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2852</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You follow Miltiades to a house in the Trade district. Judging by the state of the house and its location – almost on the border of the district – its owner has little left other than his name.
+
+“It’s the house of Gaius Cornelius Varus. Not the noblest of names, but a title is a title.”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_PC_Miltiades_04);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Miltiades_02, 2090);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.npc_miltiades_waitingNobleHouse = true;</string>
+        <string>dlgCam(300, 45, 7, 2090);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“If it’s another ambush...”</text>
+          <def_link>2834</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2833</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You know, &lt;charname&gt;, you definitely do have trust issues. Why would I want to ambush you?
+
+“Varus is an old man. He has two sons and one or two servants. So, if he decides to be unreasonable, which is something I can’t control, you’ll have to deal with his sons and the servants. Nothing you can’t handle, I’m sure. Are we good now?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Yes. Let’s go.”</text>
+          <def_link>2835</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Knowing you, I need an hour or two to get ready. Wait for me here." Leave.</text>
+          <def_link>2836</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“No. You’re on your own.” Leave.</text>
+          <def_link>2836</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2834</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Are you ready?" asks Miltiades impatiently.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(300, 45, 7, 2090);</string>
+        <string>dlgTeleportToMarker(TM_PC_Miltiades_04);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Let's go. You first."</text>
+          <def_link>2835</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Not yet. Forgot to write a will." Leave.</text>
+          <def_link>2836</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2853</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - district</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(300, 45, 12, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2836</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Miltiades smiles, opens the door, and goes inside. You follow him.
+
+“Have you come to beg me?” asks an old man standing near a dinner table, his face instantly turning red. “It’s too late. You ruined me, but I’ll get my revenge yet. I sold your debt to Levir. I’ve lowered myself to do business with the likes of him to ensure that justice will be served.”
+
+“See, didn’t I tell you that he has money?” says Miltiades cheerfully.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_NPC_Miltiades_03, 2090);</string>
+        <string>dlgTeleportToMarker(TM_PC_Miltiades_05);</string>
+        <string>createByCharMarker("CM_Lord_Varus");</string>
+        <string>createByCharMarker("CM_Lord_Varus_Son_01");</string>
+        <string>createByCharMarker("CM_Lord_Varus_Son_02");</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgCam(145, 45, 10, 5073);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“You told me that he owes you money. It seems as if it’s the other way around.”</text>
+          <def_link>2837</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2835</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Let's not split hair. You were ready to kill for two thousand imperials. The money’s here. Get to work.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“And what do you get out of it?”</text>
+          <def_link>2839</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Alright.” Kill the old man.</text>
+          <def_link>2842</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Forget about it.”</text>
+          <def_link>2840</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2837</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Varus and sons</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.npc_miltiades_maadoranNobleFight = true;</string>
+        <string>addParty(Miltiades_Noble, 0);</string>
+        <string>addCharToParty(5073, Miltiades_Noble, fighter);</string>
+        <string>addCharToParty(5074, Miltiades_Noble, fighter);</string>
+        <string>addCharToParty(5075, Miltiades_Noble, fighter);</string>
+        <string>addEnemyToParty(1, Miltiades_Noble);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Miltiades_04, 2090);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2838</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Don’t worry about it.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Alright.” Kill the old man.</text>
+          <def_link>2842</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“No. I'm leaving.”</text>
+          <def_link>2840</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2839</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Lord Varus' son</speaker_name>
+      <npc_text>“You’re an honourable &lt;man/woman&gt;,” says one of lord Varus’ sons. “Thank you.”</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_Militiades_phase6 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2841</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2840</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>You leave knowing that you did a good deed today and that you probably won’t be seeing Miltiades again. The good deed is oddly heart-warming, although you can’t help but think of the two thousand imperials you could have earned. Maybe you would have found them equally heart-warming...</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_PC_Miltiades_06);</string>
+        <string>rwd_quest(MDN_Miltiades_02);</string>
+        <string>aod.npc_miltiades_dead = 1;</string>
+        <string>dlgCam(300, 45, 7, 1);</string>
+        <string>aod.ending_mdn_miltiades = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2855</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2841</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - leaving Miltiades to Varus</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgDeleteCharacter(2090);</string>
+        <string>dlgDeleteCharacter(5073);</string>
+        <string>dlgDeleteCharacter(5074);</string>
+        <string>dlgDeleteCharacter(5075);</string>
+        <string>dlgCam(300, 45, 12, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2855</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Lord Varus' son</speaker_name>
+      <npc_text>“Murderer!” yells the youngest of lord Varus’ sons. He grabs a sword from the wall and charges at you, swinging it furiously.
+
+His brother follows suit. Lord Varus starts winding up a crossbow with shaking hands. The servants wisely disappear – clearly, they are not paid enough to defend their master with their lives.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Not much of a choice now, but to kill them all, is there?</text>
+          <def_link>2838</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2842</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>When the fight is over, Miltiades walks toward lord Varus, slowly bleeding out on the floor. He crouches next to him and whispers something in the dying man’s ear. You don’t know what Miltiades said to him, but Varus nods and signs some document. His breathing becomes heavy, he labours hard, but he has too much blood in his lungs. He coughs several times, then lies still.
+
+Miltiades stamps the document with Varus’ signet ring and puts it away. Then he searches the body, cutting a heavy leather bag from his belt. He weighs it in his hand before throwing it to you.
+
+“At least two thousand imperials, as promised.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_miltiades_maadoranNobleFight = false;</string>
+        <string>dlgTeleportToMarker(TM_NPC_Miltiades_05, 2090);</string>
+        <string>dlgTeleportToMarker(TM_PC_Miltiades_05);</string>
+        <string>aod.jnl_Militiades_phase5 = true;</string>
+        <string>rwd_quest(MDN_Miltiades_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“You lied to me.”</text>
+          <def_link>2844</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Pleasure doing business.”</text>
+          <def_link>2848</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2843</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I may have skipped some less important details, but let’s not dwell on the negatives. You were well compensated for your trouble.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“And what did you get?”</text>
+          <def_link>2845</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2844</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I can assure you, &lt;charname&gt;, the pleasure is all mine.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So, what did you get out of it?”</text>
+          <def_link>2845</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2848</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“A title, what else? You’re looking at lord Miltiades of the Cornelii.” He pours himself some wine. “A toast – to new beginnings!
+
+“I’ll send for you once I've settled in and got the affairs of my House in order. I have a feeling I’ll need your services again very soon.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I thought you got what you wanted.”</text>
+          <def_link>2846</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2845</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What? This hovel? No, no, no. Whoever thinks so doesn’t know Miltiades,” he pauses and corrects himself, “Lord Miltiades at all.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_miltiades_lord = true;</string>
+        <string>aod.ending_mdn_miltiades = 1;</string>
+        <string>DOOR_Miltiades_01.unlock();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2847</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2846</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - house</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgTeleportToMarker(TM_NPC_Miltiades_06, 2090);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgSetAnimation(anim_sit_chair_00_00, 0, 2090);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2847</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Keeping an eye on me? Don't worry, I won't leave you behind. I have big plans for you, &lt;charname&gt;. Big plans."</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(115, 45, 6, 2090);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Can hardly wait." Leave.</text>
+          <def_link>2847</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2854</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

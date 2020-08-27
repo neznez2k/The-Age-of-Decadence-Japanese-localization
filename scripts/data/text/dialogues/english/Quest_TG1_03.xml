@@ -1,0 +1,977 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_flavius_met &amp;&amp; aod.quest_kaeso_started == false</string>
+      <string>aod.quest_kaeso_started</string>
+    </conditions>
+    <links>
+      <int>16</int>
+      <int>42</int>
+    </links>
+    <dlg_name>Quest_TG1_03</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Flavius</speaker_name>
+      <npc_text>You're standing in a small room on the outer wall; two guards are monitoring the approach to town through a pair of arrow loops. A centurion studies something in a small office between the apertures.
+
+"&lt;He/She&gt;'s here about the debt, Commander."
+
+Flavius looks at you but says nothing, clearly waiting for you to explain the nature of your business.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Flavius_01);</string>
+        <string>dlgTeleportTo(214, 240, 1, N);</string>
+        <string>dlgTeleportTo(214, 241, 1, S, 1420);</string>
+        <string>aod.npc_flavius_met = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I might be able to help you with your problem..."</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Flavius</speaker_name>
+      <npc_text>You're standing in a small room on the outer wall; two guards are monitoring the approach to town through a pair of arrow loops. Flavius studies something in a small office between the apertures.
+
+"What do you want, &lt;charname&gt;?"</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Flavius_01);</string>
+        <string>dlgTeleportTo(214, 241, 1, S, 1420);</string>
+        <string>dlgTeleportTo(214, 240, 1, N);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I might be able to help you with your problem..."</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Flavius</speaker_name>
+      <npc_text>"You have nothing better to do than to help people with problems?"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg1_flaviusKnowInfo = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"The world would be a much better place if people helped each other more. For example, I too have a problem."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Flavius</speaker_name>
+      <npc_text>"I see where this is going." Flavius sighs. "What's your problem?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"A friend of a friend has found some goods and wants to send them to Maadoran."</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Flavius</speaker_name>
+      <npc_text>"What's the problem?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"He's concerned the goods might be stolen. So, he wants to avoid an embarrassment."</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Flavius</speaker_name>
+      <npc_text>"Your friend can be crucified for this."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]"And you can go to the debtor's prison. Both of these unnecessary tragic outcomes can be easily avoided with some cooperation. Don't you think so?"</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 4</string>
+            <string>aod.pc_liegemanDaratan</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+            <int>8</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Flavius</speaker_name>
+      <npc_text>[failure]"Throw this garbage out."</npc_text>
+      <onLoadScripts>
+        <string>remQuest(TG1a);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]"Too much pride, eh? It's good to have a bit of pride when you have everything else. Not so much when it's the only thing you have, as you're about to find out."</text>
+          <def_link>46</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Flavius gestures to his men, and you're promptly dragged outside and literally thrown out. You land heavily on the cobblestones and use this opportunity to re-evaluate your strategy.</npc_text>
+      <onLoadScripts>
+        <string>remQuest(TG1a);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>41</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>46</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Flavius</speaker_name>
+      <npc_text>[success]"Are you... Is your 'friend' certain he can solve my problem?"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg1a_phase2 = true;</string>
+        <string>rwd_civil(TG1_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Give me the details."</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Flavius</speaker_name>
+      <npc_text>"I would have said no to anyone else, but we're on the same side and must help each other. Are you certain you can solve my problem?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Give me the details."</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Flavius</speaker_name>
+      <npc_text>"I lost almost two thousand imperials to that slippery fuck Kaeso. I should have known better than to play with him. I don't have that kind of money, so I had to sign a promissory note. Without the note, it's his word against mine. Bring it to me and you can smuggle anything you want. You have my word."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Doesn't sound like much of a problem, if you ask me."</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Go to Kaeso's house.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Flavius</speaker_name>
+      <npc_text>"If he didn't have friends in very high places, I would have slit his throat myself. I sent my men to turn his house upside down, but they didn't find anything. Maybe it's not there, maybe they didn't look hard enough, maybe they aren't the right men for the job. Unlike your friend."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go to Kaeso's house.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You find Kaeso's house without much trouble. A modest home, like everything else in Teron it's seen better days. You casually stroll past what used to be a flower garden and a crumbling well, but if anyone is home they must be inside. The front door looks newer than its frame. Recently reinforced, no doubt after a visit from Flavius' thugs.
+
+You stroll around the back, hoping to get a glimpse inside the house. You're in luck; the first pair of shutters are open, revealing a large hall. You see a stove and a table set with bread, smell the aroma of food cooking. Someone moves into view to check on the food. Must be the cook. You move on.
+
+The second pair of shutters is boarded over. Looking around to make sure there is no one around, you risk a peek through the cracks. The room inside is dark, but you manage to make out shelves stacked with goods, sacks of grain, a chest. A storage room.
+
+The last pair of shutters is also open, giving you a view into a small, cluttered room. You see scrolls, pots of ink. A man, most likely Kaeso, sits at a desk, intent on his writing. Must be a personal study. He stirs and starts to look toward the window, and you quickly move on.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(quest_kaeso_01);</string>
+        <string>dlgTeleportTo(120, 150, 0, N);</string>
+        <string>dlgTeleportTo(214, 244, 1, N, 1420);</string>
+        <string>dlgCreateCharacter("Kaeso", 1920, 1920, 124, 160, 0, N);</string>
+        <string>aod.quest_kaeso_started = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lockpick]Pick the lock.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lockpick &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>21</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity]Lure Kaeso away from the study.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>27</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>44</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You are outside Kaeso's house. A modest home, like everything else in Teron it's seen better days. You casually stroll past what used to be a flower garden and a crumbling well, but if anyone is home they must be inside. The front door looks newer than its frame. Recently reinforced, no doubt after a visit from Flavius' thugs.
+
+You stroll around the back, hoping to get a glimpse inside the house. You're in luck; the first pair of shutters are open, revealing a large hall. You see a stove and a table set with bread, smell the aroma of food cooking. Someone moves into view to check on the food. Must be the cook. You move on.
+
+The second pair of shutters is boarded over. Looking around to make sure there is no one around, you risk a peek through the cracks. The room inside is dark, but you manage to make out shelves stacked with goods, sacks of grain, a chest. A storage room.
+
+The last pair of shutters is also open, giving you a view into a small, cluttered room. You see scrolls, pots of ink. A man, most likely Kaeso, sits at a desk, intent on his writing. Must be a personal study. He stirs and starts to look toward the window, and you quickly move on.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(quest_kaeso_01);</string>
+        <string>dlgTeleportTo(120, 150, 0, N);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lockpick]Pick the lock.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lockpick &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>21</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity]Lure Kaeso away from the study.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>27</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>44</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>42</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You try to pick the lock, but fail.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(quest_kaeso_02);</string>
+        <string>dlgTeleportTo(120, 153, 0, N);</string>
+        <string>dlgStealthPose(1);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[dexterity]Lure Kaeso away from the study.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>27</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You start tinkering with the lock and discover that while the visible parts are heavy and made to impress and create a sense of security, the mechanism itself has been borrowed from an old lock. The worn out parts have been replaced but they lack precision and can't resist your efforts for long.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(quest_kaeso_02);</string>
+        <string>dlgTeleportTo(120, 153, 0, N);</string>
+        <string>dlgStealthPose(1);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>rwd_civil(Lockpick);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[sneak]Go inside.</text>
+          <def_link>24</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.sneak &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>25</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You open the door slightly, step inside, and carefully close the door behind you. The sound it makes is barely audible, but it's enough for Kaeso. He steps out of the study, smiling calmly as if strangers breaking into his house are a common occurrence. "Will you be kind enough to explain to Flavius that only a fool would keep such a valuable document in the house? He doesn't seem to get it. While you're at it, tell him that the Commercium was interested in purchasing his debt."</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(quest_kaeso_06);</string>
+        <string>dlgTeleportTo(120, 156, 0, N);</string>
+        <string>dlgTeleportTo(120, 158, 0, S, 1920);</string>
+        <string>dlgSetAnimation(anim_dodge_back, 0.1);</string>
+        <string>dlgSetAnimation(anim_talk_crossed_calm_01, 0.95, 1920);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You open the door slightly, squeeze yourself inside, and carefully close the door behind you, making sure it makes no sound.
+
+You're standing in the main hall. To your left, there is a small kitchen area where a woman is cooking something. Fortunately, she is facing the window at the moment. The storage room is to your right, near the door.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(120, 155, 0, N);</string>
+        <string>useCameraBookmark(quest_kaeso_03);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>rwd_civil(Sneak);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go into the storage room.</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You knock on the door and run to the window. You climb inside and ... run into Kaeso. Apparently, you weren't fast enough. He smiles calmly as if strangers breaking into his house are a common occurrence. "Will you be kind enough to explain to Flavius that only a fool would keep such a valuable document in the house? He doesn't seem to get it. While you're at it, tell him that the Commercium was interested in purchasing his debt."</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(quest_kaeso_07);</string>
+        <string>dlgTeleportTo(123, 160, 0, E, 1920);</string>
+        <string>dlgTeleportTo(124, 160, 0, W);</string>
+        <string>dlgSetAnimation(anim_dodge_back, 0.1);</string>
+        <string>dlgSetAnimation(anim_talk_crossed_calm_01, 0.95, 1920);</string>
+        <string>tpd_q1_door_03.open();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You knock on the door, then dash for the window. As you climb inside, you hear the front door being slammed shut. You have no more than a few seconds.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(quest_kaeso_07);</string>
+        <string>dlgTeleportTo(124, 160, 0, W);</string>
+        <string>dlgTeleportTo(120, 158, 0, N, 1920);</string>
+        <string>dlgStealthPose(1);</string>
+        <string>tpd_q1_door_03.open();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[sneak]Hide behind the door and sneak out when you get a chance.</text>
+          <def_link>28</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.sneak &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>29</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>27</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Shaking his head and muttering something under his breath, Kaeso walks into the study and resumes his writing. You take a step, but the floorboards creak, betraying your presence.
+
+Kaeso turns around, smiling calmly as if strangers breaking into his house are a common occurrence. "Will you be kind enough to explain to Flavius that only a fool would keep such a valuable document in the house? He doesn't seem to get it. While you're at it, tell him that the Commercium was interested in purchasing his debt."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(124, 160, 0, SW, 1920);</string>
+        <string>dlgTeleportTo(123, 159, 0, NE);</string>
+        <string>useCameraBookmark(quest_kaeso_08);</string>
+        <string>dlgSetAnimation(anim_dodge_back, 0.1);</string>
+        <string>dlgSetAnimation(anim_talk_crossed_calm_01, 0.95, 1920);</string>
+        <string>tpd_q1_door_03.open();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>28</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Shaking his head and muttering something under his breath, Kaeso walks into the study and resumes his writing. Stepping lightly and making absolutely no sound, you exit the study, leaving Kaeso to his work.
+
+You're standing in the main hall. To your left, there is a small kitchen area where a woman is cooking something. Fortunately, she is facing the window at the moment, making enough noise cutting and chopping to drown out your footsteps.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(quest_kaeso_06);</string>
+        <string>dlgTeleportTo(120, 158, 0, S);</string>
+        <string>dlgTeleportTo(124, 160, 0, N, 1920);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>rwd_civil(Sneak);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Make your way to the storage room.</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>29</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The storage room is dark and musty. You check the shelves and the sacks, but find nothing but stored vegetables. The chest's lock is broken, courtesy of Flavius' thugs. You open it anyway. Except for a large stone, the chest is empty.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(quest_kaeso_04);</string>
+        <string>dlgTeleportTo(123, 156, 0, E);</string>
+        <string>dlgStealthPose(1);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Examine the stone.</text>
+          <def_link>30</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per &gt;= 7</string>
+            <string>aod.per &lt; 7 &amp;&amp; aod.crafting &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>31</int>
+            <int>32</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>26</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>It's a large, grey stone. You've definitely seen more interesting specimens.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Take the stone and leave. Maybe you'll start a collection one day.</text>
+          <def_link>36</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave the house.</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>30</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[crafting success]It's a lodestone. A natural magnet. Interesting.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[intelligence]Try to figure it out.</text>
+          <def_link>39</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.int &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>35</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Take the stone and leave. Maybe you'll start a collection one day.</text>
+          <def_link>45</def_link>
+          <checkOnAppear>aod.int &lt; 8</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave the house.</text>
+          <def_link>23</def_link>
+          <checkOnAppear>aod.int &lt; 8</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>32</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Many craftsmen use lodestones to collect metal shavings and nails, but Kaeso isn't a craftsman. There are no tools of any kind in his storage area. Why would he need a lodestone then? Especially such a large stone? Well, it is a mystery.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Take the stone and leave. Maybe you'll start a collection one day.</text>
+          <def_link>45</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>39</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[perception success]It's a large, grey stone. Looking carefully, you notice a small, barely visible groove running around the stone. It looks like a rope was tied to the stone at some point. As a matter of fact, there was some rope in one of the crates.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[intelligence]Examine the rope.</text>
+          <def_link>33</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.int &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>34</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>31</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]The rope is wet. Strange, it hasn't rained in days. Well, it doesn't look like you'll find anything here.</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(2005, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>33</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]The rope is wet. Then it hits you. The rope, the stone, the well... It's probably a lodestone. Has to be. Judging by the size, it's strong enough to pull up something big.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Give it a try.</text>
+          <def_link>37</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>34</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Many craftsmen use lodestones to collect metal shavings and nails, but Kaeso isn't a craftsman. There are no tools of any kind in his storage area. Why would he need a lodestone then? Especially such a large stone? What does he lift with it? Then it hits you. The well. The only place to hide something valuable out in the open. You look around and find a rope. It's still wet.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Give it a try.</text>
+          <def_link>37</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>35</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You remove the bar blocking the shutters and leave the house. You head to the well, tying a line to the lodestone as you go. Gently, you lower the lodestone into the darkness below, waiting for the tell-tale tug. There. You reverse direction, pulling the stone back up, feeling an extra weight as something comes back up with it. As it comes over the lip you make out your prize, a small metal jar.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(118, 153, 0, W);</string>
+        <string>useCameraBookmark(quest_kaeso_05);</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Open it.</text>
+          <def_link>38</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>37</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You remove the lid and pour the contents out. A handful of gems comes out, followed by a folded parchment - Flavius' promissory note.</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(2004, 3);</string>
+        <string>dlgAddItem(2003, 1);</string>
+        <string>dlgAddItem(2002, 1);</string>
+        <string>dlgAddItem(2006, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Return to Flavius.</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>38</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Flavius</speaker_name>
+      <npc_text>"Any luck?"</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(NPC_Flavius_01);</string>
+        <string>dlgTeleportTo(214, 240, 1, N);</string>
+        <string>dlgTeleportTo(214, 241, 1, S, 1420);</string>
+        <string>aod.quest_kaeso_started = false;</string>
+        <string>dlgDeleteCharacter(1920);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Give him the note.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Flavius</speaker_name>
+      <npc_text>"My gratitude, &lt;charname&gt;. Tell your friend that we have a deal. My men will look the other way. Should he find more goods that might have been stolen, tell him that I'll take 15% of the value."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I changed my mind. I'd rather take cash. Two hundred imperials and we're even."</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Flavius</speaker_name>
+      <npc_text>"As you wish. I know what it feels like when you're short on coin."</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(200);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - fail persuasion</npc_text>
+      <onLoadScripts>
+        <string>setRtsCam();</string>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(214, 244, 1, N, 1420);</string>
+        <string>dlgTeleportTo(209, 166, 0, S);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>41</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - made deal</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg1_flaviusMadeDeal = true;</string>
+        <string>aod.quest_tg1_pathTaken = true;</string>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportTo(214, 244, 1, N, 1420);</string>
+        <string>dlgTeleportTo(209, 166, 0, S);</string>
+        <string>aod.quest_tg1a_phase3 = true;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - got money</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportTo(214, 244, 1, N, 1420);</string>
+        <string>dlgTeleportTo(209, 166, 0, S);</string>
+        <string>remQuest(TG1a);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - fail</npc_text>
+      <onLoadScripts>
+        <string>setRtsCam();</string>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(120, 148, 0, S);</string>
+        <string>dlgDeleteCharacter(1920);</string>
+        <string>aod.quest_kaeso_started = false;</string>
+        <string>remQuest(TG1a);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - fail - taken the stone</npc_text>
+      <onLoadScripts>
+        <string>setRtsCam();</string>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(120, 148, 0, S);</string>
+        <string>dlgDeleteCharacter(1920);</string>
+        <string>aod.quest_kaeso_started = false;</string>
+        <string>dlgAddItem(2005, 1);</string>
+        <string>remQuest(TG1a);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>36</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - fail - taken the lodestone</npc_text>
+      <onLoadScripts>
+        <string>setRtsCam();</string>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(120, 148, 0, S);</string>
+        <string>dlgDeleteCharacter(1920);</string>
+        <string>aod.quest_kaeso_started = false;</string>
+        <string>dlgAddItem(2006, 1);</string>
+        <string>remQuest(TG1a);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>45</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - leave and come back later</npc_text>
+      <onLoadScripts>
+        <string>setRtsCam();</string>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(120, 148, 0, S);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>44</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

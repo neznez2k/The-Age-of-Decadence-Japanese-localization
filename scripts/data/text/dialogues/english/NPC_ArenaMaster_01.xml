@@ -1,0 +1,953 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.arena_challengers == 3</string>
+      <string>aod.arena_challengers == 2</string>
+      <string>aod.arena_challengers == 1</string>
+      <string>aod.rep_arenaChampion</string>
+      <string>aod.npc_arenaMaster_sentToBasil &amp;&amp; aod.quest_basil_helped == false</string>
+      <string>aod.quest_basil_helped &amp;&amp; aod.npc_arenaMaster_presentedBarbari == false</string>
+      <string>aod.arena_started</string>
+      <string>aod.npc_arenaMaster_met &amp;&amp; aod.arena_started == false</string>
+    </conditions>
+    <links>
+      <int>248</int>
+      <int>243</int>
+      <int>239</int>
+      <int>236</int>
+      <int>220</int>
+      <int>221</int>
+      <int>125</int>
+      <int>219</int>
+    </links>
+    <dlg_name>NPC_ArenaMaster_01</dlg_name>
+    <def_link>64</def_link>
+    <def_speaker_name>Arena Master</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The arena master looks at you appraisingly and gives you the most convincing fake smile you've ever seen, beckoning you to come closer. Judging by the number of rings on his fingers, business is good.
+
+"Look what crawled out of some shithole and made its way to our glorious city... or what's left of it. Seeking your fortune in the big city, I take it? Well, how about a job in the entertainment industry?"</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_arenaMaster_met = true;</string>
+        <string>dlgTeleportToMarker(TM_DLG_ArenaMaster_PC_01);</string>
+        <string>dlgcam(315,40,15,495);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"What kind of entertainment?"</text>
+          <def_link>65</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>64</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The arena master grins. "The best kind. Fight in the arena to amuse the crowd and make a name for yourself. Everything your victims have is yours. What do you say?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Why not?"</text>
+          <def_link>66</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Maybe later." Leave.</text>
+          <def_link>217</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>65</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>217</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Decided to give it a shot, eh? Trust me, you won't regret it. So, should I set up a fight? What do you say?"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_ArenaMaster_PC_01);</string>
+        <string>dlgcam(315,40,15,495);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Why not?"</text>
+          <def_link>66</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Maybe later." Leave.</text>
+          <def_link>217</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>219</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You're wise beyond your years, my friend. Why not indeed? Your first opponent is a newcomer like you. Fancies himself a thief. Poor bastard thinks we live like animals, without rules and laws. He thought anyone can come here and start picking pockets without getting the guild's blessing first. So the guild turned him in.
+
+"He doesn't look like the fighting sort, but he claims he killed a man or two. I know, I know. Hardly worth your time, but what do you expect me to do? Let him go? Just enter the arena, gut him like a fish, and we'll continue this conversation."</npc_text>
+      <onLoadScripts>
+        <string>dlgAddTextBoxMessage("New rank gained - Brawler");</string>
+        <string>dlgAddRank(43);</string>
+        <string>createByCharMarker("CM_Arena_Thief");</string>
+        <string>aod.arena_ready_thief = true;</string>
+        <string>aod.arena_started = true;</string>
+        <string>aod.jnl_arena_phase3 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"The guild?"</text>
+          <def_link>67</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[thief]"We don't take kindly to those who operate outside our laws."</text>
+          <def_link>237</def_link>
+          <checkOnAppear>aod.pc_member_thieves</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'm ready."</text>
+          <def_link>72</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Maybe later." Leave.</text>
+          <def_link>124</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>66</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"A sound policy, I'm sure. So, are you going to fight or sit here and talk all day?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'm ready."</text>
+          <def_link>72</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Maybe later." Leave.</text>
+          <def_link>124</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>237</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Not from around here, are you? I was talking about the Forty Thieves guild, one of the oldest in the Empire. The name goes back to the good ol' days, when kingpins from the forty largest cities of the Empire controlled pretty much everything that the law frowned upon. I'd love to stay and chat, but I have a business to run, so are you going to fight or not?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Yes."</text>
+          <def_link>72</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Maybe later."</text>
+          <def_link>124</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>67</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Ready to fight?"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_ArenaMaster_PC_01);</string>
+        <string>dlgcam(315,40,15,495);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Yes." (Fight the thief)</text>
+          <def_link>72</def_link>
+          <checkOnAppear>aod.arena_ready_thief</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Yes." (Fight the zealot)</text>
+          <def_link>223</def_link>
+          <checkOnAppear>aod.arena_ready_zealot</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Yes." (Fight the crossbow kid)</text>
+          <def_link>224</def_link>
+          <checkOnAppear>aod.arena_ready_isatis</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Yes." (Fight Papa Yochan)</text>
+          <def_link>225</def_link>
+          <checkOnAppear>aod.arena_ready_yochan</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Yes." (Fight the raider)</text>
+          <def_link>226</def_link>
+          <checkOnAppear>aod.arena_ready_raider</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Yes." (Fight the barbari)</text>
+          <def_link>227</def_link>
+          <checkOnAppear>aod.arena_ready_barbari</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Yes." (Fight Nicander)</text>
+          <def_link>228</def_link>
+          <checkOnAppear>aod.arena_ready_nicander</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Yes." (Fight Bendidoros)</text>
+          <def_link>229</def_link>
+          <checkOnAppear>aod.arena_ready_bendidoros</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Yes." (Fight Sarpedon)</text>
+          <def_link>230</def_link>
+          <checkOnAppear>aod.arena_ready_sarpedon</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Yes." (Fight the Ordu)</text>
+          <def_link>231</def_link>
+          <checkOnAppear>aod.arena_ready_ordu</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Yes." (Fight the Butcher)</text>
+          <def_link>232</def_link>
+          <checkOnAppear>aod.arena_ready_butcher</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Yes." (Fight Mack the Knife)</text>
+          <def_link>233</def_link>
+          <checkOnAppear>aod.arena_ready_mack</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Yes." (Fight the Triarii)</text>
+          <def_link>234</def_link>
+          <checkOnAppear>aod.arena_ready_triarii</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Yes." (Fight Al Sahir, the champion of the arena)</text>
+          <def_link>235</def_link>
+          <checkOnAppear>aod.arena_ready_champion</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Not yet."</text>
+          <def_link>124</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>125</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - thief</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>aod.arena_fought_thief = true;</string>
+        <string>aod.arena_ready_thief = false;</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_PC_01);</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_NPC_01, 500);</string>
+        <string>dlgSetAttitude(500, 1, -10);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>aod.fight_arena = true;</string>
+        <string>dlgcam(225,45,15,1);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>72</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - zealot</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>aod.arena_fought_zealot = true;</string>
+        <string>aod.arena_ready_zealot = false;</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_PC_01);</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_NPC_01, 501);</string>
+        <string>dlgSetAttitude(501, 1, -10);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>aod.fight_arena = true;</string>
+        <string>dlgcam(225,45,15,1);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>223</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Isatis</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>aod.arena_fought_isatis = true;</string>
+        <string>aod.arena_ready_isatis = false;</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_PC_01);</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_NPC_01, 502);</string>
+        <string>dlgSetAttitude(502, 1, -10);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>aod.fight_arena = true;</string>
+        <string>dlgcam(225,45,15,1);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>224</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Yochan</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>aod.arena_fought_yochan = true;</string>
+        <string>aod.arena_ready_yochan = false;</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_PC_01);</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_NPC_01, 503);</string>
+        <string>dlgSetAttitude(503, 1, -10);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>aod.fight_arena = true;</string>
+        <string>dlgcam(225,45,15,1);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>225</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - raider</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>aod.arena_fought_raider = true;</string>
+        <string>aod.arena_ready_raider = false;</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_PC_01);</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_NPC_01, 504);</string>
+        <string>dlgSetAttitude(504, 1, -10);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>aod.fight_arena = true;</string>
+        <string>dlgcam(225,45,15,1);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>226</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - barbari</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>aod.arena_fought_barbari = true;</string>
+        <string>aod.arena_ready_barbari = false;</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_PC_01);</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_NPC_01, 505);</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_NPC_02, 506);</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_NPC_03, 507);</string>
+        <string>addParty(arenaBarbari, 0);</string>
+        <string>addCharToParty(505, arenaBarbari, fighter);</string>
+        <string>addCharToParty(506, arenaBarbari, fighter);</string>
+        <string>addCharToParty(507, arenaBarbari, fighter);</string>
+        <string>addEnemyToParty(1, arenaBarbari);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>aod.fight_arena = true;</string>
+        <string>dlgcam(225,45,15,1);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>227</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Nicander</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>aod.arena_fought_nicander = true;</string>
+        <string>aod.arena_ready_nicander = false;</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_PC_01);</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_NPC_01, 508);</string>
+        <string>dlgSetAttitude(508, 1, -10);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>aod.fight_arena = true;</string>
+        <string>dlgcam(225,45,15,1);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>228</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Bendidoros</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>aod.arena_fought_bendidoros = true;</string>
+        <string>aod.arena_ready_bendidoros = false;</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_PC_01);</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_NPC_01, 509);</string>
+        <string>dlgSetAttitude(509, 1, -10);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>aod.fight_arena = true;</string>
+        <string>dlgcam(225,45,15,1);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>229</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Sarpedon</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>aod.arena_fought_sarpedon = true;</string>
+        <string>aod.arena_ready_sarpedon = false;</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_PC_01);</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_NPC_01, 510);</string>
+        <string>dlgSetAttitude(510, 1, -10);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>aod.fight_arena = true;</string>
+        <string>dlgcam(225,45,15,1);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>230</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Ordu</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>aod.arena_fought_ordu = true;</string>
+        <string>aod.arena_ready_ordu = false;</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_PC_01);</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_NPC_01, 511);</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_NPC_04, 512);</string>
+        <string>addParty(arenaOrdu, 0);</string>
+        <string>addCharToParty(511, arenaOrdu, fighter);</string>
+        <string>addCharToParty(512, arenaOrdu, fighter);</string>
+        <string>addEnemyToParty(1, arenaOrdu);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>aod.fight_arena = true;</string>
+        <string>dlgcam(225,45,15,1);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>231</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Butcher</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>aod.arena_fought_butcher = true;</string>
+        <string>aod.arena_ready_butcher = false;</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_PC_01);</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_NPC_01, 513);</string>
+        <string>dlgSetAttitude(513, 1, -10);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>aod.fight_arena = true;</string>
+        <string>dlgcam(225,45,15,1);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>232</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Mack</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>aod.arena_fought_mack = true;</string>
+        <string>aod.arena_ready_mack = false;</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_PC_01);</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_NPC_01, 514);</string>
+        <string>dlgSetAttitude(514, 1, -10);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>aod.fight_arena = true;</string>
+        <string>dlgcam(225,45,15,1);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>233</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Triarii</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>aod.arena_fought_triarii = true;</string>
+        <string>aod.arena_ready_triarii = false;</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_PC_01);</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_NPC_01, 515);</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_NPC_02, 516);</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_NPC_03, 517);</string>
+        <string>addParty(arenaTriarii, 0);</string>
+        <string>addCharToParty(515, arenaTriarii, fighter);</string>
+        <string>addCharToParty(516, arenaTriarii, fighter);</string>
+        <string>addCharToParty(517, arenaTriarii, fighter);</string>
+        <string>addEnemyToParty(1, arenaTriarii);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>aod.fight_arena = true;</string>
+        <string>dlgcam(225,45,15,1);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>234</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - champion</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>aod.arena_fought_champion = true;</string>
+        <string>aod.arena_ready_champion = false;</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_PC_01);</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_NPC_01, 518);</string>
+        <string>dlgSetAttitude(518, 1, -10);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>aod.fight_arena = true;</string>
+        <string>dlgcam(225,45,15,1);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>235</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - later</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>$met_master = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>124</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Patience, my friend, patience. These things take time. If you're itching to kill someone, talk to Basileios."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_ArenaMaster_PC_01);</string>
+        <string>dlgcam(315,40,15,495);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>217</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>220</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I have something special in store for you. Three barbari. Three! Delivered this morning. A lot of gladiators wanted in on this action, but I decided to give them to you. Happy birthday, kid. Go get 'em!"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_ArenaMaster_PC_01);</string>
+        <string>createByCharMarker("CM_Arena_Barbari_01");</string>
+        <string>createByCharMarker("CM_Arena_Barbari_02");</string>
+        <string>createByCharMarker("CM_Arena_Barbari_03");</string>
+        <string>aod.arena_ready_barbari = true;</string>
+        <string>aod.npc_arenaMaster_presentedBarbari = true;</string>
+        <string>dlgcam(315,40,15,495);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Barbari?"</text>
+          <def_link>222</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>221</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Barbari. Those who weren't fortunate enough to be born in the Empire and blessed by the fruits of our culture..." His speech is interrupted by bloodcurdling screams from the arena. "...and civilization", he finishes after a pause.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'm ready."</text>
+          <def_link>227</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Maybe later."</text>
+          <def_link>217</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>222</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Nothing yet. I'll let you know when something comes up."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_ArenaMaster_PC_01);</string>
+        <string>dlgcam(315,40,15,495);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"What do you mean? I thought I was the champion?"</text>
+          <def_link>238</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>236</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You are the champion until such time as someone kills you and becomes the next champion. Some champions don't live longer than a week. Some last a few months. It's a very fast-paced industry, my friend."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>217</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>238</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Where have you been? I’ve been looking all over for you,” the arena master says grumpily. “Are you ready to fight?”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_ArenaMaster_PC_01);</string>
+        <string>dlgcam(315,40,15,495);</string>
+        <string>aod.arena_challengers = 2;</string>
+        <string>aod.arena_fight_hamul = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Fight? I thought I was the champion.”</text>
+          <def_link>240</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Always! Who’s the challenger?”</text>
+          <def_link>241</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>239</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“So was Al-Sahir until you killed him. Don’t waste my time, &lt;charname&gt;, you know how it works. I lined up three challengers for you because a champion who doesn’t fight ain’t much of a champion and this is the thanks I get?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Who’s the first challenger?”</text>
+          <def_link>241</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>240</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“A fella by the name of Hamul. Have you heard of him? No? Don’t worry, you’ll meet him soon enough. He’s good with a blade and has reflexes of a cat. Some even say there’s no one better, but I’ll let you be the judge of that.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight Hamul.</text>
+          <def_link>242</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’ll need some time to get ready.” Leave.</text>
+          <def_link>124</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>241</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Hamul</npc_text>
+      <onLoadScripts>
+        <string>createByCharMarker("CM_Arena_Hamul");</string>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_PC_01);</string>
+        <string>aod.fight_arena = true;</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>aod.arena_fight_hamul = 2;</string>
+        <string>sd(quest_arena_hamul);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>242</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Plaudius</npc_text>
+      <onLoadScripts>
+        <string>createByCharMarker("CM_Arena_Plaudius");</string>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_PC_01);</string>
+        <string>aod.fight_arena = true;</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>aod.arena_fight_plaudius = 2;</string>
+        <string>sd(quest_arena_plaudius);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>246</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Widowmaker</npc_text>
+      <onLoadScripts>
+        <string>createByCharMarker("CM_Arena_Widowmaker");</string>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_ArenaMatch_PC_01);</string>
+        <string>aod.fight_arena = true;</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>aod.arena_fight_widowmaker = 2;</string>
+        <string>sd(quest_arena_widowmaker);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>247</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Are you ready to defend your title?"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_ArenaMaster_PC_01);</string>
+        <string>dlgcam(315,40,15,495);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Yes." (Fight Hamul)</text>
+          <def_link>242</def_link>
+          <checkOnAppear>aod.arena_fight_hamul == 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Yes." (Fight Plaudius)</text>
+          <def_link>246</def_link>
+          <checkOnAppear>aod.arena_fight_plaudius == 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Yes." (Fight the Widowmaker)</text>
+          <def_link>247</def_link>
+          <checkOnAppear>aod.arena_fight_widowmaker == 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Not yet."</text>
+          <def_link>124</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>243</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Nothing yet. I'll let you know when something comes up."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_ArenaMaster_PC_01);</string>
+        <string>dlgcam(315,40,15,495);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>217</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>248</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

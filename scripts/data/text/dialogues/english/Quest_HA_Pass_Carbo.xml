@@ -1,0 +1,300 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Quest_HA_Pass_Carbo</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Carbo</def_speaker_name>
+    <def_portrait>Carbo</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The Imperial Guards’ scouts spot you before you can even see the camp. They take you to the sentries, the sentries summon the officers and escort, and before you know, you’re standing in front of the Imperial Guards’ most celebrated Legatus Legionis - Carbo.
+
+“I must admit that your visit took me by surprise,” says Carbo, dragging his words. “I didn’t figure the Ordu for quitters. In fact, I was looking forward to this little siege and thinking of ways to prolong my enjoyment. So, if you’re here to talk about surrender, you tell those goat fuckers that they’d better put up one hell of a fight because surrender isn’t an option.”</npc_text>
+      <onLoadScripts>
+        <string>addJournalChar(carbo);</string>
+        <string>setWindowImage(npc_carbo_passHA);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Actually, I’m here to ask you to let the Ordu go.”</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Are you out of your mind, &lt;boy/girl&gt;? Why would I let them go, when I have them right where I want them? The Ordu are our enemies; always have been. You don’t make peace with your enemies, not when you can crush them once and for all.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“And then what?”</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’m not sure I get your meaning,” says Carbo, frowning.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“You’re a soldier, Carbo, yet how many wars did you fight in? I know that you’re tired of waiting, tired of doing nothing, tired of wasting time. That’s why Carrinas went rogue, isn’t it?”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]“I’m not offering you peace. I’m offering you a war you’ve always dreamt of. Unless you’d rather sit here and think of ways to make this little siege last a bit longer.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>10</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“I think we’re done here,” says Carbo. “I’ll see you on the battlefield.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Return to the pass.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>You gave it your best shot. Return to Maadoran.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Maadoran - failed</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_HA_pass_leftOrdu = true;</string>
+        <string>aod.quest_HA_pass_fromPass = true;</string>
+        <string>aod.jnl_HA2_phase4 = true;</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>switchMission("Maadoran.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - slide - died defending the pass</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Thorgul_PC_01);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - return to the pass</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_HA_pass_carbo_agreed = true;</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportToMarker(TM_Thorgul_PC_01);</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>dlgCam(190, 45, 12, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Don’t talk to me about Carrinas!” snaps Carbo.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Why? Does the ease with which he took Teron scare you? Imagine what you can do, given the right opportunity.”</text>
+          <def_link>8</def_link>
+          <checkOnAppear>aod.npc_carrinas_dead == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“He died trying to do something, because he was alone. Had you stood by him, who knows what might have happened?”</text>
+          <def_link>8</def_link>
+          <checkOnAppear>aod.npc_carrinas_dead</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I serve the Imperial Guards, not my own ambitions.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“And what if they were to coincide?”</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’m listening,” says Carbo looking very skeptical.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]“Let the Ordu go and you’ll get a worthy enemy to fight, a threat Paullus won’t ignore. He will have no choice but to unleash all his might and do what he should have done years ago. Destroy the Ordu and Gaelius will never challenge the Guards again. Is that what you want, Carbo? Dying of old age, knowing that you could have taken the world by storm, but were kept on a tight leash?”</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>12</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“What makes you think I’m dreaming of wars?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]“You’re too good of a soldier, Carbo, to be satisfied with patrolling and occasional skirmishes. War is the ultimate test of men, yet it’s been denied to you, because Paullus doesn’t want to rock the boat.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>12</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“What if Paullus is right?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“Maybe he’s right. Maybe the Imperial Guards have lost their edge and Paullus knows it. Maybe shying away from a real fight with real stakes is the only to preserve the ‘Imperial Army’. You tell me, Carbo.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>12</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“It’s tempting,” says Carbo, “and under different circumstances, I might have considered it, but now my hands are tied. We’re here now and I can’t turn back. What would I tell Paullus? What would I tell my soldiers? That I’ve just had a change of heart and decided to give my enemies another chance? I won’t stay in command for long after that.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[intelligence][persuasion]“I understand. You need a reason nobody would question. We’ll leave a hundred men behind. They will fight to the last breath. The main force will go to Maadoran. If questioned, you’ll tell Paullus that the Ordu slipped before you arrived and by the time you’ve discovered it, it was too late to pursue them.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.int &gt;= 7 &amp;&amp; aod.persuasion &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“A hundred men,” nods Carbo. “You have until dawn to leave this area. If any of my men spot you in the morning, we’ll give chase.
+
+“Now that you’ve got what you wanted, you better pray that our paths don’t cross again, because if they do, I will have you crucified for enabling and conspiring with the enemy. Are we clear?”</npc_text>
+      <onLoadScripts>
+        <string>setAchievement("ACH_DEAL_DEVIL");</string>
+        <string>rwd_civil(HA2_05);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I will be looking forward to it.” Return to the pass.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

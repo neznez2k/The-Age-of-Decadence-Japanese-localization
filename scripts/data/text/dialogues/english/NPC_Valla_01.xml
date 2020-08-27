@@ -1,0 +1,762 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_valla_traded</string>
+      <string>dlgIsEquippedItem(2500) || dlgIsEquippedItem(2501)</string>
+      <string>aod.npc_valla_met</string>
+    </conditions>
+    <links>
+      <int>29</int>
+      <int>23</int>
+      <int>18</int>
+    </links>
+    <dlg_name>NPC_Valla_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Marcus Valla</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>You're standing outside Amerius' house. If you aren't wondering why, you should.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_AmeriusHouse_04);</string>
+        <string>dlgCam(330, 45, 7, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Knock on the door.</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Merc</speaker_name>
+      <npc_text>A rough looking man opens the door and gives you a hard stare. He looks like a typical mercenary, scarred and broad-shouldered. If you have to guess, his job is to look menacing and scare visitors away.
+
+"What do you want?"</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>Door_AmeriusHouse.open();</string>
+        <string>dlgTeleportToMarker(TM_AmeriusHouse_06, 4927);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I want to talk to Marcus Valla."</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Merc</speaker_name>
+      <npc_text>The mercenary eyes you for half a minute, hoping that you'd drop dead or run away screaming, then reluctantly offers you to come inside.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Follow him.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What can I do for you?” inquires a stern-looking man.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ameriusHome_wentInside = true;</string>
+        <string>VCO_AmeriusHomeDoor.setActive(false);</string>
+        <string>dlgTeleportToMarker(TM_AmeriusHouse_05);</string>
+        <string>dlgTeleportToMarker(TM_AmeriusHouse_07, 4927);</string>
+        <string>Door_AmeriusHouse.close();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgCam(330, 45, 7, 4926);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I had a conversation with Caius Amerius. He claims that this house belongs to him.”</text>
+          <def_link>2</def_link>
+          <checkOnAppear>aod.npc_amerius_met</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Belonged,” corrects the man, smiling amicably. “Allow me to introduce myself. My name is Marcus Valla of the Valla family. My family is... Well, you are not here to talk about my family, are you?
+
+“A few months ago master Amerius approached me, claiming to have found rich deposits of silver ore, close to the surface and easy to extract. He needed money, you see, to buy slaves and equipment. Since his reputation was good, I gladly lent him twelve thousand imperials – in good faith, mind you – against my share of the proceeds, yet, as you already know, the venture was less than successful.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_valla_met = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Silver ore, you said?”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“That’s what good master Amerius told me at first. Later, he confessed that he wasn’t entirely honest with me, but it was too late. Had I known what’s at stake, I would have handled everything myself. Ironically, that was master Amerius’ main concern at the time, and that’s precisely why he lost everything in the end.
+
+“I tried to reason with him and arrange a way for him to repay his debt, but he formed an opinion that he didn’t owe me anything anymore and that we were equal partners – equal shares, equal risks, as he so eloquently put it. He feels that we’ve invested equally. I invested my money, whereas he invested his expertise and life, which certainly was at risk during the ordeal. Yet, in the end, neither his life nor his ‘expertise’ were lost, only my money, and I was well within my rights to demand and insist on a repayment.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You took his house.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What was I supposed to take? His wife? She does have certain charms, but I assure you that she is hardly worth twelve thousand imperials. No woman is.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’ve heard enough. Get out!”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Let's be reasonable here.”</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I don't care about Amerius, but I'm interested in that armor.”</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Master Temor?” says Marcus, addressing one of his retainers. “It’s time you and your men earn your pay.”
+
+The men step forward, their faces showing neither fear nor excitement. Just another day at work.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Kill them.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[praetor]“I am a praetor of House Aurelian. Taking another step would be a tragic yet avoidable mistake.”</text>
+          <def_link>8</def_link>
+          <checkOnAppear>aod.pc_member_aurelian</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[impersonate][streetwise]“I’m a praetor of House Aurelian. You must be out of your fucking mind to think that you can fight your way out of this mess.”</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.disguise) &gt;= 8 &amp;&amp; aod.streetwise &gt;= 3 &amp;&amp; aod.disguise &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8</int>
+          </linksOnClick>
+          <scriptsOnClick>
+            <string>if((aod.streetwise + aod.disguise) &gt;= 8 &amp;&amp; aod.streetwise &gt;= 3 &amp;&amp; aod.disguise &gt;= 3) aod.flagUsed = 1;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.npc_valla_dead = true;</string>
+        <string>aod.quest_ameriusHome_gotHouse = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addParty(VallaMerc, 0);</string>
+        <string>addCharToParty(4926, VallaMerc, fighter);</string>
+        <string>addCharToParty(4927, VallaMerc, fighter);</string>
+        <string>addCharToParty(4928, VallaMerc, fighter);</string>
+        <string>addCharToParty(4929, VallaMerc, fighter);</string>
+        <string>addEnemyToParty(1, VallaMerc);</string>
+        <string>Door_AmeriusHouse.close();</string>
+        <string>Door_AmeriusHouse.lock();</string>
+        <string>aod.fight_ameriusHome_01 = true;</string>
+        <string>if(aod.jnl_amerius == 0) aod.jnl_amerius = 1;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Temor stops and looks at his master. Marcus Vala glances at you doubtfully and shakes his head.
+
+“Clearly, &lt;he/she&gt; isn’t a praetor, master Temor. &lt;He/She&gt; is just jesting with us, so do carry on.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“If it's the will of House Aurelian, I won't contest it, Praetor. Tell me one thing, before I go, are you not interested in that armor at all? I was led to believe that it was an extremely rare relic.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_valla_threatened = true;</string>
+        <string>if(aod.flagUsed) {rwd_civil(MDN_Valla_01); aod.flagUsed = 0;}</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Get out. I won't ask you again.”</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I thought it was taken by the mercenaries.”</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Very well. The house is yours. I look forward to our next meeting, Praetor.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ameriusHome_gotHouse = true;</string>
+        <string>aod.ending_amerius = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Valla leaves the house</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgDeleteCharacter(4926);</string>
+        <string>dlgDeleteCharacter(4927);</string>
+        <string>dlgDeleteCharacter(4928);</string>
+        <string>dlgDeleteCharacter(4929);</string>
+        <string>aod.jnl_amerius = 1;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The armor was taken. The question is where. This relic isn't something you can sell to the first trader. It's worth quite a bit of money. Since the mercenaries can't sell it in Maadoran, there is only city where they can get even half of its true worth - Ganezzar.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So, how do I find them?”</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I can certainly help you there, provided that we reach an agreement and consider all matters related to master Amerius settled.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“No deal. Get out.”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_valla_threatened</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What do you propose?”</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The mercenaries will need a buyer. One of my men who dabbles in such things will make them an offer they won't refuse. When they bring the armor, you'll handle them. Then we either sell the armor and split the money fifty/fifty, or you will buy me out and keep the armor. Do we have a deal?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Sure, we have a deal.”</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“No deal. Get out.”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_valla_threatened</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Ask for Esdras. I'll send him a word that you're coming. He'll take care of everything.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ameriusHome_madeDeal = true;</string>
+        <string>aod.jnl_amerius = 3;</string>
+        <string>aod.ending_amerius = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Then bring me the armor and I'll vacate the house immediately. You have my word.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I thought it was taken by the mercenaries.”</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It was taken. The question is where. This relic isn't something you can sell to the first trader. It's worth quite a bit of money. Since the mercenaries can't sell it in Maadoran, there is only city where they can get even half of its true worth - Ganezzar.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So, how do I find them?”</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The mercenaries will need a buyer. One of my men who dabbles in such things will make them an offer they won't refuse. When they bring the armor, take care of the mercenaries and bring it to me. Do we have a deal?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[word of honor]“Sure, we have a deal.”</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“No deal. Get out.”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Any news?”</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(330, 45, 7, 4926);</string>
+        <string>dlgTeleportToMarker(TM_AmeriusHouse_05);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I got the armor. Do we still have a deal?”</text>
+          <def_link>24</def_link>
+          <checkOnAppear>dlgOwnsItem(2500) || dlgOwnsItem(2501)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I decided to keep the armor after all."</text>
+          <def_link>30</def_link>
+          <checkOnAppear>dlgOwnsItem(2500) || dlgOwnsItem(2501)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Not yet.” Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Is that the armor?” asks Marcus, looking at you. “A thing of beauty, isn’t it?”</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(330, 45, 7, 4926);</string>
+        <string>dlgTeleportToMarker(TM_AmeriusHouse_05);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Do we still have a deal?”</text>
+          <def_link>24</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"It is. I decided to keep it."</text>
+          <def_link>30</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"We had a deal," says Marcus calmly. "If you want to keep the armor, you can buy me out for, let's say, 4,000 imperials."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Alright. Here's your money." Pay him 4,000 imperials to keep the armor and your word.</text>
+          <def_link>31</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 4000</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Fine, fine. Let's stick with the original deal. It's still on, right?"</text>
+          <def_link>24</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"4,000 imperials to keep what's already mine? You must be out of your mind, Marcus." Attack.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>rwd_reputation(MDN_Valla_02);</string>
+            <string>aod.jnl_amerius = 6;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+      </answers>
+      <UID>30</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You're a &lt;man/woman&gt; of your word, &lt;charname&gt;. It's been a pleasure."</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-4000);</string>
+        <string>rwd_reputation(MDN_Valla_01);</string>
+        <string>if(aod.quest_ameriusReward == false) {rwd_quest(MDN_Amerius_01); aod.quest_ameriusReward = true;}</string>
+        <string>aod.npc_valla_traded = true;</string>
+        <string>aod.jnl_amerius = 6;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>31</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Absolutely! What do you want for it?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“The house.”</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Three thousand imperials.”</text>
+          <def_link>27</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Twenty pounds of sky metal.”</text>
+          <def_link>28</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Good day to you, &lt;master/mistress&gt; &lt;charname&gt;.”</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(330, 45, 7, 4926);</string>
+        <string>dlgTeleportToMarker(TM_AmeriusHouse_05);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>29</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Very well. The house is yours. Pleasure doing business with you, &lt;master/mistress&gt; &lt;charname&gt;.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ameriusHome_gotHouse = true;</string>
+        <string>rwd_reputation(MDN_Valla_01);</string>
+        <string>dlgUnequipItem(2500);</string>
+        <string>dlgUnequipItem(2501);</string>
+        <string>dlgRemoveItem(2500, 1);</string>
+        <string>dlgRemoveItem(2501, 1);</string>
+        <string>dlgRemoveItem(2505, 1);</string>
+        <string>aod.npc_valla_traded = true;</string>
+        <string>if(aod.quest_ameriusReward == false) {rwd_quest(MDN_Amerius_01); aod.quest_ameriusReward = true;}</string>
+        <string>aod.jnl_amerius = 6;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>26</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Done! Pleasure doing business with you, &lt;master/mistress&gt; &lt;charname&gt;.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(MDN_Valla_01);</string>
+        <string>dlgUnequipItem(2500);</string>
+        <string>dlgUnequipItem(2501);</string>
+        <string>dlgRemoveItem(2500, 1);</string>
+        <string>dlgRemoveItem(2501, 1);</string>
+        <string>dlgRemoveItem(2505, 1);</string>
+        <string>dlgChangeMoney(3000);</string>
+        <string>aod.npc_valla_traded = true;</string>
+        <string>if(aod.quest_ameriusReward == false) {rwd_quest(MDN_Amerius_01); aod.quest_ameriusReward = true;}</string>
+        <string>aod.jnl_amerius = 6;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>27</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You drive a hard bargain, &lt;master/mistress&gt; &lt;charname&gt;. Lucky for you, I have what you seek.”</npc_text>
+      <onLoadScripts>
+        <string>dlgUnequipItem(2500);</string>
+        <string>dlgUnequipItem(2501);</string>
+        <string>dlgRemoveItem(2500, 1);</string>
+        <string>dlgRemoveItem(2501, 1);</string>
+        <string>dlgRemoveItem(2505, 1);</string>
+        <string>dlgAddItemlist(Quest_PA_Meteor);</string>
+        <string>aod.npc_valla_traded = true;</string>
+        <string>if(aod.quest_ameriusReward == false) {rwd_quest(MDN_Amerius_01); aod.quest_ameriusReward = true;}</string>
+        <string>aod.jnl_amerius = 6;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>28</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

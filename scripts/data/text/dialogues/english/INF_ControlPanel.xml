@@ -1,0 +1,420 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.inf_towerCoreWorking</string>
+    </conditions>
+    <links>
+      <int>8</int>
+    </links>
+    <dlg_name>INF_ControlPanel</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You see a strange control panel.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[lore]Give it a whirl.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lore &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You don’t have any idea what to do with it. You pull a random lever, but nothing happens. Feeling that you gave it a good try, you leave the console alone.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You've seen a crude drawing of a similar chamber before. It was copied from older documents and it was hard to say how many inaccuracies it contained, but in the drawing a bearded magus was kneeling before a blazing sun floating above a pentagram.
+
+The original document was written from the words of an old magus on his deathbed, who suddenly remembered his duty and did his best to remember things long forgotten, just like the scribe did his best to bring some clarity to the magus’ account by replacing the arcane terms with more familiar concepts. Thus, ion became aeon and gas became chaos, making it hard for anyone to understand what ‘when aeons charged with the power of the universe meet chaos conjured from other planes’ was supposed to mean.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Do it!</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone if you know what's best for you.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Fortunately for you, the ancient machines do most of the conjuring and charging for you. The air thickens, lightning flashes a few times, and a small floating sphere of glowing matter appears above the pentagram. The pentagram’s lines flash bright red as the sphere starts expanding, charging the air around it. A lightning strikes the wall above your head. Another hits the floor.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[intelligence][lore]Keep the sphere stable.</text>
+          <def_link>5</def_link>
+          <checkOnAppear>aod.npc_inferiaeDemon_dead</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.int + aod.lore) &gt;= 12</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intelligence][lore]Keep the sphere stable.</text>
+          <def_link>5</def_link>
+          <checkOnAppear>aod.npc_inferiaeDemon_dead == false</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.int + aod.lore) &gt;= 12</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Desperately, you press levers randomly hoping to find the right combination, but the sphere continues to expand, sending rapidly growing flares in all directions. One such flare bursts from the sphere’s surface and reaches you. The intense heat and radiation kill you instantly, before you have a chance to even comprehend what just happened. The tower explodes shortly after, leaving behind nothing but a giant glass crater.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>If it's any consolation, you didn't feel any pain.</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Hardly believing that it would work, you push the right levers and the sphere suddenly shrinks in size a little bit and loses some intensity.
+
+It floats in midair, shivering and contracting, a corona of strange energy flaring up around it and discharging into the arcane symbols etched into the floor. Cables connect those symbols to strange machines in the corner of the room. Looking closely, you can see that the symbols aren’t merely etchings. They more closely resemble translucent pipes made from tempered glass. Still, you can’t imagine how any glass could withstand the terrible heat you can feel radiating from the sphere.
+
+You hear some footsteps coming from above.</npc_text>
+      <onLoadScripts>
+        <string>aod.inf_towerCoreWorking = true;</string>
+        <string>aod.inf_portalReady = true;</string>
+        <string>OBJ_Portal.showObjects();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setAchievement("ACH_FIXIT");</string>
+        <string>rwd_civil(INF_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Run to the portal!</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Get ready to fight.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intelligence success][lore]It seems that you can activate some kind of defense mode. Do it and hope for the best.</text>
+          <def_link>13</def_link>
+          <checkOnAppear>aod.int &gt;= 8</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.lore + aod.int) &gt;= 15</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Hardly believing that it would work, you push the right levers and the sphere suddenly shrinks in size a little bit and loses some intensity.
+
+It floats in midair, shivering and contracting, a corona of strange energy flaring up around it and discharging into the arcane symbols etched into the floor. Cables connect those symbols to strange machines in the corner of the room. Looking closely, you can see that the symbols aren’t merely etchings. They more closely resemble translucent pipes made from tempered glass. Still, you can’t imagine how any glass could withstand the terrible heat you can feel radiating from the sphere.</npc_text>
+      <onLoadScripts>
+        <string>aod.inf_towerCoreWorking = true;</string>
+        <string>aod.inf_portalReady = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>OBJ_Portal.showObjects();</string>
+        <string>setAchievement("ACH_FIXIT");</string>
+        <string>rwd_civil(INF_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[intelligence success][lore]It seems that you can activate some kind of defense mode. Do it and hope for the best.</text>
+          <def_link>13</def_link>
+          <checkOnAppear>aod.inf_destroyed &lt; 2 &amp;&amp; aod.int &gt;= 8</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.lore + aod.int) &gt;= 15</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>15</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intelligence success]It seems that you could activate some kind of defense mode. But the demon and the villagers are dead already. So it's better just leave it alone.</text>
+          <def_link>1</def_link>
+          <checkOnAppear>aod.inf_destroyed &gt;= 2 &amp;&amp; aod.int &gt;= 8</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgTeleportToMarker(TM_BasementStair_02, 251);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>sayPhrase(251, "Eliminate intruder.");</string>
+        <string>dlgSetAttitude(251, 1, -10);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You see a strange, hastily constructed doorway connected to a machine nearby. It's glowing with blue light.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_TowerPortal_02);</string>
+        <string>useCameraBookmark(CAM_Portal_1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Jump in.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.mdn_destroyed</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>16</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The sphere floats in midair, shivering and contracting, a corona of strange energy flaring up around it and discharging into the arcane symbols etched into the floor.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[intelligence success][lore]It seems that you can activate some kind of defense mode. Do it and hope for the best.</text>
+          <def_link>13</def_link>
+          <checkOnAppear>aod.int &gt;= 8 &amp;&amp; aod.inf_destroyed == false</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.lore + aod.int) &gt;= 15</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>15</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go to Maadoran</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>if(aod.inf_status == 2) {aod.inf_status = 4;}</string>
+        <string>dlgTeleportToMarker(TM_TowerPortal_03, 251);</string>
+        <string>aod.npc_infGuardian_hostile = 1;</string>
+        <string>switchMission("Maadoran_Sky.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Your efforts conjure an unstable high energy burst, which fries everything in a few miles radius, including you.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>If it's any consolation, you didn't feel any pain.</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Your efforts conjure a focused high-energy burst, which fries everything on the upper level and the ground, turning Inferiae into a ghost village.</npc_text>
+      <onLoadScripts>
+        <string>dlgKillCharacter(251);</string>
+        <string>aod.npc_inferiaeDemon_dead = true;</string>
+        <string>aod.inf_destroyed = 1;</string>
+        <string>dlgDeleteCharacter(251);</string>
+        <string>OBJ_GuardDeadBody.showObjects();</string>
+        <string>VCO_DeadGuardBody.setActive(1);</string>
+        <string>rwd_civil(INF_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Your efforts conjure a high-energy burst which fries everything above the ground, turning Inferiae into a ghost village.</npc_text>
+      <onLoadScripts>
+        <string>aod.inf_destroyed = 1;</string>
+        <string>rwd_civil(INF_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You jump into the portal yet nothing happens. You wonder if the destruction of Maadoran had something to do with it.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Get ready to fight.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

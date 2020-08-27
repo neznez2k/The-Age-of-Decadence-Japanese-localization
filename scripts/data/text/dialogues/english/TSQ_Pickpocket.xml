@@ -1,0 +1,576 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.tsq_pickpocket_house</string>
+      <string>aod.tsq_pickpocket_pickpocketed</string>
+    </conditions>
+    <links>
+      <int>1933</int>
+      <int>1932</int>
+    </links>
+    <dlg_name>TSQ_Pickpocket</dlg_name>
+    <def_link>1914</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>Livia</portrait>
+      <speaker_name />
+      <npc_text>As you walk down the street, you see a young woman running from a drunken mercenary.
+
+"Please, you must help me!" cries the girl, grabbing your arm pleadingly. The mercenary takes another step toward her and the girl darts behind you, as if to shield herself from him.
+
+"The bitch owes me money!" yells the mercenary. "Eight imperials! Who's gonna pay me? You?"</npc_text>
+      <onLoadScripts>
+        <string>aod.tsq_pickpocket_started = true;</string>
+        <string>useCameraBookmark(TSQ_Pickpocket_cam_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Fuck off."</text>
+          <def_link>1917</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Pay him.</text>
+          <def_link>1918</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[perception success]You have a feeling that something is wrong.</text>
+          <def_link>1915</def_link>
+          <checkOnAppear>aod.streetwise &lt; 3 &amp;&amp; aod.per &gt;= 8</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]You have a feeling that something is wrong.</text>
+          <def_link>1915</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[steal success]"Nice try, dear."</text>
+          <def_link>1916</def_link>
+          <checkOnAppear>aod.steal &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1914</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Suddenly, you become aware that the situation isn't what it seems. The mercenary's anger seems fake, and the girl is sobbing and clinging to you in an almost theatrical manner. You also become aware that her hands are too close to your money.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[dexterity]Grab her.</text>
+          <def_link>1923</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1924</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Get away.</text>
+          <def_link>1920</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[thief]"Does Cado know that you're running cons in his town?"</text>
+          <def_link>1921</def_link>
+          <checkOnAppear>aod.pc_member_thieves</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1915</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You know exactly what's going on. Contrary to popular belief, pickpocketing isn't about the sleight of hand. It's about distraction and taking advantage of compassion. While your attention is on the 'drunk' mercenary, it's not on your money, and the girl's victim act puts her within easy reach of your purse.</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(Steal);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[dexterity]Grab her.</text>
+          <def_link>1923</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1924</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Get away.</text>
+          <def_link>1920</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[thief]"Does Cado know that you're running cons in his town?"</text>
+          <def_link>1921</def_link>
+          <checkOnAppear>aod.pc_member_thieves</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1916</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Livia</portrait>
+      <speaker_name />
+      <npc_text>The mercenary looks at you, then spits and walks away, swearing loudly.
+
+The poor girl hugs you, sobbing on your shoulder and mumbling words of gratitude.</npc_text>
+      <onLoadScripts>
+        <string>aod.tsq_pickpocket_pickpocketed = true;</string>
+        <string>dlgChangeMoney(-52);</string>
+        <string>dlgChangeMoney(52, 2065);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1919</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1917</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Livia</portrait>
+      <speaker_name />
+      <npc_text>"Fair is fair, right?" says the mercenary, counts the money, and walks away.
+
+The poor girl hugs you, sobbing on your shoulder and mumbling words of gratitude.</npc_text>
+      <onLoadScripts>
+        <string>aod.tsq_pickpocket_pickpocketed = true;</string>
+        <string>dlgChangeMoney(-60);</string>
+        <string>dlgChangeMoney(52, 2065);</string>
+        <string>dlgChangeMoney(8, 2066);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1935</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1918</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - street stolen 52</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(135, 32, 0, NE, 2065);</string>
+        <string>dlgTeleportTo(135, 35, 0, S, 2066);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1919</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - street stolen 60</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(135, 32, 0, NE, 2065);</string>
+        <string>dlgTeleportTo(135, 35, 0, S, 2066);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1935</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - finished</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgDeleteCharacter(2065);</string>
+        <string>dlgDeleteCharacter(2066);</string>
+        <string>dlgDeleteCharacter(2067);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1934</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You push the girl away before she can get to your money and walk away.</npc_text>
+      <onLoadScripts>
+        <string>aod.tsq_pickpocket_finished = true;</string>
+        <string>dlgRotateToChar(2065);</string>
+        <string>rwd_quest(TRN_Pickpocket_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1934</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1920</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Livia</portrait>
+      <speaker_name />
+      <npc_text>"Who's Cado?"</npc_text>
+      <onLoadScripts>
+        <string>dlgRotateToChar(2065);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Cado is a man you do not want to fuck with. Pay him a visit, apologize for your mistake, offer him a tribute, and work out a deal. Or end up dead fast. Your choice."</text>
+          <def_link>1922</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1921</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Livia</portrait>
+      <speaker_name />
+      <npc_text>"Uh... thanks," says the girl in confusion. "I'm Livia."</npc_text>
+      <onLoadScripts>
+        <string>aod.tsq_pickpocket_finished = true;</string>
+        <string>rwd_quest(TRN_Pickpocket_01);</string>
+        <string>rwd_reputation(TRN_Pickpocket_01);</string>
+        <string>aod.npc_livia_maadoran = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I'll see you around, Livia."</text>
+          <def_link>1931</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1922</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Livia</portrait>
+      <speaker_name />
+      <npc_text>[failure]The girl senses the change in you and jumps back, before you're able to grab her. She shouts something to her partner and they quickly disappear between the houses.</npc_text>
+      <onLoadScripts>
+        <string>aod.tsq_pickpocket_finished = true;</string>
+        <string>dlgRotateToChar(2065);</string>
+        <string>rwd_quest(TRN_Pickpocket_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1934</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1923</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Livia</portrait>
+      <speaker_name />
+      <npc_text>[success]The girl senses the change in you and tries to jump back, but it's too late. She tries to squirm out of your grasp, but ends up on the ground, looking at a dagger in your hand.</npc_text>
+      <onLoadScripts>
+        <string>dlgRotateToChar(2065);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Hand me everything you have."</text>
+          <def_link>1926</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Get out of here."</text>
+          <def_link>1925</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1924</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Livia</portrait>
+      <speaker_name />
+      <npc_text>The girl gets up and runs away, hardly believing her luck. Her partner follows her, and they quickly disappear between the houses.</npc_text>
+      <onLoadScripts>
+        <string>aod.tsq_pickpocket_finished = true;</string>
+        <string>rwd_quest(TRN_Pickpocket_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1934</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1925</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Livia</portrait>
+      <speaker_name />
+      <npc_text>"I don't have anything on me. It's in a house, not far away. I'll take you there if you promise to let me go. Please!"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Take me there."</text>
+          <def_link>1928</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[perception success]She's too eager.</text>
+          <def_link>1927</def_link>
+          <checkOnAppear>aod.streetwise &lt; 3 &amp;&amp; aod.per &gt;= 8</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]She's too eager.</text>
+          <def_link>1927</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1926</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The girl is too eager. She'll probably lead you into an ambush. On the other hand, their stash is probably there too. Decisions, decisions...</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Take me there."</text>
+          <def_link>1928</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Never mind. Get out of here."</text>
+          <def_link>1925</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1927</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The girl leads you to a run-down house. "It's in there, all in there. You will let me go, won't you? Just like you promised?" she says, opening the door for you. You step inside, the girl pushes you forward, and you find yourself facing a short, skinny man with slanted eyes and black hair.
+
+"Who the fuck are you?" asks the Ordu in a heavy accent.
+
+"&lt;He/She&gt; wants our money," giggles the girl. The door opens and the mercenary charges in. The Ordu gestures and the mercenary lowers his axe and takes a step back.
+
+"In this life," says the Ordu with a faint smile, "you can have only what you can take and keep. If you can take your money from me, they are truly yours. If you can't..."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(135, 32, 0, NE, 2065);</string>
+        <string>dlgTeleportTo(136, 33, 0, S);</string>
+        <string>dlgTeleportTo(136, 35, 0, S, 2066);</string>
+        <string>useCameraBookmark(TSQ_Pickpocket_cam_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go get your money.</text>
+          <def_link>1929</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>He has a point. Leave.</text>
+          <def_link>1930</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1928</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addEnemyToParty(1, tsqpickpocketparty);</string>
+        <string>aod.tsq_pickpocket_finished = true;</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.gameplay_questLivia_fight = true;</string>
+        <string>tgd_h3_door1.close();</string>
+        <string>tgd_h3_door1.lock();</string>
+        <string>aod.fight_livia_house = 1;</string>
+        <string>narratePhrase("The mercenary locks the door.");</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1929</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - house</npc_text>
+      <onLoadScripts>
+        <string>aod.tsq_pickpocket_house = true;</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportTo(135, 35, 0, S, 2066);</string>
+        <string>dlgTeleportTo(136, 39, 0, N);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1930</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Livia goes to the TG</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgDeleteCharacter(2066);</string>
+        <string>dlgDeleteCharacter(2067);</string>
+        <string>dlgTeleportTo(136, 56, 0, N, 2065);</string>
+        <string>assignDialogue(livia_01, 2065);</string>
+        <string>aod.ending_sidequest = true;</string>
+        <string>aod.ending_npc_livia_01 = true;</string>
+        <string>aod.npc_livia_wentMaadoran = true;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1931</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Driven by curiosity and disregarding a certain cautionary tale, you enter one of the houses and find yourself facing the recently met damsel in distress, the mercenary, and a short, skinny man with slanted eyes and black hair.
+
+"Who the fuck are you?" asks the Ordu in a heavy accent.
+
+"&lt;He/She&gt; is our last mark. Probably wants &lt;his/her&gt; money back," giggles the girl.
+
+"In this life," says the Ordu with a faint smile, "you can have only what you can take and keep. If you can take your money from me, they are truly yours. If you can't..."</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(TSQ_Pickpocket_cam_02);</string>
+        <string>dlgTeleportTo(136, 33, 0, S);</string>
+        <string>dlgTeleportTo(136, 35, 0, S, 2066);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go get your money.</text>
+          <def_link>1929</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>He has a point. Leave.</text>
+          <def_link>1930</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1932</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"So, you do want the money after all... Good. Dying is better than living a coward." He draws his sword and lunges forward.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(TSQ_Pickpocket_cam_02);</string>
+        <string>dlgTeleportTo(136, 33, 0, S);</string>
+        <string>dlgTeleportTo(136, 35, 0, S, 2066);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>1929</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1933</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

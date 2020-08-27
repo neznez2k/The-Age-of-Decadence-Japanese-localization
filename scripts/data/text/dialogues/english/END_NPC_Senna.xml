@@ -1,0 +1,90 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_end_senna_met</string>
+    </conditions>
+    <links>
+      <int>9428</int>
+    </links>
+    <dlg_name>END_NPC_Senna</dlg_name>
+    <def_link>9425</def_link>
+    <def_speaker_name>Senna</def_speaker_name>
+    <def_portrait>Senna</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You're Levir's, um, associate, aren't you? Too bad about your master. Well, you kept your part of the bargain, which is all that matters."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_end_senna_met = true;</string>
+        <string>aod.jnl_TG_Senna_Temple = 1;</string>
+        <string>rwd_quest(TG9_04);</string>
+        <string>dlgCam(75, 45, 6, 4210);</string>
+        <string>dlgTeleportToMarker(TM_Talk_Senna_PC);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I wish to serve you, master Senna."</text>
+          <def_link>9427</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9425</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The distaste on Senna's face is too obvious.
+
+“We'll definitely consider it, but first I want you to do something for me first. Meru was searching for a temple of Thor-Agoth or somesuch. Find it for me, will you?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I'll do my best, master.”</text>
+          <def_link>9431</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9427</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Was there anything else?”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Talk_Senna_PC);</string>
+        <string>dlgCam(75, 45, 6, 4210);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9431</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9428</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9431</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,566 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.gsq_plague_entered</string>
+      <string>aod.gsq_plague_guard_refused</string>
+      <string>aod.npc_plague_guard_met &amp;&amp; aod.gsq_plague_entered == false</string>
+    </conditions>
+    <links>
+      <int>8400</int>
+      <int>8396</int>
+      <int>8390</int>
+    </links>
+    <dlg_name>GSQ_Plague_01</dlg_name>
+    <def_link>8384</def_link>
+    <def_speaker_name>Guard</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>A bored guard is leaning against the wall. The door next to him seems to be barred.
+
+“Plague,” explains the guard, nodding at the door, when you come closer.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_Plague);</string>
+        <string>dlgCam(160, 40, 10);</string>
+        <string>aod.npc_plague_guard_met = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Does it happen often?”</text>
+          <def_link>8386</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“How do you know it’s a plague?”</text>
+          <def_link>8388</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8385</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8384</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_Plague);</string>
+        <string>dlgFinish();</string>
+        <string>dlgCam(160, 40, 10);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8385</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It happens,” shrugs the guard, overwhelmed by empathy.</npc_text>
+      <onLoadScripts>
+        <string>aod.gsq_plague_often = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What kind of plague is it?”</text>
+          <def_link>8387</def_link>
+          <checkOnAppear>aod.gsq_plague_kind == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“How do you know it’s a plague?”</text>
+          <def_link>8388</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8386</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The kind that kills ya?” says the guard, clearly surprised that people can be that stupid.</npc_text>
+      <onLoadScripts>
+        <string>aod.gsq_plague_kind = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“How do you know it’s a plague?”</text>
+          <def_link>8388</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Does it happen often?”</text>
+          <def_link>8386</def_link>
+          <checkOnAppear>aod.gsq_plague_often == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You’ve been very helpful.” Leave.</text>
+          <def_link>8385</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8387</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“A prospector who recently returned from a trip to some ruins fell ill. Started vomiting blood and then his hair fell off. If that ain’t a plague, I don’t know what is.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“A prospector, you said? I’d like to talk to him.”</text>
+          <def_link>8389</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8388</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“And spread the plague? Don't be daft,” says the guard.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So what’s the plan?”</text>
+          <def_link>8391</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Alright.” Leave.</text>
+          <def_link>8385</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8389</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Plague,” the guard reminds you, nodding at the door.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_Plague);</string>
+        <string>dlgCam(160, 40, 10);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I dabble in alchemy. Maybe I can help.”</text>
+          <def_link>8393</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8385</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8390</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Keep walking,” says the guard angrily.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_Plague);</string>
+        <string>dlgCam(160, 40, 10);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8385</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8396</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Stay away from me,” says the guard. “What if you got the plague too now?”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_Plague);</string>
+        <string>dlgCam(160, 40, 10);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8385</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8400</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Same as always,” shrugs the guard. “He makes it, we let him out. He dies, we burn the body and possessions. What else is there to do?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I dabble in alchemy. Maybe I can help.”</text>
+          <def_link>8393</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8385</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8391</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“An alchemist, are you?” asks the guard with sudden interest. “You know, a friend of mine went to a whorehouse and now he has this rash...” The guard spends the next ten minutes describing his condition in vivid details.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[alchemy]Suggest him an ointment.</text>
+          <def_link>8394</def_link>
+          <checkOnAppear>aod.alchemy &gt;= 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]Suggest him an ointment.</text>
+          <def_link>8395</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8394</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8385</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8393</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Thanks, I'll definitely ... uh, I mean, I'll let my friend know. Alright, you can go in, but do it quickly.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Enter the building.</text>
+          <def_link>8398</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8394</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“You know what I think? I think you're full of shit, so be on your way.”</npc_text>
+      <onLoadScripts>
+        <string>aod.gsq_plague_guard_refused = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8385</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8395</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>You see a sickly-looking man lying on a dirty bed. His breathing is shallow, his eyes closed.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(64, 122, 0, E);</string>
+        <string>dlgCam(45, 60, 5);</string>
+        <string>aod.gsq_plague_entered = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Can you hear me?”</text>
+          <def_link>8399</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8398</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>The man mumbles something, then coughs, spitting blood on his tunic.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[alchemy]Fix him a healing concoction if you want to question him.</text>
+          <def_link>8401</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.alchemy &gt;= 4 &amp;&amp; aod.alchemy &lt; 7</string>
+            <string>aod.alchemy &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8402</int>
+            <int>8403</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave before you catch the plague.</text>
+          <def_link>8385</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8399</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>[failure]You mix him your newest invention - what you call an 'energy' drink, generously spiked with drugs. After drinking it, the man starts shaking uncontrollably, before going stiff.
+
+He doesn't seem to be breathing anymore. Maybe the formula needs a few tweaks.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8385</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8401</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>[success]You mix a medical concoction and make him drink it. The man coughs a few more times, then slowly opens his eyes.</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(Plague_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Can you talk?”</text>
+          <def_link>8404</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8402</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>[great success!]You mix him your finest creation - a health tonic. It won't cure him but it will make him feel better for a short time. If by some miracle he survives, your tonic might even make his hair grow back.</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(Plague_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Can you talk?”</text>
+          <def_link>8407</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8403</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>The man nods weakly.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What happened to you?”</text>
+          <def_link>8405</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8404</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Prospector</speaker_name>
+      <npc_text>“Followed the dead river,” croakes the man. “Found the village. Nothing but death there. Death and machines.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Where?”</text>
+          <def_link>8406</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8405</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>The dying prospector looks at your map and points with a shaking finger. He closes his eyes, too weak to say anything else.</npc_text>
+      <onLoadScripts>
+        <string>revealMapLocation("DeadRiver");</string>
+        <string>dlgAddTextBoxMessage("Dead River added to the map");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8385</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8406</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Prospector</speaker_name>
+      <npc_text>“Yeah,” says the man as his strength returns to him, if only for a short time. “Thanks.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What happened to you?”</text>
+          <def_link>8408</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8407</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Prospector</speaker_name>
+      <npc_text>“You’ve heard about the dead river? Nothing but a chasm filled with poisonous air,” says the prospector, coughing. “I followed it upstream to a lake near the mountains. There is a village there... the people, there was something odd about them. I shouldn’t have stayed, but I was so close...
+
+“I showed them the manuscript and asked about the bridge. They took me to the caves underneath the village to see their elders. I saw,” the prospector’s eyes roll up and he starts shaking. “I saw the machines and death and the men who weren’t men...”
+
+He closes his eyes, too weak to say anything else.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Where is this village?”</text>
+          <def_link>8409</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8408</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Prospector</speaker_name>
+      <npc_text>The prospector marks it on your map and hands it back to you.
+
+“I need to rest now,” he says, closing his eyes.</npc_text>
+      <onLoadScripts>
+        <string>revealMapLocation("DeadRiver");</string>
+        <string>dlgAddTextBoxMessage("Dead River added to the map");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8385</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8409</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

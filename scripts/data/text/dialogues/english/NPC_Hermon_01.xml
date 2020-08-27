@@ -1,0 +1,667 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_hermon_met</string>
+      <string>aod.npc_hermon_allowed</string>
+    </conditions>
+    <links>
+      <int>22</int>
+      <int>23</int>
+    </links>
+    <dlg_name>NPC_Hermon_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Hermon</def_speaker_name>
+    <def_portrait>Hermon</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>You see a small trading ‘plaza’ up ahead. Rough looking men are patrolling the area, collecting the revenues regularly and harassing random passerby.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Hermon_PC_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Approach.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Stay away.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - at distance</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportToMarker(TM_Hermon_PC_03);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I haven’t seen you before,” says a large, sweaty man who seems to be in charge here. “Who might you be?”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Hermon_PC_02);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“My name’s &lt;charname&gt;.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear>aod.pc_member_thieves</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m just passing through.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Well, you’re passing through my area like you own it. You didn’t ask my permission to enter it, did you? Now we have a problem, all because of your ignorance of our customs. What are you going to do about?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’ll pay.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Relax, I'm with the guild. My name’s &lt;charname&gt;.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear>aod.pc_member_thieves</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]“Relax, friend. I'm working for Levir.”</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>26</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Fuck off. That’s your first and final warning.”</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Of course, you’ll pay! 1,000 imperials. Now!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“1,000 imperials for passing through?”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Relax, I'm with the guild. My name’s &lt;charname&gt;.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear>aod.pc_member_thieves</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]“Relax, friend. I'm working for Levir.”</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>26</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Fuck off. That’s your first and final warning.”</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Will you look at &lt;him/her&gt;?” says the man, feigning outrage. “Comes here uninvited, then complains about our levies as if &lt;he/she&gt; has a choice.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay 1,000 imperials.</text>
+          <def_link>10</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 1000</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I don't have the money.”</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Relax, I'm with the guild. My name’s &lt;charname&gt;.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear>aod.pc_member_thieves</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[impersonate][streetwise]“Relax, friend. I'm working for Levir.”</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.disguise) &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>26</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Fuck off. That’s your first and final warning.”</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Big mistake,” says the man with regret. “See, I'm getting paid one way or another, even if I have to sell you to the slavers. Last chance...”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay 1,000 imperials.</text>
+          <def_link>10</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 1000</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Relax, I'm with the guild. My name’s &lt;charname&gt;.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear>aod.pc_member_thieves</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[impersonate][streetwise]“Relax, friend. I'm working for Levir.”</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.disguise) &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>26</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The one who robbed Antidas? I’ve heard about you, we all did. What can I do for you, &lt;brother/sister&gt;?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_hermon_met = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Just passing through.”</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What’s the deal with Mehrab?”</text>
+          <def_link>9</def_link>
+          <checkOnAppear>aod.npc_mehrab_met &amp;&amp; aod.npc_mehrab_dead == false &amp;&amp; aod.mdn_abyssClosed == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Of course. Anything I can do for you, just tell me. I’m Hermon. Everyone here knows me.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Mehrab? He’s a lunatic. All bark and no bite. Pay him no mind.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Shouldn’t he be dealt with? Lessons to others and all that?”</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Alright.” Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“A &lt;man/woman&gt; who can pay for &lt;his/her&gt; mistakes is always welcome here,” says the man accepting your money.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-1000);</string>
+        <string>aod.npc_hermon_allowed = true;</string>
+        <string>dlgChangeMoney(1000, 5270);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“I wasn't born yesterday, *friend*. So pay me or get the fuck out.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay 1,000 imperials.</text>
+          <def_link>10</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 1000</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“My name’s &lt;charname&gt;. I'm sure you've heard of me.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear>aod.pc_member_thieves</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Then how come I didn't see you here before?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]"You shake down the 'tourists', I collect information in the Trades. The less I'm seen here, the better."</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>24</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>26</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Alright, alright. Put in a good word for me with Levir, will you?"</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_hermon_allowed = true;</string>
+        <string>aod.npc_hermon_met = 1;</string>
+        <string>rwd_civil(Hermon_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addEnemyToParty(1, HermonGang);</string>
+        <string>setRtsCam();</string>
+        <string>aod.npc_hermon_fight = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Have it your way,” says the man, gestures to the thugs around him.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Let Bassar worry about it. Me, I barely have enough men to hold this area. Just the other day someone knifed one of my collectors. So, as long as Mehrab sits in his corner, he isn’t my problem.
+
+“Don’t worry, he’ll get what’s coming to him but in due time, when Bassar says so. Until he does, we stay put.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Well, I don’t work for Bassar. Give me two men.”</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Alright.” Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Hermon hesitates for a moment, then nods. “Of course. Two men.”
+
+He picks two men and tells them to go with you to help you sort out some problem. The men aren’t his best, but they seem capable.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay Mehrab a visit.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Mehrab</speaker_name>
+      <npc_text>“What do you want?” asks Mehrab, showing no fear.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Mehrab_PC_01);</string>
+        <string>dlgTeleportToMarker(TM_Hermon_Mehrab_01, 5274);</string>
+        <string>dlgTeleportToMarker(TM_Hermon_Mehrab_02, 5275);</string>
+        <string>dlgTeleportToMarker(TM_Mehrab_01, 5260);</string>
+        <string>dlgTeleportToMarker(TM_Mehrab_06, 5262);</string>
+        <string>dlgTeleportToMarker(TM_Mehrab_05, 5263);</string>
+        <string>dlgTeleportToMarker(TM_Mehrab_04, 5261);</string>
+        <string>dlgTeleportToMarker(TM_Mehrab_03, 5264);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Our guild controls the Slums. Either bend the knee or get the fuck out.”</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Mehrab</speaker_name>
+      <npc_text>“I think you’ll need to bring a lot more than two people to throw me out,” says Mehrab with contempt, “but you don’t have more, do you? So, what’s it gonna be? Will you throw your life away for the glory of your guild and a corner you don’t need?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Mehrab</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addParty(HermonMen, 0);</string>
+        <string>addCharToParty(1, HermonMen, fighter);</string>
+        <string>addCharToParty(5274, HermonMen, fighter);</string>
+        <string>addCharToParty(5275, HermonMen, fighter);</string>
+        <string>addEnemyParty(MehrabBlades, HermonMen);</string>
+        <string>addEnemyParty(HermonMen, MehrabBlades);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.npc_mehrab_fight = true;</string>
+        <string>aod.fight_mehrabWithMen = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>Reluctantly, you return to Hermon and dismiss the men he gave you.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Hermon_PC_02);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Mehrab_07, 5262);</string>
+        <string>dlgTeleportToMarker(TM_Mehrab_08, 5263);</string>
+        <string>dlgTeleportToMarker(TM_Mehrab_09, 5261);</string>
+        <string>dlgTeleportToMarker(TM_Mehrab_10, 5264);</string>
+        <string>dlgTeleportToMarker(TM_Mehrab_02, 5260);</string>
+        <string>dlgTeleportToMarker(TM_Hermon_02, 5274);</string>
+        <string>dlgTeleportToMarker(TM_Hermon_03, 5275);</string>
+        <string>aod.npc_mehrab_threatened = true;</string>
+        <string>rwd_reputation(MehrabBlades_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What can I do for you, &lt;brother/sister&gt;?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What’s the deal with Mehrab?”</text>
+          <def_link>9</def_link>
+          <checkOnAppear>aod.npc_mehrab_met &amp;&amp; aod.npc_mehrab_dead == false &amp;&amp; aod.mdn_abyssClosed == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Just passing through.” Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - bark paid</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>sayPhrase(5270, "Do you want to pay again?");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>23</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,407 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_ag9_status == 3</string>
+      <string>aod.quest_ag9_status == 4</string>
+    </conditions>
+    <links>
+      <int>9</int>
+      <int>19</int>
+    </links>
+    <dlg_name>Quest_AG9_02</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>Varro</portrait>
+      <speaker_name>Varro</speaker_name>
+      <npc_text>You enter the main hall. At the end of it Meru’s talking to several zealots. Varro is standing next to him, looking calm as always. Now that Faelan is gone, he’s the second most powerful man in the city.
+
+“Hamza,” says Varro, stepping forward. “Did you come to offer your respects? You really shouldn’t have.” He looks at you.
+
+“Are you still with me, &lt;charname&gt;?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_varro_hamzaCastle = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’m with you.” Attack Hamza and his men.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m loyal to my guild. Unlike you.” Attack Varro.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“For a moment there I thought you were tempted to side with Hamza,” says Varro, carefully watching you.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.jnl_AG9 = 3;</string>
+        <string>rwd_reputation(AG9_01);</string>
+        <string>rwd_quest(AG9_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Long established admirer though I am of lost causes, I didn’t see the happy ending there.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I have a feeling that we’re going to get along just fine,” says Varro with a smile. “You will serve me as my second-in-command. Together we’ll eradicate heresy in this city and bring forth a new age.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What constitutes heresy?”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Meru’s loremasters are debating this very subject as we speak. Suffice to say that anyone who opposes Meru is a heretic who should be shown the errors of his way.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What about the siege?”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Meru made a deal with the Imperial Guards. They should be here in a day or two. Without the Legatus the Aurelian army won’t stand a chance.
+
+“When the dust settles, start hiring future inquisitors. We’ll need at least twenty men to start. Make sure they can hold their own in a fight.”</npc_text>
+      <onLoadScripts>
+        <string>setAchievement("ACH_INQUISITOR");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait until the dust settles.</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start AG ending - IG sided HC</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.ending_GNZ_faction_AG = 1;</string>
+        <string>sd(GNZ_Siege_03);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Hamza</portrait>
+      <speaker_name>Hamza</speaker_name>
+      <npc_text>As if on cue, Meru darts into a side room. Unfazed, the zealots spread out, ready to fight and die for their master. Varro sighs and takes a step back.
+
+“I'm going after Meru,” says Hamza. “Hold the line, &lt;charname&gt;. If we fail, I'll see you on the other bank of Styx.”</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgDeleteCharacter(8255);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill 'em all.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Varro</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgDeleteCharacter(4611);</string>
+        <string>addCharToParty(1, AG9_hamza, fighter);</string>
+        <string>addEnemyParty(AG9_hamza, AG9_crassus);</string>
+        <string>addEnemyParty(AG9_crassus, AG9_hamza);</string>
+        <string>aod.quest_ag9_status = 3;</string>
+        <string>aod.fight_ag9_castleVarro = 1;</string>
+        <string>aod.jnl_AG9 = 2;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Fun’s over, boys,” says Hamza, holding Meru’s severed head by the hair, blood dripping on the floor.
+
+“Ganezzar belongs to House Aurelian now. The army will be here any minute. You can die for Meru,” he raises the head, “or swear fealty to the new master and live. What’s it gonna be?”
+
+Meru’s head has the desired effect and one by one the guards lower their weapons. “Had to be done, boys,” says Hamza apologetically. “You know that.”</npc_text>
+      <onLoadScripts>
+        <string>setAchievement("ACH_GUILDSMAN");</string>
+        <string>aod.gnz_newLeader = Hagnon;</string>
+        <string>aod.jnl_AG9 = 4;</string>
+        <string>rwd_reputation(AG9_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING - AG - HA took over</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.ending_gnz_IG_joins_HA = true;</string>
+        <string>aod.ending_GNZ_faction_AG = 2;</string>
+        <string>SS_start("gnz_ending", "switchMission(\"Ganezzar.mis\");");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>As if on cue, Meru darts into a side room. Unfazed, the zealots spread out, ready to fight and die for their master. Almost instantly, Hamza springs into action. Two zealots blocking his way go down - one's dead, the other's bleeding heavily - and Hamza runs after Meru.
+
+"Stop him! Now!" shouts Varro, being hard pressed by the assassins who clearly regard him as the primary target and pay you no attention. It almost hurts but then again...</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_HamzaFight_01, 4611);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgChangeCharacterHP(-10, 4611);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go after Hamza.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You leave the throne room, pass a dead guard in the hallway, and go up the stairs. Hamza is easy to find - the sounds of fight coming from a room to the right announce his presence loud and clear.
+
+Two guards are doing their best to protect Meru but their best comes up short. The guard on the left makes a mistake, giving Hamza an opening, which is all he needs to open up the guard's throat. The second guard doesn't last much longer.
+
+At that moment, Hamza seems almost unstoppable, a vengeful demigod that won't be denied, but then you see that he's breathing heavily and bleeding from several cuts across his chest and shoulders.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_HamzaFight_02);</string>
+        <string>dlgDeleteCharacter(8250);</string>
+        <string>dlgDeleteCharacter(8251);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_HamzaFight_03, 82533);</string>
+        <string>dlgTeleportToMarker(TM_HamzaFight_04, 82534);</string>
+        <string>dlgSetAnimation(anim_death_back00, 0.95, 82533);</string>
+        <string>dlgSetAnimation(anim_death_forward00, 0.95, 82534);</string>
+        <string>dlgKillCharacter(82533);</string>
+        <string>dlgKillCharacter(82534);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Finish him.</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dodge &gt;= 10</string>
+            <string>aod.block &gt;= 10</string>
+            <string>aod.dodge &gt;= 7 &amp;&amp; aod.dodge &lt; 10</string>
+            <string>aod.block &gt;= 7 &amp;&amp; aod.block &lt; 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+            <int>15</int>
+            <int>18</int>
+            <int>18</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Hamza springs forward with a surprising speed, ramming his dagger through your armor and recoiling like a snake before you can do anything about it.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeCharacterHP(-25);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_HamzaFight_05, 4611);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Attack!</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[partial success]Hamza springs forward with a surprising speed, trying to run your through with his dagger. You know that you moved too late but late is almost always better than never.
+
+You don't escape the attack unscathed but you manage to keep Hamza's dagger away from organs with high sentimental value, like liver and kidneys.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeCharacterHP(-15);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_HamzaFight_05, 4611);</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Attack!</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[dodge success]You move out of the way the moment Hamza springs forward, his blade missing you by an inch.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_HamzaFight_05, 4611);</string>
+        <string>sfxPlayOnce(csMissSwingAir01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Attack!</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[block success]You raise your shield the moment Hamza springs forward, skillfully deflecting his attack.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_HamzaFight_05, 4611);</string>
+        <string>sfxPlayOnce(csMissSwingShield01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Attack!</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Hamza</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.GNZ_AG_kill_Hamza = true;</string>
+        <string>dlgSetAttitude(4611, 1, -10);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.quest_ag9_status = 4;</string>
+        <string>aod.fight_ag9_castleHamza = 1;</string>
+        <string>aod.jnl_AG9 = 1;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Terrified and bewildered, Meru says nothing. He just keeps staring in front of him, still praying to his Gods. He probably isn't even aware that you're in the room with him.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Return to Varro.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

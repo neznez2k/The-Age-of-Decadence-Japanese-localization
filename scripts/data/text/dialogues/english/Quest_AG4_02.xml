@@ -1,0 +1,402 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_AG4_hatchFound</string>
+    </conditions>
+    <links>
+      <int>63</int>
+    </links>
+    <dlg_name>Quest_AG4_02</dlg_name>
+    <def_link>35</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[perception success]It takes you a while, because you aren’t exactly sure what it is that you’re searching for, but in the end you manage to find the hidden hatch, but not the switch that opens it.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_AG4_hatchFound = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[crafting][intelligence]See what you can do.</text>
+          <def_link>59</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.crafting + aod.int) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>37</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[alchemy][black powder]Blow it up.</text>
+          <def_link>60</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.alchemy &gt;= 4 &amp;&amp; dlgOwnsItem(1815)</string>
+            <string>dlgOwnsItem(1815) == false</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>54</int>
+            <int>58</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[strength]Force it open.</text>
+          <def_link>61</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.str == 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>55</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone for now.</text>
+          <def_link>62</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>35</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You're standing in front of the hatch. It's locked from the inside.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[crafting][intelligence]See what you can do.</text>
+          <def_link>59</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.crafting + aod.int) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>37</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[alchemy][black powder]Blow it up.</text>
+          <def_link>60</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.alchemy &gt;= 4 &amp;&amp; dlgOwnsItem(1815)</string>
+            <string>dlgOwnsItem(1815) == false</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>54</int>
+            <int>58</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[strength]Force it open.</text>
+          <def_link>61</def_link>
+          <checkOnAppear>aod.quest_AG4_hatchFailStr == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.str == 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>55</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone for now.</text>
+          <def_link>62</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>63</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Unfortunately, you don't have any black powder.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[crafting][intelligence]See what you can do.</text>
+          <def_link>59</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.crafting + aod.int) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>37</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[strength]Force it open.</text>
+          <def_link>61</def_link>
+          <checkOnAppear>aod.quest_AG4_hatchFailStr == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.str == 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>55</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone for now.</text>
+          <def_link>62</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>58</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You try everything but the door doesn’t budge an inch.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[alchemy][black powder]Blow it up.</text>
+          <def_link>60</def_link>
+          <checkOnAppear>aod.quest_AG4_hatchFailAlch == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.alchemy &gt;= 4 &amp;&amp; dlgOwnsItem(1815)</string>
+            <string>dlgOwnsItem(1815) == false</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>54</int>
+            <int>58</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[strength]Force it open.</text>
+          <def_link>61</def_link>
+          <checkOnAppear>aod.quest_AG4_hatchFailStr == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.str == 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>55</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone for now.</text>
+          <def_link>62</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>59</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You carefully measure the black powder and rig up a small charge at the base of the door. Then you move to a safe distance, leaving a small trail of the powder behind you, and light it up.
+
+The charge goes off, sending bits of stone flying in all directions, yet the door is still standing.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_AG4_hatchFailAlch = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>removeCharges(1);</string>
+        <string>sfxPlayOnce(explosionMiddle01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[crafting][intelligence]See what you can do.</text>
+          <def_link>59</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.crafting + aod.int) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>37</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[strength]Force it open.</text>
+          <def_link>61</def_link>
+          <checkOnAppear>aod.quest_AG4_hatchFailStr == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.str == 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>55</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone for now.</text>
+          <def_link>62</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>60</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You push against the door as hard as you can, but it doesn’t budge an inch.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_AG4_hatchFailStr = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[crafting][intelligence]See what you can do.</text>
+          <def_link>59</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.crafting + aod.int) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>37</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[alchemy][black powder]Blow it up.</text>
+          <def_link>60</def_link>
+          <checkOnAppear>aod.quest_AG4_hatchFailAlch == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.alchemy &gt;= 4 &amp;&amp; dlgOwnsItem(1815)</string>
+            <string>dlgOwnsItem(1815) == false</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>54</int>
+            <int>58</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone for now.</text>
+          <def_link>62</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>61</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You get out your tools and set to work. Eventually, you manage to drill through the stone and do enough damage to the mechanism holding the hatch in its place. Slowly, it sinks into the floor, clears the stone and falls into the depth below.
+
+“Well done, &lt;charname&gt;,” says Hamza with respect. “Now, let’s get these crates and get out of here.”</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>rwd_civil(AG4_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take the gold and return to the guild.</text>
+          <def_link>38</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>37</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You carefully measure the black powder and rig up a small charge at the base of the door. Then you move to a safe distance, leaving a small trail of the powder behind you, and light it up.
+
+The charge goes off, shaking the temple and showering you with debris. For a moment there, you think that the ceiling is about to collapse, burying you inside, but the old temple holds. When the dust settles, you see that there is a wide opening where the door used to be.
+
+“Well done, &lt;charname&gt;,” says Hamza with respect. “Now, let’s get these crates and get out of here.”</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>removeCharges(1);</string>
+        <string>rwd_civil(AG4_03);</string>
+        <string>sfxPlayOnce(explosionMiddle01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take the gold and return to the guild.</text>
+          <def_link>38</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>54</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You lean against the door and push with all your might. At first nothing happens, then the door moves a bit. Encouraged, you push even harder and the door slowly gives in, the hinges screeching as you force them to move and get the door out of your way.
+
+“Well done, &lt;charname&gt;,” says Hamza with respect. “Now, let’s get these crates and get out of here.”</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take the gold and return to the guild.</text>
+          <def_link>38</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>55</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - return to AG</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_AG4_success = true;</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>sd(Quest_AG4_05);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>38</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - leave it alone</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>62</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

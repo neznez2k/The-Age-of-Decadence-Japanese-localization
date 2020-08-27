@@ -1,0 +1,305 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_awakened_met</string>
+    </conditions>
+    <links>
+      <int>7</int>
+    </links>
+    <dlg_name>ZGT_Awakened_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Awakened</def_speaker_name>
+    <def_portrait>Awakened</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>As you stand in the doorway of the chamber there is a loud hiss, like air leaking from a pipe. You blink as rows of lights along the ceiling come to life. Along one wall stand four tall tanks, which have just now opened. Beneath each spreads a puddle of some viscous fluid. Three of the tanks house withered corpses in blue robes. The fourth corpse is standing before you. You've seen men in bad shape before, and plenty of them. But this one is as white as he'd been draining at the butcher's for a week. As he takes a few steps you find yourself checking to see if invisible wires are holding him up. He opens his mouth to address you and a liter of the same fluid all over the floor pours from his mouth. On his second attempt, he says:
+
+“Awaked. Awaken. A wake,” he says awkwardly, as if testing the sounds of the words. “Is it time?” he asks in a childlike manner.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_awakened_met = true;</string>
+        <string>createByCharMarker("CM_Temple_Awakened");</string>
+        <string>dlgTeleportToMarker(TM_Awakened_PC);</string>
+        <string>dlgcam(20, 45, 6, 9999);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Who are you?”</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I am ...,” the 'man' stops in mid-sentence, staring. After a while you decide he doesn’t remember.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What happened to them?” Point at the other tanks.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>He turns to look but his blank gaze tells you he's not *seeing* anything, then rattles off a list of arcane terms: “Protocol Zeta observed. All vitals within acceptable parameters for up to eighty years. No cognitive damage.”
+
+He looks back at you, slack-jawed and empty eyed.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So now what?”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.zgt_elevator_open</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>11</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"The path is open."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave him alone.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The man doesn’t move. Let’s try the simple approach.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Duty.” Always popular among the subservient types.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“God.” This one gets a reaction, no matter who you're talking to.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Obey.” Remind him who calls the shots.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Duty, yes,” he says, something almost like life in his eyes. “Our duty, waking awake wake... We must wake Him up.” He stops dead. “Safety protocol observed?” He waits for a response.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][charisma]“It is safe, brother. Our enemies are no more. The Magi have done their part, now you must do yours.”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.cha) &gt;= 16</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[impersonate][streetwise]“You dare questioning me? You who failed? You were awakened for a reason, *brother*, so let me worry about the protocols. Are we clear?”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.disguise) &gt;= 16</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“God,” repeats the man. “When the world is ready to receive the glory of the God again, we shall awaken,” he says as if reciting from memory. “Safety protocol observed?” He waits for a response.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][charisma]“It is safe, brother. Our enemies are no more. The Magi have done their part, now you must do yours.”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.cha) &gt;= 16</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[impersonate][streetwise]“You dare questioning me? You who failed? You were awakened for a reason, *brother*, so let me worry about the protocols. Are we clear?”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.disguise) &gt;= 16</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“My brothers and I stand ready, master,” says the man. He doesn’t see you or the corpses in the other tanks. “Safety protocol observed?” He waits for a response.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][charisma]“It is safe, brother. Our enemies are no more. The Magi have done their part, now you must do yours.”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.cha) &gt;= 16</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[impersonate][streetwise]“You dare questioning me? You who failed? You were awakened for a reason, *brother*, so let me worry about the protocols. Are we clear?”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.disguise) &gt;= 16</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Something in your voice makes the man hesitate. He blankly stares in your direction but doesn’t move.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave him alone.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The man's eyes are vacant. You don't think he can hear you anymore.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Awakened_PC);</string>
+        <string>dlgcam(20, 45, 6, 9999);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave him alone.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(45, 45, 10);</string>
+        <string>dlgTeleportToMarker(TM_Awakened_NPC, 9999);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]The man nods and turns around. Awkwardly, he puts his hand on the console, tracing it with his fingers the way the blind do until he finds what he is looking for.
+
+You hear a grinding sound coming from the chamber behind you.</npc_text>
+      <onLoadScripts>
+        <string>ZTG_OpenElevator();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_ElevatorConsole_01, 9999);</string>
+        <string>dlgCam(45, 45, 8, 9999);</string>
+        <string>rwd_civil(ZGT_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,116 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>MDN_arrivalTG</dlg_name>
+    <def_link>5346</def_link>
+    <def_speaker_name>Bassar</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Maadoran's brethren meet you outside the city.
+
+"I'm Bassar," says the man in charge, "Levir's second-in-command. We'll take the gold and get it inside the city without causing another riot. You'll go through the gate and meet us at the old temple in the Slums."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_levir_goMeetHim = true;</string>
+        <string>addQuest(TG_ArriveMDN);</string>
+        <string>dlgCam(290, 40, 8, 4011);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Why can't we go with you?"</text>
+          <def_link>5355</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"How do I know we can trust you?"</text>
+          <def_link>5356</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5346</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportToMarker(TM_Map_Gate);</string>
+        <string>dlgCamPC(225, 40, 15);</string>
+        <string>TG_Cart.isRenderEnabled = false;</string>
+        <string>dlgDeleteCharacter(4011);</string>
+        <string>dlgTeleportToMarker(TM_TG_Aziz_01, 1300);</string>
+        <string>if(isAlive(1110)) dlgTeleportToMarker(TM_TG_Lucius_01, 1110);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5354</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"We have our ways of getting in and out of the city. The fewer people know about them, the better. No offense."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_bassar_talkedGo = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"How do I know we can trust you?"</text>
+          <def_link>5356</def_link>
+          <checkOnAppear>aod.npc_bassar_talkedTrust == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Alright." Leave.</text>
+          <def_link>5354</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5355</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Aziz</speaker_name>
+      <npc_text>"I know him," says Aziz. "He's Levir's right-hand man."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_bassar_talkedTrust = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Why can't we go with you?"</text>
+          <def_link>5355</def_link>
+          <checkOnAppear>aod.npc_bassar_talkedGo == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Alright." Leave.</text>
+          <def_link>5354</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5356</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

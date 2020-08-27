@@ -1,0 +1,1837 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>PRT_Portal</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You’re standing in front of the arch. Other than its size, it looks completely ordinary: old and dusty, with a few cracks here and there. You walk around, looking for anything unusual, but find nothing of interest.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Portal_PC_01);</string>
+        <string>aod.prt_portalStatus = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Remove the eye patch.</text>
+          <def_link>2</def_link>
+          <checkOnAppear>aod.npc_clemens_did_eye</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>PRT_realWorld();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The mechanical eye whirs to life as if charged by the mystical energies of this place. You blink, trying to focus, and suddenly shimmering machines appear around you. You look up and see the arch transforming into a massive structure. It takes you a moment to realize that the arch itself didn't change but that you saw only the ‘tip of the iceberg’ until now.
+
+The arch is merely a small part of this colossal structure, the only part that is visible in your plane. The rest of it exists elsewhere, somewhere where it will never be seen or found by the uninitiated into the mysteries of the Magi.</npc_text>
+      <onLoadScripts>
+        <string>PRT_GhostMachine();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>useCameraBookmark(CAM_Portal_01);</string>
+        <string>aod.jnl_arch_phase4 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Examine the machines.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You try to touch one of the machines, but your hand passes through it as if it was nothing but an illusion.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportToMarker(TM_Portal_PC_02);</string>
+        <string>dlgCam(135, 45, 10, 1);</string>
+        <string>aod.prt_portalStatus = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Use the Ghost Hand.</text>
+          <def_link>5</def_link>
+          <checkOnAppear>dlgGetItemsCount(2191) &gt;= 1 || dlgGetItemsCount(2192) &gt;= 1</checkOnAppear>
+          <checksOnClick>
+            <string>dlgGetItemsCount(2192) &gt;= 1</string>
+            <string>dlgGetItemsCount(1600) &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>60</int>
+            <int>4</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Unfortunately, you don't have enough power tubes to charge it.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You put on the Ghost Hand glove, flex your fingers, and start inserting the tubes one by one. Your fingers feel a bit strange, as if you were moving them underwater, but other than that there is no noticeable effect.</npc_text>
+      <onLoadScripts>
+        <string>dlgRemoveItem(2191, 1);</string>
+        <string>dlgRemoveItem(1600, 3);</string>
+        <string>dlgAddItem(2192, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Try examining the machines again.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.npc_esbenus_dead &amp;&amp; aod.npc_oracle_dead) || aod.prt_everyoneGone</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>55</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You put on the Ghost Hand glove. Your fingers feel a bit strange, as if you were moving them underwater, but other than that there is no noticeable effect.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Try examining the machines again.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.npc_esbenus_dead &amp;&amp; aod.npc_oracle_dead) || aod.prt_everyoneGone</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>55</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>60</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You try to touch the nearby machine again and this time your gloved hand hits solid metal. Fortunately, the controls aren't very complicated. You throw down the switch and the machine comes to life. You turn to the second machine.
+
+The men look with curiosity as you move around, making strange movements with your hand. Suddenly, one of them cries out and points at the arch: the archway is glowing with blue light.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>PRT_PortalActive();</string>
+        <string>useCameraBookmark(CAM_Portal_02);</string>
+        <string>aod.prt_portalStatus = 3;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_esbenus_archPaid &amp;&amp; aod.npc_esbenus_dead == false</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You try to touch the nearby machine again and this time your gloved hand hits solid metal. Fortunately, the controls aren't very complicated. You throw down the switch and the machine comes to life. You turn to the second machine.
+
+You turn back and see the archway is glowing with blue light.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>PRT_PortalActive();</string>
+        <string>useCameraBookmark(CAM_Portal_02);</string>
+        <string>aod.prt_portalStatus = 3;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>57</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>55</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You're standing in front of the arch. It's glowing with blue light.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Portal_PC_01);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(CAM_Portal_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Enter the glowing light - one small step for you, one giant leap for mankind.</text>
+          <def_link>58</def_link>
+          <checkOnAppear>aod.arch_second_talk == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Put on the Aegis suit and enter the glowing light.</text>
+          <def_link>65</def_link>
+          <checkOnAppear>dlgGetItemsCount(2220) &gt;= 1 &amp;&amp; aod.arch_second_talk == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Shut it down and leave this place.</text>
+          <def_link>49</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>PRT_realWorld();</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+      </answers>
+      <UID>57</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The glow envelops you, pours through you, washing away pain and anxiety. You are floating in a warm, rolling sea, weightless and without care. Your only feeling is expectation, the sublime knowledge that change is imminent. You are about to transcend.
+
+As the unearthly light recedes, you sense that something has been left behind. There is a shadow in the back of your mind, a presence you cannot comprehend. Slowly the understanding dawns that something else, some alien entity, shares your being now. Perhaps ‘share’ isn't the right word. Instinctively you scramble to get away, but your limbs are moving of their own accord – No, they respond to a new master. Your attempts to scream your horror produce only a small croaking sound, as your lips begin mouthing weird syllables in a dead language, meaningless to you.
+
+Your feeble protests are cut short by a gout of blood filling your throat. Organs are rupturing inside you, torn and rearranged as if an invisible surgeon had decided to repurpose your system, discarding what he doesn’t need. Beyond the red of the blood pouring in your eyes, darkness is falling over you like a shroud...</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>From now on stay away from the glowing objects.</text>
+          <def_link>59</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>58</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The glow envelops you, pours through you, washing away pain and anxiety. You are floating in a warm, rolling sea, weightless and without care. Your only feeling is expectation, the sublime knowledge that change is imminent. You are about to transcend.
+
+As the unearthly light recedes, you sense that something has been left behind. There is a shadow in the back of your mind, a presence you cannot comprehend. Slowly the understanding dawns that something else, some alien entity, shares your being now. Perhaps ‘share’ isn't the right word. Instinctively you scramble to get away, but your limbs are moving of their own accord – No, they respond to a new master. Your attempts to scream your horror produce only a small croaking sound, as your lips begin mouthing weird syllables in a dead language, meaningless to you.
+
+Suddenly, everything stops.</npc_text>
+      <onLoadScripts>
+        <string>aod.prt_talkedBeing = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>67</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>isAlive(8031) == 0</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>10</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>65</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Entity</speaker_name>
+      <npc_text>“Balzaar.” The word is produced as a croak as your lips obey their new master, struggling to give voice to the raw thoughts pouring into your brain. “Are you one of his?” You feel what the entity feels – annoyance, displeasure, and something you hadn’t anticipated: fear. It doesn’t want to cross Balzaar.</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_arch_end_02 = true;</string>
+        <string>setAchievement("ACH_FRIENDS");</string>
+        <string>rwd_quest(Portal_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Tell me about Balzaar.”</text>
+          <def_link>66</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>67</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Entity</speaker_name>
+      <npc_text>“Balzaar.” The word is produced as a croak as your lips obey their new master, struggling to give voice to the raw thoughts pouring into your brain. “Don't kid yourself, mortal, your kind is doomed to become his slaves.” You feel what the entity feels – annoyance, displeasure, and something you hadn’t anticipated: fear. It doesn’t want to cross Balzaar.</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_arch_end_02 = true;</string>
+        <string>setAchievement("ACH_FRIENDS");</string>
+        <string>rwd_quest(Portal_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Tell me about Balzaar.”</text>
+          <def_link>66</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Entity</speaker_name>
+      <npc_text>Its response is confusion. Balzaar is. Balzaar has existed always, will continue to exist, always. Balzaar desires to rule this world and if he desires it, it shall be. The two are one and the same.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Show me.”</text>
+          <def_link>68</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>66</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Entity</speaker_name>
+      <npc_text>At first there is the endless expanse of night sky, stars and nothingness, until *it* moves. A humongous shapeless something shifts in the void, a shadow cast by a being on another plane. It drifts in the galactic void like a jellyfish, tentacles trailing behind, searching, probing, reaching in all directions.
+
+And there is your world – impossibly small, miniscule, dwarfed by the tenebrous unseen presence. The thing is at rest, but cannot be said to wait, for Time to it is meaningless. The passage of a hundred years is nothing, as is ten thousand.
+
+One day the door will be opened.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Balzaar wants me to kill Agathoth.”</text>
+          <def_link>69</def_link>
+          <checkOnAppear>isAlive(8031)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Tell me about Agathoth.”</text>
+          <def_link>69</def_link>
+          <checkOnAppear>isAlive(8031) == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>68</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Entity</speaker_name>
+      <npc_text>The name Agathoth triggers a shift in the alien emotions occupying your mind, a wave of resentment and anger. Agathoth, he who thought himself Balzaar’s equal. Defier and betrayer who gave the knowledge of the stars to these worms, to use them in his fight. The worms double-crossed him, of course. What else can one expect from material lifeforms? Pluck them like summer flowers and drain their essence. Like nectar, it is thin, sweet and unnourishing.
+
+You feel its rising hunger; the grip around you is tightening. The suit flexes slightly under the pressure but holds.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Is that what we are to you?”</text>
+          <def_link>70</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>69</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Entity</speaker_name>
+      <npc_text>Again confusion. “You are beasts, creatures who feed on other beasts, ride them, harvest them for clothing, hunt them for sport. Soon we will feed, we will ride, and we will hunt.” The words can’t exactly explain the feelings behind them, but in the grand scheme of things it is better to do be the new master’s hunting dog than his cattle, sheep or slave.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“How do I kill Agathoth?”</text>
+          <def_link>71</def_link>
+          <checkOnAppear>isAlive(8031)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“How do I kill Agathoth?”</text>
+          <def_link>15</def_link>
+          <checkOnAppear>isAlive(8031) == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>70</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Entity</speaker_name>
+      <npc_text>Confusion, anger at the degradation of communicating with worms, and eventually realization. “You speak of the vessel. If it regains its strength, an army of worms will not slay it. Balzaar’s vessel is new. It will take months to evolve. Agathoth needs but a few hours.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Tell me about your compact with the Magi.”</text>
+          <def_link>72</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>71</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Entity</speaker_name>
+      <npc_text>Confusion, anger at the degradation of communicating with worms, and eventually realization. “You speak of the vessel. If it regains its strength, an army of worms will not slay it. It will take months to evolve a new vessel. Agathoth needs but a few hours.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Tell me about your compact with the Magi.”</text>
+          <def_link>72</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Entity</speaker_name>
+      <npc_text>You find yourself floating in the void between the stars. An aeon ago the void was pure and empty – an endless ocean, its only inhabitants your own species. You were the first matter to become self-aware, the first life, in a form unlike any that would come after.
+
+The void would change, your first introduction to Time. It gave birth to bright stars and the whirling motes of planets, and on those specks of rock and dust the germ of a new kind of being: the crawling filth, flashing into motion and dying almost in the next moment. These new things were driven by lust, to spread their disease, to destroy every other life, to consume and infect. After many cycles, they began also to pursue knowledge. One might suppose that knowledge could perhaps be a noble goal, finally, something at least not shameful and low. But no, even knowledge was sought for only one purpose: power, to rule over every other life.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>73</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>72</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Entity</speaker_name>
+      <npc_text>Though these creatures were weak, puny and contemptible, they were a diversion of sorts, something new in the slow ebb of eternity. You watched them, played with them, nudged them in different directions. You built up their hives, then watched them collapse. They worshiped you, naturally, worshipped a manifestation they could not understand. They called you the Elder Gods and made up different names, for their feeble minds must categorize every thing in order to hold it. Then they reached out to you.
+
+In their stumbling, ignorant way they had somehow grasped great power, power amplified by recklessness and contempt for order and life, even their own. Enough power to reach into the void and treat with the gods as equals.
+
+Enough power to open a door.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>74</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>73</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Entity</speaker_name>
+      <npc_text>This was their offer, to give up their world for your knowledge, to give us something truly new, incarnation in flesh and rule over their existence.
+
+It was a trick. They wanted to enslave you – their wards were easy to break – and when they failed they reversed the ritual. When you were no longer of use, they discarded you. Imagine it, to be deceived by a scheming insect. They *will* pay for this greatest of insults.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What about the War?”</text>
+          <def_link>75</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>74</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Entity</speaker_name>
+      <npc_text>“They corrupted the one they called Agathoth, enticed him with promises, whispered lies in his ear. He became immersed in their ways, and like them succumbed to the temptations of greed and betrayal. Why must you bow to Balzaar? they said. Why must you share the power? Seize it for yourself. Take it all.
+
+“Agathoth rose against Balzaar and me, and two others followed him. They paid a steep price for their crimes, in your world and in the void. But Agathoth was much more clever, something he learned, perhaps, from the maggots that pulled his strings.”</npc_text>
+      <onLoadScripts>
+        <string>aod.arch_second_talk = true;</string>
+        <string>aod.prt_talkedBeing = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>The suit won't last much longer. Leave while you can.</text>
+          <def_link>76</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>75</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - everyone gone Aegis</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>PRT_everyoneLeaves();</string>
+        <string>setRtsCam();</string>
+        <string>PRT_realWorld();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>76</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>59</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Esbenus</portrait>
+      <speaker_name>Esbenus</speaker_name>
+      <npc_text>“What have you done, &lt;charname&gt;? If House Aurelian gets wind of this...”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Portal_PC_01);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Portal_NPC_01, 1558);</string>
+        <string>useCameraBookmark(CAM_Portal_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’m as surprised as you are.”</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Esbenus</portrait>
+      <speaker_name>Esbenus</speaker_name>
+      <npc_text>“So, now what?” asks Esbenus. “Are you going to go through?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_esbenus_atPortalActive = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Let’s send in a slave first.”</text>
+          <def_link>9</def_link>
+          <checkOnAppear>aod.arch_second_talk == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Enter the glowing light - one small step for you, one giant leap for mankind.</text>
+          <def_link>58</def_link>
+          <checkOnAppear>aod.arch_second_talk == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Put on the Aegis suit and enter the glowing light.</text>
+          <def_link>65</def_link>
+          <checkOnAppear>dlgGetItemsCount(2220) &gt;= 1 &amp;&amp; aod.arch_second_talk == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Shut it down and leave this place.</text>
+          <def_link>53</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Esbenus</portrait>
+      <speaker_name>Esbenus</speaker_name>
+      <npc_text>“It’s gonna cost you,” says Esbenus matter-of-factly, while studying the blue glow. “Hundred a head?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Sure.” Pay him and send a slave through.</text>
+          <def_link>11</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 100</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I don't have the money."</text>
+          <def_link>61</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Shut it down and leave this place.</text>
+          <def_link>53</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Esbenus</portrait>
+      <speaker_name>Esbenus</speaker_name>
+      <npc_text>"No money – no slaves," says Esbenus. "You know how this works, don't you?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Alright.” Pay him and send a slave through.</text>
+          <def_link>11</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 100</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[word of honor]"I kept my word at the mine, didn't I?"</text>
+          <def_link>62</def_link>
+          <checkOnAppear>aod.npc_esbenus_keptWordMine</checkOnAppear>
+          <checksOnClick>
+            <string>dlgGetRep(honor) &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>63</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading][streetwise]"I need to see it through and I'm willing to pay double for it. It’s a good deal and you know, just like you know that I’m good for it.”</text>
+          <def_link>64</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.trading + aod.streetwise) &gt;= 10 &amp;&amp; aod.trading &gt;= 3 &amp;&amp; aod.streetwise &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>63</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Shut it down and leave this place.</text>
+          <def_link>53</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>61</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Esbenus</portrait>
+      <speaker_name>Esbenus</speaker_name>
+      <npc_text>[failure]"That was then, this is now. If you want to use my slaves, you have to pay."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_esbenus_prtFailHonor = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Alright.” Pay him and send a slave through.</text>
+          <def_link>11</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 100</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading][streetwise]"I need to see it through and I'm willing to pay double for it. It’s a good deal and you know, just like you know that I’m good for it.”</text>
+          <def_link>64</def_link>
+          <checkOnAppear>aod.npc_esbenus_prtFailPersuasion == false</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.trading + aod.streetwise) &gt;= 10 &amp;&amp; aod.trading &gt;= 3 &amp;&amp; aod.streetwise &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>63</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Shut it down and leave this place.</text>
+          <def_link>53</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>62</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Esbenus</portrait>
+      <speaker_name>Esbenus</speaker_name>
+      <npc_text>[failure]"It's a good deal, but I need money now, &lt;charname&gt;."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_esbenus_prtFailPersuasion = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Sure.” Pay him and send a slave through.</text>
+          <def_link>11</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 100</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[word of honor]"I kept my word at the mine, didn't I?"</text>
+          <def_link>62</def_link>
+          <checkOnAppear>aod.npc_esbenus_keptWordMine &amp;&amp; aod.npc_esbenus_prtFailHonor == false</checkOnAppear>
+          <checksOnClick>
+            <string>dlgGetRep(honor) &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>63</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Shut it down and leave this place.</text>
+          <def_link>53</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>64</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Alright. I'll come to collect later and you'd best be ready."
+
+Esbenus’ men pick one of the slaves and drag him towards the glowing archway. Though he looks sickly, the man puts up quite a fight, screaming and writhing so much that it almost looks as if he might break free. At the border of the mysterious gateway, a hand he meant to brace against the arch instead slips through, disappearing into the blue glow.
+
+The slave freezes in place, his expression contorted in the expectation of torture, but then he looks in wonder down the length of his arm and exhales in relief. Whatever the effect of the magical light, it is apparently not painful. At that moment his body is jerked violently up and down at the wrist like a fish caught on a hook, and he is yanked brutally forward. The slave vanishes into the glow, his last, bloodcurdling scream neatly severed. There isn’t even an echo.
+
+“Fuck me!” whispers Esbenus. He makes the sign against evil spirits, though he himself obviously doubts its effectiveness in this situation. “Close it, &lt;charname&gt;, quickly! Before it gets us all!”</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(Portal_01);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.npc_esbenus_oweMoneyPortal = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Not yet.” Wait.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Shut it down and leave this accursed place.</text>
+          <def_link>53</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>63</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Esbenus’ men pick one of the slaves and drag him towards the glowing archway. Though he looks sickly, the man puts up quite a fight, screaming and writhing so much that it almost looks as if he might break free. At the border of the mysterious gateway, a hand he meant to brace against the arch instead slips through, disappearing into the blue glow.
+
+The slave freezes in place, his expression contorted in the expectation of torture, but then he looks in wonder down the length of his arm and exhales in relief. Whatever the effect of the magical light, it is apparently not painful. At that moment his body is jerked violently up and down at the wrist like a fish caught on a hook, and he is yanked brutally forward. The slave vanishes into the glow, his last, bloodcurdling scream neatly severed. There isn’t even an echo.
+
+“Fuck me!” whispers Esbenus. He makes the sign against evil spirits, though he himself obviously doubts its effectiveness in this situation. “Close it, &lt;charname&gt;, quickly! Before it gets us all!”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-100);</string>
+        <string>dlgChangeMoney(100, 1558);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Not yet.” Wait.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Shut it down and leave this accursed place.</text>
+          <def_link>53</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Minutes pass and the tension eases somewhat as everyone realizes there is no immediate danger. Esbenus opens his mouth to offer another useless suggestion, but is silenced when the slave’s face, just his face, emerges from the glow. It resembles a corpse floating face up in a pond, and you assume he is dead, until the unblinking eyes fix on you. The mouth, still stretched in a scream of agony, twitches, and a trickle of blood runs down the chin to drip on the sand.
+
+“Ask,” it says. The lips stay open and do not move again as the voice sounds, deep and guttural.</npc_text>
+      <onLoadScripts>
+        <string>portalFace.playThread(0, "emerge");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I seek an ancient temple.”</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Entity</speaker_name>
+      <npc_text>“Yes,” say the dead lips with strange eagerness. “Al-Akia.” The eyes roll back and the face sinks back into the glow.</npc_text>
+      <onLoadScripts>
+        <string>portalFace.playThread(0, "sink");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Send in another slave.”</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Shut it down and leave this accursed place.</text>
+          <def_link>53</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Esbenus</portrait>
+      <speaker_name>Esbenus</speaker_name>
+      <npc_text>“Another slave?” asks Esbenus. He stops to swipe at the perspiration streaming down his brow. “You want to talk to that thing again?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What is the cost of a slave, or ten slaves, or a thousand, compared to what we might learn!”</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“All right.” Shut it down.</text>
+          <def_link>53</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You’re right, I am worried about the cost,” says Esbenus. “I’m worried that it won’t be measured in slaves. All right, one more, but that’s it.” He gestures to his men and this time they grab a young woman. This slave tries to cling to her fellows, but they stand well back, kicking her away. As the guards lead her to the archway, she stops resisting, instead choosing to look straight at you as she’s pushed into the glow.
+
+The woman’s grey and lifeless visage bobs to the surface. “Ask,” says the dead woman.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What is this place?”</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Who are you?”</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What’s in Al-Akia?”</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Esbenus</portrait>
+      <speaker_name>Esbenus</speaker_name>
+      <npc_text>Her face begins to shrivel before your eyes, folding in on itself until it disappears. Enormous shadows are shifting within the glow.
+
+“We’re done,” says Esbenus, looking pale. “Shut it down before it decides to cross over.”</npc_text>
+      <onLoadScripts>
+        <string>portalFace.playThread(0, "sink");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“All right.” Shut it down.</text>
+          <def_link>53</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intelligence success]“I never knew you were such an old woman, Esbenus. If it had the power to cross over we would already be dead. In this place, I am its &lt;master/mistress&gt;.”</text>
+          <def_link>19</def_link>
+          <checkOnAppear>aod.int &gt;= 7</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I have questions and I will see them answered. If it’s about the money, name your price.”</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Esbenus</portrait>
+      <speaker_name>Esbenus</speaker_name>
+      <npc_text>“You’re fucking with things you don’t understand. There’s a reason these things were buried, and deliberately forgotten.
+
+“Take my advice, if your pride lets you – leave them buried. Walk away and tell your masters nothing.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I have questions and I will see them answered. If it’s about the money, name your price.”</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“All right.” Shut it down.</text>
+          <def_link>53</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I don’t want your money,” says Esbenus grimly. “Gods know I’m not a saint, but what you’re doing here is ... is...” He pauses to search for the right word, but gives it up. “Just make it quick.”
+
+He nods to the guards. The slaves are shaking now, as panicked as rabbits smelling blood. The chosen one this time understands exactly what is at stake, and it’s a long struggle to get him to the portal. But soon enough another dead face parts the glow to turn its unfocused eyes on you.
+
+“Ask.”</npc_text>
+      <onLoadScripts>
+        <string>portalFace.playThread(0, "emerge");</string>
+        <string>aod.jnl_arch_end_02 = true;</string>
+        <string>setAchievement("ACH_FRIENDS");</string>
+        <string>aod.prt_talkedBeing = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What is this place?”</text>
+          <def_link>31</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Who are you?”</text>
+          <def_link>35</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What’s in Al-Akia?”</text>
+          <def_link>37</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Oracle</speaker_name>
+      <npc_text>“The Gods are returning!” cries the Oracle, praying with fervor, tears running down from his only eye. “Oh what a glorious day! And to think that I doubted that I will live to see it!”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Portal_PC_01);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Portal_NPC_01, 5830);</string>
+        <string>useCameraBookmark(CAM_Portal_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Enter the glowing light - one small step for you, one giant leap for mankind.</text>
+          <def_link>58</def_link>
+          <checkOnAppear>aod.arch_second_talk == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Put on the Aegis suit and enter the glowing light.</text>
+          <def_link>65</def_link>
+          <checkOnAppear>dlgGetItemsCount(2220) &gt;= 1 &amp;&amp; aod.arch_second_talk == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Send in one of your zealots to greet the Gods.”</text>
+          <def_link>22</def_link>
+          <checkOnAppear>aod.arch_second_talk == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Of course, of course!” says the Oracle, turning to his flock and picking an eager volunteer. A man steps forward and walks toward the arch. He touches the glow in wonder, watching as his hand slips through and disappears.
+
+At that moment his body is jerked violently up and down at the wrist like a fish caught on a hook, and he is yanked brutally forward. The man vanishes into the glow, his last, bloodcurdling scream neatly severed. There isn’t even an echo.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“The Gods have accepted the sacrifice!”</text>
+          <def_link>44</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Shut it down and leave this accursed place.</text>
+          <def_link>51</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Oracle</speaker_name>
+      <npc_text>“The stories say nothing about sacrifice,” says the Oracle, visibly shaken.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Wait.</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Shut it down and leave this accursed place.</text>
+          <def_link>51</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>44</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Minutes pass and the tension eases somewhat as everyone realizes there is no immediate danger. The Oracle opens his mouth to say something, but is silenced when the man’s face, just his face, emerges from the glow. It resembles a corpse floating face up in a pond, and you assume he is dead, until the unblinking eyes fix on you. The mouth, still stretched in a scream of agony, twitches, and a trickle of blood runs down the chin to drip on the sand.
+
+“Ask,” it says. The lips stay open and do not move again as the voice sounds, deep and guttural.</npc_text>
+      <onLoadScripts>
+        <string>portalFace.playThread(0, "emerge");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I seek an ancient temple.”</text>
+          <def_link>24</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Entity</speaker_name>
+      <npc_text>“Yes,” say the dead lips with strange eagerness. “Al-Akia.” The eyes roll back and the face sinks back into the glow.</npc_text>
+      <onLoadScripts>
+        <string>portalFace.playThread(0, "sink");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“We need another volunteer, old man.”</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Shut it down and leave this accursed place.</text>
+          <def_link>51</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Oracle</speaker_name>
+      <npc_text>“Another one?” cries the old man. “The stories say nothing –”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“Stories are for children, ‘oracle’. The Gods are here now and they are hungry. If I were you, I wouldn’t make them wait.”</text>
+          <def_link>46</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>29</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion]“You’ve spent your entire life waiting for the Gods to return, like all those who came before you. Maybe these Gods aren’t what you expected, but you can’t turn away now just because you have doubts.”</text>
+          <def_link>46</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>29</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You're right.” Shut it down and leave this accursed place.</text>
+          <def_link>51</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Oracle</speaker_name>
+      <npc_text>[failure]“No!” the old man says defiantly. “I don't know what these things are, but they aren't Gods!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You're right.” Shut it down and leave this accursed place.</text>
+          <def_link>51</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>46</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Entity</speaker_name>
+      <npc_text>[success]“Thy will be done,” whispers the Oracle and picks another volunteer. A young woman gets up and walks toward the arch, chanting a prayer. She smiles as she steps into the glow.
+
+The woman’s grey and lifeless visage bobs to the surface. “Ask,” says the dead woman.</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(Portal_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What is this place?”</text>
+          <def_link>28</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Who are you?”</text>
+          <def_link>28</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What’s in Al-Akia?”</text>
+          <def_link>28</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>29</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Oracle</speaker_name>
+      <npc_text>Her face begins to shrivel before your eyes, folding in on itself until it disappears. Enormous shadows are shifting within the glow.
+
+“I will *not* send another one,” says the old man, closing his only eye. He looks like a man who's just lost everything.</npc_text>
+      <onLoadScripts>
+        <string>portalFace.playThread(0, "sink");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“One more.”</text>
+          <def_link>48</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Shut it down and leave this accursed place.</text>
+          <def_link>51</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>28</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Oracle</speaker_name>
+      <npc_text>“Look at them! They are terrified! What do I tell them?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“Tell them that if they anger the Gods, they will cross over and kill everyone. Tell them that they need to choose one to save the rest.”</text>
+          <def_link>46</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>30</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion]“Tell them that what they see isn’t real. Tell them that the Gods wish to test their faith and devotion. Only those who trust their hearts rather than their eyes will pass the test.”</text>
+          <def_link>46</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>30</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Shut it down and leave this accursed place.</text>
+          <def_link>51</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>48</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]The men are shaking now, as panicked as rabbits smelling blood. The chosen one this time understands exactly what is at stake, and it’s a long struggle to get him to the portal. But soon enough another dead face parts the glow to turn its unfocused eyes on you.
+
+“Ask.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(Portal_02);</string>
+        <string>portalFace.playThread(0, "emerge");</string>
+        <string>aod.jnl_arch_end_02 = true;</string>
+        <string>setAchievement("ACH_FRIENDS");</string>
+        <string>aod.prt_talkedBeing = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What is this place?”</text>
+          <def_link>31</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Who are you?”</text>
+          <def_link>35</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>30</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Entity</speaker_name>
+      <npc_text>“A tear in the fabric of this world, a ragged hole ripped open by the Magi’s engines.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_entity_asked_portal = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Can you travel through it?”</text>
+          <def_link>32</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>31</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Entity</speaker_name>
+      <npc_text>“Our worlds are too different. You cannot exist in mine. I do not wish to be a washed up whale in yours.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“It is said that the First of the Magi traveled to your realm.”</text>
+          <def_link>33</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Who are you?”</text>
+          <def_link>35</def_link>
+          <checkOnAppear>aod.npc_entity_asked_name == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What’s in Al-Akia?”</text>
+          <def_link>37</def_link>
+          <checkOnAppear>aod.npc_entity_asked_alakia == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>32</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Entity</speaker_name>
+      <npc_text>“Yes, I remember him,” says the dead man, grudging respect coming in at the edge of his voice, “but you are nothing like him. The power does not flicker inside you. He was arrogant in his strength. You are merely arrogant.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What did he do?”</text>
+          <def_link>34</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>33</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Entity</speaker_name>
+      <npc_text>“He thought he could chain me, make *me* his slave. I did not believe it. Such a fragile form, but so much power...”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Who are you?”</text>
+          <def_link>35</def_link>
+          <checkOnAppear>aod.npc_entity_asked_name == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What’s in Al-Akia?”</text>
+          <def_link>37</def_link>
+          <checkOnAppear>aod.npc_entity_asked_alakia == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Shut it down.</text>
+          <def_link>51</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_esbenus_atPortalActive</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>53</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>34</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Entity</speaker_name>
+      <npc_text>“I have no name save the one given to me by your kind.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_entity_asked_name = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What are you then?”</text>
+          <def_link>36</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>35</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Entity</speaker_name>
+      <npc_text>“You cannot grasp my nature any more than an ant can grasp yours. Your kind thinks that man is the measure of all things. It is not so.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What is this place?”</text>
+          <def_link>31</def_link>
+          <checkOnAppear>aod.npc_entity_asked_portal == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What’s in Al-Akia?”</text>
+          <def_link>37</def_link>
+          <checkOnAppear>aod.npc_entity_asked_alakia == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Shut it down.</text>
+          <def_link>51</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_esbenus_atPortalActive</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>53</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>36</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Entity</speaker_name>
+      <npc_text>"It is the place where it began. It is the place where it will end."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_entity_asked_alakia = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What do you want me to do?”</text>
+          <def_link>38</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>37</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Entity</speaker_name>
+      <npc_text>“The path must be opened. A vessel must be provided. The compact must be honored.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What compact?”</text>
+          <def_link>39</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>38</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Entity</speaker_name>
+      <npc_text>“A promise was made. It will be fulfilled.”</npc_text>
+      <onLoadScripts>
+        <string>aod.prt_talkedBeing = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“It was a long time ago. The people who made the deal with you are long dead.”</text>
+          <def_link>40</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“It won’t. I won’t let it!”</text>
+          <def_link>41</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“And if I open the path and provide the vessel?”</text>
+          <def_link>43</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Shut it down.</text>
+          <def_link>51</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_esbenus_atPortalActive</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>53</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>39</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Entity</speaker_name>
+      <npc_text>“It was a moment ago. Your deaths are as meaningless as your lives. The compact will be honored.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“And if I open the path and provide the vessel?”</text>
+          <def_link>43</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“It won’t. I won’t let it!”</text>
+          <def_link>41</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>40</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Entity</speaker_name>
+      <npc_text>A staccato croak escapes the hole of the dead mouth. It takes you a while to understand it is the sound of a corpse laughing.
+
+“Do you contradict me, you crawling mortal bit of filth? I am immortal, for I have neither beginning nor end.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“We killed your kind during the War.”</text>
+          <def_link>42</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>41</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Entity</speaker_name>
+      <npc_text>“Fool. Do you suppose the sun dies when night comes? You know nothing but chaos, an aimless, bloody scramble for goals you believe you have chosen yourself, but which are nothing more than an accident of biological codes and chemicals. Your wounds, your lies, your pride, they are nothing to me. My existence is the vault of stars without end. My existence is eternity and order.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“And if I open the path and provide the vessel?”</text>
+          <def_link>43</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>42</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Entity</speaker_name>
+      <npc_text>“In serving me, you will be the highest of your kind. You will lord over your kind and they will be your slaves, just as you will be mine.”</npc_text>
+      <onLoadScripts>
+        <string>addLore(20);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What is this place?”</text>
+          <def_link>31</def_link>
+          <checkOnAppear>aod.npc_entity_asked_portal == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Who are you?”</text>
+          <def_link>35</def_link>
+          <checkOnAppear>aod.npc_entity_asked_name == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Shut it down.</text>
+          <def_link>51</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_esbenus_atPortalActive</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>53</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>43</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Esbenus</portrait>
+      <speaker_name>Esbenus</speaker_name>
+      <npc_text>"I'm getting out of here. I suggest you do the same and keep what you saw to yourself."</npc_text>
+      <onLoadScripts>
+        <string>PRT_realWorld();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.jnl_arch_end_01 = true;</string>
+        <string>rwd_quest(Portal_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>49</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>53</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Oracle</speaker_name>
+      <npc_text>"We can't stay here, not after what we've witnessed."</npc_text>
+      <onLoadScripts>
+        <string>PRT_realWorld();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.jnl_arch_end_01 = true;</string>
+        <string>rwd_quest(Portal_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>49</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>51</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - everyone gone</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>PRT_everyoneLeaves();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>49</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

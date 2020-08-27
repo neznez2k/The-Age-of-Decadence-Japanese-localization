@@ -1,0 +1,222 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.fight_AemolasMykko</string>
+      <string>aod.quest_aemolas_tearfulReunion</string>
+    </conditions>
+    <links>
+      <int>5889</int>
+      <int>5876</int>
+    </links>
+    <dlg_name>Quest_AemolasVillage_02</dlg_name>
+    <def_link>5887</def_link>
+    <def_speaker_name>Aemolas</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"&lt;charname&gt;? What brings you here? Wait, you found it? You have my money?"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_PC_02);</string>
+        <string>dlgcam(165, 45, 8, 2070);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Give him the gold.</text>
+          <def_link>5888</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5887</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You're a &lt;man/woman&gt; of your word. Thank you. Here are your 400 imperials, as agreed."</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-800);</string>
+        <string>aod.quest_aemolas_goldGiven = true;</string>
+        <string>aod.jnl_AemolasGold = 1;</string>
+        <string>rwd_reputation(AemolasGold_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Take care of yourself, Aemolas." Leave.</text>
+          <def_link>5880</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5888</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>You take the raiders' leader and two men he's chosen for this mission to Teron. Near the gates the raider puts his hand on your shoulder, the other hand poking your ribs with a dagger. The raiders pay the entrance levies, joke with the guards, and enter the town without raising any suspicions.
+
+You take them to Aemolas' house.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(160, 40, 8, 2070);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>5878</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5876</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Aemolas,” says the raider, grinning maliciously. “Aren’t you a sight for sore eyes?”
+
+“Mykkos?” asks Aemolas, stepping back.
+
+“Surprised? Thought you got rid of me for good, didn’t you? To tell you the truth, so did I. How the fuck did you make it through the desert with a bolt in your chest? You know what’s funny though? It’s your greed that killed you. I would have never thought to look for you in Teron, but you wanted your money – the money you stole from me – and so you led me right to you.”
+
+“Help me,” says Aemolas. His eyes locked on the raider, but he’s talking to you now, pleading for his life.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_aemolas_choice = true;</string>
+        <string>dlgChangeMoney(1309, 3010);</string>
+        <string>rwd_quest(AemolasVillage_02);</string>
+        <string>aod.quest_aemolas_goldGiven = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Side with Aemolas.</text>
+          <def_link>5879</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Walk away.</text>
+          <def_link>5880</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>aod.npc_aemolas_dead = true;</string>
+            <string>aod.jnl_AemolasGold = 2;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+      </answers>
+      <UID>5878</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Aemolas house</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addCharToParty(1, AemolasSide, fighter);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setCombatPerTargetPriority(3010, 2070, 100);</string>
+        <string>aod.quest_aemolas_sideAemolas = true;</string>
+        <string>aod.fight_AemolasMykko = true;</string>
+        <string>aod.quest_aemolas_raidersGone = true;</string>
+        <string>addEnemyParty(MykkoAemolas, AemolasSide);</string>
+        <string>addEnemyParty(AemolasSide, MykkoAemolas);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+        <string>dlgCam(250, 45, 12);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5879</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - walk away - Teron</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>if(aod.quest_aemolas_choice &amp;&amp; aod.quest_aemolas_sideAemolas == false) {aod.npc_aemolas_dead = true; aod.jnl_AemolasGold = 2;}</string>
+        <string>switchMission("RDM_ForestRoad_01.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5880</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Thank you,” says Aemolas, breathing heavily. “Keep the money. They’ve brought me nothing but misery.”</npc_text>
+      <onLoadScripts>
+        <string>aod.fight_AemolasMykko = false;</string>
+        <string>dlgTeleportToMarker(TM_PC_02);</string>
+        <string>dlgTeleportToMarker(TM_Aemolas_01, 2070);</string>
+        <string>dlgcam(165, 45, 8, 2070);</string>
+        <string>aod.jnl_AemolasGold = 3;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“So, what happened between you and Mykkos?”</text>
+          <def_link>5890</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5889</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It’s a long story,” says Aemolas with a shrug, “full of twists and turns. What do you want me to say? I saw a chance and took it. Lived like a lord in that village for a few years. Then Mykkos sniffed me out somehow and I had to flee. The rest you know.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You had some people with you when you came to Teron.”</text>
+          <def_link>5891</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5890</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“They found me in the desert, dying. I wouldn’t have made it, if not for them.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Well, take care of yourself, Aemolas." Leave.</text>
+          <def_link>5892</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5891</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - look around</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5892</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,204 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Quest_HD2_04</dlg_name>
+    <def_link>1809</def_link>
+    <def_speaker_name>Bracchus</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"&lt;charname&gt;? What are you doing here?"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(153, 13, 0, W);</string>
+        <string>dlgTeleportTo(151, 13, 0, E, 1891);</string>
+        <string>dlgCreateCharacter("盗賊", 1941, 1941, 154, 12, 0, W);</string>
+        <string>dlgCreateCharacter("盗賊", 1940, 1940, 154, 14, 0, W);</string>
+        <string>addParty(hd2_cadoThieves, 0);</string>
+        <string>addCharToParty(1, hd2_cadoThieves, fighter);</string>
+        <string>addCharToParty(1940, hd2_cadoThieves, fighter);</string>
+        <string>addCharToParty(1941, hd2_cadoThieves, fighter);</string>
+        <string>aod.quest_hd2_shantyTownGangStart = false;</string>
+        <string>useCameraBookmark(quest_hd2_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I see you've made new friends."</text>
+          <def_link>1810</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1809</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"So did you, it seems," he nods at Cado's men shadowing you.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"These are hard times, or so I've heard. Can you walk away?"</text>
+          <def_link>1811</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1810</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Why?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Because if you don't, you die with them."</text>
+          <def_link>1812</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1811</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"That's how it is?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"That's how it is."</text>
+          <def_link>1813</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion]"You serve House Daratan, not your own interests. You'll do well to remember it, Bracchus. You side with them, and you *will* die, even if you manage to get past me. You understand this, don't you?"</text>
+          <def_link>1815</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1816</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Forget about it." Go chat with Commander Carrinas.</text>
+          <def_link>1817</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1812</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Well, let's get it over with then." He pulls out his sword and raises his dented buckler.</npc_text>
+      <onLoadScripts>
+        <string>addCharToParty(1891, Hd2_Gang, fighter);</string>
+        <string>dlgSetCombatAnimation(1891);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill ‘em all.</text>
+          <def_link>1814</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1813</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>if(aod.quest_hd2_bracchusLeaves) dlgTeleportTo(173, 24, 0, S, 1891);</string>
+        <string>aod.quest_hd2_CadoHelpComplete = true;</string>
+        <string>addEnemyParty(Hd2_Gang, hd2_cadoThieves);</string>
+        <string>addEnemyParty(hd2_cadoThieves, Hd2_Gang);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_hd2_CadoHelpComplete = true;</string>
+        <string>setRtsCam();</string>
+        <string>aod.quest_hd2_GangCombat = true;</string>
+        <string>schedule(250, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1814</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"You talk too much, &lt;charname&gt;." He pulls out his sword and raises his dented buckler.</npc_text>
+      <onLoadScripts>
+        <string>addCharToParty(1891, Hd2_Gang, fighter);</string>
+        <string>dlgSetCombatAnimation(1891);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill ‘em all.</text>
+          <def_link>1814</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1815</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"You're right," says Bracchus after a long pause. "Sorry, &lt;charname&gt;, I got carried away there for a bit. Do what you have to."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_hd2_bracchusLeaves = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait for Bracchus to walk away and attack.</text>
+          <def_link>1814</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1816</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>tg3_deleteShantyTownGang();</string>
+        <string>dlgTeleportTo(173, 24, 0, S, 1891);</string>
+        <string>dlgTeleportTo(179, 55, 0, E);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1817</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

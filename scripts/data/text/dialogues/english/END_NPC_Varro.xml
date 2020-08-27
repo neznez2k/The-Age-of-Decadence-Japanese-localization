@@ -1,0 +1,246 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.pc_member_assassins == 0</string>
+      <string>aod.npc_varro_temple == 1</string>
+      <string>aod.npc_varro_temple == 2</string>
+    </conditions>
+    <links>
+      <int>9</int>
+      <int>6</int>
+      <int>7</int>
+    </links>
+    <dlg_name>END_NPC_Varro</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Varro</def_speaker_name>
+    <def_portrait>Varro</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Inquisitor,” says Varro, greeting you with a smile.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Talk_Varro_PC);</string>
+        <string>dlgCam(350, 45, 6, 8040);</string>
+        <string>aod.npc_varro_temple = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Approach.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_varro_hamzaCastle</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Brother Meru wants to have a word with you. He was very impressed with how you went against your own guild to protect him. He is convinced that the Gods put you up for it.”</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_AG_Varro_Temple = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’ll talk to him.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear>aod.npc_meru_showedMap == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I already talked to him. He wants me to find the temple.”</text>
+          <def_link>2</def_link>
+          <checkOnAppear>aod.npc_meru_showedMap</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Brother Meru wants to have a word with you. He was so impressed with how you saved his life, he didn’t even realize you were the one who brought the assassins into the castle. Don’t worry, I won’t tell him.”</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_AG_Varro_Temple = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’ll talk to him.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear>aod.npc_meru_showedMap == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I already talked to him. He wants me to find the temple.”</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Meru and his ruins,” says Varro, shaking his head. “Just don’t waste too much time on it. The situation in Lowtown is getting out of hand. We need to rein in both the zealots and the nobles.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_varro_temple = 2;</string>
+        <string>aod.jnl_AG_Varro_Temple = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Did Faelan really turn?”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’ll be back as soon as I can.” Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(350, 45, 12, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Faelan? He was as loyal as a dog and about as smart. I tried to talk some sense into him, explain what needs to be done, but he wouldn’t hear any of it. So he had to go.
+
+“Thanks to you, Meru thinks the Inquisition is all that stands between him and the Boatmen. I couldn’t have planned it better myself.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Who took the fall for it?”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Hamza and his crew. The moment I learned they’re in town, I sent you after Faelan. Can’t ask for a better fit, can you?
+
+“Funny enough, Athanasius asked me to kill him earlier, but I couldn’t risk it. Now he owes me big.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Did you talk to Meru? What did he want?”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Talk_Varro_PC);</string>
+        <string>dlgCam(350, 45, 6, 8040);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“He wants me to find the temple.”</text>
+          <def_link>2</def_link>
+          <checkOnAppear>aod.npc_meru_showedMap</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Not yet.” Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Aren't you supposed to be looking for a temple?”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Talk_Varro_PC);</string>
+        <string>dlgCam(350, 45, 6, 8040);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Are you here to report heresy? You can speak freely, my friend. Only the Gods and I are listening."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Talk_Varro_PC);</string>
+        <string>dlgCam(350, 45, 6, 8040);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,1085 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_AG6_headerSerenas</string>
+      <string>aod.quest_AG6_headerAlley</string>
+    </conditions>
+    <links>
+      <int>3432</int>
+      <int>3436</int>
+    </links>
+    <dlg_name>Quest_AG6_02</dlg_name>
+    <def_link>3434</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>Darista</portrait>
+      <speaker_name>Darista</speaker_name>
+      <npc_text>"Are you ready, &lt;charname&gt;?"</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(10, 45, 7, 4600);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Yes." Go to Serenas' villa.</text>
+          <def_link>3387</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_ag6_gotGuardArmor</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3442</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[impersonate success]"Can you get me the Guards' armor? If I look the part, I might be able to get to Serenas before anyone realizes what happened."</text>
+          <def_link>3441</def_link>
+          <checkOnAppear>aod.disguise &gt;= 3 &amp;&amp; aod.quest_ag6_gotGuardArmor == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I need more time." Leave.</text>
+          <def_link>3435</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3434</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - give me some time</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgCam(10, 45, 14, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3435</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Darista</portrait>
+      <speaker_name>Darista</speaker_name>
+      <npc_text>"That's a big if, but I do have the armor. The Guards often forget that it's in their best interest to leave us alone, so every now and then we have to remind them why. Here, it's yours." She gives you a bronze Lorica Segmentata.</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(413, 1);</string>
+        <string>dlgAddItem(1114, 1);</string>
+        <string>aod.quest_ag6_gotGuardArmor = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to Serenas' villa.</text>
+          <def_link>3442</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3441</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You’re standing in front of Serenas’ villa. Everything seems quiet. Before you go inside, you carefully consider your options. You can always attack – the ring will take you straight to Serenas. Pavola’s veterans are nothing to sneeze at, but you’ve faced worse odds and won.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_AG6_Outside);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go in.</text>
+          <def_link>3390</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Come back later – you still have time.</text>
+          <def_link>3389</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3387</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You’re standing in front of Serenas’ villa. Everything seems quiet. Before you go inside, you carefully consider your options. You can always attack – the ring will take you straight to Serenas. Pavola’s veterans are nothing to sneeze at, but you’ve faced worse odds and won.
+
+Then again, why tempt fate? If you put on the armor of the Imperial Guards, you can easily pass for one of Pavola’s men and then play it by ear.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_AG6_Outside);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go in.</text>
+          <def_link>3390</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Put on the armor and go in.</text>
+          <def_link>3395</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Come back later – you still have time.</text>
+          <def_link>3389</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3442</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go back to the guild</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportToMarker(TM_AG_01);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3389</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The door opens and you see two Imperial Guards. Neither of them says a word. They just stare at you without a trace of any emotions on their faces, waiting for you to say something.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_darista_reportSerenas = true;</string>
+        <string>aod.npc_darista_visitSerenas = false;</string>
+        <string>dlgTeleportToMarker(quest_ag6_TM_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’m here to see Lord Serenas.”</text>
+          <def_link>3392</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3390</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“His lordship is busy,” says one of the guards. “Fuck off,” adds the other, clearly concerned that you wouldn’t understand what ‘busy’ means.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Show them the ring.</text>
+          <def_link>3408</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[critical strike]Take them out.</text>
+          <def_link>3409</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 7 &amp;&amp; aod.dex &gt;= 8</string>
+            <string>aod.critical_strike &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3410</int>
+            <int>3405</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>3407</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3392</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The guard inspects the ring, then steps aside to let you in. “Come with me.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Follow him.</text>
+          <def_link>3403</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3408</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The door opens and you see two Imperial Guards. Neither of them says a word. They just stare at without a trace of any emotions on their faces, waiting for you to say something.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_darista_reportSerenas = true;</string>
+        <string>aod.npc_darista_visitSerenas = false;</string>
+        <string>dlgTeleportToMarker(quest_ag6_TM_01);</string>
+        <string>dlgUnequipArmor();</string>
+        <string>dlgEquipItem(413);</string>
+        <string>dlgEquipItem(1114);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[impersonate]“They killed the Legatus! They are attacking the fort now! Quick! We need every man!”</text>
+          <def_link>3393</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.disguise &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3396</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[impersonate]“They killed the Legatus! They’ll be here at any moment!”</text>
+          <def_link>3401</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.disguise &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3402</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3395</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]One guard curses, getting ready to rush to his brethren's aid, but the calmer guard stops him. “I don’t recall seeing your face around the fort... Who attacked us?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][charisma]“Our men are dying and you are going to sit here because you aren’t sure about my face? Who attacked us? Are you an idiot? You’re guarding a man who’s plotting against Gaelius himself and you’re surprised that we’re being attacked? Stop wasting time and come with me!”</text>
+          <def_link>3399</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.cha) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3396</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[critical strike]Take them out.</text>
+          <def_link>3409</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 7 &amp;&amp; aod.dex &gt;= 8</string>
+            <string>aod.critical_strike &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3410</int>
+            <int>3405</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3393</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Calm the fuck down,” says the guard. “We have our orders. Two men will stay here, two will go with you and check the situation at the fort. If it is as you say it is, we’ll decide on what to do next. If it’s not what you say it is, well, we won’t have to waste any time looking for your sorry ass.”</npc_text>
+      <onLoadScripts>
+        <string>removeCharFromParty(5015);</string>
+        <string>removeCharFromParty(5016);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Not exactly what you had in mind, but fighting two at a time is better than fighting all four. Take them to a dark alley and kill them.</text>
+          <def_link>3406</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3396</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“Our men? Like you’ve ever seen the inside of the barracks! Fuck off!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>3407</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3399</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The soldiers remain on guard, watching you carefully. You lead them away from the villa then stop and turn around.
+
+“So, that's how it is,” observes one of the guards. “Well, don't just stand there. Come and get some.”</npc_text>
+      <onLoadScripts>
+        <string>addParty(Quest_AG6_GuardsSplit, 0);</string>
+        <string>addCharToParty(5015, "Quest_AG6_GuardsSplit", "fighter");</string>
+        <string>addCharToParty(5016, "Quest_AG6_GuardsSplit", "fighter");</string>
+        <string>dlgTeleportToMarker(TM_AG6_Alley_PC);</string>
+        <string>dlgTeleportToMarker(TM_AG6_Alley_01, 5015);</string>
+        <string>dlgTeleportToMarker(TM_AG6_Alley_02, 5016);</string>
+        <string>aod.jnl_ag6_phase2a = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill them.</text>
+          <def_link>3398</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3406</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - alley</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addEnemyToParty(1, Quest_AG6_GuardsSplit);</string>
+        <string>setRtsCam();</string>
+        <string>aod.fight_AG6_alley = true;</string>
+        <string>aod.quest_AG6_headerAlley = true;</string>
+        <string>aod.death_AG6_two = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3398</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Go back to the villa and finish the job. The guards won't be fooled again - they will figure it out when they see you returning alone.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go back to the villa.</text>
+          <def_link>3438</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Not yet.</text>
+          <def_link>3437</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3436</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - back at the villa</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(quest_ag6_TM_01);</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportToMarker(TM_BackAlley_Guard_02, 5017);</string>
+        <string>dlgTeleportToMarker(TM_BackAlley_Guard_01, 5018);</string>
+        <string>addEnemyToParty(1, Quest_AG6_Guards);</string>
+        <string>aod.quest_ag6_headerSerenas = true;</string>
+        <string>aod.death_AG6_two = true;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3438</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - not yet</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3437</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“&lt;He/She&gt;’s lying,” says one of the guards calmly. “It’s a trick. Kill &lt;him/her&gt;.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>3407</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3401</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Take &lt;him/her&gt; to Serenas,” says one of the guards. “It’s his decision.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Follow the guard.</text>
+          <def_link>3412</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3402</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You go for the guard on the right first. Your blade darts towards his unprotected neck but strikes the armor instead, ringing off harmlessly. The guard pushes you back, going for his sword. All part of the plan, undoubtedly.</npc_text>
+      <onLoadScripts>
+        <string>sfxPlayOnce(csMissSwingMetal01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill them.</text>
+          <def_link>3407</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3409</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[partial success]You stab the guard on the right, and whirl around, trying to elbow the other guard, but you’re too slow. The guard moves to the side, while slashing with his sword to discourage further attempts to reach him. Your left side erupts with pain and you step back, catching your breath.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAnimation(anim_death_forward00, 0.95, 5016);</string>
+        <string>dlgKillCharacter(5016);</string>
+        <string>dlgChangeCharacterHP(-5);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>sfxPlayOnce(csSuccessMetal01);</string>
+        <string>schedule(200, 0, sfxPlayOnce, csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill the rest.</text>
+          <def_link>3407</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3405</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You stab the guard on the right – the blade darting into his unprotected neck before he can blink, then whirl, elbowing the other guard in the face, and strike him rapidly until he stops resisting and his body goes limp.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAnimation(anim_death_forward01, 0.95, 5015);</string>
+        <string>dlgSetAnimation(anim_death_forward00, 0.95, 5016);</string>
+        <string>dlgKillCharacter(5015);</string>
+        <string>dlgKillCharacter(5016);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCsRepTrain(2);</string>
+        <string>sfxPlayOnce(csSuccessMetal01);</string>
+        <string>schedule(400, 0, sfxPlayOnce, csSuccessMetal01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill the rest.</text>
+          <def_link>3407</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3410</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - inside</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addEnemyToParty(1, Quest_AG6_Guards);</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.quest_ag6_serenasDead = true;</string>
+        <string>aod.quest_ag6_headerSerenas = true;</string>
+        <string>aod.fight_AG6_serenas = true;</string>
+        <string>aod.death_AG6_four = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3407</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Serenas</portrait>
+      <speaker_name>Serenas</speaker_name>
+      <npc_text>If Lord Serenas the Victorious, the only son of Lord Gaelius' sister, had any good qualities, he hid them well. Spoiled by his mother, despised by his uncle, manipulated by his uncle's enemies, and loved by whores, who gave him the title, Serenas never had a chance to become the man his "friends" convinced him he was. He lacked ambition and willpower, which made him useless to Gaelius, but very useful to everyone who would have preferred to see a puppet on the Aurelian throne.
+
+“Did you bring me some good news?” asks Serenas. “Will Lord Meru stand with me?”</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(quest_ag6_TM_02);</string>
+        <string>dlgTeleportToMarker(quest_ag6_TM_Guard_01, 5015);</string>
+        <string>dlgTeleportToMarker(quest_ag6_TM_Guard_02, 5016);</string>
+        <string>addJournalChar(serenas);</string>
+        <string>dlgCam(0, 40, 10, 4150);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][charisma]“My message is for your ears only, my lord. Lord Meru insisted on it.”</text>
+          <def_link>3422</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.cha) &gt;= 9</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3423</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>3407</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3403</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Serenas</portrait>
+      <speaker_name>Serenas</speaker_name>
+      <npc_text>[failure]“I have no secrets from these men. Speak!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>3407</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3422</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Serenas</portrait>
+      <speaker_name>Serenas</speaker_name>
+      <npc_text>[success]“Of course, of course. His concerns are my concerns. We shall speak in private! Guards, make sure we are not disturbed!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Follow him to another room.</text>
+          <def_link>3424</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3423</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Serenas</portrait>
+      <speaker_name>Serenas</speaker_name>
+      <npc_text>“I’ll have the message now,” says Serenas pompously. “What does Lord Meru think of my proposal?”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(quest_ag6_TM_03);</string>
+        <string>dlgTeleportToMarker(quest_ag6_TM_Serenas_01, 4150);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[critical strike]“Not sure, but your uncle is very disappointed.” Kill him with a single strike.</text>
+          <def_link>3428</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3426</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3424</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Serenas</portrait>
+      <speaker_name>Serenas</speaker_name>
+      <npc_text>[success]Your blade darts forward, sinking to the hilt in Serenas’ neck. His eyes bulge and he opens his mouth, but no sound comes out. You catch his fall and gently lower his body to the floor.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_AG6_SerenasSilent = true;</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave like you were never here.</text>
+          <def_link>3433</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3426</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Serenas jumps back with surprising speed and your blade merely cuts a bloody line through his face instead of killing him outright. He touches his face, looks at the bloody fingers, and starts squealing like a pig. You stab him twice to shut him up and...</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAnimation(anim_death_forward01, 0.95, 4150);</string>
+        <string>dlgKillCharacter(4150);</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>sfxPlayOnce(csMissSwingAir01);</string>
+        <string>schedule(250, 0, sfxPlayOnce, csSuccessSilence01);</string>
+        <string>schedule(400, 0, sfxPlayOnce, csSuccessBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Whirl around to face the guards.</text>
+          <def_link>3407</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity]Make a daring escape instead! You might live longer.</text>
+          <def_link>3430</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 9</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3429</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3428</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You dart up the stairs as fast as you can, get to the roof and jump down without wasting a second. You land heavily, falling down and rolling a few times, but manage to get up and hobble away before the guards get outside.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3433</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3429</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You dart up the stairs as fast as you can, get to the roof and ... that's where it ends. One of the guards manages to trip you, sending you face-first into the shingles. When you get up, it's too late to run.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_AG6_Roof_PC);</string>
+        <string>dlgTeleportToMarker(TM_AG6_Roof_01, 5015);</string>
+        <string>dlgTeleportToMarker(TM_AG6_Roof_02, 5016);</string>
+        <string>dlgTeleportToMarker(TM_AG6_Roof_03, 5017);</string>
+        <string>dlgTeleportToMarker(TM_AG6_Roof_04, 5018);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>3439</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3430</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - roof</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addEnemyToParty(1, Quest_AG6_Guards);</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.quest_ag6_serenasDead = true;</string>
+        <string>aod.quest_ag6_headerSerenas = true;</string>
+        <string>aod.fight_AG6_roof = true;</string>
+        <string>aod.death_AG6_four = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3439</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Serenas</portrait>
+      <speaker_name>Serenas</speaker_name>
+      <npc_text>If Lord Serenas the Victorious, the only son of Lord Gaelius' sister, had any good qualities, he hid them well. Spoiled by his mother, despised by his uncle, manipulated by his uncle's enemies, and loved by whores, who gave him the title, Serenas never had a chance to become the man his "friends" convinced him he was. He lacked ambition and willpower, which made him useless to Gaelius, but very useful to everyone who would have preferred to see a puppet on the Aurelian throne.
+
+“What? What happened?” asks Serenas with a note of fear in his voice.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(quest_ag6_TM_02);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(quest_ag6_TM_Guard_01, 5015);</string>
+        <string>dlgTeleportToMarker(quest_ag6_TM_Guard_02, 5016);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Your uncle knows. His men are on the way.”</text>
+          <def_link>3413</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>3407</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3412</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Serenas</portrait>
+      <speaker_name>Serenas</speaker_name>
+      <npc_text>“So, uh, what’s... what’s going to happen now?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“We’ll stand with you, my lord. We’ll fight side by side, until there’s only a drop of blood left in our veins. Which won’t take long, I’ll admit.”</text>
+          <def_link>3414</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“They will try to take you alive, my lord. If they do, they will torture you for days to make you confess. You will be there for a very long time, broken in every possible way, but kept alive to prolong the agony.”</text>
+          <def_link>3415</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3413</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Serenas</portrait>
+      <speaker_name>Serenas</speaker_name>
+      <npc_text>“I’m not much of a fighter,” confesses Serenas.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Well, there is poison...” Give him the vial.</text>
+          <def_link>3416</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3414</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Serenas</portrait>
+      <speaker_name>Serenas</speaker_name>
+      <npc_text>“So, I am to choose between a slow, violent death and a fast, violent death?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Well, there is poison...” Give him the vial.</text>
+          <def_link>3416</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3415</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Serenas</portrait>
+      <speaker_name>Serenas</speaker_name>
+      <npc_text>“Poison,” whispers Serenas looking at the vial with horror.</npc_text>
+      <onLoadScripts>
+        <string>removePoison();</string>
+        <string>dlgAddItemlist(TG6_LevirPoison, 4150);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][charisma]“It’s fast, my lord. You will fall asleep and dream of glory, never to awaken.”</text>
+          <def_link>3419</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.cha) &gt;= 9</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3417</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]“What choice do you have? They will torture you until you confess and renounce your crimes. They will force you to betray your friends...” Look at the guards who are paying close attention to the conversation.</text>
+          <def_link>3421</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3416</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Serenas</portrait>
+      <speaker_name>Serenas</speaker_name>
+      <npc_text>[success]“Dream of glory,” repeats Serenas weakly. “I would have been a great Lord... But there is no place for true greatness in this world, is there?” he smiles sadly, then drinks the vial and licks his lips nervously.
+
+“It tastes like almonds,” he says absent-mindedly and collapses.
+
+After a brief discussion, the guards decide that they’d rather not be here when Gaelius’ men arrive and leave quickly.</npc_text>
+      <onLoadScripts>
+        <string>dlgRemoveItem(812, 1, 0, 4150);</string>
+        <string>aod.quest_ag6_serenasDead = true;</string>
+        <string>aod.quest_AG6_SerenasPoison = true;</string>
+        <string>aod.quest_ag6_headerSerenas = true;</string>
+        <string>dlgSetAnimation(anim_death_back04, 0.95, 4150);</string>
+        <string>dlgKillCharacter(4150);</string>
+        <string>rwd_civil(AG6_02);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>To the victor go the spoils.</text>
+          <def_link>3440</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3417</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - explore villa</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3418</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - guards leave - explore villa</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgDeleteCharacter(5015);</string>
+        <string>dlgDeleteCharacter(5016);</string>
+        <string>dlgDeleteCharacter(5017);</string>
+        <string>dlgDeleteCharacter(5018);</string>
+        <string>VCO_AG6_serenas.setActive(true);</string>
+        <string>Exit_AG6_serenas.isRenderEnabled = true;</string>
+        <string>aod.jnl_ag6_phase2b = true;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3440</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - success - go back to Maadoran</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.npc_darista_reportSerenas = 1;</string>
+        <string>aod.quest_ag6_serenasDead = true;</string>
+        <string>aod.jnl_ag6_phase2b = true;</string>
+        <string>switchMission("Maadoran.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3433</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Serenas</portrait>
+      <speaker_name>Serenas</speaker_name>
+      <npc_text>[failure]“No!” says Serenas suddenly. “No. Gaelius won’t kill me. I’m his nephew. My mother –”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise success]“Your mother won't be able to help you, unless you renounce your crimes and publicly accuse your co-conspirators.” Look at the guards who are paying close attention to the conversation.</text>
+          <def_link>3421</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>3407</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3419</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Serenas</portrait>
+      <speaker_name>Serenas</speaker_name>
+      <npc_text>“I will renounce everything,” says Serenas eagerly, like a man who can't believe that he's getting off so easily. “It wasn't my fault. I would never go against my uncle. It was Pavola. And Strabos. And –”
+
+A sword tip erupts from his chest, interrupting the speech. Grim faced, the guard withdraws the blade from Serenas' back. “Fucking coward! He would have sold us all to save his own skin.
+
+“You don’t have a problem with it, do you?” asks the guard, the bloody sword still unsheathed.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAnimation(anim_death_back00, 0.95, 4150);</string>
+        <string>dlgKillCharacter(4150);</string>
+        <string>rwd_civil(AG6_02);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“None whatsoever.”</text>
+          <def_link>3420</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3421</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>After a brief discussion, the guards decide that they’d rather not be here when Gaelius’ men arrive and leave quickly.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ag6_serenasDead = true;</string>
+        <string>aod.quest_ag6_headerSerenas = true;</string>
+        <string>aod.quest_AG6_SerenasBetrayed = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>To the victor go the spoils.</text>
+          <def_link>3440</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3420</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Your work here is done.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3433</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Look around some more.</text>
+          <def_link>3418</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3432</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

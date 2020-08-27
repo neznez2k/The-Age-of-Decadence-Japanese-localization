@@ -1,0 +1,776 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Teron_Mine_Ending</dlg_name>
+    <def_link>1305</def_link>
+    <def_speaker_name>Dellar</def_speaker_name>
+    <def_portrait>Dellar</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"How did it go?"</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Dellar_Cam_01);</string>
+        <string>dlgTeleportTo(170, 187, 0, N);</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>aod.ending_banditOupost = true;</string>
+        <string>aod.teron_outpostAurelian = false;</string>
+        <string>quest_outpost_deleteNPC();</string>
+        <string>TeronDayTime();</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>if(aod.quest_teronMine_killedEveryone &amp;&amp; aod.quest_teronRaider_killedThemAll) {dlgAddRank(32); setAchievement("ACH_TERMINATOR");}</string>
+        <string>setTravelingAllowed(true);</string>
+        <string>aod.quest_teronMine_finished = 1;</string>
+        <string>aod.quest_teronMine_complete = true;</string>
+        <string>if(aod.quest_teronMine_killedFromInside) aod.quest_teronMine_killedFromInside = 0;</string>
+        <string>aod.quest_mineWine_askAround = 0;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"There were too many men. I did manage to steal this though." Show him the power tube.</text>
+          <def_link>1310</def_link>
+          <checkOnAppear>aod.quest_teronMine_tubeStolen &amp;&amp; aod.quest_teronMine_killedEveryone == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.pc_member_daratan &amp;&amp; aod.pc_background_praetor</string>
+            <string>aod.npc_antidas_met &amp;&amp; aod.npc_dellar_test == false || aod.npc_antidas_metInMg2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1347</int>
+            <int>1333</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I killed them all. Works for you?"</text>
+          <def_link>1311</def_link>
+          <checkOnAppear>aod.quest_teronMine_killedEveryone &amp;&amp; aod.quest_teronMine_fixed == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.pc_member_daratan &amp;&amp; aod.pc_background_praetor</string>
+            <string>aod.npc_antidas_met &amp;&amp; aod.npc_dellar_test == false || aod.npc_antidas_metInMg2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1348</int>
+            <int>1335</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I killed them all and fixed the smelter while I was at it. Better send some men to secure the mine."</text>
+          <def_link>1312</def_link>
+          <checkOnAppear>aod.quest_teronMine_killedEveryone &amp;&amp; aod.quest_teronMine_fixed</checkOnAppear>
+          <checksOnClick>
+            <string>aod.pc_member_daratan &amp;&amp; aod.pc_background_praetor</string>
+            <string>aod.npc_antidas_met &amp;&amp; aod.npc_dellar_test == false || aod.npc_antidas_metInMg2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1349</int>
+            <int>1336</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"There was a most unfortunate accident. One of the machines has exploded. There isn't much left."</text>
+          <def_link>1313</def_link>
+          <checkOnAppear>aod.quest_teronMine_blownUp</checkOnAppear>
+          <checksOnClick>
+            <string>aod.pc_member_daratan &amp;&amp; aod.pc_background_praetor</string>
+            <string>aod.npc_antidas_met &amp;&amp; aod.npc_dellar_test == false || aod.npc_antidas_metInMg2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1350</int>
+            <int>1337</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I've fixed the smelter. Better send some men to secure the mine."</text>
+          <def_link>1324</def_link>
+          <checkOnAppear>aod.quest_teronMine_killedEveryone == false &amp;&amp; aod.quest_teronMine_fixed</checkOnAppear>
+          <checksOnClick>
+            <string>aod.pc_member_daratan &amp;&amp; aod.pc_background_praetor</string>
+            <string>aod.npc_antidas_met &amp;&amp; aod.npc_dellar_test == false || aod.npc_antidas_metInMg2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1351</int>
+            <int>1338</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I convinced them to leave."</text>
+          <def_link>1360</def_link>
+          <checkOnAppear>aod.quest_teronMine_aurelianLeft</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I couldn't fix it."</text>
+          <def_link>1368</def_link>
+          <checkOnAppear>aod.tmo_banditsAttacked &amp;&amp; aod.quest_teronMine_fixed == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.pc_member_daratan &amp;&amp; aod.pc_background_praetor</string>
+            <string>aod.npc_antidas_met &amp;&amp; aod.npc_dellar_test == false</string>
+            <string>aod.npc_antidas_metInMg2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1367</int>
+            <int>1369</int>
+            <int>1369</int>
+          </linksOnClick>
+          <scriptsOnClick>
+            <string>rwd_quest(TRN_Mine_02);</string>
+            <string>rwd_reputation(Mine_08);</string>
+            <string>aod.quest_teronOutpost_phase4b = true;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+      </answers>
+      <UID>1305</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"They say it's the magic of the old days. Bottled and corked. Not very magical, if you ask me, is it now?
+
+"Without it, the Aurelians won't be able to do anything with the machines. I doubt they would dare to tell Gaelius that the artefact has disappeared, so they will probably make excuses and lead him to believe that the machines can't be activated.
+
+"Alright, go see the old man. He wants to talk to you about that map."</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(TRN_Mine_01);</string>
+        <string>rwd_reputation(Mine_09);</string>
+        <string>aod.quest_teronOutpost_phase4g = true;</string>
+        <string>aod.teron_outpostDaratan = true;</string>
+        <string>aod.ending_outpost_tube = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go meet Antidas.</text>
+          <def_link>1352</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Meet him later.</text>
+          <def_link>1359</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1347</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"They say it's the magic of the old days. Bottled and corked. Not very magical, if you ask me, is it now?
+
+"Without it, the Aurelians won't be able to do anything with the machines. I doubt they would dare to tell Gaelius that the artefact has disappeared, so they will probably make excuses and lead him to believe that the machines can't be activated.
+
+"Alright, let's go see the old man."</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(TRN_Mine_01);</string>
+        <string>rwd_reputation(Mine_09);</string>
+        <string>aod.quest_teronOutpost_phase4g = true;</string>
+        <string>aod.teron_outpostDaratan = true;</string>
+        <string>aod.ending_outpost_tube = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go meet Antidas.</text>
+          <def_link>1314</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1310</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"They say it's the magic of the old days. Bottled and corked. Not very magical, if you ask me, is it now?
+
+"Without it, the Aurelians won't be able to do anything with the machines. I doubt they would dare to tell Gaelius that the artefact has disappeared, so they will probably make excuses and lead him to believe that the machines can't be activated."</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(TRN_Mine_01);</string>
+        <string>rwd_reputation(Mine_09);</string>
+        <string>aod.quest_teronOutpost_phase4g = true;</string>
+        <string>aod.teron_outpostDaratan = true;</string>
+        <string>aod.ending_outpost_tube = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1334</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1333</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"It certainly does. Go see the old man now - he wants to talk to you about that map."</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(TRN_Mine_02);</string>
+        <string>rwd_reputation(Mine_10);</string>
+        <string>aod.quest_teronOutpost_phase4e = true;</string>
+        <string>aod.teron_outpostDaratan = true;</string>
+        <string>aod.ending_outpost_attacked = true;</string>
+        <string>aod.ending_outpost_witness = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go meet Antidas.</text>
+          <def_link>1352</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Meet him later.</text>
+          <def_link>1359</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1348</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"It certainly does. Let's go see the old man now."</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(TRN_Mine_02);</string>
+        <string>rwd_reputation(Mine_10);</string>
+        <string>aod.quest_teronOutpost_phase4e = true;</string>
+        <string>aod.teron_outpostDaratan = true;</string>
+        <string>aod.ending_outpost_attacked = true;</string>
+        <string>aod.ending_outpost_witness = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go meet Antidas.</text>
+          <def_link>1314</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1311</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"It certainly does. Good job, &lt;charname&gt;."</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(TRN_Mine_02);</string>
+        <string>rwd_reputation(Mine_10);</string>
+        <string>aod.quest_teronOutpost_phase4e = true;</string>
+        <string>aod.teron_outpostDaratan = true;</string>
+        <string>aod.ending_outpost_attacked = true;</string>
+        <string>aod.ending_outpost_witness = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1334</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1335</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"You killed them all AND fixed the machines? There aren't many people who can do both. The old man will definitely want to hear about it. Go see him - he wants to talk to you about that map."</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(TRN_Mine_03);</string>
+        <string>rwd_reputation(Mine_11);</string>
+        <string>aod.quest_teronOutpost_phase4f = true;</string>
+        <string>aod.teron_outpostDaratan = true;</string>
+        <string>aod.ending_outpost_attacked = true;</string>
+        <string>aod.ending_outpost_witness = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go meet Antidas.</text>
+          <def_link>1352</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Meet him later.</text>
+          <def_link>1359</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1349</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"You killed them all AND fixed the machines? There aren't many people who can do both. The old man will definitely want to hear about it. Let's go see him."</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(TRN_Mine_03);</string>
+        <string>rwd_reputation(Mine_11);</string>
+        <string>aod.quest_teronOutpost_phase4f = true;</string>
+        <string>aod.teron_outpostDaratan = true;</string>
+        <string>aod.ending_outpost_attacked = true;</string>
+        <string>aod.ending_outpost_witness = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go meet Antidas.</text>
+          <def_link>1314</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1312</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"You killed them all AND fixed the machines? There aren't many people who can do both. The old man will definitely want to hear about it. Good job, &lt;charname&gt;."</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(TRN_Mine_03);</string>
+        <string>rwd_reputation(Mine_11);</string>
+        <string>aod.quest_teronOutpost_phase4f = true;</string>
+        <string>aod.teron_outpostDaratan = true;</string>
+        <string>aod.ending_outpost_attacked = true;</string>
+        <string>aod.ending_outpost_witness = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1334</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1336</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"Unfortunate accidents are in high demand these days. You will do well, &lt;charname&gt;. Go see the old man now - he wants to talk to you about that map."</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(TRN_Mine_02);</string>
+        <string>rwd_reputation(Mine_12);</string>
+        <string>aod.quest_teronOutpost_phase4d = true;</string>
+        <string>aod.ending_outpost_blewUp = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go meet Antidas.</text>
+          <def_link>1352</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Meet him later.</text>
+          <def_link>1359</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1350</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"Unfortunate accidents are in high demand these days. You will do well, &lt;charname&gt;. Let's go see the old man now."</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(TRN_Mine_02);</string>
+        <string>rwd_reputation(Mine_12);</string>
+        <string>aod.quest_teronOutpost_phase4d = true;</string>
+        <string>aod.ending_outpost_blewUp = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go meet Antidas.</text>
+          <def_link>1314</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1313</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"Unfortunate accidents are in high demand these days. You will do well, &lt;charname&gt;."</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(TRN_Mine_02);</string>
+        <string>rwd_reputation(Mine_12);</string>
+        <string>aod.quest_teronOutpost_phase4d = true;</string>
+        <string>aod.ending_outpost_blewUp = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1334</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1337</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"What would we do without you, &lt;charname&gt;? You're practically indispensible. Go see the old man now - he wants to talk to you about that map."</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(TRN_Mine_03);</string>
+        <string>rwd_reputation(Mine_13);</string>
+        <string>aod.quest_teronOutpost_phase4a = true;</string>
+        <string>aod.teron_outpostDaratan = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go meet Antidas.</text>
+          <def_link>1352</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Meet him later.</text>
+          <def_link>1359</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1351</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"What would we do without you, &lt;charname&gt;? You're practically indispensible. Let's go see the old man now."</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(TRN_Mine_03);</string>
+        <string>rwd_reputation(Mine_13);</string>
+        <string>aod.quest_teronOutpost_phase4a = true;</string>
+        <string>aod.teron_outpostDaratan = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go meet Antidas.</text>
+          <def_link>1314</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1324</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"What would we do without you, &lt;charname&gt;? You're practically indispensible."</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(TRN_Mine_03);</string>
+        <string>rwd_reputation(Mine_13);</string>
+        <string>aod.quest_teronOutpost_phase4a = true;</string>
+        <string>aod.teron_outpostDaratan = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1334</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1338</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Don't worry about it. You've done enough. Go see the old man, he wants to talk to you about that map."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_hd2_talkAboutMap = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go meet Antidas.</text>
+          <def_link>1352</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Meet him later.</text>
+          <def_link>1359</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1367</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Don't worry about it. You've done enough. Go see the old man."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_antidas_allowedToSeeHim = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go meet Antidas.</text>
+          <def_link>1314</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1368</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Don't worry about it. You've done enough."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1334</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1369</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go meet Antidas</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.npc_antidas_allowedToSeeHim = true;</string>
+        <string>apmsstartdialogue(antidas_02);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1314</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go meet Antidas - Praetor path</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(174, 160, 0, N);</string>
+        <string>aod.quest_hd2_talkAboutMapNow = true;</string>
+        <string>apmsstartdialogue(antidas_02);</string>
+        <string>aod.quest_map_phase4c = true;</string>
+        <string>addQuest(Map);</string>
+        <string>useCameraBookmark(NPC_Antidas_Cam_01);</string>
+        <string>dlgTeleportTo(170, 229, 0, N);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1352</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go meet Antidas later - Praetor path</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(174, 160, 0, N);</string>
+        <string>aod.quest_hd2_talkAboutMap = true;</string>
+        <string>addQuest(Map);</string>
+        <string>aod.quest_map_phase4c = true;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1359</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Dellar</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportTo(167, 163, 0, S);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1334</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I'm surprised it worked. What about the mine?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"There was nothing of value there."</text>
+          <def_link>1364</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"There are some machines there. They appear to be intact."</text>
+          <def_link>1365</def_link>
+          <checkOnAppear>aod.quest_teronMine_fixed == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"There was a smelter there, still intact. I managed to fix it."</text>
+          <def_link>1366</def_link>
+          <checkOnAppear>aod.quest_teronMine_fixed</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1360</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"I'm glad we didn't lose any men then. Alright, go see the old man. He wants to talk to you about that map."</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(TRN_Mine_02);</string>
+        <string>rwd_reputation(Mine_14);</string>
+        <string>aod.quest_teronOutpost_phase4g = true;</string>
+        <string>aod.teron_outpostDaratan = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go meet Antidas.</text>
+          <def_link>1352</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Meet him later.</text>
+          <def_link>1359</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1364</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"You've done well, &lt;charname&gt;. Go see the old man. He wants to talk to you about that map."</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(TRN_Mine_02);</string>
+        <string>rwd_reputation(Mine_15);</string>
+        <string>aod.quest_teronOutpost_phase4e = true;</string>
+        <string>aod.teron_outpostDaratan = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go meet Antidas.</text>
+          <def_link>1352</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Meet him later.</text>
+          <def_link>1359</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1365</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"Impressive. I'm glad that my trust in you wasn't misplaced. Go see the old man. He wants to talk to you about that map."</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(TRN_Mine_03);</string>
+        <string>rwd_reputation(Mine_16);</string>
+        <string>aod.quest_teronOutpost_phase4f = true;</string>
+        <string>aod.teron_outpostDaratan = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go meet Antidas.</text>
+          <def_link>1352</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Meet him later.</text>
+          <def_link>1359</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1366</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

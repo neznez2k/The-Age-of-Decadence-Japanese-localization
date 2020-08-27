@@ -1,0 +1,208 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>ZGT_Console_01</dlg_name>
+    <def_link>90</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>As far as you can tell, the semi-sphere is carved from a single crystal and polished to perfection. It's framed in a large metal band covered with dimly glowing symbols. You touch one of the symbols and the crystal's surface changes almost instantly, tiny fracture lines appear, rearrange themselves, and disappear as quickly as they come.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Console_01);</string>
+        <string>dlgCam(0, 40, 10, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[intelligence][lore]Try to figure out how to use it.</text>
+          <def_link>162</def_link>
+          <checkOnAppear>aod.inf_towerConsole_learned == 0 &amp;&amp; aod.lore_knowledge_databanks == 0</checkOnAppear>
+          <checksOnClick>
+            <string>aod.int &lt; 8</string>
+            <string>aod.lore == 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>161</int>
+            <int>160</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Access the databanks.</text>
+          <def_link>140</def_link>
+          <checkOnAppear>aod.inf_towerConsole_learned || aod.lore_knowledge_databanks</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>138</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>90</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[intelligence failure]You have no idea.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>138</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>161</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[intelligence success][lore failure]You almost figured it out. If you put your hands this way and then... Never mind.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>138</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>162</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>138</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You rest your hands on the cool surface of the semi-sphere and try to clear your thoughts. Slowly, images from the databanks rise to the surface of the display like colorful fish rising from black depths. As you grow accustomed to the experience, the disconnected scenes begin to rush forth all at once, until you gradually figure out how to sort and slow them.
+
+Seek out information on:</npc_text>
+      <onLoadScripts>
+        <string>aod.lore_knowledge_databanks = 1;</string>
+        <string>setAchievement("ACH_COMPUTER");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Look for any recordings.</text>
+          <def_link>147</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>160</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You rest your hands on the cool surface of the semi-sphere and try to clear your thoughts. Slowly, images from the databanks rise to the surface of the display like colorful fish rising from black depths. As you grow accustomed to the experience, the disconnected scenes begin to rush forth all at once, until you gradually figure out how to sort and slow them.
+
+Seek out information on:</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Look for any recordings.</text>
+          <def_link>147</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>140</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You see an old man lying upon a bed, awake but ineffably weary. His robes are both bloody and singed. A younger man, heavily armored, strides into the chamber, his eyes aflame.
+
+“We beat them back,” the younger man declares. “The ziggurat is intact, but the rest of the complex is gone.”
+
+“To turn on our own brothers,” croaks the old man. “Has it truly come to this?”
+
+“They know what we did,” the younger man replies, ignoring (or perhaps oblivious to) the larger implications of the question. “I don’t know how, but they know. They will never rest until the ritual is reversed. We've cast our lot and there's no going back.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>158</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>147</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The old man nods, his lips moving silently as he thinks things through. “How many dead?” he asks finally.
+
+“Thousands,” says the younger man. He turns away, his confidence waning for the first time.
+
+The old man nods again. “Is He safe?”
+
+“For now. The ziggurat is protected by heavy shields, as heavy as we know to make, but if they bring the machines closer...”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>159</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>158</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Reroute all power to the tomb,” commands the old man, “for it must not fail. Then take what men we still have and bathe Ganezzar in hellfyre.”
+
+“Hellfyre?” The blood drains from the younger man's face. He had been prepared to go far, but not that far.
+
+“I will remind you of the price of failure," the old man says, pausing to spit blood, “the world will be cast in eternal darkness. Remember that!” He closes his eyes again, lying back for what perhaps is the last time.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>138</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>159</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

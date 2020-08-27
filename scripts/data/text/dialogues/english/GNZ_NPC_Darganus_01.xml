@@ -1,0 +1,633 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_gnz_milt_01 == 1</string>
+    </conditions>
+    <links>
+      <int>27</int>
+    </links>
+    <dlg_name>GNZ_NPC_Darganus_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Darganus</def_speaker_name>
+    <def_portrait>Darganus</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>“That’s close enough,” says one of the guards.
+
+“What do you want?”</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(270, 45, 8, 9016);</string>
+        <string>dlgTeleportToMarker(TM_DLG_DarganusMerc);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I was just curious who lives here.”</text>
+          <def_link>1</def_link>
+          <checkOnAppear>aod.npc_darganus_intro == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I have a message for Lord Darganus.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear>aod.npc_darganus_intro == 1</checkOnAppear>
+          <checksOnClick>
+            <string>aod.npc_darganus_wait</string>
+            <string>aod.quest_darganus_01 &gt;= 1 || aod.quest_darganus_02 &gt;= 1</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>22</int>
+            <int>13</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>“Touched in the head, are you, &lt;boy/girl&gt;? Get out of here.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - outside</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgTeleportToMarker(TM_Darganus_Outside);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(270, 45, 12);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - returned the money and left</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgChangeMoney(-250);</string>
+        <string>aod.npc_darganus_intro = 2;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Darganus_Outside);</string>
+        <string>dlgCam(270, 45, 12);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Guard</speaker_name>
+      <npc_text>“Alright, go in,” the guard says reluctantly.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Enter the house.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You see a well-dressed man with black hair combed back and a stylish beard.
+
+“You have a message for me?” he asks impatiently.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Darganus_PC);</string>
+        <string>dlgCam(280, 45, 6, 9014);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Elias sent me to you.” Tell him what happened.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Can you believe it?” exclaims Darganus angrily, clenching his jaws. “It’s a disease that will consume the entire city unless we stop it now, before it’s too late!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You're a lord. Surely, there's something you can do.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I can’t move against them directly,” says Darganus, avoiding your eyes. “Lord Meru doesn’t differentiate between speaking against his teaching and speaking against the vermin that infested Lowtown. He is preoccupied with ... other things.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Lord Meru? Not Brother Meru?”</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What *can* you do?”</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I will not dishonor the memory of my forefathers by rejecting my lineage or that of the lord I owe fealty to,” says Darganus with pride.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So, what *can* you do?”</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“If you’re the one I need, I can tell you where to strike. I can keep the guards off your back and,” he throws you a heavy coin bag, “I can make it worth your time.”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(250);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Examine the content of the bag - 250 imperials. “Well, I do hate vermin.”</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I thank you for the opportunity, my lord, but it's not for me.” Return the money and leave.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I knew you’d say yes!” says Darganus, his eyes glowing with fervor. “We must send them a message tonight. They come to our district and extort money from the well-to-do citizens, threatening them while the city watch does nothing!
+
+“I had to use all my influence to force the city watch to post more guards, but more often than not the guards look the other way.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What do you have in mind?”</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“They’ve been harassing one of the traders here – a fellow by the name of Berengarius, but without any success so far. The poor man had to pay the city watch to assign two guards to watch his store day and night.
+
+“I can call off the guards and when the zealots show up, you kill them. No guards, no witnesses. Can you handle it?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“With pleasure.” Pay Berengarius a visit.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I thank you for the opportunity, my lord, but it's not for me.” Return the money and leave.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - agreed Q1</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_darganus_01 = 1;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Darganus_Outside);</string>
+        <string>aod.jnl_GNZ_Darganus_01 = 1;</string>
+        <string>dlgCam(270, 45, 12);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - agreed Q2</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Darganus_Outside);</string>
+        <string>aod.quest_darganus_02 = 1;</string>
+        <string>addQuest(GNZ_Darganus_02);</string>
+        <string>dlgCam(270, 45, 12);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Is it done?”</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Darganus_PC);</string>
+        <string>dlgCam(280, 45, 6, 9014);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Yes.” Tell him what happened.</text>
+          <def_link>14</def_link>
+          <checkOnAppear>aod.quest_darganus_01 == 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I couldn't do it.” Return the money and leave.</text>
+          <def_link>9</def_link>
+          <checkOnAppear>aod.quest_darganus_01 == 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I had to kill the preacher.”</text>
+          <def_link>20</def_link>
+          <checkOnAppear>aod.quest_darganus_02 == 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“We reached an understanding. His price was Hector's head.”</text>
+          <def_link>24</def_link>
+          <checkOnAppear>aod.quest_darganus_02 == 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Not yet.” Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You did well,” says Darganus approvingly. “You can’t show these animals any pity. If they have their way, we’ll all be hanging from the crosses tomorrow.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_darganus_01 = 4;</string>
+        <string>rwd_quest(Darganus_01);</string>
+        <string>aod.jnl_GNZ_Darganus_01 = 4;</string>
+        <string>addQuest(GNZ_Darganus_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“It will take more than one &lt;man/woman&gt; to stop them.”</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_miltiades_lord</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>16</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“We need outsiders but not some sellswords, no offense, my friend.
+
+“In the meantime, I have another proposition for you. There’s a new preacher in Lowtown. I swear, they’re springing up like mushrooms after the rain. Since we can’t get rid of them, maybe we can make a deal with one of them. If he’s willing to be reasonable, we can even help him.
+
+“He calls himself Pancratius. He doesn’t have a strong following yet, but apparently he’s quite good at rousing the rabble.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’ll talk to him.”</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“We need outsiders but not some sellswords, no offense, my friend.
+
+“You are from Maadoran, aren’t you? What do you know about Lord Miltiades of House Varus? Is he a man of quality? A man of principles?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Miltiades? He’s the noblest of men. Capable too, so he’ll be a great asset in this undertaking.”</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“He’s a lowborn thug without honor or principles.”</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“A friend of mine spoke highly of him. I'll accept his offer then.
+
+“In the meantime, I have another proposition for you. There’s a new preacher in Lowtown. I swear, they’re springing up like mushrooms after the rain. Since we can’t get rid of them, maybe we can make a deal with one of them. If he’s willing to be reasonable, we can even help him.
+
+“He calls himself Pancratius. He doesn’t have a strong following yet, but apparently he’s quite good at rousing the rabble.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_darganus_miltiades = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’ll talk to him.”</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“A friend of mine spoke highly of him. Apparently, he was misinformed. Oh well...
+
+“I have another proposition for you. There’s a new preacher in Lowtown. I swear, they’re springing up like mushrooms after the rain. Since we can’t get rid of them, maybe we can make a deal with one of them. If he’s willing to be reasonable, we can even help him.
+
+“He calls himself Pancratius. He doesn’t have a strong following yet, but apparently he’s quite good at rousing the rabble.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’ll talk to him.”</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“See, you can't reason with them,” says Darganus.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_darganus_02 = 6;</string>
+        <string>aod.jnl_GNZ_Darganus_02 = 5;</string>
+        <string>rwd_quest(Darganus_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Now what?”</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Here is to hope,” says Darganus, raising a goblet of wine.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_darganus_02 = 7;</string>
+        <string>aod.jnl_GNZ_Darganus_02 = 6;</string>
+        <string>rwd_quest(Darganus_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Now what?”</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Now we wait,” says Darganus.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_darganus_wait = true;</string>
+        <string>setAchievement("ACH_DARGANUS");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“&lt;Master/Mistress&gt; &lt;charname&gt;,” says Darganus, greeting you.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(280, 45, 6, 9014);</string>
+        <string>dlgTeleportToMarker(TM_Darganus_PC);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Any news?”</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.gnz_pancratiusRise == 1</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>25</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Patience, my friend. The Old Empire wasn't built in a day, as they say.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I don't know what deal you made with Pancratius but he's worse than Hector's ever been. Hector hated us but he was a thug, a man of threats. Pancratius is a man of words, which makes him far more dangerous.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What do you want me to do?”</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What *can* you do now? Nothing. You were right, it will take more than you and me to stop this madness.
+
+“Soon, my friend, soon.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_darganus_intro = 2;</string>
+        <string>DOOR_Pancratius.unlock();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>26</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Miltiades arrives</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>sd(GNZ_NPC_Miltiades_01);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>27</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

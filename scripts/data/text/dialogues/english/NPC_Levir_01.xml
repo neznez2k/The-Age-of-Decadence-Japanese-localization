@@ -1,0 +1,1433 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_levir_met</string>
+    </conditions>
+    <links>
+      <int>2888</int>
+    </links>
+    <dlg_name>NPC_Levir_01</dlg_name>
+    <def_link>2883</def_link>
+    <def_speaker_name>Levir</def_speaker_name>
+    <def_portrait>Levir</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You step through the doorway and find yourself in a large hall that looks as if it’s been taken straight out of a fairy tale. A large throne carved of precious wood stands among piles of gold and treasure chests. Old paintings, ancient tapestries, and ceremonial swords decorated with gems strewn around carelessly, showing a blatant disregard for the prized possessions of others.
+
+“More gold? How thoughtful. We were running out of ours,” says Levir, the famed guildmaster of the Forty Thieves, gesturing at the treasure piles.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_levir_met = true;</string>
+        <string>dlgTeleportToMarker(TM_TG_GuardOutside, 4030);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Levir_01);</string>
+        <string>addJournalChar(levir);</string>
+        <string>dlgCam(45, 45, 8, 4000);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Show him the crates.</text>
+          <def_link>2866</def_link>
+          <checkOnAppear>aod.quest_tg2_crates &gt; 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Show him the crate.</text>
+          <def_link>2866</def_link>
+          <checkOnAppear>aod.quest_tg2_crates == 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2883</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"They have a name for it already," says Levir, examining the coins. "Antidas' Hoard.
+
+"Apparently, it was entrusted to Antidas' forefathers by the last Emperor, to keep it safe until the Empire is ready to rise again, but you idiots stole it and decided to bring it here. Clearly, I don't have enough of my own problems, so now I have to deal with yours. Was that the plan, more or less? Because if it's not – if none of you could be arsed to think clearly for a moment – I'll be very disappointed."</npc_text>
+      <onLoadScripts>
+        <string>remQuest(TG_ArriveMDN);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Why is it a problem?"</text>
+          <def_link>2867</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Who's spreading these rumors?"</text>
+          <def_link>2869</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2866</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Why indeed. Some poor bastard works his arse to the bone, makes a few coins and flashes them in some drinking hole. What happens next? You pay him a visit and relieve him of his newfound burden. Well, you've just flashed a lord's ransom to everyone in a hundred-mile radius."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_levir_askWhy = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"What are you saying? We shouldn't steal?"</text>
+          <def_link>2868</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Who's spreading these rumors?"</text>
+          <def_link>2869</def_link>
+          <checkOnAppear>aod.npc_levir_askRumors == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"So, what do you want us to do now? Take it back?"</text>
+          <def_link>2870</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2867</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"There are two kinds of thieves, &lt;charname&gt;. The smart ones, who never bite off more than they can chew, and the dead ones."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Who's spreading these rumors?"</text>
+          <def_link>2869</def_link>
+          <checkOnAppear>aod.npc_levir_askRumors == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"So, what do you want us to do now? Take it back?"</text>
+          <def_link>2870</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2868</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Linos, of course, who else? Surely, you didn't think it was over, did you?"</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_levir_askRumors = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Why is it a problem?"</text>
+          <def_link>2867</def_link>
+          <checkOnAppear>aod.npc_levir_askWhy == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"So, what do you want us to do now? Take it back?"</text>
+          <def_link>2870</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2869</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I wish it was that simple. Unfortunately, you won't make it back and the damage is already done. So, you'll stay here until this whole thing blows over. Aziz, you will stay in the Slums – I have plenty of work for you here.
+
+"As for you, &lt;charname&gt;, since you're on such good terms with the Commercium, I want you to break into their vault and steal something for me. Do it and we'll consider it a proper payment for this ... inconvenience."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"What do you want me to steal?"</text>
+          <def_link>2871</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2870</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"A jar," says Levir with a smirk. "You think you can handle it?"</npc_text>
+      <onLoadScripts>
+        <string>addQuest(TG4);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Give me the details."</text>
+          <def_link>2876</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"That must be some jar, to be worth more than gold to you."</text>
+          <def_link>2872</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2871</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I have more gold than I can spend. Money is everything when you're poor, when a couple of coins have all the power in the world – they can feed the hungry and heal the sick. As it turns out, money means a whole lot less when you have piles of it," he gestures around again.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Give me the details."</text>
+          <def_link>2876</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[perception success]"What means more?"</text>
+          <def_link>2884</def_link>
+          <checkOnAppear>aod.per &gt;= 6</checkOnAppear>
+          <checksOnClick>
+            <string>aod.cha &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2873</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2872</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[charisma success]“There are a lot of things that money can’t buy. Like the knowledge and abilities that the magi possessed. All the money in the world wouldn’t teach you that, would it?
+
+“Maadoran is an ancient city, but much of its history is buried underneath it, hidden from most people. Years ago, I found an old machine in a chamber deep beneath the city. Some parts were missing. The jar is one of them.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Give me the details."</text>
+          <def_link>2876</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What does the machine do?"</text>
+          <def_link>2874</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[lore success]"It takes more than having all the missing parts to get the machine working. Few loremaster have the skill."</text>
+          <def_link>2882</def_link>
+          <checkOnAppear>aod.lore &gt;= 3 &amp;&amp; aod.npc_levir_askMachineLore == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2873</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[charisma failure]“You’re quick, &lt;charname&gt;. I’ll remember it when dealing with you.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Give me the details."</text>
+          <def_link>2876</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2884</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I'm a wealthy man," says Levir as if explaining the obvious. "My loremaster is the best in the field."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_levir_askMachineLore = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Give me the details."</text>
+          <def_link>2876</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What does the machine do?"</text>
+          <def_link>2874</def_link>
+          <checkOnAppear>aod.npc_levir_askMachineDo == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2882</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Magic, what else?" smiles Levir.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_levir_askMachineDo = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lore]"It takes more than having all the missing parts to get the machine working. Few loremaster have the skill."</text>
+          <def_link>2882</def_link>
+          <checkOnAppear>aod.lore &gt;= 3 &amp;&amp; aod.npc_levir_askMachineLore == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Give me the details."</text>
+          <def_link>2876</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2874</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2875</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“A long time ago, the Commercium acquired an old temple that had a wonder of wonders – a small pavilion that moves up and down. They opened the ground floor for trading, moved their offices upstairs and their treasury into the basement. While gaining access to the office is simple – and thus, it contains nothing of interest, the basement is only accessible via the pavilion, which has an elaborate locking mechanism. Are you with me so far?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Continue."</text>
+          <def_link>2877</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2876</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“One of Strabos’ assistants is always on the premises. She can tell you where the key is. The trading plaza is well guarded, of course, so getting into the temple might be tricky. Kill if you have to – after that stunt you pulled in Teron, our relationship with the Commercium couldn’t possibly get any worse.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"So, what's in the basement?"</text>
+          <def_link>2878</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2877</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Gold – enough to make a lord feel like a pauper, documents – worth more than the gold, I assume, and a chest with artefacts. Now, when you get there, be very careful and ensure you touch as little as possible. Grab the jar and get out. Are we clear?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Clear."</text>
+          <def_link>2885</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Will a jinn come out if I rub the jar?"</text>
+          <def_link>2879</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2878</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"No, but your hand will wither and become as dead."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"And if it doesn't?"</text>
+          <def_link>2880</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Clear."</text>
+          <def_link>2885</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2879</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"If it doesn't, it would mean that the magic is no longer present and you can throw the jar out."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Clear."</text>
+          <def_link>2885</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2880</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Can you do it tonight?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Sure." Wait till dark and go to the trading plaza.</text>
+          <def_link>2887</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I need some time." Leave.</text>
+          <def_link>2875</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2885</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start TG4</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>switchMission("Quest_TG4.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2887</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What do you want, &lt;charname&gt;?"</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(45, 45, 8, 4000);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Levir_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"About the jar..."</text>
+          <def_link>2885</def_link>
+          <checkOnAppear>aod.quest_TG4_finished == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.npc_levir_reportTG4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2890</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'm ready to meet Cyrus."</text>
+          <def_link>2910</def_link>
+          <checkOnAppear>aod.npc_levir_meetCyrus</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“It’s done.”</text>
+          <def_link>2914</def_link>
+          <checkOnAppear>aod.npc_levir_reportTG6</checkOnAppear>
+          <checksOnClick>
+            <string>aod.quest_TG6_gaeliusKilled</string>
+            <string>aod.quest_TG6_gaeliusKilledByPoison</string>
+            <string>aod.quest_TG6_gaeliusKilledByBoatmen</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2914</int>
+            <int>2913</int>
+            <int>2915</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I couldn't get to Gaelius."</text>
+          <def_link>2934</def_link>
+          <checkOnAppear>aod.npc_levir_failedTG6</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Nothing yet." Leave.</text>
+          <def_link>2875</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2888</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Tell me you got it,” says Levir with anticipation.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_TG4_finished = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’ve got it.” Give him the jar.</text>
+          <def_link>2892</def_link>
+          <checkOnAppear>dlgOwnsItem(2165)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I didn’t.”</text>
+          <def_link>2891</def_link>
+          <checkOnAppear>dlgOwnsItem(2165) == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2890</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Alright,” says Levir grimly, the lines on his face becoming deeper. “Maybe next time.”</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_tg4_phase5 = true;</string>
+        <string>rwd_reputation(TG4_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Anything else?”</text>
+          <def_link>2893</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2891</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Levir inspects the jar, carefully wraps it and puts it away. “Thank you, &lt;charname&gt;. I owe you one.”</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_tg4_phase6 = true;</string>
+        <string>rwd_quest(TG4_01);</string>
+        <string>dlgRemoveItem(2165, 1);</string>
+        <string>aod.npc_levir_gotJar = 1;</string>
+        <string>rwd_reputation(TG4_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lore success]“I think I know what this jar is.”</text>
+          <def_link>2895</def_link>
+          <checkOnAppear>aod.lore &gt;= 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Anything else?”</text>
+          <def_link>2893</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2892</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Yes. Something’s brewing and I have a feeling that we aren’t going to like it. Since it’s your mess, I want you there right now, doing your best to clean it up. Find Bassar – he’ll explain everything to you.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Where can I find him?"</text>
+          <def_link>2933</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2893</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Since you don't know the Slums well enough yet, ask someone to take you to Bassar. What's that kid's name? Isandros? Ask him."</npc_text>
+      <onLoadScripts>
+        <string>createByCharMarker("CM_Isandros");</string>
+        <string>aod.quest_tg5_active = true;</string>
+        <string>addQuest(TG5);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2875</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2933</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Do tell,” says Levir with interest.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I read a manuscript once. It was written in code and spoke of cells, vessels, conduits, and such, but it was clear that it was talking about the human body. It made references to obscure machines that could alter or repair “cells” using alchemical compounds contained in jars that looked very similar to the one I just gave you.”</text>
+          <def_link>2896</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2895</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Levir nods, impressed with your knowledge.
+
+“I’m dying, &lt;charname&gt;. I’ve spent a fortune on alchemists, but they can’t help me. I almost gave up all my hope, but a loremaster came to me and offered to cure me once and for all. She swears that this little jar has the cure. I trust her, but I wouldn’t mind having another pair of eyes there.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_levir_impressedLore = true;</string>
+        <string>aod.artefact_magicjar_identified = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“When are you going to do it?”</text>
+          <def_link>2897</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2896</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Soon. First, we have to deal with the shitstorm that’s brewing outside. Since it’s your mess, I want you there right now, doing your best to clean it up. Find Bassar – he’ll explain everything to you.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Where can I find him?"</text>
+          <def_link>2933</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2897</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Cyrus will be waiting for you in front of the palace.”</npc_text>
+      <onLoadScripts>
+        <string>createByCharMarker("CM_Cyrus");</string>
+        <string>aod.npc_levir_meetCyrus = false;</string>
+        <string>aod.jnl_tg6_phase1 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go talk to Cyrus.</text>
+          <def_link>2911</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2875</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2910</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start TG6 - teleport to Cyrus</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportToMarker(TM_CyrusPalace_01);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2911</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’ve heard. His own courtesan, eh? I’m impressed.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So, now what?”</text>
+          <def_link>2916</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2913</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’ve heard. You should have killed Cyrus too. Now, Gaelius’ death is on us.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So, now what?”</text>
+          <def_link>2916</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2914</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’ve heard. Good job, &lt;charname&gt;. The Boatmen will be furious. Nobody likes being framed, but being framed in such a manner? Now, that’s embarrassing.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So, now what?”</text>
+          <def_link>2916</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2915</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Lay low for a while. Let the dust settle, then we'll talk."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_levir_reportTG6 = false;</string>
+        <string>aod.jnl_tg6_phase6 = true;</string>
+        <string>rwd_quest(TG6_01);</string>
+        <string>aod.ending_mdn_faction_TG = 1;</string>
+        <string>setAchievement("ACH_MAADORAN_TG");</string>
+        <string>aod.global_mdn_crisisActive = false;</string>
+        <string>aod.quest_TG6_active = 0;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Lay low for a few days.</text>
+          <def_link>2937</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2916</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"About time you showed up. It's a new day out there. Serenas rules the city now. Or thinks that he does. Pavola's men are keeping order, not that anyone's unhappy about Gaelius' sudden departure. Except for the Boatmen, of course, but they had it coming."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeLongToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"So, who rules the city now?"</text>
+          <def_link>2938</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2937</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Come with me. I'll show you."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>2917</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2938</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>Surrounded by guards, Levir walks through the city like a shah, people scrambling to get out of his way. Only now you begin to realize his status and power.
+
+He takes you to a villa overlooking the palace district. The villa is surrounded by the Aurelian legionaries, but they too step aside when Levir approaches. Leaving his own guards to wait outside, Levir goes through the door without any hesitation.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Follow him.</text>
+          <def_link>2918</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2917</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>You see two men standing in the middle room. They glance at you, then look at Levir questioningly.
+
+“&lt;He/She&gt; earned &lt;his/her&gt; right to be here,” says Levir without elaborating, although it’s not hard to figure out what he’s referring to. “&lt;charname&gt;, meet Lord Senna and master Strabos. They rule Maadoran now, thanks to you.”
+
+“Except for the Slums,” says Strabos. “As agreed, the Slums are yours and we lay no claims on it.” “As long as order is maintained,” adds Lord Senna. “We don’t want chaos and we don’t want any spillover. Keep it clean.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>2919</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2918</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Senna</portrait>
+      <speaker_name>Senna</speaker_name>
+      <npc_text>“Now, what about the situation in Ganezzar? We want it handled fast,” says Senna.
+
+“&lt;charname&gt; will take care of it,” says Levir. “That’s why I brought &lt;him/her&gt; here. Just tell &lt;him/her&gt; what needs to be done.”
+
+“Very well,” nods Senna. “The Aurelian forces are heading toward Ganezzar as we speak. Castle Ganezzar was built to last. A siege will take too long and cost too much. We can't afford that. We need a decisive victory that will reassure the good people of Maadoran that their city is in the right hands.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“How can I be of service?”</text>
+          <def_link>2920</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2919</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Senna</portrait>
+      <speaker_name>Senna</speaker_name>
+      <npc_text>“In exchange for certain considerations, master Levir has agreed to put his guild’ resources, specifically those in Ganezzar, at our disposal. As master Levir’s representative, who has his full confidence, you will oversee and coordinate this cooperation until the city is taken. Any questions?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What about the Boatmen?”</text>
+          <def_link>2921</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Why is Ganezzar under siege?”</text>
+          <def_link>2922</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What do you want me to do?”</text>
+          <def_link>2923</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2920</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Senna</portrait>
+      <speaker_name>Senna</speaker_name>
+      <npc_text>“Report to Legatus Hagnon, then find a way to enter the city and make contact with the local guildmaster and work with him to deliver the city.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“And if he refuses?”</text>
+          <def_link>2924</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2923</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Senna</portrait>
+      <speaker_name>Senna</speaker_name>
+      <npc_text>“Meru expelled the Boatmen from Ganezzar months ago. If you’re asking about the situation here, leave it to us. We’ll handle it.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_sennaTG_talkedBoatmen = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Why is Ganezzar under siege?”</text>
+          <def_link>2922</def_link>
+          <checkOnAppear>aod.npc_sennaTG_talkedSiege == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What do you want me to do?”</text>
+          <def_link>2923</def_link>
+          <checkOnAppear>aod.npc_sennaTG_talkedWantDo == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Consider it done.” Return to the guild.</text>
+          <def_link>2925</def_link>
+          <checkOnAppear>aod.npc_sennaTG_talkedWantDo</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2921</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Senna</portrait>
+      <speaker_name>Senna</speaker_name>
+      <npc_text>“Lord Meru has broken an old treaty signed by his grandfather, giving us no choice but to act, lest we look weak and indecisive.
+
+“Personally, I don’t care about old ruins and if Meru wanted them, he should have negotiated and offered concessions. Perhaps, he’s merely testing our resolve, in which case he won’t find it lacking.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_sennaTG_talkedSiege = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What about the Boatmen?”</text>
+          <def_link>2921</def_link>
+          <checkOnAppear>aod.npc_sennaTG_talkedBoatmen == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What do you want me to do?”</text>
+          <def_link>2923</def_link>
+          <checkOnAppear>aod.npc_sennaTG_talkedWantDo == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Consider it done.” Return to the guild.</text>
+          <def_link>2925</def_link>
+          <checkOnAppear>aod.npc_sennaTG_talkedWantDo</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2922</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Senna</portrait>
+      <speaker_name>Senna</speaker_name>
+      <npc_text>“Then you are to replace him. Ganezzar *must* fall and your guild’s cooperation, of which we’ve been assured, is critical. Do what needs to be done. You have our confidence.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_sennaTG_talkedWantDo = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What about the Boatmen?”</text>
+          <def_link>2921</def_link>
+          <checkOnAppear>aod.npc_sennaTG_talkedBoatmen == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Why is Ganezzar under siege?”</text>
+          <def_link>2922</def_link>
+          <checkOnAppear>aod.npc_sennaTG_talkedSiege == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Consider it done.” Return to the guild.</text>
+          <def_link>2925</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2924</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What's on your mind, &lt;charname&gt;? Speak,” says Levir when you return to the guild.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>revealMapLocation("Ganezzar");</string>
+        <string>dlgAddTextBoxMessage("Ganezzar added to the map");</string>
+        <string>addQuest(TG_ArriveGNZ);</string>
+        <string>aod.gnz_thief_start = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Never thought I’d see the day...”</text>
+          <def_link>2926</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Who’s the guildmaster in Ganezzar?”</text>
+          <def_link>2927</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What do you know about Meru?”</text>
+          <def_link>2928</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2925</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The world is always changing. We either adapt to the changes or die, like the snake that can’t cast its skin.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_levir_talkedNeverThought = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Who’s the guildmaster in Ganezzar?”</text>
+          <def_link>2927</def_link>
+          <checkOnAppear>aod.npc_levir_talkedGuildmasterGnz == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What do you know about Meru?”</text>
+          <def_link>2928</def_link>
+          <checkOnAppear>aod.npc_levir_talkedAboutMeru == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Alright, I'll go get ready then.”</text>
+          <def_link>2930</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_levir_impressedLore</string>
+            <string>aod.npc_levir_gotJar &amp;&amp; dlgGetRep(thieves) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2931</int>
+            <int>2941</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2926</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Glabrio. He won’t give you problems. As much as he might dislike taking orders from you, direct confrontations aren’t his style. He makes a good number two, but he doesn’t have what it takes to run everything.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_levir_talkedGuildmasterGnz = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Never thought I’d see the day...”</text>
+          <def_link>2926</def_link>
+          <checkOnAppear>aod.npc_levir_talkedNeverThought == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What do you know about Meru?”</text>
+          <def_link>2928</def_link>
+          <checkOnAppear>aod.npc_levir_talkedAboutMeru == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Alright, I'll go get ready then.”</text>
+          <def_link>2930</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_levir_impressedLore</string>
+            <string>aod.npc_levir_gotJar &amp;&amp; dlgGetRep(thieves) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2931</int>
+            <int>2941</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2927</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“He made a lot of noise when he renounced his lordship and proclaimed himself the first acolyte, but this can mean just about anything. Could be a clever ploy, could be insanity, could be boredom. Never judge a man before you talk to him.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_levir_talkedAboutMeru = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“The first acolyte of what?”</text>
+          <def_link>2929</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2928</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Probably the same thing he was the lord of. A rose by any other name is still a rose, no? Until I see him renouncing his possessions as well, I won’t pay much attention to what he’s doing.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Never thought I’d see the day...”</text>
+          <def_link>2926</def_link>
+          <checkOnAppear>aod.npc_levir_talkedNeverThought == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Who’s the guildmaster in Ganezzar?”</text>
+          <def_link>2927</def_link>
+          <checkOnAppear>aod.npc_levir_talkedGuildmasterGnz == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Alright, I'll go get ready then.”</text>
+          <def_link>2930</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_levir_impressedLore</string>
+            <string>aod.npc_levir_gotJar &amp;&amp; dlgGetRep(thieves) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2931</int>
+            <int>2941</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2929</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Good luck.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Any idea what this thing might be? Gaelius had it on him." Show him the reliquary.</text>
+          <def_link>2939</def_link>
+          <checkOnAppear>dlgGetItemsCount(2180) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2936</def_link>
+          <checkOnAppear>dlgGetItemsCount(2180) &lt; 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2930</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - unlock Ganezzar</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>revealMapLocation("Ganezzar");</string>
+        <string>dlgAddTextBoxMessage("Ganezzar added to the map");</string>
+        <string>aod.gnz_thief_start = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addQuest(TG_ArriveGNZ);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2936</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Before you go. That thing we talked about before, it's all set and ready to go. Like I said, my loremaster knows what she's doing, but I want you there, in case something goes wrong.”</npc_text>
+      <onLoadScripts>
+        <string>aod.gnz_thief_start = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Of course.” Go with Levir.</text>
+          <def_link>2932</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2931</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[reputation: Forty Thieves]“Before you go. Remember that jar you got for me? It contains the cure for my illness or so I was told. My loremaster knows what she's doing, but I want you there, in case something goes wrong.”</npc_text>
+      <onLoadScripts>
+        <string>aod.gnz_thief_start = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Of course.” Go with Levir.</text>
+          <def_link>2932</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2941</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start healing machine</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_healingMachine_fromLevir = true;</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>switchMission("Quest_HealingMachine.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2932</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Couldn't get to him?" snaps Levir angrily. "I didn't send you to try and fail. I sent you to get it done.
+
+"Get out of my sight, &lt;charname&gt;. We're done here."</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_tg6_phase5 = true;</string>
+        <string>aod.npc_levir_failedTG6 = false;</string>
+        <string>aod.ending_mdn_faction_TG = 2;</string>
+        <string>aod.global_mdn_crisisActive = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2936</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2934</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Talk to Abukar if you can stomach his rambling. Mad he might be but he does know his trinkets."</npc_text>
+      <onLoadScripts>
+        <string>revealMapLocation("Ganezzar");</string>
+        <string>dlgAddTextBoxMessage("Ganezzar added to the map");</string>
+        <string>aod.gnz_thief_start = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay Abukar a visit.</text>
+          <def_link>2940</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2939</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go to Abukar</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Map_MG);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2940</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

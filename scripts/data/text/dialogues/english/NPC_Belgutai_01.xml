@@ -1,0 +1,676 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_ordu_belgutaiBetrayal</string>
+    </conditions>
+    <links>
+      <int>3473</int>
+    </links>
+    <dlg_name>NPC_Belgutai_01</dlg_name>
+    <def_link>3456</def_link>
+    <def_speaker_name>Belgutai</def_speaker_name>
+    <def_portrait>Belgutai</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You not welcome in my ger, southerner,” says Belgutai, his face showing no emotions.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_belgutai_met = true;</string>
+        <string>addJournalChar(belgutai);</string>
+        <string>dlgCam(280, 45, 6, 4805);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Belgutai);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“They say you’re the best. I have a mind to test it.”</text>
+          <def_link>3457</def_link>
+          <checkOnAppear>aod.npc_thorgul_talkedAboutBelgutai &amp;&amp; aod.npc_belgutai_convinced == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I hear you don’t want to come to Maadoran.”</text>
+          <def_link>3459</def_link>
+          <checkOnAppear>aod.npc_thorgul_talkedAboutBelgutai &amp;&amp; aod.npc_belgutai_convinced == false &amp;&amp; aod.npc_belgutai_failedTalking == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3463</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3456</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Belgutai shrugs, picks up a long, well oiled sword, and walks outside without saying a word.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Follow him.</text>
+          <def_link>3458</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3457</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - challenge</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.npc_belgutai_dead = true;</string>
+        <string>dlgSetAttitude(4805, 1, -10);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_NPC_Arena_01, 4805);</string>
+        <string>dlgTeleportToMarker(TM_PC_Arena_01);</string>
+        <string>aod.death_IG5_belgutai = true;</string>
+        <string>aod.fight_belgutaiChallenge = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3458</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgCam(350, 45, 15, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3463</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Belgutai scoffs. “Our place here, not in stone anthills. We free men, not slaves like you. Slaves to soft yellow metal, slaves to soft men dressed like women.” He spits in disgust.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“Being free isn’t much good to you if you’re dead, and comes winter, you will be. As for slaves, every nation needs slaves. You use ropes and chains, we use more ... civilized mechanisms.”</text>
+          <def_link>3467</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3468</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Why indeed? Stay on the plains then.”</text>
+          <def_link>3460</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3459</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Not easy,” Belgutai shakes his head. “Food scarce. Metal scarce. Need both to survive. I send war riders to scout, look for food, look for metal. When they come, I make decision.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You want food and metal? I can give them to you.”</text>
+          <def_link>3461</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3460</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You? You have nothing.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][charisma]“If there are people who will give the Ordu food and steel to come to Maadoran, I can assure you that there are people who will gladly give the Ordu even more food and steel to stay where they are.”</text>
+          <def_link>3462</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 3 &amp;&amp; aod.cha &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3464</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3461</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“Tell stories to women and children.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_belgutai_failedTalking = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“They say you’re the best. I have a mind to test it.”</text>
+          <def_link>3457</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3463</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3462</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Then I make peace with Thorgul,” says Belgutai after a brief discussion with his men. “We stay, our children grow strong and free.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]“That’s where it gets a bit complicated, Belgutai. Thorgul’s gotta go. He’s the past and you’re the future. Just think of how much you will be able to do for you people, when you’re the new khan.”</text>
+          <def_link>3465</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 4 &amp;&amp; aod.streetwise &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3466</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3464</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“Get out, forked tongue.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_belgutai_failedTalking = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“They say you’re the best. I have a mind to test it.”</text>
+          <def_link>3457</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3463</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3465</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“You speak truth,” nods Belgutai. “Thorgul lost his sight, can’t lead our people anymore. I can’t go near him armed, but you can.
+
+“Take my sword,” he hands you a finely crafted and well balanced shamshir. “When time comes, give it to me. Let’s go.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(ORD_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Return to Thorgul.</text>
+          <def_link>3478</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3466</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Thorgul</portrait>
+      <speaker_name>Thorgul</speaker_name>
+      <npc_text>“Speak,” says Thorgul tiredly.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Talk_Thorgul_01);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgCam(0, 40, 8, 4800);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Belgutai agreed to go with you to Maadoran.”</text>
+          <def_link>3477</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3478</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Thorgul</portrait>
+      <speaker_name>Thorgul</speaker_name>
+      <npc_text>“I knew he would come around,” nods Thorgul. “Where is he? It’s time to bury our differences.” He gestures and his bondsmen let Belgutai in.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Wait.</text>
+          <def_link>3483</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3477</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Belgutai approaches Thorgul and says something quietly, looking him straight in the eyes. Thorgul takes a step back, his hand reaching for his sword, when Belgutai shouts, “Now, &lt;charname&gt;!”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Talk_Thorgul_01, 4805);</string>
+        <string>dlgTeleportToMarker(TM_PC_Thorgul_01);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(25, 40, 8, 4800);</string>
+        <string>dlgHideWeapons(4805);</string>
+        <string>dlgTeleportToMarker(TM_Bondsman_01, 4810);</string>
+        <string>dlgTeleportToMarker(TM_Bondsman_02, 4813);</string>
+        <string>DOOR_Thorgul.close();</string>
+        <string>DOOR_Thorgul.lock();</string>
+        <string>setTravelingAllowed(false);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Throw him the sword.</text>
+          <def_link>3479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Do nothing.</text>
+          <def_link>3480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3483</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>Belgutai snatches the sword from the air with ease and slashes at Thorgul. Khan manages to parry the first and the second attack, but Belgutai’s speed is unmatched and his third attack opens Thorgul’s throat.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetAmbientAnimation(4800);</string>
+        <string>dlgTeleportToMarker(TM_Thorgul_Belgutai, 4800);</string>
+        <string>dlgSetAnimation(anim_death_aimed_head, 0.95, 4800);</string>
+        <string>dlgKillCharacter(4800);</string>
+        <string>aod.npc_thorgul_dead = true;</string>
+        <string>addParty(orduCamp_belgutaiPC, 0);</string>
+        <string>addCharToParty(1, orduCamp_belgutaiPC, fighter);</string>
+        <string>addCharToParty(4805, orduCamp_belgutaiPC, fighter);</string>
+        <string>dlgShowWeapons(4805);</string>
+        <string>dlgSetCombatAnimation(4805);</string>
+        <string>sfxPlayOnce(csSuccessMetal01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill the bondsmen.</text>
+          <def_link>3481</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3479</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>You remain still. Belgutai looks at the approaching bondsmen, their swords drawn, considers trying to fight his way out, but realizes the futility of it. He casts you one last look, full of contempt, then laughs and faces Thorgul again. He’s still grinning, when the khan’s sword strikes him down.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetAnimation(anim_death_forward01, 0.95, 4805);</string>
+        <string>dlgKillCharacter(4805);</string>
+        <string>aod.npc_belgutai_dead = true;</string>
+        <string>dlgEquipItem(114, 0, 4800);</string>
+        <string>dlgTeleportToMarker(TM_Thorgul_Belgutai, 4800);</string>
+        <string>dlgSetCombatAnimation(4800);</string>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait.</text>
+          <def_link>3484</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3480</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Thorgul</portrait>
+      <speaker_name>Thorgul</speaker_name>
+      <npc_text>END - start Thorgul dialogue</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.npc_thorgul_talkDebt = true;</string>
+        <string>dlgSetAmbientAnimation(4800);</string>
+        <string>sd(NPC_Thorgul_01);</string>
+        <string>dlgRotateToChar(1, 4800);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3484</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - bondsmen</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_ordu_belgutaiBetrayal = true;</string>
+        <string>addEnemyParty(orduCamp_belgutaiPC, orduCamp_bondsmen);</string>
+        <string>addEnemyParty(orduCamp_bondsmen, orduCamp_belgutaiPC);</string>
+        <string>aod.fight_belgutaiBetrayal = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.quest_IG6_startPreparations = true;</string>
+        <string>aod.death_ordu_camp = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3481</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - leave for the pass IG</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_IG6_startPreparations = true;</string>
+        <string>switchMission("Quest_IG6.mis");</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3482</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - leave for the pass HA - failure</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_HA_pass_brokeNegotiations = true;</string>
+        <string>switchMission("Quest_IG6.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3485</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“Your words fall on deaf ears.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_belgutai_failedTalking = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“They say you’re the best. I have a mind to test it.”</text>
+          <def_link>3457</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3463</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3467</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Some die, strong survive, grow stronger. The Ordu way. Maybe then we come to the stone anthill, eh, southerner?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]“The Ordu way sounds surprisingly like every other way these days. The weak die, the strong survive. If it’s a challenge you seek, come to Maadoran and you’ll find aplenty. Unless you’d rather hide on your plains, watching your people die during the winter.”</text>
+          <def_link>3467</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3469</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[lore success]“Bolad wasn’t afraid to leave the plains and go to Maadoran alone. Yet you hesitate to go there with an army.”</text>
+          <def_link>3470</def_link>
+          <checkOnAppear>aod.lore &gt;= 4 &amp;&amp; aod.lore_bolad_adad</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3468</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Challenge,” says Belgutai slowly. “Good. We come. Warriors, not slaves. Tell Thorgul my men ready to go.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(ORD_03);</string>
+        <string>aod.npc_belgutai_convinced = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Return to Thorgul.</text>
+          <def_link>3463</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3469</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Bolad went with shaman Adad to meet sky-father.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Bolad went to Maadoran with Abu Hassan Ibn Hadad al-Sarabi, the First of the Magi. I don’t know why he came for Bolad and where they went next, but if you come to Maadoran, we will find out.”</text>
+          <def_link>3471</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3470</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“If you lie...,” says Belgutai, locking his eyes with yours. “Tell Thorgul my men ready to go.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(ORD_03);</string>
+        <string>aod.npc_belgutai_convinced = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Return to Thorgul.</text>
+          <def_link>3463</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3471</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The fight is over. Thorgul and his bondsmen are dead. It’s a new day for the Ordu.
+
+“Great khan,” says Belgutai looking at Thorgul’s body. “How it come to this?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“It always does. One day a new khan will be looking at your dead body asking the very same question. It’s the circle of life.”</text>
+          <def_link>3474</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“He brought it on himself. You did what you had to.”</text>
+          <def_link>3474</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Don’t dwell too much on the past. You have the future to worry about.”</text>
+          <def_link>3474</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3473</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Belgutai says nothing, lost in his thoughts. Finally, he lifts up his head and says, “His men ready to attack mountain pass. I tell them to stay here. For now.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Much obliged.”</text>
+          <def_link>3475</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I have a better idea. Round up those who are loyal to Thorgul and send them to attack the pass. When we attack, retreat and leave the loyalists to their fate. I have a mind to be a war hero.”</text>
+          <def_link>3476</def_link>
+          <checkOnAppear>aod.pc_member_guards</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3474</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You promised food and metal,” reminds you Belgutai. “We get nothing, we come looking for it.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ordu_attackStrength = 1;</string>
+        <string>aod.quest_ordu_promisedSupplies = true;</string>
+        <string>aod.quest_ordu_finished = true;</string>
+        <string>aod.jnl_ig5_phase4 = true;</string>
+        <string>rwd_reputation(ORD_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“You won’t have to.” Leave for the pass.</text>
+          <def_link>3485</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.pc_member_guards</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3482</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3475</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The Southern ways strange, but I do as you ask,” says Belgutai.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ordu_attackStrength = 2;</string>
+        <string>aod.quest_ordu_promisedSupplies = true;</string>
+        <string>aod.quest_ordu_finished = true;</string>
+        <string>aod.jnl_ig5_phase5 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Much obliged.” Leave for the pass.</text>
+          <def_link>3482</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3476</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

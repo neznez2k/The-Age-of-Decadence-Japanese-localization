@@ -1,0 +1,81 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_ig8_prepareFightCrassus</string>
+    </conditions>
+    <links>
+      <int>7312</int>
+    </links>
+    <dlg_name>Quest_IG8_03</dlg_name>
+    <def_link>7311</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Weasel leads you through the tunnels in the darkness. The trip is short, but you’re certain that if you were alone, you would be hopelessly lost.
+
+“There,” says Weasel. “Through that wooden door at the end of the tunnel.” You can’t see anything in the darkness, but you take his word for it.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go through the door.</text>
+          <def_link>7314</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7311</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - near door</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_ig8_prepareFightCrassus = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>7314</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You open the door and find yourself face to face with two guards who didn't expect any company.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ig8_prepareFightCrassus = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill them.</text>
+          <def_link>7313</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7312</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - guards</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.fight_IG8_CrassusGuards = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addEnemyToParty(1, IG8_crassus);</string>
+        <string>aod.jnl_IG_GNZ1_thieves = 1;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>7313</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

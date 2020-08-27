@@ -1,0 +1,283 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>RVR_Fog_01</dlg_name>
+    <def_link>8715</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Slowly, you enter the fog, ready to jump back at the first sign of trouble. At first you feel nothing at all but the deeper you go, the thicker the fog becomes. Breathing becomes difficult, almost painful, and your skin starts burning.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_RiverFog_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Try the Aegis armor.</text>
+          <def_link>8716</def_link>
+          <checkOnAppear>dlgGetItemsCount(2220) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Try the breathing apparatus.</text>
+          <def_link>8720</def_link>
+          <checkOnAppear>dlgOwnsItem(902) || dlgOwnsItem(904) || dlgOwnsItem(909)</checkOnAppear>
+          <checksOnClick>
+            <string>dlgOwnsItem(902) || dlgOwnsItem(904)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8718</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[lore success]Try the prospector's amulet.</text>
+          <def_link>8721</def_link>
+          <checkOnAppear>dlgOwnsItem(901) &amp;&amp; aod.lore &gt;= 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgRemoveItem(901, 1);</string>
+            <string>dlgAddItem(902, 1);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[lore success]Try the strange mask.</text>
+          <def_link>8721</def_link>
+          <checkOnAppear>dlgOwnsItem(903) &amp;&amp; aod.lore &gt;= 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgRemoveItem(903, 1);</string>
+            <string>dlgAddItem(904, 1);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>You gonna let some bad air ruin your day? Keep walking.</text>
+          <def_link>8723</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Turn back.</text>
+          <def_link>8717</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8715</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The armor might protect you against the poison but it’s not made for combat. You’d be too slow to do anything but be a spectator at your own death.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Try the gas mask.</text>
+          <def_link>8720</def_link>
+          <checkOnAppear>dlgOwnsItem(902) || dlgOwnsItem(904)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[lore success]Try the prospector's amulet.</text>
+          <def_link>8721</def_link>
+          <checkOnAppear>dlgOwnsItem(901) &amp;&amp; aod.lore &gt;= 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgRemoveItem(901, 1);</string>
+            <string>dlgAddItem(902, 1);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[lore success]Try the strange mask.</text>
+          <def_link>8721</def_link>
+          <checkOnAppear>dlgOwnsItem(903) &amp;&amp; aod.lore &gt;= 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgRemoveItem(903, 1);</string>
+            <string>dlgAddItem(904, 1);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>You gonna let some bad air ruin your day? Keep walking.</text>
+          <def_link>8723</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Turn back.</text>
+          <def_link>8717</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8716</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You have to charge it first.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Never mind. Keep walking, you can make it.</text>
+          <def_link>8723</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Use a power tube to charge the mask.</text>
+          <def_link>8720</def_link>
+          <checkOnAppear>dlgOwnsItem(1600)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>RVRChargeRespirator();</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Turn back.</text>
+          <def_link>8717</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8718</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The mask helps and breathing gets easier, but your skin starts swelling in small bumps, reacting to the poison in the fog. The bumps become more prominent as you watch, expanding and forming boils. Whatever is in this cursed air, it’s going to kill you one way or the other. The mask merely slowed it down, buying you more time.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Keep walking, you can make it!</text>
+          <def_link>8719</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Turn back.</text>
+          <def_link>8717</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8720</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Praying that the magic is still there, you put on the mask and take a deep breath. Nothing.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Never mind. Keep walking, you can make it.</text>
+          <def_link>8723</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Use a power tube to charge the mask.</text>
+          <def_link>8720</def_link>
+          <checkOnAppear>dlgOwnsItem(1600)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>RVRChargeRespirator();</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Turn back.</text>
+          <def_link>8717</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8721</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Breathing gets harder, the burning sensation spreads to your lungs. Soon you taste metal in your mouth. Metal and blood. This trip is getting better and better.
+
+Your skin starts swelling in small bumps, reacting to the poison in the fog. The bumps become more prominent as you watch, expanding and forming boils. Whatever is in this cursed air, it’s going to kill you very soon unless you turn back.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Keep walking, you can make it!</text>
+          <def_link>8719</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Turn back.</text>
+          <def_link>8717</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8723</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - turned back</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_RiverDown);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8717</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - walk</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.RVR_enterFog = 1;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8719</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

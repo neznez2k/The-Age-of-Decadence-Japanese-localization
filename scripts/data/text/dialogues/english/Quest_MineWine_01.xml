@@ -1,0 +1,190 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Quest_MineWine_01</dlg_name>
+    <def_link>2615</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You see a basket with fresh bread, some meat, and an amphora with wine. In another pile, there is a dirty tunic and other personal belongings.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Get some poison to spike the wine.</text>
+          <def_link>2617</def_link>
+          <checkOnAppear>aod.quest_mineWine_hasHighPoison == false &amp;&amp; aod.quest_mineWine_hasLowPoison == false &amp;&amp; aod.quest_mineWine_hasMediumPoison == false &amp;&amp; dlgOwnsItem(810) == 0 &amp;&amp; dlgOwnsItem(812) == 0 &amp;&amp; dlgOwnsItem(1808) == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Put on the tunic, spike the wine with Coltan's poison and deliver the supplies to the outpost.</text>
+          <def_link>2616</def_link>
+          <checkOnAppear>aod.quest_mineWine_hasHighPoison</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>removePoison();</string>
+            <string>dlgAddItemlist(dirty_tunic);</string>
+            <string>dlgUnequipEverything();</string>
+            <string>dlgEquipItem(515);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Put on the tunic, spike the wine with the poison and deliver the supplies to the outpost.</text>
+          <def_link>2618</def_link>
+          <checkOnAppear>aod.quest_mineWine_hasMediumPoison</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>removePoison();</string>
+            <string>dlgAddItemlist(dirty_tunic);</string>
+            <string>dlgUnequipEverything();</string>
+            <string>dlgEquipItem(515);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Put on the tunic, spike the wine with the rat poison and deliver the supplies to the outpost.</text>
+          <def_link>2619</def_link>
+          <checkOnAppear>aod.quest_mineWine_hasLowPoison</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>removePoison();</string>
+            <string>dlgAddItemlist(dirty_tunic);</string>
+            <string>dlgUnequipEverything();</string>
+            <string>dlgEquipItem(515);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[alchemy]Distill your own poison, then put on the tunic, spike the wine and deliver the supplies to the outpost.</text>
+          <def_link>2619</def_link>
+          <checkOnAppear>aod.alchemy &gt;= 2 &amp;&amp; (dlgOwnsItem(810) || dlgOwnsItem(812) || dlgOwnsItem(1808))</checkOnAppear>
+          <checksOnClick>
+            <string>aod.alchemy &gt;= 6</string>
+            <string>aod.alchemy &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2616</int>
+            <int>2618</int>
+          </linksOnClick>
+          <scriptsOnClick>
+            <string>if((dlgOwnsItem(810) || dlgOwnsItem(812)) &amp;&amp; dlgOwnsItem(1808) == false) removePoison();</string>
+            <string>if(dlgOwnsItem(810) == false &amp;&amp; dlgOwnsItem(812) == false &amp;&amp; dlgOwnsItem(1808)) dlgRemoveItem(1808, 1);</string>
+            <string>dlgAddItemlist(dirty_tunic);</string>
+            <string>dlgUnequipEverything();</string>
+            <string>dlgEquipItem(515);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>After giving it some thought, you decide that you won't be able to pull it off and walk away.</text>
+          <def_link>2609</def_link>
+          <checkOnAppear>aod.quest_mineWine_foughtRhaskos == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2617</def_link>
+          <checkOnAppear>aod.quest_mineWine_hasHighPoison || aod.quest_mineWine_hasLowPoison || aod.quest_mineWine_hasMediumPoison || dlgOwnsItem(810) || dlgOwnsItem(812) || dlgOwnsItem(1808)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2615</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - outpost disguise poison high</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(2131, 1);</string>
+        <string>dlgEquipItem(2131);</string>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_mineWine_phase4 = true;</string>
+        <string>aod.quest_mineWine_spikedHigh = true;</string>
+        <string>aod.quest_teronMine_hasSupplies = true;</string>
+        <string>VCO_RhaskosStash_01.setActive(0);</string>
+        <string>VCO_RhaskosStash_02.setActive(0);</string>
+        <string>switchMission("Mining Outpost.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2616</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - outpost disguise poison medium</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(2131, 1);</string>
+        <string>dlgEquipItem(2131);</string>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_mineWine_phase4 = true;</string>
+        <string>aod.quest_mineWine_spikedMedium = true;</string>
+        <string>aod.quest_teronMine_hasSupplies = true;</string>
+        <string>VCO_RhaskosStash_01.setActive(0);</string>
+        <string>VCO_RhaskosStash_02.setActive(0);</string>
+        <string>switchMission("Mining Outpost.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2618</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - outpost disguise poison low</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(2131, 1);</string>
+        <string>dlgEquipItem(2131);</string>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_mineWine_phase4 = true;</string>
+        <string>aod.quest_mineWine_spikedLow = true;</string>
+        <string>aod.quest_teronMine_hasSupplies = true;</string>
+        <string>VCO_RhaskosStash_01.setActive(0);</string>
+        <string>VCO_RhaskosStash_02.setActive(0);</string>
+        <string>switchMission("Mining Outpost.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2619</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Rhaskos back</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgTeleportTo(134, 22, 0, S, 2088);</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportTo(135, 14, 0, N);</string>
+        <string>VCO_RhaskosStash_01.setActive(0);</string>
+        <string>VCO_RhaskosStash_02.setActive(0);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2609</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - leave</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2617</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

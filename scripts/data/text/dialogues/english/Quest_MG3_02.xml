@@ -1,0 +1,322 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_mg3_antidasGratitude == false</string>
+    </conditions>
+    <links>
+      <int>17</int>
+    </links>
+    <dlg_name>Quest_MG3_02</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Antidas</def_speaker_name>
+    <def_portrait>Antidas</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I owe you my gratitude, &lt;charname&gt;. You've helped me to get rid of a snake in my own backyard. I won't forget it."</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Antidas_Cam_01);</string>
+        <string>if(aod.quest_mg3_escaped_ambush) aod.quest_mg3_escaped_ambush = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"You should finish the job then."</text>
+          <def_link>1</def_link>
+          <checkOnAppear>aod.global_teron_ig_joins_daratan == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I have convinced the remaining Guards to join your House."</text>
+          <def_link>5</def_link>
+          <checkOnAppear>aod.global_teron_ig_joins_daratan</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"The Guards? They are no longer a threat."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]"Yet. When they rebuild and replenish their strength, they will become a threat once again, and this time they'd have a score to settle."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"There is neither glory nor honour in massacring a handful of survivors."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"You are right, my Lord. I'll do my best to convince them to join your House." Leave.</text>
+          <def_link>13</def_link>
+          <checkOnAppear>aod.streetwise &lt; 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]"Perhaps, the assassins can take the blame for it. After all, if both parties are fully wiped out, who can tell what really happened?"</text>
+          <def_link>3</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"That's the problem. When nobody knows what happened, people would believe what they want to believe. I'm sure that the enemies of our House would make it very easy for everyone to believe that we're responsible for the massacre."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"You are right, my Lord. I'll do my best to convince them to join your House." Leave.</text>
+          <def_link>13</def_link>
+          <checkOnAppear>aod.streetwise &lt; 6</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]"Then leave behind a 'witness'. Leave one Guard alive and either threaten or pay him to tell everyone that the assassins killed everyone. Just don't forget to slit his throat before House Aurelian can get their hands on him."</text>
+          <def_link>4</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 6</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You have a devious mind, &lt;charname&gt;. I'm glad that you're on my side.
+
+"Dellar, you've heard the conversation. Do it." Dellar bows and leaves without saying a word.</npc_text>
+      <onLoadScripts>
+        <string>aod.global_teron_daratan_destroys_ig = true;</string>
+        <string>rwd_civil(MG3_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Excellent news, &lt;charname&gt;. I owe you a lot more than my thanks then." He removes a dagger from his belt and gives it to you. "It's tempered steel, the work of famous Al-Dashir. The edge is exceptional."</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItemlist(quest_mg3_antidas_dagger);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Thank you, my Lord." Leave.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"They leave me no choice, do they?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"None, my Lord."</text>
+          <def_link>9</def_link>
+          <checkOnAppear>aod.etiquette &lt; 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[etiquette success]"I wouldn't dare to suggest that you have no choices, my Lord. In fact, quite the opposite is true – a Lord isn't bound by circumstances and can do what lesser men can't. However..."</text>
+          <def_link>10</def_link>
+          <checkOnAppear>aod.etiquette &gt;= 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"There is always a choice! I refuse to be a slave of the circumstances.
+
+"You're good with words, &lt;charname&gt;, and your silver tongue has already slain more men than most swords. Talk to the survivors. Get them to join my House and don't come back until you do."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"However?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]"While I'm sure that you will have many opportunities to triumph over your enemies, I'm not sure if a better chance will ever present itself. Why miss it?"</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>12</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"Because once the killing starts, it's hard to predict when it would stop. Yesterday you convinced me to kill one man and today I woke up to find that two guilds were wiped out by the violence that followed.
+
+"Today you're asking me to kill a score of men. What would I wake up to tomorrow?
+
+"You're good with words, &lt;charname&gt;, and your silver tongue has already slain more men than most swords. Talk to the survivors. Get them to join my House and don't come back until you do."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"It's hard to argue with you, &lt;charname&gt;. Very well. I'll listen to your counsel once again.
+
+"Dellar, you've heard the conversation. Kill them all." Dellar bows and leaves without saying a word.</npc_text>
+      <onLoadScripts>
+        <string>aod.global_teron_daratan_destroys_ig = true;</string>
+        <string>rwd_civil(MG3_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - leave to Mercato - same district</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>useCameraBookmark(Quest_MG3_Cam_02);</string>
+        <string>dlgTeleportTo(222, 58, 0, N, 1141);</string>
+        <string>dlgTeleportTo(222, 59, 0, S);</string>
+        <string>apmsStartDialogue(Quest_mg3_01);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - leave to MG - same district</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>useCameraBookmark(NPC_Linos_Cam_01);</string>
+        <string>dlgTeleportTo(134, 118, 0, N);</string>
+        <string>apmsStartDialogue(Quest_mg3_03);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What is it, &lt;charname&gt;?"</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Antidas_Cam_01);</string>
+        <string>if(aod.quest_mg3_escaped_ambush) aod.quest_mg3_escaped_ambush = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"You should finish the Imperial Guards."</text>
+          <def_link>1</def_link>
+          <checkOnAppear>aod.global_teron_ig_joins_daratan == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I have convinced the remaining Guards to join your House."</text>
+          <def_link>5</def_link>
+          <checkOnAppear>aod.global_teron_ig_joins_daratan</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

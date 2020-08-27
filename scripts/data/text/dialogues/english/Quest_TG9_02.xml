@@ -1,0 +1,246 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_TG9_ambush == 2</string>
+      <string>aod.quest_TG9_ambush == 1</string>
+    </conditions>
+    <links>
+      <int>10</int>
+      <int>5</int>
+    </links>
+    <dlg_name>Quest_TG9_02</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>Glabrio</portrait>
+      <speaker_name>Glabrio</speaker_name>
+      <npc_text>You lead the vanguard of the Aurelian forces through the tunnels. The Legatus and his guards stay close to you, the rest follow behind.
+
+Glabrio and his men are waiting for you, their intentions unclear.
+
+“Do we have a deal, Legatus?” he calls out, ignoring you.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(10, 40, 8, 8060);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_glabrio_betrayed</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Hagnon</speaker_name>
+      <npc_text>“Lowtown is yours,” says the Legatus, “provided you stay in line.”
+
+“Welcome to Ganezzar,” says Glabrio, smiling.</npc_text>
+      <onLoadScripts>
+        <string>setAchievement("ACH_LORD_LOWTOWN");</string>
+        <string>rwd_reputation(TG9_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Glabrio</portrait>
+      <speaker_name>Glabrio</speaker_name>
+      <npc_text>"You did well, &lt;charname&gt;. Here's your share. Things are going to be different from now on. You'll see..."</npc_text>
+      <onLoadScripts>
+        <string>if(aod.npc_glabrio_deal == 0) rwd_quest(TG9_02);</string>
+        <string>if(aod.npc_glabrio_deal == 1) rwd_quest(TG9_03);</string>
+        <string>addQuest(TG_Glabrio_Temple);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING - HA wins alone</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.ending_gnz_TG_joins_HA = true;</string>
+        <string>aod.jnl_TG9 = 2;</string>
+        <string>SS_start("gnz_ending", "switchMission(\"Ganezzar.mis\");");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Hagnon</speaker_name>
+      <npc_text>“Out of my way, wretch,” barks the Legatus.
+
+Glabrio sends you a murderous look and gestures to his men. An explosion shakes the hall, sealing the tunnel behind you.</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(TG9_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way out.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Glabrio</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addCharToParty(1, "TG9_Aurelians", "fighter");</string>
+        <string>addEnemyParty(TG9_Aurelians, TG9_Thieves);</string>
+        <string>addEnemyParty(TG9_Thieves, TG9_Aurelians);</string>
+        <string>aod.ending_gnz_TG_joins_HA = true;</string>
+        <string>aod.jnl_TG9 = 2;</string>
+        <string>setAchievement("ACH_AGGRESSIVE_NEG");</string>
+        <string>aod.ending_GNZ_faction_TG = 2;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You lead the vanguard of the Aurelian forces through the tunnels. The Legatus and his guards stay close to you, the rest follow behind.
+
+Meru's men attack without warning. One moment you're making your way through the dark tunnel, the next you're dodging bolts and blades. A warning would have been nice. Something classy like 'welcome to Ganezzar!'
+
+You're about to disappear when the Legatus decides to make it personal and bars your way. Like you're the enemy! Some people you just can't reason with.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAnimation(anim_death_back00, 0.95, 6325);</string>
+        <string>dlgKillCharacter(6325);</string>
+        <string>rwd_reputation(TG9_03);</string>
+        <string>aod.quest_TG9_ambush = 2;</string>
+        <string>if(aod.jnl_TG8 &lt; 5) {removePcMember(); PC_Traitor();}</string>
+        <string>aod.jnl_TG9 = 3;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill the dumb bastard.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Legatus</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addCharToParty(1, "TG9_Crassus", "fighter");</string>
+        <string>addEnemyParty(TG9_Aurelians, TG9_Crassus);</string>
+        <string>addEnemyParty(TG9_Thieves, TG9_Crassus);</string>
+        <string>addEnemyParty(TG9_Crassus, TG9_Thieves);</string>
+        <string>addEnemyParty(TG9_Crassus, TG9_Aurelians);</string>
+        <string>aod.ending_gnz_IG_joins_HC = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Meru</portrait>
+      <speaker_name>Meru</speaker_name>
+      <npc_text>Wasting no time, the Crassus guards drag you to Meru the moment the fight is over and drop you in front of him.
+
+"It pleases me to see that you're still alive, &lt;brother/sister&gt;. The Gods favor you for some reasons. Tell me, *thief*, are you willing to serve me? After all, your *master* is dead now."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_meru_showedMap = 1;</string>
+        <string>setWindowImage(npc_meru_02);</string>
+        <string>aod.gnz_allowedIntoCastle = 1;</string>
+        <string>rwd_quest(TG9_05);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"One master is as good as another."</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Meru</portrait>
+      <speaker_name>Meru</speaker_name>
+      <npc_text>"Have you heard about the temple of Thor-Agoth? I know you have, so don't lie to me. Find it for me and all your sins will be forgiven."</npc_text>
+      <onLoadScripts>
+        <string>setWindowImage(npc_meru_02);</string>
+        <string>addQuest(Meru_Temple);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING - IG joins HC</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.gnz_startPosition_castleExterior = 1;</string>
+        <string>SS_start("gnz_ending", "switchMission(\"Ganezzar.mis\");");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>12</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

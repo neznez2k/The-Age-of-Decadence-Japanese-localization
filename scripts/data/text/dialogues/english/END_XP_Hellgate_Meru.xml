@@ -1,0 +1,400 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>END_XP_Hellgate_Meru</dlg_name>
+    <def_link>9733</def_link>
+    <def_speaker_name>Miltiades</def_speaker_name>
+    <def_portrait>Miltiades</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>You reach Hellgate without much trouble. Numerous Aurelian patrols have driven out raiders and other undesirables, making the roads relatively safe to travel.
+
+Unfortunately, upon arrival you discover that the Hellgate's entrance is collapsed. Half a dozen bodies of the Imperial Guards paint an incomplete picture of what transpired here.
+
+You'd have to take a different route to the temple.</npc_text>
+      <onLoadScripts>
+        <string>apmsPlayMusic(custom, 4, 1);</string>
+        <string>setWindowImage(end_hgt_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Travel to the Dead River.</text>
+          <def_link>9734</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_neleos_survived &amp;&amp; aod.quest_ag9_status == 2</string>
+            <string>aod.end_xp_miltiades</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9735</int>
+            <int>9747</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9733</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>switchMission("END_DeadRiver.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9734</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>You're about to depart when you hear approaching footsteps. Three men, maybe four. Well, at least they aren’t trying to sneak up on you.
+
+“You’re a hard &lt;man/woman&gt; to track, &lt;charname&gt;,” says Neleos, emerging from the rocks. He’s followed by two men, mercenaries by the looks of them.
+
+He stops a few feet away from you and gives you his signature smile. His hands remain close to his weapons though.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setWindowImage();</string>
+        <string>spawnGroupCMs(Neleos);</string>
+        <string>dlgTeleportToMarker(TM_PC_2);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What can I do for you?”</text>
+          <def_link>9736</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9735</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>“Actually, I’m not here for you,” says Neleos with a guilty smile. “I’m here for him,” he nods at Meru.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So you expect me to do ... what? Look the other way?”</text>
+          <def_link>9737</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“He’s under my protection.”</text>
+          <def_link>9737</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9736</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>“No need to make it personal,” says Neleos. “You know there is a contract on Meru. Killing Hamza didn’t make it go away. It doubled the price and I’m here to collect.
+
+“You and I go way back, so you can walk away and live a long and healthy life.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I can’t do that.”</text>
+          <def_link>9738</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.end_xp_miltiades</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9740</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9737</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>“Sure you can,” smiles Neleos. “Just ask Varro. He has never fought for a lost cause yet he seems to be doing just fine.”
+
+“I’ve never led a suicidal attack on the Imperial Guards’ fort, that’s for sure,” Varro says casually. “Now, we’re in a rush and you’re in our way. Step aside and you’ll live a long and healthy life.”
+
+Neleos chuckles, then glances at his men. “Alright, boys, it’s time to earn your pay.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>9739</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9738</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Neleos</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addCharToParty(1, XP_Meru, fighter);</string>
+        <string>addEnemyParty(XP_Meru, XP_Neleos);</string>
+        <string>addEnemyParty(XP_Neleos, XP_Meru);</string>
+        <string>if(isAlive(9340)) dlgTeleportToMarker(TM_Leader, 9340);</string>
+        <string>if(isAlive(9342)) dlgTeleportToMarker(TM_Leader, 9342);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9739</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>“Sure you can,” smiles Neleos. “You just have to be practical about it. The truth is, the world will be a better place without Meru.”
+
+“I agree,” Miltiades says suddenly, slashing his dagger across Meru’s throat in a quick and practiced motion. Looking confused, the First Acolyte makes a chocking sound, touches the wound in disbelief, then collapses.
+
+“Well, that was easy,” says Neleos, frowning. Clearly, he didn’t expect that. “Now what?”</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAnimation(anim_death_back00, 0.95, 9340);</string>
+        <string>dlgKillCharacter(9340);</string>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Now we finish our conversation.” Attack.</text>
+          <def_link>9739</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Now we go our separate ways.”</text>
+          <def_link>9741</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9740</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>“Well, I owe you one, &lt;charname&gt;,” says Neleos. “If you’re ever in a bind...”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Wait for them to leave.</text>
+          <def_link>9742</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9741</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You wait for Neleos and his thugs to depart, then turn to Miltiades.
+
+“I had no choice,” says Miltiades. “They would have killed us all. Don’t tell me you were willing to die for Meru.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So whom am I supposed to take to Agathoth now?”</text>
+          <def_link>9743</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9742</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Me,” says Miltiades, straightening up. “No, don’t say anything yet. Think it through first.
+
+“You did all the work, why should Meru get the reward? Who’s he? A fucking windbag who’s never done anything for you. But you and me, we go way back. We're partners, remember?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Agathoth needs a lord. A real lord.”</text>
+          <def_link>9744</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Travel to the Dead River.</text>
+          <def_link>9734</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9743</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Maybe he doesn't know what he wants? His mind might still be a bit groggy after all the centuries in a coffin. What I'm trying to tell you is that just because he asked for a lord doesn't mean we should bend over backwards and fetch him one right away. You don't want to look too eager, you know what I mean?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“We *had* a lord. Then you killed him.”</text>
+          <def_link>9745</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9744</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Look, maybe I misread the signs but I thought that's what you had in mind when you asked me to tag along. Either way, we're half-way there. Might as well go and meet this Agathoth first. If he looks at me and says I’m not what he needs, we’ll go and fetch him someone better. See? Problem solved.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Agathoth may not be a god but he comes pretty damn close, yet you don’t seem to be afraid at all.”</text>
+          <def_link>9749</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What makes you think you have a chance?”</text>
+          <def_link>9746</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Travel to the Dead River.</text>
+          <def_link>9734</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9745</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Well, if he really is a god, then we’re all ants to him. Can you tell one ant from another? No? Neither can he. Let’s go, we’ve wasted enough time here.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Travel to the Dead River.</text>
+          <def_link>9734</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9746</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The moment Meru turns away, Miltiades takes a step forward and slashes his dagger across the First Acolyte’s throat in a quick and practiced motion. Looking confused, Meru makes a chocking sound, touches the wound in disbelief, then collapses.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setWindowImage();</string>
+        <string>dlgSetAnimation(anim_death_back00, 0.95, 9340);</string>
+        <string>dlgKillCharacter(9340);</string>
+        <string>dlgTeleportToMarker(TM_PC_01);</string>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+        <string>dlgCam(345, 40, 6, 9342);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Do you know what you just did?”</text>
+          <def_link>9748</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9747</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Sure,” says Miltiades. “I did you a favor. You can thank me later.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So whom am I supposed to take to Agathoth now?”</text>
+          <def_link>9743</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9748</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Afraid of what?” Miltiades asks dismissively. “I’m not going to fight him for it, am I? So what’s there to be afraid of?
+
+“Your new friend needs a head servant to keep all the other servants in check, yes? So I’m the best choice because unlike the lords I don’t have any delusions of grandeur. What they see as a humiliating submission I see as an opportunity I couldn’t even dream of.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What makes you think you have a chance?”</text>
+          <def_link>9746</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Travel to the Dead River.</text>
+          <def_link>9734</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9749</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,601 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_mg3_met_mercato</string>
+    </conditions>
+    <links>
+      <int>19</int>
+    </links>
+    <dlg_name>Quest_MG3_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Mercato</def_speaker_name>
+    <def_portrait>mercato</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>You see a dozen of the survivors of the night raid. Mercato, wearing commander insignia, appears to be in charge. He's giving a passionate speech to the soldiers, promising to rebuild the fort and emerge more powerful than ever. Mercato even manages to shed a few tears for Carrinas, proclaiming him a martyr and assuring the crowd that he would work day and night to fulfill Carrinas' dreams. Quite a performance.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg3_met_mercato = true;</string>
+        <string>dlgCreateCharacter("Mercato", 1141, 1141, 222, 55, 0, S);</string>
+        <string>useCameraBookmark(Quest_MG3_Cam_01);</string>
+        <string>dlgTeleportTo(220, 56, 0, SE);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>You wait until the speech is over and approach Mercato.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Mercato watches you approaching with an 'always happy to see a friend but let's not make it a habit' expression.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(222, 58, 0, N, 1141);</string>
+        <string>dlgTeleportTo(222, 59, 0, S);</string>
+        <string>useCameraBookmark(Quest_MG3_Cam_02);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"An excellent speech, *commander*. I couldn't help but notice that you've adjusted to the new situation with an alarming speed."</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Mercato shrugs. "Soldiers die. It's unfortunate that they died sooner rather than later, but why fuss over such insignificant details?" He brushes invisible dust off his new insignia. "Well, I'd like to stay and chat, but as you've probably heard I have to rebuild and emerge..."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"About that... I'm afraid my guild might have a problem with all that rebuilding and emerging."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Tell them to file a petition."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"The same kind of petition they sent Carrinas?"</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"And who'd send it? The assassins guild has quite literally gone up in flames, so as much as I'd like to take your threats seriously, I can't. Now, if you'll excuse me..."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"You don't think they would actually let you stay in charge, do you?"</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Why wouldn't they? I'm the only and thus the best choice at the moment. Hard to lose with these odds, eh?" He laughs.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Tell him what you've learned from Cado.</text>
+          <def_link>5</def_link>
+          <checkOnAppear>dlgGetItemsCount(2140) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]"I expect you to be able to add two and two together. Teron is too important, especially after this fiasco. Is it so hard for you to believe that Caer-Tor would want their best men to oversee the rebuilding and to demonstrate the Guards' strength?"</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 11 &amp;&amp; aod.quest_mg1_persuaded_mercato == false</string>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 10 &amp;&amp; aod.quest_mg1_persuaded_mercato</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8</int>
+            <int>8</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion][trading]"Listen to me, Mercato. You got lucky. Carrinas ended up dead and you ended up on top, but now you want to quit the game. You're thinking like a farmer who finds a plough, being eager to break his back working his fields. Think like a merchant. Ask yourself 'what can I get for this plough' and leave the fields to simpler men."</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.trading) &gt;= 11 &amp;&amp; aod.quest_mg1_persuaded_mercato == false</string>
+            <string>(aod.persuasion + aod.trading) &gt;= 10 &amp;&amp; aod.quest_mg1_persuaded_mercato</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>15</int>
+            <int>15</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Do you really think that after we've made you a commander, you can turn your back on us? No, Mercato. You will do what we tell you and take your men to Antidas or we'll let your superiors at Caer-Tor know just how helpful you've been to us. We own you now and your career with the Imperial Guards is finished one way or the other."</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Indeed." Leave.</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Look, &lt;charname&gt;, I'm not sure what part of "we're done" you can't quite grasp, but we *are* done. I helped you, you helped me... Let's leave it at that, shall we?"</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(Quest_MG3_Cam_02);</string>
+        <string>dlgTeleportTo(222, 58, 0, N, 1141);</string>
+        <string>dlgTeleportTo(222, 59, 0, S);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Tell him what you've learned from Cado.</text>
+          <def_link>5</def_link>
+          <checkOnAppear>dlgGetItemsCount(2140) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]"I expect you to be able to add two and two together. Teron is too important, especially after this fiasco. Is it so hard for you to believe that Caer-Tor would want their best men to oversee the rebuilding and to demonstrate the Guards' strength?"</text>
+          <def_link>7</def_link>
+          <checkOnAppear>aod.quest_mg3_mercato_pers_fail == false</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 11 &amp;&amp; aod.quest_mg1_persuaded_mercato == false</string>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 10 &amp;&amp; aod.quest_mg1_persuaded_mercato</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8</int>
+            <int>8</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading][persuasion]"Listen to me, Mercato. You got lucky. Carrinas ended up dead and you ended up on top, but now you want to quit the game. You're thinking like a farmer who finds a plough, being eager to break his back working his fields. Think like a merchant. Ask yourself 'what can I get for this plough' and leave the fields to simpler men."</text>
+          <def_link>14</def_link>
+          <checkOnAppear>aod.quest_mg3_mercato_trade_fail == false</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.persuasion + aod.trading) &gt;= 11 &amp;&amp; aod.quest_mg1_persuaded_mercato == false</string>
+            <string>(aod.persuasion + aod.trading) &gt;= 10 &amp;&amp; aod.quest_mg1_persuaded_mercato</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>15</int>
+            <int>15</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Do you really think that after we've made you a commander, you can turn your back on us? No, Mercato. You will do what we tell you and take your men to Antidas or we'll let your superiors at Caer-Tor know just how helpful you've been to us. We own you now and your career with the Imperial Guards is finished one way or the other."</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Very well." Leave.</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Do you remember Gnaeus Laenas by any chance?" you ask Mercato and then continue without waiting for the answer. "Of course you do. He's the reason you ended up in Teron. You'll be pleasantly surprised to learn that Laenas is already on his way here. He was sent to evaluate Carrinas' plans and either lend him his support or keep him in check." You throw him the writ.
+
+"Fuck!" Mercato throws away the letter. "What do you want me to do?"</npc_text>
+      <onLoadScripts>
+        <string>aod.ending_mg_mercato_02 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I want you to join House Daratan. That's where all the opportunities are. Your kind of odds."</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Why the hell not?" Mercato shrugs and reaches for the wine.</npc_text>
+      <onLoadScripts>
+        <string>aod.global_teron_ig_joins_daratan = true;</string>
+        <string>if(aod.global_teron_mercato_disposition &gt;= 3) aod.ending_mg_mercato_01 = true;</string>
+        <string>if(aod.global_teron_mercato_disposition &lt; 3) aod.ending_mg_mercato_02 = true;</string>
+        <string>if(aod.global_teron_mercato_disposition &gt;= 2) rwd_civil(MG3_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave and go see Antidas.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"You're too negative, &lt;charname&gt;. It's not a healthy attitude."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg3_mercato_pers_fail = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Tell him what you've learned from Cado.</text>
+          <def_link>5</def_link>
+          <checkOnAppear>dlgGetItemsCount(2140) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion][trading]"Listen to me, Mercato. You got lucky. Carrinas ended up dead and you ended up on top, but now you want to quit the game. You're thinking like a farmer who finds a plough, being eager to break his back working his fields. Think like a merchant. Ask yourself 'what can I get for this plough' and leave the fields to simpler men."</text>
+          <def_link>14</def_link>
+          <checkOnAppear>aod.quest_mg3_mercato_trade_fail == false</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.persuasion + aod.trading) &gt;= 11 &amp;&amp; aod.quest_mg1_persuaded_mercato == false</string>
+            <string>(aod.persuasion + aod.trading) &gt;= 10 &amp;&amp; aod.quest_mg1_persuaded_mercato</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>15</int>
+            <int>15</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Do you really think that after we've made you a commander, you can turn your back on us? No, Mercato. You will do what we tell you and take your men to Antidas or we'll let your superiors at Caer-Tor know just how helpful you've been to us. We own you now and your career with the Imperial Guards is finished one way or the other."</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Very well." Leave.</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Maybe. Maybe not. I think that 'let's wait and see' is a very sensible attitude to adopt under the circumstances."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][charisma]"Suit yourself, but keep in mind that when your replacement arrives, you will no longer be in a position to offer us anything. Not to mention that Caer-Tor will need someone to blame – you know how these things work – so you'll probably end up being nailed to a tree, and when I walk past your rotten corpse I'll think, 'Here hangs Mercato, an indecisive man who could have had everything'."</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.cha) &gt;= 15 &amp;&amp; aod.quest_mg1_persuaded_mercato == false</string>
+            <string>(aod.streetwise + aod.cha) &gt;= 14 &amp;&amp; aod.quest_mg1_persuaded_mercato</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9</int>
+            <int>9</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"You won, &lt;charname&gt;. What do you want me to do?"</npc_text>
+      <onLoadScripts>
+        <string>aod.global_teron_mercato_disposition = (aod.global_teron_mercato_disposition + 2);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I want you to join House Daratan. That's where all the opportunities are. Your kind of odds."</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Mercato stays silent for a long time, then he nods slowly. "My forces will join House Daratan in the morning."</npc_text>
+      <onLoadScripts>
+        <string>aod.global_teron_ig_joins_daratan = true;</string>
+        <string>aod.global_teron_mercato_disposition = 0;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"You'll thank me later, Mercato."</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I will." Mercato smiles and walks away.</npc_text>
+      <onLoadScripts>
+        <string>aod.ending_mg_mercato_02 = true;</string>
+        <string>aod.quest_mg3_ambush = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave and go see Antidas.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"Peddle your wares elsewhere, merchant."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg3_mercato_trade_fail = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Tell him what you've learned from Cado.</text>
+          <def_link>5</def_link>
+          <checkOnAppear>dlgGetItemsCount(2140) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]"I expect you to be able to add two and two together. Teron is too important, especially after this fiasco. Is it so hard for you to believe that Caer-Tor would want their best men to oversee the rebuilding and to demonstrate the Guards' strength?"</text>
+          <def_link>7</def_link>
+          <checkOnAppear>aod.quest_mg3_mercato_pers_fail == false</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 11 &amp;&amp; aod.quest_mg1_persuaded_mercato == false</string>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 10 &amp;&amp; aod.quest_mg1_persuaded_mercato</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8</int>
+            <int>8</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Do you really think that after we've made you a commander, you can turn your back on us? No, Mercato. You will do what we tell you and take your men to Antidas or we'll let your superiors at Caer-Tor know just how helpful you've been to us. We own you now and your career with the Imperial Guards is finished one way or the other."</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Suit yourself." Leave.</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"I'm still listening, aren't I?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][charisma]"Antidas needs good fighting men. Take your men to him and you will gain a good position, secure your command – you don't want to be pushed aside *again*, do you? – and your future. Antidas' star is about to rise. Trust me, you don't want to be stuck on the wrong side."</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.cha) &gt;= 15 &amp;&amp; aod.quest_mg1_persuaded_mercato == false</string>
+            <string>(aod.persuasion + aod.cha) &gt;= 14 &amp;&amp; aod.quest_mg1_persuaded_mercato</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>17</int>
+            <int>17</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"The right sides are very overcrowded these days. I think I'll stay where I am now."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg3_mercato_trade_fail = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Tell him what you've learned from Cado.</text>
+          <def_link>5</def_link>
+          <checkOnAppear>dlgGetItemsCount(2140) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]"I expect you to be able to add two and two together. Teron is too important, especially after this fiasco. Is it so hard for you to believe that Caer-Tor would want their best men to oversee the rebuilding and to demonstrate the Guards' strength?"</text>
+          <def_link>7</def_link>
+          <checkOnAppear>aod.quest_mg3_mercato_pers_fail == false</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 11 &amp;&amp; aod.quest_mg1_persuaded_mercato == false</string>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 10 &amp;&amp; aod.quest_mg1_persuaded_mercato</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8</int>
+            <int>8</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Do you really think that after we've made you a commander, you can turn your back on us? No, Mercato. You will do what we tell you and take your men to Antidas or we'll let your superiors at Caer-Tor know just how helpful you've been to us. We own you now and your career with the Imperial Guards is finished one way or the other."</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Suit yourself." Leave.</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Antidas' ambitions are nothing new. Why the sudden faith in him?"</npc_text>
+      <onLoadScripts>
+        <string>aod.global_teron_mercato_disposition = (aod.global_teron_mercato_disposition + 3);</string>
+        <string>aod.ending_mg_mercato_01 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"This time we're backing him up."</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Interesting." Mercato gives you a calculating look. "Very well. I'll take my men to Antidas in the morning."</npc_text>
+      <onLoadScripts>
+        <string>aod.global_teron_ig_joins_daratan = true;</string>
+        <string>rwd_civil(MG3_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave and go see Antidas.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - leave to see Antidas</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportTo(167, 163, 0, N);</string>
+        <string>dlgSetZoom(10);</string>
+        <string>aod.quest_mg3_started = false;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(196, 56, 0, W);</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>21</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

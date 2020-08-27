@@ -1,0 +1,74 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_zamedi_escaped</string>
+    </conditions>
+    <links>
+      <int>146</int>
+    </links>
+    <dlg_name>Quest_Zamedi_06</dlg_name>
+    <def_link>143</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You throw yourself against the shimmering wall. Time slows down for a moment and you start praying that the wall won't push you back. Fortunately, it lets you through and you fall on the sand outside the tower.</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(Zamedi_01);</string>
+        <string>aod.quest_zamedi_escaped = true;</string>
+        <string>aod.fight_stoneDemon = false;</string>
+        <string>if(dlgOwnsItem(1355)) aod.zmd_demonStatus = 4;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Get up and keep running.</text>
+          <def_link>145</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>143</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You throw yourself against the shimmering wall and land on the sand outside the tower.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_zamedi_escaped = true;</string>
+        <string>aod.fight_stoneDemon = false;</string>
+        <string>if(dlgOwnsItem(1355)) aod.zmd_demonStatus = 4;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Get up and keep running.</text>
+          <def_link>145</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>146</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - leave tower</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.jnl_Zamedi_phase6 = true;</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>dlgStopCombat();</string>
+        <string>switchMission("RDM_DesertRoad_01.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>145</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

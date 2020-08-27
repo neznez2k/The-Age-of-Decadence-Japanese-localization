@@ -1,0 +1,97 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_gracchus_talked</string>
+    </conditions>
+    <links>
+      <int>4</int>
+    </links>
+    <dlg_name>NPC_Gracchus_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Red Gracchus</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Good fight,” says Gracchus after a pause, as if unsure what else to say.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_gracchus_talked = true;</string>
+        <string>$RTSCamera.lookAtChar(4755);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What about the gold?”</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Gone,” says Gracchus. “I took a bad wound in the last raid. Thought I was a goner for sure, and so did most of my men. One morning I woke up and they were gone, along with the stash. No honor among thieves, eh?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So, what are you going to do now?”</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Wait till my wounds heal properly and go looking for my men and my gold. We’ll have us a grand reunion. Now, I saw you eyeing my crossbow. Here,” he gives it to you. “It’s the least I can do.”</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(163, 1);</string>
+        <string>dlgRemoveItem(163, 1, 0, 4755);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Thanks.” Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - bark Good luck</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>sayPhrase(4755, "Good luck.");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

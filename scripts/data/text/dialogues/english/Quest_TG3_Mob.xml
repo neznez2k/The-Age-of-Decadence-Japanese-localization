@@ -1,0 +1,458 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_tg3_status == 3</string>
+    </conditions>
+    <links>
+      <int>1205</int>
+    </links>
+    <dlg_name>Quest_TG3_Mob</dlg_name>
+    <def_link>1191</def_link>
+    <def_speaker_name>Mob Leader</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name>none</speaker_name>
+      <npc_text>It looks like the mob is controlling all roads leading to the gate. Makeshift barricades block side streets; fires burning in the middle of the main street illuminate the area, making sure that nobody gets through undetected. Rough looking men, made fearless by the rumors of the fortune coming their way, are determined to keep it from slipping through their fingers, no matter the cost.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg3_status = 3;</string>
+        <string>dlgcam(170, 40, 12, 1955);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Talk your way through.</text>
+          <def_link>1192</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Fight your way through.</text>
+          <def_link>1207</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[impersonate][streetwise]Create a diversion.</text>
+          <def_link>1204</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.disguise) &gt;= 6</string>
+            <string>(aod.streetwise + aod.disguise) &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1202</int>
+            <int>1203</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1191</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - directly</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>aod.quest_tg3_fightMob = true;</string>
+        <string>aod.quest_tg3_fight = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Fight_Mob_Thief_01, 1961);</string>
+        <string>dlgTeleportToMarker(TM_Fight_Mob_Thief_02, 1962);</string>
+        <string>dlgTeleportToMarker(TM_Fight_Mob_Thief_03, 1963);</string>
+        <string>addEnemyParty(tg3_thieves, tg3_mob);</string>
+        <string>addEnemyParty(tg3_mob, tg3_thieves);</string>
+        <string>dlgTeleportToMarker(TM_Fight_Mob_PC);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+        <string>dlgCam(340, 45, 15, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1207</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You slowly approach one of the checkpoints, the cart loaded with the crates with the stolen gold slowly trailing after you. A crowd starts gathering around one of the mob leaders – a heavy-set man leaning on a sledgehammer.
+
+"What's in the cart, friend?" he asks, looking anything but friendly.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>Move_Mob_Talk();</string>
+        <string>dlgcam(325, 45, 10, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"None of your fucking business, *friend*. Step aside, if you want to live."</text>
+          <def_link>1193</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Let me pass." Show him the Imperial Guards mandate.</text>
+          <def_link>1194</def_link>
+          <checkOnAppear>aod.quest_tg1_igStoleMandate || aod.quest_tg1_igForgeryPoor || aod.quest_tg1_igForgeryGood</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intimidate]"My name is &lt;charname&gt;. Maybe you've heard of me."</text>
+          <def_link>1198</def_link>
+          <checkOnAppear>dlgGetRep(bodycount) &gt;= 2</checkOnAppear>
+          <checksOnClick>
+            <string>dlgGetRep(bodycount) &gt;= 10</string>
+            <string>dlgGetRep(combat) &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1196</int>
+            <int>1196</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][trading]Take him aside. "What's in the cart? Gold. Now, we can do it the dumb way – letting everyone take their share, that is, if there are any survivors – or we can do it the smart way. You let us through, all the way through, and when we're outside the walls, you get one crate. That's more fucking gold than you can ever spend. What do you say, 'friend'?"</text>
+          <def_link>1200</def_link>
+          <checkOnAppear>aod.quest_tg2_crates &gt;= 2</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.streetwise + aod.trading) &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1201</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1192</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>He nods as if that's exactly the answer he hoped to get. He picks up the hammer deftly and takes a step forward.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetCombatAnimation(1955);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way through.</text>
+          <def_link>1195</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1193</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"The Imperial Guards are done for. You can wipe your ass with this mandate, that's all it's good for now."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way through.</text>
+          <def_link>1195</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intimidate]"My name is &lt;charname&gt;. Maybe you've heard of me."</text>
+          <def_link>1198</def_link>
+          <checkOnAppear>dlgGetRep(bodycount) &gt;= 2</checkOnAppear>
+          <checksOnClick>
+            <string>dlgGetRep(bodycount) &gt;= 10</string>
+            <string>dlgGetRep(combat) &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1196</int>
+            <int>1196</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][trading]Take him aside. "What's in the cart? Gold. Now, we can do it the dumb way – letting everyone take their share, that is, if there are any survivors – or we can do it the smart way. You let us through, all the way through, and when we're outside the walls, you get one crate. That's more fucking gold than you can ever spend. What do you say, 'friend'?"</text>
+          <def_link>1200</def_link>
+          <checkOnAppear>aod.quest_tg2_crates &gt;= 2</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.streetwise + aod.trading) &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1201</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1194</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>aod.quest_tg3_fightMob = true;</string>
+        <string>aod.quest_tg3_fight = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addEnemyParty(tg3_thieves, tg3_mob);</string>
+        <string>addEnemyParty(tg3_mob, tg3_thieves);</string>
+        <string>dlgCam(160, 45, 12, 1);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1195</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"I know who you are," says the mob leader, a measure of respect and fear in his voice.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Then tell your men to get out of my way."</text>
+          <def_link>1197</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1196</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Avoiding looking you in the eyes, the mob leader nods and turns to his men. Within moments the way to the gate is clear.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg3_talk = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to the gate.</text>
+          <def_link>1199</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1197</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"I've heard of you. You aren't as tough as you think. Let me show you why." He picks up the hammer deftly, looking as if he's about to charge.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetCombatAnimation(1955);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way through.</text>
+          <def_link>1195</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1198</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go to gate</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>Move_Mob_Gate();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1199</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - wait a bit</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1206</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]The mob leader hesitates for a moment, then shakes his head. "We've found them," he shouts. "Kill them all."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgSetCombatAnimation(1955);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way through.</text>
+          <def_link>1195</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1200</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]The mob leader hesitates for a moment, then nods. "Let them through," he shouts. "It's not them."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg3_mobLeaderParty = true;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>removeCharFromParty(1955, tg3_mob);</string>
+        <string>addCharToParty(1955, tg3_thieves, fighter);</string>
+        <string>aod.quest_tg3_talk = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to the gate.</text>
+          <def_link>1199</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1201</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>none</speaker_name>
+      <npc_text>Leaving the cart and your men behind, you run towards the mob, yelling, "We got them! They were hiding in the inn!" Your fake enthusiasm and a handful of gold coins presented as proof fail to have the desired effect, and within moments you're surrounded and questioned, the suspicion growing by the second.
+
+Your attempts to say something are drowned in the shouts calling for your death.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Fail_Mob_PC);</string>
+        <string>dlgTeleportToMarker(TM_Fight_Mob_Thief_01, 1961);</string>
+        <string>dlgTeleportToMarker(TM_Fight_Mob_Thief_02, 1962);</string>
+        <string>dlgTeleportToMarker(TM_Fight_Mob_Thief_03, 1963);</string>
+        <string>dlgcam(160, 45, 8, 1);</string>
+        <string>dlgSetAnimation(anim_dodge_back, 0.1);</string>
+        <string>Fail_Mob_Cheat();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way out, hoping that your men will reach you fast enough.</text>
+          <def_link>1195</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1204</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>none</speaker_name>
+      <npc_text>Leaving the cart and your men behind, you run towards the mob, yelling, "We got them! They were hiding in the inn!" Your fake enthusiasm and a handful of gold coins presented as proof have some effect, but the mob leaders still manage to maintain control.
+
+The mob marches towards the inn in a semi-orderly fashion, but not before leaving a few men to guard the roads to the gate, promising them equal shares of anything that will be found at the inn.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgDeleteCharacter(1955);</string>
+        <string>dlgDeleteCharacter(1957);</string>
+        <string>dlgDeleteCharacter(1959);</string>
+        <string>dlgTeleportToMarker(TM_Talk_Mob_PC);</string>
+        <string>dlgTeleportToMarker(TM_Fight_Mob_Thief_01, 1961);</string>
+        <string>dlgTeleportToMarker(TM_Fight_Mob_Thief_02, 1962);</string>
+        <string>dlgTeleportToMarker(TM_Fight_Mob_Thief_03, 1963);</string>
+        <string>dlgcam(160, 45, 8, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way through.</text>
+          <def_link>1195</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1203</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>none</speaker_name>
+      <npc_text>Leaving the cart and your men behind, you run towards the mob, yelling, "We got them! They were hiding in the inn!" Your fake enthusiasm is contagious and a handful of gold coins presented as irrefutable proof has an explosive effect.
+
+Several men start running in the direction of the inn, the rest following them almost immediately. Within a few minutes, the square is empty and the way to the gate is clear.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgDeleteCharacter(1955);</string>
+        <string>dlgDeleteCharacter(1956);</string>
+        <string>dlgDeleteCharacter(1957);</string>
+        <string>dlgDeleteCharacter(1958);</string>
+        <string>dlgDeleteCharacter(1959);</string>
+        <string>dlgDeleteCharacter(1960);</string>
+        <string>Move_Mob_Talk();</string>
+        <string>dlgSetWalkAnimation(1);</string>
+        <string>dlgSetWalkAnimation(1961);</string>
+        <string>dlgSetWalkAnimation(1962);</string>
+        <string>dlgSetWalkAnimation(1963);</string>
+        <string>aod.quest_tg3_talk = true;</string>
+        <string>dlgcam(325, 45, 10, 1);</string>
+        <string>rwd_civil(TG3_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to the gate.</text>
+          <def_link>1199</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1202</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>none</speaker_name>
+      <npc_text>You cut a path through the mob, leaving a trail of corpses behind you. The way to the gate is clear.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go to the gate.</text>
+          <def_link>1199</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Look around some more.</text>
+          <def_link>1206</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1205</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

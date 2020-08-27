@@ -1,0 +1,709 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_ig4_lookAround</string>
+      <string>aod.quest_IG4_afterCombat</string>
+      <string>aod.quest_ig4_hamzaAppears</string>
+    </conditions>
+    <links>
+      <int>18</int>
+      <int>9</int>
+      <int>20</int>
+    </links>
+    <dlg_name>Quest_IG4_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Strabos</def_speaker_name>
+    <def_portrait>Strabos</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What do you want?” asks Strabos with disdain. “Who are you?”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Dialogue_Strabos_PC_01);</string>
+        <string>aod.quest_ig4_phase2 = true;</string>
+        <string>dlgSetAnimation(anim_sit_chair_00_00, 0, 4300);</string>
+        <string>useCameraBookmark(Cam_NPC_Strabos_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Pavola sent me.”</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What?” explodes Strabos in rage. “I asked for twenty men! I thought they would surround the building and wouldn’t let –”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I can assure you that I’m as happy about it as you are.”</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Trust me, you have absolutely nothing to worry about.”</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][trading]“I guess Pavola didn’t take you seriously. Hard to blame him – you didn’t give him much, did you?”</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.trading) &gt;= 6 &amp;&amp; aod.streetwise &gt;= 2 &amp;&amp; aod.trading &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>24</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“That’s very reassuring. Are you one of those individuals worth at least twenty men? The kind whose sword is a natural extension of their arm, that sort of thing?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“That’s me.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I'd like to think so, but I have my doubts.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Gods be praised,” sighs Strabos with relief. “I wonder how many men the Boatmen will send. A man of my status and influence? I wouldn't be surprised if they send two teams, so stay alert.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Sit and wait.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“I made a deal with Pavola,” says Strabos angrily, “and we aren’t going to make last minute changes to the terms.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Sit and wait.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Only a fool pays upfront,” says Strabos, but he doesn’t sound as confident as he was a moment ago.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][trading]“You want twenty men? Give me something I can take to Pavola and you’ll get enough men to shield you from Gaelius himself.”</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(honor) &lt; 0</string>
+            <string>(aod.persuasion + aod.trading) &gt;= 7 &amp;&amp; aod.persuasion &gt;= 2 &amp;&amp; aod.trading &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>25</int>
+            <int>26</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[word of honor failure]“How can I take your word for it when it’s worth so little?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Sit and wait.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Do I have your word?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[word of honor]"You have my word."</text>
+          <def_link>27</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Forget about it." Sit and wait.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>26</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’m fucked, aren’t I?” asks Strabos, looking resigned to his fate.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Sit and wait.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - wait until night</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>switchMission("Quest_IG4.mis");</string>
+        <string>aod.quest_ig4_hamzaAppears = true;</string>
+        <string>dlgFadeLongToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I can't believe Pavola gave me one &lt;man/woman&gt;. Well, if I die, the joke's on him. Trust me."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_PC_TalkStrabos);</string>
+        <string>useCameraBookmark(cam_IG4_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Check your gear.</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - before Hamza</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Hamza</portrait>
+      <speaker_name>Hamza</speaker_name>
+      <npc_text>The day is almost over when a man in his fifties walks into the guild, glancing around casually. “Master Strabos,” he says politely.
+
+“Fuck!” yells Strabos, moving away. “It’s Hamza! The assassin! Do something, &lt;charname&gt;! Kill him!”
+
+The man looks at you without any emotions. “Shall we get to it?”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ig4_hamzaAppears = false;</string>
+        <string>aod.quest_IG4_goSeeStrabos = false;</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>createByCharMarker("CM_Hamza");</string>
+        <string>dlgRotateToChar(4610);</string>
+        <string>useCameraBookmark(cam_IG4_02);</string>
+        <string>addJournalChar(hamza);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I thought the Boatmen would send more men.”</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Stand aside and let Hamza kill Strabos.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_strabos_gaveWord</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>29</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Hamza</portrait>
+      <speaker_name>Hamza</speaker_name>
+      <npc_text>“I thought Pavola would send more men. Not that I’m complaining.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“And yet you came alone.”</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Hamza</portrait>
+      <speaker_name>Hamza</speaker_name>
+      <npc_text>“I prefer to work alone. Nobody gets in the way.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Well, let’s get it to it then.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Stand aside and let Hamza kill Strabos.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_strabos_gaveWord</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>29</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgSetAttitude(4610, 1, -10);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.quest_IG4_afterCombat = true;</string>
+        <string>setRtsCam();</string>
+        <string>dlgSetAnimation(anim_sit_chair_00_00, 0, 4300);</string>
+        <string>aod.death_IG4_hamza = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Alright,” says Strabos, eyeing you suspiciously. “I’m tempted to tell Pavola to fuck himself for what he did to me, but it appears that I'm out of options. And if Gaelius brings the Ordu here, we’re all fucked.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_pavola_reportStrabos = true;</string>
+        <string>aod.npc_strabos_gaveWord = true;</string>
+        <string>aod.quest_ig4_phase3 = true;</string>
+        <string>rwd_civil(IG4_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“The Ordu?”</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>27</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You’re lucky he came alone, &lt;charname&gt;,” says Strabos, breathing heavily. “I’m tempted to tell Pavola to fuck himself for what he did to me, but I’m a man of my word. And if Gaelius brings the Ordu here, we’re all fucked.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_pavola_reportStrabos = true;</string>
+        <string>aod.quest_IG4_afterCombat = false;</string>
+        <string>dlgTeleportToMarker(TM_PC_TalkStrabos);</string>
+        <string>useCameraBookmark(cam_IG4_01);</string>
+        <string>dlgSetAnimation(anim_sit_chair_00_00, 0, 4300);</string>
+        <string>aod.quest_ig4_phase3 = true;</string>
+        <string>rwd_reputation(IG4_04);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“The Ordu?”</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Gaelius doesn’t trust the Imperial Guards and the recent... events didn’t improve his faith in people around him. He made a deal with the Ordu. They will be coming through the mountain pass. It’s Pavola’s only chance to stop them.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’m new here. Can you explain what you’re talking about?”</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“We’re protected from the north by a mountain range, which is the only reason why we haven't been overrun by the Ordu yet. They are fucking savages, bred to fight and kill. These hellspawn live in tents made of animal skins and drink the blood of their horses. Bringing them here is like inviting the fox into the henhouse. If they get through the pass, it's over. We won't be able to stop them.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“And Gaelius hopes to control them?”</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“How do you know all that?”</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“He thinks he can. He thinks that he can elevate their khan and his generals and they will serve him faithfully, out of fear to lose it all, like civilized men do. But the Ordu aren’t civilized. They don’t care about these things and by the time Gaelius realizes it, it will be too late.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_IG4_GaeliusControl = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“You seem to know the Ordu well.”</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_strabos_gaveWord</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>28</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“We trade. They don’t take gold because the concept of money is alien to them. They just can’t understand why someone would trade something of real value for a few pieces of worthless, soft metal. They want steel and supplies.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You sell steel to them?”</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“They were a very distant threat, until Gaelius decided to invite them here,” snaps Strabos. “How were we supposed to know that?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“How do you know all that?”</text>
+          <def_link>15</def_link>
+          <checkOnAppear>aod.quest_IG4_howDoYouKnow == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_strabos_gaveWord</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>28</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“We pay well for information. It appears that the Ordu khan wasn’t as eager to come here as you’d think, but the wheels are in motion and the Ordu are on the move. Gaelius sent another messenger yesterday, but we don’t know what the content of the letter is. If you hurry up, you can catch the messenger before he crosses the pass.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_IG4_howDoYouKnow = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“And Gaelius hopes to control them?”</text>
+          <def_link>12</def_link>
+          <checkOnAppear>aod.quest_IG4_GaeliusControl == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_strabos_gaveWord</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>28</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go to Pavola</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>sd(Quest_IG4_02);</string>
+        <string>aod.quest_IG4_goSeeStrabos = 0;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>28</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_ig4_lookAround = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Are you done? I have a business to run."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_PC_TalkStrabos);</string>
+        <string>useCameraBookmark(cam_IG4_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Yes." Leave the building.</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Check Hamza's body one last time. Just to be sure.</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go to Maadoran</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.mdn_fromIG4 = true;</string>
+        <string>switchMission("maadoran.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Hamza</portrait>
+      <speaker_name>Hamza</speaker_name>
+      <npc_text>When it's done, Hamza wipes the blood off his dagger, puts it in the sheath, then looks at you. "I guess I'll see you around."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>removePcMember();</string>
+        <string>aod.mdn_fort_blocked = true;</string>
+        <string>aod.quest_ig4_betrayedIG = true;</string>
+        <string>aod.jnl_ig4_phase5 = true;</string>
+        <string>dlgTeleportToMarker(TM_PC_StrabosDead);</string>
+        <string>dlgTeleportToMarker(TM_Hamza_StrabosDead, 4610);</string>
+        <string>dlgTeleportToMarker(TM_Strabos_Dead, 4300);</string>
+        <string>dlgSetAnimation(anim_death_forward01, 0.95, 4300);</string>
+        <string>useCameraBookmark(cam_IG4_03);</string>
+        <string>rwd_reputation(IG4_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>It's time to pay your respects to Lord Gaelius.</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Hamza</portrait>
+      <speaker_name>Hamza</speaker_name>
+      <npc_text>When it's done, Hamza wipes the blood off his dagger, puts it in the sheath, then looks at you. "I guess I'll see you around."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>removePcMember();</string>
+        <string>aod.mdn_fort_blocked = true;</string>
+        <string>aod.quest_ig4_betrayedIG = true;</string>
+        <string>aod.jnl_ig4_phase5 = true;</string>
+        <string>dlgTeleportToMarker(TM_PC_StrabosDead);</string>
+        <string>dlgTeleportToMarker(TM_Hamza_StrabosDead, 4610);</string>
+        <string>dlgTeleportToMarker(TM_Strabos_Dead, 4300);</string>
+        <string>dlgSetAnimation(anim_death_forward01, 0.95, 4300);</string>
+        <string>useCameraBookmark(cam_IG4_03);</string>
+        <string>rwd_reputation(IG4_01);</string>
+        <string>rwd_reputation(IG4_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>It's time to pay your respects to Lord Gaelius.</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>29</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

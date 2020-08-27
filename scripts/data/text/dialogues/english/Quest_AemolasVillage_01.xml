@@ -1,0 +1,1393 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_aemolas_gotMoneyVCO</string>
+      <string>aod.quest_aemolas_gotmoney</string>
+    </conditions>
+    <links>
+      <int>5888</int>
+      <int>5889</int>
+    </links>
+    <dlg_name>Quest_AemolasVillage_01</dlg_name>
+    <def_link>5826</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You don't have to dig long. Buried two feet below the surface, you find a heavy leather bag. Judging by the weight, there are at least a thousand imperials inside. It’s time to disappear.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_aemolas_gotmoney = true;</string>
+        <string>rwd_quest(AemolasVillage_01);</string>
+        <string>VCO_theWell_01.setActive(false);</string>
+        <string>dlgTeleportToMarker(TM_Sneak_Success_02);</string>
+        <string>aod.quest_aemolas_gotMoneyVCO = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Keep your word and return to Aemolas.</text>
+          <def_link>5836</def_link>
+          <checkOnAppear>aod.npc_aemolas_dead == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Fuck Aemolas.</text>
+          <def_link>5891</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>rwd_reputation(AemolasGold_02);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+      </answers>
+      <UID>5888</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Aemolas’ village greets you with stripped down buildings and abandoned fields. Only a handful of buildings remain – all of them occupied by rough-looking men who don’t look like any villagers that you’ve seen. You count eight men aimlessly wandering around the village, blissfully unaware of your earlier intrusion.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Well, what are you waiting for? They aren’t going to kill themselves, are they?</text>
+          <def_link>5830</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Pull out a scoped crossbow and get to work.</text>
+          <def_link>5840</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(dlgOwnsItem(165) || dlgOwnsItem(166)) &amp;&amp; dlgOwnsMissile(6)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5839</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>You can always come back later. Leave.</text>
+          <def_link>5890</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5889</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Aemolas’ village greets you with stripped down buildings and abandoned fields. Only a handful of buildings remain – all of them occupied by rough-looking men who don’t look like any villagers that you’ve seen. You count eight men aimlessly wandering around the village. They seem to be waiting for something or someone. Could it be you?</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Well, what are you waiting for? They aren’t going to kill themselves, are they?</text>
+          <def_link>5830</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[sneak]See if you can get to the spot Aemolas described undetected.</text>
+          <def_link>5828</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.sneak &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5829</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Pull out a scoped crossbow and get to work.</text>
+          <def_link>5840</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(dlgOwnsItem(165) || dlgOwnsItem(166)) &amp;&amp; dlgOwnsMissile(6)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5839</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>This calls for a parley.</text>
+          <def_link>5862</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>You can always come back later. Leave.</text>
+          <def_link>5890</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5826</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - don't send back anywhere</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportToMarker(TM_Start);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5890</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>It appears you don’t have one, after all.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Well, what are you waiting for? They aren’t going to kill themselves, are they?</text>
+          <def_link>5830</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[sneak]See if you can get to the spot Aemolas described undetected.</text>
+          <def_link>5828</def_link>
+          <checkOnAppear>aod.quest_aemolas_gotmoney == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.sneak &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5829</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>This calls for a parley.</text>
+          <def_link>5862</def_link>
+          <checkOnAppear>aod.quest_aemolas_gotmoney == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>You can always come back later. Leave.</text>
+          <def_link>5890</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5840</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You take a moment to consider other options, while counting the number of raiders again. Eight.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Your kinda odds. Chaaarge!</text>
+          <def_link>5830</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[sneak]See if you can get to the spot Aemolas described undetected.</text>
+          <def_link>5828</def_link>
+          <checkOnAppear>aod.quest_aemolas_gotmoney == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.sneak &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5829</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Surely, they will listen to reason...</text>
+          <def_link>5862</def_link>
+          <checkOnAppear>aod.quest_aemolas_gotmoney == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>You can always come back later. Leave.</text>
+          <def_link>5890</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5851</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - return to Aemolas</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>switchMission("Quest_AemolasHouse.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5836</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go to forest road</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>switchMission("RDM_ForestRoad_01.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5891</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - all</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addEnemyToParty(1, VillageRaiders);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+        <string>dlgCam(45, 45, 10);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5830</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You try to get closer without being noticed, but judging by the raiders suddenly pointing in your direction you’ve failed miserably.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Sneak_Failure_01);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Well, what are you waiting for? They aren’t going to kill themselves, are they?</text>
+          <def_link>5830</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>This calls for a parley.</text>
+          <def_link>5862</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave while you can.</text>
+          <def_link>5891</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5828</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Staying low, you manage to get closer and hide behind one of the buildings, waiting for the right opportunity. After a while, the raiders’ leader and his closest ‘associates’ retreat into a fortified building, leaving the ‘grunts’ to enjoy the outdoors and keep watch. You count eight of them.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Sneak_Success_01);</string>
+        <string>dlgTeleportToMarker(TM_LeaderInside_01, 3010);</string>
+        <string>dlgTeleportToMarker(TM_LeaderInside_02, 3011);</string>
+        <string>dlgTeleportToMarker(TM_LeaderInside_03, 3012);</string>
+        <string>dlgTeleportToMarker(TM_LeaderInside_04, 3013);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>if(aod.aemolas_sneakReward1 == false) rwd_civil(Sneak);</string>
+        <string>aod.aemolas_sneakReward1 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[sneak]Get to the well where the money is buried.</text>
+          <def_link>5831</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.sneak &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5832</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Too risky, go back.</text>
+          <def_link>5885</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5829</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You take a moment to consider other options, while counting the number of raiders again. Eight.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Your kinda odds. Chaaarge!</text>
+          <def_link>5830</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Surely, they will listen to reason...</text>
+          <def_link>5862</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave while you can.</text>
+          <def_link>5890</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5885</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You dart toward the well, trying to keep your head down, but you’re quickly spotted and surrounded.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Sneak_Failure_02);</string>
+        <string>dlgTeleportToMarker(TM_Sneak_Failure_NPC_01, 3018);</string>
+        <string>dlgTeleportToMarker(TM_Sneak_Failure_NPC_02, 3014);</string>
+        <string>dlgTeleportToMarker(TM_Sneak_Failure_NPC_03, 3021);</string>
+        <string>dlgTeleportToMarker(TM_Sneak_Failure_NPC_04, 3020);</string>
+        <string>dlgTeleportToMarker(TM_Sneak_Failure_NPC_05, 3019);</string>
+        <string>dlgTeleportToMarker(TM_Sneak_Failure_NPC_06, 3016);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way out.</text>
+          <def_link>5830</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Surrender and let them take you to their leader.</text>
+          <def_link>5863</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5831</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You move between buildings, carefully timing your excursions, until you reach the well and duck behind it. The raiders seem to be the type to quench their thirst with wine rather than water, so you’re safe for the moment.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Sneak_Success_02);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>if(aod.aemolas_sneakReward2 == false) rwd_civil(Sneak);</string>
+        <string>aod.aemolas_sneakReward2 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Dig out the gold.</text>
+          <def_link>5833</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.sneak &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5834</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5832</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Raider</speaker_name>
+      <npc_text>[sneak failure]“You hear that?” asks one of the raiders suddenly.
+
+“Probably a stray dog,” says another. “How many bodies did we bury? The smell must be driving it nuts.”
+
+“I better take a look,” says the first raider, unconvinced.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[critical strike]Take him out.</text>
+          <def_link>5835</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5837</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>5830</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave while you can.</text>
+          <def_link>5890</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5833</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[sneak success]You don't have to dig long. Buried two feet below the surface, you find a heavy leather bag. Judging by the weight, there are at least a thousand imperials inside. It’s time to disappear.</npc_text>
+      <onLoadScripts>
+        <string>if(aod.aemolas_sneakReward3 == false) rwd_civil(Sneak);</string>
+        <string>aod.aemolas_sneakReward3 = true;</string>
+        <string>aod.quest_aemolas_gotmoney = true;</string>
+        <string>rwd_quest(AemolasVillage_01);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Keep your word and return to Aemolas.</text>
+          <def_link>5836</def_link>
+          <checkOnAppear>aod.npc_aemolas_dead == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Fuck Aemolas.</text>
+          <def_link>5891</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>rwd_reputation(AemolasGold_02);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+      </answers>
+      <UID>5834</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You lunge at the raider when he comes close, aiming for his neck. Your blade goes in deep, permanently taking the raider out of commission, but the bastard takes a minute to die, making inhuman sounds and showing no concern for his own dignity.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_CS_01);</string>
+        <string>dlgTeleportToMarker(TM_CS_02, 3018);</string>
+        <string>dlgSetAnimation(anim_death_forward00, 0.95, 3018);</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>dlgKillCharacter(3018);</string>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+        <string>dlgChangeRep(bodycount, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way out.</text>
+          <def_link>5830</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5835</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You lunge at the raider when he comes close, aiming for his neck. Your strike is true, as always, neatly severing the raider’s thread of life and sending him into the afterlife without making a sound.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_CS_01);</string>
+        <string>dlgTeleportToMarker(TM_CS_02, 3014);</string>
+        <string>dlgSetAnimation(anim_death_forward00, 0.95, 3014);</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>dlgKillCharacter(3014);</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+        <string>dlgCsRepTrain(1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Dig out the gold.</text>
+          <def_link>5884</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5837</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You don't have to dig long. Buried two feet below the surface, you find a heavy leather bag. Judging by the weight, there are at least a thousand imperials inside. It’s time to disappear.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_aemolas_gotmoney = true;</string>
+        <string>rwd_quest(AemolasVillage_01);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Sneak_Success_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Keep your word and return to Aemolas.</text>
+          <def_link>5836</def_link>
+          <checkOnAppear>aod.npc_aemolas_dead == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Fuck Aemolas.</text>
+          <def_link>5891</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>rwd_reputation(AemolasGold_02);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+      </answers>
+      <UID>5884</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You pull out the crossbow, test the string, adjust the scope for distance, and aim.
+
+You figure that if you don’t miss, you can take out five raiders before the rest of them reach you. Of course, that’s assuming they charge you all at once. Now, once you start shooting and the raiders see where you’re shooting from, it will be harder and harder to hit targets. Something to keep in mind.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Snipe_Start);</string>
+        <string>dlgCam(15, 40, 15);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[crossbow]You’ll worry about it later. Shoot the first raider.</text>
+          <def_link>5841</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.crossbow &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5843</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Might not be such a good idea after all.</text>
+          <def_link>5851</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5839</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You missed your first target. Fortunately, nobody even noticed. Maybe you should rethink this whole sniping business.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>removeMissile();</string>
+        <string>sfxPlayOnce(csMissSwingAir01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Consider other options.</text>
+          <def_link>5851</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5841</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Your bolt hits the raider dead between the eyes, throwing him to the ground. His buddies look at him in confusion, expecting him to get up at any moment.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>removeMissile();</string>
+        <string>dlgCam(45, 45, 6, 3019);</string>
+        <string>killRandomDeathPosition(3019);</string>
+        <string>sfxPlayOnce(AudioCsRangedBody01);</string>
+        <string>changeRep(bodycount, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[crossbow]Quick! Shoot another one!</text>
+          <def_link>5845</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.crossbow &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5846</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5843</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Your bolt glances off the raider’s helmet announcing your presence and intentions.
+
+After some shouting, the raiders start running toward your hiding spot. It’s a small comfort, but comfort nonetheless.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>removeMissile();</string>
+        <string>Aemolas_SnipeStageOne();</string>
+        <string>sfxPlayOnce(csMissSwingMetal01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[crossbow][perception]Concentrate and take another shot.</text>
+          <def_link>5849</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.crossbow &gt;= 4 &amp;&amp; aod.per &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5850</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5845</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Your second bolt tears a bloody path through the raider’s neck, sinking up to its feathers. Two down, six to go.
+
+After some shouting, the raiders start running toward your hiding spot. It’s a small comfort, but comfort nonetheless.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>removeMissile();</string>
+        <string>dlgCam(45, 45, 6, 3017);</string>
+        <string>killRandomDeathPosition(3017);</string>
+        <string>Aemolas_SnipeStageOne();</string>
+        <string>sfxPlayOnce(AudioCsRangedBody01);</string>
+        <string>changeRep(bodycount, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[crossbow]Quick! Shoot another one!</text>
+          <def_link>5847</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.crossbow &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5848</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5846</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]The raider ducks just as you pull the trigger and the bolt flies over his head.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>removeMissile();</string>
+        <string>Aemolas_SnipeStageTwo();</string>
+        <string>sfxPlayOnce(csMissSwingAir01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[crossbow][perception]Concentrate and take another shot.</text>
+          <def_link>5849</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.crossbow &gt;= 5 &amp;&amp; aod.per &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5850</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5847</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]The raider tries to duck, but you adjust your aim and watch with satisfaction as he goes down. Do unto others is a motto you live by. Three down, five still in the game.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>removeMissile();</string>
+        <string>Aemolas_SnipeStageTwo();</string>
+        <string>dlgCam(45, 45, 6, 3018);</string>
+        <string>killRandomDeathPosition(3018);</string>
+        <string>sfxPlayOnce(AudioCsRangedBody01);</string>
+        <string>changeRep(bodycount, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[crossbow]Quick! Shoot another one!</text>
+          <def_link>5852</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.crossbow &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5857</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5848</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Another miss.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>removeMissile();</string>
+        <string>Aemolas_SnipeStageThree();</string>
+        <string>sfxPlayOnce(csMissSwingAir01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait for the raiders to get closer.</text>
+          <def_link>5830</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5849</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]A raider goes down clutching his stomach. Not your best shot, but at least you hit someone.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>removeMissile();</string>
+        <string>Aemolas_SnipeStageTwo();</string>
+        <string>dlgCam(45, 45, 6, 3018);</string>
+        <string>killRandomDeathPosition(3018);</string>
+        <string>sfxPlayOnce(AudioCsRangedBody01);</string>
+        <string>changeRep(bodycount, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[crossbow][perception]Concentrate and take another shot.</text>
+          <def_link>5849</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.crossbow &gt;= 5 &amp;&amp; aod.per &gt;= 9</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5861</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5850</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Your bolt flies away harmlessly, way off mark.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>removeMissile();</string>
+        <string>sfxPlayOnce(csMissSwingAir01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[crossbow][perception]Concentrate and take another shot.</text>
+          <def_link>5849</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.crossbow &gt;= 6 &amp;&amp; aod.per &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5861</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5852</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Your bolt stops the raider dead in his tracks. He stops and looks at the bolt in his chest with interest as if he never expected to see one there, then falls down.
+
+Four down, four almost on you. You have one shot left, better make it count.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>removeMissile();</string>
+        <string>dlgCam(45, 45, 6, 3011);</string>
+        <string>killRandomDeathPosition(3011);</string>
+        <string>sfxPlayOnce(AudioCsRangedBody01);</string>
+        <string>changeRep(bodycount, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[crossbow]Quick! Shoot another one!</text>
+          <def_link>5859</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.crossbow &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5861</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5857</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You miss. In the next moment, you find yourself surrounded by the raiders looking for blood.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>removeMissile();</string>
+        <string>Aemolas_SnipeStageThree();</string>
+        <string>sfxPlayOnce(csMissSwingAir01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>5830</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5859</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]The raider’s head jerks back before he takes a few shaky steps and collapses face-down. In the next moment, you find yourself surrounded by his buddies, looking for blood.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>removeMissile();</string>
+        <string>Aemolas_SnipeStageThree();</string>
+        <string>dlgCam(45, 45, 6, 3021);</string>
+        <string>killRandomDeathPosition(3021);</string>
+        <string>sfxPlayOnce(AudioCsRangedBody01);</string>
+        <string>changeRep(bodycount, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>5830</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5861</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Raiders' Leader</speaker_name>
+      <npc_text>You enter the village. After a brief exchange, you’re escorted to see the raiders’ leader – a tall, wiry man with a rugged face and eyes permanently narrowed from years of squinting into the desert sun. There’s an ugly scar on his throat, as if someone slashed it but didn’t put enough effort into it.
+
+“Did Aemolas send you?” he asks, already appearing tired of having this conversation with you.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_LeaderInside_01, 3010);</string>
+        <string>dlgTeleportToMarker(TM_LeaderInside_02, 3011);</string>
+        <string>dlgTeleportToMarker(TM_LeaderInside_03, 3012);</string>
+        <string>dlgTeleportToMarker(TM_LeaderInside_04, 3013);</string>
+        <string>dlgTeleportToMarker(TM_Parley_PC_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Yes.”</text>
+          <def_link>5864</def_link>
+          <checkOnAppear>aod.npc_aemolas_dead == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“No.”</text>
+          <def_link>5868</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][impersonate]“Esbenus sent me to collect money Aemolas owes him. You have a problem with that?”</text>
+          <def_link>5871</def_link>
+          <checkOnAppear>aod.quest_teronRaider_metLeader</checkOnAppear>
+          <checksOnClick>
+            <string>aod.npc_esbenus_dead</string>
+            <string>(aod.streetwise + aod.disguise) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5869</int>
+            <int>5872</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5862</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Raiders' Leader</speaker_name>
+      <npc_text>After a brief exchange, you’re escorted to see the raiders’ leader – a tall, wiry man with a rugged face and eyes permanently narrowed from years of squinting into the desert sun. There’s an ugly scar on his throat, as if someone slashed it but didn’t put enough effort into it.
+
+“Did Aemolas send you?” he asks, already appearing tired of having this conversation with you.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Parley_PC_01);</string>
+        <string>dlgTeleportToMarker(TM_LeaderInside_01, 3010);</string>
+        <string>dlgTeleportToMarker(TM_LeaderInside_02, 3011);</string>
+        <string>dlgTeleportToMarker(TM_LeaderInside_03, 3012);</string>
+        <string>dlgTeleportToMarker(TM_LeaderInside_04, 3013);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Yes.”</text>
+          <def_link>5864</def_link>
+          <checkOnAppear>aod.npc_aemolas_dead == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“No.”</text>
+          <def_link>5868</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][impersonate]“Esbenus sent me to collect money Aemolas owes him. You have a problem with that?”</text>
+          <def_link>5871</def_link>
+          <checkOnAppear>aod.quest_teronRaider_metLeader</checkOnAppear>
+          <checksOnClick>
+            <string>aod.npc_esbenus_dead</string>
+            <string>(aod.streetwise + aod.disguise) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5869</int>
+            <int>5872</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5863</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Raiders' Leader</speaker_name>
+      <npc_text>Your answer catches him by surprise.
+
+“So, the old goat is alive and kicking after all. You know, some people get grazed by a blade, fall sick and die. That’s all it takes. Other people are seemingly impossible to kill. I saw him going down with a bolt in his chest, thought he was a goner for sure. Yet, he managed to cross the desert and find a fool,” he nods at you, “to send after his gold. So, where is it?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Why should I tell you?”</text>
+          <def_link>5866</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Enough talking. Attack.</text>
+          <def_link>5830</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5864</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Raiders' Leader</speaker_name>
+      <npc_text>“Why would I let you live after you tell me, you mean? That’s easy,” smiles the raider. “Because after we dig out Aemolas’ money, you’re going to take me to him so that I can thank him personally for everything he’s done for me and to me.” He touches the scar automatically, then lowers his hand and looks at you.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“And then?”</text>
+          <def_link>5867</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Enough talking. Attack.</text>
+          <def_link>5830</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5866</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Raiders' Leader</speaker_name>
+      <npc_text>“And then you’ll go your way and I’ll go my way because you have nothing I want and that includes your life.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Alright.” Tell him where the stash is.</text>
+          <def_link>5875</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Enough talking. Attack.</text>
+          <def_link>5830</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5867</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Raiders' Leader</speaker_name>
+      <npc_text>“Are you sure? ‘Cause if he didn’t, if you just wandered in here all on your own because you liked the view so much, then you’re no good to me, and if you are no good to me, you might as well be dead. Do you see where I’m going with this?
+
+“So, let me ask you again. Did. Aemolas. Send you. Yes or no?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Yes.”</text>
+          <def_link>5864</def_link>
+          <checkOnAppear>aod.npc_aemolas_dead == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“No.”</text>
+          <def_link>5870</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][impersonate]“Esbenus sent me to collect money Aemolas owes him. You have a problem with that?”</text>
+          <def_link>5871</def_link>
+          <checkOnAppear>aod.quest_teronRaider_metLeader</checkOnAppear>
+          <checksOnClick>
+            <string>aod.npc_esbenus_dead</string>
+            <string>(aod.streetwise + aod.disguise) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5869</int>
+            <int>5872</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5868</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Raiders' Leader</speaker_name>
+      <npc_text>“&lt;He/She&gt;’s all yours, boys,” says the raider losing his interest in you.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way out.</text>
+          <def_link>5830</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5870</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Raiders' Leader</speaker_name>
+      <npc_text>“Esbenus? I’ve heard he bought himself a nice farm and settled down. So, let me ask you again. Did. Aemolas. Send you. Yes or no?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Yes.”</text>
+          <def_link>5864</def_link>
+          <checkOnAppear>aod.npc_aemolas_dead == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“No.”</text>
+          <def_link>5870</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5869</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Raiders' Leader</speaker_name>
+      <npc_text>[failure]“What if I do?” asks the raider, his voice dangerously quiet.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I'm just a messenger.”</text>
+          <def_link>5877</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Fight your way out.</text>
+          <def_link>5830</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5871</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Raiders' Leader</speaker_name>
+      <npc_text>[success]“Since when does Esbenus stick his nose into other people’s business?” the raider inquires cautiously.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]“He doesn’t. He just wants his money. You have a problem with that, you take it up with him when you see him.”</text>
+          <def_link>5874</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5873</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]“Since he forced House Daratan to pay him to leave Teron alone. He isn’t the man you want to fuck with, trust me on that.”</text>
+          <def_link>5874</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5873</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5872</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Raiders' Leader</speaker_name>
+      <npc_text>[success]“Alright,” says the raider, feigning indifference. “Get the money and get out before I change my mind.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(Aemolas_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go dig out the gold.</text>
+          <def_link>5884</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5873</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Raiders' Leader</speaker_name>
+      <npc_text>[failure]“Well, the way I see it, Aemolas' money wasn't his to give,” says the raider after giving the dilemma some thought. “If Esbenus has a different opinion on the matter, he's welcome to come here and discuss it with me.
+
+“Now, where did you say Aemolas stashed my money?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Tell him where the stash is.</text>
+          <def_link>5875</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Enough talking. Attack.</text>
+          <def_link>5830</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5874</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Raiders' Leader</speaker_name>
+      <npc_text>“The way I see it, Aemolas' money wasn't his to give,” says the raider, calming down. “If Esbenus has a different opinion on the matter, he's welcome to come here and discuss it with me.
+
+“Now, where did you say Aemolas stashed my money?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Tell him where the stash is.</text>
+          <def_link>5875</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Enough talking. Attack.</text>
+          <def_link>5830</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5877</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Raiders' Leader</speaker_name>
+      <npc_text>“See, that wasn't very difficult, was it?” asks the raider, examining the leather bag. “A bit light, but I'm a strong believer that something is always better than nothing.
+
+“Now, take me to Aemolas. Gods know, I waited long enough for this meeting.”</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Parley_PC_02);</string>
+        <string>dlgTeleportToMarker(TM_Parley_NPC_01, 3010);</string>
+        <string>dlgTeleportToMarker(TM_Parley_NPC_02, 3011);</string>
+        <string>dlgTeleportToMarker(TM_Parley_NPC_03, 3012);</string>
+        <string>dlgTeleportToMarker(TM_Parley_NPC_04, 3013);</string>
+        <string>dlgChangeMoney(1258, 3010);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take him to Aemolas. You were always a sucker for tearful reunions.</text>
+          <def_link>5876</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5875</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - tearful reunion</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_aemolas_tearfulReunion = true;</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.quest_aemolas_raidersGone = 1;</string>
+        <string>switchMission("Quest_AemolasHouse.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5876</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

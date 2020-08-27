@@ -1,0 +1,628 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_roni_met</string>
+    </conditions>
+    <links>
+      <int>27</int>
+    </links>
+    <dlg_name>NPC_Roni_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Roni</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You stare at an exhausted young man, apparently just having trained out in the courtyard. He’s dressed in Ordu armor despite not being of the Ordu. He looks up at you curiously and says, “What do you want?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_roni_met = true;</string>
+        <string>dlgTeleportToMarker(TM_DLG_Roni_PC);</string>
+        <string>dlgCam(75, 45, 7, 4615);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I just came from Teron, looking for the guild master.”</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What’s your name?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“&lt;charname&gt;.”</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.pc_AG_traitor</string>
+            <string>aod.pc_member_assassins</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>24</int>
+            <int>9</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’m Roni,” he says. “I heard a lot of news from Teron lately. It seems like someone is stirring things up over there. Well, welcome to Maadoran I guess. If you’re looking for Darista she’s inside.”</npc_text>
+      <onLoadScripts>
+        <string>DOOR_AG_01.unlock();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“She?”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.gender == 1</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“So what can you tell me about her?”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What’s there to tell? If you’re looking for work then there’s no one better to work for.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Thanks.” Leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(75, 45, 15, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Yeah, it seems your kind can do well in the world,” he says with a smirk, “Who knew, right?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So what can you tell me about her?”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Yeah, who knew.” Leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Yeah. She,” he exclaims. “Do you have a problem with that?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“No, just curious, that’s all.”</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What if I do?”</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Well, you be sure to let Darista know then. I’m sure she’d *love* to hear your point of view.” He stops talking. Apparently your conversation is over.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So what can you tell me about her?”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Good,” he says defensively.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So what can you tell me about her?”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’m Roni,” he pauses for a second. “I’ve heard of you, I think. Weren’t you involved with the raid on the Imperial Guards?”</npc_text>
+      <onLoadScripts>
+        <string>DOOR_AG_01.unlock();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Yes, I was.”</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“No, I wasn’t.”</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Yeah, I’ve heard the stories,” he says with a smile. “Your guild sure made a mess over there, getting caught up in a game between pretender lords and the army. Neleos should have known better than to get involved, or at least he should have known better than to take a high-level contract without some contingencies. Fortunately for us, our guild has made arrangements to make sure that what happened in Teron will never happen here,” he says with a hint of pride.
+
+“I got a question for you,” he continues. “I know the Guards retaliated after your guild offed their commander, but what made you guys think to storm their base?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“It was all we could do. The Guards broke the treaty, we couldn’t let the insult stand.”</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Neleos. He took it upon himself to charge our guild headlong into their barracks. What could I do but follow the orders of my guild master?”</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I don’t know. Just got swept up in the moment I guess.”</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Yeah, I guess they learned their lesson, huh,” he says sarcastically, as if he’s listening to children talk of war. “Well, at least you made it out alive, and now that you’re here you’ll have a chance to see how things are done. You won’t see armies fighting in the streets like in Teron. This is Maadoran, the only city in the wasteland that’s holding its shit together. Things are done properly here.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’ve experienced enough in my life to know that no place is immune to chaos, including Maadoran.”</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Heh, you’d think that if he was smart enough to become the head of Teron's guild, that he’d have gathered a bit more sense than that. Well, at least you made it out alive, and now that you’re here you’ll have a chance to see how things are done. You won’t see armies fighting in the streets like in Teron. This is Maadoran, the only city in the wasteland that’s holding its shit together. Things are done properly here.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’ve experienced enough in my life to know that no place is immune to chaos, including Maadoran.”</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>He laughs, amused by your response. “You’re a rare kind of breed, &lt;charname&gt;. Who charges a barracks in the cover of night to take on an entire Imperial Guards contingent, simply because they got ‘swept up in the moment?’ Well, at least you made it out alive, and now that you’re here you’ll have a chance to see how things are done. You won’t see armies fighting in the streets like in Teron. This is Maadoran, the only city in the wasteland that’s holding its shit together. Things are done properly here.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’ve experienced enough in my life to know that no place is immune to chaos, including Maadoran.”</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I can’t blame you for thinking that way, considering what you just dealt with in Teron, but you’re wrong. The Boatmen of Styx are the peacekeepers of this land and chaos is the result of our failure, but unlike your guild in Teron, we will not fail.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I couldn’t care less how ‘proper’ you think things are done here, it all eventually devolves to people killing each other over scraps and titles. As long as I’m on the living end of this arrangement, that’s as ‘proper’ as I need things to be.”</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What’s the situation with the Imperial Guards here in Maadoran?”</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Well, let’s hope so.” Leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>He stares at you for a moment, possibly unsure how to respond. He begins to speak, reconsiders for a moment, and then continues. “You have an unembellished way of looking at things, &lt;charname&gt;, I’ll give you that, but there is a purpose in what we do, even if you don’t see it. The stability that we provide allows places like this to exist. Maadoran exists because of us, and it’ll continue to exist as long as the Boatmen settle the disputes of this city. We’re more than simple street thugs.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What’s the situation with the Imperial Guards here in Maadoran?”</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You’re worried about your own hide, aren’t you?” he laughs. “Well, as long as you stay out of their way, you should be fine. They’re likely more interested in distancing themselves from what happened in Teron than going after you. Not to mention that their organization has more pressing matters to attend to, like cleaning the dust off their boots, and marching in circles, and... and folding their capes into perfect little triangles,” he chuckles, amused by his own wit. “Regardless, House Aurelian keeps them in check. The Guards wouldn’t be so crass to make a stink of it here.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So what can you tell me about the guild master here?”</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What’s there to tell? If you’re looking for work then there’s no one better to work for.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Why’s that?”</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“That’s what they said about Neleos.”</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Because I’ve never seen her needlessly risk the lives of any one of the men under her command. She knows what we’re all good at and she plans out our jobs accordingly, and at the end of the day, only the right people are left dead. I can’t imagine a better leader for this guild, especially now that she’s made it where the guild works directly for Gaelius. Things are only getting better.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Better?”</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Who’s Gaelius?”</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Darista’s different. I’ve never seen her needlessly risk the lives of any one of the men under her command. She knows what we’re all good at and she plans out our jobs accordingly, and at the end of the day, only the right people are left dead. I can’t imagine a better leader for this guild, especially now that she’s made it where the guild works directly for Gaelius. Things are only getting better.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Better?”</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Who’s Gaelius?”</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Oh? It must have been someone else then,” he says disappointedly. “Anyways, the guild master is in the other room.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Thanks.” Leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Really? I didn’t know it was possible for someone to not know of Lord Gaelius. I guess it’s a lot worse outside this city than I thought. Lord Gaelius is the head of House Aurelian, the largest Noble House of the three major Houses. He rules Maadoran and soon enough he’ll rule everything else.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Is that why Darista is working for him now?”</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Darista made an arrangement with Gaelius himself to have the Boatmen serve him and his House exclusively. She said it’s what’s best for the guild and I have to agree with her. It's definitely better than how it was before, and you of all people should understand considering all that has happened in Teron. It’s a mutually beneficial arrangement that helps protect House Aurelian’s interests, and our own. What’s so wrong about that?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I'll go talk to Darista then.” Leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Well, just a couple weeks back we got a shipment of new supplies from House Aurelian,” he says as he proudly admires his armor. “It’s Ordu. I even got my own serrated khanjar. Before this I was training with some hand-me-down auxiliary armor and a pugio made out of shitty copper. Since Darista’s arrangement with Lord Gaelius, our numbers have doubled, we get a constant supply of weapons and armor, and on top of that we have a steady amount of contracts lined up with no end in sight.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Who’s Gaelius?”</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Is that why Darista is working for him now?”</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’m Roni,” he pauses for a moment and stares at you intently. “Wait... you say you're from Teron? &lt;charname&gt; from Teron, eh? Did you honestly think that we wouldn't find out?”</npc_text>
+      <onLoadScripts>
+        <string>DOOR_AG_01.unlock();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I don’t know what you’re talking about.”</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Of course you don’t,” says Roni spitting at your feet. “You’re lucky that Darista is expanding our operations and needs help. Go in.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go talk to Darista.</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Do you need anything?"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_Roni_PC);</string>
+        <string>dlgCam(75, 45, 7, 4615);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>27</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - inside</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_DLG_Roni_Inside);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>29</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

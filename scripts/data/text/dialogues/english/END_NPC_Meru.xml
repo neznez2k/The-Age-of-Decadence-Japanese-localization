@@ -1,0 +1,186 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_meru_showedMap</string>
+    </conditions>
+    <links>
+      <int>1</int>
+    </links>
+    <dlg_name>END_NPC_Meru</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Meru</def_speaker_name>
+    <def_portrait>Meru</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“&lt;Brother/Sister&gt; &lt;charname&gt;,” says Meru, extending his hand for a kiss. “I was just about to send for you. The time has finally come.
+
+“The Gods parted the clouds that hovered over us and cleared the way for their triumphant return, so we must do our part. Are you with me, &lt;brother/sister&gt;?”</npc_text>
+      <onLoadScripts>
+        <string>dlgUnequipHands();</string>
+        <string>dlgCam(15, 40, 7, 8000);</string>
+        <string>dlgTeleportToMarker(TM_Meru_PC_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Show him the map.</text>
+          <def_link>4</def_link>
+          <checkOnAppear>aod.npc_meru_showedMap == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Did you find the temple?” Meru asks impatiently.</npc_text>
+      <onLoadScripts>
+        <string>dlgUnequipHands();</string>
+        <string>dlgTeleportToMarker(TM_Meru_PC_01);</string>
+        <string>dlgCam(15, 40, 7, 8000);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’d like to take a look at your private library, Brother. Maybe I'll find the answer there.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(crassus) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Not yet.” Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The lost temple of Thor-Agoth,” nods Meru. “Do you really think you can find it?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_meru_showedMap = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“The Gods will guide me toward it!”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Then I won’t stand in Their way,” says Meru.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’d like to take a look at your private library first, Brother.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(crassus) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[crassus reputation failure]"You haven't proven yourself worthy yet."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[crassus reputation success]"Come with me, &lt;brother/sister&gt;."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Visit the library.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start library</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>switchMission("Ganezzar Castle Archive.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

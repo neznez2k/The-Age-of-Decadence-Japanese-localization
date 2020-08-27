@@ -1,0 +1,347 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_ag3_final_fight &amp;&amp; isAlive(1021)</string>
+      <string>aod.quest_ag3_final_fight &amp;&amp; isDead(1021) &amp;&amp; isAlive(1210) == false</string>
+      <string>aod.quest_ag3_final_fight &amp;&amp; isDead(1021) &amp;&amp; isAlive(1210)</string>
+      <string>aod.quest_ag3_lookAround</string>
+    </conditions>
+    <links>
+      <int>518</int>
+      <int>520</int>
+      <int>521</int>
+      <int>524</int>
+    </links>
+    <dlg_name>Quest_AG3</dlg_name>
+    <def_link>522</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You look around. Everything seems quiet. Neleos, Dias, and Agatai must already be inside.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(quest_ag3_01);</string>
+        <string>dlgTeleportTo(25, 13, 0, E);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Open the gate and enter the barracks.</text>
+          <def_link>516</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Look around first.</text>
+          <def_link>523</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>522</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You take the gate keys from the dead guards and open the gate.</npc_text>
+      <onLoadScripts>
+        <string>aod.killvar(quest_ag3_first_fight);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Enter the barracks.</text>
+          <def_link>507</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>516</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You enter the barracks. The first thing you see is a dead guard with a surprised look on his young face. He's holding an extinguished torch; his sword is still in its scabbard. Another body lies a few meters away; the wall above is covered with blood splatters. Regardless of how it ends, it will be a while before the Guards forget this day.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_ag3_second_fight = false;</string>
+        <string>dlgTeleportTo(35, 13, 0, E);</string>
+        <string>if (isalive(1210)) {dlgTeleportTo(42, 15, 1, SW, 1210); dlgSetCombatAnimation(1210);}</string>
+        <string>useCameraBookmark(quest_ag3_03);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>apmsStopMusic(1);</string>
+        <string>apmsPlayMusic(ambient, 3, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Keep moving.</text>
+          <def_link>508</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>507</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The dining room is full of empty bottles and dead bodies. Nearly a dozen soldiers who had passed out drunk have been slain in their sleep. The smell of spilt blood is so strong that you can almost taste the coppery tang. You find Agatai lying face down - an axe buried in his back.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(quest_ag3_04);</string>
+        <string>dlgCreateCharacter("Neleos", 1021, 1021, 40, 12, 1, N);</string>
+        <string>dlgSetCombatAnimation(1021);</string>
+        <string>addCharToParty(1021, AssassinsAG3, fighter);</string>
+        <string>dlgTeleportTo(42, 10, 0, S);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Keep moving.</text>
+          <def_link>509</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>508</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You find Dias in one of the rooms. He's sitting on his knees near the door, propped up by the spear in his chest. The bodies of five guardsmen are strewn about the room. From the looks of it, Dias walked into an ambush, and, despite being outnumbered, managed to kill the guardsmen before bleeding to death.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(quest_ag3_05);</string>
+        <string>dlgTeleportTo(40, 13, 1, S, 1130);</string>
+        <string>dlgTeleportTo(41, 12, 1, W, 1610);</string>
+        <string>addParty(AG3Captain, 0);</string>
+        <string>addCharToParty(1130, AG3Captain, fighter);</string>
+        <string>addCharToParty(1610, AG3Captain, fighter);</string>
+        <string>dlgSetCombatAnimation(1130);</string>
+        <string>dlgSetCombatAnimation(1610);</string>
+        <string>dlgTeleportTo(42, 15, 0, N);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Keep moving.</text>
+          <def_link>510</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>509</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The sound of metal on metal and the grunts of combat greet you as you enter the Commander's quarters. Neleos is still alive, hard-pressed by two guards, but handling himself admirably well for an old-timer. You join the fray.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(43, 12, 1, W);</string>
+        <string>useCameraBookmark(quest_ag3_06);</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>if(isAlive(1210)) addCharToParty(1210, AssassinsAG3, fighter);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>511</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>510</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - final</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setCombatPerTargetPriority(1021, 1130, 60);</string>
+        <string>aod.quest_ag3_final_fight = true;</string>
+        <string>addEnemyParty(AssassinsAG3, AG3Captain);</string>
+        <string>addEnemyParty(AG3Captain, AssassinsAG3);</string>
+        <string>setRtsCam();</string>
+        <string>aod.gameplay_questAG3_fight = true;</string>
+        <string>$RTSCamera.setYZAngle(45);</string>
+        <string>$RTSCamera.setZoom(8);</string>
+        <string>$RTSCamera.lookAtPC();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>511</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Neleos</portrait>
+      <speaker_name>Neleos</speaker_name>
+      <npc_text>Neleos is covered with blood, a great deal of it being his own. A nasty slash crosses his face through the left eye. The tough bastard still has enough self-control to smile. "It's been a long day, eh?" He winks with his good eye. "Did Dias or Agatai make it? No? Well, I didn't think any of us would either..."
+
+"We've been badly hurt by this business, but I'm going to restore the local guild. It will take time though. If you need work, go to Maadoran or Ganezzar. I'll let the guild masters know that you may stop by."</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(AG3_01);</string>
+        <string>useCameraBookmark(quest_ag3_07);</string>
+        <string>dlgTeleportTo(39, 13, 1, S, 1021);</string>
+        <string>dlgTeleportTo(39, 12, 1, N);</string>
+        <string>if (isalive(1210)) dlgTeleportTo(40, 12, 1, NW, 1210);</string>
+        <string>aod.quest_ag3_phase1c = true;</string>
+        <string>aod.ending_ag_06 = true;</string>
+        <string>aod.ending_agChoices = true;</string>
+        <string>rwd_reputation(AG3_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Take care, Neleos."</text>
+          <def_link>525</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>518</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>It's finally over. You are the only survivor of the raid and all that's left of Teron's Boatmen which guarantees you a warm welcome at Maadoran. That is, if you're looking for work.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(quest_ag3_07);</string>
+        <string>rwd_quest(AG3_01);</string>
+        <string>dlgTeleportTo(39, 12, 1, E);</string>
+        <string>aod.quest_ag3_phase1a = true;</string>
+        <string>rwd_reputation(AG3_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Look around before leaving.</text>
+          <def_link>525</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>520</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>It's finally over. Fulvio and you are the only survivors of the raid and all that's left of Teron's Boatmen which guarantees you a warm welcome at Maadoran. That is, if you're looking for work.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(quest_ag3_07);</string>
+        <string>rwd_quest(AG3_01);</string>
+        <string>rwd_reputation(AG3_01);</string>
+        <string>dlgTeleportTo(39, 12, 1, E);</string>
+        <string>dlgTeleportTo(39, 13, 1, E, 1211);</string>
+        <string>aod.quest_ag3_phase1b = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Look around before leaving.</text>
+          <def_link>525</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>521</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING - AG3</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgteleportto(202, 104, 0, E);</string>
+        <string>setRtsCam();</string>
+        <string>terondaytime();</string>
+        <string>AG3_Level.hideObjects();</string>
+        <string>aod.ending_town_02 = true;</string>
+        <string>aod.ending_faction_AG = true;</string>
+        <string>aod.global_teronAG_complete = true;</string>
+        <string>aod.global_teron_completed = true;</string>
+        <string>setAchievement("ACH_TERON_AG");</string>
+        <string>aod.global_trn_crisisActive = 0;</string>
+        <string>StartTeronEnding();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>519</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>523</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - look around</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_ag3_final_fight = false;</string>
+        <string>aod.quest_ag3_lookAround = true;</string>
+        <string>if(isAlive(1210)) dlgDeleteCharacter(1210);</string>
+        <string>if(isAlive(1021)) dlgDeleteCharacter(1021);</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>addQuest(AG_ArriveMDN);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>525</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>It's finally over. There is nothing else for you to do here.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(43, 12, 1, E);</string>
+        <string>useCameraBookmark(quest_ag3_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave for Maadoran.</text>
+          <def_link>519</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Look around some more.</text>
+          <def_link>523</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>524</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,152 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>GNZ_ArrivalHA</dlg_name>
+    <def_link>4</def_link>
+    <def_speaker_name>Hagnon</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Closer still, a shroud of smoke about the base of the hill marks the ordered chaos of a military camp. The purple banners snapping in the unforgiving plains wind proclaim this sea of tents the domain of House Aurelian.
+
+The siege of Ganezzar has begun.</npc_text>
+      <onLoadScripts>
+        <string>setWindowImage(gnz_siegeCamp_02);</string>
+        <string>addQuest(HA_ArriveGNZ);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Find whoever's in charge.</text>
+          <def_link>0</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_HA2_Senna == 3</string>
+            <string>aod.npc_gaelius_reportTower &lt; 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>0</int>
+            <int>6</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“&lt;Master/Mistress&gt; &lt;charname&gt;,” says the Legatus, giving you an informal salute. “Lord Gaelius informed me that you're to assess the situation in Ganezzar. We'll do nothing until you return.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_GNZ_legatus_met = true;</string>
+        <string>aod.gnz_HA_start = false;</string>
+        <string>setWindowImage(gnz_hagnonTent);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Does Meru know?”</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Lord Meru has been informed and is waiting for you.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“How do I get into the city?”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“&lt;Master/Mistress&gt; &lt;charname&gt;,” says the Legatus, giving you an informal salute. “We didn't expect you.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_GNZ_legatus_met = true;</string>
+        <string>aod.gnz_HA_start = false;</string>
+        <string>setWindowImage(gnz_hagnonTent);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>addQuest(HA_ArriveGNZ);</string>
+        <string>aod.jnl_HA_ArriveGNZ = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"What happened?"</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Apparently, Meru's men were caught digging in the ruins they were supposed to stay clear of. I don't know if it's an excuse or not but that's the official story.
+
+“Since you're already here, talk to Meru, see if he's willing to negotiate. We'll do nothing until you return.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“How do I get into the city?”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“We're keeping our distance for now. The so-called 'faithful' are arriving daily. We turn back those who look like fighting men and let the rest enter the city. The more mouths Meru has to feed, the better.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.gnz_cityGate_HA = 1;</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

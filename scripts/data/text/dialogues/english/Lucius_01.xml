@@ -1,0 +1,480 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_tg3_talkLucius</string>
+      <string>aod.quest_tg3_atTheTavern &amp;&amp; aod.quest_tg3_talkLucius == false</string>
+      <string>aod.npc_lucius_played</string>
+      <string>aod.pc_member_thieves == false</string>
+      <string>aod.npc_lucius_met</string>
+    </conditions>
+    <links>
+      <int>19</int>
+      <int>13</int>
+      <int>12</int>
+      <int>6</int>
+      <int>4</int>
+    </links>
+    <dlg_name>Lucius_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Lucius</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Lucius is busy, shuffling three walnut shells while trying to engage a few men who have, obviously, never seen this game before.
+
+"Step up and watch the little ball. It costs you nothing to look. There you see it, and there you don't. Guess where the little joker is. The quickness of the hand deceives the eye."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(135, 58, 0, W);</string>
+        <string>dlgTeleportTo(134, 58, 0, E, 1110);</string>
+        <string>useCameraBookmark(NPC_Lucius_cam_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Play.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Lucius smiles, shuffles the shells with a surprising speed, then shows you his hands with spread fingers, indicating that the ball is on the table.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_lucius_met = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"You're too fast for me."</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[perception success]"The one on the right."</text>
+          <def_link>2</def_link>
+          <checkOnAppear>aod.per &gt;= 8</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Good eye, &lt;charname&gt;. I'm impressed. Here," he gives you a fancy dagger. "I won it yesterday. Easy come, easy go. It's bronze, but the edges are razor sharp and well tempered."</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItemlist(luciusdagger);</string>
+        <string>rwd_civil(TRN_LuciusGame);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Thanks, Lucius."</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Lucius smiles again and switches his attention to a well dressed man next to you.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Lucius is busy, shuffling three walnut shells while trying to engage a few men who have, obviously, never seen this game before.
+
+"Step up and watch the little ball. It costs you nothing to look. There you see it, and there you don't. Guess where the little joker is. The quickness of the hand deceives the eye."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(134, 58, 0, E, 1110);</string>
+        <string>dlgTeleportTo(135, 58, 0, W);</string>
+        <string>useCameraBookmark(NPC_Lucius_cam_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Lucius is busy, shuffling three walnut shells while trying to engage the tavern's patrons.
+
+"Step up and watch the little ball. It costs you nothing to look. There you see it, and there you don't. Guess where the little joker is. The quickness of the hand deceives the eye."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(134, 58, 0, E, 1110);</string>
+        <string>dlgTeleportTo(135, 58, 0, W);</string>
+        <string>useCameraBookmark(NPC_Lucius_cam_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Bet ten imperials.</text>
+          <def_link>7</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 10</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]"The ball stays on the table." Bet ten imperials.</text>
+          <def_link>10</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 2 &amp;&amp; dlgGetMoney() &gt;= 10</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Lucius is busy, shuffling three walnut shells while trying to engage the tavern's patrons.
+
+"Step up and watch the little ball. It costs you nothing to look. There you see it, and there you don't. Guess where the little joker is. The quickness of the hand deceives the eye."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(134, 58, 0, E, 1110);</string>
+        <string>dlgTeleportTo(135, 58, 0, W);</string>
+        <string>useCameraBookmark(NPC_Lucius_cam_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Lucius smiles and shuffles the shells with a surprising speed. "Which one?" he asks lazily.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_lucius_played = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"This one."</text>
+          <def_link>8</def_link>
+          <checkOnAppear>aod.per &lt; 9</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[perception success]"Between your fingers."</text>
+          <def_link>9</def_link>
+          <checkOnAppear>aod.per &gt;= 9</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Lucius lifts the shell indicating that the ball isn't there. "Better luck next time, friend," he says, as if almost regretting that you've lost your money.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-10);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Good eye, friend. I'm impressed. Here," he gives you a fancy dagger. "I won it yesterday. Easy come, easy go. It's bronze, but the edges are razor sharp and well tempered. No hard feelings, eh?"</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItemlist(luciusdagger);</string>
+        <string>rwd_civil(TRN_LuciusGame);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take the dagger and leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Lucius smiles, shuffles the shells with a surprising speed, then shows you his hands with spread fingers, indicating that the ball is on the table.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_lucius_played = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"This one."</text>
+          <def_link>8</def_link>
+          <checkOnAppear>aod.per &lt; 8</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[perception success]"This one."</text>
+          <def_link>11</def_link>
+          <checkOnAppear>aod.per &gt;= 8</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Good eye, friend. I'm impressed." He counts twenty imperials and gives them to you.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(20);</string>
+        <string>rwd_civil(TRN_LuciusGame);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Nervous?"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(135, 58, 0, W);</string>
+        <string>dlgTeleportTo(134, 58, 0, E, 1110);</string>
+        <string>useCameraBookmark(NPC_Lucius_cam_01);</string>
+        <string>aod.quest_tg3_talkLucius = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Not at all."</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Yes."</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Cockiness killed better men than you, &lt;charname&gt;. If you think that getting the gold out of Teron will be easy, you're in for a surprise."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Any advice?"</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You have a chance, otherwise Cado wouldn't have sent you. Now go and make the most out of it."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Any advice?"</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Avoid fighting if you can. The odds aren't in your favour."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"And if I can't?"</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.cha &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>17</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Thanks." Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[charisma success]"Then kill fast. Let me show you a knife trick..."</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeTraining(critical_strike, 5);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[charisma failure]"Then pray and hope that someone's listening."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Let Cado know when you're ready."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(135, 58, 0, W);</string>
+        <string>dlgTeleportTo(134, 58, 0, E, 1110);</string>
+        <string>useCameraBookmark(NPC_Lucius_cam_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

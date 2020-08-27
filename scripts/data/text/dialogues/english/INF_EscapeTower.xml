@@ -1,0 +1,205 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.fight_InfNightGuards</string>
+      <string>aod.inf_destroyed</string>
+      <string>aod.inf_failedThrowing</string>
+    </conditions>
+    <links>
+      <int>8</int>
+      <int>5</int>
+      <int>7</int>
+    </links>
+    <dlg_name>INF_EscapeTower</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The village is quiet and sleepy, except for a couple of guards lazily walking around.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Escape_NPC_Patrol_01, 5813);</string>
+        <string>dlgTeleportToMarker(TM_Escape_NPC_Patrol_02, 5814);</string>
+        <string>dlgAddItem(2125, 1);</string>
+        <string>dlgTeleportToMarker(TM_GuardMobSpot_01, 5812);</string>
+        <string>dlgTeleportToMarker(TM_GuardMobSpot_02, 5815);</string>
+        <string>aod.inf_holeUsedGrappling = 0;</string>
+        <string>dlgCam(330, 40, 9, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[sneak]Get past them.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.sneak &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Maybe their eyes are used to darkness, but they spot you the moment you take a few steps.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Escape_NPC_Fail_01, 5813);</string>
+        <string>dlgTeleportToMarker(TM_Escape_NPC_Fail_02, 5814);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_HoleEscape_PC_02);</string>
+        <string>removeCharFromParty(5813);</string>
+        <string>removeCharFromParty(5814);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way out.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addParty(nightGuards, 0);</string>
+        <string>addCharToParty(5813, nightGuards, fighter);</string>
+        <string>addCharToParty(5814, nightGuards, fighter);</string>
+        <string>addEnemyToParty(1, nightGuards);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.fight_InfNightGuards = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You walk past the guards without them noticing.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_HoleEscape_PC_03);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>if(aod.Inferiae_quest_reward == false) {rwd_quest(Inferiae_01); aod.Inferiae_quest_reward = true;}</string>
+        <string>if(aod.inf_sneakReward3 == false) rwd_civil(Sneak);</string>
+        <string>aod.inf_sneakReward3 = true;</string>
+        <string>dlgTeleportToMarker(TM_HoleGuardian_04, 5814);</string>
+        <string>dlgTeleportToMarker(TM_HoleGuardian_03, 5813);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - escaped</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>if(aod.inf_status == 2) {aod.inf_status = 4;}</string>
+        <string>dlgTeleportToMarker(TM_HoleGuardian_01, 5812);</string>
+        <string>dlgTeleportToMarker(TM_HoleGuardian_02, 5815);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>switchMission("RDM_DesertRoad_01.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The guards stand ready, waiting for you.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Escape_NPC_Wait_01, 5813);</string>
+        <string>dlgTeleportToMarker(TM_Escape_NPC_Wait_02, 5814);</string>
+        <string>removeCharFromParty(5813);</string>
+        <string>removeCharFromParty(5814);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way out.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The village smells of ozone, hot copper, and burned hair. You see nothing but corpses strewn around.</npc_text>
+      <onLoadScripts>
+        <string>if(aod.Inferiae_quest_reward == false) {rwd_quest(Inferiae_01); aod.Inferiae_quest_reward = true;}</string>
+        <string>INF_burst_killEveryone();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Explore the ghost village.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - explore</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The guards are dead. Now would be a good time to leave.</npc_text>
+      <onLoadScripts>
+        <string>aod.fight_InfNightGuards = 0;</string>
+        <string>if(aod.Inferiae_quest_reward == false) {rwd_quest(Inferiae_01); aod.Inferiae_quest_reward = true;}</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

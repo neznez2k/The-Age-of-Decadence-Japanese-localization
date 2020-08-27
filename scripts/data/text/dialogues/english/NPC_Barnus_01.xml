@@ -1,0 +1,279 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.pc_member_guards == 0</string>
+      <string>aod.npc_raenas_met == false</string>
+      <string>aod.npc_barnus_vote</string>
+      <string>aod.quest_CT_fought_raiders</string>
+      <string>aod.npc_barnus_met</string>
+    </conditions>
+    <links>
+      <int>12</int>
+      <int>11</int>
+      <int>10</int>
+      <int>9</int>
+      <int>1</int>
+    </links>
+    <dlg_name>NPC_Barnus_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Barnus</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It took me five years to prove that I was worthy enough to be a centurion,” says Centurion Barnus to the man next to him when you approach. “Five fucking years. I must be a slow-learner or something.
+
+“This article,” he says nodding at you, “is so good that &lt;he/she&gt; made the rank in a less than a month. I guess it’s all about who you know, eh?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_barnus_met = true;</string>
+        <string>dlgTeleportToMarker(TM_DLG_Barnus_NPC, 8007);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Barnus_PC);</string>
+        <string>dlgRotateToChar(1, 8013);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Maybe I am that good.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Changed your mind?”</npc_text>
+      <onLoadScripts>
+        <string>dlgRotateToChar(1, 8013);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Barnus_NPC, 8007);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Barnus_PC);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Let's do it.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear>aod.npc_barnus_sawRaiders == false &amp;&amp; aod.quest_CT_fought_raiders == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Let's do it.” Fight.</text>
+          <def_link>8</def_link>
+          <checkOnAppear>aod.npc_barnus_sawRaiders &amp;&amp; aod.quest_CT_fought_raiders == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgRotateToChar(8013, 8007);</string>
+        <string>dlgRotateToChar(8007, 8013);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Are you?” asks the centurion with a grin that spells trouble. “How about a small demonstration then? You against a couple of raiders. We were going to crucify them, but this will be more interesting.
+
+“We can call that a reenactment of the Harran’s Pass’ battle. An outnumbered Guard facing the scum of the wastes. So, how about it, Centurion? Are you game?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Absolutely.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I have better things to do.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Chicken shit,” says Barnus spitting on the ground and barely missing your sandals.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Go get your raiders.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Walk away.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The centurion barks an order and grins again. His men return shortly with four chained raiders and sacks with weapons and armor. They open one of the sacks and you see a glimmer of steel.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_barnus_sawRaiders = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Didn’t you say a couple of raiders?”</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What are four raiders for a mighty hero like you, &lt;charname&gt;? Unless, of course, you aren’t a mighty hero? We ain’t forcing you to fight, you know.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I'm ready.” Fight.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m not fighting for your amusement.” Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.quest_CT_fought_raiders = true;</string>
+        <string>CT_BarnusTest();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Well done, *Centurion*,” says Barnus with approval. “Welcome to Caer-Tor. I'll tell Raenas to go easy on you.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_CT01_votes = (aod.quest_CT01_votes + 1);</string>
+        <string>aod.npc_barnus_vote = true;</string>
+        <string>dlgTeleportToMarker(TM_DLG_Barnus_NPC, 8007);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Barnus_PC);</string>
+        <string>dlgRotateToChar(1, 8013);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Barnus gives you a quick nod and goes back to the conversation.</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>narratePhrase("Barnus gives you a quick nod and goes back to the conversation.");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - bark Raenas not met</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>sayPhrase(8007, "Not now, I'm busy.");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Look at this,” says Centurion Barnus to the man next to him when you approach. “The nobles started fighting again and suddenly, we're in high demand. Best fucking friends, eh?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

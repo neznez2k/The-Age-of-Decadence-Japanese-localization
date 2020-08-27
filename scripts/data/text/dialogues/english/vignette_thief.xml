@@ -1,0 +1,1115 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.vignette_thief_killedGuards</string>
+    </conditions>
+    <links>
+      <int>107</int>
+    </links>
+    <dlg_name>vignette_thief</dlg_name>
+    <def_link>89</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>カド</speaker_name>
+      <npc_text>Cado has been a thief ever since he could remember. Unlike many people who thought that stealing was a quick and easy way to make money, Cado believes that stealing is a job, and like any job it requires a lot of time and effort, rewarding hard work and dedication. Running a thieves guild in a small town is a difficult and dangerous occupation, and the guild was hit hard several times in the not so recent past. A few years ago the guildmaster was nailed to the guild's door, and Cado, who was next in line, has reluctantly accepted the duties and carefully navigated the local waters without attracting too much attention to the guild ever since.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Cado_Cam_01);</string>
+        <string>tgd_tg_door6.unlock();</string>
+        <string>addQuest(Map);</string>
+        <string>aod.quest_map_phase1 = true;</string>
+        <string>assignDialogue(cado_01, 1100);</string>
+        <string>dlgTeleportTo(139, 54, 0, S);</string>
+        <string>dlgRotateToChar(1100);</string>
+        <string>PG_HelpText_01.setVisible(false);</string>
+        <string>aod.jnl_vignette_thief = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Greet him.</text>
+          <def_link>72</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>89</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>"&lt;charname&gt;! Your timing is good. A merchant arrived into our friendly little town this morning. He is one of the free traders, which is the fastest way to end up dead these days. The Commercium has wasted no time hiring assassins to take care of him. They usually work at night, so you have time to pay the trader a visit before midnight and take everything. In the morning, the trader will be too busy being dead to worry about being robbed.
+
+"The trader is staying at the inn. It's dark enough already, so go there now. Don't forget, bring everything you take to me, and I'll pay you a fair share. Not the other way around, like last time. You hear me?"</npc_text>
+      <onLoadScripts>
+        <string>addJournalChar(cado);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Sure." Wait until midnight.</text>
+          <def_link>92</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'm the one doing all the work..."</text>
+          <def_link>73</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>72</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>"One last time... You are in the employ of the guild, &lt;charname&gt;. The guild looks after you, protects you, and enables you and many others to make a fucking living. This costs money. The guild maintains a vast network of people who pass information, warn when there is trouble, and often look the other way. This too costs money. Shipping what we take to other towns, where it won't raise any suspicions and get flagged as stolen, costs money. Are you getting the picture now?
+
+"The guild gives you jobs, you do them well and get your cut of the action. This is how we operate. You don't like it? Find something else for you to do. I hear that free trading is a job with a future."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Sure." Wait until midnight and go to the inn.</text>
+          <def_link>92</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Where does the name "Forty Thieves" come from?"</text>
+          <def_link>114</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>73</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Using numerous holes and rough patches as footholds, you easily climb the crumbling wall of the inn, reach the window and slip into the room.
+
+The soon to be dead trader is sleeping soundly. One of the inn's guards is 'resting his eyes' in a chair nearby. The object of your destination is a travel chest with a large antique lock.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgStealthPose(1);</string>
+        <string>useCameraBookmark(vignette_thief_cam_02);</string>
+        <string>aod.vignette_thief_chest = true;</string>
+        <string>dlgTeleportTo(12, 245, 0, E);</string>
+        <string>dlgShowNPCs();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lockpick]Pick the lock on the chest.</text>
+          <def_link>77</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lockpick &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>76</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>75</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]The lock is old and rusty. You insert a suitable pick and a tension wrench, and with an effort push all three rusty pins one by one. The lock makes a sound every time a pin falls into its place. The trader starts moving. You open the chest and the rusty hinges screech loudly. The trader jumps up, sees you and yells for help without any hesitation. You hear the sound of the guard's sword leaving its sheath and footsteps in the corridor. Things are about to get ugly.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAnimation(anim_dodge_back, 0.1);</string>
+        <string>dlgAddItemlist(vignette_thief);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Grab what you can from the chest and dive for the window.</text>
+          <def_link>83</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>77</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]The lock is old and rusty. You pull out a small vial of oil and patiently work the oil into the lock and the hinges. When you're satisfied with your efforts, you insert a suitable pick and a tension wrench, and start working. One by one, the pins yield and the lock clicks open.
+
+The trader doesn't have much, which is probably why he risked coming to Teron. Some clothes, a small leather bag – judging by its weight, less than a hundred imperials, food rations, a few iron bars, a short sword, and an old map carefully wrapped in a clean cloth.
+
+You transfer the chest's contents into your backpack.</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItemlist(vignette_thief);</string>
+        <string>rwd_civil(Lockpick);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take everything and leave.</text>
+          <def_link>83</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[steal]See if the trader has any valuables on him.</text>
+          <def_link>80</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.steal &gt;= 3 &amp;&amp; aod.per &gt;= 7</string>
+            <string>aod.steal &gt;= 3 &amp;&amp; aod.per &lt; 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>79</int>
+            <int>78</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>76</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Your clumsy attempt wakes the trader up. He yells for help; you hear the sound of the guard's sword leaving its sheath and the footsteps in the corridor. Things are about to get ugly.</npc_text>
+      <onLoadScripts>
+        <string>dlgteleportTo(12, 245, 0, SE);</string>
+        <string>dlgSetAnimation(anim_dodge_back, 0.1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Dive for the window.</text>
+          <def_link>83</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>80</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]A quick check under the pillow produces a small bag with several gems. Hardly a fortune, but a much better reward than the humble contents of the chest. You notice a ring on the trader's finger. A drop of oil works its magic again and the ring easily slides off the finger and disappears into one of your pockets. Your work here is done.</npc_text>
+      <onLoadScripts>
+        <string>dlgteleportTo(12, 245, 0, SE);</string>
+        <string>aod.vignette_thief_chest = false;</string>
+        <string>aod.vignette_thief_everything = true;</string>
+        <string>rwd_civil(Steal);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave quietly.</text>
+          <def_link>83</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>78</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success][perception success]A quick check under the pillow produces a small bag with several gems. Hardly a fortune, but a much better reward than the humble content of the chest. You notice a ring on the trader's finger. A drop of oil works its magic again and the ring easily slides off the finger and disappears into one of your pockets.
+
+You're almost done when you notice something carefully hidden in the trader's sash. It's a small metal sphere with grooves on its surface. It joins the ring in your pocket.</npc_text>
+      <onLoadScripts>
+        <string>dlgteleportTo(12, 245, 0, SE);</string>
+        <string>aod.vignette_thief_chest = false;</string>
+        <string>aod.vignette_thief_everything = true;</string>
+        <string>dlgAddItem(2110, 1);</string>
+        <string>rwd_civil(Steal);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave quietly.</text>
+          <def_link>83</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>79</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>"Back already? What did you get?"</npc_text>
+      <onLoadScripts>
+        <string>VCO_vignette_01.setActive(0);</string>
+        <string>VCO_vignette_02.setActive(0);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(NPC_Cado_Cam_01);</string>
+        <string>dlgTeleportTo(139, 54, 0, S);</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>dlgShowNPCs();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Show him what you took.</text>
+          <def_link>84</def_link>
+          <checkOnAppear>aod.vignette_thief_chest</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Show him what you took.</text>
+          <def_link>85</def_link>
+          <checkOnAppear>aod.vignette_thief_everything</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Show him what you took but keep the ring and the gems.</text>
+          <def_link>87</def_link>
+          <checkOnAppear>aod.vignette_thief_everything</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>83</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>"Bah! Why do I keep giving jobs to you, &lt;charname&gt;?" Cado pockets the money and pushes the rest back to you. "Here is your share. The map looks valuable. Show it to that old bastard Feng - he should give you something for it."</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(2100, 1);</string>
+        <string>dlgAddItem(2004, 2);</string>
+        <string>dlgAddItem(2003, 1);</string>
+        <string>dlgAddItem(1300, 1);</string>
+        <string>rwd_quest(vignetteThief);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Will do." Leave.</text>
+          <def_link>90</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Go to Feng, the loremaster.</text>
+          <def_link>91</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>87</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>"Bah! Why do I keep giving jobs to you, &lt;charname&gt;?" Cado pockets the money and pushes the rest back to you. "Here is your share. The map looks valuable. Show it to that old bastard Feng - he should give you something for it."</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(2100, 1);</string>
+        <string>rwd_quest(vignetteThief);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Will do." Leave.</text>
+          <def_link>90</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Go to Feng, the loremaster.</text>
+          <def_link>91</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>84</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>"Ah, &lt;charname&gt;! It is such a pleasure to deal with a &lt;man/woman&gt; who is actually good at our trade." Cado studies each gem with affection, then carefully puts them back in the bag. "The rest is yours. The map looks valuable. Show it to that old bastard Feng - he should give you something for it.
+
+"Wait, &lt;charname&gt;, I have something for you." He smiles and conjures a strange-looking pick with a sleight of his hand. "I paid a lot of money for it back in the day. Now it's yours." He throws it to you.</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(2100, 1);</string>
+        <string>dlgAddTextBoxMessage("Cado's pick is added to your collection of lockpicks.");</string>
+        <string>increaseSkillsLockpick(10);</string>
+        <string>rwd_quest(vignetteThief);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Thanks, Cado. I'll put it to good use." Leave.</text>
+          <def_link>90</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Thanks, Cado. I'll put it to good use." Go to Feng, the loremaster.</text>
+          <def_link>91</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>85</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - vignette</npc_text>
+      <onLoadScripts>
+        <string>aod.vignette_thief_tavern = false;</string>
+        <string>tgd_tg_door6.open();</string>
+        <string>dlgTeleportTo(137, 63, 0, N);</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>aod.quest_tg1_askAboutJob = true;</string>
+        <string>TeronDayTime();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>addQuest(TG1);</string>
+        <string>aod.quest_Tg1_phase1 = true;</string>
+        <string>aod.global_teron_vignette = false;</string>
+        <string>setAchievement("ACH_THIEF");</string>
+        <string>dlgCam(135, 45, 10, 1);</string>
+        <string>remQuest(VignetteThief);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>90</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go to Feng</npc_text>
+      <onLoadScripts>
+        <string>aod.vignette_thief_tavern = false;</string>
+        <string>dlgTeleportTo(159, 72, 0, N);</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>aod.quest_tg1_askAboutJob = true;</string>
+        <string>TeronDayTime();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>addQuest(TG1);</string>
+        <string>aod.quest_Tg1_phase1 = true;</string>
+        <string>aod.global_teron_vignette = false;</string>
+        <string>setAchievement("ACH_THIEF");</string>
+        <string>dlgCam(45, 45, 10, 1);</string>
+        <string>remQuest(VignetteThief);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>91</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You make your way to the inn, staying in the shadows and avoiding attention. Built by a wealthy trader from Ashkaan more than a century ago, the building has a rich past and witnessed many important events in Teron's history. It reached its peak of popularity when it was converted into a whorehouse, but the venture was short-lived. The current owners make an honest effort to protect their guests and ensure their safety, but business has to go on, and as far as the cemetery keeper is concerned, the inn is still his best client.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(vignette_thief_cam_01);</string>
+        <string>dlgTeleportTo(179, 91, 0, N);</string>
+        <string>dlgStealthPose(1);</string>
+        <string>TeronNightTime();</string>
+        <string>dlgHideNPCs();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[dexterity][strength]Climb the wall.</text>
+          <def_link>93</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>climbingCheck(14, 0)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>75</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[throwing]Use the rope.</text>
+          <def_link>94</def_link>
+          <checkOnAppear>dlgOwnsItem(2120)</checkOnAppear>
+          <checksOnClick>
+            <string>aod.throwing &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>95</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[sneak]Go inside and make your way upstairs without getting noticed.</text>
+          <def_link>98</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.sneak &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>99</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>92</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]The wall provides many easy handholds, but loose stones and crumbling plaster make climbing very challenging. A heavy fall discourages you from making any further attempts.</npc_text>
+      <onLoadScripts>
+        <string>aod.vignette_thief_climbFail = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[throwing]Use the rope.</text>
+          <def_link>94</def_link>
+          <checkOnAppear>aod.vignette_thief_throwingFail == false &amp;&amp; dlgOwnsItem(2120)</checkOnAppear>
+          <checksOnClick>
+            <string>aod.throwing &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>95</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[sneak]Go inside and make your way upstairs without getting noticed.</text>
+          <def_link>98</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.sneak &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>99</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>93</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You make a noose and throw the rope several times, aiming at one of the roof beams sticking out from the wall, but you fail to hit it.</npc_text>
+      <onLoadScripts>
+        <string>aod.vignette_thief_throwingFail = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[dexterity][strength]Climb the wall.</text>
+          <def_link>93</def_link>
+          <checkOnAppear>aod.vignette_thief_climbFail == false</checkOnAppear>
+          <checksOnClick>
+            <string>climbingCheck(14, 0)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>75</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[sneak]Go inside and make your way upstairs without getting noticed.</text>
+          <def_link>98</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.sneak &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>99</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>94</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You make a noose and throw the rope, aiming at one of the roof beams sticking out from the wall. The noose gracefully sails through the air and falls on the beam, tightening up around it as you pull.</npc_text>
+      <onLoadScripts>
+        <string>dlgRemoveItem(2120, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[dexterity][strength]Climb up.</text>
+          <def_link>111</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>climbingCheck(12, 1)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>96</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>95</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You grab the rope and start climbing. It doesn't take you long to reach the window and slip inside.
+
+The soon to be dead trader is sleeping soundly. One of the inn's guards is 'resting his eyes' in a chair nearby. The object of your destination is a travel chest with a large antique lock.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(12, 245, 0, E);</string>
+        <string>dlgStealthPose(1);</string>
+        <string>useCameraBookmark(vignette_thief_cam_02);</string>
+        <string>aod.vignette_thief_chest = true;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgShowNPCs();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lockpick]Pick the lock on the chest.</text>
+          <def_link>77</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lockpick &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>76</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>96</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You grab the rope, wrap it around your leg, and begin a slow ascent, pushing yourself up with your legs. It takes you a while to reach the window and slip inside.
+
+The soon to be dead trader is sleeping soundly. His sleep is protected by one of the inn's guards, who's resting his eyes in a chair. The object of your interest is a travel chest with a large antique lock.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(12, 245, 0, E);</string>
+        <string>dlgStealthPose(1);</string>
+        <string>useCameraBookmark(vignette_thief_cam_02);</string>
+        <string>aod.vignette_thief_chest = true;</string>
+        <string>dlgShowNPCs();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lockpick]Pick the lock on the chest.</text>
+          <def_link>77</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lockpick &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>76</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>111</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]宿は客でいっぱいだ。何週間も、時には何ヶ月も旅をしてきた彼らは、不健康なほどの欲求を抱いていた。彼らは安物のワインやストーブで調理された食事、そしてわずかな金でベッドを共にしてくれる女性を病的に求めている。
+
+Despite your best effort to blend in, you fail to escape the inn's guards' attention. They drag you outside and throw you to the ground, promising to break your legs if they catch you skulking there again. Getting up, you overhear the innkeeper telling the guards to check on the trader.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(185, 89, 0, S);</string>
+        <string>useCameraBookmark(vignette_thief_cam_04);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Now you have no choice but to climb the damn wall.</text>
+          <def_link>101</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>98</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]宿は客でいっぱいだ。何週間も、時には何ヶ月も旅をしてきた彼らは、不健康なほどの欲求を抱いていた。彼らは安物のワインやストーブで調理された食事、そしてわずかな金でベッドを共にしてくれる女性を病的に求めている。
+
+You move from one group of guests to another, doing your best to blend in with different groups and avoid attention of the inn's guards, until you find a good opportunity to slip upstairs.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(185, 116, 1, S);</string>
+        <string>useCameraBookmark(vignette_thief_cam_03);</string>
+        <string>rwd_civil(Sneak);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Find the trader's room.</text>
+          <def_link>100</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>99</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You find the right room without much trouble. The door is locked, but the lock is cheap and can be picked with a nail. You open the door and slip inside, then wait for a few heartbeats until your eyes get used to the darkness.
+
+The soon to be dead trader is sleeping soundly. One of the inn's guards is "resting his eyes" in a chair nearby. The object of your destination is a travel chest with a large antique lock.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(12, 245, 0, E);</string>
+        <string>dlgStealthPose(1);</string>
+        <string>useCameraBookmark(vignette_thief_cam_02);</string>
+        <string>aod.vignette_thief_chest = true;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgShowNPCs();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lockpick]Pick the lock on the chest.</text>
+          <def_link>77</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lockpick &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>76</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>100</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You go back around the building. Everything is still quiet, but there is a rope hanging from one of the roof beams. Must be the assassin.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(179, 94, 0, E);</string>
+        <string>useCameraBookmark(vignette_thief_cam_05);</string>
+        <string>dlgCreateCharacter("Gracius", 1170, 1170, 6, 247, 0, S);</string>
+        <string>dlgCreateCharacter("Guard", 1190, 1190, 5, 248, 0, SE);</string>
+        <string>dlgCreateCharacter("Assassin", 1200, 1200, 5, 245, 0, N);</string>
+        <string>dlgRotateToChar(1200, 1170);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[dexterity][strength]Climb up with the rope.</text>
+          <def_link>106</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>climbingCheck(12, 1)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>102</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>101</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You grab the rope and start climbing, quickly and effortlessly pulling yourself up. You reach the window in no time and slip inside, way ahead of the inn's guards.
+
+Looks like you've missed quite a party. Three people are dead. A merchant with a bolt in his chest – clean, professional work. An overzealous bodyguard with a gushing wound in his neck. An assassin hacked to pieces: his right arm almost severed at the elbow, his left hand missing some fingers. The bodyguard must have charged him, swinging his sword wildly, when he realized that he's dying anyway. There is nothing like fighting a man who knows that he's already dead, when concerns for his own life are no longer holding him back.
+
+You notice that the trader is clutching some parchment in his hand and take it, mostly out of curiosity. Perhaps, a loremaster might be of service. An old travel chest stands open. The trader didn't have much, which is probably why he risked coming to Teron. Some clothes, a small leather bag – judging by its weight, less than a hundred imperials, food rations, a few iron bars, and a short sword.
+
+The sound of footsteps in the corridor reminds you of the danger. You don't have much time left.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(5, 245, 0, NE);</string>
+        <string>useCameraBookmark(vignette_room_04);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgSetAnimation(anim_death_back04, 0.95, 1170);</string>
+        <string>dlgSetAnimation(anim_death_aimed_torso, 0.95, 1190);</string>
+        <string>dlgSetAnimation(anim_death_forward03, 0.95, 1200);</string>
+        <string>dlgKillCharacter(1170);</string>
+        <string>dlgKillCharacter(1190);</string>
+        <string>dlgKillCharacter(1200);</string>
+        <string>dlgShowNPCs();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Search the room for valuables and get out.</text>
+          <def_link>104</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>103</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Stay and fight. Surely you can handle a couple of guards-for-hire?</text>
+          <def_link>105</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>102</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[perception success]You find a small bag with several gems, a handful of coins – the guard's pay, and a ring that the trader probably won't have much use for anymore.
+
+You're almost done when you notice something carefully hidden in the trader's sash. It's a small metal sphere with grooves on its surface. You grab it, make for the window, and disappear into the night just as the door begins to open.</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(2110, 1);</string>
+        <string>aod.vignette_thief_everything = true;</string>
+        <string>aod.vignette_thief_chest = false;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgAddItemlist(vignette_thief);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Return to Cado.</text>
+          <def_link>83</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>103</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You find a small bag with several gems, a handful of coins – the guard's pay, and a ring that the trader probably won't have much use for anymore. Then, you make for the window, and disappear into the night just as the door begins to open.</npc_text>
+      <onLoadScripts>
+        <string>aod.vignette_thief_chest = false;</string>
+        <string>aod.vignette_thief_everything = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgAddItemlist(vignette_thief);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Return to Cado.</text>
+          <def_link>83</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>104</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - guards</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>aod.vignette_thief_killedGuards = true;</string>
+        <string>dlgCreateCharacter("Guard", 1195, 1195, 5, 249, 0, S);</string>
+        <string>dlgCreateCharacter("Guard", 1196, 1196, 6, 249, 0, S);</string>
+        <string>addParty(innGuardVignette, 0);</string>
+        <string>addCharToParty(1195, innGuardVignette, fighter);</string>
+        <string>addCharToParty(1196, innGuardVignette, fighter);</string>
+        <string>setRtsCam();</string>
+        <string>addEnemyToParty(1, innGuardVignette);</string>
+        <string>aod.vignette_thief_everything = true;</string>
+        <string>aod.fight_vignette_thief = true;</string>
+        <string>schedule(500, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>105</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You grab the rope, wrap it around your leg, and begin a slow ascent, pushing yourself up with your legs. It takes you a while to reach the window and slip inside, barely ahead of the inn's guards.
+
+Looks like you've missed quite a party. Three people are dead. A merchant with a bolt in his chest – clean, professional work. An overzealous bodyguard with a gushing wound in his neck. An assassin hacked to pieces: his right arm almost severed at the elbow, his left hand missing some fingers. The bodyguard must have charged him, swinging his sword wildly, when he realized that he's dying anyway. There is nothing like fighting a man who knows that he's already dead, when concerns for his own life are no longer holding him back.
+
+You notice that the trader is clutching some parchment in his hand and take it to study it later. Perhaps, a loremaster might be of service. An old travel chest stands open. The trader didn't have much, which is probably why he risked coming to Teron. Some clothes, a small leather bag – judging by its weight, less than a hundred imperials, food rations, a few iron bars, and a short sword.
+
+You hear the sound of a key turning in the lock. You are out of time!</npc_text>
+      <onLoadScripts>
+        <string>aod.vignette_thief_chest = true;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(vignette_room_04);</string>
+        <string>dlgTeleportTo(5, 245, 0, NE);</string>
+        <string>dlgSetAnimation(anim_death_back04, 0.95, 1170);</string>
+        <string>dlgSetAnimation(anim_death_aimed_torso, 0.95, 1190);</string>
+        <string>dlgSetAnimation(anim_death_forward03, 0.95, 1200);</string>
+        <string>dlgKillCharacter(1170);</string>
+        <string>dlgKillCharacter(1190);</string>
+        <string>dlgKillCharacter(1200);</string>
+        <string>dlgShowNPCs();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Grab what you can from the chest and dive for the window.</text>
+          <def_link>83</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgAddItemlist(vignette_thief);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Stay and fight. Surely you can handle a couple of guards-for-hire?</text>
+          <def_link>105</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>106</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Go back to the guild?</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(5, 249, 0, N);</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>useCameraBookmark(vignette_room_cam_06);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Search the room for valuables and get out.</text>
+          <def_link>119</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>120</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Not yet.</text>
+          <def_link>113</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>107</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You find a small bag with several gems, a handful of coins – the guard's pay, and a ring that the trader probably won't have much use for anymore.</npc_text>
+      <onLoadScripts>
+        <string>aod.vignette_thief_chest = false;</string>
+        <string>aod.vignette_thief_everything = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgAddItemlist(vignette_thief);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Return to Cado.</text>
+          <def_link>112</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>119</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[perception success]You find a small bag with several gems, a handful of coins – the guard's pay, and a ring that the trader probably won't have much use for anymore.
+
+You're almost done when you notice something carefully hidden in the trader's sash. It's a small metal sphere with grooves on its surface.</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(2110, 1);</string>
+        <string>aod.vignette_thief_everything = true;</string>
+        <string>aod.vignette_thief_chest = false;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgAddItemlist(vignette_thief);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take the sphere and return to Cado.</text>
+          <def_link>112</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>120</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>"Are you out of your fucking mind, &lt;charname&gt;? Did you confuse this job with raiding and pillaging? You go in, take what you can, leave as if you were never there. Never there, &lt;charname&gt;...
+
+"What did you get?" he asks, calming down.</npc_text>
+      <onLoadScripts>
+        <string>VCO_vignette_01.setActive(0);</string>
+        <string>VCO_vignette_02.setActive(0);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(NPC_Cado_Cam_01);</string>
+        <string>dlgTeleportTo(139, 54, 0, S);</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>dlgShowNPCs();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Show him what you took.</text>
+          <def_link>109</def_link>
+          <checkOnAppear>aod.vignette_thief_everything</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Show him what you took but keep the ring and the gems.</text>
+          <def_link>87</def_link>
+          <checkOnAppear>aod.vignette_thief_everything</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>112</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>"Not bad." Cado studies each gem with affection, then carefully puts them back in the bag. "The rest is yours. The map looks valuable. Show it to that old bastard Feng - he should give you something for it.</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(2100, 1);</string>
+        <string>rwd_quest(vignetteThief);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Will do." Leave.</text>
+          <def_link>90</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Will do." Go to Feng, the lorermaster.</text>
+          <def_link>91</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>109</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - inn</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>113</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>"Where does anything come from? The olden days. It's all about prestige. Everyone wants to show that we were *there*, that our blood is noble. As if anyone really cares.
+
+"The way the story goes, ours is the oldest profession. What one man has, be it jewels, gold, or a shiny stone, another man wants. Such is the way of the world. And as this world grew, so too did we. We banded together, wrote our own laws, chose our leaders. We created a society within a society. We had our wars, of course – some differences can only be resolved with blood. We grew until there was one man controlling each city and forty men controlling the shadow society of the Empire."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_cado_fortyThieves = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"What happened then?"</text>
+          <def_link>115</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>114</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>"The War. Everything turned to shit. All we were left with was the name."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"What do you know about the war?"</text>
+          <def_link>116</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>115</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>"The same thing everyone knows. There was a war with some devils from across the sea. That was the end of everything.
+
+"Now, stop wasting my time and go get ready."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Sure." Wait until midnight and go to the inn.</text>
+          <def_link>92</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>116</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

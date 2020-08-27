@@ -1,0 +1,284 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>ZGT_Reactor</dlg_name>
+    <def_link>9351</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You’re standing in front of a strange machine. At some point the device was badly damaged. Someone made an attempt to repair it, in a slipshod sort of way, and it's still functioning now. A humming noise rises and falls at regular intervals.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(reactor_1);</string>
+        <string>dlgTeleportToMarker(TM_Reactor);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lore]Examine it.</text>
+          <def_link>9352</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lore &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9354</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>9353</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9351</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You examine it closely but find nothing familiar.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>9353</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9352</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9353</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]The machine is an unusual species of generator. Judging by its size and the variety of outputs, you determine that it was originally the power source for the entire ziggurat. Whoever patched it up re-routed all power flow to the inner chamber. Even if the ziggurat itself crumbles to dust, the inner chamber and its life support systems will continue to be powered indefinitely.
+
+During the next cycle, the humming noise rises higher than before and the machine produces an unnerving blue glow. You take a step back, but a compensating protocol averts the crisis. The glow subsides and the humming falls sharply... only to start rising again a moment later.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[crafting]Even an idiot could overload the thing. Whether you would live to see the result is another matter.</text>
+          <def_link>9355</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.crafting &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9356</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>9353</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9354</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You wouldn’t even know where to start.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>9353</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9355</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]If you disable the breakers, the power will keep building until it achieves critical mass. When it does it would be prudent to be standing behind a sturdy wall at least three miles away.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[lore][crafting]Give it a shot. What do you have to lose after all?</text>
+          <def_link>9357</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.lore + aod.crafting) &gt;= 18</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9359</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>9353</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9356</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You mistakenly grasp one of the connections before disabling its accompanying breaker and become a living conduit. For a brief instant, power overwhelms you, swirling around you like a maelstrom. You feel the urge to annihilate, obliterate, eradicate everything in your path. Shortly thereafter your smouldering corpse topples to the ground.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetAnimation(anim_death_back00, 0.95);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Rest in peace.</text>
+          <def_link>9358</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9357</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9358</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You remove the cover, awakening the spirits residing within the machine. Your skin prickles as you feel their hot breath, and burning spots blossom where they touch you. You feel weak and disoriented.
+
+A nagging voice in your head warns that if you continue the spirits will consume you.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Too late to turn back.</text>
+          <def_link>9360</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Put the cover back.</text>
+          <def_link>9353</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9359</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Muttering incantations against the spirits in the machine, you trace and disable all the breakers.
+
+The humming noise rises again, to a painful pitch, and the blue glow around the machine grows blindingly bright. The droning noise continues to rise and your nausea grows stronger with it until you bend over to vomit. You're dizzy all of a sudden, but you manage to keep your feet. It takes you several moments to locate the door.
+
+A massive electrical discharge punches through the wall not far from where you’re standing. It’s time to leave.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Run.</text>
+          <def_link>9361</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9360</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You flinch back, eyes stinging, from the flash of detonation as a miniature sun consumes the ziggurat and everything in the valley. The towering, mushroom-shaped cloud signals to everyone the annihilation of the temple and the just reward awaiting those who invoke the gods’ wrath.
+
+You fall to the ground and vomit, blood mixing with bile in your mouth. After a few minutes the convulsions subside. It was an inopportune time to contract a stomach illness, but you're certain it's nothing a good healer can’t fix.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>setWindowImage(zgt_nuke_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9362</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.alk_ritual_performed</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9363</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9361</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.ending_men = 1;</string>
+        <string>aod.npc_agathoth_dead = 1;</string>
+        <string>SS_start("temple_ending", "disconnect();");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9362</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go to Balzaar</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.npc_agathoth_dead = 1;</string>
+        <string>switchMission("END_Balzaar.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9363</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

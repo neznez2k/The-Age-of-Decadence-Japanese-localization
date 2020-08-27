@@ -1,0 +1,430 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_dariusTomb_openSarc</string>
+      <string>aod.lore &gt;= 5</string>
+    </conditions>
+    <links>
+      <int>3468</int>
+      <int>3451</int>
+    </links>
+    <dlg_name>Quest_DariusTomb_03</dlg_name>
+    <def_link>3450</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>It’s a heavy old sarcophagus covered with dust. You wipe it off and see rows of strange symbols carved into the sides of the sarcophagus. You have no idea what they say.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_PC_Chamber_01);</string>
+        <string>dlgCam(150, 45, 10);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Open the sarcophagus.</text>
+          <def_link>3455</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_dariusTomb_raidersDead == false</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3453</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3450</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[lore success]It’s a heavy old sarcophagus covered with dust. You wipe it off and see rows of symbols carved into the sides of the sarcophagus. It seems to be a mixture of different archaic dialects – a simple language that had evolved in the mercenary camps in the southern region.
+
+The language is hard to understand due to the heavy use of slang and words borrowed from other languages and used incorrectly, but you get the gist of it.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_PC_Chamber_01);</string>
+        <string>dlgCam(150, 45, 10);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>3452</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3451</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The inscription tallies up Darius’ life’s score, measuring it in battles won, people killed, slaves captured, and other equally important accomplishments. It says that the gods have honoured Darius by giving him a gift – a helmet that offered him a great destiny, and that Darius, who had become a pious man, had pursued his destiny and built a great army for this very purpose.
+
+Yet the destiny was stolen from him and he died before completing his life’s work. Being fearful of the gods, his men dared not touch the helmet and buried it with Darius, entrusting him to return the helmet to the gods in his afterlife. The text makes a reference to the holy altars that Darius recovered earlier while chasing his destiny. It looks like his men feared the altars even more than they feared the helmet, so they buried them with Darius as well – seems like a good way to get rid of anything you don’t want.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Open the sarcophagus.</text>
+          <def_link>3455</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_dariusTomb_raidersDead == false</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3453</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3452</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Raider</speaker_name>
+      <npc_text>“Keep your hands to yourself,” says the raider you talked to earlier. “It’s our tomb, in case you have short memory, so everything in it belongs to us.” He pushes you aside and walks toward the sarcophagus.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_NPC_Chamber_01, 5045);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Chamber_02, 5046);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Chamber_03, 5047);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Chamber_04, 5048);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Chamber_05, 5049);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Chamber_06, 5050);</string>
+        <string>dlgRotateToChar(5045);</string>
+        <string>dlgCam(160, 45, 11);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill them all.</text>
+          <def_link>3454</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][charisma]“I work for lord Gaelius. He wants a helmet that’s inside this sarcophagus. The rest is yours. You can do the smart thing and hand me the helmet, or you can do the dumb thing and keep it. If you keep it, the helmet will drive you mad, for it’s a dangerous artefact, and lord Gaelius will simply hunt you down, until he gets what he wants.”</text>
+          <def_link>3457</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.cha) &gt;= 11</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3458</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“The gold is in these two chests,” point at the ‘altars’.</text>
+          <def_link>3459</def_link>
+          <checkOnAppear>aod.lore &gt;= 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3453</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - inside</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_dariusTomb_raidersDead = true;</string>
+        <string>aod.quest_dariusTomb_openSarc = true;</string>
+        <string>addEnemyToParty(1, DariusTomb_Raiders);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.death_darius_tomb = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3454</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You push the lid aside and look inside. You see a mummified corpse, wearing a blue steel cuirass and a strange, unadorned helmet made of grey metal, his hands are on a pommel of a two handed sword, completely rusted through.
+
+On an impulse, you take the helmet and put it on. You don’t feel any different, and then the noise comes in. Strangely enough, it’s similar to what you hear when you put a sea shell to your ear. Then you hear the voice. It’s strange and distant, as if coming over a great distance. It says one word – Ganezzar.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_PC_Chamber_01);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.quest_dariusTomb_tombLooted = true;</string>
+        <string>dlgAddItemlist(dariusTombCuirass);</string>
+        <string>dlgAddItem(2170, 1);</string>
+        <string>aod.jnl_HA1_phase4 = true;</string>
+        <string>aod.ending_mdn_character_dariusHelmet = true;</string>
+        <string>dlgCam(145, 45, 9);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Return to Maadoran.</text>
+          <def_link>3465</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3456</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3455</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You push the lid aside and look inside. You see a mummified corpse, wearing a blue steel cuirass and a strange, unadorned helmet made of grey metal, his hands are on a pommel of a two handed sword, completely rusted through.
+
+On an impulse, you take the helmet and put it on. You don’t feel any different, and then the noise comes in. Strangely enough, it’s similar to what you hear when you put a sea shell to your ear. Then you hear the voice. It’s strange and distant, as if coming over a great distance. It says one word – Ganezzar.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_PC_Chamber_01);</string>
+        <string>aod.quest_dariusTomb_tombLooted = true;</string>
+        <string>dlgAddItemlist(dariusTombCuirass);</string>
+        <string>dlgAddItem(2170, 1);</string>
+        <string>aod.jnl_HA1_phase4 = true;</string>
+        <string>aod.ending_mdn_character_dariusHelmet = true;</string>
+        <string>dlgCam(145, 45, 9);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Return to Maadoran.</text>
+          <def_link>3465</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>3456</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3468</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - inside</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3456</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Raider</speaker_name>
+      <npc_text>[failure]“Hah!” laughs the raider. “I think you’re trying to scare us with your stories. Do you believe us to be fools? You think to scare me with a helmet? With some lord of yours? Now, this is how you scare a man,” he grabs an axe and takes a step toward you.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>3454</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3457</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Raider</speaker_name>
+      <npc_text>[success]“Alright,” says the raider. “Take the helmet and get out.”
+
+You push the lid aside and look inside. You see a mummified corpse, wearing a blue steel cuirass and a strange, unadorned helmet made of grey metal, his hands are on a pommel of a two handed sword, completely rusted through.
+
+On an impulse, you take the helmet and put it on. You don’t feel any different, and then the noise comes in. Strangely enough, it’s similar to what you hear when you put a sea shell to your ear. Then you hear the voice. It’s strange and distant, as if coming over a great distance. It says one word – Ganezzar.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_dariusTomb_getCuirass = true;</string>
+        <string>dlgAddItem(2170, 1);</string>
+        <string>aod.jnl_HA1_phase4 = true;</string>
+        <string>aod.ending_mdn_character_dariusHelmet = true;</string>
+        <string>rwd_civil(Darius_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Return to Maadoran.</text>
+          <def_link>3465</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>On second thought, you really want that cuirass. Kill them all.</text>
+          <def_link>3454</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3458</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The raiders rush toward the ‘altars’ and look for a way to open them. Suddenly, the altars hum like giant insects. You hear a strange sound and two raiders slowly fall to the ground. Another raider touches the ‘altar’ – you hear that sound again – and he too falls down bleeding from his ears.
+
+The raider next to you whirls around you, his axe poised to strike.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_NPC_Altar_01, 5049);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Altar_02, 5046);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Altar_03, 5047);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Chamber_02, 5048);</string>
+        <string>dlgTeleportToMarker(TM_NPC_Chamber_03, 5050);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetCombatAnimation(5045);</string>
+        <string>dlgSetCombatAnimation(5048);</string>
+        <string>dlgSetCombatAnimation(5050);</string>
+        <string>dlgSetAnimation(anim_death_forward01, 0.95, 5046);</string>
+        <string>dlgSetAnimation(anim_death_back00, 0.95, 5049);</string>
+        <string>dlgSetAnimation(anim_death_back03, 0.95, 5047);</string>
+        <string>dlgUnequipHands(5046);</string>
+        <string>dlgUnequipHands(5047);</string>
+        <string>dlgUnequipHands(5049);</string>
+        <string>dlgKillCharacter(5046);</string>
+        <string>dlgKillCharacter(5047);</string>
+        <string>dlgKillCharacter(5049);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Three down, three to go. Kill them.</text>
+          <def_link>3454</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][impersonate]“Lower your weapons! The power of this tomb is mine to command now. I spared you, but don’t mistake my kindness for weakness. Kneel if you want to live!”</text>
+          <def_link>3460</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.disguise) &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3461</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3459</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]It could have worked, but your voice quaked, ruining the overall effect. The raider spits at your feet and raises his axe.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>3454</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3460</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Raider</speaker_name>
+      <npc_text>[success]The raiders step back, making signs to ward off evil spirits, and look at you with fear. Slowly, they kneel, waiting for further instructions. You gesture for them to rise.
+
+“What are you going to do, &lt;master/mistress&gt;?” asks one of the raiders.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAmbientAnimation(5045);</string>
+        <string>dlgSetAmbientAnimation(5048);</string>
+        <string>dlgSetAmbientAnimation(5050);</string>
+        <string>rwd_civil(Darius_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Thy dead men shall live, their bodies will rise again. Those who dwell in the dust will awaken and serve me for all eternity.”</text>
+          <def_link>3462</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3461</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Raider</speaker_name>
+      <npc_text>“Your art is dark, &lt;master/mistress&gt;,” says the raider, swallowing hard and looking at the bodies on the ground, as if expecting them to start rising at any moment.
+
+“What do you want us to do?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Leave for now – when they rise, they will be hungry and difficult to control. I will call for you when it’s safe to return, fear not.”</text>
+          <def_link>3463</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3462</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The raiders thank you and promptly leave the tomb. You doubt you will ever see them again.</npc_text>
+      <onLoadScripts>
+        <string>dlgDeleteCharacter(5045);</string>
+        <string>dlgDeleteCharacter(5048);</string>
+        <string>dlgDeleteCharacter(5050);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.quest_dariusTomb_raidersDead = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Open the sarcophagus.</text>
+          <def_link>3455</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3463</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - return to Maadoran</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>switchMission("Maadoran.mis");</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3465</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

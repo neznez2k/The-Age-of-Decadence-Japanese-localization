@@ -1,0 +1,185 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Quest_TG2_Ring_01</dlg_name>
+    <def_link>1131</def_link>
+    <def_speaker_name>Merchant</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Do you have business with us?" inquires the merchant politely.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(139, 109, 0, W, 1954);</string>
+        <string>dlgTeleportTo(138, 109, 0, E);</string>
+        <string>useCameraBookmark(quest_tg2_ring_03);</string>
+        <string>dlgRotateToChar(1954);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][impersonate]"I'm about to go on a lengthy trip, but traveling with a large sum of money is very dangerous these days. So, it occurred to me that entrusting the money to the Commercium in exchange for a proper note..."</text>
+          <def_link>1135</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.disguise + aod.streetwise) &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1136</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1140</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1131</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You fail to create the right impression and vibe, and the merchant suggests to bring in your money when you're ready.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAnimation(anim_talk_apologize, 0.75, 1954);</string>
+        <string>dlgSetAnimation(anim_talk_explain_02, 0.15);</string>
+        <string>dlgUnequipHands(1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Return to Cado.</text>
+          <def_link>1127</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1135</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"How much are we talking about?" the merchant smiles expectantly.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAnimation(anim_talk_crossed_agree, 0.5, 1954);</string>
+        <string>dlgSetAnimation(anim_talk_explain_02, 0.15);</string>
+        <string>dlgUnequipHands(1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Almost ten thousand imperials. My father is buying some property in Maadoran."</text>
+          <def_link>1137</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1136</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Of course, I understand." The merchant's smile grows wider. "We'll be honoured to assist you in every way possible."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[steal]It's time to get the ring.</text>
+          <def_link>1138</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.steal &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1139</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1137</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You feed the merchant more bullshit, make all the necessary arrangements, then shake his hand enthusiastically, putting your other hand on top. Lulled by the unexpected fortune, the merchant pays no attention to his hand. Unfortunately, your attempt to remove the ring is too clumsy.
+
+"Thief!" yells the enraged merchant, summoning the guards.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAnimation(anim_dodge_back, 0.1, 1954);</string>
+        <string>dlgSetAnimation(anim_civ_take, 0.75);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Run.</text>
+          <def_link>1127</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1138</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You feed the merchant more bullshit, make all the necessary arrangements, then shake his hand enthusiastically, putting your other hand on top. Lulled by the unexpected fortune, the merchant pays no attention to his hand and fails to notice that his ring changed owners.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg2_gotRing = true;</string>
+        <string>dlgSetAnimation(anim_civ_give, 0.5, 1954);</string>
+        <string>dlgSetAnimation(anim_civ_take, 0.5);</string>
+        <string>aod.quest_tg2a_phase2 = true;</string>
+        <string>dlgAddItem(1335);</string>
+        <string>rwd_civil(Steal);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Return to Cado.</text>
+          <def_link>1127</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1139</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - delete merchant</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgSetZoom(10);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportTo(137, 68, 0, S);</string>
+        <string>dlgDeleteCharacter(1954);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1127</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgSetZoom(10);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetAmbientAnimation(1954);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1140</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

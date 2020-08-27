@@ -1,0 +1,555 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_calvus_dead</string>
+    </conditions>
+    <links>
+      <int>7</int>
+    </links>
+    <dlg_name>NPC_Calvus_01</dlg_name>
+    <def_link>20</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>This seems to be the Calvus residence. The youth who gave you the exploding package will be overjoyed to see you.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_QST_Package_Calvus_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go inside.</text>
+          <def_link>0</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Not yet.</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Youth</speaker_name>
+      <npc_text>“You? How?” asks the youth, turning pale.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Quest_Package_03);</string>
+        <string>VCO_CalvusHome.setActive(false);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“How did I survive your little surprise, you mean? I got lucky. You, on the other hand...”</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Lord Calvus</speaker_name>
+      <npc_text>“What’s going on here?” demands an imposing man in his sixties. “Explain yourself!”</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Quest_Package_02);</string>
+        <string>createByCharMarker("CM_Calvus");</string>
+        <string>dlgTeleportToMarker(TM_Quest_Package_04, 5250);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Tell him what happened.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Lord Calvus</speaker_name>
+      <npc_text>The old man cringes, then suddenly back-hands his son, sending him to the floor. “I apologize,” he says in a tone that suggests that the matter is now closed. “I trust that four hundred imperials will be sufficient for your inconvenience.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“He killed a man and almost got me killed.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Take the money and leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - left peacefully</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.jnl_package_phase5 = true;</string>
+        <string>rwd_quest(MDN_Package_03);</string>
+        <string>dlgTeleportToMarker(TM_QST_Package_Calvus_08);</string>
+        <string>dlgDeleteCharacter(5250);</string>
+        <string>dlgDeleteCharacter(5252);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Lord Calvus</speaker_name>
+      <npc_text>“He killed a thug who dared to threaten him – the only thing my son has done that I approve of. The gambling debt he will have to answer for. As for you, I suggest to mind your own business in the future. None of it would have happened had you not gotten involved.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“And if I don’t see it this way?”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You're right.” Take the money and leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Lord Calvus</speaker_name>
+      <npc_text>“I have guards,” gestures the old man. “Even if you manage to overcome them somehow and take my son’s life, then what? You will be hunted and killed! Over what? Be reasonable – take the money and leave.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Justice must be served!” Kill the son.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Take the money and leave.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.npc_calvus_dead = true;</string>
+        <string>addParty(CalvusHome, 0);</string>
+        <string>addCharToParty(5250, CalvusHome, fighter);</string>
+        <string>addCharToParty(5252, CalvusHome, fighter);</string>
+        <string>addEnemyToParty(1, CalvusHome);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>aod.fight_calvusHome_01 = true;</string>
+        <string>aod.jnl_package_phase6 = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Your quest for justice in this harsh world is almost at the end.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_QST_Package_Calvus_07);</string>
+        <string>rwd_quest(MDN_Package_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Loot the bodies.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Flee before the guards show up.</text>
+          <def_link>24</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>You finish redistributing the wealth, when the door bursts open and several guards rush inside.
+
+“Lord Calvus is dead,” observes one of the guards. “His son too. Fuck, it's a bloodbath. What happened here?”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_QST_Package_Calvus_06);</string>
+        <string>dlgAddItemlist(CalvusLoot);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>createByCharMarker("CM_CalvusGuard_01");</string>
+        <string>createByCharMarker("CM_CalvusGuard_02");</string>
+        <string>createByCharMarker("CM_CalvusGuard_03");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[praetor]“I am a praetor of House Aurelian. I've uncovered a plot againt our Lord and executed the traitor.”</text>
+          <def_link>19</def_link>
+          <checkOnAppear>aod.pc_member_aurelian</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[guard]“Every now and then you have to remind people that fucking with the Imperial Guards is not a good idea. So, are we good or do you need a reminder too?”</text>
+          <def_link>17</def_link>
+          <checkOnAppear>aod.pc_member_guards</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“His son almost got me killed. He had to pay.”</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]“The son couldn't wait for his father to die any longer and decided to take the matter into his own hands. In the ensuing battle they killed each other. It's a real tragedy.”</text>
+          <def_link>8</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I'm working for Lord Gaelius.”</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>“That's a very expensive story,” says the guard. “It would take a lot of coins to make it stick. At least 3,000 imperials.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay 3,000 imperials.</text>
+          <def_link>14</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 3000</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I don't have the money.”</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>“Just throw &lt;him/her&gt; out,” says another guard. “&lt;He/She&gt; won't last long on &lt;his/her&gt; own.”
+
+“You hear that? You're expelled from this city. If you come back, we'll kill you. You got that?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave the city.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING - exiled</npc_text>
+      <onLoadScripts>
+        <string>aod.mdn_expelled = true;</string>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>leaveMaadoran(Ganezzar);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>“I'm not sure you're grasping how serious your situation is,” says the guard. “You're looking at the cross here, buddy. A thousand will get you off the cross and out of the city. For good, I mean. Three thousand will buy you a way out of this mess.
+
+“So, think about and tell me what you prefer.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I don't have the money.”</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Pay 1,000 imperials.</text>
+          <def_link>16</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 1000</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Pay 3,000 imperials.</text>
+          <def_link>14</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 3000</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>“A lot of people do. Doesn't give them an excuse to kill people willy-nilly, does it? Would be an awful mess if it did.
+
+“You're looking at the cross here, buddy. A thousand will get you off the cross and out of the city. For good, I mean. Three thousand will buy you a way out of this mess.
+
+“So, think about and tell me what you prefer.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I don't have the money.”</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Pay 1,000 imperials.</text>
+          <def_link>16</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 1000</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Pay 3,000 imperials.</text>
+          <def_link>14</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 3000</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>“The cross then,” nods the guard. “Alright, have it your way.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>“Stay out of trouble, citizen.”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-3000);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - outside house</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgTeleportToMarker(TM_QST_Package_Calvus_08);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>“Have it your way. So, you've been convicted of a crime and thereby expelled from our more than fair city. If you come back, we'll kill you. You got that?”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-1000);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave the city.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>“You can go, but Pavola's gonna hear about this shit.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(Calvus_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>“Um, good job?” says the guard, looking around skeptically.</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(Calvus_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - escape</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_QST_Package_Calvus_09);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>24</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

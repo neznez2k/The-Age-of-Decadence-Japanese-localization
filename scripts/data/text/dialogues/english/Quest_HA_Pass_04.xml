@@ -1,0 +1,155 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.fight_haPass_win</string>
+    </conditions>
+    <links>
+      <int>3</int>
+    </links>
+    <dlg_name>Quest_HA_Pass_04</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Bass</def_speaker_name>
+    <def_portrait>Bass</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>The pass has changed in your absence. The towers are gone, replaced by a crude catapult and wooden barricades in front of the stone walls. The barricades don’t block the approach, but create a narrow corridor. The men look less like brigands and more like soldiers.
+
+They recognize you and raise the stone block serving as gate, letting you in. After telling you how lucky you are to make it back in one piece and asking if you’ve seen any Ordu, they take you to see Centurion Bass.</npc_text>
+      <onLoadScripts>
+        <string>setWindowImage(pass_siege_intro_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>The pass has changed in your absence. The towers are gone, replaced by a crude catapult and wooden barricades in front of the stone walls. The barricades don’t block the approach, but create a narrow corridor. The men look less like brigands and more like soldiers.
+
+They recognize you and raise the stone block serving as gate, letting you in while taking aim at you. After telling you how stupid you are to return after killing their comrades, they take you to see Centurion Bass.</npc_text>
+      <onLoadScripts>
+        <string>setWindowImage(pass_siege_intro_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Bass</portrait>
+      <speaker_name>Bass</speaker_name>
+      <npc_text>Bass is going over some scrolls – as far as you can tell the subject is alchemy. The crates with the black powder and several clay pots are sitting on the floor nearby.
+
+“So, you were the messenger,” says Bass matter-of-factly. “I got another missive not an hour after you slipped through my fingers. Of course, I didn’t expect to see you ever again, but sometimes the gods are kind.”
+
+He gestures to the guards standing behind you. “Chain &lt;him/her&gt; and let’s get started.”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Bass_PC_01);</string>
+        <string>dlgCam(115, 40, 6, 4410);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setWindowImage();</string>
+        <string>aod.fight_haPass_win = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Die with dignity.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Show him Senna's letter.</text>
+          <def_link>5</def_link>
+          <checkOnAppear>dlgOwnsItem(2200)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You fight determined not to be taken alive and take a couple of men with you. You manage to kill one before you're hacked to pieces.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Rest in peace.</text>
+          <def_link>24</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I see," says Bass thoughtfully. "You're free to go. My regards to Lord Senna."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_HA_pass_leftOrdu = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Return to Maadoran.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Maadoran without army</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_HA_pass_fromPass = true;</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>switchMission("Maadoran.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

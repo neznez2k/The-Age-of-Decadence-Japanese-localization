@@ -1,0 +1,118 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.pc_member_guards</string>
+      <string>dlgGetRep(guards) &gt;= 10</string>
+      <string>aod.tmo_allowedIntoMine</string>
+    </conditions>
+    <links>
+      <int>8980</int>
+      <int>8981</int>
+      <int>8979</int>
+    </links>
+    <dlg_name>TMO_Decanus_IG</dlg_name>
+    <def_link>8978</def_link>
+    <def_speaker_name>Decanus</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You have no business being here, so I suggest you turn around and leave.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8982</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8978</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Centurion,” says the guard, snapping to attention and giving you a proper salute. “Are you here to inspect the mine?”</npc_text>
+      <onLoadScripts>
+        <string>aod.tmo_allowedIntoMine = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Yes.” Go in.</text>
+          <def_link>8984</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8980</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[reputation success]“&lt;charname&gt;? I almost didn’t recognize you there. “Are you here to inspect the mine?”</npc_text>
+      <onLoadScripts>
+        <string>aod.tmo_allowedIntoMine = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Yes.” Go in.</text>
+          <def_link>8984</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8981</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“&lt;charname&gt;? I almost didn’t recognize you there. “Are you here to inspect the mine?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Yes.” Go in.</text>
+          <def_link>8984</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8979</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - allowed inside</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8984</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - turn around and leave</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_MineDoorOutside_PC_03);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8982</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

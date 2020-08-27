@@ -1,0 +1,1033 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.global_teron_mineBlueSteel</string>
+      <string>aod.global_teron_mineActive</string>
+    </conditions>
+    <links>
+      <int>1373</int>
+      <int>1372</int>
+    </links>
+    <dlg_name>TMO_ControlPanel_01</dlg_name>
+    <def_link>1273</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The panel is a chaotic mess of pipes, levers, valves, and dials. You move a few levers, but nothing happens. You see an opening for a small object.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Panel_PC_01);</string>
+        <string>dlgcam(240,45,8,1);</string>
+        <string>dlgSetAmbientAnimation();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Insert the tube.</text>
+          <def_link>1274</def_link>
+          <checkOnAppear>dlgOwnsItem(1600)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1371</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1273</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1371</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You carefully insert the power tube into the opening. For a long time, nothing happens, but then the console lights up and a low humming sound spreads through the cave.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[lore]Recite an appropriate mantra.</text>
+          <def_link>1296</def_link>
+          <checkOnAppear>aod.quest_hd1_gotMantra == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.lore &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1297</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[lore]Recite Sohrab's mantra.</text>
+          <def_link>1296</def_link>
+          <checkOnAppear>aod.quest_hd1_gotMantra</checkOnAppear>
+          <checksOnClick>
+            <string>aod.lore &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1297</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1274</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You have no idea what you're doing. You move a few levers, but nothing happens.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_teronMine_loreFailure = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Remove the power tube and leave.</text>
+          <def_link>1371</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1296</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You put your hands on the controls and recite the 'commanding fire elementals to bless ore' mantra, performing the rite as you speak the ancient words.
+
+The mantra doesn't require you to understand what you are doing, but it does a good job leading you through a series of steps grouped into chapters. Some chapters require you to watch the dials and adjust the valves to achieve divine harmony; other chapters warn about dangers of overheating and tell you how to keep the fire elementals under control.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_teronMine_tubeStolen = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Complete the ritual.</text>
+          <def_link>1319</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_teronMine_sneakExplore &amp;&amp; isAlive(1990) &amp;&amp; aod.tmo_banditsAttacked == 0</string>
+            <string>aod.quest_teronMine_loremaster &amp;&amp; isAlive(1990) &amp;&amp; aod.tmo_banditsAttacked == 0</string>
+            <string>aod.quest_teronMine_sohrab &amp;&amp; isAlive(1990) &amp;&amp; aod.tmo_banditsAttacked == 0</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1315</int>
+            <int>1317</int>
+            <int>1318</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Overheat the smelter.</text>
+          <def_link>1298</def_link>
+          <checkOnAppear>aod.tmo_banditsAttacked == 0 &amp;&amp; aod.teron_outpostDaratan == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1297</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Decanus</speaker_name>
+      <npc_text>It takes you almost an hour to complete the ritual. When you push the last lever, the cave is filled with a low, grumbling noise and reddish light. Powered by the ancient magic somehow preserved within the tube, the machines come to life. They move slowly at first, the rusted metal resisting and screeching, but the magic releases oil from some hidden reservoirs. Soon, the machines are running almost as smoothly as they did in the olden days.
+
+Unfortunately, they make enough noise to wake up the dead and within moments you're surrounded by the Aurelian guards.
+
+"You're still alive because you've managed to get the machines working," explains the Decanus. "Lucky for you, I'm an ambitious man, and I hope to be well rewarded for delivering a &lt;man/woman&gt; of your skills to Lord Gaelius. You're going to Maadoran."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_teronMine_fixed = true;</string>
+        <string>aod.global_teron_mineActive = true;</string>
+        <string>MineInteriorDark.hideObjects();</string>
+        <string>MineInteriorActive.showObjects();</string>
+        <string>dlgTeleportToMarker(TM_PanelFight_NPC_01, 1990);</string>
+        <string>dlgTeleportToMarker(TM_PanelFight_NPC_02, 1991);</string>
+        <string>dlgTeleportToMarker(TM_PanelFight_NPC_03, 1992);</string>
+        <string>dlgTeleportToMarker(TM_PanelFight_NPC_04, 1993);</string>
+        <string>dlgTeleportToMarker(TM_PanelFight_NPC_05, 1994);</string>
+        <string>dlgTeleportToMarker(TM_PanelFight_NPC_06, 1995);</string>
+        <string>dlgTeleportToMarker(TM_PanelFight_NPC_07, 1996);</string>
+        <string>dlgTeleportToMarker(TM_PanelFight_NPC_08, 1997);</string>
+        <string>dlgTeleportToMarker(TM_PanelFight_NPC_09, 1998);</string>
+        <string>dlgTeleportToMarker(TM_PanelFight_NPC_10, 1999);</string>
+        <string>dlgTeleportToMarker(TM_PanelFight_NPC_11, 2000);</string>
+        <string>dlgSetCombatAnimation(1991);</string>
+        <string>dlgSetCombatAnimation(1992);</string>
+        <string>dlgSetCombatAnimation(1993);</string>
+        <string>dlgSetCombatAnimation(1994);</string>
+        <string>dlgSetCombatAnimation(1995);</string>
+        <string>dlgSetCombatAnimation(1996);</string>
+        <string>useCameraBookmark(quest_oupost_cam_09);</string>
+        <string>rwd_reputation(Mine_01);</string>
+        <string>if(dlgGetItemsCount(1600) &gt;= 1) dlgRemoveItem(1600, 1);</string>
+        <string>dlgRotateToChar(1990);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way out.</text>
+          <def_link>1374</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What are we waiting for?" Go to Maadoran.</text>
+          <def_link>1316</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1315</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Decanus</speaker_name>
+      <npc_text>It takes you almost an hour to complete the ritual. When you push the last lever, the cave is filled with a low, grumbling noise and reddish light. Powered by the ancient magic somehow preserved within the tube, the machines come to life. They move slowly at first, the rusted metal resisting and screeching, but the magic releases oil from some hidden reservoirs. Soon, the machines are running almost as smoothly as they did in the olden days.
+
+"Well done, &lt;master/mistress&gt;." The Decanus' tone is respectful. "Would you allow me to escort you to Maadoran to be presented to Lord Gaelius of House Aurelian? I'm sure he would reward you very generously."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_teronMine_fixed = true;</string>
+        <string>aod.global_teron_mineActive = true;</string>
+        <string>MineInteriorDark.hideObjects();</string>
+        <string>MineInteriorActive.showObjects();</string>
+        <string>rwd_reputation(Mine_01);</string>
+        <string>if(dlgGetItemsCount(1600) &gt;= 1) dlgRemoveItem(1600, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way out.</text>
+          <def_link>1374</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What are we waiting for?" Go to Maadoran.</text>
+          <def_link>1316</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1317</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Decanus</speaker_name>
+      <npc_text>It takes you almost an hour to complete the ritual. When you push the last lever, the cave is filled with a low, grumbling noise and reddish light. Powered by the ancient magic somehow preserved within the tube, the machines come to life. They move slowly at first, the rusted metal resisting and screeching, but the magic releases oil from some hidden reservoirs. Soon, the machines are running almost as smoothly as they did in the olden days.
+
+"Well done, &lt;master/mistress&gt;." The Decanus' tone is respectful. "Would you allow me to escort you back to Maadoran?"</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_teronMine_fixed = true;</string>
+        <string>aod.global_teron_mineActive = true;</string>
+        <string>MineInteriorDark.hideObjects();</string>
+        <string>MineInteriorActive.showObjects();</string>
+        <string>rwd_reputation(Mine_01);</string>
+        <string>if(dlgGetItemsCount(1600) &gt;= 1) dlgRemoveItem(1600, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way out.</text>
+          <def_link>1374</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What are we waiting for?" Go to Maadoran.</text>
+          <def_link>1316</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1318</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - your way out</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addEnemyToParty(1, AurelianMineOutside);</string>
+        <string>addEnemyToParty(1, AurelianMineInside);</string>
+        <string>schedule(250, 0, dlgStartCombat);</string>
+        <string>setRtsCam();</string>
+        <string>aod.quest_teronOutpost_phase3c = true;</string>
+        <string>aod.quest_teronOutpost_fightWay = true;</string>
+        <string>aod.quest_teronMine_killedEveryone = true;</string>
+        <string>aod.gameplay_questMine_fight = true;</string>
+        <string>aod.quest_teronMine_fight = true;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1374</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING - go to Maadoran</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.npc_gaelius_talkMineRestored = true;</string>
+        <string>aod.quest_teronMine_reportToDellar = false;</string>
+        <string>aod.mdn_mine_start = true;</string>
+        <string>StartTeronEnding();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1316</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You close the valves and push the levers up. The machine groans and shakes. You glance at the dials – it looks like you have less than a hundred heartbeats before the smelter explodes, spraying molten metal everywhere and incinerating the cave.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_teronMine_blownUp = true;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>MineInteriorDark.hideObjects();</string>
+        <string>MineInteriorActive.showObjects();</string>
+        <string>if(dlgGetItemsCount(1600) &gt;= 1) dlgRemoveItem(1600, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave!</text>
+          <def_link>1300</def_link>
+          <checkOnAppear>aod.quest_teronMine_sneakExplore || aod.quest_teronMine_killedEveryone</checkOnAppear>
+          <checksOnClick>
+            <string>aod.quest_teronMine_sneakExplore &amp;&amp; aod.quest_teronMine_killedEveryone == false</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1301</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'll be right back. Watch the dials for me." Leave.</text>
+          <def_link>1302</def_link>
+          <checkOnAppear>aod.quest_teronMine_takenInside</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1298</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You exit the tunnel and a few heartbeats later a large explosion shakes the mountain and the camp. The entrance is sealed again, this time for good. There are no survivors to spread the word of your involvement.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_MineDoorOutside_PC_03);</string>
+        <string>useCameraBookmark(quest_oupost_cam_10);</string>
+        <string>Mine_Exterior_MT_01.setactive(false);</string>
+        <string>aod.teron_outpostDestroyed = true;</string>
+        <string>quest_outpost_deleteNPC();</string>
+        <string>quest_outpost_destroyMine();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1371</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1300</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The machines make enough noise to wake up the dead and when you emerge from the tunnel, you're quickly surrounded by the Aurelian guards.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_MineDoorOutside_PC_01);</string>
+        <string>dlgTeleportToMarker(TM_Explosion_NPC_01, 1990);</string>
+        <string>dlgTeleportToMarker(TM_Explosion_NPC_02, 1991);</string>
+        <string>dlgTeleportToMarker(TM_Explosion_NPC_03, 1992);</string>
+        <string>dlgTeleportToMarker(TM_Explosion_NPC_04, 1993);</string>
+        <string>dlgTeleportToMarker(TM_Explosion_NPC_05, 1994);</string>
+        <string>dlgTeleportToMarker(TM_Explosion_NPC_06, 1995);</string>
+        <string>dlgTeleportToMarker(TM_Explosion_NPC_07, 1996);</string>
+        <string>dlgSetCombatAnimation(1991);</string>
+        <string>dlgSetCombatAnimation(1992);</string>
+        <string>dlgSetCombatAnimation(1993);</string>
+        <string>dlgSetCombatAnimation(1994);</string>
+        <string>dlgSetCombatAnimation(1995);</string>
+        <string>dlgSetCombatAnimation(1996);</string>
+        <string>useCameraBookmark(quest_oupost_cam_10);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"The machines are working! It's a miracle! Go see for yourselves!"</text>
+          <def_link>1306</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]"The machines are working. They are turning iron into gold! Gold!"</text>
+          <def_link>1340</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1309</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1301</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You step outside and shout:</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(15, 168, 0, S);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(quest_oupost_cam_08);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Everyone inside! The Decanus' order. You are about to witness a miracle."</text>
+          <def_link>1303</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"We've angered the Gods! Get the Decanus and run!"</text>
+          <def_link>1304</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1302</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The guards and the workers rush inside and a few heartbeats later a large explosion shakes the mountain and the camp. The entrance is sealed again, this time for good. There are no survivors to spread the word of your involvement.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>quest_outpost_destroyMine();</string>
+        <string>aod.teron_outpostDestroyed = true;</string>
+        <string>dlgTeleportToMarker(TM_MineDoorOutside_PC_02);</string>
+        <string>Mine_Exterior_MT_01.setactive(false);</string>
+        <string>useCameraBookmark(quest_oupost_cam_10);</string>
+        <string>quest_outpost_deleteNPC();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1371</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1303</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>In the panic that ensues, nobody pays any attention to you. You are far away from the Decanus and his men when a large explosion shakes the mountain and the camp, sealing the entrance, this time for good.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>quest_outpost_deleteNPC();</string>
+        <string>quest_outpost_destroyMine();</string>
+        <string>aod.teron_outpostDestroyed = true;</string>
+        <string>dlgTeleportToMarker(TM_MineDoorOutside_PC_02);</string>
+        <string>Mine_Exterior_MT_01.setactive(false);</string>
+        <string>aod.ending_outpost_witness = true;</string>
+        <string>rwd_reputation(Mine_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1371</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1304</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Watch &lt;him/her&gt;!" Two guards draw their weapons and stand next to you. The Decanus and the rest of his men go inside.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_MineDoorOutside_PC_03);</string>
+        <string>dlgTeleportToMarker(TM_Explosion_NPC_08, 1991);</string>
+        <string>dlgTeleportToMarker(TM_Explosion_NPC_09, 1992);</string>
+        <string>dlgDeleteCharacter(1990);</string>
+        <string>dlgDeleteCharacter(1993);</string>
+        <string>dlgDeleteCharacter(1994);</string>
+        <string>dlgDeleteCharacter(1995);</string>
+        <string>dlgDeleteCharacter(1996);</string>
+        <string>dlgDeleteCharacter(1997);</string>
+        <string>dlgDeleteCharacter(1998);</string>
+        <string>dlgDeleteCharacter(1999);</string>
+        <string>dlgDeleteCharacter(2000);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>1339</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1306</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"Watch &lt;him/her&gt;!" Two guards draw their weapons and stand next to you. The Decanus and the rest of his men go inside.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_MineDoorOutside_PC_03);</string>
+        <string>dlgTeleportToMarker(TM_Explosion_NPC_08, 1991);</string>
+        <string>dlgTeleportToMarker(TM_Explosion_NPC_09, 1992);</string>
+        <string>dlgDeleteCharacter(1990);</string>
+        <string>dlgDeleteCharacter(1993);</string>
+        <string>dlgDeleteCharacter(1994);</string>
+        <string>dlgDeleteCharacter(1995);</string>
+        <string>dlgDeleteCharacter(1996);</string>
+        <string>dlgDeleteCharacter(1997);</string>
+        <string>dlgDeleteCharacter(1998);</string>
+        <string>dlgDeleteCharacter(1999);</string>
+        <string>dlgDeleteCharacter(2000);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>1339</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1340</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>A few heartbeats later, a large explosion shakes the mountain and the camp, throwing you and the guards to the ground. The entrance is sealed again, this time for good.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgSetAnimation(anim_death_forward02, 0.95, 1991);</string>
+        <string>dlgSetAnimation(anim_death_forward02, 0.95, 1992);</string>
+        <string>useCameraBookmark(quest_oupost_cam_11);</string>
+        <string>dlgSetAnimation(anim_death_back01, 0.95);</string>
+        <string>dlgUnequipHands(1991);</string>
+        <string>dlgUnequipHands(1992);</string>
+        <string>quest_outpost_destroyMine();</string>
+        <string>aod.teron_outpostDestroyed = true;</string>
+        <string>Mine_Exterior_MT_01.setactive(false);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[constitution]Get up!</text>
+          <def_link>1308</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.con &gt;= 6 &amp;&amp; aod.con &lt;= 8</string>
+            <string>aod.con &gt;= 9</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1341</int>
+            <int>1342</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1339</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The guards manage to get up first and nail you to the ground before you have a chance to react.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgEquipItem(110, 0, 1991);</string>
+        <string>dlgEquipItem(1700, 0, 1991);</string>
+        <string>dlgEquipItem(131, 0, 1992);</string>
+        <string>dlgEquipItem(1701, 0, 1992);</string>
+        <string>dlgSetCombatAnimation(1991);</string>
+        <string>dlgSetCombatAnimation(1992);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Rest in peace.</text>
+          <def_link>1343</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1308</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1343</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You and the guards get up at the same time. The guards pick up their weapons and attack.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgEquipItem(110, 0, 1991);</string>
+        <string>dlgEquipItem(1700, 0, 1991);</string>
+        <string>dlgEquipItem(131, 0, 1992);</string>
+        <string>dlgEquipItem(1701, 0, 1992);</string>
+        <string>dlgSetCombatAnimation(1991);</string>
+        <string>dlgSetCombatAnimation(1992);</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>removeCharFromParty(1991, AurelianMineOutside);</string>
+        <string>removeCharFromParty(1992, AurelianMineOutside);</string>
+        <string>addParty(AurelianMineSurvivors, 0);</string>
+        <string>addCharToParty(1991, AurelianMineSurvivors, fighter);</string>
+        <string>addCharToParty(1992, AurelianMineSurvivors, fighter);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>1345</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1341</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You manage to get up first and quickly stab one of the guards to even the odds, then turn to face the other man.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgKillCharacter(1991);</string>
+        <string>dlgEquipItem(131, 0, 1992);</string>
+        <string>dlgEquipItem(1701, 0, 1992);</string>
+        <string>dlgSetCombatAnimation(1992);</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>dlgRotateToChar(1992);</string>
+        <string>dlgRotateToChar(1, 1992);</string>
+        <string>removeCharFromParty(1992, AurelianMineOutside);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>1344</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1342</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - 2 guards</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addEnemyToParty(1, AurelianMineSurvivors);</string>
+        <string>setRtsCam();</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1345</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - 1 guard</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgSetAttitude(1992, 1, -10);</string>
+        <string>setRtsCam();</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1344</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Pushing each other out of the way, the guards and the workers run inside, ignoring the Decanus' shouts.
+
+"Stay here!" the Decanus orders you and follows his men.
+
+A few heartbeats later, a large explosion shakes the mountain and the camp. The entrance is sealed again, this time for good. There are no survivors to spread the word of your involvement.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>quest_outpost_deleteNPC();</string>
+        <string>aod.teron_outpostDestroyed = true;</string>
+        <string>quest_outpost_destroyMine();</string>
+        <string>dlgTeleportToMarker(TM_MineDoorOutside_PC_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1371</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1309</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>It takes you almost an hour to complete the ritual. When you push the last lever, the cave is filled with a low, grumbling noise and reddish light. Powered by the ancient magic somehow preserved within the tube, the machines come to life. They move slowly at first, the rusted metal resisting and screeching, but the magic releases oil from some hidden reservoirs. Soon, the machines are running almost as smoothly as they did in the olden days.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_teronMine_fixed = true;</string>
+        <string>aod.global_teron_mineActive = true;</string>
+        <string>MineInteriorDark.hideObjects();</string>
+        <string>MineInteriorActive.showObjects();</string>
+        <string>if(dlgGetItemsCount(1600) &gt;= 1) dlgRemoveItem(1600, 1);</string>
+        <string>rwd_reputation(Mine_01);</string>
+        <string>dlgFadeLongToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lore]Change the output to blue steel.</text>
+          <def_link>1322</def_link>
+          <checkOnAppear>aod.quest_hd1_BlueSteel</checkOnAppear>
+          <checksOnClick>
+            <string>aod.lore &gt;= 5</string>
+            <string>aod.lore &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1326</int>
+            <int>1325</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[crafting]Examine the smelter again.</text>
+          <def_link>1323</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.crafting &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1328</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1371</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1319</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You try to follow the mantra Sohrab gave you, but the notes are too complicated and confusing.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1371</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1322</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You follow the mantra Sohrab gave you, but the fire elementals ignore your prayers.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1371</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1325</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You're standing in front of the control panel, the machines running almost as smoothly as they did in the olden days.</npc_text>
+      <onLoadScripts>
+        <string>dlgcam(240,45,8,1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lore]Change the output to blue steel.</text>
+          <def_link>1322</def_link>
+          <checkOnAppear>aod.quest_hd1_BlueSteel</checkOnAppear>
+          <checksOnClick>
+            <string>aod.lore &gt;= 5</string>
+            <string>aod.lore &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1326</int>
+            <int>1325</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[crafting]Examine the smelter again.</text>
+          <def_link>1323</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.crafting &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1328</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1371</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1372</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You're standing in front of the control panel, the machines running at full power.</npc_text>
+      <onLoadScripts>
+        <string>dlgcam(240,45,8,1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1371</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1373</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You follow the mantra Sohrab gave you, but the fire elementals ignore your prayers. According to the mantra, it happens when the divine presence isn't strong enough to force the elementals to do your bidding.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Remove the empty tube and insert a new one.</text>
+          <def_link>1327</def_link>
+          <checkOnAppear>dlgOwnsItem(1600)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1371</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1326</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The floor vibrates and a deep rumbling sound fills the chamber. Somewhere deep underground, gears shift, unseen pipes start pumping something into the smelter and a strange glow spreads over the molten metal. The temperature in the chamber rises dramatically and suddenly you feel dizzy and nauseated.</npc_text>
+      <onLoadScripts>
+        <string>aod.global_teron_mineBlueSteel = true;</string>
+        <string>rwd_quest(TRN_Mine_05);</string>
+        <string>dlgRemoveItem(1600, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1371</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>isAlive(2990) || isAlive(2890)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1375</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1327</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]It's a wondrous machine and a true testament to the Arts of the olden days. If not for the mantra, you'd have never been able to make it work again.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1371</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1323</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]It's a wondrous machine and a true testament to the Arts of the olden days. If not for the mantra, you'd have never been able to make it work again, but now that you did, you gain a good insight into how this machine operates. This insight suggests that smelting steel is only the basic function and that there is a second, more advanced phase.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[lore]Try to figure it out.</text>
+          <def_link>1329</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lore &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1330</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1328</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You give it your best shot, but nothing happens.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1371</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1329</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Once again you place your hands on the controls, only this time you know what you're doing. You quickly adjust the valves, increasing the flow and pressure, and push the levers, sending power to hidden reservoirs, indicated by barely visible symbols. You hear gears and pumps starting up, but nothing happens. Then it dawns on you.
+
+Power. The higher phase needs more power.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Remove the empty tube and insert a new one.</text>
+          <def_link>1327</def_link>
+          <checkOnAppear>dlgOwnsItem(1600)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1371</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1330</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go to Decanus</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>sd(TMO_BlueSteel);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1375</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

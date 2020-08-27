@@ -1,0 +1,801 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_tg5_active == false</string>
+      <string>aod.quest_TG5_getReady</string>
+      <string>aod.quest_TG5_backToTemple</string>
+      <string>aod.npc_isandros_met</string>
+    </conditions>
+    <links>
+      <int>4751</int>
+      <int>4765</int>
+      <int>4752</int>
+      <int>4751</int>
+    </links>
+    <dlg_name>NPC_Isandros_01</dlg_name>
+    <def_link>4737</def_link>
+    <def_speaker_name>Isandros</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You see a skinny, pale youth, watching the street keenly.
+
+“&lt;charname&gt;, right?” asks the youth when you approach. “They say you robbed Antidas himself. That’s the kinda shit we should be doing, but Levir says the Palace district is off limits.” He puffs up his chest to indicate that he’s ready to take on the entire district, if not the world, all by himself.
+
+“I’m Isandros,” says the youth, snapping out of his daydreaming. “Do you need anything? Wine? Hash? Girls? Just say the word.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_isandros_met = true;</string>
+        <string>dlgCam(200, 40, 6, 4016);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Isandros);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’m looking for Bassar.”</text>
+          <def_link>4738</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Nothing at the moment.” Leave.</text>
+          <def_link>4750</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4737</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What do you need?” asks Isandros in a business-like manner.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(200, 40, 6, 4016);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Isandros);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’m looking for Bassar.”</text>
+          <def_link>4738</def_link>
+          <checkOnAppear>aod.quest_tg5_active</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Nothing at the moment.” Leave.</text>
+          <def_link>4750</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4751</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I can take you to Bassar, no problem at all,” says the youth eagerly.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Sure, take me to him.”</text>
+          <def_link>4739</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4738</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Bassar</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>sd(Quest_TG5_01);</string>
+        <string>dlgFadeLongToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4739</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Anything you want to know.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Are you working for the guild?”</text>
+          <def_link>4746</def_link>
+          <checkOnAppear>aod.npc_Isandros_talk_workGuild == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What can you tell me about the city?”</text>
+          <def_link>4745</def_link>
+          <checkOnAppear>aod.npc_Isandros_talk_city == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You mentioned that the Palace district is off limits. Why?”</text>
+          <def_link>4741</def_link>
+          <checkOnAppear>aod.npc_Isandros_talk_palace == 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You mentioned the Trades.”</text>
+          <def_link>4749</def_link>
+          <checkOnAppear>aod.npc_Isandros_talk_trades == 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What do you know about Bassar?”</text>
+          <def_link>4743</def_link>
+          <checkOnAppear>aod.npc_Isandros_talk_Bassar == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Nothing at the moment.” Leave.</text>
+          <def_link>4750</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4740</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Of course,” says the youth, looking slightly offended that you had to ask. “I’m not a full-fledged member yet, but I’ll get there, don’t you worry.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_Isandros_talk_workGuild = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What can you tell me about the city?”</text>
+          <def_link>4745</def_link>
+          <checkOnAppear>aod.npc_Isandros_talk_city == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You mentioned that the Palace district is off limits. Why?”</text>
+          <def_link>4741</def_link>
+          <checkOnAppear>aod.npc_Isandros_talk_palace == 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You mentioned the Trades.”</text>
+          <def_link>4749</def_link>
+          <checkOnAppear>aod.npc_Isandros_talk_trades == 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What do you know about Bassar?”</text>
+          <def_link>4743</def_link>
+          <checkOnAppear>aod.npc_Isandros_talk_Bassar == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Thanks for the info."</text>
+          <def_link>4755</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4746</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Bassar’s one of Levir’s right hand men. Tells you all you need to know, doesn’t it?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_Isandros_talk_Bassar = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“How many ‘right-hand men’ does Levir need?”</text>
+          <def_link>4742</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4743</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“More than one, that’s for sure. The Slums aint some dinky little corner that you can hold all by yourself. It’s a big district,” says the youth proudly.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Are you working for the guild?”</text>
+          <def_link>4746</def_link>
+          <checkOnAppear>aod.npc_Isandros_talk_workGuild == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What can you tell me about the city?”</text>
+          <def_link>4745</def_link>
+          <checkOnAppear>aod.npc_Isandros_talk_city == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You mentioned that the Palace district is off limits. Why?”</text>
+          <def_link>4741</def_link>
+          <checkOnAppear>aod.npc_Isandros_talk_palace == 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You mentioned the Trades.”</text>
+          <def_link>4749</def_link>
+          <checkOnAppear>aod.npc_Isandros_talk_trades == 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Thanks for the info."</text>
+          <def_link>4755</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4742</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I guess Levir doesn’t want any troubles with the nobles. Beats me why though. What can they do to us?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_Isandros_talk_palace = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Are you working for the guild?”</text>
+          <def_link>4746</def_link>
+          <checkOnAppear>aod.npc_Isandros_talk_workGuild == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What can you tell me about the city?”</text>
+          <def_link>4745</def_link>
+          <checkOnAppear>aod.npc_Isandros_talk_city == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What do you know about Bassar?”</text>
+          <def_link>4743</def_link>
+          <checkOnAppear>aod.npc_Isandros_talk_Bassar == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Thanks for the info."</text>
+          <def_link>4755</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4741</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Not much, I guess. I was born and raised right here, in the Slums. I’ve been to the other districts, of course, but I wouldn’t want to live there. They have it backwards, if you ask me. I guess you have to be born here to see the Slums for what it is.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_Isandros_talk_city = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“And what is it?”</text>
+          <def_link>4747</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4745</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It’s just different. If all you want to do is break your back all day and worry about shit, you better do it in the Trades. Aint no sense of doing it here. But you’ll never, *ever* be as free in the Trades as you can be here. That’s the truth.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_Isandros_talk_freeMan = 1;</string>
+        <string>aod.npc_Isandros_talk_trades = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“So, you’re a free man working for Levir?”</text>
+          <def_link>4760</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"The Trades?"</text>
+          <def_link>4749</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4747</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The Trade district. That’s where you go if you do well. You can’t go to the Palace district – you have to be born into it, so the Trades is as high as a man can get around here.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_Isandros_talk_palace = 1;</string>
+        <string>aod.npc_Isandros_talk_trades = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“So, you’re a free man working for Levir?”</text>
+          <def_link>4760</def_link>
+          <checkOnAppear>aod.npc_Isandros_talk_freeMan == 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Are you working for the guild?”</text>
+          <def_link>4746</def_link>
+          <checkOnAppear>aod.npc_Isandros_talk_workGuild == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You mentioned that the Palace district is off limits. Why?”</text>
+          <def_link>4741</def_link>
+          <checkOnAppear>aod.npc_Isandros_talk_palace == 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What do you know about Bassar?”</text>
+          <def_link>4743</def_link>
+          <checkOnAppear>aod.npc_Isandros_talk_Bassar == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Thanks for the info."</text>
+          <def_link>4755</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4749</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“There is working and there is working,” says the youth, grinning.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_Isandros_talk_freeMan = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Are you working for the guild?”</text>
+          <def_link>4746</def_link>
+          <checkOnAppear>aod.npc_Isandros_talk_workGuild == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You mentioned that the Palace district is off limits. Why?”</text>
+          <def_link>4741</def_link>
+          <checkOnAppear>aod.npc_Isandros_talk_palace == 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You mentioned the Trades.”</text>
+          <def_link>4749</def_link>
+          <checkOnAppear>aod.npc_Isandros_talk_trades == 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What do you know about Bassar?”</text>
+          <def_link>4743</def_link>
+          <checkOnAppear>aod.npc_Isandros_talk_Bassar == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Thanks for the info."</text>
+          <def_link>4755</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4760</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(315, 40, 15, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4750</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Let me know when you're ready to head back. It will take you a few weeks to learn your way around the Slums. Until you do, I'll be your guide."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_TG5_getReady = true;</string>
+        <string>createByCharMarker("CM_Rusty");</string>
+        <string>createByCharMarker("CM_Slums_Trader");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Where can I buy some supplies?"</text>
+          <def_link>4754</def_link>
+          <checkOnAppear>aod.quest_TG5_askSupplies == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Where can I hire some muscle?"</text>
+          <def_link>4764</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Can I ask you some questions?"</text>
+          <def_link>4740</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4750</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4752</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Ask around. There are plenty of people looking for some work here."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_TG5_askMuscle = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Where can I buy some supplies?"</text>
+          <def_link>4754</def_link>
+          <checkOnAppear>aod.quest_TG5_askSupplies == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Can I ask you some questions?"</text>
+          <def_link>4740</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4750</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4764</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Talk to Zeb over there. Tell him I sent you."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_TG5_askSupplies = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[traps success]"I'll need some black powder."</text>
+          <def_link>4759</def_link>
+          <checkOnAppear>aod.quest_TG5_askSupplies == false &amp;&amp; aod.traps &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Where can I hire some muscle?"</text>
+          <def_link>4764</def_link>
+          <checkOnAppear>aod.quest_TG5_askMuscle == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Can I ask you some questions?"</text>
+          <def_link>4740</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4750</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4754</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I'll be surprised if Zeb doesn't have it."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Where can I hire some muscle?"</text>
+          <def_link>4764</def_link>
+          <checkOnAppear>aod.quest_TG5_askMuscle == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Can I ask you some questions?"</text>
+          <def_link>4740</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4750</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4759</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Anything else I can do for you?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Take me back to Bassar.”</text>
+          <def_link>4757</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Where can I buy some supplies?"</text>
+          <def_link>4754</def_link>
+          <checkOnAppear>aod.quest_TG5_askSupplies == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Where can I hire some muscle?"</text>
+          <def_link>4764</def_link>
+          <checkOnAppear>aod.quest_TG5_askMuscle == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Can I ask you some questions?"</text>
+          <def_link>4740</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[alchemy success]“Almost ready. I’ve recruited some locals to die for a good cause, but their enthusiasm might be running low. I want to brew something to get their blood boiling.”</text>
+          <def_link>4756</def_link>
+          <checkOnAppear>aod.alchemy &gt;= 3 &amp;&amp; aod.quest_TG5_gotRusty &amp;&amp; dlgOwnsItem(1803)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Almost.” Leave.</text>
+          <def_link>4750</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4755</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“All done?”</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(200, 40, 6, 4016);</string>
+        <string>dlgTeleportToMarker(TM_DLG_Isandros);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Sure. Take me back to Bassar.”</text>
+          <def_link>4757</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Where can I buy some supplies?"</text>
+          <def_link>4754</def_link>
+          <checkOnAppear>aod.quest_TG5_askSupplies == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Where can I hire some muscle?"</text>
+          <def_link>4764</def_link>
+          <checkOnAppear>aod.quest_TG5_askMuscle == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Can I ask you some questions?"</text>
+          <def_link>4740</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[alchemy success]“Almost ready. I’ve recruited some locals to die for a good cause, but their enthusiasm might be running low. I want to brew something to get their blood boiling.”</text>
+          <def_link>4756</def_link>
+          <checkOnAppear>aod.alchemy &gt;= 3 &amp;&amp; aod.quest_TG5_gotRusty &amp;&amp; dlgOwnsItem(1803)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Almost.” Leave.</text>
+          <def_link>4750</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4765</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You don’t have time to brew a proper berserk draught. You don’t even have time to detoxify the mushrooms, but then again, you don’t expected the dregs of the local society to live anyway. You boil the mushrooms for fifteen minutes and give the bucket to Rusty to share with his men.
+
+“Smells like shit,” says Isandros. “I’d be eager to die too, if I had to drink it.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_TG5_druggedMen = true;</string>
+        <string>dlgRemoveItem(1803, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Alright, let’s get it over with. Take me to Bassar.”</text>
+          <def_link>4757</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4756</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start TG5</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>switchMission("Quest_TG5.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4757</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

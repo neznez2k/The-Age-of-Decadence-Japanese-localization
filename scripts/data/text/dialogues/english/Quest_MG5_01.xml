@@ -1,0 +1,902 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_MG5_afterCombat</string>
+    </conditions>
+    <links>
+      <int>29</int>
+    </links>
+    <dlg_name>Quest_MG5_01</dlg_name>
+    <def_link>31</def_link>
+    <def_speaker_name>Hamza</def_speaker_name>
+    <def_portrait>Hamza</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Servant</speaker_name>
+      <npc_text>"Are you ready, &lt;master/mistress&gt; &lt;charname&gt;?"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_MG5_metHamza = true;</string>
+        <string>dlgCam(340, 45, 7, 5117);</string>
+        <string>dlgTeleportToMarker(TM_Servant_PC);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Yes."</text>
+          <def_link>30</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_mg5_gotMenIG</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>28</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Not yet."</text>
+          <def_link>32</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>31</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>32</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Old Hamza was a man of few words. He never had much use for them in his line of work. You get a job, you get it done, you get paid. If you do a good job, there will be more jobs. What's there to talk about?
+
+Hamza joined the Boatmen when he was fourteen, when things were simple. These days everything was changing too fast and it didn't sit well with him. The Boatmen never bowed down to nobody and that was a good thing. Made Hamza proud. These days... These days, the business was good, but the guild was practically eating out of Gaelius' hand and Hamza wasn't sure he liked where things were going.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>createByCharMarker("CM_Hamza");</string>
+        <string>createByCharMarker("CM_Assassin_01");</string>
+        <string>createByCharMarker("CM_Assassin_02");</string>
+        <string>dlgDeleteCharacter(5117);</string>
+        <string>addParty(Quest_MG5_Assassins, 0);</string>
+        <string>addCharToParty(4610, "Quest_MG5_Assassins", "fighter");</string>
+        <string>addCharToParty(5110, "Quest_MG5_Assassins", "fighter");</string>
+        <string>addCharToParty(5111, "Quest_MG5_Assassins", "fighter");</string>
+        <string>dlgCam(190, 40, 7, 4610);</string>
+        <string>addJournalChar(hamza);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Approach.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>30</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“&lt;charname&gt;,” says Hamza, his voice hoarse and low. You hear nothing but regret in his voice - regret that things have gone far enough to require his involvement.
+
+“Tell me what I need to know and I’ll give you a warrior’s death, fast and clean,” says Hamza, skipping the pleasantries. “It may not seem like a good deal right now, but trust me, it is.”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Talk_PC);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(190, 40, 9, 4610);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“You want a name? Strabos. It’s his plot. I have nothing to do with it.”</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I want a better deal.”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’ve heard about you, Hamza. I’m surprised to see a man of your reputation doing Gaelius’ bidding. Is his case that righteous?”</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"For an assassin, you talk too much." Fight.</text>
+          <def_link>40</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Strabos is very good at running your guild, which counts for something in this city. Keeping everyone’s coffers full is a special kind of magic. Still, examples have to be made...”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So, Gaelius will let him get away with it?”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I want a better deal.”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’ve heard about you, Hamza. I’m surprised to see a man of your reputation doing Gaelius’ bidding. Is his case that righteous?”</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"For an assassin, you talk too much." Fight.</text>
+          <def_link>40</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Strabos isn’t a noble-born,” smirks Hamza. “For all his wealth and power, he will never command any respect with the nobles. He will never be a threat, but he’s too arrogant to realize that.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I want a better deal.”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’ve heard about you, Hamza. I’m surprised to see a man of your reputation doing Gaelius’ bidding. Is his case that righteous?”</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"For an assassin, you talk too much." Fight.</text>
+          <def_link>40</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Of course you do. You’re a merchant.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]“Why take my life when all you want is a name? I’m sure I can be useful to you in the future.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“Or cause more shit if I let you live.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][charisma]“I’m nothing but a lowly employee of the guild. What would you gain by killing me? Honor? Glory?”</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.cha) &gt;= 12</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Alright,” says Hamza suddenly, which makes you wonder if the threat was real. “Give me a name and get out of here.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'll give them to Gaelius if you take me to him."</text>
+          <def_link>35</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Lady Lorenza Calani.”</text>
+          <def_link>8</def_link>
+          <checkOnAppear>aod.quest_MG4_lorenzaSupport &amp;&amp; aod.quest_MG4_SennaSupport</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>aod.npc_lorenza_dead = true;</string>
+            <string>aod.jnl_mg5_phase2a = true;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Lord Senna.”</text>
+          <def_link>8</def_link>
+          <checkOnAppear>aod.quest_MG4_lorenzaSupport &amp;&amp; aod.quest_MG4_SennaSupport</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>aod.npc_senna_dead = true;</string>
+            <string>aod.jnl_mg5_phase2b = true;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Lord Massalus.”</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Always looking for a deal, eh? Alright, come with me."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Follow Hamza.</text>
+          <def_link>42</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>35</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go to Gaelius</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.npc_gaelius_fromMG5 = 1;</string>
+        <string>switchMission("Maadoran.mis");</string>
+        <string>dlgFadeLongToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>42</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Hamza nods as if that's exactly what he expected to hear. “Get out.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Return to Strabos.</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Hamza raises his eyebrow and gives you a hard look. “Massalus is loyal. Everyone knows it.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“Which is why he was chosen. He’s the last person anyone would suspect.”</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>12</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“You’re full of shit, &lt;charname&gt;. I think it’s time you and I have a little talk,” says Hamza, gesturing to his men.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Wait and see what happens.</text>
+          <def_link>41</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Fight your way out.</text>
+          <def_link>40</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Within moments you are stretched on a nearby table, your arms and legs secured with leather straps.
+
+“Question number one,” says Hamza in a monotone voice, picking up a barbed bolt...</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Table_PC);</string>
+        <string>dlgSetAnimation(anim_death_back04, 0.95);</string>
+        <string>dlgHideWeapons();</string>
+        <string>dlgTeleportToMarker(TM_Table_Hamza, 4610);</string>
+        <string>dlgTeleportToMarker(TM_Table_Asn1, 5110);</string>
+        <string>dlgTeleportToMarker(TM_Table_Asn2, 5111);</string>
+        <string>dlgCam(45, 45, 8, 4610);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>It's not exactly what you had in mind when you agreed to talk to Hamza, is it?</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>41</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Makes sense,” agrees Hamza. “What’s in it for him though?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][trading]“Everyone can be bought. You see loyalty as virtue, we see it as a commodity – goods to be appraised and traded. If it’s any consolation, he was already on the market, looking for the highest bidder.”</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.trading) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>13</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][charisma]“Have you ever laid eyes upon a noble who didn’t want more power?”</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.cha) &gt;= 14</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>13</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“That simple, eh? Alright. Get out of here.”</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_mg5_phase2c = true;</string>
+        <string>rwd_civil(MG5_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Return to Strabos.</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“It’s just a job,” shrugs Hamza and gestures to his men.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Wait and see what happens.</text>
+          <def_link>41</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Fight your way out.</text>
+          <def_link>40</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“I’ve heard enough!” says Hamza, gesturing to his men.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]“Wait, wait! Why take my life when all you want is a name? I’m sure I can be useful to you in the future.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Enough!” barks Hamza, gesturing to his men.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]“Wait, wait! Why take my life when all you want is a name? I’m sure I can be useful to you in the future.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - return to Strabos</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_MG5_reportStrabos = true;</string>
+        <string>aod.mdn_fromMG5 = true;</string>
+        <string>switchMission("Maadoran.mis");</string>
+        <string>dlgFadeLongToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - return to Strabos - Darista dead</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_MG5_reportStrabos = true;</string>
+        <string>aod.npc_darista_dead = true;</string>
+        <string>aod.mdn_fromMG5 = true;</string>
+        <string>switchMission("Maadoran.mis");</string>
+        <string>dlgFadeLongToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>39</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - alone</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addEnemyToParty(1, Quest_MG5_Assassins);</string>
+        <string>aod.fight_mg5_hamza = true;</string>
+        <string>aod.fight_mg5_hamza_alone = true;</string>
+        <string>aod.death_MG5 = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>40</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Hamza’s eyes narrow with anger. “I serve the guild, not Gaelius,” he says slowly.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“Is it what you truly believe? Everyone knows that Darista is eating out of Gaelius’ hand. She does nothing but pass you his orders.”</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>20</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“Darista is our guildmaster. So far, she's steered us right.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“And now she’s steering you wrong.”</text>
+          <def_link>23</def_link>
+          <checkOnAppear>(aod.persuasion + aod.streetwise) &lt; 10</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]“So did Neleos. And then he steered his men wrong and they all died fighting Antidas’ war.”</text>
+          <def_link>20</def_link>
+          <checkOnAppear>(aod.persuasion + aod.streetwise) &gt;= 10</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“And what do you expect me to do about it?” snaps Hamza.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“To serve your guild. While there is a still a guild to serve.”</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What do you mean?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“What do you think Lord Meru will do when he learns that the Boatmen joined Gaelius?”</text>
+          <def_link>24</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>25</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion]“Gaelius won’t let you stay independent for long. Soon – very soon – you will be forced to make a choice. If I were you, I would make it on your own terms.”</text>
+          <def_link>33</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>25</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"My own terms? I'm too old to care about such things."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“Then do it for your brothers. What do you think Lord Meru will do when he learns that the Boatmen joined Gaelius?”</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>25</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>33</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“He wouldn’t dare!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]“He won’t have a choice. You know it as well as I do.”</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>25</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Hamza nods to himself and looks away. “Darista won’t like it.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“I’m sure she won’t mind. If she’s dead.”</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>27</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion][charisma]“She's a mercenary. It's all about money to her. If she lives, the guild dies. If she dies...”</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.cha) &gt;= 16</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>27</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[lore success]“In the old days the Boatmen voted on all important decisions. Talk to your men, Hamza. See what they think.”</text>
+          <def_link>26</def_link>
+          <checkOnAppear>aod.lore &gt;= 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I will,” says Hamza, looking relieved. “You can go now.”</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_mg5_phase2e = true;</string>
+        <string>rwd_civil(MG5_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Return to Strabos.</text>
+          <def_link>39</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>26</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Do what needs to be done, eh?” says Hamza suddenly, as if speaking to himself. “We're done here, get out.”</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_mg5_phase2e = true;</string>
+        <string>rwd_civil(MG5_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Return to Strabos.</text>
+          <def_link>39</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>27</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>Hamza walks through the door, sees the Imperial Guards and grins. Not finding the situation amusing, his men take positions around him, gripping their weapons.
+
+“For Teron,” says the Centurion calmly, drawing his sword. Hamza nods, as if one reason to kill each other was as good as any other, waiting for the Guards to get close.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>createByCharMarker("CM_Hamza");</string>
+        <string>createByCharMarker("CM_Assassin_01");</string>
+        <string>createByCharMarker("CM_Assassin_02");</string>
+        <string>dlgDeleteCharacter(5117);</string>
+        <string>addParty(Quest_MG5_Assassins, 0);</string>
+        <string>addCharToParty(4610, "Quest_MG5_Assassins", "fighter");</string>
+        <string>addCharToParty(5110, "Quest_MG5_Assassins", "fighter");</string>
+        <string>addCharToParty(5111, "Quest_MG5_Assassins", "fighter");</string>
+        <string>aod.jnl_mg5_phase2d = true;</string>
+        <string>dlgTeleportToMarker(TM_Fight_PC);</string>
+        <string>dlgCam(190, 40, 10, 4610);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Try not to get killed.</text>
+          <def_link>34</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>28</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addEnemyParty(Quest_MG5_Guards, Quest_MG5_Assassins);</string>
+        <string>addEnemyParty(Quest_MG5_Assassins, Quest_MG5_Guards);</string>
+        <string>aod.fight_mg5_hamza = true;</string>
+        <string>aod.death_MG5 = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>34</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>You look at the dead men on the floor. Fate gave you another pass, at least for today. The Boatmen won’t be happy and will blame you, but it’s going to be tomorrow. Today, you’re still alive and that’s what counts.</npc_text>
+      <onLoadScripts>
+        <string>VCO_ExitLevel.setActive(true);</string>
+        <string>Exit_MG5.isRenderEnabled = true;</string>
+        <string>rwd_reputation(MG5_01);</string>
+        <string>dlgCam(0, 45, 10, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Look around.</text>
+          <def_link>38</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>29</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - look around</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_MG5_reportStrabos = true;</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>38</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

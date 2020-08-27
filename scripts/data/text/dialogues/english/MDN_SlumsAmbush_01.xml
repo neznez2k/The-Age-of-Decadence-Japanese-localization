@@ -1,0 +1,247 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_leon_leftAtAmbush</string>
+    </conditions>
+    <links>
+      <int>4778</int>
+    </links>
+    <dlg_name>MDN_SlumsAmbush_01</dlg_name>
+    <def_link>4770</def_link>
+    <def_speaker_name>Thug</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>A dirty-looking man pops out of nowhere, blocking your way.
+
+“Well, well, well,” says the man, almost too fast to understand. “What do we have here? A new arrival? Nah, too clean for that. A lost sheep that strayed away from the shepherds? That’s more like it, ain’t it?”
+
+Glancing around, you see more figures crawling out of the ruins to join this game. “Thought I was here all myself, did ya?” says the man, grinning proudly. “Think again.”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_SlumsEntranceAmbush_01);</string>
+        <string>createByCharMarker("CM_Slums_Fighter_01");</string>
+        <string>createByCharMarker("CM_Slums_Fighter_02");</string>
+        <string>createByCharMarker("CM_Slums_Fighter_03");</string>
+        <string>createByCharMarker("CM_Slums_Fighter_04");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill the fuckers.</text>
+          <def_link>4773</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[thief]“Fuck off. I’m working for Levir.”</text>
+          <def_link>4777</def_link>
+          <checkOnAppear>aod.pc_member_thieves</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[praetor]“I’m a praetor of House Aurelian.”</text>
+          <def_link>4775</def_link>
+          <checkOnAppear>aod.pc_member_aurelian</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][impersonate]“I’m working for the guild. So, if you know what’s good for you, you best be on your way.”</text>
+          <def_link>4776</def_link>
+          <checkOnAppear>aod.pc_member_thieves == false</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.streetwise + aod.disguise) &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4777</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[guard]“I’m an Imperial Guard. Stand aside, vermin!”</text>
+          <def_link>4774</def_link>
+          <checkOnAppear>aod.pc_member_guards</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4770</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The dirty-looking man grins and his men spread around you, trying to cut off the escape route.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Kill the fuckers.</text>
+          <def_link>4773</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[thief]“Fuck off. I’m working for Levir.”</text>
+          <def_link>4777</def_link>
+          <checkOnAppear>aod.pc_member_thieves</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[praetor]“I’m a praetor of House Aurelian.”</text>
+          <def_link>4775</def_link>
+          <checkOnAppear>aod.pc_member_aurelian</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]“I’m working for the guild. So, if you know what’s good for you, you best be on your way.”</text>
+          <def_link>4776</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4777</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[guard]“I’m an Imperial Guard. Stand aside, vermin!”</text>
+          <def_link>4774</def_link>
+          <checkOnAppear>aod.pc_member_guards</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4778</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgDeleteCharacter(5210);</string>
+        <string>dlgDeleteCharacter(5211);</string>
+        <string>dlgDeleteCharacter(5212);</string>
+        <string>dlgDeleteCharacter(5213);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4772</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addParty(SlumsFighters, 0);</string>
+        <string>addCharToParty(5210, SlumsFighters, fighter);</string>
+        <string>addCharToParty(5211, SlumsFighters, fighter);</string>
+        <string>addCharToParty(5212, SlumsFighters, fighter);</string>
+        <string>addCharToParty(5213, SlumsFighters, fighter);</string>
+        <string>addEnemyToParty(1, SlumsFighters);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>aod.fight_slumsAmbush01 = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4773</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“No, no, no,” says the man, shaking his head. “Guards don’t come here. Well, clearly, you’re here, but what I was trying to say is that guards who respect the natural order of things don’t come here. You understand what I’m saying?” His voice is almost a whisper.
+
+“You’re fucking with the natural order now and nobody’s above the laws of nature, not even some fucking guard!” The man’s almost spiting the last words in your face, looking absolutely insane.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>4773</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4774</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It’s a pleasure to make your acquaintance, your lordship,” says the man quickly, the smile gone from his face.
+
+“Out of the way, you miscreants!” he yells at his accomplices. “Forgive them, your lordship, they are witless peasants, not accustomed to receiving visiting dignitaries.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(MDN_SlumsAmbush_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4772</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4775</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“Nah,” says the man, shaking his head. “I know a liar when I see one. I can hear a liar too, you know. You sing one song, but your voice – it sings a different one.
+
+“Kill &lt;him/her&gt;,” he shouts suddenly, his eyes almost popping out of his head. “Tear &lt;him/her&gt; apart, limb by fucking limb!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>4773</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4776</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The man turns pale and starts mumbling something, tears running down his face. Suddenly, he pulls out a knife and starts cutting off one of his fingers, wincing in pain. You notice that he has only four fingers on his left hand, so it’s not his first run-in with the guild.</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(MDN_SlumsAmbush_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4772</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4777</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

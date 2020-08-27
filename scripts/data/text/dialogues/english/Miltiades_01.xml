@@ -1,0 +1,188 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Miltiades_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Miltiades</def_speaker_name>
+    <def_portrait>miltiades</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"&lt;charname&gt;! I was looking for you everywhere!"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(148, 69, 0, N, 2090);</string>
+        <string>dlgTeleportTo(148, 70, 0, S);</string>
+        <string>useCameraBookmark(NPC_Miltiades_cam_01);</string>
+        <string>rwd_quest(TRN_Miltiades_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Just kill him already.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"You son of a bitch! Tell me why I shouldn't kill you on this spot."</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Whoa! Do you think I knew that he'd show up with his men? What was I supposed to do? Tell him no?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"They could have killed me."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Could have, but didn't. Let's not get side-tracked by hypothetical situations, ok? Let's focus on what's important here – you made a pile of money in, what, ten minutes?
+
+Here, 472 imperials. Feel better now?"</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(472);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"472? What happened to the rest of the money?"</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I made a bad bet. Could happen to anyone, right?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Right. So, why I shouldn't kill you, again?"</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Why should you? I just gave you all my money. Listen, let bygones be bygones. Just because things didn't go smoothly at first doesn't mean that we can't work together. I know now what rubs you the wrong way –"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"You taking all the money and leaving me to deal with the "customers" rubs me the wrong way."</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Duly noted. Look me up in Maadoran, partner. Trust me, it's gonna be big! You'll thank me for looking after you one day."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_miltiades_findInMaadoran = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You grab Miltiades by the hair and drag the blade across his throat, severing the arteries. The blood shoots up and you release the body, letting it slide down to the ground.</npc_text>
+      <onLoadScripts>
+        <string>delCharTag(TeronKeyNPC, 2090);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>dlgSetAnimation(anim_death_back00, 0.99, 2090);</string>
+        <string>dlgKillCharacter(2090);</string>
+        <string>dlgChangeMoney(472, 2090);</string>
+        <string>dlgChangeRep(bodycount, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - partner</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgDeleteCharacter(2090);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.ending_npc_militiades_01 = true;</string>
+        <string>aod.ending_sidequest = true;</string>
+        <string>addQuest(Militiades);</string>
+        <string>aod.quest_Militiades_phase1 = true;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

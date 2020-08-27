@@ -1,0 +1,706 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.gnz_skyRoom_useThrone</string>
+    </conditions>
+    <links>
+      <int>26</int>
+    </links>
+    <dlg_name>GNZ_StarRoom_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Entity</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>You enter a massive, strangely decorated chamber, but at once step back, dizzied, from an abyss. Above, the rock ceiling is hewn with arcane symbols, while at your feet is a vast open space, a bottomless night sky of alien stars, forming no constellations you recognize. This is uncanny, unnatural, sorcery beyond your imagination. You shrink from it instinctively, as if pushed by an invisible hand against the reassuring firmness of the stone wall.</npc_text>
+      <onLoadScripts>
+        <string>aod.gnz_starRoom_intro = true;</string>
+        <string>useCameraBookmark(CAM_Intro_1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Examine it.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lore &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>[lore failure]Machinery hums on all sides, giving the impression that this chamber is but one part of a humongous complex. Pipes of all sizes snake in and out of the walls beneath the lip of the parapet, glowing deeper down where the stone walls end and black sky begins. Finally, you are able to drag your eyes up to the walkway leading out over the abyss. The throne there seems to wait for one worthy enough, powerful enough to claim it. It beckons to you.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Explore the room.</text>
+          <def_link>27</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - explore the room</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>aod.gnz_skyRoom_useThrone = true;</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>27</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>The throne seems to wait for one worthy enough, powerful enough to claim it. It beckons to you.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(CAM_Chair_1);</string>
+        <string>dlgTeleportToMarker(TM_SkyRoom_Chair_2);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take the seat. You know you want to.</text>
+          <def_link>24</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.pc_mindShield</string>
+            <string>aod.npc_prophet_drug</string>
+            <string>(aod.con + aod.int) &gt;= 14</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+            <int>28</int>
+            <int>5</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Put on the Helm of Destiny and claim your throne.</text>
+          <def_link>9</def_link>
+          <checkOnAppear>dlgGetItemsCount(2170) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>26</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>[lore success]Machinery hums on all sides, giving the impression that this chamber is but one part of a humongous complex. Pipes of all sizes snake in and out of the walls beneath the lip of the parapet, glowing deeper down where the stone walls end and black sky begins. Finally, you are able to drag your eyes up to the walkway leading out over the abyss. The throne there seems to wait for one worthy enough, powerful enough to claim it. It beckons to you.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>You pause to consider, for the greater the technology, the greater the need for caution. You search your memory for any reference which might apply to this place, and recall a tractate dedicated to an ancient artefact similar to what you've discovered here. This device was created to detect tears in the fabric of the world. These 'tears' were said to be incredibly rare, and the description of their exact cause is more or less gibberish to you: an unspecified event where, in defiance of the natural order, some cosmic waves failed to collapse. This failure creates a physical anomaly which occupies the same space in two different dimensions at the same time.
+
+The hill on which castle Ganezzar was built was supposedly erected from the plain for defensives purposes, though it would seem much easier and cheaper to simply choose an existing hill. Could it be that House Crassus raised the hill specifically to enclose and study one of these 'tears', which happened to manifest itself hundreds of feet above the ground?</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Explore the room.</text>
+          <def_link>27</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - left unexplored</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - explored</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportToMarker(TM_SkyRoom_Floor_2);</string>
+        <string>aod.star_room_chair = true;</string>
+        <string>VCO_Throne.setActive(0);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgCam(320, 45, 12, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>[constitution/intelligence failure]Ever so slowly, you ease yourself onto the seat, expecting – dreading – what might happen. The chair is hard and uncomfortable but, except for your palms tingling on the armrests, seems ordinary. You become aware of a low wind in the chamber, but before you can locate the source it resolves into the murmur of distorted voices in your ears.
+
+Your head knocks against the back of the throne and your fists clench as your mind is flooded with a confusing succession of images. You see metal spires and blazing suns, unfamiliar landmasses laid out like a map, and the violet waves of another world’s oceans. Each of these inexplicable visions is accompanied by raw emotions, hatred, curiosity, sadness and other alien, unnamable sensations. You shake your head violently as if to dispel a nightmare, but these visions come not from your brain but from some outside agency.
+
+The chaos continues, intensifies into an anguished blur, as if struggling to escape the prison that is your mind. Eventually, your mind gives in and releases you from this torment.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_SkyRoom_Chair);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetAnimation(anim_sit_chair_00_00, 0);</string>
+        <string>dlgHideWeapons();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Non est ad astra mollis e terris via.</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>[constitution/intelligence success]Ever so slowly, you ease yourself onto the seat, expecting – dreading – what might happen. The chair is hard and uncomfortable but, except for your palms tingling on the armrests, seems ordinary. You become aware of a low wind in the chamber, but before you can locate the source it resolves into the murmur of distorted voices in your ears.
+
+Your head knocks against the back of the throne and your fists clench as your mind is flooded with a confusing succession of images. You see metal spires and blazing suns, unfamiliar landmasses laid out like a map, and the violet waves of another world’s oceans. Each of these inexplicable visions is accompanied by raw emotions, hatred, curiosity, sadness and other alien, unnamable sensations. You shake your head violently as if to dispel a nightmare, but these visions come not from your brain but from some outside agency.
+
+The chaos continues, intensifies into an anguished blur, until your mind finally succumbs to a merciful darkness.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_SkyRoom_Chair);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.pc_usedStarChamber = 1;</string>
+        <string>dlgSetAnimation(anim_sit_chair_00_00, 0);</string>
+        <string>dlgHideWeapons();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wake up.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>You open your eyes on the dim light of the starry-floored chamber, blood and bile dripping from your mouth. Weak and disoriented, you crawl away from the chair, cursing the ancient ones and their bizarre devices.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportToMarker(TM_SkyRoom_Floor_1);</string>
+        <string>dlgCam(320, 45, 8, 1);</string>
+        <string>dlgSetAnimation(anim_death_forward04, 0.95);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>[Mind Shield]Ever so slowly, you ease yourself onto the seat, expecting – dreading – what might happen. The chair is hard and uncomfortable but, except for your palms tingling on the armrests, seems ordinary. A moment later there comes a sound like approaching voices, but it quickly fades away as if breaking against an invisible barrier.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_SkyRoom_Chair);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.pc_usedStarChamber = 1;</string>
+        <string>dlgSetAnimation(anim_sit_chair_00_00, 0);</string>
+        <string>dlgHideWeapons();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Try to relax and let the voices come through.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>Ever so slowly, you ease yourself onto the seat, expecting – dreading – what might happen. The chair is hard and uncomfortable but, except for your palms tingling on the armrests, seems ordinary. A moment later there comes a sound like approaching voices, but it stays away as if unable to penetrate your drug-induced stupor.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_SkyRoom_Chair);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.pc_usedStarChamber = 1;</string>
+        <string>dlgSetAnimation(anim_sit_chair_00_00, 0);</string>
+        <string>dlgHideWeapons();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Try to relax and let the voices come through.</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>28</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>Ever so slowly, you ease yourself onto the seat, expecting – dreading – what might happen. The chair is hard and uncomfortable but, except for your palms tingling on the armrests, seems ordinary. A moment later there comes a sound like approaching voices, but it quickly fades away as if breaking against an invisible barrier. The voices are gone, all except one.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_SkyRoom_Chair);</string>
+        <string>aod.star_room_used_helmet = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.pc_usedStarChamber = 1;</string>
+        <string>dlgSetAnimation(anim_sit_chair_00_00, 0);</string>
+        <string>dlgHideWeapons();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Darius... he had much promise,” says a voice in your head. The voice rings like a bell in the back of your mind, each word sending painful vibrations throughout your body.
+
+“He was strong and eager, yet even with an army at his back he failed to enter Ganezzar. Failed to reach this chamber. Failed to serve me.” The strident voice is in fact your own, your aching jaw opening and closing as your mouth channels the thoughts of the outside entity.
+
+There is a warrior standing in front of an army. Despite having never seen him before, you know who he is, and you feel his eagerness to serve you. His desire to take Ganezzar radiates from him, need that is driving him mad. Then he is lying dead in his tent, fires burning unchecked nearby, his army broken and scattered. You are enraged at the man. He has failed you.
+
+The voice returns. “You are weak,” it says, “feebleminded, alone. Yet here you are.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Who are you?”</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Athazor’s will is strong.” The words ring in your mind, the vibrations seeming to bounce from the inside of your skull. After a moment of silence, a terrifying vision rears before you, a humongous being resembling an octopus or jellyfish – a dome-like head with a multitude of constantly shifting, probing appendages. Where these tentacles trail, reality alters in their wake. Is this the entity the Magi called Athazor?
+
+“I can sense Athazor’s gift in you, protecting your feeble brain. Without it, my attempt to connect our minds would drive you mad.” The strident voice is in fact your own, your aching jaw opening and closing as your mouth channels the thoughts of the outside entity.
+
+Mercifully, the creature fades from view and the perspective changes. You are looking down at a brighter square in the darkness of the void – the room you’re in now. As if riffling through the pages of a thick tome, you see a series of people sitting in that selfsame chair, all reaching out to the entity, each of them killed outright or driven to gibbering insanity. When the last of these have been destroyed you see yourself, and understand that you are as an insect, too small, usually, even to be noticed, too low to be contemptible.
+
+“You are weak,” the voice says, “feebleminded, alone. Yet here you are.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Who are you?”</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“In the olden days my disciples drank a special draught before the communion.” The words ring in your mind, the vibrations seeming to bounce from the inside of your skull. After a moment of silence, a vision rears before you. Kneeling men taking turns drinking from a cup, waiting for their God to speak to them.
+
+“I can sense the drug in you, protecting your feeble brain. Without it, my attempt to connect our minds would drive you mad.” The strident voice is in fact your own, your aching jaw opening and closing as your mouth channels the thoughts of the outside entity.
+
+The vision fades from view and the perspective changes. You are looking down at a brighter square in the darkness of the void – the room you’re in now. As if riffling through the pages of a thick tome, you see a series of people sitting in that selfsame chair, all reaching out to the entity, each of them killed outright or driven to gibbering insanity. When the last of these have been destroyed you see yourself, and understand that you are as an insect, too small, usually, even to be noticed, too low to be contemptible.
+
+“You are weak,” the voice says, “feebleminded, alone. Yet here you are.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Who are you?”</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>29</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“My kind does not define itself in the bleating sounds of lesser beings. Your kind called us the Yazatas – worthy of worship.” A huge square of people kneeling, heads touching the ground. “From a long dead language they named me Balzaar. Bal meant to cross over. Zaar meant vessel. Thus, the one who crossed over and was poured into a vessel, a crude attempt to describe a god.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“A vessel?”</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“A god? Is that what you call yourself?”</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What is this helmet?”</text>
+          <def_link>13</def_link>
+          <checkOnAppear>aod.star_room_used_helmet</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“A communication device. In ages past my generals wore such helmets to war, their armies extensions of my will. My aspect walked your plane in those days and spoke directly with those who wore the amplifiers. Separated as we are now, I can be heard clearly only when the other is in the center of the tear.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You mentioned a vessel?”</text>
+          <def_link>20</def_link>
+          <checkOnAppear>aod_npc_balzaar_asked_vessel == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“A god? Is that what you call yourself?”</text>
+          <def_link>14</def_link>
+          <checkOnAppear>aod_npc_balzaar_asked_god == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It is your word, human. The concept is imprecise, but it describes my kind far better than you can imagine.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_balzaar_asked_god = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What is your kind?”</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“We know neither beginning nor end. We exist because we wish to exist. We do not struggle for every breath for we draw none.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“If you are so mighty, what do you want with us?”</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Your kind has awakened us. Enticed us with false promises. Tried to enslave us.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Was it you I spoke to earlier?” Describe the circumstances.</text>
+          <def_link>17</def_link>
+          <checkOnAppear>aod.portal_learned_coordinates</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What can you tell me about the one we named Thor-Agoth?”</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You mentioned a vessel?”</text>
+          <def_link>20</def_link>
+          <checkOnAppear>aod.npc_balzaar_asked_vessel == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What do you want me to do?”</text>
+          <def_link>21</def_link>
+          <checkOnAppear>aod.npc_balzaar_asked_vessel &amp;&amp; aod.npc_balzaar_asked_god &amp;&amp; aod.npc_balzaar_asked_thoragoth</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It was one of my brothers, he who favors things that are dead.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What can you tell me about the one we named Thor-Agoth?”</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Thor-Agoth,” the voice says slowly, as if remembering something long forgotten. “He was almost human in his foolishness, and found himself imprisoned in a mortal body for centuries, buried in the tomb his acolytes built.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_balzaar_asked_thoragoth = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Tomb?”</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You see a sprawling temple complex with a ziggurat rising in the center.</npc_text>
+      <onLoadScripts>
+        <string>setWindowImage(starRoom_vision_zgt);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“You mentioned a vessel?”</text>
+          <def_link>20</def_link>
+          <checkOnAppear>aod.npc_balzaar_asked_vessel == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What do you want me to do?”</text>
+          <def_link>21</def_link>
+          <checkOnAppear>aod.npc_balzaar_asked_vessel &amp;&amp; aod.npc_balzaar_asked_god &amp;&amp; aod.npc_balzaar_asked_thoragoth</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It is the only way.” A flood of confused images follows, an anchor, a naked man laid out for surgery, a human brain exposed to a glaring blue light, his freshly scarred body convulsing, and finally, at the apex of a pyramid, an unnatural light pouring upwards into the heavens.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_balzaar_asked_vessel = true;</string>
+        <string>setWindowImage();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Yet you call yourself a god.”</text>
+          <def_link>14</def_link>
+          <checkOnAppear>aod.npc_balzaar_asked_god == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What can you tell me about the one we named Thor-Agoth?”</text>
+          <def_link>18</def_link>
+          <checkOnAppear>aod.npc_balzaar_asked_god &amp;&amp; aod.npc_balzaar_asked_thoragoth == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What do you want me to do?”</text>
+          <def_link>21</def_link>
+          <checkOnAppear>aod.npc_balzaar_asked_vessel &amp;&amp; aod.npc_balzaar_asked_god &amp;&amp; aod.npc_balzaar_asked_thoragoth</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Serve me. Bring Meru to Al-Akia. Complete the ritual.”</npc_text>
+      <onLoadScripts>
+        <string>setWindowImage();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“How would I do it?”</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You see a large pyramid, an unnatural light pouring upwards into the heavens, as the voice recites a complex mantra, burning each step into your mind.</npc_text>
+      <onLoadScripts>
+        <string>aod.star_room_learned_ritual = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setWindowImage(alk_pyramidOpen_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“And if I complete the ritual?”</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>You are standing atop a high structure, and everywhere you turn your gaze impossible distances are revealed. The empire is laid out at your feet, and it crawls with pale, puny things, bowing and scraping, creatures which fear and serve you. The creatures are men. They are what you used to be.</npc_text>
+      <onLoadScripts>
+        <string>addLore(26);</string>
+        <string>setWindowImage();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>rwd_quest(HC1_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

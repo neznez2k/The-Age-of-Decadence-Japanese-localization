@@ -1,0 +1,105 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Quest_HD4_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You wake up to find Maadoran in chaos and confusion. Apparently, the Imperial Guards stormed the Slums and killed “hundreds of thugs” – most likely beggars and vagrants who didn’t get out of their way fast enough. Instead of engaging the Guards in the Slums and using the home advantage, Levir’s men slipped through the cordons like water through fingers and spilled into the other districts, bringing death and destruction.
+
+The tally includes a dozen of dead Guards, killed while patrolling; a score of violent robberies aimed to terrorize well-off districts, and torched houses including the prized merchants’ guild’s building. It will take the Guards a long time to hunt down Levir’s men and while they’re hunting, there will be more ‘eye for an eye’ attacks.
+
+It will be a long time before the city recovers.</npc_text>
+      <onLoadScripts>
+        <string>setAchievement("ACH_MAADORAN_HD");</string>
+        <string>blockMapLocation("Maadoran");</string>
+        <string>aod.mdn_slumsAttacked = true;</string>
+        <string>setRtsCam();</string>
+        <string>aod.jnl_HD4_phase4 = 1;</string>
+        <string>dlgCam(45, 45, 8, 1);</string>
+        <string>addQuest(HD_ArriveGNZ);</string>
+        <string>aod.global_mdn_crisisActive = 0;</string>
+        <string>rwd_reputation(HD4_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Pavola</portrait>
+      <speaker_name>Pavola</speaker_name>
+      <npc_text>Pavola comes to visit you shortly.
+
+“With all the shit that’s going on now, we can’t afford to get entangled with Antidas. So, we’re going to let you go, but don’t celebrate yet. When we sort it out, I’m going to find you and I’m going to kill you myself. You’re a dead &lt;man/woman&gt;, &lt;charname&gt;.”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Pavola_QHD4_Inn, 4400);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Can I talk to Serenas?”</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave. [Expelled from Maadoran]</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Pavola</portrait>
+      <speaker_name>Pavola</speaker_name>
+      <npc_text>“Serenas is holed up in his quarters and doesn’t want to see anyone but Lorenza. If it makes you feel any better, he blamed you for all this mess and wanted to have you killed. So, if you think that Serenas’ going to help you, you’re even dumber than he is.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave. [Expelled from Maadoran]</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING - go to Teron</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.ending_mdn_town_slumsAttack = true;</string>
+        <string>aod.quest_GnzHD2_status = 1;</string>
+        <string>SS_start("MDN_ending", "switchMission(\"Teron_MG.mis\");");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

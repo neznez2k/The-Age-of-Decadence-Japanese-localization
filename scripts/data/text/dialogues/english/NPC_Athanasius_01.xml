@@ -1,0 +1,1229 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_athan_doneWith</string>
+      <string>aod.gnz_mg_member</string>
+      <string>aod.npc_athan_met</string>
+    </conditions>
+    <links>
+      <int>6568</int>
+      <int>6545</int>
+      <int>6576</int>
+    </links>
+    <dlg_name>NPC_Athanasius_01</dlg_name>
+    <def_link>6526</def_link>
+    <def_speaker_name>Athanasius</def_speaker_name>
+    <def_portrait>Athanasius</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Born into an impoverished noble family, Athanasius was destined to support his older brother who, by virtue of being the firstborn, was entitled to what little the family had. His siblings were expected to labor day and night to secure his future, in hopes of being rewarded when that day would come.
+
+Athanasius, a charismatic and clever youth, decided to secure his own future instead and took a job as a scribe at the castle, expecting to make a meteoric rise. Unfortunately, he discovered that the court was full of hopeful, charismatic, and clever boys, fighting for the very few positions of any value that were generally held by men who had no intentions to vacate them in the near future.
+
+After ten years of learning the trade of scheming and plotting, Athanasius decided that he had had enough and did the unthinkable for a noble born – he joined the guild of merchants where his talents were needed and appreciated.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_athan_met = true;</string>
+        <string>Addjournalchar(athanasius);</string>
+        <string>dlgCam(160, 45, 7, 8050);</string>
+        <string>dlgTeleportToMarker(TM_Talk_Athan_PC);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Greet the guildmaster.</text>
+          <def_link>6576</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.mdn_destroyed</string>
+            <string>aod.npc_strabos_met == 0 &amp;&amp; (aod.pc_member_commercium || aod.pc_exMember_commercium) &amp;&amp; aod.pc_member_none</string>
+            <string>aod.npc_strabos_expelled_you || aod.npc_strabos_met &amp;&amp; aod.pc_exMember_commercium &amp;&amp; aod.pc_member_none</string>
+            <string>aod.gnz_merchant_start</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6576</int>
+            <int>6528</int>
+            <int>6529</int>
+            <int>6527</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6526</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Whatever it is, it will have to wait.”</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(160, 45, 7, 8050);</string>
+        <string>dlgTeleportToMarker(TM_Talk_Athan_PC);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6532</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6568</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"May the Gods be with you, &lt;brother/sister&gt;," says Athanasius, smiling pleasantly.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(160, 45, 7, 8050);</string>
+        <string>dlgTeleportToMarker(TM_Talk_Athan_PC);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"How's business?"</text>
+          <def_link>6579</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'm ready to work, master."</text>
+          <def_link>6530</def_link>
+          <checkOnAppear>aod.npc_athan_job == 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6532</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6576</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Ups and downs, same as everyone else," says Athanasius with the same pleasant smile. "The Gods give and the Gods take away when their blessings are needed elsewhere."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'm ready to work, master."</text>
+          <def_link>6530</def_link>
+          <checkOnAppear>aod.npc_athan_job == 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6532</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6579</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Ah, &lt;master/mistress&gt; &lt;charname&gt;! It’s an honor to meet you. I must admit that the way you handled the guild's business in Maadoran does deserve the highest praise. And if memory serves me right, you did quite well in Teron too. So much talent in one so young... Rest assured that we’ll put it to good use.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What do you want me to do?”</text>
+          <def_link>6533</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6527</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“&lt;charname&gt;? The name does ring a bell. Teron, right? You did well there. I can certainly use a &lt;man/woman&gt; like you, if you’re looking for work.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_athan_job = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I do.”</text>
+          <def_link>6530</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Maybe later.” Leave.</text>
+          <def_link>6532</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6528</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“&lt;charname&gt;? Yes, I’ve heard about you. Most unfortunate... I’m not sure I would have done any better, had I been in your place. You were outmaneuvered by the best – there is no shame in that. From what I was told, your efforts were most impressive, considering that you were new to the city.
+
+“I can certainly use a &lt;man/woman&gt; like you, if you’re looking for work.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_athan_job = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I do.”</text>
+          <def_link>6530</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“But master Strabos –”</text>
+          <def_link>6531</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Maybe later.” Leave.</text>
+          <def_link>6532</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6529</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“– is in Maadoran. I can assure you that I’m perfectly capable of deciding whom to hire and see no need in getting master Strabos’ approval in such matters,” says Athanasius with a warm smile.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I won't fail you, master.”</text>
+          <def_link>6530</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6531</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Splendid!” says Athanasius, looking positively happy. “It’s settled then. Welcome to Ganezzar!”</npc_text>
+      <onLoadScripts>
+        <string>if(aod.npc_athan_job == 1) aod.npc_athan_job = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What do you want me to do?”</text>
+          <def_link>6533</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6530</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Have you made any progress?” inquires Athanasius.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(160, 45, 7, 8050);</string>
+        <string>dlgTeleportToMarker(TM_Talk_Athan_PC);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I did what Meru asked, but he isn’t ready to let me in yet.”</text>
+          <def_link>6546</def_link>
+          <checkOnAppear>aod.quest_MG7_completed &amp;&amp; aod.quest_MG7_reported == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'm ready to do some miracles!"</text>
+          <def_link>6574</def_link>
+          <checkOnAppear>aod.npc_athan_miracle == 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I did if you consider the Aurelian army outside the city walls a sign of things going according to plan.”</text>
+          <def_link>6558</def_link>
+          <checkOnAppear>aod.quest_mg_killFaelan == 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I talked to Varro. He'll do it.”</text>
+          <def_link>6562</def_link>
+          <checkOnAppear>aod.quest_mg_killFaelan == 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Varro doesn't want to do it. Too risky, he says.”</text>
+          <def_link>6569</def_link>
+          <checkOnAppear>aod.quest_mg_killFaelan == 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“We don't need Varro. I'm pretty sure I can handle Faelan on my own.”</text>
+          <def_link>6577</def_link>
+          <checkOnAppear>aod.quest_mg_killFaelan == 5 &amp;&amp; aod.npc_faelan_dead == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Faelan's dead.”</text>
+          <def_link>6571</def_link>
+          <checkOnAppear>aod.npc_faelan_dead &amp;&amp; aod.quest_mg_killFaelan == 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I talked to Meru. He wants me to go to Caer-Tor and make a deal with Paullus.”</text>
+          <def_link>6563</def_link>
+          <checkOnAppear>aod.quest_mg9_status == 1 &amp;&amp; aod.npc_athan_mg9_comment == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Meru is sending me to the ruins of Al-Akia. I'm pretty sure it's a sign of trust."</text>
+          <def_link>6572</def_link>
+          <checkOnAppear>aod.npc_meru_test_passed &amp;&amp; aod.npc_athanasius_talkedAbout_starChamber == false &amp;&amp; aod.alk_meruExpedition_arrived == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Meru threw me out.”</text>
+          <def_link>6566</def_link>
+          <checkOnAppear>aod.npc_meru_expelled_you</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Nothing to report yet.” Leave.</text>
+          <def_link>6532</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6545</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(125, 45, 15, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6532</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Everything is set. Go to the castle and may the Gods be with you."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go to the castle.</text>
+          <def_link>6575</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6574</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start MG7</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>sd(Quest_MG7_01);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.npc_athan_miracle = 2;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6575</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“A year ago Lord Meru renounced his lordship and proclaimed himself the first acolyte of some new creed. Of course, regardless of what he wishes to call himself – first consul or first acolyte – he still runs the town, although the latter title is more unusual. Now, House Crassus had more than its share of ... shall we say, unusual personalities, so it was hardly a cause for concern at the time.
+
+“Then he started speaking to the masses, as if he were nothing but a common preacher. He brought this ridiculous prophet and surrounded himself with people of very questionable character. That’s when I suggested erring on the side of caution and arranging a suitable accident. Sadly, my advice was ignored and now it’s too late. Meru’s creed took roots and spread like weeds. Killing him now will only make him a martyr and strengthen the creed.”</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_MG_ArriveGNZ = 4;</string>
+        <string>aod.gnz_mg_member = true;</string>
+        <string>addQuest(MG_GNZ1);</string>
+        <string>aod.jnl_MG_GNZ1 = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What can we do then?”</text>
+          <def_link>6534</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6533</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“If you can’t beat them, join them,” says Anathasius as if stating the obvious.
+
+“It has occurred to me that in the right hands this creed can be a powerful weapon. And the best part is that anyone can control it, which is unprecedented. By renouncing his lordship and claiming that we're all brothers, Meru opened the door to new possibilities. It was a mistake and if you’re half as good as I’m told, we’ll make him regret it in no time.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So, what do you want me to do?”</text>
+          <def_link>6535</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6534</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Come now, &lt;charname&gt;. You of all people should know how much one can do with mere words. You have the gift – use it. The town is full of zealots and they're eager to talk to anyone who listens. Prove yourself worthy and they'll gladly take you to their first acolyte.
+
+“Gain his trust. Surprise him with the depth of your devotion. Make yourself indispensable.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Easier said than done.”</text>
+          <def_link>6536</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What rumors?”</text>
+          <def_link>6538</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“The prophet?”</text>
+          <def_link>6541</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6535</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Easier than you think. You see, &lt;charname&gt;, good help is very hard to find and powerful men with grand ambitions, men who have so much to do and so little time, need people like you – reliable and equally ambitious men and women who can get things done, no matter the cost.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“And if I fail?”</text>
+          <def_link>6537</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6532</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6536</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I have plenty of people who fail, &lt;charname&gt;. I don’t need another one. As I told you, powerful people with grand ambitions need people who can get things done. Don’t disappoint me.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You mentioned some rumors...”</text>
+          <def_link>6538</def_link>
+          <checkOnAppear>aod.npc_athan_asked_rumors == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You mentioned a prophet...”</text>
+          <def_link>6541</def_link>
+          <checkOnAppear>aod.npc_athan_asked_prophet == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6532</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6537</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“They say he found something in the depths of his castle that made him a believer.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_athan_asked_rumors = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What could he possibly find there?”</text>
+          <def_link>6539</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6538</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Castle Ganezzar is old. It sits on top of a large hill the town’s built around and, apparently, the castle’s lower levels go very deep and house very strange things.
+
+“Now, it’s House Crassus we’re talking about here. Strange should have been their motto. They were involved in just about everything arcane. Every story we tell our children that has magic in it has House Crassus in it. It has become the symbol of ancient magics.
+
+“So, it’s entirely possible that Meru saw something you don’t see every day and jumped to the wrong conclusions. Whatever it is, we need to know.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Do you believe in stories of gods and demons?”</text>
+          <def_link>6540</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You mentioned a prophet...”</text>
+          <def_link>6541</def_link>
+          <checkOnAppear>aod.npc_athan_asked_prophet == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6532</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6539</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“If man exists, why not gods and demons? At the very least, I won’t deny the possibility just because I haven’t seen either.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You mentioned a prophet...”</text>
+          <def_link>6541</def_link>
+          <checkOnAppear>aod.npc_athan_asked_prophet == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6532</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6540</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“A fellow who calls himself Nabupolassar. He claims to be a living conduit between Meru and the divine plane, sent here to guide him. Apparently, he can set people on fire, speak with the voice of thunder, and other theatrics.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_athan_asked_prophet = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“You don’t believe it?”</text>
+          <def_link>6542</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6541</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I most certainly do – too many trustworthy people have witnessed these miracles, but speaking with a thunderous voice can hardly be considered a proof of divine origins or purpose. Talk to him if you get a chance, will you?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You mentioned other people...”</text>
+          <def_link>6543</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6532</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6542</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Faelan,” says Athanasius with a strange expression on his face. “Faelan the Thrice Blessed, he calls himself. Meru’s High Magus.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“A magus?”</text>
+          <def_link>6544</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6543</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Magus or not, he can do things that no man can or should be able to. The Guards wanted to kill him, but Meru interfered and saved him. Be careful around him.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You mentioned some rumors...”</text>
+          <def_link>6538</def_link>
+          <checkOnAppear>aod.npc_athan_asked_rumors == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6532</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6544</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Maybe he needs a nudge or two,” says Athanasius, not appearing to be overly concerned or surprised. “What can you tell me about Meru and his creed?”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_MG7_reported = true;</string>
+        <string>aod.jnl_MG_GNZ1 = 3;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Not much. Meru appears to be sincere in his beliefs. His creed is relatively simple – we turned away from gods, so gods turned away from us. If we want them to guide us out of darkness, we need to show them proper respect. Since there aren’t too many people who prefer the current state of affairs or have any viable alternative to what Meru suggests, the creed grows stronger and attracts more followers with every passing day.”</text>
+          <def_link>6547</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6546</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I see,” says Athanasius, stroking his beard. “And what do *you* think?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Meru did stumble upon something old and forgotten in his cellar. He believes he talked to gods and he is willing to do whatever it takes to earn their favor. These gods appear to be eager to return, once Meru does the groundwork. The creed can be a powerful weapon though, with or without the gods.”</text>
+          <def_link>6548</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Meru’s creed is just the top of the iceberg. I’m not sure we want to find out how deep this thing goes and what’s lurking below the waterline.” Tell him what you’ve witnessed.</text>
+          <def_link>6555</def_link>
+          <checkOnAppear>aod.temp</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Meru’s full of shit but these ‘gods’ are real. I’ve talked to one, but I’m not sure what to make of it yet.” Tell him what you’ve witnessed.</text>
+          <def_link>6555</def_link>
+          <checkOnAppear>aod.prt_talkedBeing</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6547</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Quite so,” says Athanasius, lost in his thoughts. “Well then, since we’re of the same mind here, let’s move forward.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What do you have in mind?”</text>
+          <def_link>6549</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6548</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Are you certain?” frowns Athanasius.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Yes.”</text>
+          <def_link>6557</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“How can anyone be sure when it comes to such things?”</text>
+          <def_link>6556</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6555</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I can't say I like this,” says Athanasius. “Old wives' tales suddenly becoming all too real? Gods trying to return? Do you see now why Meru should be watched and guided away from the ledge?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What's the next step?”</text>
+          <def_link>6549</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6557</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Then we continue as planned,” says Athanasius.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What's the next step?”</text>
+          <def_link>6549</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6556</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Meru is weak. He surrounds himself with people who reinforce his beliefs and inspire his own piety. It’s a crowded spot already, so we’ll have to work harder to make some room for you.
+
+“I can deliver the miracles you’ll need, but you will have to convince Meru that you’re a genuine article. Can you do that, &lt;charname&gt;?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Miracles?”</text>
+          <def_link>6550</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Are you sure it's necessary?”</text>
+          <def_link>6551</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Why did you ask me to gain his favor then?”</text>
+          <def_link>6552</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6549</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The prophet speaks in a booming voice and sets people on fire. The freak can hypnotize people. You will need miracles to herald you coming and miracles you shall have – the finest money can buy.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Deliver the miracles and I will do the rest.”</text>
+          <def_link>6553</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6550</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“If you don’t control Meru, someone else will. Or something else, judging by what you told me. If there is one thing we can learn from Strabos, it’s that quick and decisive actions are often better than a more cautious approach. He taught this lesson to me years ago.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Deliver the miracles and I will do the rest.”</text>
+          <def_link>6553</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6551</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“A holy &lt;man/woman&gt; whom nobody knows is more suspicious than someone well liked and known, someone who doesn’t seem like a threat.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Deliver the miracles and I will do the rest.”</text>
+          <def_link>6553</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6552</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Splendid,” smiles Athanasius. “It will take some time to arrange the miracles, so come and see me in a few days.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>6554</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6553</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You spend the next few days reading everything you can find on the gods and various self-proclaimed and usually short-lived prophets. While you wait, Athanasius’ gold is hard at work, spreading rumors of miracles and sending witnesses eager to buy drinks and speak to all who’d listen. Even the fact that you’re virtually unknown is turned to your advantage, painting you as a humble &lt;man/woman&gt; who seeks piety not glory.
+
+“It’s time,” says Athanasius. “I did all I could and nearly drained our coffers in the process. Everything you’ve ever wanted is within your grasp now. Tell me when you're ready.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_athan_miracle = 1;</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>rwd_training(Athanasius);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Will do." Leave.</text>
+          <def_link>6532</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6554</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“A plan is nothing but wishful thinking. A declaration of what to expect if everything goes your way. How often does that happen?
+
+“So, instead of *planning* and hoping for the best, we poke the situation we’re trying to change with a stick and watch what happens, ready to react and take advantage of the change.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_MG8_reported = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I'm the stick then?”</text>
+          <def_link>6559</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6558</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Precisely,” smiles Athanasius. “We couldn’t do much when you first approached Meru, but now that the city is under siege? Every conceivable option is on the table now.
+
+“Let’s poke Meru a bit more before you approach him again. Talk to Varro, colorfully known as the Snake. He used to be the guildmaster of the Boatmen’s local chapter until an angry mob stormed their guild and tore everyone apart. Not surprisingly, Varro survived and became Meru’s new inquisitor, tasked to eliminate heresy.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What do you want from him?”</text>
+          <def_link>6560</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6559</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I want him to kill the freak. Faelan the Blessed or the Damned or whatever it is they call him. He’s loyal like a dog and every bit as vicious. He’ll always be in our way, so the sooner we get rid of him, the better.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg_killFaelan = 2;</string>
+        <string>addQuest(MG_Kill_Faelan);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What makes you think Varro will agree to do it?”</text>
+          <def_link>6561</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6560</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Isn’t that what I’m paying you to do?” Athanasius asks with irritation. “Making people agree to do what we need? If you’re asking what angle you should play, then I’d say that Varro wants the same thing we do.
+
+“He’s a pragmatist. He didn’t die with his men, he didn’t plot revenge or anything of that sort. He joined the very power that crashed his guild like a bug and did his best to carve himself a comfortable niche. An inquisitor,” chuckles Athanasius.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6532</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6561</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Excellent.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg_killFaelan = 6;</string>
+        <string>rwd_quest(MG_KillFaelan_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6532</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6562</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You're a very resourceful and dangerous &lt;man/woman&gt;, &lt;master/mistress&gt; &lt;charname&gt;,” says Athanasius with a note of respect in his voice. “Not one to be underestimated.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg_killFaelan = 8;</string>
+        <string>rwd_quest(MG_KillFaelan_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6532</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6571</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Well, it was worth a try.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg_killFaelan = 5;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Maybe I should handle it? I wasn't always a trader, you know.”</text>
+          <def_link>6570</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6532</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6569</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I don't know,” says Athanasius, looking at you skeptically. “I'm sure we can manage without it, but if you're certain that you can kill him...”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Let me think about it.” Leave.</text>
+          <def_link>6532</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6570</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Of course he does,” smiles Athanasius. “We made him a beggar and beggars, as we know, can’t be choosers. Talk to Paullus but remember – he negotiates with us, not Meru.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_athan_mg9_comment = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"So the Aurelian army outside the city walls is part of the plan?"</text>
+          <def_link>6558</def_link>
+          <checkOnAppear>aod.quest_mg_killFaelan == 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6532</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6563</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“That was fast,” says Athanasius, looking disappointed. “It would take a lesser &lt;man/woman&gt; a week or two to fail, but you, &lt;charname&gt;, you wasted no time at all.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So now what?”</text>
+          <def_link>6567</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6566</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Now? Now we go our separate ways. Best of luck in your future endeavours, &lt;charname&gt;.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_athan_doneWith = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6532</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6567</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Then you best not fail him. Good luck, &lt;master/mistress&gt; &lt;charname&gt;. I have a feeling you're going to need it."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_athanasius_talkedAbout_starChamber = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6532</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6572</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I hope you know what you're doing,” says Athanasius. “Faelan spends his nights at the library, so that's the best place to catch him alone. Gods know what he's searching for there. They say he doesn't sleep at all.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Wait until nightfall and go to the castle's library.</text>
+          <def_link>6578</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6577</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start Faelan fight</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>switchmission("quest_faelanFight.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6578</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

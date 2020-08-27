@@ -1,0 +1,244 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Storekeeper_03_fem</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Storekeeper</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Salt cured meat of the most exotic varieties! Blood sausages! Garum!"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Do you know anyone who's been buying supplies on a regular basis lately? Enough to feed a camp full of soldiers?"</text>
+          <def_link>2</def_link>
+          <checkOnAppear>aod.quest_mineWine_askAround &amp;&amp; aod.quest_teronMine_complete == false &amp;&amp; aod.quest_teronMine_fight == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.pc_member_commercium</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"So, who's buying the supplies?"</text>
+          <def_link>2</def_link>
+          <checkOnAppear>aod.quest_mineWine_foundInfo &amp;&amp; aod.quest_teronMine_complete == false &amp;&amp; aod.quest_teronMine_fight == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Do you have any poison?"</text>
+          <def_link>6</def_link>
+          <checkOnAppear>aod.quest_mineWine_getPoison &amp;&amp; aod.quest_mineWine_hasLowPoison == false &amp;&amp; aod.quest_teronMine_complete == false &amp;&amp; aod.quest_teronMine_fight == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Rhaskos has been buying a lot lately. Way too much for a shanty town trash. If I knew it was important, I would have let master Linos know right away."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mineWine_askAround = false;</string>
+        <string>dlgCreateCharacter("Rhaskos", 2088, 2088, 134, 22, 0, S);</string>
+        <string>assignDialogue(NPC_Rhaskos_01, 2088);</string>
+        <string>addQuest(MineWine);</string>
+        <string>aod.quest_mineWine_phase1 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"It's a small town. I know all my customers. I'll be happy to sell you the information you seek for, say, fifty imperials."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mineWine_foundInfo = true;</string>
+        <string>aod.quest_mineWine_askAround = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[praetor]"Did you forget who owns this town? Perhaps, some time on a cross will refresh your memory."</text>
+          <def_link>3</def_link>
+          <checkOnAppear>aod.pc_member_daratan</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Pay 50 imperials.</text>
+          <def_link>4</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 50</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I didn't recognize you, praetor. My most sincere apologies. The man you're looking for is Rhaskos. You can find him in the shanty town."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mineWine_foundInfo = false;</string>
+        <string>dlgCreateCharacter("Rhaskos", 2088, 2088, 134, 22, 0, S);</string>
+        <string>assignDialogue(NPC_Rhaskos_01, 2088);</string>
+        <string>addQuest(MineWine);</string>
+        <string>aod.quest_mineWine_phase1 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"The man you're looking for is Rhaskos. You can find him in the shanty town."</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-50);</string>
+        <string>aod.quest_mineWine_foundInfo = false;</string>
+        <string>dlgCreateCharacter("Rhaskos", 2088, 2088, 134, 22, 0, S);</string>
+        <string>assignDialogue(NPC_Rhaskos_01, 2088);</string>
+        <string>addQuest(MineWine);</string>
+        <string>aod.quest_mineWine_phase1 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - shanty</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportTo(135, 14, 0, N);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I have a rat poison, if that's what you're looking for. It works like a charm – knocks those buggers right out."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'll take it." Pay 5 imperials.</text>
+          <def_link>7</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The storekeeper takes your money and gives you a small glass bottle with green liquid.</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItemlist(MineWine_RatPoison);</string>
+        <string>aod.quest_mineWine_hasLowPoison = true;</string>
+        <string>dlgChangeMoney(-5);</string>
+        <string>aod.quest_mineWine_phase3 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Return to shanty town.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

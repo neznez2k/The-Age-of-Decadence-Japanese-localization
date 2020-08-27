@@ -1,0 +1,257 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>CassiusConsequences</dlg_name>
+    <def_link>2285</def_link>
+    <def_speaker_name>Dellar</def_speaker_name>
+    <def_portrait>Dellar</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"&lt;charname&gt;! Lord Antidas is expecting you."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(170, 187, 0, N);</string>
+        <string>dlgSetZoom(8);</string>
+        <string>useCameraBookmark(NPC_Dellar_Cam_01);</string>
+        <string>aod.quest_killCassius_doesntLeave = false;</string>
+        <string>dlgDeleteCharacter(1000);</string>
+        <string>dlgDeleteCharacter(1330);</string>
+        <string>aod.npc_antidas_metInCassiusBetray = true;</string>
+        <string>aod.npc_cassius_betrayal = true;</string>
+        <string>aod.npc_dellar_met = true;</string>
+        <string>dlgTeleportTo(171, 231, 0, S, 1010);</string>
+        <string>if(aod.quest_galbo_considered) aod.quest_galbo_phase3e = true;</string>
+        <string>tbd_loremaster_door_02.unlock();</string>
+        <string>tbd_loremaster_door_02.open();</string>
+        <string>aod.npc_feng_fledTeron = true;</string>
+        <string>aod.exploration_fengHatchOpen = true;</string>
+        <string>aod.ending_character_feng_01 = true;</string>
+        <string>aod.ending_character_cassius_02 = true;</string>
+        <string>aod.ending_loremaster = true;</string>
+        <string>aod.npc_cassius_daratan = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"He is?"</text>
+          <def_link>2286</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2285</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Your deeds speak for themselves, don't they? Come, let's not make the old man wait."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Follow Dellar.</text>
+          <def_link>2287</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(daratan) &gt;= 1</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2288</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2286</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>Antidas</speaker_name>
+      <npc_text>君はアンティダスの広間に立ち、富と権力の印に囲まれていた。どちらを向いてもエキゾチックなタペストリーや絵画、珍しい花瓶や煌めく彫像を見ることができる。絢爛とした柱が広間に建ち並び、アンティダス卿の座する玉座へと至る。彼は援助と好意を求める請願者のグループに謁見を許していた。兵士達は見張りをしており、トラブルの兆しが見えた瞬間にいつでもアンティダスを守り広間を虐殺の場にする用意があった。
+
+You wait for your turn and then approach. Lord Antidas gestures and a man steps from behind the throne. It's your old friend Cassius, smiling triumphantly.
+
+"You dare to plot against me!" explodes Antidas, barely controlling his rage. "Dellar! Throw &lt;him/her&gt; out of my town!"</npc_text>
+      <onLoadScripts>
+        <string>dlgUnequipHands();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(170, 229, 0, N);</string>
+        <string>dlgTeleportTo(169, 230, 0, SE, 1070);</string>
+        <string>useCameraBookmark(NPC_Antidas_Cam_01);</string>
+        <string>dlgRotateToChar(1, 1010);</string>
+        <string>rwd_reputation(Cassius_04);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]"I acted out of ignorance, not malice. Please give me a chance to redeem myself, my Lord!"</text>
+          <def_link>2291</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 3 &amp;&amp; aod.npc_dellar_questsGiven == false</string>
+            <string>aod.persuasion &gt;= 3 &amp;&amp; aod.npc_dellar_questsGiven</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2293</int>
+            <int>2296</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Well, it could have been worse...</text>
+          <def_link>2292</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2287</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>Antidas</speaker_name>
+      <npc_text>君はアンティダスの広間に立ち、富と権力の印に囲まれていた。どちらを向いてもエキゾチックなタペストリーや絵画、珍しい花瓶や煌めく彫像を見ることができる。絢爛とした柱が広間に建ち並び、アンティダス卿の座する玉座へと至る。彼は援助と好意を求める請願者のグループに謁見を許していた。兵士達は見張りをしており、トラブルの兆しが見えた瞬間にいつでもアンティダスを守り広間を虐殺の場にする用意があった。
+
+You wait for your turn and then approach. Lord Antidas gestures and a man steps from behind the throne. It's your old friend Cassius, smiling triumphantly.
+
+"I want to believe that you acted out of ignorance. Consider this conversation your first and final warning."</npc_text>
+      <onLoadScripts>
+        <string>dlgUnequipHands();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(NPC_Antidas_Cam_01);</string>
+        <string>dlgTeleportTo(170, 229, 0, N);</string>
+        <string>dlgRotateToChar(1, 1010);</string>
+        <string>rwd_reputation(Cassius_04);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"My Lord, please allow me –"</text>
+          <def_link>2289</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2288</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>Antidas</speaker_name>
+      <npc_text>"We'll talk later, &lt;charname&gt;. I need to talk to Master Cassius first."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2290</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2289</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>Antidas</speaker_name>
+      <npc_text>[success]"Very well... We'll talk later, &lt;charname&gt;. I need to talk to Master Cassius first."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2290</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2296</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(167, 163, 0, S);</string>
+        <string>dlgTeleportTo(183, 209, 1, W, 1010);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2290</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>Antidas</speaker_name>
+      <npc_text>[failure]"You had your chance... Dellar, take &lt;him/her&gt; away."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>You're exiled from Teron. Well done.</text>
+          <def_link>2292</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2291</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING - go to Maadoran</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>TRN_LeaveEarly();</string>
+        <string>StartTeronEnding();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2292</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Antidas</portrait>
+      <speaker_name>Antidas</speaker_name>
+      <npc_text>[success]"A chance? Very well. Dellar, put &lt;his/her&gt; skills to the test. If &lt;he/she&gt; survives it, bring &lt;him/her&gt; back to me."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_dellar_test = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Thank you, my Lord."</text>
+          <def_link>2294</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2293</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - test</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.npc_dellar_startTest = true;</string>
+        <string>dlgTeleportTo(170, 187, 0, N);</string>
+        <string>useCameraBookmark(NPC_Dellar_Cam_01);</string>
+        <string>dlgSetZoom(8);</string>
+        <string>apmsstartdialogue(dellar_01);</string>
+        <string>dlgTeleportTo(183, 209, 1, W, 1010);</string>
+        <string>dlgTeleportTo(170, 189, 0, S, 1070);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2294</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,250 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod_npc_gnz_legatus_met</string>
+    </conditions>
+    <links>
+      <int>3</int>
+    </links>
+    <dlg_name>Quest_IG9_05</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Legatus</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Legatus &lt;charname&gt;, I presume?” asks the Legatus. “Truth to be told, I didn't think that Paullus would actually join us in this fight, but I'm glad to be proven wrong. Welcome aboard!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What are my orders?”</text>
+          <def_link>4</def_link>
+          <checkOnAppear>aod.gnz_siege_IG_sided_HC == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m afraid I have some bad news. There’s been a change of plans.”</text>
+          <def_link>1</def_link>
+          <checkOnAppear>aod.gnz_siege_IG_sided_HC</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Legatus &lt;charname&gt;! We meet again, this time under happier circumstances,” says the Legatus. “Truth to be told, I didn't think that Paullus would actually join us in this fight, but I'm glad to be proven wrong. Welcome aboard!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What are my orders?”</text>
+          <def_link>4</def_link>
+          <checkOnAppear>aod.gnz_siege_IG_sided_HC == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m afraid I have some bad news. There’s been a change of plans.”</text>
+          <def_link>1</def_link>
+          <checkOnAppear>aod.gnz_siege_IG_sided_HC</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I don’t understand,” says the Legatus, frowning.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[critical strike]Show him what you mean.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>ownsSmallDagger() &amp;&amp; aod.critical_strike &gt;= 7</string>
+            <string>ownsSmallDagger() &amp;&amp; aod.critical_strike &gt;= 4</string>
+            <string>ownsSmallDagger() &amp;&amp; aod.critical_strike &lt; 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8</int>
+            <int>11</int>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Our alchemists are ready to breach the gate. You and your men will clear the way.
+
+“It's hard to get more than a handful of soldiers there,” says the Legatus, almost apologetically. “You'll understand when you get there - it's hardly more than a ledge.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Let’s get it over with.” Prepare for battle.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Why me?”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - attack the gates</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Why do you think Paullus sent you to my tent? You're clearly too young to be a legatus, so I'll assume you're a hastily promoted centurion and that ledge up there is your test. Well, the glory is all yours, soldier.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Let’s get it over with.” Prepare for battle.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Your dagger rings off the Legatus’ armor.
+
+“Assassins!” yells the Legatus, pushing you away.</npc_text>
+      <onLoadScripts>
+        <string>equipDaggerCS();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>sfxPlayOnce(csMissSwingMetal01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You take a step toward the Legatus, reaching into your bracer as if to present him with new orders. His eyes widen in fear and he's quick enough to back away a bit, but your dagger slashes his neck.
+
+“Assassins!” yells the Legatus, pushing you away.</npc_text>
+      <onLoadScripts>
+        <string>equipDaggerCS();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgChangeCharacterHP(-15, 8200);</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You take a step toward the Legatus, reaching into your bracer as if to present him with new orders. His eyes widen in fear but it is too late. The dagger leaves the sheath in a blur of motion and finds a temporary home in his unprotected neck.
+
+You withdraw the blade and the Legatus collapse without making a sound. His fall breaks the spell and his men reach for their weapons.</npc_text>
+      <onLoadScripts>
+        <string>equipDaggerCS();</string>
+        <string>dlgSetAnimation(anim_death_forward00, 0.95, 8200);</string>
+        <string>dlgKillCharacter(8200);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>sfxPlayOnce(csSuccessMetal01);</string>
+        <string>dlgCsRepTrain(1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - tent</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addEnemyToParty(1, IG9_legatus);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Unfortunately, you've misplaced a dagger most suitable for the occasion, so looks like you'll have to kill them the old fashioned way.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Kill 'em all!</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,770 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.tsq_merchant_follow == false &amp;&amp; aod.tsq_merchant_started</string>
+      <string>aod.tsq_merchant_firstFight</string>
+      <string>aod.tsq_merchant_killedHouse</string>
+      <string>aod.tsq_merchant_secondFight</string>
+    </conditions>
+    <links>
+      <int>21</int>
+      <int>3</int>
+      <int>24</int>
+      <int>26</int>
+    </links>
+    <dlg_name>TSQ_Merchant</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Miltiades</def_speaker_name>
+    <def_portrait>miltiades</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You are near the market square when a man in rich robes approaches you.
+
+"A moment of your time, kind &lt;master/mistress&gt;. I'm Miltiades, a merchant by trade. I'm terribly sorry to impose on you, but I'm in a bit of a predicament... You see, I deal in the finest weapons and armor. Each item is a work of art, forged from the rarest metals and crafted to perfection. Unfortunately, I can't open up a shop until I settle a dispute with the Commercium, and I can't settle it until I start selling my merchandise.
+
+Thus, I have no choice but to beg people to show kindness and buy what they can at greatly reduced prices. I'm asking only for what I paid for these items, so it is quite a bargain. Would you like to take a look? My wares are in a house nearby."</npc_text>
+      <onLoadScripts>
+        <string>aod.tsq_merchant_started = true;</string>
+        <string>dlgTeleportTo(155, 104, 0, S);</string>
+        <string>dlgTeleportTo(155, 103, 0, N, 2090);</string>
+        <string>useCameraBookmark(TSQ_Merchant_cam_01);</string>
+        <string>assignDialogue(TSQ_Merchant, 2090);</string>
+        <string>addJournalChar(miltiades);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Sure, I'd like to take a look."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]"Sounds like a good deal. Maybe even a little bit too good to be true?"</text>
+          <def_link>1</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Some other time maybe."</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"One man's misfortune is another man's fortune, is it not so? The Commercium's ways of doing business are hardly unheard of. However, if you're having doubts and more comfortable paying double at the market, who am I to argue with you?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Alright, let's go and take a look."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Some other time maybe."</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>You follow Miltiades to his house. His servants greet you at the door and let you in. They are well armed and armored, but these are dangerous times. You never know whom you can trust these days.
+
+The room is empty. You turn around to ask Miltiades where his merchandise is, when his servants draw weapons and attack without saying a word.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.tsq_merchant_follow = true;</string>
+        <string>dlgTeleportTo(38, 227, 0, E);</string>
+        <string>dlgCreateCharacter("Thug", 2091, 2091, 40, 228, 0, W);</string>
+        <string>dlgCreateCharacter("Thug", 2092, 2092, 40, 226, 0, W);</string>
+        <string>dlgSetCombatAnimation(2091);</string>
+        <string>dlgSetCombatAnimation(2092);</string>
+        <string>useCameraBookmark(TSQ_Merchant_cam_02);</string>
+        <string>addParty(TSQFirstFight, 0);</string>
+        <string>addCharToParty(2091, TSQFirstFight, fighter);</string>
+        <string>addCharToParty(2092, TSQFirstFight, fighter);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[dexterity]Run!</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>28</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>So much for 'the finest armor at great prices'... You look at the dead bodies and the blood slowly spreading on the floor. Well, they don't look too happy with the outcome either. Then again, life is full of disappointments.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(37, 228, 0, E);</string>
+        <string>useCameraBookmark(TSQ_Merchant_cam_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait for Miltiades.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Look around some more.</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>There's nothing left to do here.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(37, 228, 0, E);</string>
+        <string>useCameraBookmark(TSQ_Merchant_cam_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave the house.</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Look around some more.</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>Miltiades and you have an unfinished business. Hopefully, he's still around.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(37, 228, 0, E);</string>
+        <string>useCameraBookmark(TSQ_Merchant_cam_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave the house.</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Look around some more.</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>26</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Is it done?" The door opens, letting Miltiades in. He looks at the dead men on the floor and swallows.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.tsq_merchant_firstFight = false;</string>
+        <string>useCameraBookmark(TSQ_Merchant_cam_04);</string>
+        <string>dlgTeleportTo(37, 228, 0, E, 2090);</string>
+        <string>dlgTeleportTo(39, 228, 0, W);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Cut his lying throat.</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Ah, Miltiades, my good man. I can't believe you missed all the excitement."</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>You grab Miltiades by the hair and drag the blade across his throat, severing the arteries. The blood shoots up and you release the body, letting it slide down to the floor.</npc_text>
+      <onLoadScripts>
+        <string>delCharTag(TeronKeyNPC, 2090);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportTo(38, 228, 0, E, 2090);</string>
+        <string>dlgSetAnimation(anim_death_back00, 0.99, 2090);</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>aod.tsq_merchant_killedHouse = true;</string>
+        <string>dlgKillCharacter(2090);</string>
+        <string>changeRep(bodycount, 1);</string>
+        <string>rwd_quest(TRN_Miltiades_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I ... ah ... didn't really ... I didn't ..."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Didn't what? Didn't know that your friends will end up dead? Well, it's life, especially in Teron. One moment you're plotting to murder someone, the next you are lying in a pool of your blood, holding your guts."</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Please, don't kill me! Please! I have a family, I had to do it. I didn't know they would try to kill you. You have to believe me! I thought they'd just take your money and let you go.
+
+Honest mistake, I swear. Look, let me make it up to you. I've been working some really fat turkey for weeks. He's good for at least a thousand, maybe more. I'll take two fifty, the rest is yours. See, I told you I'll take care of you. Deal?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Deal."</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What are you mumbling about?"</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Get out of here, Miltiades. Pray that our paths don't cross again."</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Save yourself the trouble and cut his lying throat.</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I'll bring you a mark eager to buy non-existent goods for a thousand imperials. How you get the money is your business. I take 250, you take the rest. Deal?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Deal."</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Get out of here, Miltiades. Pray that our paths don't cross again."</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Save yourself the trouble and cut his lying throat.</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You won't regret it, I swear. Wait here, I'll be back in no time."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Wait.</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>Nobleman</speaker_name>
+      <npc_text>Your patience is almost out, when in comes a tall, richly dressed man, accompanied by two bodyguards.
+
+"I trust you have the gems?" inquires the man.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgCreateCharacter("Nobleman", 2093, 2093, 37, 228, 0, E);</string>
+        <string>dlgCreateCharacter("Bodyguard", 2094, 2094, 38, 229, 0, SE);</string>
+        <string>dlgCreateCharacter("Bodyguard", 2095, 2095, 38, 227, 0, NE);</string>
+        <string>dlgTeleportTo(39, 228, 0, W);</string>
+        <string>useCameraBookmark(TSQ_Merchant_cam_05);</string>
+        <string>dlgTeleportTo(148, 69, 0, N, 2090);</string>
+        <string>assignDialogue(Miltiades_01, 2090);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I trust you have the money?"</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>Nobleman</speaker_name>
+      <npc_text>"Money? But I've already paid your master."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"My master?"</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Looks like good Miltiades has fucked you again. Fight your way out.</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>Nobleman</speaker_name>
+      <npc_text>"Are you slow, &lt;boy/girl&gt;? Yes, Miltiades, your master. I paid him in full for the gems and he told me to come here and get them from you. I understand that he isn't allowed to sell his merchandise directly until his dispute is settled.
+
+Now, give me my gems and I'll be on my way."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I don't have any gems and Miltiades isn't my master. He lied to us both."</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>Nobleman</speaker_name>
+      <npc_text>"Did he now? Then what *are* you doing here, pray tell? I'll tell you what I think. I think that both you and your master tried to make a fool out of me, which I don't appreciate in the least. I think that a lesson is in order," he gestures and his men step forward, drawing their weapons.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion][charisma]"I assure you, my Lord, that I too am a victim of Miltiades. I was lured here the same way you were and had to fight off his thugs. I understand your desire to extract revenge on those responsible, but blaming me is exactly what Miltiades hopes for. You don't want to fall for his tricks again, do you?"</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.cha) &gt;= 9</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>11</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[body count]"Miltiades may have made a fool out of you, but I'll make a fucking corpse out of you, unless you put a leash on your apes and get the fuck out of here."</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(bodycount) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>Nobleman</speaker_name>
+      <npc_text>[success]"You're right. I do believe I acted rashly. My apologies."</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(TRN_Miltiades_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>27</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>Nobleman</speaker_name>
+      <npc_text>[failure]"But which is a trick? This is the question, isn't it? In times like these, I remember what my father had taught me – there are no innocents." He waves his hand and his men attack.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>Nobleman</speaker_name>
+      <npc_text>[failure]"I'm quite certain that my men can handle a loud-mouth like you."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>Nobleman</speaker_name>
+      <npc_text>[success]The man hesitates. "Have you heard of &lt;him/her&gt;?" he asks his guards.
+
+"&lt;His/Her&gt; name is &lt;charname&gt;. &lt;He/She&gt; does have a certain reputation when it comes to killing."
+
+"Does &lt;he/she&gt;?" asks the man, pretending to be thoughtful and trying to find a way to save face. "Well, then I'm quite certain that &lt;he/she&gt; isn't a crook and thus can't be an associate of Miltiades."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>27</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - market</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - house</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgTeleportTo(199, 134, 0, N);</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>dlgSetAmbientAnimation();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - house - ran away</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgTeleportTo(199, 134, 0, N);</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>dlgDeleteCharacter(2090);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>30</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - house - noble left</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgTeleportTo(199, 134, 0, N);</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>dlgDeleteCharacter(2093);</string>
+        <string>dlgDeleteCharacter(2094);</string>
+        <string>dlgDeleteCharacter(2095);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>27</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - house - Miltiades left town</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgTeleportTo(199, 134, 0, N);</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgDeleteDeadCharacters();</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>dlgDeleteCharacter(2090);</string>
+        <string>aod.npc_miltiades_spared = true;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT 1</npc_text>
+      <onLoadScripts>
+        <string>aod.tsq_merchant_firstFight = true;</string>
+        <string>addEnemyToParty(1, TSQFirstFight);</string>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgSetZoom(10);</string>
+        <string>aod.gameplay_questMiltiades_fight = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT 2</npc_text>
+      <onLoadScripts>
+        <string>aod.tsq_merchant_secondFight = true;</string>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>addParty(TSQSecondFight, 0);</string>
+        <string>addCharToParty(2093, TSQSecondFight, fighter);</string>
+        <string>addCharToParty(2094, TSQSecondFight, fighter);</string>
+        <string>addCharToParty(2095, TSQSecondFight, fighter);</string>
+        <string>addEnemyToParty(1, TSQSecondFight);</string>
+        <string>dlgSetZoom(10);</string>
+        <string>aod.gameplay_questMiltiades_fight = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You're back! I knew you'd change your mind. Lucky for you, I still have some of the merchandise. Please, please, come with me, my friend."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(155, 103, 0, N, 2090);</string>
+        <string>dlgTeleportTo(155, 104, 0, S);</string>
+        <string>useCameraBookmark(TSQ_Merchant_cam_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Alright, let's go and take a look."</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Some other time maybe."</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - look around the house</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>[success]You bolt for the door the moment the men start reaching for the weapons and manage to escape before they can do anything to stop you.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Run away.</text>
+          <def_link>30</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>28</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>none</portrait>
+      <speaker_name>none</speaker_name>
+      <npc_text>[failure]You are not fast enough and the thugs are on you before you reach the door. Now, it's you or them.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>29</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

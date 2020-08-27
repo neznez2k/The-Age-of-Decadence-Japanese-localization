@@ -1,0 +1,2324 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_athan_miracle == 2</string>
+      <string>aod.quest_IG9_status == 1</string>
+      <string>aod.npc_meru_met</string>
+      <string>aod.npc_faelan_dead || aod.quest_mg_killFaelan == 6</string>
+    </conditions>
+    <links>
+      <int>6500</int>
+      <int>6530</int>
+      <int>6470</int>
+      <int>6467</int>
+    </links>
+    <dlg_name>NPC_Meru_01</dlg_name>
+    <def_link>6461</def_link>
+    <def_speaker_name>Meru</def_speaker_name>
+    <def_portrait>Meru</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You’re standing in front of Lord Meru. He is dressed in the eastern manner and has an aura of humility and piousness about him, although you can’t say whether he is a humble and pious man or merely wants to come across as one.
+
+There are no guards in the room, nothing that would highlight his status and station. Lord Meru is accompanied only by a plainly dressed man with thinning hair and dark eyes that seem to penetrate to your very soul.</npc_text>
+      <onLoadScripts>
+        <string>dlgUnequipHands();</string>
+        <string>aod.npc_meru_met = true;</string>
+        <string>dlgTeleportToMarker(TM_Meru_PC_01);</string>
+        <string>aod.gnz_allowedIntoCastle = true;</string>
+        <string>if(aod.npc_feng_fledTeron) createByCharMarker("CM_Feng");</string>
+        <string>Addjournalchar(meru);</string>
+        <string>dlgCam(15, 40, 7, 8000);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“My Lord.”</text>
+          <def_link>6450</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6461</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You’re standing in front of Lord Meru. He is dressed in the eastern manner and has an aura of humility and piousness about him, although you can’t say whether he is a humble and pious man or merely wants to come across as one.
+
+There are guards in the room, that would highlight his status and station.</npc_text>
+      <onLoadScripts>
+        <string>dlgUnequipHands();</string>
+        <string>aod.npc_meru_met = true;</string>
+        <string>dlgTeleportToMarker(TM_Meru_PC_01);</string>
+        <string>aod.gnz_allowedIntoCastle = true;</string>
+        <string>if(aod.npc_feng_fledTeron) createByCharMarker("CM_Feng");</string>
+        <string>Addjournalchar(meru);</string>
+        <string>dlgCam(15, 40, 7, 8000);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“My Lord.”</text>
+          <def_link>6450</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6467</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“There are no lords here, &lt;brother/sister&gt;. Are we not all equal in the Gods’ eyes? We’re measured only by our devotion and faith. Serve faithfully, give yourself to the Gods and you too will stand one day where I stand now.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You have no guards?”</text>
+          <def_link>6451</def_link>
+          <checkOnAppear>aod.npc_faelan_dead == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.pc_mindShield</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6561</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I have many questions...”</text>
+          <def_link>6452</def_link>
+          <checkOnAppear>aod.npc_paullus_sentToGanezzar == false &amp;&amp; aod.quest_GnzHA1_status == 0 &amp;&amp; aod.quest_GnzHD1_status == 0 &amp;&amp; aod.quest_GnzHD2_status == 0 &amp;&amp; aod.mdn_destroyed == 0</checkOnAppear>
+          <checksOnClick>
+            <string>aod.pc_reputation_theChosenOne</string>
+            <string>aod.npc_feng_fledTeron</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6458</int>
+            <int>6453</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Dux Gaius Aetius Paullus sent me.”</text>
+          <def_link>6526</def_link>
+          <checkOnAppear>aod.npc_paullus_sentToGanezzar &amp;&amp; aod.mdn_destroyed == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“It appears your devotion and faith led you down the wrong path. What were your men doing in the ruins?”</text>
+          <def_link>6536</def_link>
+          <checkOnAppear>aod.quest_GnzHA1_status == 1 &amp;&amp; aod.mdn_destroyed == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’ve heard of the siege and come to witness it as I’m certain Lord Antidas would expect a full report.”</text>
+          <def_link>6550</def_link>
+          <checkOnAppear>aod.quest_GnzHD1_status == 1 &amp;&amp; aod.mdn_destroyed == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I bring urgent news! Maadoran has been destroyed!” Tell him what you’ve witnessed omitting a few details.</text>
+          <def_link>6555</def_link>
+          <checkOnAppear>aod.mdn_destroyed || aod.pc_mindShield</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I bring greetings from Lord Antidas of House Daratan.”</text>
+          <def_link>6563</def_link>
+          <checkOnAppear>aod.quest_GnzHD2_status == 1 &amp;&amp; aod.mdn_destroyed == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6450</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Who’d raise a hand against a servant of the Gods? Of course, evil knows no bounds, but I have faith in Faelan,” he points at the man standing next to him. “He is more than capable of shielding me from harm.”
+
+The man smiles unpleasantly, still fixing you with his eyes. Suddenly you realize that you can’t move. Your legs and arm stiffen and become heavy as if filled with lead. The man smirks disdainfully and looks away, releasing you.
+
+“Gods have blessed Faelan with great powers, far above those of mere mortals. He was lost for a long time, but he serves a great cause now, as do we all.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I have many questions...”</text>
+          <def_link>6452</def_link>
+          <checkOnAppear>aod.npc_paullus_sentToGanezzar == false &amp;&amp; aod.quest_GnzHA1_status == 0 &amp;&amp; aod.quest_GnzHD1_status == 0 &amp;&amp; aod.quest_GnzHD2_status == 0 &amp;&amp; aod.mdn_destroyed == 0</checkOnAppear>
+          <checksOnClick>
+            <string>aod.pc_reputation_theChosenOne</string>
+            <string>aod.npc_feng_fledTeron</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6458</int>
+            <int>6453</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Dux Gaius Aetius Paullus sent me.”</text>
+          <def_link>6526</def_link>
+          <checkOnAppear>aod.npc_paullus_sentToGanezzar &amp;&amp; aod.mdn_destroyed == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“It appears your devotion and faith led you down the wrong path. What were your men doing in the ruins?”</text>
+          <def_link>6536</def_link>
+          <checkOnAppear>aod.quest_GnzHA1_status == 1 &amp;&amp; aod.mdn_destroyed == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’ve heard of the siege and come to witness it as I’m certain Lord Antidas would expect a full report.”</text>
+          <def_link>6550</def_link>
+          <checkOnAppear>aod.quest_GnzHD1_status == 1 &amp;&amp; aod.mdn_destroyed == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I bring urgent news! Maadoran has been destroyed!” Tell him what you’ve witnessed omitting a few details.</text>
+          <def_link>6555</def_link>
+          <checkOnAppear>aod.mdn_destroyed || aod.pc_mindShield</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I bring greetings from Lord Antidas of House Daratan.”</text>
+          <def_link>6563</def_link>
+          <checkOnAppear>aod.quest_GnzHD2_status == 1 &amp;&amp; aod.mdn_destroyed == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6451</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[Mind Shield]“Who’d raise a hand against a servant of the Gods? Of course, evil knows no bounds, but I have faith in Faelan,” he points at the man standing next to him. “He is more than capable of shielding me from harm.”
+
+The man smiles unpleasantly, still fixing you with his eyes. Suddenly, his expression changes, going from cocky to confused. He fixes you with his eyes one more time, face straining with effort, then gives up on whatever he was trying to do.
+
+“Gods have blessed Faelan with great powers, far above those of mere mortals,” says Meru, unaware of what just transpired. “He was lost for a long time, but he serves a great cause now, as do we all.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I have many questions...”</text>
+          <def_link>6452</def_link>
+          <checkOnAppear>aod.npc_paullus_sentToGanezzar == false &amp;&amp; aod.quest_GnzHA1_status == 0 &amp;&amp; aod.quest_GnzHD1_status == 0 &amp;&amp; aod.mdn_destroyed == 0</checkOnAppear>
+          <checksOnClick>
+            <string>aod.pc_reputation_theChosenOne</string>
+            <string>aod.npc_feng_fledTeron</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6458</int>
+            <int>6453</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Dux Gaius Aetius Paullus sent me.”</text>
+          <def_link>6526</def_link>
+          <checkOnAppear>aod.npc_paullus_sentToGanezzar &amp;&amp; aod.mdn_destroyed == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“It appears your devotion and faith led you down the wrong path. What were your men doing in the ruins?”</text>
+          <def_link>6536</def_link>
+          <checkOnAppear>aod.quest_GnzHA1_status == 1 &amp;&amp; aod.mdn_destroyed == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’ve heard of the siege and come to witness it as I’m certain Lord Antidas would expect a full report.”</text>
+          <def_link>6550</def_link>
+          <checkOnAppear>aod.quest_GnzHD1_status == 1 &amp;&amp; aod.mdn_destroyed == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I bring urgent news! Maadoran has been destroyed!” Tell him what you’ve witnessed omitting a few details.</text>
+          <def_link>6555</def_link>
+          <checkOnAppear>aod.mdn_destroyed || aod.pc_mindShield</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6561</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Of that I have no doubt, my child. Your deeds speak for themselves – they tell me that your heart is in the right place. All we need to do now is to make sure that your mind is in the right place as well. Ask your questions.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What made you see the truth?”</text>
+          <def_link>6478</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What do the gods want? What is the divine will?”</text>
+          <def_link>6481</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Why did you renounce your title?”</text>
+          <def_link>6490</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6452</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Of that I have no doubt, my child. On the surface, your deeds seem to speak for themselves – they tell me that your heart is in the right place. And yet, there are some who say that it’s nothing but an act, that you are not a &lt;man/woman&gt; to be trusted, which is a most grievous charge.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Who’s accusing me?”</text>
+          <def_link>6454</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6453</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Master Feng - my new loremaster. He is a very pious and humble man, not the type to speak against someone without a reason.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Feng and I go a way back. He wanted me to kill his rival, but I refused and Feng had to flee.”</text>
+          <def_link>6456</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]“Yet speak he did. Did he say how he came to possess such knowledge?”</text>
+          <def_link>6463</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6454</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Master Feng came here because he’s heard the divine call,” Meru says sternly. “He prayed for three days and nights in front of the city walls, refusing to enter the city before he cleanses himself through prayer and fasting.
+
+“I pride myself on being a good judge of character and I can assure you that master Feng isn’t someone who plots murder. You, on the other hand, I’m not so sure about.
+
+“Remove yourself from my presence.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6462</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6456</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“He didn’t elaborate and seemed hesitant to speak about it at first, but he felt that he had to warn me. He said you had the reputation of an untrustworthy character with few redeeming qualities.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][charisma]“So you will condemn me based on hearsay then? Despite the fact that my deeds, as you say, speak for themselves? Test my faith and devotion and see for yourself!”</text>
+          <def_link>6464</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.cha) &gt;= 14</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6465</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][charisma]“It is sad that people outside these walls look at the faithful with suspicion and mistrust, but it is sadder still when this mistrust is used against them in this holy city.”</text>
+          <def_link>6464</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.cha) &gt;= 14</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6465</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6463</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You who claim to be the chosen one?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“The hearts of the righteous shall not know doubt.”</text>
+          <def_link>6459</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I *claim* to be chosen, not all knowing. The gods have told to me to come here, for it is in this holy city that my destiny will be revealed. I didn’t feel that it was my place to question them, but I would question my brother in the faith to better understand the path the gods have laid down for me.”</text>
+          <def_link>6477</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6458</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Only a fool believes everything he is told. Yet your heart appears to be in the right place and I can’t blame you for being overzealous and wanting to play a bigger role, can I?” asks Meru, emphasizing the last two words.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Was my arrival not foretold? Were there not signs that the Gods have finally chosen a shepherd of their flock?”</text>
+          <def_link>6493</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“When you doubt me, you doubt the very Gods you claim to serve, for they are the ones who guide my hand and soul.”</text>
+          <def_link>6492</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6459</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Of course,” says Meru, indicating that the discussion is over, at least for now. “Ask your questions.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What made you see the truth?”</text>
+          <def_link>6478</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6477</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The Gods sent you to me, not the other way around,” snaps Meru. “You'd to well to remember it. Now, ask your questions.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What made you see the truth?”</text>
+          <def_link>6478</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6492</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Your arrival was foretold because you told everyone who'd listen that you were on your way here. Your faith can’t be questioned, this much is true, but your pride will be your downfall, &lt;brother/sister&gt;.
+
+“Ask your questions.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What made you see the truth?”</text>
+          <def_link>6478</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6493</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The Gods spoke to me. Like everyone else I was blind, until the fog was lifted from my eyes and I could see the truth that was there all along.
+
+“It wasn’t the war that caused the downfall, it was our pride. We didn't want to accept the gods before the war, and we didn't want to accept them after they had helped us defeat our enemies. That's why they left. That's why we were punished.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“They spoke to you?”</text>
+          <def_link>6487</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.pc_reputation_theChosenOne</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6488</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“And you think you can bring them back?”</text>
+          <def_link>6517</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6478</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’m but a man,” says Meru. “I can only open the gateways and pray that they come forth and deliver us from wickedness we inflicted on ourselves.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Gateways?”</text>
+          <def_link>6519</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What makes you think they have our best interests at heart?”</text>
+          <def_link>6518</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_faelan_dead || aod.quest_mg_killFaelan == 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6468</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6517</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What heresy is this?” Meru asks angrily, glancing at his guards. “If I didn’t know better...”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[etiquette success]“Forgive me for questioning you in such a direct manner, Brother. I merely wish to hear you speak on this most worthy subject.”</text>
+          <def_link>6520</def_link>
+          <checkOnAppear>aod.etiquette &gt;= 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Forgive me, brother. Words often confuse me. Give me a worthy task so that I can prove myself to you.”</text>
+          <def_link>6466</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6468</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What heresy is this?” Meru asks angrily, glancing at Faelan. “If I didn’t know better...”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[etiquette success]“Forgive me for questioning you in such a direct manner, Brother. I merely wish to hear you speak on this most worthy subject.”</text>
+          <def_link>6520</def_link>
+          <checkOnAppear>aod.etiquette &gt;= 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Forgive me, brother. Words often confuse me. Give me a worthy task so that I can prove myself to you.”</text>
+          <def_link>6466</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6518</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“A vast distance lies between the mortal plane and the realm of the Gods. This void can’t be navigated for it is greater even than the largest ocean, but it can be crossed with the aid of great engines that can manipulate the very fabric of reality, folding it like a cloth and bringing infinitely distant entry points together for a brief moment.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What makes you think they have our best interests at heart?”</text>
+          <def_link>6518</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_faelan_dead || aod.quest_mg_killFaelan == 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6468</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Yet you said that the Gods spoke to you?”</text>
+          <def_link>6487</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.pc_reputation_theChosenOne</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6488</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6519</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Promotor fidei?” sighs Meru. “I suppose it is fitting for me to be a Promoter of the Cause. Very well, I’ll play along if only to help you cast away the doubts.
+
+“We know the Gods descended from heaven in our hour of need when all seemed lost. They saved us, prevented the flame of mankind to be extinguished for good. We owe the Gods *everything* for without them we would have had nothing. So how can we doubt them? How can we doubt their intent? How can we doubt their love?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So we should just give them the reins and hope for the best?”</text>
+          <def_link>6521</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_gaelius_dead</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6522</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6520</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You have to ask yourself,” says Meru, falling into a familiar rhythm, his voice becoming deeply resonant, “who amongst us is fit to rule? Is it Gaelius? A strong man by all accounts, but a man nonetheless. He fears what he doesn’t understand and his fear becomes the law. Would you pledge allegiance to such a man and follow him blindly or would you rather follow those who are worthy of worship?
+
+“Maybe it’s Antidas? A man who couldn’t keep what he got from his father and made one blunder after another. We all make mistakes. To err is human, after all, but would you pledge allegiance to a man who doesn’t know what he’s doing?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>6523</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6521</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You have to ask yourself,” says Meru, falling into a familiar rhythm, his voice becoming deeply resonant, “who amongst us is fit to rule? Is it Serenas? An unworthy man who’s sitting on the throne of a once noble House because he’s distantly related to Gaelius? Would you pledge allegiance to such a man and follow him blindly or would you rather follow those who are worthy of worship?
+
+“Maybe it’s Antidas? A man who couldn’t keep what he got from his father and made one blunder after another. We all make mistakes. To err is human, after all, but would you pledge allegiance to a man who doesn’t know what he’s doing?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>6523</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6522</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Only the Gods are infallible. Only they have the wisdom to guide us.
+
+“Wisdom comes with age. An ancient patriarch is wiser than a young man, yet even the oldest patriarch is nothing but a mewling babe compared to those who have neither beginning nor end, those who are as old as the world itself. What sane man would bend a knee to a child when he can bow to and follow a sage?
+
+“Thus if bow we shall, if kneel we must, would you not kneel in front of an all-knowing and infallible God rather than in front of a mere man whose very flawed nature makes him unfit to rule? Where is our godless civilization of old? Mighty it was yet it was gone in an instant. What chance do *we* have?
+
+“We tried the godless way and it cost us dearly. I say the time has come to try a different way. After all, we don’t have much to lose, do we?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You said that the Gods spoke to you?”</text>
+          <def_link>6487</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.pc_reputation_theChosenOne</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6488</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6523</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“There are ways,” says Meru confidently, like a man who knows too well what he’s talking about. “Continue on the path the Gods set out for you and I’ll take you to a holy place where your faith will be tested.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“And should I fail?”</text>
+          <def_link>6479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6487</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Are you surprised? You who claim to be guided by the Gods?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Not at all, brother. I was merely curious as to how it happened so that I can compare it with my own experience.”</text>
+          <def_link>6487</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6488</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The divine manifestations can be very... overwhelming. Only those whose faith is their shield can survive the experience.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What do the Gods want?”</text>
+          <def_link>6481</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6479</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Man has strayed from the path. When we open our hearts and our souls to the Gods, then they will return and watch over us like a shepherd watches his flock.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“We can use their help now.”</text>
+          <def_link>6483</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6481</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“If only it was that easy,” says Meru, shaking his head slowly. “Only when the Houses of men fall and the House of Worship rises again, will they return to guide us.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“The House of Worship?”</text>
+          <def_link>6489</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Is this why you no longer call yourself a lord?”</text>
+          <def_link>6490</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6483</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It was shown to me, over and over again. A pyramid rising from the sands, a blinding beacon of light penetrating the darkness, symbolizing ignorance and petty struggles. The holy Al-Akia.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What would you have me do?”</text>
+          <def_link>6466</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6489</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The true Lords are up there,” says Meru pointing up, “in their heavenly abode, waiting for us to cast down the false lords and bow to the divine. Once the truth was revealed to me, I could no longer claim the title that wasn't mine to bear.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Even if you don't call yourself a lord, you still rule this city.”</text>
+          <def_link>6491</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6490</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Must not a shepherd watch over his flock? Must I abandon these people in their hour of need?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What would you have me do?”</text>
+          <def_link>6466</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6491</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(15, 45, 15, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6460</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What news do you bring us?” asks Meru.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Meru_PC_01);</string>
+        <string>dlgCam(15, 40, 7, 8000);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Show him the map.</text>
+          <def_link>6472</def_link>
+          <checkOnAppear>aod.npc_meru_showedMap == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion][charisma]"They say you found your faith in the depths of your castle. I wish I could see it too, brother, to strengthen my faith."</text>
+          <def_link>6570</def_link>
+          <checkOnAppear>(aod.npc_meru_join == 1 || aod.npc_meru_praetorOffer == 1) &amp;&amp; aod.npc_meru_praetorStarRoom == 0</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.persuasion + aod.cha) &gt;= 12</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6569</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I wish to serve the Gods, brother.”</text>
+          <def_link>6566</def_link>
+          <checkOnAppear>aod.npc_meru_join == 1 || aod.npc_meru_praetorOffer == 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>aod.npc_meru_praetorOffer = 2;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I'm ready to join the expedition.”</text>
+          <def_link>6524</def_link>
+          <checkOnAppear>aod.npc_meru_alkExp == 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“We found Al-Akia!”</text>
+          <def_link>6512</def_link>
+          <checkOnAppear>aod.alk_meruExpedition_arrived &amp;&amp; aod.npc_meru_report_alAkia == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'm ready to accompany you to Al-Akia, brother."</text>
+          <def_link>6571</def_link>
+          <checkOnAppear>aod.npc_meru_takeHimAlAkia == 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Nothing yet.” Leave.</text>
+          <def_link>6460</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6470</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Meru expells you</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.npc_meru_expelled_you = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(15, 45, 15, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6462</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - travel to Al-Akia</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_meru_takeHimAlAkia = 2;</string>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.alk_HC1 = 1;</string>
+        <string>switchMission("Al-Akia.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6571</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“The seeds of doubt have been planted,” says Meru with regret. “While I’m not convinced that Feng is right about you, I’m not convinced that he’s wrong either. For the sake of this world, I have to err on the side of caution.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6462</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6464</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“So *you* are the blasphemer!” shouts Meru, his face growing red with anger.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_meru_showedMap = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Blasphemer?”</text>
+          <def_link>6473</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6472</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I've heard rumors that someone was looking for the lost temple of the Gods to deliver it to the unbelievers. They will loot and destroy it, denying us the salvation! Everything we’ve done will be undone in an instant. You will doom us all and for what? For a handful of coins? For an empty title? For your pride? Answer me!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I... uh... beg forgiveness?”</text>
+          <def_link>6474</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What must I do, brother?”</text>
+          <def_link>6475</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6473</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You will have to earn it! Repent and become a symbol of mankind. A sinner who wanted to desecrate the holy shall see the light and kneel before the divine, shall be the first to be blessed and guided. Serve the Gods and rise above many. Refuse me – refuse the Gods – and you won’t live long enough to spend your ill-gotten money. This I promise you!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Guide me, brother!”</text>
+          <def_link>6476</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6460</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6474</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Repent and become a symbol of mankind. A sinner who wanted to desecrate the holy shall see the light and kneel before the divine, shall be the first to be blessed and guided. Serve the Gods and rise above many. Refuse me – refuse the Gods – and you won’t live long enough to spend your ill-gotten money. This I promise you!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Guide me, brother!”</text>
+          <def_link>6476</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6460</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6475</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“If it is your destiny to find the temple, find it and guard it with your life. The Gods will give you strength. Make sure that nothing is taken or disturbed. This task is more important than the struggle of petty lords and their illusions.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6460</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6476</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“You’re right,” says Meru suddenly. “Should you be truly unworthy, the oracle will remain silent.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(Meru_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What would you have me do?”</text>
+          <def_link>6466</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6465</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Keep your heart and your soul open to the Gods' will and you will inspire many. What more can a faithful ask for?”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_MG7_completed = true;</string>
+        <string>aod.jnl_MG_GNZ1 = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6460</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6466</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“May the Gods lead you to it.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_meru_alkExp = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Travel to Al-Akia.</text>
+          <def_link>6525</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6524</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’ve heard a lot about you, since we’ve last met,” says Meru, giving you a hard look. “They say that you’re a holy &lt;man/woman&gt;. That your touch heals and your voice inspires. That the *Gods* whisper in your ear.”
+
+The last bit sounds like an accusation.</npc_text>
+      <onLoadScripts>
+        <string>dlgUnequipHands();</string>
+        <string>aod.npc_athan_miracle = 3;</string>
+        <string>dlgTeleportToMarker(TM_Meru_PC_01);</string>
+        <string>dlgCam(15, 40, 7, 8000);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I made no such claims, brother Meru.”</text>
+          <def_link>6501</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“They speak the truth.”</text>
+          <def_link>6503</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Did you not tell me to go and inspire people with my actions?”</text>
+          <def_link>6505</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6500</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Yet many do and what’s troubling is that these stories appeared almost overnight.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’m humbled that my words and deeds had such a profound effect. Ganezzar must be truly a holy city if its people’s hearts and minds are so open.”</text>
+          <def_link>6502</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6501</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Arrogance doesn’t befit one who claims to serve the Gods.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Neither does false humility. By denying that the Gods’ blessing is upon me, would I not deny the Gods as well – the very thing you and I speak against?”</text>
+          <def_link>6504</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6503</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I must admit that I didn’t expect you to do so much in such a short time,” Meru says cautiously.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I can’t take all the credit. A higher power was at work there.”</text>
+          <def_link>6504</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6505</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It is a holy city, yet it is my duty as its shepherd to question each voice that claims to speak on behalf of the Gods.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]“I understand your caution, yet how can a man – any man – question and judge such a voice? What man can judge the divine will and rule on its authenticity?”</text>
+          <def_link>6506</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 14</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6509</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][perception]“You look at me and you ask yourself: “Why &lt;him/her&gt;? Why not me?” Do not let pride cloud your judgment, brother. Don’t begrudge me the favor of the Gods, for they have tasks for all of us and your cup will never be empty.”</text>
+          <def_link>6507</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.per) &gt;= 14</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6508</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[chosen one]“Has my coming not been foreshadowed? Have the tales of my deeds not reached your ears? The Gods brought me here not to be judged by mortal men but to do Gods’ work. Only they can question the depth of my devotion.”</text>
+          <def_link>6509</def_link>
+          <checkOnAppear>aod.pc_reputation_theChosenOne</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6502</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“As a man of faith, I’m eager to believe you, yet it is my duty as the first acolyte to question each voice that claims to speak on behalf of the Gods.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]“I understand your caution, yet how can a man – any man – question and judge such a voice? What man can judge the divine will and rule on its authenticity?”</text>
+          <def_link>6506</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.persuasion) &gt;= 14</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6509</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][perception]“You look at me and you ask yourself: “Why &lt;him/her&gt;? Why not me?” Do not let pride cloud your judgment, brother. Don’t begrudge me the favor of the Gods, for they have tasks for all of us and your cup will never be empty.”</text>
+          <def_link>6507</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.per) &gt;= 14</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6508</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[chosen one]“Has my coming not been foreshadowed? Have the tales of my deeds not reached your ears? The Gods brought me here not to be judged by mortal men but to do Gods’ work. Only they can question the depth of my devotion.”</text>
+          <def_link>6509</def_link>
+          <checkOnAppear>aod.pc_reputation_theChosenOne</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6504</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“A man who renounced his earthly crown to be the first to prostate himself before the Gods and serve them without questions,” says Meru angrily. “Be gone from my sight, *&lt;brother/sister&gt;*.”</npc_text>
+      <onLoadScripts>
+        <string>if(aod.quest_mg7_miracle == 2) aod.jnl_MG_GNZ1 = 5;</string>
+        <string>if(aod.quest_mg7_miracle == 1) aod.jnl_MG_GNZ1 = 4;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6462</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6506</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“You presume too much,” Meru says angrily. “Be gone from my sight, *&lt;brother/sister&gt;*.”</npc_text>
+      <onLoadScripts>
+        <string>if(aod.quest_mg7_miracle == 2) aod.jnl_MG_GNZ1 = 5;</string>
+        <string>if(aod.quest_mg7_miracle == 1) aod.jnl_MG_GNZ1 = 4;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6462</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6507</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Pride has nothing to do with it,” protests Meru, falling into your trap and allowing you to misdirect the conversation and make it about him. “We’ve seen too many –”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][charisma]“Pride has everything to do with it. I must confess that when the Gods first spoke to me and told me to go to Ganezzar to aid *you*, brother, I too felt the sting of pride. But it’s not our place to question the divine will and I’ve accepted that this is my destiny. I trust you can do the same.”</text>
+          <def_link>6507</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.cha) &gt;= 15</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6509</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6508</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Very well,” says Meru, looking at you strangely. “We’ll let the Gods question you, *&lt;brother/sister&gt;*. I can assure you that I will abide by their judgment. Come with me.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(MG7_01);</string>
+        <string>rwd_reputation(MG7_01);</string>
+        <string>if(aod.quest_mg7_miracle == 2) {aod.jnl_MG_GNZ1 = 7; rwd_civil(MG7_02);}</string>
+        <string>if(aod.quest_mg7_miracle == 1) {aod.jnl_MG_GNZ1 = 6; rwd_civil(MG7_01);}</string>
+        <string>aod.alk_MG8 = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Follow him.</text>
+          <def_link>6510</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6509</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"Only a true believer can stand before the Gods," says Meru, slowly shaking his head. "You aren't ready."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_meru_praetorStarRoom = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I wish to serve the Gods, brother.”</text>
+          <def_link>6566</def_link>
+          <checkOnAppear>aod.npc_meru_join == 1 || aod.npc_meru_praetorOffer == 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>aod.npc_meru_praetorOffer = 2;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6460</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6570</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Very well," says Meru with a strange smile. "Come with me, &lt;brother/sister&gt;."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_meru_praetorStarRoom = 1;</string>
+        <string>rwd_civil(HD4_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Follow Meru.</text>
+          <def_link>6510</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6569</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start Star Room</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.gnz_starRoom_meruIntro = true;</string>
+        <string>switchMission("Ganezzar Star Room.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6510</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start Al-Akia expedition</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.alk_meruExpedition_intro = true;</string>
+        <string>if(aod.quest_GNZ_MS_status == 2) aod.quest_GNZ_MS_status = 3;</string>
+        <string>switchMission("Al-Akia.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6525</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You did?! Does it still stand? Has anyone been inside?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_meru_report_alAkia = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“It’s undamaged.”</text>
+          <def_link>6513</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.gnz_underSiege == 0</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6559</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6512</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Praise the Gods!” exclaims Meru. “Our salvation is at hand but first we must deal with House Aurelian. I want you to go to Caer-Tor without delay. Tell Paullus that if he breaks the siege, he can name his price.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(MG8_01);</string>
+        <string>aod.quest_MG9_talkedMeru_completed = true;</string>
+        <string>aod.jnl_MG_GNZ2 = 5;</string>
+        <string>addQuest(MG_GNZ3);</string>
+        <string>aod.alk_MG8 = 3;</string>
+        <string>rwd_reputation(MG8_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Do you realize what you’re asking for?”</text>
+          <def_link>6514</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6513</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Praise the Gods!” exclaims Meru. “Our salvation is at hand. We must travel there without delay.”</npc_text>
+      <onLoadScripts>
+        <string>if(aod.quest_GnzHD2_status == 3) rwd_quest(HD5_01);</string>
+        <string>if(aod.jnl_MS_AlAkia) aod.jnl_MS_AlAkia = 5;</string>
+        <string>if(aod.quest_GNZ_MS_status) rwd_quest(HC_MS_01);</string>
+        <string>addQuest(AlAkia_Meru);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"We?"</text>
+          <def_link>6562</def_link>
+          <checkOnAppear>aod.quest_GnzHD2_status == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"We? I have to report my findings to Lord Antidas."</text>
+          <def_link>6543</def_link>
+          <checkOnAppear>aod.quest_GnzHD2_status == 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>aod.jnl_AlAkia_HD = 4;</string>
+            <string>addQuest(HD_AlAkiaFate);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+      </answers>
+      <UID>6559</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The Gods have chosen you to guide me to my destiny, this much is clear to me. You've earned your place by my side, my friend.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_meru_takeHimAlAkia = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Accompany Meru to Al-Akia.</text>
+          <def_link>6560</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I need some time to prepare." Leave.</text>
+          <def_link>6460</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6562</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Al-Akia with Meru</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.alk_HC1 = 1;</string>
+        <string>aod.jnl_HC_AlAkia = 2;</string>
+        <string>switchMission("Al-Akia.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6560</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It is you who doesn’t realize what’s at stake here, &lt;charname&gt;! I can’t work with House Aurelian breathing down my neck!” shouts Meru.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_MG9_paullusMeruOffer = true;</string>
+        <string>aod.quest_mg9_status = 1;</string>
+        <string>revealMapLocation("CaerTor");</string>
+        <string>revealMapLocation("ThePass");</string>
+        <string>dlgAddTextBoxMessage("Caer-Tor added to the map");</string>
+        <string>dlgAddTextBoxMessage("The Pass added to the map");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[intelligence][trading]“What do you offer?”</text>
+          <def_link>6515</def_link>
+          <checkOnAppear>aod.int &gt;= 7 &amp;&amp; aod.trading &gt;= 6</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Alright, I’ll talk to Paullus.” Leave.</text>
+          <def_link>6460</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6514</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Anything he wants. I told you,” says Meru agitatedly.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Anything isn’t specific enough. Paullus won’t come to negotiate terms with you. He will come only if the offer is good enough. You’re asking him to declare war on the most powerful House. Better make it worth his while.”</text>
+          <def_link>6516</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6515</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You’re right,” says Meru, pacing around the room. “Alright. A power sharing deal. If he keeps Serenas at bay, I’ll bless the Imperial Guards and declare them protectors of the Creed, the warriors of the Temple. As the Creed grows, the Imperial Guards – the Templars’ power – will grow with it.
+
+“I will oversee all matters of faith, Paullus will oversee the rest. If he doesn’t think I’m offering enough, he’s a damn fool.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6460</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6516</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’m grateful for his support,” Meru says humbly, bowing his head, “although when I requested a legatus, I hoped &lt;he/she&gt; would be accompanied by a legion not a handful of soldiers. Paullus does like playing it safe but sooner or later he would have to make a decision. Let us both pray that it won’t be too late.
+
+“As for you, Legatus, my men will be ready within a day. I’m sure you’ll need some time to prepare as well.”</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_IG_ArriveGNZ = 1;</string>
+        <string>addQuest(IG_GNZ1);</string>
+        <string>aod.quest_IG_GNZ1_status = 1;</string>
+        <string>aod.quest_IG_GNZ1 = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Prepare for what?”</text>
+          <def_link>6527</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6526</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The Gods have revealed the location of Al-Akia to me. It’s been lost for centuries, shrouded in darkness of our ignorance. The time has come to restore this holy site to its former glory, returning it to the faithful. Imagine, standing where the gods stood when they descended from their heavenly abode and took on mortal forms to walk with us, kissing the ground made holy by their presence.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What do you want me to do?”</text>
+          <def_link>6528</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6527</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I want you to secure the site while my men explore it. I know you will do your best. Unlike Paullus, I have full confidence in you.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What makes you think Paullus doesn’t?”</text>
+          <def_link>6529</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6528</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’m no fool, *Legatus*. We both know that you and your men are expendable. Had it been otherwise, Paullus would have sent a full legion and a real legatus.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_meru_sent_IG_toALK = true;</string>
+        <string>aod.npc_meru_alkExp = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6460</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6529</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“&lt;charname&gt;! You’re alive! What of the expedition?”</npc_text>
+      <onLoadScripts>
+        <string>dlgUnequipHands();</string>
+        <string>aod.quest_IG9_status = 2;</string>
+        <string>aod.npc_meru_report_alAkia = true;</string>
+        <string>aod.jnl_IG_GNZ1 = 6;</string>
+        <string>addQuest(IG_GNZ2);</string>
+        <string>dlgCam(15, 40, 7, 8000);</string>
+        <string>dlgTeleportToMarker(TM_Meru_PC_01);</string>
+        <string>rwd_quest(IG8_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“They are all dead.”</text>
+          <def_link>6531</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6530</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“And the pyramid? Does it still stand? Has anyone been inside?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“It’s undamaged.”</text>
+          <def_link>6532</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6531</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Then we must try again, but first we must deal with Gaelius. Tell Paullus that if he breaks the siege, he can name his price.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Do you realize what you’re asking for?”</text>
+          <def_link>6533</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6532</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It is you who doesn’t realize what’s at stake here, &lt;charname&gt;! I can’t work with Gaelius breathing down my neck!” shouts Meru.</npc_text>	  
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What do you offer?”</text>
+          <def_link>6534</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6533</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Anything he wants. I told you,” says Meru agitatedly.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Anything isn’t specific enough. Paullus won’t come to negotiate a deal with you. He will come only if the offer is good enough. You’re asking him to declare war on the most powerful House. Better make it worth his while.”</text>
+          <def_link>6535</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6534</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Tell Paullus if he keeps Gaelius at bay, I’ll bless the Imperial Guards and declare them protectors of the Creed, the warriors of the Temple. As the Creed grows, the Imperial Guards – nay, the Templars’ power – will grow with it.
+
+“I will oversee all matters of faith, Paullus will oversee the rest. If he doesn’t think I’m offering enough, he’s a damn fool.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Alright, I’ll talk to Paullus.” Leave.</text>
+          <def_link>6460</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6535</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“My men go where the Gods lead them, Praetor,” says Meru defiantly.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_GnzHA1_status = 2;</string>
+        <string>aod.jnl_HA_ArriveGNZ = 3;</string>
+        <string>addQuest(HA_GNZ);</string>
+        <string>addQuest(HC_AlAkia);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Lord Gaelius sent me here to explore the possibility of a peaceful resolution. Should I tell him that you're no longer in control of your men?”</text>
+          <def_link>6538</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You didn’t answer my question. What were your men doing in the ruins?”</text>
+          <def_link>6540</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6536</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Let’s drop the charade, Praetor. Gaelius wants Ganezzar. He says we broke some law invented by House Aurelian but I don’t see a court of my peers gathering to discuss this imaginary transgression of my men. I see an army preparing to attack.
+
+“Do you really think that you're here to negotiate?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Why am I here then?”</text>
+          <def_link>6537</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.mdn_noOrdu</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6572</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6538</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I care not for Gaelius’ games,” says Meru with disdain. “He’s clearly waiting for something. He can’t use his Ordu yet, can he? Too soon. Using savages against one of the oldest Noble Houses? It won’t sit well with people. Paullus? He might do it if Gaelius is willing to part with an arm and a leg. Is he?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’m not privy to such information.”</text>
+          <def_link>6541</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6537</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I care not for Gaelius’ games,” says Meru with disdain. “He’s clearly waiting for something. Paullus? He might go for it if Gaelius is willing to part with an arm and a leg. Is he?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’m not privy to such information.”</text>
+          <def_link>6541</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6572</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Have you heard of the holy Al-Akia, Praetor? The birthplace of the Gods? We’ve finally found it.
+
+“Unfortunately, it appears that House Aurelian found it first. How long did your House keep this holy place hidden from the faithful?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’m not privy to such information.”</text>
+          <def_link>6541</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Months? Years? Decades? Does it really matter? The past should stay buried.”</text>
+          <def_link>6542</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6540</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Then what good are you, Praetor? You come here to judge me when it is your House that should be judged.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So what do I tell Gaelius?”</text>
+          <def_link>6543</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6541</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I want to open the holy grounds to the faithful. I want to pray at the place blessed by the Gods. What right does Gaelius have to deny it to us?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“The ruins are off-limit. You know that.”</text>
+          <def_link>6546</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6542</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Because Gaelius says so? A man from an upstart House whose ancestors were glorified bean counters? I'm done listening to him.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So what do I tell Gaelius?”</text>
+          <def_link>6543</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6546</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Tell him that it's not too late to repent. Tell him that the Gods are all-seeing and there will be a reckoning,” says Meru, his eyes burning with conviction.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You really believe that?”</text>
+          <def_link>6544</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6543</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Meru studies you for a moment, then says one word: “Come.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Follow him.</text>
+          <def_link>6545</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6544</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start prophet</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>sd(NPC_Prophet_01);</string>
+        <string>dlgFadeLongToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6545</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“And what would he do with your report, Praetor?” asks Meru raising an eyebrow. “Would he send help? Would he demand for House Aurelian to withdraw? Or would he sit and gloat like a child?”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_GnzHD1_status = 2;</string>
+        <string>aod.jnl_HD_ArriveGNZ = 3;</string>
+        <string>addQuest(HD_GNZ_Siege);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Why would he gloat?”</text>
+          <def_link>6551</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What happened between you and House Aurelian?”</text>
+          <def_link>6554</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6550</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Because men like Antidas need someone to blame for their failures.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What happened between you and House Aurelian?”</text>
+          <def_link>6554</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6551</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Have you heard of the holy Al-Akia, Praetor? The birthplace of the Gods? We’ve finally found it.
+
+“Unfortunately, it appears that House Aurelian found it first. They want to keep this holy place hidden from the faithful. They want to deny me my right to pray at the place blessed by the Gods. That's what it's all about, Praetor.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Do you want me to pass a message to Lord Antidas?”</text>
+          <def_link>6543</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6554</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Praise the Gods,” whispers Meru, closing his eyes for a moment, “for they have sent us a sign. No longer will they tolerate sin and blasphemy. No longer will they tolerate the false shepherds leading the flock astray. The hour of their rebirth draws near.”</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_MDN_HA_Destroyed_GNZ = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>6556</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6555</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“If the Gods truly sent you here, you will pass their judgment and I will abide by it. Come with me.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_GNZ_MS_status = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Follow him.</text>
+          <def_link>6510</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6556</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“An envoy of House Daratan is always welcome in my city,” says Meru when you approach. “After all, ours Houses are all that remains of the Great Houses that once served the Old Empire, now that House Aurelian has fallen.
+
+“I can only imagine your disappointment, Praetor. I’ve heard you took a liking to young Serenas and even advised him on matters of city governance. Too bad he didn’t seek your advice when he decided to attack the Slums. I’m sure you would have warned him of the consequences.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_GnzHD2_status = 2;</string>
+        <string>aod.jnl_HD_ArriveGNZ = 3;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Youths are so impatient these days. They think they know everything.”</text>
+          <def_link>6564</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6563</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Indeed,” nods Meru as if completely agreeing with you. “So what brings you here, Praetor?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’ve heard much about this Holy City and come to hear one of your sermons as I’m certain Lord Antidas would expect a full report.”</text>
+          <def_link>6565</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6564</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“In other words, Antidas wants to know if there's more to my sermons than mere words,” says Meru with a tired smile. “We found the holy Al-Akia, the birthplace of the Gods. I want you to join the expedition, Praetor, and witness the glory of the olden days, glory that will shine upon us once again if the Gods return to end the darkness.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_meru_alkExp = 1;</string>
+        <string>aod.alk_HD2 = 1;</string>
+        <string>addquest(AlAkia_HD);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Why do you want me there?"</text>
+          <def_link>6567</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Show him the map.</text>
+          <def_link>6472</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'll think about it." Leave.</text>
+          <def_link>6460</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6565</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Your visit is a rare opportunity, Praetor. I want you to return to Teron a believer and I'll do whatever it takes to open your heart and your eyes. I want you see the holy Al-Akia with your own eyes because I want you to believe.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Show him the map.</text>
+          <def_link>6472</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'll think about it." Leave.</text>
+          <def_link>6460</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6567</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start Meru_04</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_meru_join = 2;</string>
+        <string>dlgFinish();</string>
+        <string>sd(NPC_Meru_04);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6566</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

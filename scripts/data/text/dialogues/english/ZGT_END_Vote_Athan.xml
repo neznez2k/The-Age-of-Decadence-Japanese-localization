@@ -1,0 +1,162 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.ending_GNZ_faction_MG == 2</string>
+    </conditions>
+    <links>
+      <int>9374</int>
+    </links>
+    <dlg_name>ZGT_END_Vote_Athan</dlg_name>
+    <def_link>9373</def_link>
+    <def_speaker_name>Athanasius</def_speaker_name>
+    <def_portrait>Athanasius</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It appears I’ve underestimated how ambitious you are, &lt;master/mistress&gt; &lt;charname&gt;,” says Athanasius, looking at you as if seeing you for the first time. “Your methods are most unorthodox, but it’s the results that count. You have my vote.”</npc_text>
+      <onLoadScripts>
+        <string>aod.end_chosen_votes += 1;</string>
+        <string>dlgTeleportToMarker(TM_DLG_Athanasius);</string>
+        <string>dlgCam(285, 45, 6, 8050);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Call the vote.</text>
+          <def_link>9380</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9374</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’m listening,” says Athanasius, his words reflecting his position. He knows what you want and wants to know what you offer before he makes his decision.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_Athanasius);</string>
+        <string>dlgCam(285, 45, 6, 8050);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I didn’t kill Meru. The Gods did.”</text>
+          <def_link>9375</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9373</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“So you say.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“If I tell the truth, I’m all that stands between you and the Gods’ wrath. If I lie, I managed to kill Meru in his own throne room. Who’s better suited to take his place and lead the ‘faithful’?”</text>
+          <def_link>9376</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9375</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“An interesting perspective,” says Athanasius, giving you very little to work with.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][trading]“The Gods want to build a strong kingdom. Such undertakings take more than faith, if you know what I mean. Back me up and you’ll control trade on a scale you couldn’t even imagine before.”</text>
+          <def_link>9378</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.trading) &gt;= 17</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9377</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9376</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Why should I believe you?” asks Athanasius, his tone suggesting that the deal is done once proper assurances are given.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Because I’ll need a man like you to oversee all trade, levies, and expenses. I’m not buying your vote, I’m offering you a job and hope you’d accept.”</text>
+          <def_link>9379</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9377</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Well, if you can secure the other votes, you'll definitely have mine. Good luck.”</npc_text>
+      <onLoadScripts>
+        <string>aod.end_chosen_votes += 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9380</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9379</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“It’s tempting but you’d say just about anything to get my vote, wouldn’t you?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9380</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9378</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>assignDialogue("", 8050);</string>
+        <string>dlgCam(0, 45, 10);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9380</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,382 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.SRS_tabletSeen</string>
+    </conditions>
+    <links>
+      <int>13</int>
+    </links>
+    <dlg_name>Quest_Saross_03</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You’re standing in a small chamber, illuminated by the glowing stone tablets floating in the air with no visible support. Each tablet is carved with rows upon rows of tiny, precise symbols.</npc_text>
+      <onLoadScripts>
+        <string>VCO_Tablets.setActive(1);</string>
+        <string>aod.SRS_tabletSeen = true;</string>
+        <string>dlgTeleportToMarker(TM_Vault_01);</string>
+        <string>aod.jnl_Saross_end_01 = true;</string>
+        <string>rwd_quest(Saross_01);</string>
+        <string>dlgCam(345, 40, 15);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Examine the tablets.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You take a few steps forward and touch the closest tablet. They are not made of stone but a much lighter material, and the letters seem to have been burned into the surface rather than inscribed.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Vault_02);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgCam(345, 40, 10);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lore]Decipher the text.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lore &gt;= 7</string>
+            <string>aod.lore &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4</int>
+            <int>3</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You're standing in front of the glowing tablets.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Vault_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lore]Decipher the text.</text>
+          <def_link>2</def_link>
+          <checkOnAppear>aod.SRS_tabletLore == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.lore &gt;= 7</string>
+            <string>aod.lore &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4</int>
+            <int>3</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[perception]Examine the tablets one more time.</text>
+          <def_link>9</def_link>
+          <checkOnAppear>aod.SRS_foundTableHole == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.per &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>10</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Insert the sphere into the hole.</text>
+          <def_link>11</def_link>
+          <checkOnAppear>dlgGetItemsCount(2110) &gt;= 1 &amp;&amp; aod.SRS_foundTableHole</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The tablets are written in cuneiform – a writing system so old that its origins are lost in the mists of time. They say that the Magi had gained much insight deciphering tablets that were old when the Empire was barely a kingdom and eventually adopted the script as their own.
+
+Sadly, that’s all you know.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[perception]Examine the tablets one more time.</text>
+          <def_link>9</def_link>
+          <checkOnAppear>aod.SRS_foundTableHole == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.per &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>10</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The tablets are written in cuneiform – a writing system so old that its origins are lost in the mists of time. They say that the Magi had gained much insight deciphering tablets that were old when the Empire was barely a kingdom and eventually adopted the script as their own.
+
+You barely understand it, but you're pretty sure that it's some kind of warning. The tablets talk about the importance of the warning and the unknown precautions that were taken for the message to survive. They explain that what was done – you don’t understand the words – was done to protect, but warn that it can be easily undone. They warn against following in the footsteps of those who had written the message and provide instructions you don’t really understand.
+
+Well, that was helpful.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[perception]Examine the tablets one more time.</text>
+          <def_link>9</def_link>
+          <checkOnAppear>aod.SRS_foundTableHole == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.per &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>10</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The tablets are written in cuneiform – a writing system so old that its origins are lost in the mists of time. They say that the Magi had gained much insight deciphering tablets that were old when the Empire was barely a kingdom and eventually adopted the script as their own.
+
+The tablets are addressed to ‘Those who will succeed us’ and bear a warning. Unfortunately, the message was intended for their immediate successors, who presumably understood their mysterious jargon, and not those who’d come hundreds of years later.</npc_text>
+      <onLoadScripts>
+        <string>aod.SRS_tabletLore = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Read the parts you do understand.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Take heed all those who tread the Path of Wisdom, for you are the heirs and witnesses to the great Truths inscribed herein. Pass this Knowledge on to those who come after for in it lays the Power of Life and Death.
+
+First, know ye that these Beings of which I speak dwell in the void between the stars.They are Seven in Number. They wield Power beyond any king or champion and cannot be slain for they are not bound by Flesh nor subject to the corrosion of Time.
+
+With great difficulty were they awakened and summoned to our plane. Yet whatever their Antiquity or Might, we bound them to our Will, which was the greatest Triumph of the Magi.</npc_text>
+      <onLoadScripts>
+        <string>addLore(18);</string>
+        <string>setAchievement("ACH_WITNESS");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>It followed that the treacherous dogs of Qantaar, may the Light never find them, did unravel our bindings. In their foolishness they wished the dwellers of the void to reign over them. It was this Mistake of our lowest enemy which led to our Ruin, and the world we knew was no more. So are the Workings of Great Men undone by curs.
+
+War did wash over the land in a Flood and men and cities did burn in Fire and even the seas roil with the fury of War. The sun became as a black circle and the moon hid her face. With long Effort and terrible Sacrifice, we wisest of men Banished the dwellers of the void from this world.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Remember, those who come after, that Doors can be locked but Doorways remain and the Seven do not cease in their Vigilance, for they wish above all things for the seals to be broken and the doors open once more. Heed these words above all others, for they are the command of Abu Hassan Ibn Hadad al-Sarabi, First of the Magi: Guard the doors forevermore and keep the seals undisturbed.
+
+Know that if the dwellers of the void do enter this world again, there will be no Power great enough or Magi Wise enough to expel them. Know that the Seven watch and wait in the blackness between the Stars.
+
+Guard the doors forevermore and keep the seals undisturbed.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[perception]Examine the tablets one more time.</text>
+          <def_link>9</def_link>
+          <checkOnAppear>aod.SRS_foundTableHole == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.per &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>10</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You find nothing of interest.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You find nothing of interest, except for a small hole in one of the tablets. Holes in old stone tablets are hardly unusual, but the tablets are too flawless and the hole is too perfectly round to be accidental.</npc_text>
+      <onLoadScripts>
+        <string>aod.SRS_foundTableHole = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Try the sphere.</text>
+          <def_link>11</def_link>
+          <checkOnAppear>dlgGetItemsCount(2110) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You set the sphere in the hole but it refuses to fit snugly in the socket. Eventually, you realize you need to push and rotate it simultaneously. When the grooves are engaged, the sphere moves smoothly, sinking into the tablet and disappearing entirely. A hidden mechanism gives a series of soft clicks and a compartment at the bottom of the tablet opens to reveal a small metal case.</npc_text>
+      <onLoadScripts>
+        <string>dlgRemoveItem(2110, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Examine the case.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The case contains a folded section of parchment and what looks like a set of surgical instruments. There are both smooth and serrated blades of various sizes, hooks to part flesh, a drill with different bits, a few unpleasantly large needles, and a strange metal syringe that incorporates a dead power tube. Every item is gleaming and sharp, as if begging to be used for the first time.
+
+You turn to the parchment. It is a detailed diagram of the human body, overlaid with an incredibly complex schematic of geometrical figures and glyphs. The instructions direct the magus to tattoo certain figures on the subject with a metallic ink. The more complicated procedures involve inscribing glyphs directly into the bone. These bone inscriptions are to be filled with Power-infused blue steel. The other side of the parchment is scrawled with a hand written message: “These wards will hold.”
+
+This is a kind of working you have never encountered before, and it takes several moments for you to understand the implications. It is a guide to human experimentation. The magus following these instructions would begin with a human subject, but the result would be a something not seen in hundreds of years, a super-being, the incarnation of a god in living flesh.</npc_text>
+      <onLoadScripts>
+        <string>aod.lore_saross_kit = true;</string>
+        <string>dlgAddItem(2210, 1);</string>
+        <string>addLore(19);</string>
+        <string>setWindowImage(item_sarossKit);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

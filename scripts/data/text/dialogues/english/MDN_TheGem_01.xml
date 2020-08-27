@@ -1,0 +1,825 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_MDN_TheGem_gotKey</string>
+      <string>aod.quest_MDN_TheGem_lockInfiltration &amp;&amp; aod.quest_MDN_TheGem_lockConversation</string>
+      <string>aod.npc_nasir_accepted</string>
+    </conditions>
+    <links>
+      <int>32</int>
+      <int>1</int>
+      <int>4</int>
+    </links>
+    <dlg_name>MDN_TheGem_01</dlg_name>
+    <def_link>1</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>A servant opens the door and informs you that his master is unavailable, before slamming the door in your face.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Quest_Gem_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You’re standing in front of the house Nasir described. It’s a traditional one-story building with a “tower” on the roof. You hear footsteps on the rooftop and see a bored guard making his rounds. Definitely not a wind tower.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go talk to Silvanus.</text>
+          <def_link>0</def_link>
+          <checkOnAppear>aod.quest_MDN_TheGem_lockConversation == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.global_beenToGanezzar</string>
+            <string>aod.pc_member_thieves</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1</int>
+            <int>3</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity][sneak]Find a secluded spot and climb to the roof.</text>
+          <def_link>14</def_link>
+          <checkOnAppear>aod.quest_MDN_TheGem_gotToTower == false &amp;&amp; aod.quest_MDN_TheGem_lockInfiltration == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.dex &gt;= 7 &amp;&amp; aod.sneak &lt; 3</string>
+            <string>aod.dex &gt;= 7 &amp;&amp; aod.sneak &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>15</int>
+            <int>16</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Climb to the roof again and try your luck with the lock.</text>
+          <def_link>24</def_link>
+          <checkOnAppear>aod.quest_MDN_TheGem_gotToTower &amp;&amp; aod.quest_MDN_TheGem_lockInfiltration == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Walk away.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Silvanus</speaker_name>
+      <npc_text>A servant opens the door and takes you to see his master. Silvanus, a plump, round-faced, balding man, flanked by two bodyguards, is talking to his guest – a lean, dark-eyed man with an eagle nose, well-groomed beard, and the relaxed manner a man with nothing to fear.
+
+“Did Nasir send you?” asks Silvanus, smiling. “The man can’t take no for answer, can he? He sent several fake buyers already and as much as I’m enjoying this little drama, I do have other engagements, as you can see. So, tell me your offer and be on your way.”</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_MDN_TheGem_lockConversation = true;</string>
+        <string>dlgTeleportToMarker(TM_Quest_Gem_02);</string>
+        <string>createByCharMarker("CM_Silvanus");</string>
+        <string>createByCharMarker("CM_Bassar_Silvanus");</string>
+        <string>createByCharMarker("CM_Silvanus_Merc_01");</string>
+        <string>createByCharMarker("CM_Silvanus_Merc_02");</string>
+        <string>dlgcam(90, 45, 8, 6136);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What’s your price?”</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Nothing.” Leave.</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Bassar</speaker_name>
+      <npc_text>A servant opens the door and takes you to see his master. Silvanus, a plump, round-faced, balding man, flanked by two bodyguards, is talking to Bassar, who looks at you and frowns.
+
+“Did Nasir send you?” asks Silvanus, smiling. “The man can’t take no for answer, can he? He sent several fake buyers already and as much as I’m enjoying this little drama, I do have other engagements, as you can see. So, tell me your offer and be on your way.”
+
+“&lt;He/She&gt;’s one of ours,” Bassar stops him as he turns to you. “What are you doing here, &lt;charname&gt;?”</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_MDN_TheGem_lockConversation = true;</string>
+        <string>dlgTeleportToMarker(TM_Quest_Gem_02);</string>
+        <string>createByCharMarker("CM_Silvanus");</string>
+        <string>createByCharMarker("CM_Bassar_Silvanus");</string>
+        <string>createByCharMarker("CM_Silvanus_Merc_01");</string>
+        <string>createByCharMarker("CM_Silvanus_Merc_02");</string>
+        <string>dlgcam(90, 45, 8, 6136);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I want the gem.”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Nothing.” Leave.</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Quest_Gem_10);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Bassar</speaker_name>
+      <npc_text>“Who gives a fuck what you want? Silvanus is under our protection, so there is nothing for you here. Get out!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“My mistake.” Leave.</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addParty(PartySilvanus, 0);</string>
+        <string>addCharToParty(6136, PartySilvanus, fighter);</string>
+        <string>addCharToParty(6137, PartySilvanus, fighter);</string>
+        <string>addCharToParty(6138, PartySilvanus, fighter);</string>
+        <string>addCharToParty(6139, PartySilvanus, fighter);</string>
+        <string>addEnemyToParty(1, PartySilvanus);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.npc_bassar_dead = true;</string>
+        <string>aod.fight_silvanusHouse = true;</string>
+        <string>dlgTeleportToMarker(TM_Quest_Gem_11, 6136);</string>
+        <string>dlgEquipItem(161, 0, 6136);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Silvanus</speaker_name>
+      <npc_text>“I’m a wealthy man,” says Silvanus matter-of-factly. “What reason would I have to sell my most prized possessions?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[body count]“I’m here to take it from you one way or another. I can kill you and your men first, if that’s how it has to be, or we can skip the foreplay and get straight to business. Your choice.”</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>dlgGetRep(bodycount) &gt;= 15</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[praetor]“I’m a praetor of House Aurelian. One word and you’ll be stripped of all your possessions and thrown out like the lowliest of beggars.”</text>
+          <def_link>10</def_link>
+          <checkOnAppear>aod.pc_member_aurelian</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[impersonate success]“Wealthy man, eh? That’s why I’m here. The Forty Thieves sent me to collect a tribute – a gem you’re boasting about. Fork it over and I’ll leave you alone. For now.”</text>
+          <def_link>12</def_link>
+          <checkOnAppear>aod.disguise &gt;= 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Silvanus</speaker_name>
+      <npc_text>“My choice, eh?” says Silvanus, glancing at his guest. “Do you know &lt;him/her&gt;?”
+
+“I’ve heard of &lt;him/her&gt;,” says the man calmly, eyeing you. “They say &lt;he/she&gt; is a psychopath. Likes killing too much; good at it too, unfortunately. Give &lt;him/her&gt; what &lt;he/she&gt; wants and we’ll sort it out later.”
+
+“Alright,” says Silvanus after a long pause. “You want my gem? It’s yours, but mark my words, it's not over yet. You'll rue the day you decided to come to *my* house and make demands!”</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(2007, 1);</string>
+        <string>aod.npc_silvanus_threatened = true;</string>
+        <string>rwd_reputation(MDN_theGem_01);</string>
+        <string>aod.quest_MDN_TheGem_gotGem = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Bassar</speaker_name>
+      <npc_text>“My choice, eh?” says Silvanus, glancing at his guest. “Do you know &lt;him/her&gt;?”
+
+“Never heard of &lt;him/her&gt;,” says the man calmly, eyeing you. “Do you know whom you’re fucking with, friend? I’m Bassar, Levir’s right-hand man. You know who Levir is, don’t you?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I see a man trying to talk me out of killing him. Can’t say I’m impressed.” Attack.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“My mistake.” Leave.</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Silvanus</speaker_name>
+      <npc_text>“You can’t...,” says Silvanus, no longer smiling and confident.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’m the law here, Silvanus. I can do whatever the fuck I want.”</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Silvanus</speaker_name>
+      <npc_text>Silvanus looks at his guest pleadingly, but the man shakes his head and says, “Give &lt;him/her&gt; what &lt;he/she&gt; wants and we’ll sort it out later.”
+
+“Alright,” says Silvanus angrily, “the gem is yours, praetor.”</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(2007, 1);</string>
+        <string>rwd_reputation(MDN_theGem_02);</string>
+        <string>aod.quest_MDN_TheGem_gotGem = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - finished from interior</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgDeleteCharacter(6136);</string>
+        <string>dlgDeleteCharacter(6137);</string>
+        <string>dlgDeleteCharacter(6138);</string>
+        <string>dlgDeleteCharacter(6139);</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Quest_Gem_10);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>29</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Bassar</speaker_name>
+      <npc_text>“The Forty thieves, eh?” says Silvanus, smiling from ear to ear. “This gets better and better. Bassar, why don’t you handle this one?”
+
+“You aren’t one of mine,” says Bassar, Levir’s right-hand man, “which makes you a liar who steals in our name, besmirching it. The punishment for this crime is death, but...”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I have money! I’ll pay!”</text>
+          <def_link>13</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 500</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Fight your way out.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Bassar</speaker_name>
+      <npc_text>“I hoped you’d say that. Five hundred imperials should suffice, but if I ever catch you again...”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-500);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay him and leave.</text>
+          <def_link>30</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - paid Bassar</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgDeleteCharacter(6136);</string>
+        <string>dlgDeleteCharacter(6137);</string>
+        <string>dlgDeleteCharacter(6138);</string>
+        <string>dlgDeleteCharacter(6139);</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Quest_Gem_10);</string>
+        <string>dlgChangeMoney(-500);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>30</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[dexterity failure]You try to climb up the wall, but fail.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Quest_Gem_08);</string>
+        <string>dlgcamPC(315, 45, 8);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[sneak failure]You try to climb up the wall, but someone sees you and raises the alarm, forcing you to retreat.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Quest_Gem_08);</string>
+        <string>dlgcamPC(325, 45, 8);</string>
+        <string>aod.quest_MDN_TheGem_lockInfiltration = true;</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You climb to the roof without being seen and dart to hide behind a half-wall surrounding a large opening in the roof. For now, you’re safe from the guard patrolling the roof, but the longer you stay, the higher the chance that someone else spots you.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Quest_Gem_03);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgcamPC(245, 45, 8);</string>
+        <string>dlgStealthPose(1);</string>
+        <string>if(aod.quest_MDN_TheGem_sneakReward1 == false) rwd_civil(Sneak);</string>
+        <string>aod.quest_MDN_TheGem_sneakReward1 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[critical strike]Take the guard out.</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>ownsSmallDagger() &amp;&amp; aod.critical_strike &lt; 5</string>
+            <string>ownsSmallDagger() &amp;&amp; aod.critical_strike &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>18</int>
+            <int>21</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[sneak]Wait for the guard to go downstairs.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.sneak &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>23</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Too bad you don’t have a suitable dagger.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[sneak]Wait for the guard to go downstairs.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.sneak &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>23</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - far away</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgTeleportToMarker(TM_Quest_Gem_09);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You wait until the guard passes your hiding spot and lunge at him, aiming for the neck. Unfortunately, either your aim is off or the guard is better trained than his job would imply, but somehow things go horribly wrong and you end up dying on the rooftop instead of the guard.
+
+You try to figure out how it happened because things were pretty much a blur once you lunged, but the pain becomes unbearable and you pass out, never to awaken.</npc_text>
+      <onLoadScripts>
+        <string>equipDaggerCS();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>createByCharMarker("CM_Silvanus_Merc_02");</string>
+        <string>dlgTeleportToMarker(TM_Quest_Gem_07, 6138);</string>
+        <string>dlgTeleportToMarker(TM_Quest_Gem_06);</string>
+        <string>dlgSetCombatAnimation(6138);</string>
+        <string>dlgSetAnimation(anim_death_forward01, 0.95);</string>
+        <string>dlgUnequipHands();</string>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Rest in peace.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You wait until the guards passes your hiding spot and you lunge at him, aiming for the neck. Your attack catches the guard completely unaware, blade sinking into his neck to the hilt, killing him instantly.</npc_text>
+      <onLoadScripts>
+        <string>equipDaggerCS();</string>
+        <string>createByCharMarker("CM_Silvanus_Merc_02");</string>
+        <string>dlgTeleportToMarker(TM_Quest_Gem_07, 6138);</string>
+        <string>dlgTeleportToMarker(TM_Quest_Gem_06);</string>
+        <string>dlgCsKillNeck(6138);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgcamPC(45, 45, 8);</string>
+        <string>dlgStealthPose(1);</string>
+        <string>aod.quest_MDN_TheGem_killedGuard = true;</string>
+        <string>aod.quest_MDN_TheGem_lockConversation = true;</string>
+        <string>aod.quest_MDN_TheGem_lockInfiltration = true;</string>
+        <string>sfxPlayOnce(csSuccessMetal01);</string>
+        <string>dlgCsRepTrain(1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Examine the tower.</text>
+          <def_link>24</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Doing your best to blend in with the wall, you wait patiently for the guard to go downstairs, when a shout from one of the towers signals that you’ve been discovered.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>aod.quest_MDN_TheGem_lockInfiltration = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Jump down and run like hell.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Doing your best to blend in with the wall, you wait patiently for the guard to go downstairs. Fortunately, you don’t have to wait very long.</npc_text>
+      <onLoadScripts>
+        <string>if(aod.quest_MDN_TheGem_sneakReward2 == false) rwd_civil(Sneak);</string>
+        <string>aod.quest_MDN_TheGem_sneakReward2 = true;</string>
+        <string>dlgFadeLongToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Examine the tower.</text>
+          <def_link>24</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The tower’s door and windows are reinforced with iron bars and locked securely.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Quest_Gem_04);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>if(aod.quest_MDN_TheGem_killedGuard) dlgDeleteCharacter(6138);</string>
+        <string>aod.quest_MDN_TheGem_gotToTower = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lockpick]Open the door.</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lockpick &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>26</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You go up the stairs and approach the tower. The door and windows are reinforced with iron bars and locked securely.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Quest_Gem_04);</string>
+        <string>dlgDeleteDeadCharacters();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lockpick]Open the door.</text>
+          <def_link>25</def_link>
+          <checkOnAppear>aod.quest_MDN_TheGem_gotKey == 0</checkOnAppear>
+          <checksOnClick>
+            <string>aod.lockpick &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>26</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Use Silvanus' key.</text>
+          <def_link>27</def_link>
+          <checkOnAppear>aod.quest_MDN_TheGem_gotKey</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>aod.quest_MDN_TheGem_gotKey = 0;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+      </answers>
+      <UID>32</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You try to pick the lock, but fail.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Retreat as quietly as possible.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]It’s the most expensive warded lock money can buy, but as far as you are concerned, the warded locks are only good for impressing wealthy traders wishing to secure their belongings, not to keep thieves away from said belongings. The traders think that the intricate wards are an unsolvable puzzle, yet in reality they are anything but.
+
+Agreeing with you, the lock capitulates in record time, inviting you in.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>rwd_civil(Lockpick);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Sneak inside and help yourself to anything that isn’t nailed down.</text>
+          <def_link>27</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_MDN_TheGem_gotGem</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>33</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>26</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>It’s a small office, far removed from servants and concubines who would otherwise have been tempted to steal something. Unfortunately, the most prized possessions of Silvanus are ledgers that have no value to you, so you have to settle for a bag of coins set aside as a payment for unspecified services, blue steel ingots carefully arranged in a row, and the gem Nasir is so interested in.</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(2007, 1);</string>
+        <string>dlgChangeMoney(450);</string>
+        <string>aod.npc_silvanus_house_entered = true;</string>
+        <string>dlgAddItemlist(MDN_Silvanus_01);</string>
+        <string>dlgTeleportToMarker(TM_Quest_Gem_05);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgcamPC(315, 45, 8);</string>
+        <string>aod.quest_MDN_TheGem_lockInfiltration = true;</string>
+        <string>aod.quest_MDN_TheGem_lockConversation = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Retreat as quietly as possible.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>27</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>It’s a small office, far removed from servants and concubines who would otherwise have been tempted to steal something. Unfortunately, the most prized possessions of Silvanus are ledgers that have no value to you, so you have to settle for a bag of coins set aside as a payment for unspecified services and blue steel ingots carefully arranged in a row.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(450);</string>
+        <string>aod.npc_silvanus_house_entered = true;</string>
+        <string>dlgAddItemlist(MDN_Silvanus_01);</string>
+        <string>dlgTeleportToMarker(TM_Quest_Gem_05);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgcamPC(315, 45, 8);</string>
+        <string>aod.quest_MDN_TheGem_lockInfiltration = true;</string>
+        <string>aod.quest_MDN_TheGem_lockConversation = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Retreat as quietly as possible.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>33</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

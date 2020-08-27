@@ -1,0 +1,100 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_dariusTomb_raidersDead</string>
+    </conditions>
+    <links>
+      <int>3431</int>
+    </links>
+    <dlg_name>Quest_DariusTomb_04</dlg_name>
+    <def_link>3430</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You take a step toward the sarcophagus, but the raiders stop you. If you want to expropriate some of their wealth, you’ll have to be more assertive about it.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>3433</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>3464</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3430</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You push the lid aside and whistle. Gems, jewellery, golden coins, even a few expensive ingots, giving off a blue sheen. It’s ten times more than the raiders could have earned in their lifetimes tilting soil. Of course, if they were tilting soil, they’d still be alive, but then again, what kind of living would that be?
+
+You shrug, stop philosophizing and start filling up your backpack with the raiders’ treasure.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Take everything you can.</text>
+          <def_link>3434</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3431</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - loot</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>raiderStash.setActive(true);</string>
+        <string>RaiderStashVCO.setActive(false);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3434</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.quest_dariusTomb_raidersDead = true;</string>
+        <string>addEnemyToParty(1, DariusTomb_Raiders);</string>
+        <string>aod.death_darius_tomb = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3433</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3464</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

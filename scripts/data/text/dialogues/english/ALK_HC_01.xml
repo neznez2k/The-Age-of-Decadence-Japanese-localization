@@ -1,0 +1,378 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.alk_HC1 == 2</string>
+    </conditions>
+    <links>
+      <int>10</int>
+    </links>
+    <dlg_name>ALK_HC_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Legionary</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>Faelan</portrait>
+      <speaker_name>Faelan</speaker_name>
+      <npc_text>Unfortunately, the ruins are occupied by a small detachment of the Aurelian legionaries. You count six men – veterans by the looks of them.
+
+“I can't handle that many,” says Faelan, appearing out of nowhere. Meru doesn't seem to be surprised to see him at all. After all, someone would have to keep an eye on you while Meru is praying.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“How many can you handle?”</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Faelan</portrait>
+      <speaker_name>Faelan</speaker_name>
+      <npc_text>“Two. Maybe three. Depends on how hard they resist,” shrugs Faelan.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Alright, come with me. Don't start anything without my signal.”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.pc_member_aurelian</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Praetor!” salutes the man in charge when you come closer. “What brings you here?”</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Aurelian_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“These loremasters need full access to the site. You and your men are to stand guard while we explore the complex.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[Fight]“Faelan, whenever you're ready.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“My apologies, Praetor!” salutes the man, eager to correct his mistake. “What brings you here?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“These loremasters need full access to the site. You and your men are to stand guard while we explore the complex.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[Fight]“Faelan, whenever you're ready.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“My apologies, my &lt;lord/lady&gt;. I didn't recognize you right away!” says the man, eager to correct his mistake. “What can I do for you?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[Fight]“Faelan, whenever you're ready.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“These loremasters need full access to the site. You and your men are to stand guard while we explore the complex.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Legionary</speaker_name>
+      <npc_text>"This area is claimed by House Aurelian," says the man in charge when you come closer. "Turn around and leave."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][charisma]"I saved your Lord's life. He trusts me utterly and completely, which is why I'm here."</text>
+          <def_link>12</def_link>
+          <checkOnAppear>aod.quest_hd3_foughtAssassins</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.streetwise + aod.cha) &gt;= 12</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>15</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][charisma]"How dare you?! I'm a close and personal friend of Lord Serenas. His Lordship values my judgment, which is why he sent me to inspect this site and report back."</text>
+          <def_link>12</def_link>
+          <checkOnAppear>aod.npc_serenas_met</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.streetwise + aod.cha) &gt;= 12</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>15</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[impersonate]"Is that a proper way to address a Praetor of House Aurelian?"</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.disguise &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[Fight]“Faelan, whenever you're ready.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Faelan smiles, locking his eyes with the nearest soldier. The man freezes for a moment, then draws out his sword and turns toward his comrades.
+
+“This one is yours, &lt;brother/sister&gt;,” he says casually, switching his attention to the next victim. The soldier's face goes blank as he too falls under Faelan's control.</npc_text>
+      <onLoadScripts>
+        <string>addCharToParty(6203, ALK_Faelan, fighter);</string>
+        <string>addCharToParty(6204, ALK_Faelan, fighter);</string>
+        <string>dlgChangeTraining(dodge, -50, 6203);</string>
+        <string>dlgChangeTraining(dodge, -50, 6204);</string>
+        <string>aod.ALK_FaelanControl_6203 = true;</string>
+        <string>aod.ALK_FaelanControl_6204 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.fight_alk_HC = true;</string>
+        <string>setCharacterInvincible(8001, 1);</string>
+        <string>addEnemyToParty(1, ALK_Aurelian);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“My orders are to wait for the engineers and guard the site until they seal all entry points.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“Do you think I came all the way here just to ask what your orders are, son? I brought you new orders – stand guard while we explore the site. Any questions?”</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]“Do you see any engineers here? You know why? They won't arrive until the loremasters report back. So the sooner we start, the sooner you get to go home.”</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“I have my orders, Praetor. Nobody is allowed to access the site.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[Fight]“Faelan, whenever you're ready.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“I have my orders. Nobody is allowed to access the site.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[Fight]“Faelan, whenever you're ready.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“Fuck off!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[Fight]“Faelan, whenever you're ready.”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Whatever you need, Praetor.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(ALK_04);</string>
+        <string>rwd_reputation(ALK_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Enter the complex.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - enter Al-Akia</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.alk_HC1 = 2;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgDeleteCharacter(8001);</string>
+        <string>switchMission("Al-Akia Interior.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Meru</portrait>
+      <speaker_name>Meru</speaker_name>
+      <npc_text>Faelan draws his finger across his throat and the legionaries under his control repeat the gesture with their swords, collapsing one by one. Most unsettling.
+
+"Let's go," says Meru impatiently. He walks toward one of the towers and disappears inside. Faelan follows him.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>But first let's loot some bodies!</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - look around</npc_text>
+      <onLoadScripts>
+        <string>dlgDeleteCharacter(8001);</string>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>11</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

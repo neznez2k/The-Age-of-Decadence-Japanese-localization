@@ -1,0 +1,245 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>MDN_GatePalace_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Petitioner</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>You enter the palace district, your senses assaulted by the sights and sounds of the sea of humanity around you. Everywhere, people shout and jostle for position - haughty nobles and their routines and guards, guild masters giving orders to scurrying clerks, emissaries from distant lands seeking an audience, servants of the Great Houses on urgent errands, citizens seeking ruling on disputes and tattered petitioners come to beg for aid. A few guards look on in boredom, carefully avoided by the rest; their role seems to be to maintain order in the chaos more than to bar entry and to keep an eye on the slaves labouring to restore the walls surrounding the palace.
+
+In the distance you see the palace itself – a multi-dome structure surrounded by tall minarets. Legend has it that the minarets somehow protected the palace from attacks, during the war. But there is no defence against betrayal; one of the minarets was brought down from within by a traitor. You can see where it collapsed, caving in one of the domes as it fell. There is a slight shimmering in the air around the minarets, even the fallen one, which probably explains why it hasn't been cleared, even after all these years.</npc_text>
+      <onLoadScripts>
+        <string>createByCharMarker("CM_MDN_SQ_BadgeScammer");</string>
+        <string>dlgTeleportToMarker(TM_GatePalaceEvent_01);</string>
+        <string>useCameraBookmark(CAM_introPalace_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You can’t get in without a badge,” says a man standing next to you. “I had to wait six weeks to get mine and the goddamn thing is only good for a day. Cost me 250 imperials. It’s nothing but another levy.”</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>useCameraBookmark(CAM_introPalace_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Why does it take so long?”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Can you sell me your badge?”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgDeleteCharacter(5200);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Why? Look at all these people. They all want something and there aren’t enough hours in a day to hear everyone. So, you need to get on the list, pay for the privilege, and wait a few weeks.”</npc_text>
+      <onLoadScripts>
+        <string>dlgRotateToChar(1, 5200);</string>
+        <string>dlgRotateToChar(5200);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Can you sell me your badge?”</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I don’t know,” says the man, scratching his head. “Isn’t it against the law or something?”</npc_text>
+      <onLoadScripts>
+        <string>dlgRotateToChar(1, 5200);</string>
+        <string>dlgRotateToChar(5200);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I won’t tell anyone. How much do you want for it?”</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“300 imperials,” says the man quickly. “250 I paid for it plus 50 for the six weeks I had to wait.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Fine.” Pay him 300 imperials.</text>
+          <def_link>8</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 300</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgChangeMoney(-300);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading]“You used it, didn’t you? I’m not paying for you. My share comes to 125. Take it or leave it.”</text>
+          <def_link>6</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 125</checkOnAppear>
+          <checksOnClick>
+            <string>aod.trading &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“You're trying to confuse me,” says the man angrily. “It doesn't matter what I did with it. What matters is that if you want to get in, you need to pay 250 imperials and wait a few weeks. My price is fair 250 plus 50 for 'same-day service'. If you don't want it, someone else will take it.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Fine.” Pay him 300 imperials.</text>
+          <def_link>8</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 300</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgChangeMoney(-300);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Alright, alright,” says the man, glancing around. “One twenty five it is.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 125 imperials.</text>
+          <def_link>8</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 125</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgChangeMoney(-125);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The man gives you a silver tablet bearing the Aurelian insignia and a number.</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(2178, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

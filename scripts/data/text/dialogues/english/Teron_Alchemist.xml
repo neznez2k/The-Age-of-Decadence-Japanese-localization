@@ -1,0 +1,339 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_teronAlchemist_met</string>
+    </conditions>
+    <links>
+      <int>481</int>
+    </links>
+    <dlg_name>Teron_Alchemist</dlg_name>
+    <def_link>478</def_link>
+    <def_speaker_name>Alchemist</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Whatever ails you, my friend, you've come to the right place. I have potions that can fix your blood circulation, cure headaches and insomnia, and make your liver as good as new, which is something you should consider if you're partial to drink. So, what's it gonna be?"</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_teronAlchemist_met = true;</string>
+        <string>useCameraBookmark(NPC_Alchemist_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Browse the wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Do you have any poison?"</text>
+          <def_link>482</def_link>
+          <checkOnAppear>aod.quest_mineWine_getPoison &amp;&amp; aod.npc_teronAlchemist_Poison == false &amp;&amp; aod.quest_teronMine_complete == false &amp;&amp; aod.quest_teronMine_fight == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Pay 5 imperials for the rat poison.</text>
+          <def_link>486</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 5 &amp;&amp; aod.npc_teronAlchemist_RatPoison</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Pay 50 imperials for the poison.</text>
+          <def_link>487</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 50 &amp;&amp; aod.npc_teronAlchemist_MediumPoison</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>478</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What ails you, my friend?"</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Alchemist_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Browse the wares.</text>
+          <def_link>479</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Do you have any poison?"</text>
+          <def_link>482</def_link>
+          <checkOnAppear>aod.quest_mineWine_getPoison &amp;&amp; aod.npc_teronAlchemist_Poison == false &amp;&amp; aod.quest_teronMine_complete == false &amp;&amp; aod.quest_teronMine_fight == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Pay 5 imperials for the rat poison.</text>
+          <def_link>486</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 5 &amp;&amp; aod.npc_teronAlchemist_RatPoison</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Pay 50 imperials for the poison.</text>
+          <def_link>487</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 50 &amp;&amp; aod.npc_teronAlchemist_MediumPoison</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>481</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>TRADE</npc_text>
+      <onLoadScripts>
+        <string>dlgTradeWithMe("Alchemist");</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>479</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>480</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - shanty</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Teleport_Shanty);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>488</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"If you have a problem with rats, I do have an excellent concoction. Very affordable - only five imperials."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_teronAlchemist_Poison = true;</string>
+        <string>aod.npc_teronAlchemist_RatPoison = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I'll take it." Pay 5 imperials.</text>
+          <def_link>486</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 5 &amp;&amp; aod.quest_mineWine_getPoison &amp;&amp; aod.quest_mineWine_hasLowPoison == false &amp;&amp; aod.quest_teronMine_complete == false &amp;&amp; aod.quest_teronMine_fight == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I have bigger problems than rats. I need something better."</text>
+          <def_link>483</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Maybe later."</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>482</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I want to save lives, not help someone take them."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]"Then help me save mine. I'm just doing unto others before they do it unto me."</text>
+          <def_link>484</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>485</int>
+          </linksOnClick>
+          <scriptsOnClick>
+            <string>if(aod.persuasion &gt;= 3) aod.flagUsed = 1;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[Commercium]"Don't make me ask you twice."</text>
+          <def_link>485</def_link>
+          <checkOnAppear>aod.pc_member_commercium</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>483</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"I won't be a part of it. I'm sorry."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'll take the rat poison." Pay 5 imperials.</text>
+          <def_link>486</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 5 &amp;&amp; aod.quest_mineWine_getPoison &amp;&amp; aod.quest_mineWine_hasLowPoison == false &amp;&amp; aod.quest_teronMine_complete == false &amp;&amp; aod.quest_teronMine_fight == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>484</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Very well," says the alchemist with regret in his voice. "I hope you won't use it unless it's absolutely necessary. Fifty imperials."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_teronAlchemist_MediumPoison = true;</string>
+        <string>if(aod.flagUsed) {rwd_civil(MineWine_01); aod.flagUsed = 0;}</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay 50 imperials.</text>
+          <def_link>487</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 50</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>485</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Here you go," the alchemist gives you a small glass bottle with green liquid inside.</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItemlist(MineWine_RatPoison);</string>
+        <string>dlgChangeMoney(-5);</string>
+        <string>aod.quest_mineWine_phase3 = true;</string>
+        <string>aod.quest_mineWine_hasLowPoison = true;</string>
+        <string>aod.npc_teronAlchemist_RatPoison = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Return to shanty town.</text>
+          <def_link>488</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>486</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Here you go," the alchemist gives you a small glass bottle with green liquid inside.</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItemlist(MineWine_MediumPoison);</string>
+        <string>dlgChangeMoney(-50);</string>
+        <string>aod.quest_mineWine_hasMediumPoison = true;</string>
+        <string>aod.quest_mineWine_phase3 = true;</string>
+        <string>aod.npc_teronAlchemist_MediumPoison = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Return to shanty town.</text>
+          <def_link>488</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>480</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>487</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

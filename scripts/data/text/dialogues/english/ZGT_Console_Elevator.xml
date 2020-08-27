@@ -1,0 +1,92 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>ZGT_Console_Elevator</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The console’s surface is covered with regularly spaced circular indentations. You put your hand on it the console and the circles under your fingertips begin to glow.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[lore]Try to figure it out.</text>
+          <def_link>1</def_link>
+          <checkOnAppear>aod.zgt_elevator_open == 0</checkOnAppear>
+          <checksOnClick>
+            <string>aod.lore &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You move your hand this way and that way but nothing happens.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]As you move your hand, trying to guess the correct pattern, a certain manuscript of a fanciful nature comes to mind. The monk who wrote it was convinced that secret hand signs and gestures were crucial to spellcasting. Needless to say, the manuscript was thoroughly debunked due to the lack of any evidence and the carefully drawn hand signs became a symbol of absurd claims.
+
+Slowly, you put your hand on the console again and spread your fingers, trying one of the infamous hand signs. Nothing. Losing hope, you try a few more combinations. Suddenly, the console vibrates and you hear a grinding sound coming from the chamber behind you.</npc_text>
+      <onLoadScripts>
+        <string>ZTG_OpenElevator();</string>
+        <string>rwd_civil(ZGT_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

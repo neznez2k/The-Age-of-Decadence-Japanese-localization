@@ -1,0 +1,71 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_darganus_friend</string>
+    </conditions>
+    <links>
+      <int>9361</int>
+    </links>
+    <dlg_name>ZGT_END_Vote_Darganus</dlg_name>
+    <def_link>9360</def_link>
+    <def_speaker_name>Darganus</def_speaker_name>
+    <def_portrait>Darganus</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Meru did enough damage to this city. The last thing we need is another lunatic.”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_Darganus);</string>
+        <string>dlgCam(170, 40, 6, 9014);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9380</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9360</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I don’t know what you’re doing, but I do know that we're on the same side and that’s good enough for me. You have my vote, &lt;charname&gt;.”</npc_text>
+      <onLoadScripts>
+        <string>aod.end_chosen_votes += 1;</string>
+        <string>dlgTeleportToMarker(TM_DLG_Darganus);</string>
+        <string>dlgCam(170, 40, 6, 9014);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>9380</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9361</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>assignDialogue("", 9014);</string>
+        <string>dlgCam(0, 45, 10);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9380</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

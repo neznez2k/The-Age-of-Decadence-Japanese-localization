@@ -1,0 +1,408 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.alk_complex_exit_IG_consider</string>
+    </conditions>
+    <links>
+      <int>4</int>
+    </links>
+    <dlg_name>ALK_Complex_Exit_IG</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Climbing up proves to be much more challenging than going down. The steps threaten to break off and trigger a sand avalanche that would bury you in seconds. You move slowly and by the time you reach the surface, the sun is long gone and the sky is dark.
+
+The very first thing you see is the bearded loremaster’s dead eyes. His body is lying next to the tower, his unblinking eyes locked on the pyramid. The hacked up bodies of his colleagues, your men, and Aurelian legionaries are strewn around. By the looks of it, your men accounted well for themselves, but the odds weren’t in their favor.
+
+In the distance, five Aurelian legionaries are tending to their wounds near a campfire.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetAnimation(anim_sit_ground_02_00, 0, 6201);</string>
+        <string>dlgSetAnimation(anim_sit_ground_00_00, 0, 6203);</string>
+        <string>dlgSetAnimation(anim_sit_ground_00_02, 0, 6204);</string>
+        <string>aod.jnl_IG_GNZ1 = 3;</string>
+        <string>dlgCam(115, 45, 8, 6201);</string>
+        <string>dlgTeleportToMarker(TM_Aurelian_IG_PC_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Consider your options.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgEquipItem(110, 0, 6201);</string>
+        <string>dlgEquipItem(1702, 0, 6201);</string>
+        <string>dlgEquipItem(124, 0, 6203);</string>
+        <string>dlgEquipItem(154, 0, 6204);</string>
+        <string>dlgSetCombatAnimation(6200);</string>
+        <string>dlgSetCombatAnimation(6201);</string>
+        <string>dlgSetCombatAnimation(6203);</string>
+        <string>dlgSetCombatAnimation(6204);</string>
+        <string>dlgSetCombatAnimation(6205);</string>
+        <string>dlgFinish();</string>
+        <string>addEnemyToParty(1, ALK_Aurelian);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.quest_ig8_introGanezzar = true;</string>
+        <string>aod.fight_ALK_IG7 = true;</string>
+        <string>aod.jnl_IG_GNZ1 = 4;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The legionaries are wounded. Three men have removed their armor and would go down easily, should you choose to attack. The darkness makes it easy to slip away – your brethren will remain unavenged, but you will live, which is a big plus. After all, you dying with them won’t make anyone happier.</npc_text>
+      <onLoadScripts>
+        <string>aod.alk_complex_exit_IG_consider = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Sneak past them.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.sneak &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Talk your way past them.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Go back to the pyramid.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - pyramid</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>switchMission("Al-Akia Interior.mis");</string>
+        <string>aod.alk_IG7_insideComplex = 1;</string>
+        <string>dlgFadeLongToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The legionaries are still sitting around the campfire.</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(115, 45, 8, 6201);</string>
+        <string>dlgTeleportToMarker(TM_Aurelian_IG_PC_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Sneak past them.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.sneak &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Talk your way past them.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Go back to the pyramid.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Your clumsy attempt to sneak away alerts the already jumpy legionaries.</npc_text>
+      <onLoadScripts>
+        <string>dlgEquipItem(110, 0, 6201);</string>
+        <string>dlgEquipItem(1702, 0, 6201);</string>
+        <string>dlgEquipItem(124, 0, 6203);</string>
+        <string>dlgEquipItem(154, 0, 6204);</string>
+        <string>dlgSetCombatAnimation(6200);</string>
+        <string>dlgSetCombatAnimation(6201);</string>
+        <string>dlgSetCombatAnimation(6203);</string>
+        <string>dlgSetCombatAnimation(6204);</string>
+        <string>dlgSetCombatAnimation(6205);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way out.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Moving like a ghost, you leave the area without being seen.</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(IG7_01);</string>
+        <string>rwd_civil(Sneak);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Return to Ganezzar.</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Ganezzar siege</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.quest_ig8_introGanezzar = true;</string>
+        <string>switchMission("Quest_IG8_01.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The legionaries jump up and grab their weapons.</npc_text>
+      <onLoadScripts>
+        <string>dlgEquipItem(110, 0, 6201);</string>
+        <string>dlgEquipItem(1702, 0, 6201);</string>
+        <string>dlgEquipItem(124, 0, 6203);</string>
+        <string>dlgEquipItem(154, 0, 6204);</string>
+        <string>dlgSetCombatAnimation(6200);</string>
+        <string>dlgSetCombatAnimation(6201);</string>
+        <string>dlgSetCombatAnimation(6203);</string>
+        <string>dlgSetCombatAnimation(6204);</string>
+        <string>dlgSetCombatAnimation(6205);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What the fuck happened here?” Demand answers.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Centurion</speaker_name>
+      <npc_text>“This area is under House Aurelian’s –” starts the Centurion.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“Save it, I don’t give a fuck. You know what you’ve done?” Give him your best stare.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>11</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Centurion</speaker_name>
+      <npc_text>[failure]“Kill &lt;him/her&gt;!” snaps the Centurion, clearly unimpressed with your performance.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Centurion</speaker_name>
+      <npc_text>[success]“What?” asks the Centurion, his fear that he screwed up getting the best of him.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Started a war, that’s what!”</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Centurion</speaker_name>
+      <npc_text>“A war?” says the Centurion, getting more and more confused. “What are you talking about?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][persuasion]“I’m talking about an unprovoked attack on the Imperial Guards who were granted permission to examine these ruins by Lord Gaelius himself. What do you think Dux Paullus is gonna do now? He will raze Maadoran to the ground and will be well within his rights!”</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.persuasion) &gt;= 9</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>13</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Centurion</speaker_name>
+      <npc_text>[success]“They had permission?” asks the Centurion, turning pale.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Of course we had permission, you fucking dolt. We wouldn’t be here otherwise, would we?”</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Centurion</speaker_name>
+      <npc_text>“I guess not,” says the Centurion, completely confused. “Gaelius is going to crucify me.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][charisma]“Trust me, Paullus won't be too happy with me either. You know what, let's keep it between us. Tell Gaelius you ran into some raiders. I'll tell Paullus the same thing and *maybe* the whole thing will blow over.”</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.cha + aod.streetwise) &gt;= 11</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>15</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Centurion</speaker_name>
+      <npc_text>[success]“Do you think it's going to work?” asks the Centurion, looking relieved.</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(IG7_01);</string>
+        <string>rwd_civil(ALK_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Why wouldn't it?” Pat the Centurion on the back and return to Ganezzar.</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

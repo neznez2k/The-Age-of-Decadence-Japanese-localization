@@ -1,0 +1,214 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_TG7_status == 6</string>
+      <string>aod.quest_TG7_status == 5</string>
+    </conditions>
+    <links>
+      <int>7</int>
+      <int>6</int>
+    </links>
+    <dlg_name>Quest_TG7_02</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You peek through the keyhole and see two guards next to another door. Looks like you found a way into the castle. You can return to Glabrio now or take care of the guards while you're here.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_TG7_status = 4;</string>
+        <string>aod.jnl_TG_GNZ1 = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Open the door and attack!</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[traps][alchemy]Rig up an explosive.</text>
+          <def_link>3</def_link>
+          <checkOnAppear>dlgOwnsItem(1815) || dlgOwnsItem(210) || dlgOwnsItem(211) || dlgOwnsItem(212)</checkOnAppear>
+          <checksOnClick>
+            <string>aod.traps &gt;= 5 &amp;&amp; aod.alchemy &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Return to Glabrio.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone for now.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You look at the sprawled dead bodies, satisfied with your handiwork.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Return to Glabrio.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Look around for valuables.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Looks like you found a way into the castle.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Return to Glabrio.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Look around for valuables.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - return to Glabrio</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>VCO_Door_5.setActive(0);</string>
+        <string>aod.gnz_TG_fromTunnels = 1;</string>
+        <string>switchMission("Ganezzar TG.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgTeleportToMarker(TM_Guard_Fight_01);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addEnemyToParty(1, GNZ_CastleTunnels_Guards);</string>
+        <string>VCO_Door_5.setActive(0);</string>
+        <string>Door_05.open();</string>
+        <string>aod.jnl_TG_GNZ1 = 3;</string>
+        <string>aod.quest_TG7_status = 5;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Your improvised bomb goes off early. In fact, it goes off when you're still holding it in your hands. The explosion throws you against the wall and you blank out. When you open your eyes you see the guards standing next to you.
+
+A quick self-inventory suggests that you have several cracked ribs, a minor (hopefully) concussion, and you seem to be missing a few fingers. Nothing a good sawbones can't fix, provided you get out of this mess.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeCharacterHP(-15);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>removeCharges(1);</string>
+        <string>dlgTeleportToMarker(TM_Guard_Fight_02, 6265);</string>
+        <string>dlgTeleportToMarker(TM_Guard_Fight_03, 6266);</string>
+        <string>sfxPlayOnce(explosionMiddle01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill the guards.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You rig up an explosive, redefining the term improvised, setting up right outside the door, then push the door open. As expected, the guards charge and the explosive goes off, obscuring your vision for a moment.
+
+When the smoke clears, you see that one guard is down, trying to crawl away. The other guard, covered in his partner's blood, appears to be unhurt. He doesn't look very friendly.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>removeCharges(1);</string>
+        <string>dlgTeleportToMarker(TM_Guard_Fight_02, 6265);</string>
+        <string>dlgTeleportToMarker(TM_Guard_Fight_03, 6266);</string>
+        <string>dlgSetAnimation(anim_death_forward00, 0.95, 6265);</string>
+        <string>dlgKillCharacter(6265);</string>
+        <string>rwd_civil(Traps);</string>
+        <string>sfxPlayOnce(explosionMiddle01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill him.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

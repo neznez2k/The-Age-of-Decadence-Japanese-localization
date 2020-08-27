@@ -1,0 +1,686 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Quest_MG7_01</dlg_name>
+    <def_link>7570</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>A large crowd mills around the castle gates with the palpable hostility of ants looking for the one who kicked their nest apart. As you get closer, you see the people are all sick or afflicted in various ways, limping, disfigured or with pox-ravaged faces, and their ringing shouts resolve into demands for healing.
+
+Wherever Athanasius found these poor wretches, their righteousness is certainly convincing.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg7_miracle = 1;</string>
+        <string>dlgTeleportToMarker(TM_Miracle_01);</string>
+        <string>OBJ_MiracleCrowd.showObjects();</string>
+        <string>dlgCam(25, 45, 15, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Approach.</text>
+          <def_link>7571</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7570</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Confused, Meru’s zealots are trying to restore the order, urging the wretches to go home, but their attempts are in vain.
+
+One of the wretches – a blind man with glazed over, white eyes – turns his head toward you, sniffing the air like a dog, and cries, “&lt;He/She&gt; can help us! I feel it! The blessing of the Gods is upon &lt;him/her&gt;!”
+
+The man gives you a barely perceptible nod and drops on his knees.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setObjectRenderState(OBJ_MiracleGuy_1, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Lay your hands on him.</text>
+          <def_link>7572</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7571</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You place your hands on the wretch’s face and pray, invoking the Gods and begging them to restore the man’s eyesight, for no faithful should be condemned to darkness.
+
+The wretch takes his time, shaking and shivering, and when you’re almost out of steam, he screams, “I can see!” rubbing his eyes in fake disbelief. Hardly original but it will do.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Find the next ‘patient’.</text>
+          <def_link>7573</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7572</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You scan the faces and quickly spot another quick nod, this time from a man with the crutches. You give him the same treatment, quickly producing another miracle – the man throws away the crutches, happily announcing that he can walk. He doesn’t put as much effort as the ‘blind’ wretch but the crowd buys it all, eager for more.
+
+The gates open and a tall man in dark robes steps outside. The guards snap to attention and salute – must be an important man in Meru’s hierarchy. The man stops, watching you with apparent concern.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setObjectRenderState(OBJ_MiracleGuy_1, 0);</string>
+        <string>setObjectRenderState(OBJ_MiracleGuy_2, 1);</string>
+        <string>createByCharMarker("CM_Zealot_Miracles");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>One more miracle should do the trick.</text>
+          <def_link>7574</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7573</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Zealot</speaker_name>
+      <npc_text>You pick your next target – an overly dramatic woman who doesn’t have any obvious handicap, but the zealot stops her with a gesture.
+
+“Not her,” says the zealot, his voice is quiet but carries enough weight to silence the crowd. “Him,” he points at a pale man standing a few feet away.</npc_text>
+      <onLoadScripts>
+        <string>setObjectRenderState(OBJ_MiracleGuy_2, 0);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Attempt to heal the man. “What ails you, brother?”</text>
+          <def_link>7575</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Challenge the zealot. “I do the Gods’ bidding, brother, not yours.”</text>
+          <def_link>7587</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7574</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Sick man</speaker_name>
+      <npc_text>“Chest pain, o holy one,” says the man, bowing deeply. “It’s gotten worse. I saw several healers but they couldn’t help me.”</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setObjectRenderState(OBJ_MiracleGuy_3, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“That’s because the Gods are testing you, brother. I see their mark on you as clearly as I see you. That’s why the medicine does nothing.”</text>
+          <def_link>7576</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[charisma]It’s time to do a real miracle.</text>
+          <def_link>7583</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7575</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Sick man</speaker_name>
+      <npc_text>“So what should I do, o holy one?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You must pass the Gods’ test. Fail and the illness will consume you. Pass and it will go away.”</text>
+          <def_link>7577</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7576</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Sick man</speaker_name>
+      <npc_text>“But I don’t know what this test is,” says the man, his face twisted in fear.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]“It wouldn’t be much of a test if the right answers were obvious, would it, brother? Look deep within your heart and you’ll find the answers.”</text>
+          <def_link>7578</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7579</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]“You must pray for guidance for three days and three nights, abstaining from food and drinking nothing but a cup of water at the end of each day. Then the answer will be revealed to you.”</text>
+          <def_link>7578</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7582</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7577</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Zealot</speaker_name>
+      <npc_text>[failure]Disappointed, the man turns around and walks away.
+
+“That was quite a performance,” says the zealot, the double meaning of his word painfully obvious.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Clearly, the man lacks faith. The Gods won’t bless the unworthy.”</text>
+          <def_link>7591</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7578</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Sick man</speaker_name>
+      <npc_text>[success]“It’s my niece, isn’t it?” asks the man with sudden realization. “She had a child out of wedlock and when she came to me for help, I turned her away.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“All children are equal in the Gods’ eyes, even those born out of wedlock. You know what you need to do now.”</text>
+          <def_link>7580</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You left a family matter unsettled. The father of the child must be convinced to marry the girl, even if you have to hold a crossbow to his back.”</text>
+          <def_link>7580</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“She dishonored your family. You know what you need to do now.”</text>
+          <def_link>7580</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7579</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Sick man</speaker_name>
+      <npc_text>[success]“Are you sure?” asks the man hopefully.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You must have faith, brother. It's what separates us from the godless and the godforsaken.”</text>
+          <def_link>7580</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7582</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Sick man</speaker_name>
+      <npc_text>[success]“What must I do then?” asks the man.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“You must pray for guidance for three days and three nights, abstaining from food and drinking nothing but a cup of water at the end of each day. Then the answer will be revealed to you.”</text>
+          <def_link>7578</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7582</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7590</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Zealot</speaker_name>
+      <npc_text>“Thank you, o holy one,” says the man, bowing even deeper and kissing your hand.
+
+“This was inspiring,” says the zealot. “Come. Brother Meru wants to see you now.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg7_miracle = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go see Meru.</text>
+          <def_link>7581</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7580</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - see Meru</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>sd(NPC_Meru_01);</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>OBJ_MiracleCrowd.hideObjects();</string>
+        <string>dlgDeleteCharacter(9102);</string>
+        <string>setObjectRenderState(OBJ_MiracleGuy_3, 0);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>7581</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The man in front of you wants to believe. The first two ‘miracles’ only reinforced his conviction that his pain can be taken away, that his suffering is at the end. He just needs a little push to make it real.
+
+You lock your eyes with his, place your hands on his chest, and start praying, loudly and theatrically.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[charisma]“Do you feel it, brother?”</text>
+          <def_link>7584</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.cha &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7585</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7583</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Sick man</speaker_name>
+      <npc_text>[failure]“I feel nothing,” says the man, almost in tears.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]“Your faith is weak, brother. You want to believe because you want to get better but that’s not enough. Faith is a soil in which miracles grow and bloom. You have to open up your soul, brother. Until you do, you won't get better.”</text>
+          <def_link>7578</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 14</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7590</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7584</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Sick man</speaker_name>
+      <npc_text>[failure]You huff and you puff but the man is clearly too stubborn.
+
+“I feel nothing,” says the man, almost in tears.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]“Your faith is weak, brother. You want to believe because you want to get better but that’s not enough. Faith is a soil in which miracles grow and bloom. You have to open up your soul, brother. Until you do, you won't get better.”</text>
+          <def_link>7578</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 14</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7590</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7588</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Sick man</speaker_name>
+      <npc_text>[success]“Yes,” whispers the man, his mouth open in expectation.
+
+Not good enough.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[charisma]Make him *believe*!</text>
+          <def_link>7588</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.cha &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7586</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7585</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Zealot</speaker_name>
+      <npc_text>[success]You huff and you puff and you put on the best goddamn show this town has ever seen. When you’re done, the sick man is so high on faith that he could run a mile on broken legs. He takes a deep breath, then another, smiles, then falls on his knees and kisses your feet, wiping away tears.
+
+“Bless me too, &lt;brother/sister&gt;,” says the zealot, his eyes glow with wonder. “Come. Brother Meru wants to see you now.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg7_miracle = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go see Meru.</text>
+          <def_link>7581</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7586</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Zealot</speaker_name>
+      <npc_text>“I thought you were here to heal people,” says the zealot, unfazed.</npc_text>
+      <onLoadScripts>
+        <string>dlgRotateToChar(9102);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I'm not a healer and can't take the credit for what you've just witnessed. I'm a &lt;man/woman&gt; of faith, a humble servant of the Gods.”</text>
+          <def_link>7592</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7587</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Zealot</speaker_name>
+      <npc_text>“A convenient response,” says the zealot. “The one I’d expect from a charlatan.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I find your lack of faith disturbing.”</text>
+          <def_link>7595</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7591</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Zealot</speaker_name>
+      <npc_text>“Then why don’t I believe you?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][streetwise]“Because I did what you couldn’t. Now doubts whisper in your ear, eating away at your once unwavering faith. How long until you stop believing altogether?”</text>
+          <def_link>7594</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.streetwise) &gt;= 15</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7593</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][lore]“Is it not said that the simple believeth every word, but the prudent man looketh well to his going? You think yourself to be a prudent man – for no man admits to be a simpleton, so you doubt because you think it makes you wise. It doesn’t, brother.”</text>
+          <def_link>7594</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.lore) &gt;= 12</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7593</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7592</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Zealot</speaker_name>
+      <npc_text>[success]“Forgive me this moment of weakness, &lt;brother/sister&gt;. I shouldn’t have judged you. Come. Brother Meru wants to have a word with you.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go see Meru.</text>
+          <def_link>7581</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7593</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Zealot</speaker_name>
+      <npc_text>[failure]The zealot chuckles softly. “Come. Brother Meru wants to have a word with you.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go see Meru.</text>
+          <def_link>7581</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7594</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Zealot</speaker_name>
+      <npc_text>“Because I don’t find your parlor tricks amusing?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][charisma]“Because you’re supposed to lead these people and you can’t do that if your heart is filled with doubt. You want to believe but nobody showed you how to do that. Well, I’m here for you now, brother. All you have to do is take my hand.”</text>
+          <def_link>7594</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.cha) &gt;= 14</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7596</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][charisma]“Because miracles that move other people are nothing but parlor tricks to you. The Gods left because of people like you – people who mistook ignorance for reason, blindness for vision.”</text>
+          <def_link>7594</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.cha) &gt;= 14</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7600</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7595</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Zealot</speaker_name>
+      <npc_text>[success]“Can you really do that?” asks the zealot, his voice filled with hope.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][charisma]Work your magic. Make him believe.</text>
+          <def_link>7597</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.cha + aod.persuasion) &gt;= 16</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7599</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7596</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Zealot</speaker_name>
+      <npc_text>[success]“It is fitting to have doubts, is it not?” says the zealot. He tries to sound confident but his voice wavers, betraying him.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][charisma]Work your magic. Make him believe.</text>
+          <def_link>7597</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.cha + aod.persuasion) &gt;= 16</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7599</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7600</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You use charm and mind games to manipulate the zealot but fail miserably. Angry at himself, the zealot curses and says, “Enough! Brother Meru wants to see you now. Come with me.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go see Meru.</text>
+          <def_link>7581</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7597</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You tell the man that he’s afraid – afraid to embrace this new creed, afraid to believe in the Gods nobody’s ever seen. He’s waiting for the ultimate proof to be produced, but he’s lying to himself, hiding his own doubts, his own fears.
+
+You tell him that it's this fear that prevents true faith from taking hold and growing. As long as he doubts, he will never know enlightenment. As long as he fears, his heart will remain closed.
+
+You use his fear to fail and be rejected to fight his fear to accept what he can’t explain. You use his doubt to make him doubt his own position, his own belief that only what he can witness with his eyes is real.
+
+When the man is no longer sure of anything, you convince him that doubt is a form of weakness and condition him to fight this weakness by accepting everything he’s told.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>7598</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7599</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Zealot</speaker_name>
+      <npc_text>“Forgive me, &lt;brother/sister&gt;,” says the zealot, kneeling in front of you. “I shouldn’t have judged you. Come with me. Brother Meru wants to have a word with you.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg7_miracle = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go see Meru.</text>
+          <def_link>7581</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7598</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

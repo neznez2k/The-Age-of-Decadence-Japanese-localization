@@ -1,0 +1,651 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_AG7_killedQuietly &amp;&amp; aod.quest_AG7_sentGuardsAway</string>
+      <string>aod.quest_AG7_killedQuietly</string>
+      <string>aod.quest_AG7_foughtTent</string>
+    </conditions>
+    <links>
+      <int>24</int>
+      <int>14</int>
+      <int>16</int>
+    </links>
+    <dlg_name>Quest_AG7_01</dlg_name>
+    <def_link>4</def_link>
+    <def_speaker_name>Hagnon</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What news do you bring me?” asks the Legatus. “Did any of your brethren survive?”</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(15, 45, 8, 8200);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise success]“Varro is alive and well. He sent me to kill you.”</text>
+          <def_link>17</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity][critical strike]Kill them all.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.dex + aod.critical_strike) &gt;= 19</string>
+            <string>(aod.dex + aod.critical_strike) &gt;= 16</string>
+            <string>(aod.dex + aod.critical_strike) &gt;= 13</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>13</int>
+            <int>12</int>
+            <int>11</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity]Poison his wine.</text>
+          <def_link>5</def_link>
+          <checkOnAppear>dlgOwnsItem(810) || dlgOwnsItem(812)</checkOnAppear>
+          <checksOnClick>
+            <string>aod.dex &gt;= 9</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[sneak][steal]Poison his wine.</text>
+          <def_link>5</def_link>
+          <checkOnAppear>dlgOwnsItem(810) || dlgOwnsItem(812)</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.steal + aod.sneak) &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“We’ll wait,” says the Legatus, not taking his eyes off you. “If Varro is here, he’ll make his move soon enough.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[dexterity][critical strike]Kill them all.</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.dex + aod.critical_strike) &gt;= 20</string>
+            <string>(aod.dex + aod.critical_strike) &gt;= 17</string>
+            <string>(aod.dex + aod.critical_strike) &gt;= 14</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>13</int>
+            <int>12</int>
+            <int>11</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You step to the table, blocking the Legatus’ view for a moment, and empty the vial with poison into the wine cup.
+
+“The fuck you’re doing?” asks one of the guards, alarmed. So much for subtlety... The Legatus yells to the guards posted outside and they rush inside, swords drawn.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>removePoison();</string>
+        <string>createAG7Guards();</string>
+        <string>dlgSetCombatAnimation(1);</string>
+        <string>dlgSetCombatAnimation(8200);</string>
+        <string>dlgSetCombatAnimation(8201);</string>
+        <string>dlgSetCombatAnimation(8202);</string>
+        <string>dlgSetCombatAnimation(8203);</string>
+        <string>dlgSetCombatAnimation(8204);</string>
+        <string>dlgTeleportToMarker(TM_Wine_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way out.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - tent</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.fight_ag7_tent = 1;</string>
+        <string>addEnemyToParty(1, AG7_legatus);</string>
+        <string>aod.quest_AG7_foughtTent = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You step to the table, blocking the Legatus’ view for a moment, grab the pitcher and fill in two cups. Somehow during this process the poison ends up in the Legatus’ cup.
+
+“Varro’s still alive and he agreed to help me. Tonight we’ll send Meru across Styx if the gods smile on us. Let’s drink to our success!”
+
+The Legatus smiles, takes the offered cup and empties it in one gulp. He tries to say something but his tongue refuses to obey him. Confused, he glances around, takes a step on unsteady legs, almost falling down. The guards move forward to secure him.
+
+You’ll never get a better chance.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>removePoison();</string>
+        <string>dlgTeleportToMarker(TM_Wine_01);</string>
+        <string>killRandomDeathPosition(8200);</string>
+        <string>changeRep(bodycount, 1);</string>
+        <string>dlgTeleportToMarker(TM_Wine_02, 8202);</string>
+        <string>dlgTeleportToMarker(TM_Wine_03, 8201);</string>
+        <string>rwd_civil(Steal);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[critical strike]Kill them.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You dart forward and strike the nearest guard. He goes down with a moan taking you with him.
+
+"Assassin!" yells the other man and the guards posted outside rush inside, swords drawn.</npc_text>
+      <onLoadScripts>
+        <string>createAG7Guards();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>killRandomDeathPosition(8201);</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>dlgSetCombatAnimation(1);</string>
+        <string>dlgSetCombatAnimation(8202);</string>
+        <string>sfxPlayOnce(csSuccessMetal01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way out.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You move forward, mimicking the guards’ concern, raising your arms toward the Legatus. With a flick of a wrist you conjure a dagger and stab the guard on your right under the armor. He goes down with a moan, the other guard curses, still hesitant to release the Legatus who’s shaking feverishly. The hesitation costs him his life.
+
+The legatus goes into convulsions, shakes for a few moments, then goes still. Surprisingly, the bastard’s still alive. You fix it by stabbing him in the heart.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>killRandomDeathPosition(8201);</string>
+        <string>killRandomDeathPosition(8202);</string>
+        <string>aod.quest_AG7_killedQuietly = true;</string>
+        <string>dlgCsRepTrain(2);</string>
+        <string>sfxPlayOnce(csSuccessMetal01);</string>
+        <string>schedule(250, 0, sfxPlayOnce, csSuccessMetal01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>To the victor go the spoils - grab anything that isn't nailed down!</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You go for your dagger – a movement so fast that a human eye can’t even see it – and ... fumble the draw. So you end up standing there like an idiot trying to pull out your dagger while the Legatus and his men stare at you in confusion as if expecting it to be some kind of joke.
+
+Until they realize that it’s not. The Legatus yells to the guards posted outside and they rush inside, swords drawn.</npc_text>
+      <onLoadScripts>
+        <string>createAG7Guards();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetCombatAnimation(1);</string>
+        <string>dlgSetCombatAnimation(8200);</string>
+        <string>dlgSetCombatAnimation(8201);</string>
+        <string>dlgSetCombatAnimation(8202);</string>
+        <string>dlgSetCombatAnimation(8203);</string>
+        <string>dlgSetCombatAnimation(8204);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way out.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You manage to catch the Legatus by surprise – one down, two to go. Unfortunately, his guards are well trained and force you to retreat. One of the guards checks the Legatus’ vitals, but finds none. He looks at you with hatred, shouts to the guards posted outside and they rush inside, cutting off the escape route.</npc_text>
+      <onLoadScripts>
+        <string>createAG7Guards();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>killRandomDeathPosition(8200);</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>dlgSetCombatAnimation(1);</string>
+        <string>dlgSetCombatAnimation(8201);</string>
+        <string>dlgSetCombatAnimation(8202);</string>
+        <string>dlgRotateToChar(1, 8201);</string>
+        <string>dlgRotateToChar(1, 8202);</string>
+        <string>sfxPlayOnce(csSuccessMetal01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way out.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You strike fast, killing the Legatus and one of the guards before the other guard remembers to raise a shield and fall back. He shouts and the guards posted outside rush inside, cutting off the escape route.</npc_text>
+      <onLoadScripts>
+        <string>createAG7Guards();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_CS_KillAll_01);</string>
+        <string>killRandomDeathPosition(8200);</string>
+        <string>killRandomDeathPosition(8202);</string>
+        <string>dlgCsRepTrain(2);</string>
+        <string>dlgSetCombatAnimation(1);</string>
+        <string>dlgRotateToChar(1, 8201);</string>
+        <string>dlgSetCombatAnimation(8201);</string>
+        <string>sfxPlayOnce(csSuccessMetal01);</string>
+        <string>schedule(400, 0, sfxPlayOnce, csSuccessMetal01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way out.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Time slows down and the sounds of the camp slowly fade away until you hear nothing but your own heartbeat. Like an uncoiling spring, you lunge forward, each movement is fast and precise.
+
+You stab the guard on the right in the throat, whirl around and bury your dagger in the other guard’s eye. The dying guards restrict the Legatus’ movement and by the time he manages to get his sword out, he’s bleeding out from three wounds, two of them fatal.</npc_text>
+      <onLoadScripts>
+        <string>killRandomDeathPosition(8200);</string>
+        <string>killRandomDeathPosition(8201);</string>
+        <string>killRandomDeathPosition(8202);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.quest_AG7_killedQuietly = true;</string>
+        <string>dlgCsRepTrain(3);</string>
+        <string>dlgTeleportToMarker(TM_CS_KillAll_01);</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>sfxPlayOnce(csSuccessMetal01);</string>
+        <string>schedule(250, 0, sfxPlayOnce, csSuccessMetal01);</string>
+        <string>schedule(500, 0, sfxPlayOnce, csSuccessMetal01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>To the victor go the spoils - grab anything that isn't nailed down!</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Varro</portrait>
+      <speaker_name>Varro</speaker_name>
+      <npc_text>“It went well, I take it?” asks Varro, appearing out of nowhere. “Let’s go before they find the bodies.”</npc_text>
+      <onLoadScripts>
+        <string>createByCharMarker("CM_Varro_AG7");</string>
+        <string>dlgTeleportToMarker(TM_PC_Varro);</string>
+        <string>dlgCam(170, 45, 7, 8041);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Follow him.</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Varro</portrait>
+      <speaker_name>Varro</speaker_name>
+      <npc_text>“You should have warned me,” says Varro, appearing out of nowhere. There is blood on his armor. “Let’s go before they find the bodies.”</npc_text>
+      <onLoadScripts>
+        <string>createByCharMarker("CM_Varro_AG7");</string>
+        <string>dlgTeleportToMarker(TM_PC_Varro);</string>
+        <string>dlgCam(170, 45, 7, 8041);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Follow him.</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Varro</portrait>
+      <speaker_name>Varro</speaker_name>
+      <npc_text>You step outside, greeted by shouts spreading through the camp like wildfire. You see soldiers running toward the tent from all directions.
+
+In the next moment an explosion throws you to the ground. Another explosion goes up somewhere to the left, then another. Thick smoke obscures your vision.
+
+Someone grabs you by the arm and pulls you up. “Move!” shouts Varro, tossing another bomb. “It was the last one. If we won’t get out of here now, we’re dead!”</npc_text>
+      <onLoadScripts>
+        <string>setWindowImage(blackScreen);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Follow him.</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What? Why? Where is he?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“He’s waiting for me outside your tent. If your guards are any good, they can catch him before he gets away.”</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>19</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“I find it hard to believe that you’d betray your guildmaster so easily,” says the Legatus, watching for any signs of hesitation on your face.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][charisma]“Ganezzar will fall sooner or later. Do you really think I want to go down with the ship?”</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.cha) &gt;= 13</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>19</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion]“He is a traitor who should have died with his men. I wasn’t sure I could handle him one on one, so I led him here. You think you have enough men to handle him?”</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>19</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]The Legatus gestures and the guards walk outside, trying to look inconspicuous. Now is the time to strike.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_AG7_sentGuardsAway = true;</string>
+        <string>dlgTeleportToMarker(TM_GuardsOutside_01, 8201);</string>
+        <string>dlgTeleportToMarker(TM_GuardsOutside_02, 8202);</string>
+        <string>rwd_civil(AG7_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[critical strike]Kill the Legatus.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>23</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]The legatus jerks back and your dagger leaves a deep but non-lethal wound. Instead of fighting you honorably, he yells for help. So much for chivalry.
+
+Four guards rush inside, taking positions around you.</npc_text>
+      <onLoadScripts>
+        <string>createAG7Guards();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_GuardsInside_01, 8201);</string>
+        <string>dlgTeleportToMarker(TM_GuardsInside_02, 8202);</string>
+        <string>dlgSetCombatAnimation(1);</string>
+        <string>dlgSetCombatAnimation(8200);</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight your way out.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]The Legatus jerks back but it’s too late to put up a fight – your dagger is half-way into his neck. You put your hand over his mouth and push the dagger deeper. The Legatus’ eyes bulge, then roll up, and his body goes limp.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>killRandomDeathPosition(8200);</string>
+        <string>aod.quest_AG7_killedQuietly = true;</string>
+        <string>dlgDeleteCharacter(8201);</string>
+        <string>dlgDeleteCharacter(8201);</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>dlgSetCombatAnimation(1);</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>Varro reaches his destination - a spot of land away from the camp that doesn't seem to be remarkable in any way - and glances around. Detecting no threat, he grabs something in the grass and pulls hard, opening up a hidden hatch.</npc_text>
+      <onLoadScripts>
+        <string>setWindowImage(gnz_smugglersHatch);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Follow Varro.</text>
+          <def_link>27</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Ganezzar</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_AG7_status = 2;</string>
+        <string>aod.gnz_startPosition_castleExterior = 1;</string>
+        <string>switchMission("Ganezzar.mis");</string>
+        <string>dlgFadeLongToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>26</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Glabrio</portrait>
+      <speaker_name>Glabrio</speaker_name>
+      <npc_text>You follow the tunnel for twenty minutes, feeling your way along the wall, when suddenly the wall ends. You take a few steps forward and suddenly several torches light up the room. You find yourself standing in a fairly large underground chamber cut out of the rock, surrounded by grim looking men.
+
+“What the fuck is going on here?” asks one of the men. His voice is soft and pleasant, his eyes are anything but.
+
+“I don’t have time for this, Glabrio,” says Varro. One day you too will learn how to sound menacing without saying much.
+
+“I didn’t recognize you in this armor, Varro,” says Glabrio in a different tone. “Still, you can't use our tunnels whenever you fucking feel like it.”</npc_text>
+      <onLoadScripts>
+        <string>setWindowImage(ag7_glabrioMeeting);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait.</text>
+          <def_link>28</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>27</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Varro</portrait>
+      <speaker_name>Varro</speaker_name>
+      <npc_text>Varro fixes him with a stare, the way a snake stares at a mouse, forcing Glabrio to step aside.
+
+“Let's go, &lt;charname&gt;, before Glabrio starts charging us rent.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(AG7_01);</string>
+        <string>aod.jnl_AG_GNZ1 = 2;</string>
+        <string>addQuest(AG_GNZ2);</string>
+        <string>rwd_reputation(AG7_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Follow Varro.</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>28</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - explore</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>VCO_Ganezzar.setActive(1);</string>
+        <string>aod.jnl_AG_GNZ1 = 2;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>29</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

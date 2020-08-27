@@ -1,0 +1,214 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.inf_destroyed == 2</string>
+      <string>aod.inf_destroyed == 1</string>
+    </conditions>
+    <links>
+      <int>57</int>
+      <int>56</int>
+    </links>
+    <dlg_name>INF_Elevator</dlg_name>
+    <def_link>49</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>It's dark outside and the guards are nowhere to be seen. Not that you can see much from below.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[throwing]Use the grappling hook.</text>
+          <def_link>58</def_link>
+          <checkOnAppear>dlgGetItemsCount(2125) &gt;= 1</checkOnAppear>
+          <checksOnClick>
+            <string>aod.throwing &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>51</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>55</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>49</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The village is very quiet. The dead hasn't risen yet, so that's one less problem to deal with today.</npc_text>
+      <onLoadScripts>
+        <string>aod.INF_escapeTowerStart = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[throwing]Use the grappling hook.</text>
+          <def_link>58</def_link>
+          <checkOnAppear>dlgGetItemsCount(2125) &gt;= 1 &amp;&amp; aod.inf_holeUsedRope == false &amp;&amp; aod.inf_holeUsedGrappling == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.throwing &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>51</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Climb up.</text>
+          <def_link>52</def_link>
+          <checkOnAppear>aod.inf_holeUsedRope || aod.inf_holeUsedGrappling</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>55</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>57</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The air smells of ozone. The guards are nowhere to be seen.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[throwing]Use the grappling hook.</text>
+          <def_link>58</def_link>
+          <checkOnAppear>dlgGetItemsCount(2125) &gt;= 1</checkOnAppear>
+          <checksOnClick>
+            <string>aod.throwing &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>51</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>55</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>56</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Your throw falls short of the mark.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[throwing]Keep trying, you have all the time in the world.</text>
+          <def_link>58</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>getRandom(0, 2) &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>59</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>55</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>58</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You spend a few hours throwing the grappling hook and dodging it when it falls down. Eventually, the hook clears the opening and disappears from view. You pull on the rope until the hook finds some purchase, then pull harder, testing the strength.</npc_text>
+      <onLoadScripts>
+        <string>aod.inf_holeUsedGrappling = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgRemoveItem(2125, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Climb up.</text>
+          <def_link>52</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>59</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]The hook clears the opening and disappears from view. You pull on the rope until the hook finds some purchase, then pull harder, testing the strength.</npc_text>
+      <onLoadScripts>
+        <string>aod.inf_holeUsedGrappling = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgRemoveItem(2125, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Climb up.</text>
+          <def_link>52</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>51</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - climbed up</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.inf_fromTower = 1;</string>
+        <string>if(aod.INF_escapeTowerStart == 0) {aod.INF_escapeTowerStart = 1;}</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>switchMission("Desert Village.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>52</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>55</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

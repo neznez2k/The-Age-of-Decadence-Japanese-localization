@@ -1,0 +1,621 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_esbenus_archPaid</string>
+      <string>aod.npc_esbenus_metAgain &amp;&amp; aod.npc_esbenus_archPaid == false</string>
+      <string>aod.prt_approached &amp;&amp; aod.npc_esbenus_portal &amp;&amp; aod.npc_esbenus_dead == false</string>
+      <string>aod.prt_approached</string>
+    </conditions>
+    <links>
+      <int>6113</int>
+      <int>6104</int>
+      <int>6092</int>
+      <int>6106</int>
+    </links>
+    <dlg_name>PRT_Intro</dlg_name>
+    <def_link>6087</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>After a long and arduous journey through the desert, you finally arrive at the site marked on your map. It’s an abandoned excavation about fifty feet deep and twice as wide. Whoever did it spared no expense to unearth what it is that lies beneath the sand, but they found nothing except for an old arch.
+
+You see people around the dig site, but you can’t tell who they are from this distance.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(CAM_Intro_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Get closer.</text>
+          <def_link>6091</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_esbenus_portal == 1</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6088</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6087</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The men are armed. They aren’t organized enough to be the Imperial Guards, so they must either be mercenaries or raiders. Probably raiders. Their leader looks familiar though. Why, it’s your old friend Esbenus.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgCam(190, 45, 12, 1558);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Approach.</text>
+          <def_link>6089</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_esbenus_enemy</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6090</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6088</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The men aren’t armed and seem to be entirely non-threatening.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>aod.jnl_arch_phase3 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Approach.</text>
+          <def_link>6089</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6091</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - outskirts</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>if(aod.quest_teronRaider_metLeader &amp;&amp; aod.npc_esbenus_dead == false) dlgCam(315, 40, 16, 1558);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6089</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addEnemyToParty(1, EsbenusSlavers);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setCombatAllowed(true);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6102</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - away</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addEnemyToParty(1, EsbenusSlavers);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_CombatEsbenus_Away);</string>
+        <string>setCombatAllowed(true);</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6116</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Come to think about it, with the way things ended, Esbenus might not be too happy to see you. In fact, he might kill you first and accept your profound apologies second.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Approach.</text>
+          <def_link>6089</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6100</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6090</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Esbenus</portrait>
+      <speaker_name>Esbenus</speaker_name>
+      <npc_text>“&lt;charname&gt;? Didn’t think I’d see you so soon. What brings you to my humble abode?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_esbenus_metAgain = true;</string>
+        <string>dlgTeleportToMarker(TM_Intro_PC_01);</string>
+        <string>dlgCam(135, 40, 10, 1558);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I want to take a closer look at that building.”</text>
+          <def_link>6093</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6092</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Esbenus</portrait>
+      <speaker_name>Esbenus</speaker_name>
+      <npc_text>“Magnificent, isn’t it? Hard to believe it was completely abandoned when we found it. A piece of history, just buried and forgotten. A thousand years ago, the Imperial soldiers marched under the arch, thinking that it would stand there forever as a testament to their glory. Today, slaves relieve themselves on it. Spiteful fuckers...”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What are you doing with the slaves?”</text>
+          <def_link>6094</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6093</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Esbenus</portrait>
+      <speaker_name>Esbenus</speaker_name>
+      <npc_text>“Selling them as cheap labor, since I don’t have the heart to kill them. Why, you want them?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Afraid not. Now, about this arch.”</text>
+          <def_link>6095</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6094</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Esbenus</portrait>
+      <speaker_name>Esbenus</speaker_name>
+      <npc_text>“About my arch?” smiles Esbenus. “For a thousand imperials you can look all you like and even take a small piece home, as a souvenir.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay him.</text>
+          <def_link>6099</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 1000</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“A thousand imperials? To look at an old building?”</text>
+          <def_link>6096</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6095</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Esbenus</portrait>
+      <speaker_name>Esbenus</speaker_name>
+      <npc_text>“Still taking me for a fool, &lt;charname&gt;? If all you want is to take a look, then take a look from here – it’s free. We both know that you didn’t come here for sight-seeing and my price is one thousand imperials. Pay me or be on your way.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay him.</text>
+          <def_link>6099</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 1000</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading success]“Five hundred. For old times’ sakes.”</text>
+          <def_link>6097</def_link>
+          <checkOnAppear>aod.trading &gt;= 4</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Clearly, Esbenus has outlived his usefulness. Kill him.</text>
+          <def_link>6102</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Clearly, Esbenus has outlived his usefulness. Pretend to leave and attack from the distance.</text>
+          <def_link>6116</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6100</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6096</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Esbenus</portrait>
+      <speaker_name>Esbenus</speaker_name>
+      <npc_text>“One thousand,” says Esbenus, shaking his head. “Last time, I was in a hurry, not to mention outnumbered. Now, I can sit and wait for you to loosen up your purse for as long as it takes.
+
+“Mind you, I hope you appreciate the fact that I’m not sending in my men to strip you naked and have everything you have. You did me a good turn back in Teron and Esbenus always pays his debts.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay him.</text>
+          <def_link>6099</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 1000</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading success]“You’re right, I didn’t come here for sight-seeing. I’m here on the guild’s business, which means that all expenses must be authorized by the guild. So, do you want me to give you five hundred now or do you want to go back and haggle with my superiors?”</text>
+          <def_link>6098</def_link>
+          <checkOnAppear>aod.trading &gt;= 5</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Clearly, Esbenus has outlived his usefulness. Kill him.</text>
+          <def_link>6102</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Clearly, Esbenus has outlived his usefulness. Pretend to leave and attack from the distance.</text>
+          <def_link>6116</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6100</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6097</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Esbenus</portrait>
+      <speaker_name>Esbenus</speaker_name>
+      <npc_text>“I’ll take five hundred,” says Esbenus dryly.</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(Trading);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay him.</text>
+          <def_link>6103</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 500</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6100</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6098</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Esbenus</portrait>
+      <speaker_name>Esbenus</speaker_name>
+      <npc_text>“It’s all yours,” says Esbenus, counting the coins.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-1000);</string>
+        <string>dlgChangeMoney(1000, 1558);</string>
+        <string>aod.npc_esbenus_archPaid = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Approach the arch.</text>
+          <def_link>6101</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6099</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Esbenus</portrait>
+      <speaker_name>Esbenus</speaker_name>
+      <npc_text>“It’s all yours,” says Esbenus, counting the coins.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-500);</string>
+        <string>dlgChangeMoney(500, 1558);</string>
+        <string>aod.npc_esbenus_archPaid = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Approach the arch.</text>
+          <def_link>6101</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6103</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Esbenus</portrait>
+      <speaker_name>Esbenus</speaker_name>
+      <npc_text>“You must want to get to that old arch very badly,” says Esbenus when you return. “A thousand now and a half of what you find there. I won't take less, so don't even bother.”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Intro_PC_01);</string>
+        <string>dlgCam(135, 40, 10, 1558);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay him.</text>
+          <def_link>6099</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 1000</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Clearly, Esbenus has outlived his usefulness. Kill him.</text>
+          <def_link>6102</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Clearly, Esbenus has outlived his usefulness. Pretend to leave and attack from the distance.</text>
+          <def_link>6116</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>6100</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6104</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6100</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start portal 03</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.prt_esbenus_allowed = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_Intro_PC_02);</string>
+        <string>dlgTeleportToMarker(TM_Esbenus_01, 1558);</string>
+        <string>setCombatAllowed(true);</string>
+        <string>aod.jnl_arch_phase3 = true;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6101</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>Worshipper</speaker_name>
+      <npc_text>“Have you come to see the Oracle?” asks the first man you meet.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Intro_PC_01);</string>
+        <string>dlgTeleportToMarker(TM_Intro_NPC_01, 5838);</string>
+        <string>dlgcam(315, 45, 8, 5838);</string>
+        <string>setCombatAllowed(true);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“The Oracle?”</text>
+          <def_link>6107</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6106</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Worshipper</speaker_name>
+      <npc_text>“He is a holy man, blessed by the Gods for his piety and devotion. He is a living conduit between us and the Gods,” says the man with dead certainty, as if explaining something that should be obvious.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“How do you know that?”</text>
+          <def_link>6108</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“So, why is he sitting down there?”</text>
+          <def_link>6109</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6107</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Worshipper</speaker_name>
+      <npc_text>“Everyone knows that,” says the man, looking at you with pity. “You only need to talk to him to see that the Gods speak through him and to feel the heavy weight of their words.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So, why is he sitting down there?”</text>
+          <def_link>6109</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6108</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Worshipper</speaker_name>
+      <npc_text>“Why?” asks the man, clearly astonished by your ignorance. “It’s a holy place of great power. This is where the Gods first spoke to those chosen to receive their words and share their wisdom.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Chosen?”</text>
+          <def_link>6110</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6109</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Worshipper</speaker_name>
+      <npc_text>“Do you think that the Gods would talk to just about anyone? Only the holiest amongst us can be chosen for the ritual.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What ritual is that?”</text>
+          <def_link>6111</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6110</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Worshipper</speaker_name>
+      <npc_text>“The elders say that the one who’d speak to the Gods must be able to see into both worlds – the world of men and the abode of the Gods. How else would he be able to communicate with them?
+
+“So, the one who’d speak to the Gods must remove his own eye and offer it as a sacrifice. If the offering is accepted, his eye will be taken to the realm of the Gods to allow the Oracle to see through it.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’ve heard enough. Take me to the Oracle.”</text>
+          <def_link>6112</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6111</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start portal 02</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgTeleportToMarker(TM_Intro_PC_03);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(215, 40, 15, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6112</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - bark All yours</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>sayPhrase(1558, "It's all yours.");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6113</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

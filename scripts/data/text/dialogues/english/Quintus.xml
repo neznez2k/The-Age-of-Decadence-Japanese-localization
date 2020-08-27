@@ -1,0 +1,460 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_mg2_quintus_no_armor</string>
+      <string>aod.quest_mg2_quintus_complete</string>
+    </conditions>
+    <links>
+      <int>17</int>
+      <int>18</int>
+    </links>
+    <dlg_name>Quintus</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Quintus</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name>none</speaker_name>
+      <npc_text>You enter Quintus' house and look around. A make-shift table that's seen better days. A bed. Some vegetables. Skinned rats on sticks, waiting to be fried. The stench is awful.
+
+That's about it.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_quintus = false;</string>
+        <string>dlgTeleportTo(164, 55, 0, W);</string>
+        <string>useCameraBookmark(Quest_Quintus_Cam_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait for Quintus.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[perception]Look for the armor.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per &gt;= 9</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>none</speaker_name>
+      <npc_text>[failure]You look everywhere but find nothing.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait for Quintus.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>none</speaker_name>
+      <npc_text>[success]It takes awhile but then you realize that the true purpose of the stench and the rotting rats is to keep unwanted visitors away from Quintus' stash. You kick the rats away and remove several loose floorboards, revealing a fairly large storage space. You see the armor, wrapped in rags, some primitive hunting and scavenging gear, and a crate with food.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(163, 53, 0, SE);</string>
+        <string>dlgSetAnimation(anim_stealth_00, 0);</string>
+        <string>useCameraBookmark(Quest_Quintus_Cam_02);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take the armor and leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>An hour later Old Man Quintus kicks the door open and stumbles in drunkenly. The decades of drinking and fighting haven't been kind to him, transforming his face into a tribal mask of hard lines and scars.
+
+"It's not your house," he says when he sees you. "Is it?" he asks with less confidence, after giving the subject some thought.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(163, 57, 0, N);</string>
+        <string>dlgCreateCharacter("Quintus", 1605, 1605, 163, 58, 0, S);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(Quest_Quintus_Cam_04);</string>
+        <string>assignDialogue(Quintus, 1605);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I'd like to buy your old armor."</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]"Master Quintus? I'm a censor and I'd like to ask you a few questions. It's about the new order issued by Commander Marcus Carrinas."</text>
+          <def_link>7</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 10</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"My armor? I'd sooner sell you my wife, if I still had one, than part with the armor I wore for three decades. It has sentimental value."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"How much for the sentimental value then?"</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Quintus goes silent for a second, calculating something. "247 imperials."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_quintus_247 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay him.</text>
+          <def_link>8</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 247</checkOnAppear>
+          <checksOnClick>
+            <string>aod.quest_mg2_quintus_streetwise_fail</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>16</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading]"I'll give you 120." Pour a handful of gold coins from one hand to another, mesmerizing Quintus.</text>
+          <def_link>9</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 120</checkOnAppear>
+          <checksOnClick>
+            <string>aod.trading &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>10</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I don't have enough with me." Leave.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"200!" Quintus says without taking his eyes off the money.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_quintus_200 = true;</string>
+        <string>aod.quest_mg2_quintus_247 = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Deal."</text>
+          <def_link>8</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 200</checkOnAppear>
+          <checksOnClick>
+            <string>aod.quest_mg2_quintus_streetwise_fail</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>16</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I don't have enough with me." Leave.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Done," says Quintus nervously licking his lips.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_quintus_247 = false;</string>
+        <string>aod.quest_mg2_quintus_120 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay him.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_mg2_quintus_streetwise_fail</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>16</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Quintus counts the coins three times, carefully pockets them, then goes to one of the corners, removes several floorboards and pulls out the armor wrapped in rags. "All yours."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(163, 53, 0, N, 1605);</string>
+        <string>dlgTeleportTo(163, 54, 0, S);</string>
+        <string>useCameraBookmark(Quest_Quintus_Cam_03);</string>
+        <string>if(aod.quest_mg2_quintus_247) {dlgChangeMoney(-247); dlgChangeMoney(247, 1605);}</string>
+        <string>if(aod.quest_mg2_quintus_200) {dlgChangeMoney(-200); dlgChangeMoney(200, 1605);}</string>
+        <string>if(aod.quest_mg2_quintus_120) {dlgChangeMoney(-120); dlgChangeMoney(120, 1605);}</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take the armor and leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Quintus counts the coins three times and carefully pockets them. "All yours."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(163, 53, 0, N, 1605);</string>
+        <string>dlgTeleportTo(163, 54, 0, S);</string>
+        <string>useCameraBookmark(Quest_Quintus_Cam_03);</string>
+        <string>if(aod.quest_mg2_quintus_247) {dlgChangeMoney(-247); dlgChangeMoney(247, 1605);}</string>
+        <string>if(aod.quest_mg2_quintus_200) {dlgChangeMoney(-200); dlgChangeMoney(200, 1605);}</string>
+        <string>if(aod.quest_mg2_quintus_120) {dlgChangeMoney(-120); dlgChangeMoney(120, 1605);}</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take the armor and leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"This swine does nothing but issues orders. What is this time?" inquires Quintus.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]"Anyone who had served in the Imperial Guard for more than a decade shall receive ten imperials a week for the rest of their lives. The Commander says he doesn't want to see old veterans begging for food or eating rats ever again." You nod at the skinned rats in the corner.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"He's like a father to us all. I pray for him daily," confesses Quintus.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]"I have your money right here, but first we need to verify that you have indeed served in one of the legions. Can you produce any proof?"</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Quintus removes several floorboards from one of the corners and pulls out the armor wrapped in rags. "See this armor? It's the real deal and it's old too. You can tell by the stamps."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(163, 54, 0, S);</string>
+        <string>dlgTeleportTo(163, 53, 0, N, 1605);</string>
+        <string>useCameraBookmark(Quest_Quintus_Cam_03);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]"It's not quite what I was looking for, but I suppose this will have to do. Here is your money for this week. As for the armor, I'd have to take it with me to show it to the Commander, but don't worry, I'll bring it back with the next week's pay."</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>15</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"I aint letting you walk away with my armor. If Carrinas wants to see it, he should come here and take a good look at how old legionaries live."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_quintus_streetwise_fail = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"How about I buy it from you?"</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Alright, you seem trustworthy, but be careful with it. It's all I have left." He gives you the armor.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-10);</string>
+        <string>dlgChangeMoney(10, 1605);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take the armor and leave.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - got armor</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(423, 1);</string>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(169, 55, 0, E);</string>
+        <string>dlgTeleportTo(163, 58, 0, S, 1605);</string>
+        <string>aod.quest_mg2_quintus = false;</string>
+        <string>aod.quest_mg2_quintus_complete = true;</string>
+        <string>aod.quest_mg2b_phase3 = true;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - no armor</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(163, 58, 0, S, 1605);</string>
+        <string>dlgTeleportTo(169, 55, 0, E);</string>
+        <string>aod.quest_mg2_quintus = false;</string>
+        <string>aod.quest_mg2_quintus_no_armor = true;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What do you want now?"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mg2_quintus_no_armor = false;</string>
+        <string>dlgTeleportTo(163, 57, 0, N);</string>
+        <string>useCameraBookmark(Quest_Quintus_Cam_04);</string>
+        <string>dlgTeleportTo(163, 58, 0, S, 1605);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"So... how much for the armor?"</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - bark Let me drink</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>sayPhrase(1605, "Let me drink in peace.");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>18</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

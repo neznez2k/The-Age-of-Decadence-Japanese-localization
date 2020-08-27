@@ -1,0 +1,358 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_mehrab_threatened</string>
+      <string>aod.npc_mehrab_met</string>
+    </conditions>
+    <links>
+      <int>5410</int>
+      <int>5408</int>
+    </links>
+    <dlg_name>NPC_Mehrab_01</dlg_name>
+    <def_link>5396</def_link>
+    <def_speaker_name>Mehrab</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>You see a large group of armed men up ahead. Their attention is focused on the roasting meat, but their demeanour suggests that they are more than culinary enthusiasts.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Mehrab_PC_04);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Approach.</text>
+          <def_link>5398</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Stay away.</text>
+          <def_link>5397</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5396</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - at distance</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportToMarker(TM_Mehrab_PC_02);</string>
+        <string>dlgTeleportToMarker(TM_Mehrab_02, 5260);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5397</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>As you come closer, a man steps out to greet you.
+
+“Welcome to my humble abode,” says the man with a smile. “I’m Mehrab, called the Blademaster, and these fierce warriors are Mehrab’s Blades. You want to see the Abyss, yes? It’s a place of wonder and beauty. You’ll love it, I can already tell.
+
+“Pay the fee and you’ll be on your way.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_mehrab_met = true;</string>
+        <string>dlgTeleportToMarker(TM_Mehrab_PC_01);</string>
+        <string>dlgTeleportToMarker(TM_Mehrab_01, 5260);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“How much?”</text>
+          <def_link>5399</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Out of my way, scum!”</text>
+          <def_link>5400</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5398</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“A &lt;man/woman&gt; of business who knows that everything has a value, eh? I like that. I’ll give a special price, just for you. Two hundred imperials to see the wonder of wonders. Considering what you’re getting, it’s practically free, and you know why? Because Mehrab is not a greedy man. Live and let live, I say.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay 200 imperials.</text>
+          <def_link>5404</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 200</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[thief]“I’m working for the Forty Thieves.”</text>
+          <def_link>5405</def_link>
+          <checkOnAppear>aod.pc_member_thieves</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I don’t have the money.”</text>
+          <def_link>5402</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Out of my way, scum!”</text>
+          <def_link>5400</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5399</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Most admirable, but this is Mehrab’s corner. If you want to pass through, you pay. If your friends at the guild have a problem with that, they are welcome to come here and we’ll discuss this problem.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay 200 imperials.</text>
+          <def_link>5404</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 200</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I don’t have the money.”</text>
+          <def_link>5402</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Out of my way, scum!”</text>
+          <def_link>5400</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5405</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Ah, my friend. Came back to see the Abyss? Two hundred imperials.”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Mehrab_PC_01);</string>
+        <string>dlgTeleportToMarker(TM_Mehrab_01, 5260);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay 200 imperials.</text>
+          <def_link>5404</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 200</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I don’t have the money.”</text>
+          <def_link>5402</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Out of my way, scum!”</text>
+          <def_link>5400</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5408</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“A most regrettable turn of events,” says Mehrab with a fake smile. His men step forward, eager to spill your blood.</npc_text>
+      <onLoadScripts>
+        <string>addParty(MehrabBlades, 0);</string>
+        <string>addCharToParty(5260, MehrabBlades, fighter);</string>
+        <string>addCharToParty(5261, MehrabBlades, fighter);</string>
+        <string>addCharToParty(5262, MehrabBlades, fighter);</string>
+        <string>addCharToParty(5263, MehrabBlades, fighter);</string>
+        <string>addCharToParty(5264, MehrabBlades, fighter);</string>
+        <string>dlgTeleportToMarker(TM_Mehrab_03, 5264);</string>
+        <string>dlgTeleportToMarker(TM_Mehrab_04, 5261);</string>
+        <string>dlgTeleportToMarker(TM_Mehrab_05, 5263);</string>
+        <string>dlgTeleportToMarker(TM_Mehrab_06, 5262);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>5401</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5400</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addEnemyToParty(1, MehrabBlades);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>aod.fight_mehrab = true;</string>
+        <string>aod.npc_mehrab_fight = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5401</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Come back when you do. The Abyss will still be here, I promise.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5397</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5402</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Bless your heart, friend. Your kindness to those less fortunate won’t be forgotten.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_mehrab_paid = true;</string>
+        <string>dlgChangeMoney(-200);</string>
+        <string>dlgChangeMoney(200, 5260);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5409</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5404</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - at gate</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>dlgTeleportToMarker(TM_Mehrab_PC_03);</string>
+        <string>dlgTeleportToMarker(TM_Mehrab_02, 5260);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5409</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You again? Still want to see the Abyss? The price has gone up. Five hundred imperials now.”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Mehrab_PC_01);</string>
+        <string>dlgTeleportToMarker(TM_Mehrab_01, 5260);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay 500 imperials.</text>
+          <def_link>5411</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 500</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Kill the son of a bitch.</text>
+          <def_link>5400</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5397</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5410</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Pleasure doing business with you, friend."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_mehrab_paid = true;</string>
+        <string>dlgChangeMoney(-500);</string>
+        <string>dlgChangeMoney(500, 5260);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5409</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5411</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

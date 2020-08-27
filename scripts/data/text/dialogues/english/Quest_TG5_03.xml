@@ -1,0 +1,390 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_TG5_reportLevir</string>
+    </conditions>
+    <links>
+      <int>2915</int>
+    </links>
+    <dlg_name>Quest_TG5_03</dlg_name>
+    <def_link>2913</def_link>
+    <def_speaker_name>Levir</def_speaker_name>
+    <def_portrait>Levir</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>Bassar</portrait>
+      <speaker_name>Bassar</speaker_name>
+      <npc_text>"You did well," says Bassar when he shows up, "but it was a decoy team. I knew there was something wrong with this setup, but I didn't think they would be bold enough to strike at the temple.
+
+"Come, Levir wants to have a word with you."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_TG5_reportLevir = true;</string>
+        <string>dlgTeleportToMarker(TM_PC_Final_01);</string>
+        <string>dlgTeleportToMarker(TM_Bassar_Final_01, 4010);</string>
+        <string>if(isAlive(1300)) dlgTeleportToMarker(TM_Aziz_Final_01,1300);</string>
+        <string>if(isAlive(1110)) dlgTeleportToMarker(TM_Lucius_Final_01,1110);</string>
+        <string>aod.jnl_tg5_phase3 = true;</string>
+        <string>rwd_quest(TG5_01);</string>
+        <string>rwd_reputation(TG5_01);</string>
+        <string>dlgCam(260, 40, 8, 4010);</string>
+        <string>dlgSetAmbientAnimation(1110);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2914</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2913</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - look around</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>Exit_TG5_End.isRenderEnabled = true;</string>
+        <string>VCO_TG5_End.setActive(true);</string>
+        <string>dlgDeleteCharacter(4010);</string>
+        <string>dlgCam(260, 45, 10, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2914</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>Return to Levir?</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Leave);</string>
+        <string>dlgCam(260, 45, 10, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Yes.</text>
+          <def_link>2898</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Not yet.</text>
+          <def_link>2914</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2915</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“They came for the gold, while you were entertaining their expendables. I gave it to them.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_levir_meetCyrus = true;</string>
+        <string>dlgTeleportToMarker(TM_Temple_01);</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.jnl_tg5_phase4 = true;</string>
+        <string>aod.quest_tg5_active = false;</string>
+        <string>setWindowImage(npc_levir_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Why?”</text>
+          <def_link>2899</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2898</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Because if I didn’t, they would come asking for it again and again and again. And when the Boatmen run out of men to do the asking, Gaelius’ own men would come and burn down the entire district. Do you think your gold is worth that much?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Gaelius?”</text>
+          <def_link>2900</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What would Cado say?”</text>
+          <def_link>2901</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“So, now what?”</text>
+          <def_link>2902</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2899</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I don’t give a fuck about Cado at the moment.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_levir_talkedAboutCado = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Gaelius?”</text>
+          <def_link>2900</def_link>
+          <checkOnAppear>aod.npc_levir_talkedAboutGaelius == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“So, now what?”</text>
+          <def_link>2902</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2901</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Who do you think sent the Boatmen?”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_levir_talkedAboutGaelius = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What would Cado say?”</text>
+          <def_link>2901</def_link>
+          <checkOnAppear>aod.npc_levir_talkedAboutCado == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“So, now what?”</text>
+          <def_link>2902</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2900</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Now here’s where things get complicated. You will pay Gaelius a visit and kill him,” he throws you a small vial. “It’s the finest poison money can buy, so handle it with care.
+
+“One of the Boatmen will go with you. He'll help you get to Gaelius. If it gets messy, kill the assassin too. This way everyone will think that the Boatmen did it.”</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItemlist(TG6_LevirPoison);</string>
+        <string>addQuest(TG6);</string>
+        <string>aod.quest_tg6_active = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Everyone except for the Boatmen.”</text>
+          <def_link>2903</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Why do you want to kill Gaelius?”</text>
+          <def_link>2912</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2902</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Everyone except for the Boatmen,” nods Levir, “but who will believe them? Especially after what happened in Teron. They’ll be hunted down and killed before they know what hit them.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Why do you want to kill him?”</text>
+          <def_link>2912</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2903</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What choice do I have?” shrugs Levir. “How long would I stay a guildmaster if I allow anyone – even Gaelius – to dip into our pockets whenever he feels like it? And if we do nothing, if we try to forget and pretend that it never happened, I assure you that it will happen again. Besides, it’s the only way to get the money back.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“How?”</text>
+          <def_link>2905</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Give me the details.”</text>
+          <def_link>2908</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2912</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Strabos wants Gaelius dead. Money’s nothing to him - he’ll gladly pay more than what was taken for a chance to rule Maadoran. Thus, in one move, we restore our honor, pay back the Boatmen, remind everyone to stay away from the Slums, and get our money back.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So, you’re doing it for money then?”</text>
+          <def_link>2906</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2905</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I’m doing it,” explains Levir patiently, “because I was publicly humiliated. What would you do, &lt;charname&gt;, if some thug came to your house, killed your friends, and to top it all off, took your money?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Gaelius isn’t some thug.”</text>
+          <def_link>2907</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Give me the details.”</text>
+          <def_link>2908</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2906</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I bow to nobody, &lt;charname&gt;. This is why I’ve chosen this life.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Give me the details.”</text>
+          <def_link>2908</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2907</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Getting in will be easier than you think. The palace is well guarded but it’s wide open and full of people: nobles and their families, petitioners, emissaries, servants, and an army of parasites living off the vast wealth of the House. It’s a human hive, so all you have to do is fit in, then find a way upstairs into Gaelius’ private quarters.
+
+“Let me know when you’re ready and I’ll arrange a meeting with Cyrus.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Why did the Boatmen agree to it?”</text>
+          <def_link>2909</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I'll go get ready then.” Leave.</text>
+          <def_link>2911</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2908</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“They have their own issues with Gaelius – his leash is getting too tight.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I'll go get ready then.” Leave.</text>
+          <def_link>2911</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2909</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>switchMission("Maadoran.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2911</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

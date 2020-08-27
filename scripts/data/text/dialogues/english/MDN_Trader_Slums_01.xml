@@ -1,0 +1,347 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_slums_trader01_met</string>
+    </conditions>
+    <links>
+      <int>5930</int>
+    </links>
+    <dlg_name>MDN_Trader_Slums_01</dlg_name>
+    <def_link>5920</def_link>
+    <def_speaker_name>Trader</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>As you walk through the bazaar, one stall in particular catches your attention. It displays several skulls, masterfully converted into drinking cups and bowls, and a mummified head.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_SlumsTrader1);</string>
+        <string>dlgCam(195, 40, 7, 6151);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Examine the head.</text>
+          <def_link>5921</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5920</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>None</speaker_name>
+      <npc_text>You aren’t an expert, but the head seems to be centuries old. Dark, shrunken flesh, shriveled and distorted features, a lipless mouth. A mummified head like any other, except for one thing – a strange contraption sticking out of the left eye socket.
+
+At first you think it’s just a gem in a thick metal frame, but then you realize that the frame is actually a deep tube-like device going deep into the socket.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pull it out.</text>
+          <def_link>5922</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5921</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Whoa!” says the owner of the head – a dirty, monkey-looking man with restless limbs and suspicious eyes. “You want it, you pay for it, then do whatever you want with it. Two hundred coins.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_slums_trader01_met = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 200 imperials.</text>
+          <def_link>5927</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 200</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading]“I’ll give you a hundred. That’s all the head’s worth to me.”</text>
+          <def_link>5925</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.trading &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5926</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Where did you get it?”</text>
+          <def_link>5923</def_link>
+          <checkOnAppear>aod.npc_slums_trader01_askedGetIt == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5928</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5922</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I'm not in a hurry to part with it,” says the trader, “so the price's gotta be right. Two hundred coins and it's yours to do with as you please.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 200 imperials.</text>
+          <def_link>5927</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 200</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading]“I’ll give you a hundred. That’s all the head’s worth to me.”</text>
+          <def_link>5925</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.trading &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5926</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Where did you get it?”</text>
+          <def_link>5923</def_link>
+          <checkOnAppear>aod.npc_slums_trader01_askedGetIt == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5928</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5932</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“In a sarcophagus, deep beneath the city,” says the man guardedly. “It didn’t belong to anyone.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_slums_trader01_askedGetIt = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Was there anything else there?”</text>
+          <def_link>5924</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5923</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What’s in it to you? It’s all sold now anyway. This head is all I have left. You want it? Pay me two hundred and it’s yours.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 200 imperials.</text>
+          <def_link>5927</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 200</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading]“I’ll give you a hundred. That’s all the head’s worth to me.”</text>
+          <def_link>5925</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.trading &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5926</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5928</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5924</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“No dice. Two hundred and not a coin less.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 200 imperials.</text>
+          <def_link>5927</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 200</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5928</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5925</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Alright,” says the man, scratching his head. “One hundred it is.”</npc_text>
+      <onLoadScripts>
+        <string>if(aod.MDN_traderSlums1_Reward1 == false) rwd_civil(Trading);</string>
+        <string>aod.MDN_traderSlums1_Reward1 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 100 imperials.</text>
+          <def_link>5929</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 100</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5928</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5926</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You take the head and pull the device out.
+
+The ball of this fancy fake eye is a cloudy blue, a gem unlike any you have seen. The back of the device has eight hinged, outward-curving grips around the circumference, which on insertion would anchor it in the empty socket permanently. The long, metal tube protruding from the back is a bit of a mystery. You notice it's hollow, and about wide enough to fit the thick nerve that runs to the back of a living eye.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-200);</string>
+        <string>dlgAddItem(2205, 1);</string>
+        <string>aod.eye_artefact_bought = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setWindowImage(item_ghostEye);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5928</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5927</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You take the head and pull the device out.
+
+The ball of this fancy fake eye is a cloudy blue, a gem unlike any you have seen. The back of the device has eight hinged, outward-curving grips around the circumference, which on insertion would anchor it in the empty socket permanently. The long, metal tube protruding from the back is a bit of a mystery. You notice it's hollow, and about wide enough to fit the thick nerve that runs to the back of a living eye.</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-100);</string>
+        <string>dlgAddItem(2205, 1);</string>
+        <string>aod.eye_artefact_bought = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setWindowImage(item_ghostEye);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5928</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5929</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(220, 40, 15);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>5928</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What do you want?"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_DLG_SlumsTrader1);</string>
+        <string>dlgCam(195, 40, 7, 6151);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"You still have that old head?"</text>
+          <def_link>5932</def_link>
+          <checkOnAppear>aod.eye_artefact_bought == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>5928</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5930</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

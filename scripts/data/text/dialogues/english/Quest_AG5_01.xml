@@ -1,0 +1,1128 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_AG5_prepareDarista</string>
+      <string>aod.quest_AG5_lorenzaDead</string>
+      <string>aod.quest_AG5_guardsDead</string>
+    </conditions>
+    <links>
+      <int>3306</int>
+      <int>3289</int>
+      <int>3300</int>
+    </links>
+    <dlg_name>Quest_AG5_01</dlg_name>
+    <def_link>3258</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You wait until dark and make your way to Lorenza’s villa. It’s a traditional building – single-storey for the most part, with a small tower in one corner, and an open court in the middle. The villa seems to be well guarded tonight – there are armed men at each side of the building, although you can’t see anyone on the roof.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Approach.</text>
+          <def_link>3259</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[sneak]Get past the guards and climb onto the roof.</text>
+          <def_link>3265</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.sneak &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3266</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3258</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Two guards watch you approaching without any interest. Clearly, they don’t consider a single &lt;man/woman&gt; a threat.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_AG5_Guards_01);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[critical strike]Show them their mistake.</text>
+          <def_link>3262</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 6 &amp;&amp; aod.dex &gt;= 8</string>
+            <string>aod.critical_strike &gt;= 5 &amp;&amp; aod.streetwise &gt;= 4</string>
+            <string>aod.critical_strike &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3302</int>
+            <int>3264</int>
+            <int>3263</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]“The Boatmen took the contract. They will be here soon, so be on guard. Make sure that nobody gets through. Now, open the door, I have an urgent message for lady Lorenza.”</text>
+          <def_link>3303</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3261</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3259</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“You can give your message to me,” says one of the guards, “and I’ll make sure it gets delivered without delay.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[critical strike]Take them out.</text>
+          <def_link>3262</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.critical_strike &gt;= 6 &amp;&amp; aod.dex &gt;= 8</string>
+            <string>aod.critical_strike &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3302</int>
+            <int>3263</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3303</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]More concerned about the possibility of the Boatmen taking aim at him right now, the guard opens the door and quickly turns on his heels, peering into the darkness from behind the safety of his raised shield.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Enter the villa.</text>
+          <def_link>3270</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3261</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You lunge like a cobra, dagger flashing toward the guard’s neck with deadly precision, but the guard steps back and the dagger slashes nothing but air. Some cobra...</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>sfxPlayOnce(csMissSwingAir01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave no witnesses of your embarrassment. Kill them.</text>
+          <def_link>3269</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3262</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You turn around as if to leave, then spin on your heels, slashing at the nearest guard. Your blade opens the poor bastard's throat, splashing blood in your eyes and temporarily blinding you. The other guard seizes the opportunity and presses on you, instead of calling for help.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAnimation(anim_death_back00, 0.95, 5010);</string>
+        <string>dlgUnequipHands(5010);</string>
+        <string>dlgKillCharacter(5010);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>sfxPlayOnce(csSuccessMetal01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Kill them.</text>
+          <def_link>3269</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3263</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success][streetwise success]You yell, “The Boatmen! Over there!”, getting behind the guards as if in fear. The guards raise their shields and peer into the darkness, forgetting about you for a moment. You strike almost casually and the guards fall down. Looking down, you see one dead and the other dying, gurgling blood.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAnimation(anim_death_back00, 0.95, 5010);</string>
+        <string>dlgSetAnimation(anim_death_back01, 0.95, 5011);</string>
+        <string>dlgUnequipHands(5010);</string>
+        <string>dlgUnequipHands(5011);</string>
+        <string>dlgKillCharacter(5010);</string>
+        <string>dlgKillCharacter(5011);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>VCO_LorenzaExterior_01.setActive(true);</string>
+        <string>aod.quest_AG5_guardsDead = true;</string>
+        <string>dlgCsRepTrain(2);</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>sfxPlayOnce(csSuccessMetal01); schedule(200, 0, sfxPlayOnce, csSuccessMetal01);</string>
+        <string>schedule(200, 0, sfxPlayOnce, csSuccessMetal01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take a look around.</text>
+          <def_link>3301</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3264</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success][dexterity success]You turn around as if to leave, then spin on your heels, slashing the nearest guard's throat in one quick motion. Blood splashes everywhere, the other guard opens his mouth in shock and before he can say or do anything, you lunge forward with snake-like speed and bury your dagger under his chin.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetAnimation(anim_death_back00, 0.95, 5010);</string>
+        <string>dlgSetAnimation(anim_death_back01, 0.95, 5011);</string>
+        <string>dlgUnequipHands(5010);</string>
+        <string>dlgUnequipHands(5011);</string>
+        <string>dlgKillCharacter(5010);</string>
+        <string>dlgKillCharacter(5011);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>VCO_LorenzaExterior_01.setActive(true);</string>
+        <string>aod.quest_AG5_guardsDead = true;</string>
+        <string>dlgCsRepTrain(2);</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>sfxPlayOnce(csSuccessMetal01);</string>
+        <string>schedule(300, 0, sfxPlayOnce, csSuccessMetal01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take a look around.</text>
+          <def_link>3301</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3302</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Staying in the shadows, you manage to get close enough but when you attempt to get past the guards, you’re quickly spotted.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>3269</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3265</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Staying in the shadows and timing your every step, you manage to get close to the villa. One of the guards stops a few steps away from you, then turns around and walks back, while the other guard stands still, staring into the darkness.</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(Sneak);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[strength][dexterity]Climb the wall.</text>
+          <def_link>3267</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>climbingCheck(14, 0)</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3268</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3266</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You almost reach the roof, when you lose your footing and fall down, attracting the attention of the nearby guards.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>3269</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3267</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]The decorative brickwork is perfect for climbing and you reach the roof in no time. You look down into the atrium, but see no signs of more guards.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Jump down.</text>
+          <def_link>3270</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3268</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - outside</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addEnemyToParty(1, Quest_AG5_GuardsLorenza);</string>
+        <string>aod.fight_AG5_guardsOutside = true;</string>
+        <string>aod.jnl_ag5_phase2a = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3269</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The guards are dead. You can go inside.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go inside.</text>
+          <def_link>3270</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Look around some more.</text>
+          <def_link>3301</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3300</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - look around</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3301</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Lorenza</portrait>
+      <speaker_name>Lorenza</speaker_name>
+      <npc_text>“&lt;Master/Mistress&gt; &lt;charname&gt;, I presume?” says a tall, graceful woman, surrounded by several frightened ladies in waiting. She smiles politely, as if greeting a proper visitor, and shows no signs of fear or discomfort.
+
+“I was told that I should be expecting you. That you’re here to kill me,” Lorenza looks at you with feigned interest. “So tell me - is it true?”</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(Cam_Lorenza_01);</string>
+        <string>dlgSetAnimation(anim_talk_crossed_agree, 0.5, 4200);</string>
+        <string>dlgTeleportToMarker(TM_TalkLorenza_PC);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>VCO_LorenzaExterior_01.setActive(false);</string>
+        <string>addJournalChar(lorenza);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“A job’s a job.”</text>
+          <def_link>3272</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I haven’t decided yet.”</text>
+          <def_link>3271</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3270</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Lorenza</portrait>
+      <speaker_name>Lorenza</speaker_name>
+      <npc_text>“How wise of you,” says Lorenza with a slight smile. “I too prefer to keep my options open until the very end. Why rush?” She gives you another smile. It’s the smile of a master being pleased with a particularly bright student.
+
+“Since you’re undecided as of yet, may I help you make your decision? What is it you wish for? Money? Power? The forbidden knowledge? Just ask and your wildest desires will be fulfilled.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Money? How much?”</text>
+          <def_link>3281</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Power!”</text>
+          <def_link>3282</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“The forbidden knowledge?”</text>
+          <def_link>3274</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3271</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Lorenza</portrait>
+      <speaker_name>Lorenza</speaker_name>
+      <npc_text>“Is that all you care about? Doing what you’re told and pleasing your masters? What a shame, I must say. I thought there was more to you.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“In other words, you’re disappointed that I’m not eager to betray those I serve.”</text>
+          <def_link>3273</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3272</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Lorenza</portrait>
+      <speaker_name>Lorenza</speaker_name>
+      <npc_text>“You are not a dog, &lt;charname&gt;, to be proud of being loyal to those you serve. Like everything else, loyalty is good in moderation – until a better deal comes along. Well, guess what? It just did.
+
+“So, what is it you wish for? Money? Power? The forbidden knowledge? Just ask and your wildest desires will be fulfilled.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Money? How much?”</text>
+          <def_link>3281</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Power!”</text>
+          <def_link>3282</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“The forbidden knowledge?”</text>
+          <def_link>3274</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Your life."</text>
+          <def_link>3294</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3273</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Lorenza</portrait>
+      <speaker_name>Lorenza</speaker_name>
+      <npc_text>If Lorenza is disappointed, her face doesn’t show it. “Ten thousand imperials. Paid upon completion.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_AG4_lorenzaMoney = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Completion of what?”</text>
+          <def_link>3279</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3281</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Lorenza</portrait>
+      <speaker_name>Lorenza</speaker_name>
+      <npc_text>Lorenza nods as if it was the answer she expected. “Do what needs to be done and when I rule, you will be elevated above many.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_AG4_lorenzaPower = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What needs to be done?”</text>
+          <def_link>3279</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“When you rule?”</text>
+          <def_link>3283</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3282</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Lorenza</portrait>
+      <speaker_name>Lorenza</speaker_name>
+      <npc_text>“What do you think it’s all about? If I live, Gaelius dies and I’ll be very, very grateful to everyone who stood loyally by my side. Imagine, a ruler of the most powerful city – in your debt. It’s your lucky day, &lt;charname&gt;.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What needs to be done?”</text>
+          <def_link>3279</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I can’t do it. I’m sorry.”</text>
+          <def_link>3276</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3283</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Lorenza</portrait>
+      <speaker_name>Lorenza</speaker_name>
+      <npc_text>“It was a jest, but since you’re interested... House Aurelian has always feared the old science. They destroyed everything they could and sealed everything they couldn’t.
+
+“Fortunately, they didn’t know Maadoran as well as my family did. Did you know that my House used to rule this city for centuries, long before Lord Gaelius’ forefather had it seized from us by force? The city’s ancient. Say the word and its secrets will be yours to discover.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_AG4_lorenzaKnowledge = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Just like that?”</text>
+          <def_link>3275</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m sorry.”</text>
+          <def_link>3276</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3274</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Lorenza</portrait>
+      <speaker_name>Lorenza</speaker_name>
+      <npc_text>“Just like that. I don’t fear dusty old tablets and trinkets. Whatever power they may have held once is long gone, but even if it’s not... Putting a trinket around your neck won’t make you a Magus, no more than strapping a sword would make you a warrior.
+
+“In my experience, a blade in the darkness is far more dangerous than dusty old scrolls. Speaking of which,” Lorenza looks you dead in the eyes, “have you made your decision yet?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You have a deal, lady. What do you want me to do?”</text>
+          <def_link>3279</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“No dice. For what it's worth, I’m sorry.”</text>
+          <def_link>3276</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3275</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Lorenza</portrait>
+      <speaker_name>Lorenza</speaker_name>
+      <npc_text>“So am I.” Lorenza’s entourage steps forward, as if to shield their mistress from harm. They move gracefully, but it’s not the grace of a courtier. It’s the grace of a –
+
+“They were trained to fight since childhood. It is unseemly for a lady of my status to be surrounded by burly men, but “ladies in waiting” attract no attention and raise no suspicions.”
+
+She raises her cup as if to toast you. One by one, her ‘ladies’ dip their daggers into the cup.
+
+“Poison,” explains Lorenza with a devious smile. “I hope you don’t mind.”</npc_text>
+      <onLoadScripts>
+        <string>dlgEquipItem(102, 0, 4201);</string>
+        <string>dlgEquipItem(101, 0, 4202);</string>
+        <string>dlgEquipItem(100, 0, 4203);</string>
+        <string>dlgTeleportToMarker(TM_CombatFinal_Lorenza_01, 4200);</string>
+        <string>dlgTeleportToMarker(TM_CombatFinal_Lady_01, 4202);</string>
+        <string>dlgTeleportToMarker(TM_CombatFinal_Lady_02, 4203);</string>
+        <string>dlgTeleportToMarker(TM_CombatFinal_Lady_03, 4201);</string>
+        <string>dlgSetCombatAnimation(4201);</string>
+        <string>dlgSetCombatAnimation(4202);</string>
+        <string>dlgSetCombatAnimation(4203);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>3277</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3276</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Lorenza</portrait>
+      <speaker_name>Lorenza</speaker_name>
+      <npc_text>Lorenza’s entourage steps forward, as if to shield their mistress from harm. They move gracefully, but it’s not the grace of a courtier. It’s the grace of a –
+
+“They were trained to fight since childhood. It is unseemly for a lady of my status to be surrounded by burly men, but “ladies in waiting” attract no attention and raise no suspicions.”
+
+She raises her cup as if to toast you. One by one, her ‘ladies’ dip their daggers into the cup.
+
+“Poison,” explains Lorenza with a devious smile. “I hope you don’t mind.”</npc_text>
+      <onLoadScripts>
+        <string>dlgEquipItem(102, 0, 4201);</string>
+        <string>dlgEquipItem(101, 0, 4202);</string>
+        <string>dlgEquipItem(100, 0, 4203);</string>
+        <string>dlgTeleportToMarker(TM_CombatFinal_Lorenza_01, 4200);</string>
+        <string>dlgTeleportToMarker(TM_CombatFinal_Lady_01, 4202);</string>
+        <string>dlgTeleportToMarker(TM_CombatFinal_Lady_02, 4203);</string>
+        <string>dlgTeleportToMarker(TM_CombatFinal_Lady_03, 4201);</string>
+        <string>dlgSetCombatAnimation(4201);</string>
+        <string>dlgSetCombatAnimation(4202);</string>
+        <string>dlgSetCombatAnimation(4203);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>3277</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3294</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - inside</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addParty(LorenzaLadies, 0);</string>
+        <string>addCharToParty(4200, LorenzaLadies, fighter);</string>
+        <string>addCharToParty(4201, LorenzaLadies, fighter);</string>
+        <string>addCharToParty(4202, LorenzaLadies, fighter);</string>
+        <string>addCharToParty(4203, LorenzaLadies, fighter);</string>
+        <string>addEnemyToParty(1, LorenzaLadies);</string>
+        <string>setRtsCam();</string>
+        <string>aod.fight_ag5_lorenza = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_CombatFinal_PC);</string>
+        <string>aod.death_AG5_lorenza = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+        <string>aod.npc_lorenza_dead = 1;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3277</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Lorenza</portrait>
+      <speaker_name>Lorenza</speaker_name>
+      <npc_text>“Kill Darista. Hamza will take over and everything will go back to normal.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Alright, I’ll do it.” Go back to the guild.</text>
+          <def_link>3286</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I can’t do it. I’m sorry.”</text>
+          <def_link>3276</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]“What guarantees do I have that you won't have me killed after?”</text>
+          <def_link>3284</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Hamza? Is he in on it too?”</text>
+          <def_link>3285</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3279</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Lorenza</portrait>
+      <speaker_name>Lorenza</speaker_name>
+      <npc_text>“You don't need to have people in your pocket to be able to pull their strings. Hamza is loyal. He's a straight edge, as you people say. Fortunately for me, he's more loyal to some misplaced ideals than to Darista. Don't worry, he'll make a fine guildmaster.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_AG5_lorenzaHamza = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Alright, I’ll do it.” Go back to the guild.</text>
+          <def_link>3286</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I can’t do it. I’m sorry.”</text>
+          <def_link>3276</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]“What guarantees do I have that you won't have me killed after?”</text>
+          <def_link>3284</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 3 &amp;&amp; aod.quest_AG5_lorenzaStw == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3285</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Lorenza</portrait>
+      <speaker_name>Lorenza</speaker_name>
+      <npc_text>“Don't bore me, &lt;charname&gt;. I offer you the opportunity of a lifetime and you speak of guarantees. You want to live long enough? Here is a tip: stay useful. So, what's it going to be?”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_AG5_lorenzaStw = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Alright, I’ll do it.” Go back to the guild.</text>
+          <def_link>3286</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I can’t do it. I’m sorry.”</text>
+          <def_link>3276</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Hamza? Is he in on it too?”</text>
+          <def_link>3285</def_link>
+          <checkOnAppear>aod.quest_AG5_lorenzaHamza == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3284</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You return to the guild. Darista should be alone now, but she won't go down easily.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_OutsideAG);</string>
+        <string>aod.quest_AG5_prepareDarista = true;</string>
+        <string>aod.jnl_ag5_phase3a = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Best get ready.</text>
+          <def_link>3305</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3286</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - prepare yourself</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>Exit_AGDoor.isRenderEnabled = true;</string>
+        <string>VCO_AGDoor.setActive(true);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3305</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Enter the guild?</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Yes.</text>
+          <def_link>3304</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Not yet.</text>
+          <def_link>3305</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3306</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Darista</portrait>
+      <speaker_name>Darista</speaker_name>
+      <npc_text>Darista is alone, going over some documents. “&lt;charname&gt;,” she says without looking at you. “I was beginning to worry. Is it done?”
+
+She looks up, sees the expression on your face and curses, reaching for her axe.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_AG_01);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>Exit_AGDoor.isRenderEnabled = false;</string>
+        <string>VCO_AGDoor.setActive(false);</string>
+        <string>aod.quest_AG5_prepareDarista = false;</string>
+        <string>PC_Traitor();</string>
+        <string>dlgCam(10, 45, 7, 4600);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>3287</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3304</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Darista</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetAttitude(4600, 1, -10);</string>
+        <string>aod.fight_AG5_darista = true;</string>
+        <string>aod.death_AG5_darista = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3287</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Your work here is done.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Return to the guild.</text>
+          <def_link>3290</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_ag4_dealWithLevir</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3295</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Look around some more.</text>
+          <def_link>3292</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3289</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Darista</portrait>
+      <speaker_name>Darista</speaker_name>
+      <npc_text>You return to the guild. Darista is alone, going over some documents. “&lt;charname&gt;,” she says without looking at you. “I was beginning to worry. Is it done?”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_AG_02);</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>dlgCam(10, 45, 7, 4600);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“She’s dead.”</text>
+          <def_link>3291</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3290</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Darista</portrait>
+      <speaker_name>Darista</speaker_name>
+      <npc_text>“Long overdue, if you ask me. Here is your money. Now, come with me, I’d like you to meet someone.”</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_ag5_phase4b = true;</string>
+        <string>rwd_quest(AG5_01);</string>
+        <string>rwd_reputation(AG5_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go with Darista.</text>
+          <def_link>3293</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3291</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go see Gaelius</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>sd(quest_AG6_01);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3293</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - look around in the guild</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3292</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You step outside, glance around, and see a man leaning casually against the wall.
+
+“So I’m not the only one who’s working late,” says the man, smiling and straightening up.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>createByCharMarker("CM_Quest_AG5_Thief");</string>
+        <string>dlgTeleportToMarker(TM_MeetThief);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What do you want?”</text>
+          <def_link>3296</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3295</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Levir sent me. He wants to have a word with you. Says you owe him a favor and he’s calling it in.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Alright.” Go see Levir.</text>
+          <def_link>3299</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Not now.”</text>
+          <def_link>3297</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3296</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You see, friend, it’s one of those ‘now or never’ situations, so it has to be now, unless you think that telling Levir no when you owe him is a good idea.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Alright.” Go see Levir.</text>
+          <def_link>3299</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“It’ll have to be ‘never’ then.”</text>
+          <def_link>3298</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3297</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Suit yourself, friend.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(AG5_04);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Return to the guild.</text>
+          <def_link>3290</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3298</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go to Levir</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>sd(quest_AG5_02);</string>
+        <string>dlgTeleportToMarker(TM_TG_01);</string>
+        <string>createByCharMarker("CM_Levir");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3299</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

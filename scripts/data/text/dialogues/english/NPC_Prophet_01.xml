@@ -1,0 +1,591 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>NPC_Prophet_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Prophet</def_speaker_name>
+    <def_portrait>Prophet</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You step inside and stop in front of a man sitting cross-legged on the floor. The room is dark and bare, devoid of any furniture or objects, except for small candles forming a circle around the man and a bowl of smoking incense.
+
+The man’s head is shaved and tattooed but his face is hidden by the darkness. Sensing your presence, he looks up and fixes his eyes on you. Slowly, his eyes change their color – or the color is slowly drained from them – becoming impossibly white and shining with a supernatural light.
+
+Suddenly, you feel light-headed and weak.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_prophet_met = 1;</string>
+        <string>setWindowImage(npc_prophet_01);</string>
+        <string>Addjournalchar(prophet);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>It was said Nabupolassar, the great sage and prophet, was visited by the Divine in his humble mountain abode and commanded to answer Brother Meru's prayers for divine guidance and act as a conduit between House Crassus and the divine plane. The great sage left his abode without delay and soon appeared before Brother Meru. Guards tried to block his way, but the Divine will couldn't be denied. The guards burst into flames and the great sage spoke with a voice of thunder, which caused the earth to shake. Brother Meru welcomed Nabupolassar with open arms and the great sage then blessed House Crassus and its holy mission.
+
+“What do you see, o holy one?” asks Meru, bowing his head.
+
+“The Gods are returning,” says the man, his voice dead and flat. It’s not a prophecy, grand and awe-inspiring. It’s a warning, chilling and alarming. “House Crassus will rise. Its enemies will fall.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“How do you know that?”</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The man fixes you with his glowing eyes, making you feel uneasy. “I’m a living conduit between our world and the divine plane. The Gods speak through me, whisper in my ears,” he touches one of his ears and looks at the blood on his fingers.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What do the Gods want with us?”</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What any father wants from his children – obedience.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What message do you want me to take to Lord Gaelius?”</text>
+          <def_link>4</def_link>
+          <checkOnAppear>aod.pc_member_aurelian</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What message do you want me to take to Lord Antidas?”</text>
+          <def_link>4</def_link>
+          <checkOnAppear>aod.pc_member_daratan</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What message do you want me to take to my master?”</text>
+          <def_link>4</def_link>
+          <checkOnAppear>aod.pc_member_daratan == false &amp;&amp; aod.pc_member_aurelian == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Submit and live. Defy and die.” The light goes out of his eyes and the man slumps back, gesturing for you to leave.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[impersonate success][streetwise success]There's no way this show is real. Maybe you and the 'prophet' should have a private conversation.</text>
+          <def_link>16</def_link>
+          <checkOnAppear>aod.pc_background_grifter == false &amp;&amp; (aod.disguise + aod.streetwise) &gt;= 12</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>30</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.pc_background_grifter</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start Meru_04 - join</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>sd(npc_meru_04);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>30</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Wait! The Gods want me to speak with &lt;him/her&gt; in private,” says the man pointing at you.
+
+“Of course,” says Meru, leaving you alone with the prophet.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>ペトラス</speaker_name>
+      <npc_text>“What’s with the million questions, &lt;charname&gt;?” asks the man, getting up.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_prophet_met = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Petras?”</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>ペトラス</speaker_name>
+      <npc_text>“The name’s Nabupolassar now,” says Petras, producing a cloth and wiping away his eyes. “Remember it if you decide to stick around.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I barely recognized you.”</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Funny enough, I still feel light-headed.”</text>
+          <def_link>28</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>ペトラス</speaker_name>
+      <npc_text>“It’s the incense. I must have gotten used to it by now.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I barely recognized you.”</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>28</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>ペトラス</speaker_name>
+      <npc_text>“Art requires sacrifice,” says Petras with a shrug. “The eyes are killing me. The concoction is worth a fortune but that’s what the audience expects. You should have seen me when I showed up at the gate armed with every trick I’ve learned in my life. It was my best performance.
+
+“Speaking of showing up unexpectedly, why are you here?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I’m working for Lord Gaelius these days.”</text>
+          <def_link>10</def_link>
+          <checkOnAppear>aod.pc_member_aurelian</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’m working for Lord Antidas these days.”</text>
+          <def_link>10</def_link>
+          <checkOnAppear>aod.pc_member_daratan</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>ペトラス</speaker_name>
+      <npc_text>“And what does your lord desire?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Apparently, Meru’s poked his nose where it doesn’t belong, which is why the city’s under siege now.”</text>
+          <def_link>11</def_link>
+          <checkOnAppear>aod.pc_member_aurelian</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Whatever Meru’s up to, Antidas would want to know.”</text>
+          <def_link>13</def_link>
+          <checkOnAppear>aod.pc_member_daratan</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>ペトラス</speaker_name>
+      <npc_text>“Don’t tell me they take Meru seriously? Shit! I was just getting comfortable here. Is there anything you can do?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I can’t call off the siege if that’s what you’re asking, but if you help me, I’ll put in a good word for you.”</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>ペトラス</speaker_name>
+      <npc_text>“What do you want me to do? Meru won’t surrender without a fight, even if the Gods demand it. He’s stupid but not that stupid.
+
+“He trusts me because I tell him what he wants to hear. You know how these things work.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What *can* you do?”</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>ペトラス</speaker_name>
+      <npc_text>Petras gives you a long look and sighs, as a man who’s about to do something he’ll regret.
+
+“I can get you into Meru’s Holy of Holies – a place very few men have seen. You want to know what Meru’s up to? The answers are in there.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What do you know about it?”</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’ve seen enough.” Leave.</text>
+          <def_link>30</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Brother Meru,” calls Petras, changing his voice back. “The Gods wish to speak with &lt;him/her&gt; directly.”
+
+Meru nods and you catch a glimpse of a smile. Maybe Petras wasn’t as reluctant as he seemed.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_petras_drug = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Follow Meru.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start Meru_02 - Star Room</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.gnz_starRoom_meruIntro = true;</string>
+        <string>aod.npc_meru_praetorStarRoom = 1;</string>
+        <string>switchMission("Ganezzar Star Room.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You put on a show of your own, faking religious zeal and begging Meru to grant you a few minutes with the holy man alone. Thinking that he has you now, Meru smiles and grants your request.
+
+"Speak, &lt;brother/sister&gt;," says the prophet.</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(HD4_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I need information. We don’t have much time, so don’t waste it by trying to convince me that this show is real. If I don’t have what I need by the time Meru comes back, I’ll let him in on our little secret.”</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What do you want?” the man asks angrily.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“You’re very convincing.”</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Is anything here real?”</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Art requires sacrifice,” the man says with a shrug. “The eyes are killing me. The concoction is worth a fortune but that’s what the audience expects. You should have seen me when I showed up at the gate armed with every trick I’ve learned in my life. It was my best performance.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Is anything here real?”</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“You want real?” asks the man reluctantly as if about to do something he's bound to regret. “I can get you into Meru’s Holy of Holies – a place very few men have seen. You want to know what Meru’s up to? The answers are in there.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What do you know about it?”</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I’ve seen enough.” Leave.</text>
+          <def_link>30</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Brother Meru,” calls the man, changing his voice back. “The Gods wish to speak with &lt;him/her&gt; directly.”
+
+Meru nods and you catch a glimpse of a smile. Maybe the prophet wasn’t as reluctant as he seemed.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Follow Meru.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The truth is, I don’t know,” says the man. “I’ve never been there but Meru talks about it quite often.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Alright.”</text>
+          <def_link>24</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]“There is something you aren’t telling me. I wonder what Meru would do it to you once he finds out you’ve been lying to him all along.”</text>
+          <def_link>25</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 7</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“The truth is, I don’t know,” says Petras. “It’s a place where you can talk to the Gods if they find you worthy. The real Gods, as real as it gets, apparently. So far nobody’s been found worthy, which is hardly surprising. They either end up dead or lose their minds.
+
+“Meru’s been trying to talk me into it, so I guess he needs it bad for some reasons. He’s getting impatient, so I started working on a way to, um, pass the test. I don’t know if it works but if you’re willing to find out, I won’t say no to a test subject.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What’s your solution?”</text>
+          <def_link>27</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Your word against mine,” says the prophet.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“All I have to do is plant a seed of doubt. We both know that to run this scam you need to be above suspicion.”</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It’s a place where you can talk to the Gods if they find you worthy. The real Gods, as real as it gets. So far nobody’s been found worthy, which is hardly surprising. They either end up dead or lose their minds.
+
+“Meru’s been trying to talk me into it, so I guess he needs it bad for some reasons. He’s getting impatient, so I started working on a way to, um, pass the test. I don’t know if it works but if you’re willing to find out, I won’t say no to a test subject.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What’s the solution?”</text>
+          <def_link>27</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>26</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“A drug. It will make your mind so numb you won’t even know you’re there.”</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_prophet_drug = true;</string>
+        <string>rwd_civil(HD4_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Alright.” Take the drug.</text>
+          <def_link>24</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.pc_background_grifter</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>27</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,271 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>MTY_Console_01</dlg_name>
+    <def_link>90</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>As far as you can tell, the semi-sphere is carved from a single crystal and polished to perfection. It's framed in a large metal band covered with dimly glowing symbols. You touch one of the symbols and the crystal's surface changes almost instantly, tiny fracture lines appear, rearrange themselves, and disappear as quickly as they come.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[intelligence][lore]Try to figure out how to use it.</text>
+          <def_link>162</def_link>
+          <checkOnAppear>aod.inf_towerConsole_learned == 0 &amp;&amp; aod.lore_knowledge_databanks == 0</checkOnAppear>
+          <checksOnClick>
+            <string>aod.int &lt; 8</string>
+            <string>aod.lore == 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>161</int>
+            <int>160</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Access the databanks.</text>
+          <def_link>140</def_link>
+          <checkOnAppear>aod.inf_towerConsole_learned || aod.lore_knowledge_databanks</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>138</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>90</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[intelligence failure]You have no idea.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>138</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>161</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[intelligence success][lore failure]You almost figured it out. If you put your hands this way and then... Never mind.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>138</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>162</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>138</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You rest your hands on the cool surface of the semi-sphere and try to clear your thoughts. Slowly, images from the databanks rise to the surface of the display like colorful fish rising from black depths. As you grow accustomed to the experience, the disconnected scenes begin to rush forth all at once, until you gradually figure out how to sort and slow them.
+
+Seek out information on:</npc_text>
+      <onLoadScripts>
+        <string>setAchievement("ACH_COMPUTER");</string>
+        <string>aod.lore_knowledge_databanks = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>The portal network.</text>
+          <def_link>141</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.hgt_portalActive</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>142</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Look for any recordings.</text>
+          <def_link>147</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>160</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You rest your hands on the cool surface of the semi-sphere and try to clear your thoughts. Slowly, images from the databanks rise to the surface of the display like colorful fish rising from black depths. As you grow accustomed to the experience, the disconnected scenes begin to rush forth all at once, until you gradually figure out how to sort and slow them.
+
+Seek out information on:</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>The portal network.</text>
+          <def_link>141</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.hgt_portalActive</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>142</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Look for any recordings.</text>
+          <def_link>147</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>140</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>A glowing honeycomb of portals surfaces on the crystal semi-sphere. There is a flash at the very center, and tiny stars radiate outwards on the network. When the stars reach a junction, they split into two or three new stars and continue to the end nodes.
+
+Upon reaching their destinations, the lights blink three times, then disappear as the portals fail to respond. One by one the stars and the portals vanish. With the sequence ended, only two remain. One is represented by a ziggurat, the other a tower.
+
+The image flashes red and disappears before you can do anything.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Look for any recordings.</text>
+          <def_link>147</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>141</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>A glowing honeycomb of portals surfaces on the crystal semi-sphere. There is a flash at the very center, and tiny stars radiate outwards on the network. When the stars reach a junction, they split into two or three new stars and continue to the end nodes.
+
+Upon reaching their destinations, the lights blink three times, then disappear as the portals fail to respond. One by one the stars and the portals vanish. With the sequence ended, only three remain. One is represented by a ziggurat, the other a tower, and the last one a command center.
+
+The image flashes red and disappears before you can do anything.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Look for any recordings.</text>
+          <def_link>147</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>142</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The doors slide with a whisper into the wall and two assistants in thick leather aprons and blacksmith's gloves wheel in a cart with a grotesque body laid upon it. For some reason, it's also strapped down.
+
+"Get him into the tank," the magus says in an unemotional, even bored, voice. The creature clearly makes little impression on him.
+
+“It’s his second time this month,” says a man next to him, wearing an impossibly white robe. “I think he likes it here.”
+
+“What’s not to like?” replies the magus, shaking his head as the assistants move warily around the sides of the cart. “I'll need a full report this time, including the rad count, just in case.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>158</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>147</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>He steps forward and raises his voice as if addressing a group of gladiators on the arena floor. “Our patient must be able to walk out of here under his own strength in two weeks, no more, so let’s get to work. Bron, hook up the life support first or he'll be brain dead in half an hour. The patient needs a full organ bypass, but we have the machines for that now. As soon as blood prep is done, we can figure out what to keep and what to throw away. Anything running at 80% or less we swap out. We don’t want him back in a week for kidney failure, do we?”
+
+A rumbling growl comes from the giant's chest and he arches his back, clawing with one meaty hand at the restraints. A red stain seeps into his bandages and the air above him wavers from the heat of his skin.
+
+“Drain his hydrogen sac, now,” yells the man in white, his calm control wavering. “If his inhibitor levels fall too low, we'll lose the entire mountain.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>159</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>158</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The assistant scramble to fix several tubes, some carrying enriched blood, others an unknown blue compound, into a series of small artificial apertures on the giant's torso. Soon the patient is stable and they begin to work on shifting him into the tank.
+
+“Well done,” says the magus.
+
+“We do what we can,” says the man in white, “but it only gets harder. Hellfyre? If *he* is barely conscious...” He doesn’t finish.
+
+“We lost four legions,” says the magus, “if that’s what you’re asking. We took one of them down as well, so it’s two against two now, not four against three. But Agathoth isn’t a fighter, so do whatever it takes to keep Hassatur alive. If we lose him, our casualties will go up tenfold.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>138</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>159</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

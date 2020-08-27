@@ -1,0 +1,1337 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_tg2_betrayal</string>
+      <string>aod.quest_tg2_trapsAmbush</string>
+      <string>aod.quest_tg2_foughtMercs</string>
+    </conditions>
+    <links>
+      <int>48</int>
+      <int>0</int>
+      <int>39</int>
+    </links>
+    <dlg_name>Quest_TG2_02</dlg_name>
+    <def_link>1</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You arrive early. There is nothing to do, but wait. Your men load their crossbows with steel-tipped bolts, take cover behind barrels and crates brought to the ambush site for the occasion, and within moments the street is quiet once again.
+
+After what seems like a very long time, a man in rich robes enters the street, a score of slaves following him, grunting and sweating with the effort required to pull a cumbersome, crate-laden cart. His escort keeps pace with the cart, mercenaries with hard expressions and watchful eyes, three on each side of the cart. They're clearly ready for trouble.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg2_getReady = false;</string>
+        <string>if(aod.quest_tg2_phase2a) aod.quest_tg2_phase3a = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Ambush the caravan.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[impersonate]Stop the shipment.</text>
+          <def_link>7</def_link>
+          <checkOnAppear>aod.quest_tg2_disguiseAmbush</checkOnAppear>
+          <checksOnClick>
+            <string>aod.disguise &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You've barely finished setting the explosives when you hear your targets approach. Quickly covering up your handiwork with refuse, you hurry back to a shadowed doorway. Just in time, a man in rich robes enters the street, a score of slaves following him, grunting and sweating with the effort required to pull a cumbersome, crate-laden cart. His escort keeps pace with the cart, mercenaries with hard expressions and watchful eyes, three on each side of the cart. They're clearly ready for trouble, but you doubt that they are ready for what you have in store.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg2_getReady = false;</string>
+        <string>aod.quest_tg2_trapsAmbush = false;</string>
+        <string>aod.quest_tg2_phase3a = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Light the fuse.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.traps &gt;= 3 &amp;&amp; aod.traps &lt; 4</string>
+            <string>aod.traps &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4</int>
+            <int>5</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The hidden bomb fizzles fitfully for a moment before exploding in a brilliant eruption of flame, sparks, and smoke. Unfortunately, the force is much less than what you anticipated and other than blinding the mercenaries, the bomb hardly does any damage.</npc_text>
+      <onLoadScripts>
+        <string>dlgDeleteCharacter(1951);</string>
+        <string>dlgDeleteCharacter(1952);</string>
+        <string>dlgDeleteCharacter(1953);</string>
+        <string>dlgChangeCharacterHP(-5, 1945);</string>
+        <string>dlgChangeCharacterHP(-5, 1947);</string>
+        <string>dlgChangeCharacterHP(-5, 1949);</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>sfxPlayOnce(explosionLow01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>42</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>It goes off without a hitch. The bomb explodes, flinging refuse and chunks of stone in every direction. Men shout and scream as they are blinded by the blast and pelted with rocks. Now is the moment.</npc_text>
+      <onLoadScripts>
+        <string>dlgDeleteCharacter(1951);</string>
+        <string>dlgDeleteCharacter(1952);</string>
+        <string>dlgDeleteCharacter(1953);</string>
+        <string>dlgSetCombatAnimation(1945);</string>
+        <string>dlgSetCombatAnimation(1946);</string>
+        <string>dlgSetCombatAnimation(1947);</string>
+        <string>dlgSetCombatAnimation(1948);</string>
+        <string>dlgSetCombatAnimation(1949);</string>
+        <string>dlgSetCombatAnimation(1950);</string>
+        <string>dlgChangeCharacterHP(-15, 1945);</string>
+        <string>dlgChangeCharacterHP(-10, 1946);</string>
+        <string>dlgChangeCharacterHP(-15, 1947);</string>
+        <string>dlgChangeCharacterHP(-10, 1948);</string>
+        <string>dlgChangeCharacterHP(-15, 1949);</string>
+        <string>dlgChangeCharacterHP(-10, 1950);</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>sfxPlayOnce(explosionMiddle01);</string>
+        <string>rwd_civil(Traps);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>42</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You've timed it to perfection. The explosion goes off right as the procession passes the bomb, refuse and chunks of stone flung in every direction. When you open your eyes, you see that only three of the mercenaries, wounded and blinded by the flash, are left to face you.</npc_text>
+      <onLoadScripts>
+        <string>dlgUnequipHands(1945);</string>
+        <string>dlgUnequipHands(1947);</string>
+        <string>dlgUnequipHands(1949);</string>
+        <string>dlgSetAnimation(anim_death_back03, 0.99, 1945);</string>
+        <string>dlgSetAnimation(anim_death_forward04, 0.99, 1947);</string>
+        <string>dlgSetAnimation(anim_death_forward01, 0.99, 1949);</string>
+        <string>dlgChangeCharacterHP(-15, 1946);</string>
+        <string>dlgChangeCharacterHP(-15, 1948);</string>
+        <string>dlgChangeCharacterHP(-15, 1950);</string>
+        <string>dlgDeleteCharacter(1951);</string>
+        <string>dlgDeleteCharacter(1952);</string>
+        <string>dlgDeleteCharacter(1953);</string>
+        <string>dlgKillCharacter(1945);</string>
+        <string>dlgKillCharacter(1947);</string>
+        <string>dlgKillCharacter(1949);</string>
+        <string>dlgSetCombatAnimation(1946);</string>
+        <string>dlgSetCombatAnimation(1948);</string>
+        <string>dlgSetCombatAnimation(1950);</string>
+        <string>dlgAddRank(24);</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>sfxPlayOnce(explosionHigh01);</string>
+        <string>setAchievement("ACH_EXPLOSION_EXPERT");</string>
+        <string>rwd_civil(Traps);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Finish the job.</text>
+          <def_link>42</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>As you and your men step forward, the mercenaries form a line, preparing to defend the cargo with their lives. The merchant moves back and disappears into the shadows. The slaves follow their master, leaving the field to those who're paid to fight and die.</npc_text>
+      <onLoadScripts>
+        <string>dlgDeleteCharacter(1951);</string>
+        <string>dlgDeleteCharacter(1952);</string>
+        <string>dlgDeleteCharacter(1953);</string>
+        <string>dlgEquipItem(164, 0, 1940);</string>
+        <string>dlgEquipItem(164, 0, 1941);</string>
+        <string>dlgEquipItem(164, 0, 1942);</string>
+        <string>dlgEquipItem(164, 0, 1943);</string>
+        <string>dlgTeleportTo(69, 109, 0, E, 1945);</string>
+        <string>dlgTeleportTo(69, 114, 0, E, 1946);</string>
+        <string>dlgTeleportTo(68, 110, 0, E, 1947);</string>
+        <string>dlgTeleportTo(68, 113, 0, E, 1948);</string>
+        <string>dlgTeleportTo(68, 111, 0, E, 1949);</string>
+        <string>dlgTeleportTo(68, 112, 0, E, 1950);</string>
+        <string>dlgTeleportTo(73, 111, 0, W);</string>
+        <string>useCameraBookmark(quest_tg2_ambush_03);</string>
+        <string>dlgSetCombatAnimation(1940);</string>
+        <string>dlgSetCombatAnimation(1941);</string>
+        <string>dlgSetCombatAnimation(1942);</string>
+        <string>dlgSetCombatAnimation(1943);</string>
+        <string>dlgSetCombatAnimation(1945);</string>
+        <string>dlgSetCombatAnimation(1946);</string>
+        <string>dlgSetCombatAnimation(1947);</string>
+        <string>dlgSetCombatAnimation(1948);</string>
+        <string>dlgSetCombatAnimation(1949);</string>
+        <string>dlgSetCombatAnimation(1950);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>if(aod.quest_tg2_phase2c) aod.quest_tg2_phase3b = true;</string>
+        <string>rwd_reputation(TG2_04);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>42</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You arrive early. There is nothing to do, but wait. Your men load their crossbows with steel-tipped bolts, take cover behind barrels and crates brought to the ambush site for the occasion, and within moments the street is quiet once again.
+
+After what seems like a very long time, you see a ‘down on his luck’ trader, followed by several slaves pushing a crate-laden cart. The trader seems nervous and constantly looks around as if he expects to be attacked at any time.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Attack.</text>
+          <def_link>49</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>48</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The moment the trader sees you, he turns around and run. The slaves follow their master, surrendering the field without a battle.
+
+Warily, you approach the cart and open the first crate. It’s filled with bits and pieces of stone. This must have been the decoy shipment. Fucking Linos. You turn to your men to give orders and the crates explode, throwing stones in every direction.
+
+Linos’ men return in an hour, load up the mangled bodies of your men and what little’s left of you, and deliver the cart to the tavern.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgDeleteCharacter(1951);</string>
+        <string>dlgDeleteCharacter(1952);</string>
+        <string>dlgDeleteCharacter(1953);</string>
+        <string>dlgTeleportTo(65, 112, 0, S);</string>
+        <string>dlgTeleportTo(66, 110, 0, N, 1940);</string>
+        <string>dlgTeleportTo(68, 113, 0, SW, 1941);</string>
+        <string>dlgTeleportTo(68, 111, 0, W, 1942);</string>
+        <string>dlgSetAnimation(anim_dodge_back, 0.1);</string>
+        <string>dlgSetAnimation(anim_dodge_back, 0.1, 1942);</string>
+        <string>dlgSetCombatAnimation(1941);</string>
+        <string>dlgSetCombatAnimation(1940);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>End.</text>
+          <def_link>43</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>49</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg2_fightStarted = true;</string>
+        <string>dlgFinish();</string>
+        <string>setCombatTargetPriority(1240, -25);</string>
+        <string>setCombatTargetPriority(1951, -35);</string>
+        <string>setCombatTargetPriority(1952, -35);</string>
+        <string>setCombatTargetPriority(1953, -35);</string>
+        <string>addEnemyParty(tg2_mercenaries, tg2_thieves);</string>
+        <string>addEnemyParty(tg2_thieves, tg2_mercenaries);</string>
+        <string>setRtsCam();</string>
+        <string>$RTSCamera.lookAtPC();</string>
+        <string>dlgSetZoom(8);</string>
+        <string>aod.gameplay_questTG2_fight = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>42</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You step out from the shadows, raising your arm to halt the procession. A perfectly delivered gesture of a man accustomed to be obeyed. Showing no signs of nervousness, you approach the robed man and his entourage as if you were Linos himself, carrying the air of confidence and superiority; a master forced by the circumstances to address his slaves.
+
+Your gait and mannerism have the desired effect. One by one, the men stop, unsure of what's going on, but not assuming the worst. The mercenaries remain where they are, patiently waiting for you to have a conversation with the merchant leading them.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(70, 111, 0, W);</string>
+        <string>useCameraBookmark(quest_tg2_ambush_02);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Change of plans." Hand him the letter.</text>
+          <def_link>16</def_link>
+          <checkOnAppear>aod.quest_tg2_gotRing == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Change of plans." Show him the ring and hand him the letter.</text>
+          <def_link>47</def_link>
+          <checkOnAppear>aod.quest_tg2_gotRing</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Merchant</speaker_name>
+      <npc_text>"I don't understand. I got my orders from master Linos himself, no more than an hour ago."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][impersonate]"And now you have new orders. Should you ignore them – because you think that somehow you're above the chain of command – our guild will be embarrassed and... Well, I don't have to tell you what will happen to you then, do I?"</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.disguise + aod.streetwise) &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>13</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion][impersonate]"Delivering the gold directly to Lord Antidas will create too much exposure. Master Linos has decided to do it in a more discreet manner."</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.disguise) &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>13</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Merchant</speaker_name>
+      <npc_text>[failure]You step out from the shadows, raising your arm to halt the procession. The reaction is almost instant. As if by magic, your gesture conjures swords from their scabbards, a wall of raised shields, and two crossbows locked on you.
+
+"What do you want?" demands the merchant.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(70, 111, 0, W);</string>
+        <string>useCameraBookmark(quest_tg2_ambush_02);</string>
+        <string>dlgSetCombatAnimation(1945);</string>
+        <string>dlgSetCombatAnimation(1946);</string>
+        <string>dlgSetCombatAnimation(1947);</string>
+        <string>dlgSetCombatAnimation(1948);</string>
+        <string>dlgSetCombatAnimation(1949);</string>
+        <string>dlgSetCombatAnimation(1950);</string>
+        <string>dlgRotateToChar(1, 1945);</string>
+        <string>dlgRotateToChar(1, 1946);</string>
+        <string>dlgRotateToChar(1, 1947);</string>
+        <string>dlgRotateToChar(1, 1948);</string>
+        <string>dlgRotateToChar(1, 1949);</string>
+        <string>dlgRotateToChar(1, 1950);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Change of plans." Hand him the letter.</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Merchant</speaker_name>
+      <npc_text>"Change of plans, eh? And who might you be?" asks the merchant sarcastically.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Show him the ring.</text>
+          <def_link>10</def_link>
+          <checkOnAppear>aod.quest_tg2_gotRing</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Call your men.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Merchant</speaker_name>
+      <npc_text>"My apologies, &lt;master/mistress&gt;." The merchant takes the scroll and reads it carefully. "I don't understand. I got my orders from master Linos himself, no more than an hour ago."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Delivering the gold directly to Lord Antidas will create too much exposure. Master Linos has decided to do it in a more discreet manner."</text>
+          <def_link>46</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Merchant</speaker_name>
+      <npc_text>The merchant takes the scroll and reads it carefully. "I don't understand. I got my orders from master Linos himself, no more than an hour ago."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Delivering the gold directly to Lord Antidas will create too much exposure. Master Linos has decided to do it in a more discreet manner."</text>
+          <def_link>46</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>47</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Merchant</speaker_name>
+      <npc_text>"Very well. Show the way."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Take the shipment to the safe house.</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>46</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Merchant</speaker_name>
+      <npc_text>[success]"Very well. Show the way."</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(TG2_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take the shipment to the safe house.</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Merchant</speaker_name>
+      <npc_text>[failure]The merchant looks at you suspiciously. "I don't know..." he says after a long pause.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][impersonate]"Trust me, I understand. I told Zenon that you wouldn't listen, but he just swore at me and said that nobody's stupid enough to disobey his direct order. Proved him wrong, didn't we?"</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.disguise + aod.streetwise) &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>13</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[impersonate][charisma]"You don't know?! Your job is to do what you're fucking told, not to offer opinions and judgement. If you dare to question your orders again, the only trading you'll be doing is selling your ass to the fucking Ordu in the wasteland. Am I being clear?"</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.cha + aod.disguise) &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>13</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Merchant</speaker_name>
+      <npc_text>[failure]"Get lost or there will be trouble."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Well, if it's trouble you want..." Call your men.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Merchant</speaker_name>
+      <npc_text>The safe house is an old building that's mostly empty. The mercenaries check the house and its surroundings, but find nothing suspicious. The merchant orders the slaves to take the crates inside, then sends the mercenaries to watch the roads, leaving a single guard to watch the gold.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg2_leftGuard = true;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(194, 82, 0, W);</string>
+        <string>dlgTeleportTo(193, 82, 0, E, 1951);</string>
+        <string>useCameraBookmark(quest_tg2_warehouse_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][charisma]"You're not going to leave him with the gold alone, are you?"</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.cha + aod.streetwise) &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>19</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion][charisma]"I'd keep all your men outside. If trouble starts, you will need every man you've got."</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.cha + aod.persuasion) &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>19</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'll go take a look around." Leave.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Merchant</speaker_name>
+      <npc_text>[failure]The merchant gives you a long look, but says nothing.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I'll go take a look around." Leave.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Merchant</speaker_name>
+      <npc_text>[success]The merchant gives you a long look, then barks an order and the man left to guard the gold rejoins his brethren outside.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg2_leftGuard = false;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I'll go take a look around." Leave.</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>You walk down the street, turn a corner, and run into Cado. "That was quite a performance, &lt;charname&gt;. Ready for some real work?"</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(176, 63, 0, S);</string>
+        <string>dlgTeleportTo(176, 62, 0, N, 1100);</string>
+        <string>useCameraBookmark(quest_tg2_warehouse_02);</string>
+        <string>dlgUnequipHands(1940);</string>
+        <string>dlgUnequipHands(1941);</string>
+        <string>dlgUnequipHands(1943);</string>
+        <string>dlgTeleportTo(31, 229, 0, W, 1940);</string>
+        <string>dlgTeleportTo(26, 232, 0, E, 1941);</string>
+        <string>dlgTeleportTo(28, 233, 0, S, 1942);</string>
+        <string>dlgTeleportTo(29, 228, 0, N, 1943);</string>
+        <string>dlgSetAmbientAnimation(1940);</string>
+        <string>dlgSetAmbientAnimation(1941);</string>
+        <string>dlgSetAmbientAnimation(1942);</string>
+        <string>dlgSetAmbientAnimation(1943);</string>
+        <string>removeCharFromParty(1943);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Follow him.</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>You follow Cado to a small house not far from the warehouse with the gold. There is an open hatch in the middle of the floor.
+
+"A long time ago, our guild was in that old warehouse. It had an escape tunnel leading into a nice small house down the street. It's been ages since the tunnel was used. We cleared it a bit while you were chatting with your new friends, but it's still a mess. I've never seen spiders that big. The bastards are the size of a coin.
+
+"What's the situation over there?"</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(29, 231, 0, SW);</string>
+        <string>dlgTeleportTo(28, 230, 0, NE, 1100);</string>
+        <string>useCameraBookmark(quest_tg2_warehouse_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"All clear."</text>
+          <def_link>22</def_link>
+          <checkOnAppear>aod.quest_tg2_leftGuard == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"They've left a guard."</text>
+          <def_link>23</def_link>
+          <checkOnAppear>aod.quest_tg2_leftGuard</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>"Well done. Take three men and go in – quiet as a mouse. Remember, make any noise and you'll have to deal with the mercenaries."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go in.</text>
+          <def_link>40</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>"Shit. Try to take him out without waking up the neighbourhood. We'll be right behind you, just in case."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go in.</text>
+          <def_link>40</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The tunnel is old. The ceiling has collapsed in several places, leaving piles of stones and earth on the dusty floor. Water seeps through the walls and the support beams are rotten to the core. It's a miracle the tunnel hasn't collapsed yet. You walk as quietly as you can, followed by the men handpicked by Cado for the mission.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(35, 246, 0, N);</string>
+        <string>dlgTeleportTo(34, 245, 0, N, 1940);</string>
+        <string>dlgTeleportTo(36, 245, 0, N, 1941);</string>
+        <string>dlgTeleportTo(35, 244, 0, N, 1942);</string>
+        <string>useCameraBookmark(quest_tg2_warehouse_04);</string>
+        <string>dlgSetStealthWalkAnimation(1);</string>
+        <string>dlgSetStealthWalkAnimation(1940);</string>
+        <string>dlgSetStealthWalkAnimation(1941);</string>
+        <string>dlgSetStealthWalkAnimation(1942);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Open the hatch.</text>
+          <def_link>24</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.quest_tg2_leftGuard</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>25</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>40</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The hatch has been oiled and makes no sound when you open it. Now all you have to do is grab the crates and disappear into the night.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(31, 237, 0, N);</string>
+        <string>useCameraBookmark(quest_tg2_warehouse_05);</string>
+        <string>dlgSetAnimation(anim_stealth_00, 0.5);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[sneak]Get the crates.</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.sneak &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>28</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The hatch has been oiled and makes no sound when you open it. The guard is tampering with one of the crates; his mind is on the gold. Now all you have to do is take out the guard, get in, grab the crates, and disappear into the night.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(31, 237, 0, N);</string>
+        <string>dlgTeleportTo(29, 242, 0, W, 1946);</string>
+        <string>useCameraBookmark(quest_tg2_warehouse_05);</string>
+        <string>dlgSetAnimation(anim_stealth_00, 0.5);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[sneak][critical strike]Take out the guard.</text>
+          <def_link>26</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.sneak + aod.critical_strike) &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>27</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Crouching, you move across the room like a shadow. You're about to reach out and cut his throat, when the guard whirls around, reaching for his sword and yelling for help. The warehouse door flies open and the mercenaries barge in.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(31, 242, 0, W);</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>dlgTeleportTo(27, 243, 0, E, 1945);</string>
+        <string>dlgTeleportTo(28, 242, 0, E, 1946);</string>
+        <string>dlgTeleportTo(27, 241, 0, E, 1947);</string>
+        <string>dlgTeleportTo(28, 244, 0, SE, 1948);</string>
+        <string>dlgTeleportTo(26, 243, 0, E, 1949);</string>
+        <string>dlgTeleportTo(26, 242, 0, E, 1950);</string>
+        <string>useCameraBookmark(quest_tg2_warehouse_06);</string>
+        <string>dlgSetCombatAnimation(1945);</string>
+        <string>dlgSetCombatAnimation(1946);</string>
+        <string>dlgSetCombatAnimation(1947);</string>
+        <string>dlgSetCombatAnimation(1948);</string>
+        <string>dlgSetCombatAnimation(1949);</string>
+        <string>dlgSetCombatAnimation(1950);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Call for back up.</text>
+          <def_link>41</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>26</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - warehouse</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg2_fightStarted = true;</string>
+        <string>removeCharFromParty(1943, tg2_thieves);</string>
+        <string>dlgEquipItem(164, 0, 1940);</string>
+        <string>dlgEquipItem(164, 0, 1941);</string>
+        <string>dlgEquipItem(164, 0, 1942);</string>
+        <string>dlgTeleportTo(30, 240, 0, NW, 1940);</string>
+        <string>dlgTeleportTo(28, 239, 0, N, 1941);</string>
+        <string>dlgTeleportTo(27, 238, 0, N, 1942);</string>
+        <string>addEnemyParty(tg2_mercenaries, tg2_thieves);</string>
+        <string>addEnemyParty(tg2_thieves, tg2_mercenaries);</string>
+        <string>setRtsCam();</string>
+        <string>dlgSetZoom(8);</string>
+        <string>$RTSCamera.lookAtPC();</string>
+        <string>aod.quest_tg2_phase3b = true;</string>
+        <string>aod.gameplay_questTG2_fight = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>41</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Crouching, you move across the room like a shadow. When you get close enough, you lunge, clapping your hand over the guard's mouth as you ram your dagger between his ribs, then gently lower his body to the floor.</npc_text>
+      <onLoadScripts>
+        <string>dlgUnequipHands(1946);</string>
+        <string>dlgSetAnimation(anim_death_back00, 0.99, 1946);</string>
+        <string>dlgKillCharacter(1946);</string>
+        <string>dlgTeleportTo(30, 242, 0, W);</string>
+        <string>dlgSetAnimation(anim_stealth_00, 0.5);</string>
+        <string>useCameraBookmark(quest_tg2_warehouse_08);</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[sneak]Get the crates.</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.sneak &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>28</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>27</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Crouching, you move across the warehouse like a shadow. Reaching the crates, you carefully pick up one crate and slowly make your way back to the hatch, lowering it into the waiting hands of the men below.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(31, 237, 0, S);</string>
+        <string>tg2_crate_01.isRenderEnabled = false;</string>
+        <string>dlgSetAnimation(anim_stealth_00, 0.5);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(quest_tg2_warehouse_05);</string>
+        <string>aod.quest_tg2_crates = 1;</string>
+        <string>rwd_civil(Sneak);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>One down, three to go.</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.sneak &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>30</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Too risky. Return to Cado.</text>
+          <def_link>34</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>28</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Crouching, you move across the warehouse like a shadow. You reach for the crates when the warehouse door flies open and the mercenaries barge in.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(30, 239, 0, NW);</string>
+        <string>dlgSetAnimation(anim_stealth_01, 0.5);</string>
+        <string>dlgTeleportTo(27, 243, 0, E, 1945);</string>
+        <string>if(isAlive(1946)) dlgTeleportTo(28, 242, 0, E, 1946);</string>
+        <string>dlgTeleportTo(27, 241, 0, E, 1947);</string>
+        <string>dlgTeleportTo(28, 244, 0, SE, 1948);</string>
+        <string>dlgTeleportTo(26, 243, 0, E, 1949);</string>
+        <string>dlgTeleportTo(26, 242, 0, E, 1950);</string>
+        <string>useCameraBookmark(quest_tg2_warehouse_09);</string>
+        <string>dlgSetCombatAnimation(1945);</string>
+        <string>if(isAlive(1946)) dlgSetCombatAnimation(1946);</string>
+        <string>dlgSetCombatAnimation(1947);</string>
+        <string>dlgSetCombatAnimation(1948);</string>
+        <string>dlgSetCombatAnimation(1949);</string>
+        <string>dlgSetCombatAnimation(1950);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Call for back up.</text>
+          <def_link>41</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Run for the tunnel.</text>
+          <def_link>36</def_link>
+          <checkOnAppear>aod.quest_tg2_crates &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>29</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Crouching, you move across the warehouse like a shadow. Reaching the crates, you carefully pick up one crate and slowly make your way back to the hatch, lowering it into the waiting hands of the men below. The crates are heavy and it's taking more effort to move silently.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(31, 237, 0, S);</string>
+        <string>tg2_crate_04.isRenderEnabled = false;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_tg2_crates ++;</string>
+        <string>rwd_civil(Sneak);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>You're halfway there.</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.sneak &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>31</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Too risky. Return to Cado.</text>
+          <def_link>34</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>30</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Crouching, you move across the warehouse like a shadow. Reaching the crates, you carefully pick up one crate and slowly make your way back to the hatch, lowering it into the waiting hands of the men below. The crates are heavy and it's taking almost everything you've got to move silently.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(31, 237, 0, S);</string>
+        <string>tg2_crate_02.isRenderEnabled = false;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_tg2_crates ++;</string>
+        <string>rwd_civil(Sneak);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Only one left.</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.sneak &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>32</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Too risky. Return to Cado.</text>
+          <def_link>34</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>31</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Crouching, you move across the warehouse like a shadow. Reaching the crates, you carefully pick up the last crate and slowly make your way back to the hatch, lowering it into the waiting hands of the men below.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(31, 237, 0, S);</string>
+        <string>tg2_crate_03.isRenderEnabled = false;</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_tg2_crates ++;</string>
+        <string>rwd_civil(Sneak);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Return to Cado.</text>
+          <def_link>33</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>32</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You start running as soon as you hear the door opening. You jump inside the tunnel before the mercenaries realize what's happening, gaining a slight advantage.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(35, 248, 0, N);</string>
+        <string>useCameraBookmark(quest_tg2_warehouse_07);</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>dlgTeleportTo(34, 244, 0, N, 1940);</string>
+        <string>dlgTeleportTo(36, 243, 0, N, 1941);</string>
+        <string>dlgTeleportTo(35, 243, 0, N, 1942);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight the mercenaries.</text>
+          <def_link>45</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[crafting][traps]Bring down the ceiling.</text>
+          <def_link>37</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.crafting + aod.traps) &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>38</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>36</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - tunnel</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_tg2_fightStarted = true;</string>
+        <string>removeCharFromParty(1943, tg2_thieves);</string>
+        <string>dlgTeleportTo(36, 244, 0, N);</string>
+        <string>dlgEquipItem(164, 0, 1940);</string>
+        <string>dlgEquipItem(164, 0, 1941);</string>
+        <string>dlgEquipItem(164, 0, 1942);</string>
+        <string>dlgSetCombatAnimation(1940);</string>
+        <string>dlgSetCombatAnimation(1941);</string>
+        <string>dlgSetCombatAnimation(1942);</string>
+        <string>dlgTeleportTo(35, 247, 0, S, 1945);</string>
+        <string>if(isAlive(1946)) dlgTeleportTo(35, 249, 0, S, 1946);</string>
+        <string>dlgTeleportTo(34, 248, 0, S, 1947);</string>
+        <string>dlgTeleportTo(36, 247, 0, S, 1948);</string>
+        <string>dlgTeleportTo(36, 248, 0, S, 1949);</string>
+        <string>dlgTeleportTo(35, 248, 0, S, 1950);</string>
+        <string>addEnemyParty(tg2_mercenaries, tg2_thieves);</string>
+        <string>addEnemyParty(tg2_thieves, tg2_mercenaries);</string>
+        <string>setRtsCam();</string>
+        <string>$RTSCamera.lookAtPC();</string>
+        <string>dlgSetZoom(8);</string>
+        <string>aod.quest_tg2_phase3b = true;</string>
+        <string>aod.gameplay_questTG2_fight = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>45</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You hack at the nearby support beam, when suddenly the rotten wood gives in to earth and stones that start trickling down on you. A second later, the entire ceiling goes down in a slow cascade, burying you and the gold.
+
+Although the gold is dug out within days, the locals keep digging, firmly believing that not everything has been recovered. In a decade, every child in Teron knows that on the darkest nights the ghost of &lt;charname&gt; walks the streets, looking for &lt;his/her&gt; buried treasure and woe to those who cross &lt;his/her&gt; path!</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeLongToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>End.</text>
+          <def_link>43</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>37</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You hack at the nearby support beam, creating a proper angle for the beam to start folding slowly. Within a few seconds, the tunnel will collapse.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(35, 246, 0, S);</string>
+        <string>dlgTeleportTo(34, 242, 0, S, 1940);</string>
+        <string>dlgTeleportTo(36, 243, 0, S, 1941);</string>
+        <string>dlgTeleportTo(35, 241, 0, S, 1942);</string>
+        <string>useCameraBookmark(quest_tg2_warehouse_04);</string>
+        <string>dlgSetRunAnimation(1);</string>
+        <string>dlgSetRunAnimation(1940);</string>
+        <string>dlgSetRunAnimation(1941);</string>
+        <string>dlgSetRunAnimation(1942);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Run!</text>
+          <def_link>34</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>38</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>"We did it, &lt;charname&gt;! We pulled it off and we couldn't have done it without you. Here is your cut. Buy yourself something nice.
+
+"We're going to lay low for a while. Linos will turn the town upside down, looking for his gold. Antidas might take offense too. Keeping the gold here is too risky. You'll have to take it out of Teron tonight. Use your new smuggling channels and take it to Maadoran. You can hide anything in their slums and nobody would ever find it.
+
+"Now, you know that I trust you, but I have to send some of my men with you. I'm sure you understand. I want your mind to be on the task, not on the gold. Better men than you, &lt;charname&gt;, have been corrupted by less."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(139, 53, 0, N, 1100);</string>
+        <string>dlgTeleportTo(139, 54, 0, S);</string>
+        <string>useCameraBookmark(NPC_Cado_Cam_01);</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>dlgCureStat(all);</string>
+        <string>cheatHP();</string>
+        <string>tgd_tg_door6.close();</string>
+        <string>tgd_tg_door6.lock();</string>
+        <string>dlgDeleteCharacter(1140);</string>
+        <string>aod.quest_tg2_phase3c = true;</string>
+        <string>setTravelingAllowed(false);</string>
+        <string>rwd_reputation(TG2_01);</string>
+        <string>aod.quest_tg2_crates = 4;</string>
+        <string>rwd_quest(TG2_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I'll go get ready."</text>
+          <def_link>35</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>33</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>"I suppose you did the best you could, eh, &lt;charname&gt;? Do me a favour and take everything next time, will you? I should have told you that you left your cut at the warehouse, but I'm a fair man. Here." He throws you a leather bag.
+
+"We're going to lay low for a while. Linos will turn the town upside down, looking for his gold. Antidas might take offense too. Keeping the gold here is too risky. You'll have to take it out of Teron tonight. Use your new smuggling channels and take it to Maadoran. You can hide anything in their slums and nobody would ever find it.
+
+"Now, you know that I trust you, but I have to send some of my men with you. I'm sure you understand. I want your mind to be on the task, not on the gold. Better men than you, &lt;charname&gt;, have been corrupted by less."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(139, 53, 0, N, 1100);</string>
+        <string>dlgTeleportTo(139, 54, 0, S);</string>
+        <string>useCameraBookmark(NPC_Cado_Cam_01);</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>dlgCureStat(all);</string>
+        <string>cheatHP();</string>
+        <string>tgd_tg_door6.close();</string>
+        <string>tgd_tg_door6.lock();</string>
+        <string>dlgDeleteCharacter(1140);</string>
+        <string>aod.quest_tg2_phase3d = true;</string>
+        <string>setTravelingAllowed(false);</string>
+        <string>rwd_reputation(TG2_02);</string>
+        <string>rwd_quest(TG2_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I'll go get ready."</text>
+          <def_link>35</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>34</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Cado</portrait>
+      <speaker_name>Cado</speaker_name>
+      <npc_text>"That was quite a fight. You did well, &lt;charname&gt;. Here is your cut.
+
+"We're going to lay low for a while. Linos will turn the town upside down, looking for his gold. Antidas might take offense too. On top of that, the mercenary company has a score to settle. They feel that we've 'wronged' them, as if their incompetence was somehow our fault. Keeping the gold here is too risky. You'll have to take it out of Teron tonight. Use your new smuggling channels and take it to Maadoran. You can hide anything in their slums and nobody would ever find it.
+
+"Now, you know that I trust you, but I have to send some of my men with you. I'm sure you understand. I want your mind to be on the task, not on the gold. Better men than you, &lt;charname&gt;, have been corrupted by less."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(139, 53, 0, N, 1100);</string>
+        <string>dlgTeleportTo(139, 54, 0, S);</string>
+        <string>useCameraBookmark(NPC_Cado_Cam_01);</string>
+        <string>dlgSetAmbientAnimation();</string>
+        <string>dlgCureStat(all);</string>
+        <string>cheatHP();</string>
+        <string>tgd_tg_door6.close();</string>
+        <string>tgd_tg_door6.lock();</string>
+        <string>dlgDeleteCharacter(1140);</string>
+        <string>setTravelingAllowed(false);</string>
+        <string>rwd_reputation(TG2_03);</string>
+        <string>aod.quest_tg2_crates = 4;</string>
+        <string>rwd_quest(TG2_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I'll go get ready."</text>
+          <def_link>35</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>39</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>tg2_finishQuest();</string>
+        <string>aod.quest_tg3_talkAboutTg3 = true;</string>
+        <string>addQuest(TG3);</string>
+        <string>aod.quest_tg3_phase1 = true;</string>
+        <string>aod.quest_tg3_atTheTavern = true;</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>switchMission("Quest_TG3.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>35</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>43</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

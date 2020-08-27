@@ -1,0 +1,622 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>HGR_Door_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You're standing in front of massive bronze doors decorated with awe-inspiring winged lions that have seen better days. The only items of interest are an unusually large keyhole and a barely visible symbol.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_EngineerWait_04);</string>
+        <string>dlgCam(0, 40, 10);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Examine the symbol.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lore &gt;= 4 &amp;&amp; aod.crafting &gt;= 4</string>
+            <string>aod.lore &gt;= 4 &amp;&amp; aod.crafting &lt; 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3</int>
+            <int>2</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Examine the keyhole.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lockpick &gt;= 3 &amp;&amp; aod.lockpick &lt;= 6</string>
+            <string>aod.lockpick &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5</int>
+            <int>6</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - leave</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+        <string>dlgCam(345, 40, 15);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[lore failure]You have no idea what it is.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Examine the keyhole.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lockpick &gt;= 3 &amp;&amp; aod.lockpick &lt;= 6</string>
+            <string>aod.lockpick &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5</int>
+            <int>6</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[lore success][crafting failure]It looks like a professional mark encircled by script in Naskhi. "Abu al-Iz Ibn Ismail ibn al-Razaz al-Jazari." Sadly, it doesn't tell you much.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Examine the keyhole.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lockpick &gt;= 3 &amp;&amp; aod.lockpick &lt;= 6</string>
+            <string>aod.lockpick &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5</int>
+            <int>6</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[lore success][crafting success]It's a mark of Al-Jazari, a legendary engineer whose work was one of the most carefully guarded secrets during his life. Fortunately, his wife sold copies of his notes to everyone willing to pay her, and eventually Al-Jazari's designs and schematics appeared in the Compendium from the Theory and Practice of the Mechanical Arts manuscript.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[crafting]You're well familiar with Al-Jazari's designs and can forge a key for this lock.</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.crafting &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>16</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[lockpick]You're well familiar with Al-Jazari's designs and should be able to open it.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lockpick &gt;= 8 &amp;&amp; aod.hgr_door_trap == 1</string>
+            <string>aod.hgr_door_trap == 1</string>
+            <string>aod.traps &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>11</int>
+            <int>7</int>
+            <int>10</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[crafting failure]You shape a piece of metal into a crank that Al-Jazari himself would be proud of and insert it into the keyhole. Sadly it doesn't fit.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[lockpick]You're well familiar with Al-Jazari's designs and should be able to open it.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lockpick &gt;= 8 &amp;&amp; aod.hgr_door_trap == 1</string>
+            <string>aod.hgr_door_trap == 1</string>
+            <string>aod.traps &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>11</int>
+            <int>7</int>
+            <int>10</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[lockpick failure]Looks like a very clever lock. It's fair to say that you don't understand how it works.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Try to open the lock.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.hgr_door_trap == 1</string>
+            <string>aod.traps &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+            <int>10</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[alchemy][crafting]The door is rock solid but you’re willing to bet you can blow it off the hinges with a couple of shaped charges.</text>
+          <def_link>12</def_link>
+          <checkOnAppear>dlgGetItemsCount(1815) &gt;= 2 || dlgGetItemsCount(210) &gt;= 2 || dlgGetItemsCount(211) &gt;= 2 || dlgGetItemsCount(212) &gt;= 2</checkOnAppear>
+          <checksOnClick>
+            <string>aod.alchemy &gt;= 5 &amp;&amp; aod.crafting &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[lockpick success]Looks like a very clever lock. The keyhole goes through a series of gears; the right gear should move the hidden pins, which should move the bolts and unlock the door.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Try to open the lock.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lockpick &gt;= 8 &amp;&amp; aod.hgr_door_trap == 1</string>
+            <string>aod.hgr_door_trap == 1</string>
+            <string>aod.traps &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>11</int>
+            <int>7</int>
+            <int>10</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[alchemy][crafting]The door is rock solid but you’re willing to bet you can blow it off the hinges with a couple of shaped charges.</text>
+          <def_link>12</def_link>
+          <checkOnAppear>dlgGetItemsCount(1815) &gt;= 2 || dlgGetItemsCount(210) &gt;= 2 || dlgGetItemsCount(211) &gt;= 2 || dlgGetItemsCount(212) &gt;= 2</checkOnAppear>
+          <checksOnClick>
+            <string>aod.alchemy &gt;= 5 &amp;&amp; aod.crafting &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Examine the symbol.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lore &gt;= 4 &amp;&amp; aod.crafting &gt;= 4</string>
+            <string>aod.lore &gt;= 4 &amp;&amp; aod.crafting &lt; 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3</int>
+            <int>2</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[lockpick success]Looks like a very clever lock. The out of reach pins, hidden somewhere within the door, are moved by a crankshaft mechanism - it's gotta be an Al-Jazari lock then. A key, which is probably a handle with the right combination, is inserted into a series of gears within the keyhole. The right gear will rotate the crankshaft mechanism, moving the pins, which should trigger the mechanism controlling the bolts.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[lockpick]You're well familiar with Al-Jazari's designs and should be able to open it.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lockpick &gt;= 8 &amp;&amp; aod.hgr_door_trap == 1</string>
+            <string>aod.hgr_door_trap == 1</string>
+            <string>aod.traps &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>11</int>
+            <int>7</int>
+            <int>10</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[crafting]You're well familiar with Al-Jazari's designs and can forge a key for this lock.</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.crafting &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>16</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[alchemy][crafting]The door is rock solid but you’re willing to bet you can blow it off the hinges with a couple of shaped charges.</text>
+          <def_link>12</def_link>
+          <checkOnAppear>dlgGetItemsCount(1815) &gt;= 2 || dlgGetItemsCount(210) &gt;= 2 || dlgGetItemsCount(211) &gt;= 2 || dlgGetItemsCount(212) &gt;= 2</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.alchemy + aod.crafting) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[lockpick failure]You try to open the lock but fail miserably.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[alchemy][crafting]The door is rock solid but you’re willing to bet you can blow it off the hinges with a couple of shaped charges.</text>
+          <def_link>12</def_link>
+          <checkOnAppear>dlgGetItemsCount(1815) &gt;= 2 || dlgGetItemsCount(210) &gt;= 2 || dlgGetItemsCount(211) &gt;= 2 || dlgGetItemsCount(212) &gt;= 2</checkOnAppear>
+          <checksOnClick>
+            <string>aod.alchemy &gt;= 5 &amp;&amp; aod.crafting &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[traps failure]You slowly rotate the gears with your picks, trying to find the right combination, when suddenly something clicks within the door. A heartbeat later a metal spike launched from a spring trap set within the keyhole passes through your eye and enters the brain, splattering it all over the wall.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Oh well...</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>DEAD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>disconnect();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[traps success]You slowly rotate the gears with your picks, trying to find the right combination, when suddenly it hits you - it's too easy. Usually, the ‘easy’ path is there to kill the first fool who'd poke his nose where it doesn't belong.</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(Traps);</string>
+        <string>aod.hgr_door_trap = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lockpick]Keep playing with the lock.</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lockpick &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>11</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[alchemy][crafting]The door is rock solid but you’re willing to bet you can blow it off the hinges with a couple of shaped charges.</text>
+          <def_link>12</def_link>
+          <checkOnAppear>dlgGetItemsCount(1815) &gt;= 2 || dlgGetItemsCount(210) &gt;= 2 || dlgGetItemsCount(211) &gt;= 2 || dlgGetItemsCount(212) &gt;= 2</checkOnAppear>
+          <checksOnClick>
+            <string>aod.alchemy &gt;= 5 &amp;&amp; aod.crafting &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>22</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[lockpick success]The Gods themselves must be guiding your hands. Suddenly, you hear the whirring sound and the gear move as if on their own accord, withdrawing the bolts one by one.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>rwd_civil(Lockpick);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Push the doors open and enter.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You do your best preparing and applying the charges, then light the fuse and climb out of the tunnel. A minute later a large explosion shakes up the ground. When you try to get back, you discover that the passage has collapsed.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>removeCharges(2);</string>
+        <string>sfxPlayOnce(explosionHigh01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - collapsed</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>HGR_collapse();</string>
+        <string>dlgTeleportToMarker(TM_DoorCollapse);</string>
+        <string>dlgCam(345, 40, 15);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You take your time preparing and applying the charges, then light the fuse and climb out of the tunnel. A minute later a large explosion shakes up the ground. When you go back you see a large hole where the door used to be.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>removeCharges(2);</string>
+        <string>rwd_civil(HGR_05);</string>
+        <string>sfxPlayOnce(explosionHigh01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Enter.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[crafting success]The Gods themselves must be guiding your hands. You shape a bronze ingot into a crank, carefully insert it into the keyhole, and push it forward. Suddenly, you hear the whirring sound and the gear move as if on their own accord, withdrawing the bolts one by one.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>rwd_civil(HGR_05);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Push the doors open and enter.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Coming on this cavern, you thought you had stumbled on an exit and the cold stars of the night sky beyond. But the lights were truly a scattering of bright lamps, triggered on your approach by some ancient magic to illuminate the bizarre structure within. In outline what you see appears to be a fortress made entirely of metal. The surface is scorched and dented everywhere, and even torn open in several places, revealing a warped wooden architecture within. Why build such a thing deep underground, to protect against some threat from below?</npc_text>
+      <onLoadScripts>
+        <string>HGR_openDoor();</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>At first you think the depression in which it sits must be a moat, but it is in fact resting, without a foundation, in a deep pit. The metal building is ringed with the cobwebbed and broken remains of scaffolding and walkways, reminding you of a dry dock for repairing a sailing vessel, but it cannot be a ship. Can it?
+
+Instinctively you look upward and discover a humongous metal door sealing off a passage in the ceiling. Ship it is, then. Though everyone has heard legends about flying chariots, this is something in an entirely different class.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Explore.</text>
+          <def_link>19</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - explore</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(345, 40, 15);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>19</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,650 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.fight_haPass_win</string>
+      <string>aod.quest_HA_pass_thorgul_talked</string>
+      <string>aod.quest_HA_pass_bassDead</string>
+      <string>aod.quest_HA_pass_waited</string>
+      <string>aod.quest_HA_pass_defeat</string>
+    </conditions>
+    <links>
+      <int>25</int>
+      <int>16</int>
+      <int>3</int>
+      <int>7</int>
+      <int>22</int>
+    </links>
+    <dlg_name>Quest_HA_Pass_02</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Thorgul</def_speaker_name>
+    <def_portrait>Thorgul</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>The pass has changed in your absence. The towers are gone, replaced by a crude catapult and wooden barricades in front of the stone walls. The barricades don’t block the approach, but create a narrow corridor. The men look less like brigands and more like soldiers.
+
+They recognize you and raise the stone block serving as gate, letting you in. After telling you how lucky you are to make it back in one piece and asking if you’ve seen any Ordu, they take you to see Centurion Bass.</npc_text>
+      <onLoadScripts>
+        <string>setWindowImage(pass_siege_intro_01);</string>
+        <string>dlgTeleportToMarker(TM_PC_Storage);</string>
+        <string>dlgTeleportToMarker(TM_Bass_Storage, 4410);</string>
+        <string>dlgTeleportToMarker(TM_IG_Storage_1, 5510);</string>
+        <string>dlgTeleportToMarker(TM_IG_Storage_2, 5530);</string>
+        <string>dlgTeleportToMarker(TM_IG_Storage_3, 5550);</string>
+        <string>dlgDeleteCharacter(5591);</string>
+        <string>DOOR_storage.lock();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>The pass has changed in your absence. The towers are gone, replaced by a crude catapult and wooden barricades in front of the stone walls. The barricades don’t block the approach, but create a narrow corridor. The men look less like brigands and more like soldiers.
+
+They recognize you and raise the stone block serving as gate, letting you in while taking aim at you. After telling you how stupid you are to return after killing their comrades, they take you to see Centurion Bass.</npc_text>
+      <onLoadScripts>
+        <string>setWindowImage(pass_siege_intro_01);</string>
+        <string>dlgTeleportToMarker(TM_PC_Storage);</string>
+        <string>dlgTeleportToMarker(TM_Bass_Storage, 4410);</string>
+        <string>dlgTeleportToMarker(TM_IG_Storage_1, 5510);</string>
+        <string>dlgTeleportToMarker(TM_IG_Storage_2, 5530);</string>
+        <string>dlgTeleportToMarker(TM_IG_Storage_3, 5550);</string>
+        <string>dlgDeleteCharacter(5591);</string>
+        <string>DOOR_storage.lock();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Bass</portrait>
+      <speaker_name>Bass</speaker_name>
+      <npc_text>Bass is going over some scrolls – as far as you can tell the subject is alchemy. The crates with the black powder and several clay pots are sitting on the floor nearby.
+
+“So, you were the messenger,” says Bass matter-of-factly. “I got another missive not an hour after you slipped through my fingers. Of course, I didn’t expect to see you ever again, but sometimes the gods are kind.”
+
+He gestures to the guards standing behind you. “Chain &lt;him/her&gt; and let’s get started.”</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>addParty(BassPowderRoom, 0);</string>
+        <string>addCharToParty(4410, BassPowderRoom, fighter);</string>
+        <string>addCharToParty(5510, BassPowderRoom, fighter);</string>
+        <string>addCharToParty(5530, BassPowderRoom, fighter);</string>
+        <string>addCharToParty(5550, BassPowderRoom, fighter);</string>
+        <string>setWindowImage();</string>
+        <string>dlgCam(100, 45, 7, 4410);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_HA_pass_bassDead = true;</string>
+        <string>aod.fight_bassPowderRoom = true;</string>
+        <string>aod.fight_haPass_win = false;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addEnemyToParty(1, BassPowderRoom);</string>
+        <string>setRtsCam();</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>As the last man falls down, you hear the shouts coming from the wall. Looks like the Ordu decided not to wait for your signal after all.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Make a black powder trail, light it up, and run.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>None</portrait>
+      <speaker_name>None</speaker_name>
+      <npc_text>You barely make it out of the building when the crates explode, shaking the ledge and sending debris flying in every direction. Then the Ordu attack.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The battle didn’t last long. The disoriented and leaderless defenders were taken by surprise and quickly overrun.
+
+“You are a great warrior, strong and fearless,” says Thorgul, relieved to see you alive. “The Great Khan honored us by sending you to guide us.
+
+“My scouts spotted a large force heading for the pass. They are half a day away, so we’ll be able to evade them easily, but we must leave now.”</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>createByCharMarker("CM_Thorgul");</string>
+        <string>dlgTeleportToMarker(TM_Thorgul_PC_01);</string>
+        <string>dlgTeleportToMarker(TM_Thorgul_Pass_01, 4800);</string>
+        <string>dlgRotateToChar(1, 4800);</string>
+        <string>dlgCam(190, 45, 6, 4800);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to Maadoran.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Maadoran with army</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_HA_pass_fromPass = true;</string>
+        <string>aod.quest_ordu_maadoran = true;</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>switchMission("Maadoran.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The pass lasted less than half a day. The defenders fought well and used every advantage they had, but they lacked numbers and their time ran out sooner rather than later.
+
+“Bad news,” says Thorgul, greeting you when you arrive. “My scouts spotted a large force heading for the pass. We have two, maybe three hours.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_HA_pass_thorgul_talked = true;</string>
+        <string>createByCharMarker("CM_Thorgul");</string>
+        <string>dlgTeleportToMarker(TM_Thorgul_PC_01);</string>
+        <string>dlgTeleportToMarker(TM_Thorgul_Pass_01, 4800);</string>
+        <string>assignDialogue(Quest_HA_Pass_02, 4800);</string>
+        <string>dlgRotateToChar(1, 4800);</string>
+        <string>if(aod.npc_belgutai_dead == 0) createByCharMarker("CM_Belgutai");</string>
+        <string>if(aod.npc_belgutai_dead == 0) dlgTeleportToMarker(TM_Belgutai_Pass_01, 4805);</string>
+        <string>if(aod.npc_belgutai_dead == 0) assignDialogue(Quest_HA_Pass_Belgutai, 4805);</string>
+        <string>killIG();</string>
+        <string>dlgCam(190, 45, 6, 4800);</string>
+        <string>DOOR_storage.lock();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What are you going to do?”</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“We stay here,” says Thorgul. “Even if we leave now, they will catch up with us before we reach Maadoran. We will draw some blood from the enemy, then fall back. If they still want to come after us, they will find nothing but death.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Belgutai can attack the enemy and buy us enough time.”</text>
+          <def_link>13</def_link>
+          <checkOnAppear>aod.npc_belgutai_dead == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Do you know who leads them?”</text>
+          <def_link>9</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Good luck.” Return to Maadoran.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Carbo – a true Noyan. We fought him twice in the past and twice he bested us. I’d like to test his strength one last time, but that day isn't today.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What’s he like?”</text>
+          <def_link>10</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“He’s a warrior. There are men who are born to plough land and there are men who are born to fight and lead men into battle. Carbo is such a man and we’re honored to have such an enemy.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Maybe I’ll pay him a visit, see if I can talk him into sitting this one out.”</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“He came to fight. There is nothing you can offer him.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_HA_pass_talkToCarbo = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“We’ll see about that.” Go to Carbo’s camp.</text>
+          <def_link>12</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Belgutai can attack the enemy and buy us enough time.”</text>
+          <def_link>13</def_link>
+          <checkOnAppear>aod.npc_belgutai_dead == false &amp;&amp; aod.quest_HA_pass_thorgul_belgutai == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>14</def_link>
+          <checkOnAppear>aod.quest_HA_pass_thorgul_belgutai</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Carbo camp</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.quest_HA_pass_talkToCarbo = 2;</string>
+        <string>sd(Quest_HA_Pass_Carbo);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I can’t ask him to lay down his life for me.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_HA_pass_thorgul_belgutai = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Do you know who leads the Guards?”</text>
+          <def_link>9</def_link>
+          <checkOnAppear>aod.quest_HA_pass_talkToCarbo == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I'll go talk to Carbo then." Travel to Carbo’s camp.</text>
+          <def_link>12</def_link>
+          <checkOnAppear>aod.quest_HA_pass_talkToCarbo</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Then I’ll do it.” Leave.</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - the pass</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(190, 45, 12, 1);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Maadoran failed</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_HA_pass_fromPass = true;</string>
+        <string>aod.quest_HA_pass_leftOrdu = true;</string>
+        <string>aod.jnl_HA2_phase4 = true;</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>switchMission("Maadoran.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Maadoran Ordu dead</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_HA_pass_fromPass = true;</string>
+        <string>aod.jnl_HA2_phase4 = true;</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>switchMission("Maadoran.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>24</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What news do you bring me?”</npc_text>
+      <onLoadScripts>
+        <string>dlgCam(190, 45, 6, 4800);</string>
+        <string>dlgTeleportToMarker(TM_Thorgul_PC_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Belgutai can attack the enemy and buy us enough time.”</text>
+          <def_link>13</def_link>
+          <checkOnAppear>aod.npc_belgutai_dead == false &amp;&amp; aod.quest_HA_pass_thorgul_belgutai == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Belgutai agreed to buy us some time.”</text>
+          <def_link>17</def_link>
+          <checkOnAppear>aod.quest_HA_pass_belgutai_agreed</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Do you know who leads the Imperial Guards?”</text>
+          <def_link>9</def_link>
+          <checkOnAppear>aod.quest_HA_pass_talkToCarbo == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Nothing yet. I'll go talk to Carbo now." Travel to Carbo’s camp.</text>
+          <def_link>12</def_link>
+          <checkOnAppear>aod.quest_HA_pass_talkToCarbo == 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Carbo agreed to let us go, but we need to leave a hundred men at the pass.”</text>
+          <def_link>19</def_link>
+          <checkOnAppear>aod.quest_HA_pass_carbo_agreed</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You were right. Staying here is the only option for you. Good luck, Thorgul.” Return to Maadoran.</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Nothing yet.” Leave.</text>
+          <def_link>14</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“As I knew he would, for he *is* Bolad reborn. His death will be a burden on your khan. He will have to prove to be worthy of the sacrifice.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_HA_pass_leftBelgutai = true;</string>
+        <string>aod.npc_belgutai_dead = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“That’s his problem, not mine.”</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Get ready to leave.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go to Maadoran.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Why?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“He can’t just turn around and leave, now that he’s here. His own men would question that, not to mention Paullus – the man he reports to. So, he needs a battle and a victory and it’s going to cost us a hundred men.”</text>
+          <def_link>20</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>19</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It will cost *me* a hundred men. You, it will cost nothing.
+
+“I accepted your khan’s offer because I wanted to save my people, yet now more and more of my people have to die for the rest to be saved. What am I going to tell them?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“That they are your best warriors who were chosen to hold the pass and defend it against all enemies until you return.”</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“That their sacrifice will never be forgotten and live forever in the songs of your tribe. That they be known as The Hundred and men will wish they stood with them.”</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“That they are warriors who were granted the highest honor – to die in battle, facing fearful odds.”</text>
+          <def_link>21</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>20</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I'll make the arrangements. Get ready to leave.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go to Maadoran.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carbo</portrait>
+      <speaker_name>Carbo</speaker_name>
+      <npc_text>While you were waiting for the scouts, the reinforcements have arrived. Thus, the Ordu charge was met not by a handful of desperate and poorly trained men, but by a legion of Carbo’s veterans who massacred anyone who dared to enter the fort. Except for you.
+
+“Is that &lt;him/her&gt;?” asks Carbo, looking at you with disdain.
+
+“We grabbed the one who didn’t look like one of the savages, Legatus,” says one of the guards. “As per your orders.”</npc_text>
+      <onLoadScripts>
+        <string>aod.jnl_HA2_phase5 = true;</string>
+        <string>createByCharMarker("CM_Carbo");</string>
+        <string>dlgTeleportToMarker(TM_DLG_Carbo_Bass);</string>
+        <string>CarboArmy.showObjects();</string>
+        <string>dlgCam(90, 40, 6, 4420);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’m working for Lord Gaelius.”</text>
+          <def_link>23</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>22</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Carbo</portrait>
+      <speaker_name>Carbo</speaker_name>
+      <npc_text>“Well, I have to thank you for your efforts then,” says Carbo, dragging his words. “You took your sweet time getting the savages ready. I thought we wouldn’t make it in time and would have to play catch-up, but thanks to you we didn’t have to.
+
+“I have a message for your lord. I hope you’d be kind enough to deliver it, unless you prefer to stay here. Tell Gaelius that if he ever gets these delusions of grandeur again, I’ll come knocking on his doors myself and he won’t like it one bit. Describe to him what happened here today and don't miss anything.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Return to Maadoran.</text>
+          <def_link>24</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

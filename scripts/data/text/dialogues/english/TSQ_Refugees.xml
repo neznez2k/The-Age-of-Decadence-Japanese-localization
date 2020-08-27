@@ -1,0 +1,491 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.tsq_refugees_left</string>
+    </conditions>
+    <links>
+      <int>1929</int>
+    </links>
+    <dlg_name>TSQ_Refugees</dlg_name>
+    <def_link>1914</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You see a group of road-weary travelers trying to enter Teron. Their clothes are ragged and they have the look of desperation about them.
+
+"You have to pay a levy to enter," explains the guard patiently, looking at one of the women with interest.
+
+"We don't have any money," pleads one of the refugees. "Our village was attacked. The raiders took everything."
+
+"These are hard times," agrees the guard lazily, "but we aren't running a charity here. If you want the protection of House Daratan, you have to pay. If you can't pay...," he looks at the woman again.
+
+"Please, show mercy," begs the man. "We have nowhere else to go."
+
+"Mercy?" explodes the guard. "Do you have any idea how much it costs to maintain these walls? How many men-at-arms it takes to keep the town safe? Everything costs money, and if you don't have any, you are nothing but a dead fucking weight." With these words, he pushes the man back and turns around, indicating that the conversation is over.</npc_text>
+      <onLoadScripts>
+        <string>TSQ_CreateRefugees();</string>
+        <string>aod.tsq_refugees_met = true;</string>
+        <string>useCameraBookmark(TSQ_Refugees_cam_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"What's going on?"</text>
+          <def_link>1915</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1914</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>"Refugees... Fucking freeloaders. They think they are entitled to what we've built here. Like we need more beggars and thieves!" The guard spits.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportTo(171, 23, 0, N);</string>
+        <string>dlgTeleportTo(171, 21, 0, N, 2070);</string>
+        <string>useCameraBookmark(TSQ_Refugees_cam_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"So, you will let them starve and die outside the walls?"</text>
+          <def_link>1916</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"How much do they need to pay?"</text>
+          <def_link>1918</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1915</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>"Me? What am I, a lord of the fucking gate? I was told to collect the levy from everyone who enters Teron. If I start making exceptions, I'll end up outside the walls myself in no time.
+
+"And even if I did, then what? They come all the time. There are a lot of people out there trying to make it on their own. They think that all they need is a patch of land to call their own. Well, a patch of land aint worth shit without rough men standing ready to crack a few skulls," he slaps himself on the chest.
+
+"So, those who survive end up here. If we start letting everyone in, we'll either have to feed them or we'll have a riot on our hands. That's just how it is."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"You tolerate thieves running a guild, but you can't let these people in?"</text>
+          <def_link>1917</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1916</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>"Thieves? They pay everyone. Plus, they bring cheap goods from Maadoran and Ganezzar. If you ask me, they keep this town running."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"How much do they need to pay?"</text>
+          <def_link>1918</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1917</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>"Thirty imperials per head. There are five of them, so that's a hundred and fifty imperials."</npc_text>
+      <onLoadScripts>
+        <string>aod.tsq_refugees_pay = 150;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay the entrance levy.</text>
+          <def_link>1919</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 150</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[praetor]"Let them in."</text>
+          <def_link>1921</def_link>
+          <checkOnAppear>aod.pc_member_daratan</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading]"I'll pay you a hundred imperials. It's less than what you want but we both know that nobody's going to pay you one fifty for them."</text>
+          <def_link>1930</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 100</checkOnAppear>
+          <checksOnClick>
+            <string>aod.trading &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1931</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Talk to the refugees.</text>
+          <def_link>1922</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1927</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1918</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[failure]"No deal."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Pay the entrance levy.</text>
+          <def_link>1919</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 150</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Talk to the refugees.</text>
+          <def_link>1922</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1927</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1930</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>[success]"Alright, I'll take a hundred," says the guard like he's doing you a favor.</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(Trading);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay the entrance levy.</text>
+          <def_link>1919</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 100</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>aod.tsq_refugees_pay = 100;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+      </answers>
+      <UID>1931</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>The guard shrugs, takes your money, and lets the refugees in.
+
+The older man leading the group stops in front of you. "I'm in your debt, stranger, but I swear that it will be repaid.
+
+"My name is Aemolas. Look for me at the market square."</npc_text>
+      <onLoadScripts>
+        <string>aod.tsq_refugees_normal = true;</string>
+        <string>dlgTeleportTo(170, 24, 0, SE, 2070);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgRotateToChar(2070);</string>
+        <string>if(aod.tsq_refugees_pay == 100) dlgChangeMoney(-100);</string>
+        <string>if(aod.tsq_refugees_pay == 150) dlgChangeMoney(-150);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1926</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1919</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>"It's your ass on the line, &lt;charname&gt;, not mine." The guard steps aside, letting the refugees in.
+
+The older man leading the group stops in front of you. "I'm in your debt, stranger, but I swear that it will be repaid.
+
+"My name is Aemolas. Look for me at the market square."</npc_text>
+      <onLoadScripts>
+        <string>aod.tsq_refugees_normal = true;</string>
+        <string>dlgTeleportTo(170, 24, 0, SE, 2070);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgRotateToChar(2070);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1926</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1921</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Old man</speaker_name>
+      <npc_text>"Please, help us," pleads the older man, leading the group. "I'll pay you back, I promise. I'm a smith, look," he shows you his rough, calloused hands. "Help me and I'll repay your kindness tenfold."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(171, 22, 0, S);</string>
+        <string>useCameraBookmark(TSQ_Refugees_cam_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Don't worry about it." Pay the entrance levy.</text>
+          <def_link>1923</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 150</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Tenfold? Since the entrance levy is a hundred and fifty imperials, I want you to pay me fifteen hundred imperials when you settle in."</text>
+          <def_link>1924</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 150</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[praetor]Turn to the guard. "Let them in."</text>
+          <def_link>1921</def_link>
+          <checkOnAppear>aod.pc_member_daratan</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgTeleportTo(171, 23, 0, N);</string>
+            <string>useCameraBookmark(TSQ_Refugees_cam_02);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading]Turn to the guard. "I'll pay you a hundred imperials. It's less than what you want but we both know that nobody's going to pay you one fifty for them."</text>
+          <def_link>1931</def_link>
+          <checkOnAppear>aod.trading &gt;= 3 &amp;&amp; dlgGetMoney() &gt;= 100</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgTeleportTo(171, 23, 0, N);</string>
+            <string>useCameraBookmark(TSQ_Refugees_cam_02);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1927</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.tsq_refugees_left</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1928</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1922</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Old man</speaker_name>
+      <npc_text>"I'm in your debt, stranger, but I swear that it will be repaid. My name is Aemolas. Look for me at the market square."</npc_text>
+      <onLoadScripts>
+        <string>if(aod.tsq_refugees_tenfold == false) aod.tsq_refugees_normal = true;</string>
+        <string>dlgChangeMoney(-150);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1926</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1923</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Old man</speaker_name>
+      <npc_text>The man looks at his family, sighs, and says, "Yes, fifteen hundred imperials if you pay the levy for us."</npc_text>
+      <onLoadScripts>
+        <string>aod.tsq_refugees_tenfold = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Welcome to Teron." Pay the entrance levy.</text>
+          <def_link>1923</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1924</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - gate success</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>AemolasShop.showObjects();</string>
+        <string>setGroupPassability(120, 88, 124, 88, 0, 0);</string>
+        <string>setPassability(118, 88, 0, 0);</string>
+        <string>dlgTeleportTo(122, 90, 0, N, 2070);</string>
+        <string>assignDialogue(Aemolas, 2070);</string>
+        <string>dlgDeleteCharacter(2071);</string>
+        <string>dlgDeleteCharacter(2072);</string>
+        <string>dlgDeleteCharacter(2073);</string>
+        <string>dlgDeleteCharacter(2074);</string>
+        <string>aod.gameplay_aemolasShop = true;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1926</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - gate left</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>aod.tsq_refugees_left = true;</string>
+        <string>assignDialogue(tsq_refugees, 2070);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1927</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Old man</speaker_name>
+      <npc_text>"Please, help us," pleads the older man, leading the group. "I'll pay you back, I promise. I'm a smith, look," he shows you his rough, calloused hands. "Help me and I'll repay your kindness tenfold."</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportTo(171, 22, 0, S);</string>
+        <string>useCameraBookmark(TSQ_Refugees_cam_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Don't worry about it." Pay the entrance levy.</text>
+          <def_link>1923</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 150</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Tenfold? Since the entrance levy is a hundred and fifty imperials, I want you to pay me fifteen hundred imperials when you settle in."</text>
+          <def_link>1924</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 150</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[praetor]Turn to the guard. "Let them in."</text>
+          <def_link>1921</def_link>
+          <checkOnAppear>aod.pc_member_daratan</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgTeleportTo(171, 23, 0, N);</string>
+            <string>useCameraBookmark(TSQ_Refugees_cam_02);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading]Turn to the guard. "I'll pay you a hundred imperials. It's less than what you want but we both know that nobody's going to pay you one fifty for them."</text>
+          <def_link>1931</def_link>
+          <checkOnAppear>aod.trading &gt;= 3 &amp;&amp; dlgGetMoney() &gt;= 100</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgTeleportTo(171, 23, 0, N);</string>
+            <string>useCameraBookmark(TSQ_Refugees_cam_02);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1928</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.tsq_refugees_left</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>1928</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1929</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1928</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,881 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.npc_regulus_dead</string>
+    </conditions>
+    <links>
+      <int>4933</int>
+    </links>
+    <dlg_name>MDN_Preacher_01</dlg_name>
+    <def_link>4897</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>As you walk down the street, you hear shouts and see an angry crowd pursuing several men. They chase them into a nearby house and start discussing the best way to smoke them out.
+
+A lone guard shows up and tries to to calm the tensions, but without visible success.</npc_text>
+      <onLoadScripts>
+        <string>createByCharMarker("CM_Preacher_Mob_01");</string>
+        <string>createByCharMarker("CM_Preacher_Mob_02");</string>
+        <string>createByCharMarker("CM_Preacher_Mob_03");</string>
+        <string>createByCharMarker("CM_Preacher_Mob_04");</string>
+        <string>createByCharMarker("CM_Preacher_Mob_05");</string>
+        <string>createByCharMarker("CM_Preacher_Mob_06");</string>
+        <string>createByCharMarker("CM_Preacher_Guard_01");</string>
+        <string>createByCharMarker("CM_Reggie");</string>
+        <string>dlgCam(340, 45, 10, 5221);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Approach.</text>
+          <def_link>4899</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4937</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4897</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Burn them!” yells a red-faced, burly man in a dirty tunic, pointing at the house. The crowd seems to share his animosity towards the house’s inhabitants.
+
+“Nobody’s burning anything in my district!” says the guard weakly. He tries to infuse his words with authority, but he isn’t eager to risk his life to restore order, which only emboldens the crowd.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_PreacherMob_01);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgCam(340, 45, 8, 5221);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What’s going on?”</text>
+          <def_link>4900</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4899</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>“It’s the nutters,” sighs the guard. “Now that they've got some numbers behind them, things are starting to get out of control. Earlier, they went through the district, shouting, pushing over carts, and pissing people off. There was a fight – three dead, a dozen wounded.
+
+“The preacher and his cronies holed in there,” he nods at the house, “and now these idiots want to burn it down and half a district with it.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“The nutters?”</text>
+          <def_link>4901</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4900</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>“The mouth-breathers who follow these preachers around, eating up every word and asking for more.
+
+“We didn’t see it coming when it started. These preachers were talking crazy, but nobody listened. So, what’s the harm, right? And then something changed. Suddenly, they were drawing crowds; people were repeating their shit like it meant something. And now we have bloody riots in the middle of the day!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“What preachers?”</text>
+          <def_link>4903</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“What do they preach?”</text>
+          <def_link>4902</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Need any help?”</text>
+          <def_link>4904</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4901</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>“The usual shit – the godless will be punished, the righteous will be saved.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_preacherMob_talkedPreach = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What preachers?”</text>
+          <def_link>4903</def_link>
+          <checkOnAppear>aod.quest_preacherMob_talkedPreachers == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Need any help?”</text>
+          <def_link>4904</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4902</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>“Ever since Meru went nuts and started talking about gods, some people took it upon themselves to spread his *teaching* and bring the fucking light to our darkness. Now, as far as I know, the preachers never said a word about attacking the ‘unbelievers’, but maybe they didn’t have to. Make a man feel righteous and there is no telling how far he will go.”</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_preacherMob_talkedPreachers = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“What do they preach?”</text>
+          <def_link>4902</def_link>
+          <checkOnAppear>aod.quest_preacherMob_talkedPreach == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Need any help?”</text>
+          <def_link>4904</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4903</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Guard</speaker_name>
+      <npc_text>“Can you keep the crowd in check, while I go and get more men to handle it properly?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Sure.”</text>
+          <def_link>4905</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I don’t want to get involved.” Leave.</text>
+          <def_link>4937</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4904</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Regulus</speaker_name>
+      <npc_text>The guard leaves you in charge and quickly walks away. The crowd gets its hopes up and moves a few steps closer.
+
+“That preacher ain’t going nowhere!” says the burly man. “We had enough of his shit.”</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_PreacherMob_02);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgDeleteCharacter(5230);</string>
+        <string>dlgCam(340, 45, 8, 5221);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Alright, the show’s over, so get the fuck out of here.”</text>
+          <def_link>4921</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[lore success][persuasion]“The preacher will be dealt with in accordance with the laws of House Aurelian. Any attempt to rob our Lord of his right to dispense punishment will be considered a grave insult, punishable by removal of the offender’s right arm.”</text>
+          <def_link>4921</def_link>
+          <checkOnAppear>aod.lore &gt;= 3</checkOnAppear>
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>4923</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“You’re right. A message must be sent. Go get him, but keep it down, alright?”</text>
+          <def_link>4906</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4905</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Regulus</speaker_name>
+      <npc_text>The burly man kicks the door open and the crowd rushes inside. You hear screams, but they are quickly drowned by the roar of the crowd.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_PreacherMob_04);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_PreacherMob_03, 5221);</string>
+        <string>aod.quest_mdnPreacher_sidedRegulus = true;</string>
+        <string>rwd_reputation(MDN_Preacher_03);</string>
+        <string>aod.ending_mdn_preacher = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait.</text>
+          <def_link>4936</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4906</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Regulus</speaker_name>
+      <npc_text>A few minutes after, the burly man steps outside, breathing heavily. His tunic is covered with red stains. “Fuckers,” he says, shaking his head as if in disbelief.
+
+“I’m Regulus, but you can call me Reggie.”</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportToMarker(TM_PreacherMob_02, 5221);</string>
+        <string>rwd_quest(MDN_Preacher_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“So, what’s your beef with preachers, Reggie?”</text>
+          <def_link>4907</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4936</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Regulus</speaker_name>
+      <npc_text>“Been nothing but trouble ever since they started setting up shop here. Mark my words; what happened today is nothing but a taste of what’s coming. We let them sow and the seeds took root. We can still get them today, but tomorrow? Tomorrow they will be getting us. Trust me.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Not sure I understand.”</text>
+          <def_link>4908</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“How can I help?”</text>
+          <def_link>4910</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4907</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Regulus</speaker_name>
+      <npc_text>“Look,” says Reggie, getting worked up again, his blood-covered hands clenching, “a month ago, the nutters kept their heads low and minded their own business. Today they marched through the neighbourhood – my neighbourhood, chanting, shouting, and pushing people out of the way. Tomorrow? They will run through the city, killing everyone who doesn’t believe the same shit they do.
+
+“Now, you can wait till tomorrow, if you want, but we sure as fuck won’t. We’re going to kill as many of these bastards as we can, while we still can.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“So, what makes you different from them?”</text>
+          <def_link>4909</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“How can I help?”</text>
+          <def_link>4910</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4908</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Regulus</speaker_name>
+      <npc_text>“What makes me different?” laughs Reggie, looking around. “I ain’t going to Ganezzar to tell them how to live. I’m defending myself and my family in my own fucking city against this human plague. That's what makes me different!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“How can I help?”</text>
+          <def_link>4910</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4909</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Regulus</speaker_name>
+      <npc_text>“Well, you’ve helped enough. Of course, if you want to make a donation, I won’t say no to that. Every coin will go toward recruiting more men and arming them.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“How about hunting down the rest of the preachers? Kill 5 preachers in every district and bring their ears, this sort of thing. I’m uniquely qualified...”</text>
+          <def_link>4920</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Give nothing.</text>
+          <def_link>4913</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Give 50 imperials.</text>
+          <def_link>4915</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 50</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Give 500 imperials.</text>
+          <def_link>4917</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 500</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Give 2,000 imperials.</text>
+          <def_link>4918</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 2000</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4910</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Regulus</speaker_name>
+      <npc_text>“Good thinking, but after what happened today you won’t find a preacher out in the open. They’ll go underground, like cockroaches.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Give nothing.</text>
+          <def_link>4913</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Give 50 imperials.</text>
+          <def_link>4915</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 50</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Give 500 imperials.</text>
+          <def_link>4917</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 500</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Give 2,000 imperials.</text>
+          <def_link>4918</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 2000</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4920</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Regulus</speaker_name>
+      <npc_text>“Tough times, eh? I hear you.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4935</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4913</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Regulus</speaker_name>
+      <npc_text>“Thanks.”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-50);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4935</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4915</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Regulus</speaker_name>
+      <npc_text>“That’s mighty generous of you, friend.”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-500);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4935</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4917</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Regulus</speaker_name>
+      <npc_text>“Two thousand? Who are you, friend?”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-2000);</string>
+        <string>aod.quest_mdnPreacher_militiaSponsor = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“I’m a concerned citizen helping a local militia keep the town safe. You think you can do that, Reggie? Keep the town safe?”</text>
+          <def_link>4919</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4918</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Regulus</speaker_name>
+      <npc_text>“With this kind of backing, I surely will,” says Reggie slowly, looking at you with newly found respect.</npc_text>
+      <onLoadScripts>
+        <string>setAchievement("ACH_MILITIA_SPONSOR");</string>
+        <string>rwd_reputation(MDN_Preacher_04);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4935</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4919</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The crowd pushes the guard aside, breaks down the door, and rushes inside. You hear screams, but they are quickly drowned by the roar of the crowd.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4935</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4937</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - quest</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgDeleteCharacter(5221);</string>
+        <string>dlgDeleteCharacter(5224);</string>
+        <string>dlgDeleteCharacter(5225);</string>
+        <string>dlgDeleteCharacter(5226);</string>
+        <string>dlgDeleteCharacter(5227);</string>
+        <string>dlgDeleteCharacter(5228);</string>
+        <string>dlgDeleteCharacter(5229);</string>
+        <string>if(isAlive(5230)) dlgDeleteCharacter(5230);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4935</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Regulus</speaker_name>
+      <npc_text>The man’s eyes narrow and his hands tense. “&lt;He/She&gt; is one of them!” he shouts suddenly. “Kill &lt;him/her&gt;!”</npc_text>
+      <onLoadScripts>
+        <string>addParty(PreacherMob, 0);</string>
+        <string>addCharToParty(5221, PreacherMob, fighter);</string>
+        <string>addCharToParty(5224, PreacherMob, fighter);</string>
+        <string>addCharToParty(5225, PreacherMob, fighter);</string>
+        <string>addCharToParty(5226, PreacherMob, fighter);</string>
+        <string>addCharToParty(5227, PreacherMob, fighter);</string>
+        <string>addCharToParty(5228, PreacherMob, fighter);</string>
+        <string>addCharToParty(5229, PreacherMob, fighter);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>4922</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4921</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.npc_regulus_dead = true;</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>addEnemyToParty(1, preacherMob);</string>
+        <string>setRtsCam();</string>
+        <string>aod.fight_mdnPreacher_01 = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4922</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Regulus</speaker_name>
+      <npc_text>[success]“Alright,” says the burly man, spitting and narrowly missing your feet. “Have it your way, but if we ever catch this fucker in our neighbourhood, he’s ours.”</npc_text>
+      <onLoadScripts>
+        <string>createByCharMarker("CM_MDN_Preacher_01");</string>
+        <string>createByCharMarker("CM_MDN_Preacher_Man_01");</string>
+        <string>createByCharMarker("CM_MDN_Preacher_Man_02");</string>
+        <string>rwd_civil(MDN_Preacher_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait for the crowd to leave and go inside the house.</text>
+          <def_link>4924</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4923</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You stand there for a moment, observing your handiwork - the dead and the dying, then you enter the house.
+
+You see a man with a thin face, a narrow aquiline nose, and fire in his eyes. This must be the preacher. Behind him stand two men, roughed up and bloodied.
+
+“Who are you?” asks the preacher.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_PreacherMob_03);</string>
+        <string>rwd_quest(MDN_Preacher_01);</string>
+        <string>dlgCam(350, 45, 6, 5220);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“A friend. It's safe to come out now.”</text>
+          <def_link>4929</def_link>
+          <checkOnAppear>aod.pc_reputation_theChosenOne == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[chosen one]“I had a vision today. I saw this house, burned to the ground. I saw the faithful weeping over your charred body. I saw the wicked rejoicing and the darkness growing.”</text>
+          <def_link>4925</def_link>
+          <checkOnAppear>aod.pc_reputation_theChosenOne</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4933</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You see a man with a thin face, a narrow aquiline nose, and fire in his eyes. This must be the preacher. Behind him stand two men, roughed up and bloodied.
+
+“Who are you?” asks the preacher.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_PreacherMob_03);</string>
+        <string>dlgDeleteCharacter(5221);</string>
+        <string>dlgDeleteCharacter(5224);</string>
+        <string>dlgDeleteCharacter(5225);</string>
+        <string>dlgDeleteCharacter(5226);</string>
+        <string>dlgDeleteCharacter(5227);</string>
+        <string>dlgDeleteCharacter(5228);</string>
+        <string>dlgDeleteCharacter(5229);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>rwd_quest(MDN_Preacher_01);</string>
+        <string>rwd_reputation(MDN_Preacher_05);</string>
+        <string>dlgCam(350, 45, 6, 5220);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“A friend. It's safe to come out now.”</text>
+          <def_link>4929</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[chosen one]“I had a vision today. I saw this house, burned to the ground. I saw the faithful weeping over your charred body. I saw the wicked rejoicing and the darkness growing.”</text>
+          <def_link>4925</def_link>
+          <checkOnAppear>aod.pc_reputation_theChosenOne</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4924</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Preacher</speaker_name>
+      <npc_text>The preacher nods, still in shock after the ordeal. The images conjured by your words mirror his fears, making it easy to accept your claim without questioning it.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“A man – his face glowing with inner light and beauty – appeared next to me, looking at the carnage with anger. “This shall not come to pass,” he told me. “There will be light in the darkness and you shall be my torchbearer.”</text>
+          <def_link>4926</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4925</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Preacher</speaker_name>
+      <npc_text>“A torchbearer?” asks the preacher in awe.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I came here as fast as I could, guided by the divine will. As the wicked fell on me, a blazing sword appeared in my hand. It shone like the sun, blinding the wicked yet having no effect on the righteous. Great were their numbers but the divine will was not to be denied. They fell on me like a wave and, like a wave breaking against a rock, they were thrown back, time and time again, until the ground was littered with their bodies.”</text>
+          <def_link>4927</def_link>
+          <checkOnAppear>aod.npc_regulus_dead</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I came here as fast as I could, guided by the divine will. As the wicked fell on me, I shouted at them to stop and somehow my voice became a thunderous roar, throwing the wicked back. “You shall not pass!” I shouted and the earth shook and trembled. An immense chasm opened and swallowed the wicked to the last man. If I didn't see it with my own eyes, I would not believe that such a thing was possible!”</text>
+          <def_link>4927</def_link>
+          <checkOnAppear>aod.npc_regulus_dead == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4926</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Preacher</speaker_name>
+      <npc_text>“They are dead?” asks the preacher in disbelief. “All of them? The Gods truly work their miracles through you then. They've chosen you for a reason!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“They have. Only a fool or a blasphemer would deny that now. Return to Ganezzar. Tell them that the will of the Gods is about to be worked upon Maadoran. Tell them to stand ready to render assistance. The Gods have other tasks for me here, tell them I will bring word when the time is right. Go now!”</text>
+          <def_link>4938</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4927</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Preacher</speaker_name>
+      <npc_text>The preacher bows and walks out, taking his followers with him.</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(MDN_Preacher_01);</string>
+        <string>dlgDeleteCharacter(5220);</string>
+        <string>dlgDeleteCharacter(5222);</string>
+        <string>dlgDeleteCharacter(5223);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>4934</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4938</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Preacher</speaker_name>
+      <npc_text>“The Gods worked a miracle through you, my child, much like they always do. It is the righteous &lt;men/women&gt; like you that make this world worth saving.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Thank you, brother. So, what happened here today?”</text>
+          <def_link>4931</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4929</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Preacher</speaker_name>
+      <npc_text>“My congregation wanted to share their love for the Gods with their neighbours, for it is a duty of every believer to bring the light of true faith into the hearts of others. Yet, apparently, such roads are filled with perils. The faithful were attacked, spat on, knocked to the ground and beaten.
+
+“We had to defend ourselves, but our creed isn’t a militant one and we fared poorly. All but these two lucky souls are dead now.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“I'm glad I could help then.”</text>
+          <def_link>4932</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4931</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Preacher</speaker_name>
+      <npc_text>“We are in your debt and this debt will be repaid. I'll bring the word of your deeds to the holy city of Ganezzar.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(MDN_Preacher_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Thank you.” Leave.</text>
+          <def_link>4934</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4932</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - preacher saved</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_PreacherMob_02);</string>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>aod.quest_mdnPreacher_saved = true;</string>
+        <string>aod.ending_mdn_preacher = 1;</string>
+        <string>dlgCam(350, 45, 12);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4934</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,413 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.quest_tg3_atTheTavern</string>
+      <string>aod.pc_member_thieves == false</string>
+      <string>aod.quest_tg3_talkAziz</string>
+    </conditions>
+    <links>
+      <int>2141</int>
+      <int>2138</int>
+      <int>2144</int>
+    </links>
+    <dlg_name>Aziz_01</dlg_name>
+    <def_link>2127</def_link>
+    <def_speaker_name>Aziz</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You sure you're in the right place?"</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Aziz_cam_01);</string>
+        <string>dlgTeleportTo(139, 55, 0, E);</string>
+        <string>dlgTeleportTo(140, 55, 0, W, 1300);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2136</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2138</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What do you need, &lt;charname&gt;?"</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Aziz_cam_01);</string>
+        <string>dlgTeleportTo(139, 55, 0, E);</string>
+        <string>dlgTeleportTo(140, 55, 0, W, 1300);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I had some questions about the guild."</text>
+          <def_link>2128</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_aziz_askGuild &amp;&amp; aod.npc_aziz_askOpenly</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2137</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2127</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What do you want to know?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"What can you tell me about the guild's history?"</text>
+          <def_link>2129</def_link>
+          <checkOnAppear>aod.npc_aziz_askGuild == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"We operate openly..."</text>
+          <def_link>2130</def_link>
+          <checkOnAppear>aod.npc_aziz_askOpenly == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What do you do around here?"</text>
+          <def_link>2132</def_link>
+          <checkOnAppear>aod.npc_aziz_training == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2136</def_link>
+          <checkOnAppear>aod.npc_aziz_training</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2128</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Do I look like a loremaster to you? The guild goes back centuries. Well, at least the name does. From what I've been told, things were different in the olden days – roads paved with gold, rivers full of milk and honey, but if you ask me, it was probably the same shit.
+
+"Some men aren't made for 'honest' work, if by honest you mean slaving away for a pittance. It comes at a price though," he waves around, indicating the tavern, but doesn't elaborate.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_aziz_askGuild = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"We operate openly..."</text>
+          <def_link>2130</def_link>
+          <checkOnAppear>aod.npc_aziz_askOpenly == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What do you do around here?"</text>
+          <def_link>2132</def_link>
+          <checkOnAppear>aod.npc_aziz_training == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2136</def_link>
+          <checkOnAppear>aod.npc_aziz_training</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2129</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"We always do. You can hide all you want, but any guard worth his salt knows where to find those who break the laws in his town. It's rarely worth the trouble though. Besides, why kill the goose that lays the golden eggs? I daresay we pay more in bribes than the rest of the town pays in taxes and levies."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_aziz_askOpenly = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Didn't stop them from nailing Cado's predecessor to the front door, did it?"</text>
+          <def_link>2131</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2130</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Tullius? I was surprised he lasted that long. He was a good and well respected thief, but power clouded his judgement and made him see things that weren't there. He thought that the guards were working for him because he was paying them more. He thought that he was running the town.
+
+"In the end Dellar had to pay Tullius a visit and show everyone the error of his way. Then he had a long chat with Cado and we got us a new guildmaster."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"What can you tell me about the guild's history?"</text>
+          <def_link>2129</def_link>
+          <checkOnAppear>aod.npc_aziz_askGuild == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"What do you do around here?"</text>
+          <def_link>2132</def_link>
+          <checkOnAppear>aod.npc_aziz_training == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2136</def_link>
+          <checkOnAppear>aod.npc_aziz_training</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2131</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I help people make right decisions. Break their heads if they don't. In most cases this is all the motivation they need."</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_aziz_training = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I thought we mostly steal things."</text>
+          <def_link>2133</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2132</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Any idiot can swipe something. It takes more than that to run a successful guild. We sell what we can, what can't be traced back to us, and we send the rest to other towns with caravans. I've lost count how many times people have tried to fuck us.
+
+"They know that we won't go to the guards, but they must also know that we'll find them, break their legs and leave them to the vultures. Like all lessons, it must be taught."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Can you teach me anything?"</text>
+          <def_link>2134</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2133</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Sure, I've got time. Come with me."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Follow Aziz outside.</text>
+          <def_link>2135</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2134</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I don't sneak into houses, quiet as a mouse," says Aziz, picking up a club lying on the ground. "I don't pick pockets or run cons. I'm a man of the road," he swings the club with force, "for the road's bounties are plentiful, if you are able to receive them.
+
+"Now, I assume you don't like getting surrounded and fighting half a dozen men all at once, so that's where clubs and hammers come in. Put enough power into your swing and you'll be knocking people down like there is no tomorrow. A good swing, it's all about the balance, not raw strength. Here, let me show you..."</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(147, 55, 0, S, 1300);</string>
+        <string>dlgTeleportTo(147, 54, 0, N);</string>
+        <string>useCameraBookmark(NPC_Aziz_cam_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Train with Aziz.</text>
+          <def_link>2139</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2135</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You spend a couple of hours with Aziz practicing your swings until you feel some improvement. Tired and battered, you go back to the tavern.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(140, 55, 0, W, 1300);</string>
+        <string>dlgTeleportTo(139, 55, 0, E);</string>
+        <string>useCameraBookmark(NPC_Aziz_cam_01);</string>
+        <string>rwd_training(Aziz);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2136</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2139</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2136</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Not now, &lt;charname&gt;."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2136</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2137</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What are you waiting for? Get out there and have fun."</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Aziz_cam_01);</string>
+        <string>dlgTeleportTo(139, 55, 0, E);</string>
+        <string>dlgTeleportTo(140, 55, 0, W, 1300);</string>
+        <string>aod.quest_tg3_talkAziz = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"About to." Leave.</text>
+          <def_link>2136</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Easier said than done."</text>
+          <def_link>2142</def_link>
+          <checkOnAppear>aod.quest_tg3_talkAziz == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2141</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Well, if it was easy, anyone could do it. Cado trusts you, &lt;charname&gt;. He trusts in your abilities. Don't let him down."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_tg3_talkAziz = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I won't. Any advice?"</text>
+          <def_link>2143</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2142</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Don't overcomplicate it. Some people think that killing is too old-fashioned, but the truth is, it works just fine. Dead men are the most agreeable sort I've ever met, so don't be shy to stick a knife in anyone who needs an extra dose of convincing."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Thanks." Leave.</text>
+          <def_link>2136</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2143</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You're wasting time, &lt;charname&gt;."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2136</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2144</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

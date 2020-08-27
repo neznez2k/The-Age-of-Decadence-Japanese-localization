@@ -1,0 +1,491 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.fight_mg3_ambush == 2</string>
+      <string>aod.per &gt;= 7</string>
+    </conditions>
+    <links>
+      <int>10</int>
+      <int>5</int>
+    </links>
+    <dlg_name>Quest_MG3_04</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>none</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[perception failure]It's not until the men step from behind the trees and block your path that you notice their presence.
+
+"Mercato sends his regards," one of them casually utters. "He says the way you talk, one might think you've got nine lives. He asked us to see if it's true. So, do you have nine lives, friend?"</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_Ambush_NPC_01, 1820);</string>
+        <string>dlgTeleportToMarker(TM_Ambush_NPC_02, 1821);</string>
+        <string>dlgTeleportToMarker(TM_Ambush_PC_01);</string>
+        <string>dlgCam(345, 45, 9, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]“Sends his regards, does he? Too bad he couldn’t deliver the message personally, but then again, why would he? Whoever kills me is a dead man and Mercato isn’t ready to cross Styx yet. Unlike you two, of course, who are obviously in a hurry to see what the afterlife is all about.”</text>
+          <def_link>11</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“I don't think so...”</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity]Run!</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You turn around and run as fast as you can, which, as it turns out, isn't very fast at all. You have no choice but to fight.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetCombatAnimation(1);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgSetCombatAnimation(1820);</string>
+        <string>dlgSetCombatAnimation(1821);</string>
+        <string>dlgTeleportToMarker(TM_Run_NPC_01, 1820);</string>
+        <string>dlgTeleportToMarker(TM_Run_NPC_02, 1821);</string>
+        <string>dlgTeleportToMarker(TM_Run_PC_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Make them suffer!</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You turn around and run as fast as you humanly can. Angry shouts from behind tell you that you have a chance to escape and you redouble your efforts. You run until you collapse from the exhaustion, preparing to die. To your surprise, you're alone in the forest.</npc_text>
+      <onLoadScripts>
+        <string>dlgSetRunAnimation(1);</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Take another route to Maadoran.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>addEnemyToParty(1, MG3BanditsAmbush);</string>
+        <string>aod.fight_mg3_ambush = 1;</string>
+        <string>$RTSCamera.setXYAngle(135); $RTSCamera.setYZAngle(45); $RTSCamera.setZoom(10); $RTSCamera.lookAtPC();</string>
+        <string>aod.gameplay_questMG3ambush_fight = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING - leave</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>StartTeronEnding();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[perception success]You notice a man hiding in the forest and get off the road before you are spotted. Whoever he is, it's unlikely that he's alone and that his intentions are friendly.</npc_text>
+      <onLoadScripts>
+        <string>dlgStealthPose(1820);</string>
+        <string>dlgStealthPose(1821);</string>
+        <string>dlgCam(305, 45, 6, 1821);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Whatever it is, you can handle it.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[sneak]Sneak past them.</text>
+          <def_link>18</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.sneak &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>When you get closer, the men step from behind the trees, blocking your path.
+
+"Mercato sends his regards," one of them casually utters. "He says the way you talk, one might think you've got nine lives. He asked us to see if it's true. So, do you have nine lives, friend?"</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgSetAmbientAnimation(1);</string>
+        <string>dlgSetAmbientAnimation(1820);</string>
+        <string>dlgSetAmbientAnimation(1821);</string>
+        <string>dlgTeleportToMarker(TM_Ambush_NPC_01, 1820);</string>
+        <string>dlgTeleportToMarker(TM_Ambush_NPC_02, 1821);</string>
+        <string>dlgTeleportToMarker(TM_Ambush_PC_01);</string>
+        <string>dlgCam(345, 45, 9, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]“Sends his regards, does he? Too bad he couldn’t deliver the message personally, but then again, why would he? Whoever kills me is a dead man and Mercato isn’t ready to cross Styx yet. Unlike you two, of course, who are obviously in a hurry to see what the afterlife is all about.”</text>
+          <def_link>11</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I don't think so..."</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity]Run!</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Well, that's a shame then, ‘cause if you only have one, like the rest of us, you've just reached the end of your journey." He nods to the other men and they start circling you, cutting off the escape route.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity]Run!</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Crouching, you move from one tree to another, but you are quickly spotted and forced back onto the road.
+
+"Mercato sends his regards," one of them casually utters. "He says the way you talk, one might think you've got nine lives. He asked us to see if it's true. So, do you have nine lives, friend?"</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgSetAmbientAnimation(1);</string>
+        <string>dlgSetAmbientAnimation(1820);</string>
+        <string>dlgSetAmbientAnimation(1821);</string>
+        <string>dlgTeleportToMarker(TM_Ambush_NPC_01, 1820);</string>
+        <string>dlgTeleportToMarker(TM_Ambush_NPC_02, 1821);</string>
+        <string>dlgTeleportToMarker(TM_Ambush_PC_01);</string>
+        <string>dlgCam(345, 45, 9, 1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise success]“Sends his regards, does he? Too bad he couldn’t deliver the message personally, but then again, why would he? Whoever kills me is a dead man and Mercato isn’t ready to cross Styx yet. Unlike you two, of course, who are obviously in a hurry to see what the afterlife is all about.”</text>
+          <def_link>11</def_link>
+          <checkOnAppear>aod.streetwise &gt;= 3</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I don't think so..."</text>
+          <def_link>7</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity]Run!</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>18</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Crouching, you move from one tree to another, trying to stay out of sight and out of earshot. Soon, the ambush is left far behind and you continue your journey freely.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgStealthPose(1);</string>
+        <string>dlgTeleportToMarker(TM_Sneak_PC_01);</string>
+        <string>rwd_civil(Sneak);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to Maadoran.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Whoa, slow down. What are you talking about? Mercato said you are working for Linos. We kill you, your boss gets another little helper and that’s the end of it.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion]“I’m working for Lord Antidas of House Daratan. So, you kill me, Antidas takes it as a personal insult and you two end up on a torturer’s table faster than you can blink.”</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.persuasion &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>15</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]“Little helper, eh? Then why didn’t Mercato kill me himself? Think! He paid you to do what he could have easily done himself – if he was dumb enough, that is. Did you even ask him why?”</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“You sing a pretty song, friend, but Mercato warned us about it. Say your prayers, if you have any.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Fight.</text>
+          <def_link>3</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[dexterity]Run!</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.dex &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Look, if you’re working for Antidas, you have nothing to worry about. Crossing House Daratan isn’t what we signed up for, so Mercato can’t hold us to it. But that’s a big if, right? I mean, anyone can say that they are working for Antidas. How do we know it’s the truth?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“Why else would Mercato ask you to kill me? Antidas was behind that raid on the Imperial Guards’ barracks and Mercato wants to have the last word. I’m surprised you didn’t ask him why.”</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“No,” says the man after exchanging glances with his partner. “We, uh, assumed...”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Never assume anything, my friend, and you’ll live a long and happy life. I’m glad that I was able to help and prevent you from doing something we’d both regret.”</text>
+          <def_link>16</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The man nods, no longer sure of anything. He looks at his partner for an insight, getting nothing but a shrug in return. Looks like your path is clear.</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(MG3_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go to Maadoran.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>16</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You look at the bodies, wondering if Mercato will consider the matter settled or make another attempt. Either way, you're safe for the moment.</npc_text>
+      <onLoadScripts>
+        <string>$RTSCamera.lookAtPC();</string>
+        <string>aod.fight_mg3_ambush = 0;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgFinish();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>17</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

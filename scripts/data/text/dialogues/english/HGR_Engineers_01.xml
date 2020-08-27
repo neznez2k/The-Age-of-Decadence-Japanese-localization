@@ -1,0 +1,469 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.hgr_engineer_status == 3</string>
+    </conditions>
+    <links>
+      <int>23</int>
+    </links>
+    <dlg_name>HGR_Engineers_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>Engineer</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Returning to the entrance you discover that the long awaited Aurelian engineers have finally arrived.
+
+“What's down there, Praetor?” asks the man leading them.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Nothing. The tunnel has collapsed a long time ago.”</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“A locked door. Can you get it open for me?”</text>
+          <def_link>3</def_link>
+          <checkOnAppear>aod.HGR_doorOpen == false &amp;&amp; aod.HGR_doorCollapsed == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Maybe we should take a look,” suggests the engineer. “I mean, since we’re already here.”</npc_text>
+      <onLoadScripts>
+        <string>aod.hgr_engineers_collapsed = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“The fuck that’s supposed to mean? I just fucking told you that there’s nothing down there, yet you look me in the fucking eyes and tell me that *you* should take another look because apparently my opinion means shit to you. Is that it?”</text>
+          <def_link>15</def_link>
+          <checkOnAppear>aod.HGR_doorCollapsed == 0</checkOnAppear>
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick>
+            <string>if(aod.streetwise &gt;= 7) aod.flagUsed = 1;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise][trading]“We aren’t paying you and your men for sight-seeing, so if you want to crawl around these ruins, you’ll have to pick up the tab yourself.”</text>
+          <def_link>15</def_link>
+          <checkOnAppear>aod.HGR_doorCollapsed == 0</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.streetwise + aod.trading) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading]“Or you can take 500 imperials and walk away. That’s ten times what they’re paying you to seal it.”</text>
+          <def_link>15</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 500 &amp;&amp; aod.HGR_doorCollapsed == 0</checkOnAppear>
+          <checksOnClick>
+            <string>aod.trading &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>21</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"By all means." Return to Ganezzar.</text>
+          <def_link>29</def_link>
+          <checkOnAppear>aod.HGR_doorCollapsed</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Our orders are to seal it, Praetor,” says the engineer. “Nobody said anything about opening it up first.”</npc_text>
+      <onLoadScripts>
+        <string>aod.hgr_engineers_door = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise][persuasion]“Lord &lt;Gaelius/Serenas&gt; wants to know what it is we're sealing. That’s why he sent me here, so stop wasting my time and get it open.”</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.streetwise + aod.persuasion) &gt;= 12</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5</int>
+          </linksOnClick>
+          <scriptsOnClick>
+            <string>if((aod.streetwise + aod.persuasion) &gt;= 12) aod.flagUsed = 1;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[reputation: Aurelian]“Do you know who I am?”</text>
+          <def_link>12</def_link>
+          <checkOnAppear>aod.pc_member_aurelian</checkOnAppear>
+          <checksOnClick>
+            <string>dlgGetRep(aurelian) &gt;= 15</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>11</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The engineer salutes and gives the order.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Follow them.</text>
+          <def_link>27</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The ancient door resists their effort for almost an hour, before giving up and sliding into the rock.
+
+“We'll wait for you here, Praetor,” says the engineer.</npc_text>
+      <onLoadScripts>
+        <string>aod.hgr_engineer_status = 3;</string>
+        <string>HGR_openDoor();</string>
+        <string>hgr_teleportEngineers();</string>
+        <string>if(aod.flagUsed) {rwd_civil(HGR_03); aod.flagUsed = 0;}</string>
+        <string>dlgFadeLongToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go in.</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>27</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - engineers</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>addEnemyToParty(1, HGR_Engineers);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.hgr_engineer_status = 4;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Yes, Praetor. Your reputation precedes you.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>“Then stop wasting my time and open that door.”</text>
+          <def_link>5</def_link>
+          <checkOnAppear>aod.hgr_engineers_door &amp;&amp; aod.hgr_engineers_explored == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Then stop wasting my time and get out of here.”</text>
+          <def_link>30</def_link>
+          <checkOnAppear>aod.hgr_engineers_collapsed || aod.hgr_engineers_explored</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“Can't say I have, Praetor.”</npc_text>
+      <onLoadScripts>
+        <string>aod.hgr_engineers_failedRep = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“Lord &lt;Gaelius/Serenas&gt; wants to know what it is we’re sealing. That’s why he sent me here, so stop wasting my time and get it open.”</text>
+          <def_link>15</def_link>
+          <checkOnAppear>aod.hgr_engineers_explored == 0</checkOnAppear>
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Kill them.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Return to Ganezzar.</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“My apologies, Praetor. You say there’s nothing down there, that’s good enough for me.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Wait for them to leave.</text>
+          <def_link>28</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>30</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“My apologies, Praetor. You say there’s nothing down there, that’s good enough for me.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(HGR_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait for them to leave.</text>
+          <def_link>28</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Five hundred, eh?” asks the engineer, the answer written on his face. “Alright, but keep it quiet, you hear me? If you find something, don't tell anyone where you found it.”</npc_text>
+      <onLoadScripts>
+        <string>dlgChangeMoney(-500);</string>
+        <string>rwd_civil(HGR_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait for them to leave.</text>
+          <def_link>28</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>21</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]“With all due respect, Praetor, you have your orders, we have ours,” the engineer says firmly.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[reputation: Aurelian]“Do you know who I am?”</text>
+          <def_link>12</def_link>
+          <checkOnAppear>aod.pc_member_aurelian &amp;&amp; aod.hgr_engineers_failedRep == 0</checkOnAppear>
+          <checksOnClick>
+            <string>dlgGetRep(aurelian) &gt;= 15</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>11</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Kill them.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Return to Ganezzar.</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>15</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - sealed - go to Ganezzar</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>HGR_collapse();</string>
+        <string>aod.hgr_engineer_status = 5;</string>
+        <string>hgr_deleteEngineers();</string>
+        <string>switchMission("Ganezzar.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>29</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - explore the Hangar</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What do you want us to do now, Praetor?”</npc_text>
+      <onLoadScripts>
+        <string>aod.hgr_engineers_explored = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>“Seal it.” Leave.</text>
+          <def_link>29</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>“Leave and don't tell anyone about what you saw here.”</text>
+          <def_link>25</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>23</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“What do you mean?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[streetwise]“I mean that this area is *vital* to House Aurelian's security and if you as much as breathe a word of what you've seen to anyone, you'll be hunted down and crucified. Am I making myself clear?”</text>
+          <def_link>15</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>26</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading]“I'll give you 500 imperials to walk away and say nothing to anyone. That's ten times what they're paying you to seal it.”</text>
+          <def_link>15</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 500</checkOnAppear>
+          <checksOnClick>
+            <string>aod.trading &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>21</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>25</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]“Mum's the word, Praetor,” says the man, clearly taking matters of national security very seriously. “We saw nothing.”</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(HGR_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait for them to leave.</text>
+          <def_link>28</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>26</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - engineers leave</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.hgr_engineer_status = 5;</string>
+        <string>hgr_deleteEngineers();</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>28</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

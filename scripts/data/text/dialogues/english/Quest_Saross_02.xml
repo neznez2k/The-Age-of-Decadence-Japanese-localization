@@ -1,0 +1,446 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.SRS_generator_identified</string>
+    </conditions>
+    <links>
+      <int>13</int>
+    </links>
+    <dlg_name>Quest_Saross_02</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You see a strange machine, old and broken, stripped of any part that had any value.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[lore][crafting]See if you can fix it.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lore &gt;= 3 &amp;&amp; aod.crafting &lt; 3</string>
+            <string>aod.lore &gt;= 3 &amp;&amp; aod.crafting &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>12</int>
+            <int>3</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[lore failure]You have absolutely no idea what to do with it. In fact, you’re convinced that it’s an evil thing and all Gods-fearing folks should stay as far away from it as humanly possible.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[lore success][crafting failure]As far as you can tell, it’s a generator built after the fall of the Empire, which explains its design, less reliant on otherworldly energies and things man wasn’t meant to know. You have no idea what's wrong with it, though.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>12</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]As far as you can tell, it’s a generator built after the fall of the Empire, which explains its design, less reliant on otherworldly energies and things man wasn’t meant to know. It runs on oil, but the parts that inject the oil into the main chamber and the air valve regulating the air intake are missing. The rest you can do without, considering that you only need this fearsome engine of destruction to report for duty one last time.
+
+Come to think about it, you could *probably* do without the fuel injector and rig up something very temporary and hope that the machine doesn't blow up in your face.</npc_text>
+      <onLoadScripts>
+        <string>aod.SRS_generator_identified = true;</string>
+        <string>aod.jnl_Saross_phase2 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[crafting]Reattach the air valve.</text>
+          <def_link>4</def_link>
+          <checkOnAppear>dlgOwnsItem(2201)</checkOnAppear>
+          <checksOnClick>
+            <string>aod.crafting &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You have no idea where it’s supposed to go.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]It takes a while, but eventually the air valve is restored to its rightful place.</npc_text>
+      <onLoadScripts>
+        <string>dlgRemoveItem(2201, 1);</string>
+        <string>aod.SRS_generator_fixedValve = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[crafting]Reattach the oil injector.</text>
+          <def_link>8</def_link>
+          <checkOnAppear>dlgOwnsItem(2202)</checkOnAppear>
+          <checksOnClick>
+            <string>aod.crafting &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[crafting][intelligence]Do you really need an oil injector to make this thing work? Surely, you can do without it?</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.crafting + aod.int) &gt;= 15</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone for now.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Turns out that fuel injectors are needlessly complicated and can’t be easily replaced with metal shavings and old gears.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Try something else.</text>
+          <def_link>13</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone for now.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]It takes you a better part of the day to rig up a new and improved fuel injector – good for 5 minutes of work or less – and hook it up to the machine. For a half-assed solution, it really is a thing of beauty and a testament to human ingenuity.</npc_text>
+      <onLoadScripts>
+        <string>rwd_civil(Saross_01);</string>
+        <string>aod.SRS_generator_fixedInjector = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Add oil and you’re good to go. Five jars should be enough.</text>
+          <def_link>11</def_link>
+          <checkOnAppear>aod.alchemy &lt; 3</checkOnAppear>
+          <checksOnClick>
+            <string>dlgGetItemsCount(1813) &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>10</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[alchemy success]Add oil and you’re good to go. It seems that five jars should be enough, but you can work your magic and do more with less.</text>
+          <def_link>11</def_link>
+          <checkOnAppear>aod.alchemy &gt;= 3</checkOnAppear>
+          <checksOnClick>
+            <string>dlgGetItemsCount(1813) &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]After a few fruitless hours you're forced to admit defeat.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave it alone for now.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]It takes you a few hours to make the injector work as advertised and pump oil into the main chamber of the machine as needed.</npc_text>
+      <onLoadScripts>
+        <string>dlgRemoveItem(2202, 1);</string>
+        <string>aod.SRS_generator_fixedInjector = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Add oil and you’re good to go. Five jars should be enough.</text>
+          <def_link>11</def_link>
+          <checkOnAppear>aod.alchemy &lt; 3</checkOnAppear>
+          <checksOnClick>
+            <string>dlgGetItemsCount(1813) &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>10</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[alchemy success]Add oil and you’re good to go. It seems that five jars should be enough, but you can work your magic and do more with less.</text>
+          <def_link>11</def_link>
+          <checkOnAppear>aod.alchemy &gt;= 3</checkOnAppear>
+          <checksOnClick>
+            <string>dlgGetItemsCount(1813) &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>9</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You pray to anyone who might be listening, fill up the lubrication and cooling pipes, and light up the ignition torch. The machine responds by emitting a terrible noise and leaking oil and black smoke. It backfires a few times, then finally comes to its senses and switches to a low humming sound. A moment later lights flicker and come to life.</npc_text>
+      <onLoadScripts>
+        <string>aod.SRS_generatorFixed = true;</string>
+        <string>dlgRemoveItem(1813, 5);</string>
+        <string>BasementPowerOff.hideObjects(true);</string>
+        <string>BasementPowerOn.showObjects(true);</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.jnl_Saross_phase3 = true;</string>
+        <string>rwd_civil(Saross_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>10</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You pray to anyone who might be listening, fill up the lubrication and cooling pipes, and light up the ignition torch. The machine responds by emitting a terrible noise and leaking oil and black smoke. It backfires a few times, then finally comes to its senses and switches to a low humming sound. A moment later lights flicker and come to life.</npc_text>
+      <onLoadScripts>
+        <string>aod.SRS_generatorFixed = true;</string>
+        <string>dlgRemoveItem(1813, 3);</string>
+        <string>BasementPowerOff.hideObjects(true);</string>
+        <string>BasementPowerOn.showObjects(true);</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.jnl_Saross_phase3 = true;</string>
+        <string>rwd_civil(Saross_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>14</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You don’t have enough oil.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave it alone for now.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The generator isn't working yet.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[crafting]Reattach the air valve.</text>
+          <def_link>4</def_link>
+          <checkOnAppear>aod.SRS_generator_fixedValve == false &amp;&amp; dlgOwnsItem(2201)</checkOnAppear>
+          <checksOnClick>
+            <string>aod.crafting &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>5</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[crafting]Reattach the oil injector.</text>
+          <def_link>8</def_link>
+          <checkOnAppear>aod.SRS_generator_fixedValve &amp;&amp; dlgOwnsItem(2202) &amp;&amp; aod.SRS_generator_fixedInjector == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.crafting &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>9</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[crafting][intelligence]Do you really need an oil injector to make this thing work? Surely, you can do without it?</text>
+          <def_link>6</def_link>
+          <checkOnAppear>aod.SRS_generator_fixedValve &amp;&amp; aod.SRS_generator_fixedInjector == false</checkOnAppear>
+          <checksOnClick>
+            <string>(aod.crafting + aod.int) &gt;= 15</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>7</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Add oil and you’re good to go. Five jars should be enough.</text>
+          <def_link>11</def_link>
+          <checkOnAppear>aod.SRS_generator_fixedInjector &amp;&amp; aod.alchemy &lt; 3</checkOnAppear>
+          <checksOnClick>
+            <string>dlgGetItemsCount(1813) &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>10</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[alchemy success]Add oil and you’re good to go. It seems that five jars should be enough, but you can work your magic and do more with less.</text>
+          <def_link>11</def_link>
+          <checkOnAppear>aod.SRS_generator_fixedInjector &amp;&amp; aod.alchemy &gt;= 3</checkOnAppear>
+          <checksOnClick>
+            <string>dlgGetItemsCount(1813) &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>14</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

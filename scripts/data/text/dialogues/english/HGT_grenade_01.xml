@@ -1,0 +1,217 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.item_hgt_grenade &gt;= 1</string>
+    </conditions>
+    <links>
+      <int>7</int>
+    </links>
+    <dlg_name>HGT_grenade_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You see a dead man slumped against the wall. It looks like he crawled here and bled to death from many cuts covering his body. He's clutching a strange metal ball the size of an apple, covered with strange protuberances.</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(2240, 1);</string>
+        <string>aod.item_hgt_grenade = 1;</string>
+        <string>setWindowImage(items_hgtGrenade);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lore]Examine it.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lore &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Take it just in case.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>It's a mysterious contraption the size of an apple, covered with strange protuberances.</npc_text>
+      <onLoadScripts>
+        <string>setWindowImage(items_hgtGrenade);</string>
+        <string>if(aod.item_hgt_grenade == 1) aod.item_hgt_grenade = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lore]Examine it.</text>
+          <def_link>2</def_link>
+          <checkOnAppear>aod.item_hgt_grenade == 2</checkOnAppear>
+          <checksOnClick>
+            <string>aod.lore &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>3</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[crafting]Fix it.</text>
+          <def_link>5</def_link>
+          <checkOnAppear>aod.item_hgt_grenade == 3</checkOnAppear>
+          <checksOnClick>
+            <string>aod.crafting &gt;= 7</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You have no idea what it is.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Take it just in case.</text>
+          <def_link>1</def_link>
+          <checkOnAppear>aod.item_hgt_grenade &lt; 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>1</def_link>
+          <checkOnAppear>aod.item_hgt_grenade &gt;= 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]It’s a magical weapon of the olden days, said to be more powerful than ten black powder bombs combined.
+
+It's covered with rust and one of the protuberances is loose.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Remove it.</text>
+          <def_link>4</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Slowly, you pull it out, revealing a long cylinder. The striker spring inside the cylinder is rusty and stuck. You doubt you can fix it on the spot, but you can probably fashion another spring and calibrate it to the best of your abilities.</npc_text>
+      <onLoadScripts>
+        <string>aod.item_hgt_grenade = 3;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[crafting]Do it.</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.crafting &gt;= 6</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>6</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Fixing ancient ordnance when it can go off at any moment doesn't seem to be one of your talents.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]An hour later you’re holding in your hands the new and vastly improved detonator, if vastly improved means that it can go off at any moment. Holding your breath, you insert it back and twist to lock it in place. The rest seems simple – push on the detonator to arm the bomb. If it doesn’t explode instantly, throw it at the enemy.</npc_text>
+      <onLoadScripts>
+        <string>dlgAddItem(213, 1);</string>
+        <string>dlgRemoveItem(2240, 1, 0);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>6</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

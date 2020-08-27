@@ -1,0 +1,879 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Quest_Zamedi_03</dlg_name>
+    <def_link>90</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>As far as you can tell, the semi-sphere is carved from a single crystal and polished to perfection. It's framed in a large metal band covered with dimly glowing symbols. You touch one of the symbols and the crystal's surface changes almost instantly, tiny fracture lines appear, rearrange themselves, and disappear as quickly as they come.
+
+You notice that the shimmering image changed as well. The tower's gone, replaced by a pyramid with a flat top. The image is incredibly detailed, showing the inner workings and various machines within the pyramid. You touch another symbol and the image changes again, transforming into a large ziggurat. Is it the temple you've been asked to find? You touch another symbol and the temple is replaced by an image of the demon you met earlier.</npc_text>
+      <onLoadScripts>
+        <string>dlgTeleportToMarker(TM_TowerPanel);</string>
+        <string>dlgCam(110, 40, 15);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[intelligence][lore]Examine the image.</text>
+          <def_link>91</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.int + aod.lore) &gt;= 13</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>137</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intelligence][lore]Try to figure out how to use it.</text>
+          <def_link>167</def_link>
+          <checkOnAppear>aod.inf_towerConsole_learned == 0 &amp;&amp; aod.lore_knowledge_databanks == 0</checkOnAppear>
+          <checksOnClick>
+            <string>aod.int &lt; 8</string>
+            <string>aod.lore == 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>165</int>
+            <int>166</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Access the databanks.</text>
+          <def_link>140</def_link>
+          <checkOnAppear>aod.inf_towerConsole_learned || aod.lore_knowledge_databanks</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>138</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>90</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[intelligence failure]You have no idea.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[intelligence][lore]Examine the image.</text>
+          <def_link>91</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.int + aod.lore) &gt;= 13</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>137</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>138</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>165</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[intelligence success][lore failure]You almost figured it out. If you put your hands this way and then... Never mind.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[intelligence][lore]Examine the image.</text>
+          <def_link>91</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.int + aod.lore) &gt;= 13</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>137</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>138</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>167</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]You rest your hands on the cool surface of the semi-sphere and try to clear your thoughts. Slowly, images from the databanks rise to the surface of the display like colorful fish rising from black depths. As you grow accustomed to the experience, the disconnected scenes begin to rush forth all at once, until you gradually figure out how to sort and slow them.
+
+Seek out information on:</npc_text>
+      <onLoadScripts>
+        <string>aod.lore_knowledge_databanks = 1;</string>
+        <string>setAchievement("ACH_COMPUTER");</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>The portal network.</text>
+          <def_link>141</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.hgt_portalActive</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>144</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>The Gods.</text>
+          <def_link>156</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>166</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You aren't sure how to read it, but it doesn't look like there is anything of interest there. It doesn't seem that the demon has any internal organs - not that you thought that a stone creature would have any, except for some kind of a glowing sphere in the middle of his chest.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>138</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>91</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]If you're reading it correctly, the demon isn't made of stone but of some sort of metallic crystal grown around the power core that sustains and animates it. Like any mineral, it has so-called cleavage planes - planes of structural weakness along which a mineral is likely to split smoothly. You note the locations of these planes, just in case.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_zamedi_knowWeak = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lore success]Could the ring be actually connected to the power core? Examine it again.</text>
+          <def_link>139</def_link>
+          <checkOnAppear>aod.lore &gt;= 6 &amp;&amp; aod.int &lt; 9</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intelligence success]Could the ring be actually connected to the power core? Examine it again.</text>
+          <def_link>139</def_link>
+          <checkOnAppear>aod.int &gt;= 9</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>138</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>137</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The power core is the last piece of the puzzle. As you study the ring again, everything clicks and comes together. The markings on the bands indicate distance and power level. The ring doesn't control the demon directly, but it controls the core. Thus, if the demon gets the ring, he will become his own master.</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_zamedi_knowRing = true;</string>
+        <string>aod.artefact_towerring_identified = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>138</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>139</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - top</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>138</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You rest your hands on the cool surface of the semi-sphere and try to clear your thoughts. Slowly, images from the databanks rise to the surface of the display like colorful fish rising from black depths. As you grow accustomed to the experience, the disconnected scenes begin to rush forth all at once, until you gradually figure out how to sort and slow them.
+
+Seek out information on:</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>The portal network.</text>
+          <def_link>141</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.hgt_portalActive</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>144</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>The Gods.</text>
+          <def_link>156</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>140</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Seek out information on:</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>The portal network.</text>
+          <def_link>141</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.hgt_portalActive</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>144</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>The Gods.</text>
+          <def_link>156</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>138</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>158</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>A glowing honeycomb of portals surfaces on the crystal semi-sphere. There is a flash at the very center, and tiny stars radiate outwards on the network. When the stars reach a junction, they split into two or three new stars and continue to the end nodes.
+
+Upon reaching their destinations, the lights blink three times, then disappear as the portals fail to respond. One by one the stars and the portals vanish. With the sequence ended, only two remain.
+
+One is represented by a ziggurat, the other a facility high in the mountains.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Travel to the mountain facility.</text>
+          <def_link>142</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Travel to the ziggurat.</text>
+          <def_link>143</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Check the databanks again.</text>
+          <def_link>158</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>141</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>A glowing honeycomb of portals surfaces on the crystal semi-sphere. There is a flash at the very center, and tiny stars radiate outwards on the network. When the stars reach a junction, they split into two or three new stars and continue to the end nodes.
+
+Upon reaching their destinations, the lights blink three times, then disappear as the portals fail to respond. One by one the stars and the portals vanish. With the sequence ended, only three remain.
+
+One is represented by a ziggurat, the other a facility high in the mountains, and the last one a command center.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Travel to the mountain facility.</text>
+          <def_link>142</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Travel to the ziggurat.</text>
+          <def_link>143</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Travel to the command center.</text>
+          <def_link>145</def_link>
+          <checkOnAppear>aod.hgt_portalActive</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Check the databanks again.</text>
+          <def_link>158</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>144</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start Hellgate</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>ZamediPortal.showObjects();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.mty_fromHellgate = 1;</string>
+        <string>aod.zmd_portalActive = 1;</string>
+        <string>switchMission("Hellgate Underground.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>145</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start MTY_Medical_01</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>ZamediPortal.showObjects();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.mty_fromZamedi = 1;</string>
+        <string>aod.zmd_portalActive = 1;</string>
+        <string>switchMission("Monastery Interior Chamber.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>142</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You try to set the ziggurat as your destination but the crystal semi-sphere flashes red, refusing to obey. It appears that the access to the ziggurat had been restricted.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[lore][intelligence]You aren't going to let a little thing like Restricted Access slow you down, are you?</text>
+          <def_link>160</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.lore + aod.int) &gt;= 19 &amp;&amp; aod.lore_permissionGranted</string>
+            <string>(aod.lore + aod.int) &gt;= 19</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>159</int>
+            <int>169</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Travel to the mountain facility.</text>
+          <def_link>142</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Travel to the command center.</text>
+          <def_link>145</def_link>
+          <checkOnAppear>aod.hgt_portalActive</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Check the databanks again.</text>
+          <def_link>158</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>138</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>143</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]As it turned out, you aren't very good at hacking ancient contraptions. Looks like you'll have to find another way to the ziggurat.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Travel to the mountain facility.</text>
+          <def_link>142</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Travel to the command center.</text>
+          <def_link>145</def_link>
+          <checkOnAppear>aod.hgt_portalActive</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Check the databanks again.</text>
+          <def_link>158</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>138</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>160</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You need to understand how the system works first but where would you find such info these days?</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Travel to the mountain facility.</text>
+          <def_link>142</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Check the databanks again.</text>
+          <def_link>158</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>138</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>169</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]It’s easy. Then again, everything is easy when you’re a genius-savant who was born a few hundred years too late. You trace the restriction to a system-wide order issued by the First of the Magi. Digging deeper, you figure out how the console authenticates incoming orders and then look for a way to fool it into accepting a fake order.
+
+Back when the entire network was alive and kicking, your shenanigans wouldn’t have fooled a child, but fortunately, things have changed. You issue a new order, superseding the previous order and granting the master of this tower – who, at the moment, happened to be you – temporary emergency access to the ziggurat under a subsection that couldn’t be verified.</npc_text>
+      <onLoadScripts>
+        <string>if(aod.zmd_RAhacked == false) rwd_civil(ZMD_03);</string>
+        <string>aod.zmd_RAhacked = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go through the portal. It might be a one way trip, so think twice.</text>
+          <def_link>161</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Not now.</text>
+          <def_link>138</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>159</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start Temple</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>ZamediPortal.showObjects();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.tmp_fromZamedi = 1;</string>
+        <string>aod.zmd_portalActive = 1;</string>
+        <string>if(aod.gnz_finished) switchMission("The Temple Interior.mis");</string>
+        <string>if(aod.gnz_finished == false) leaveGanezzar();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>161</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>A shimmering, slightly distorted image of a man appears above the console. His garb is so outmoded you have only seen its like in illustrations. He is standing near the window in this very chamber, gazing down at the sprawling city below.
+
+“You think we can trust them?” asks someone, presumably the master of the tower.
+
+“They need us,” says the man near the window, turning to face the other. You recognize him from old drawings, Abu Hassan Ibn Hadad al-Sarabi, First of the Magi. “They can do nothing without our machines and by the time the ritual is completed, these things will be under our absolute control.”
+
+“I worry still,” says the master of the tower. “It all seems to have come too easy.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>148</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>147</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“It’s easy because we’re holding all the cards,” says Abu Hassan with a wave of dismissal. “Don’t forget that the Qantari came to us. I will admit that the depth of their knowledge took me by surprise, but without our technology that knowledge was useless. They had no choice but to cooperate with us.”
+
+“They worship these things as gods. Did you know that?” the magus asks quietly.
+
+“They are savages, brother. What they do not understand, they ascribe to magic and gods.” The First of the Magi turns back to the window.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>149</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>148</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“But do you not find their offer curious, their appeal to us to enslave their gods? I still feel we’re missing something,” says the magus.
+
+“You worry about the wards and I’ll worry about the Qantari. As long as the wards hold, nothing else matters.”
+
+“They will hold,” promises the magus. The recording ends.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Look for more recordings on the topic.</text>
+          <def_link>150</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Check the databanks again.</text>
+          <def_link>158</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>138</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>149</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You shift your left hand, conjuring another flickering scene. Abu Hassan paces back and forth. He looks harried and gaunt, his easy arrogance long fled.
+
+“I told you,” says the unseen other, the master of the tower.
+
+“You also told me that the wards would hold,” snaps the First of the Magi. “What happened?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>151</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>150</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“I do not know,” comes the tired reply. “I have gone back to the problem a dozen times... They should have worked.”
+
+“Should that be my answer to the Emperor when his army is incinerated, when cities are turned to craters? That the wards should have worked?”
+
+“I made some improvements,” says the magus. A trembling hand proffers a scroll to Abu Hassan. “These have been reconfigured. These wards will hold.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>152</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>151</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“Are we going to shut it down?” asks the magus after a pause.
+
+“Not yet,” says the First of the Magi. “It is our greatest triumph, and I will not let fear of the unknown force my hand. We are still in control, brother.”
+
+“Are we?” asks the magus pointedly.
+
+“You speak of Balzaar? He has spirit, true, but what did you expect? Must a man not break a horse before he rides? When Balzaar has submitted to my will, the rest will follow.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Look for more recordings on the topic.</text>
+          <def_link>153</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Check the databanks again.</text>
+          <def_link>158</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>138</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>152</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The First of the Magi steps into the portal. He looks tired, but not yet defeated. “I need you, brother,” he says after a pause. “I need everyone.”
+
+“Is the situation as bad as that?” asks the magus.
+
+“Worse,” says the First of the Magi. “We lost two more. Now we are three against four.”
+
+“I have more news,” says the magus. “The Qantari fleet has been spotted off the coast.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>154</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>153</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“We can deal with the Qantari,” comes the reply, and you can hear a trace of Abu Hassan’s old arrogance. “It’s Balzaar and his ilk that I worry about. The more powerful he grows, the more the savages worship him. At this point, they are eager to die at his command.”
+
+In the pause that follows you imagine the magus biting down the urge to say “I told you so” once more. “What are we going to do?”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>155</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>154</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>“With Agathoth’s help, we will win this war. He will give us the knowledge we need and he is ready to build engines of war unlike anything this world has seen,” says the First of the Magi.
+
+“Do you trust him?” asks the magus.
+
+Abu Hassan shakes his head. “You questioned the wisdom of what we were doing all along and you were right. I should have listened to you. Once the war is won, we will let it die. We have tempted Fate enough.”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Check the databanks again.</text>
+          <def_link>158</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>138</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>155</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Nothing happens. Either the databanks contain no information on the subject or your request wasn't understood.
+
+Seek out information on:</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>The War.</text>
+          <def_link>157</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>The Qantari.</text>
+          <def_link>147</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>156</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Your request conjures an avalanche of reports and recordings. You can spend years going through them and still remain blissfully ignorant of the horrors that were unleashed during the war.
+
+Seek out information on:</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>The Qantari.</text>
+          <def_link>147</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>157</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

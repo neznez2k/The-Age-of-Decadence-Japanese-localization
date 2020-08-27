@@ -1,0 +1,189 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>ZGT_TombConsole</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>As far as you can tell, the semi-sphere is carved from a single crystal and polished to perfection. It's framed in a large metal band covered with dimly glowing symbols. You touch one of the symbols and the crystal's surface changes almost instantly, tiny fracture lines appear, rearrange themselves, and disappear as quickly as they come.
+
+You notice that the shimmering image changed as well. The ziggurat's gone, replaced by a strange tomb. The image is incredibly detailed, showing pipes and streams of numbers.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(controlPanel_1);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Touch the crystal.</text>
+          <def_link>2</def_link>
+          <checkOnAppear>getObjectRenderState(Tomb_Up) == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intelligence][lore]Examine the image.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.int + aod.lore) &gt;= 13</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>13</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You touch the crystal and as if by magic the strange tomb starts rising from the bottom of the shaft. It stops when it reaches the floor level, waiting for the metal walkways to be lowered.</npc_text>
+      <onLoadScripts>
+        <string>tomb_up();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>useCameraBookmark(controlPanel_2);</string>
+        <string>sfxPlayOnce(AudioDoorHellGateOpen01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[intelligence][lore]Examine the image.</text>
+          <def_link>11</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.int + aod.lore) &gt;= 13</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>13</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You aren't sure how to read it, but it doesn't look like there is anything of interest there.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Touch the crystal.</text>
+          <def_link>2</def_link>
+          <checkOnAppear>getObjectRenderState(Tomb_Up) == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>11</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]It seems that the tomb has a built-in life support system. All vital signs appear to be normal. You touch another symbol and the shimmering image changes again. It seems to be requesting something.
+
+You hear a whirring sound and suddenly a panel at the base of the console slides open, revealing several round slots.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Insert the canister you found earlier. The devil inside won't be too happy about it, but you aren't here to talk to him, are you?</text>
+          <def_link>5</def_link>
+          <checkOnAppear>dlgOwnsItem(2250)</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Touch the crystal instead.</text>
+          <def_link>2</def_link>
+          <checkOnAppear>getObjectRenderState(Tomb_Up) == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>13</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You carefully insert the canister. The image flashes red a few times, warning you of something, then goes back to normal.</npc_text>
+      <onLoadScripts>
+        <string>dlgRemoveItem(2250, 1);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>aod.temple_used_canister = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Touch the crystal.</text>
+          <def_link>2</def_link>
+          <checkOnAppear>getObjectRenderState(Tomb_Up) == 0</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave it alone.</text>
+          <def_link>1</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

@@ -1,0 +1,184 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.global_ganezzar_completed</string>
+      <string>aod.ALK_ReturnGanezzar &amp;&amp; aod.npc_meru_sent_IG_toALK</string>
+      <string>aod.ALK_ReturnGanezzar &amp;&amp; aod.npc_meru_sent_IG_toALK == 0</string>
+      <string>aod.alk_HC1 == 2 || aod.alk_HD1 &gt;= 1</string>
+    </conditions>
+    <links>
+      <int>3</int>
+      <int>1</int>
+      <int>7</int>
+      <int>3</int>
+    </links>
+    <dlg_name>ALK_Complex_Intro_01</dlg_name>
+    <def_link>0</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Loremaster</speaker_name>
+      <npc_text>You see a crumbling stairway disappearing into the darkness. The barely visible steps are covered with sand.
+
+“It should take you twenty minutes or so to reach the bottom,” says the loremaster. “Another twenty minutes to reach the pyramid. We’ll expect you back in two hours. Bearing good news, I hope.”</npc_text>
+      <onLoadScripts>
+        <string>ALK_createSoldiers();</string>
+        <string>dlgCam(160, 45, 8, 6241);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go down.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>aod.alk_IG7_insideComplex = 1;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+      </answers>
+      <UID>0</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You see a crumbling stairway disappearing into the darkness. The barely visible steps are covered with sand.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go down.</text>
+          <def_link>2</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Tell the sapper to blow it up.</text>
+          <def_link>4</def_link>
+          <checkOnAppear>aod.alk_HD1 &gt;= 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>3</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - go down</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>switchMission("Al-Akia Interior.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name>Sapper</speaker_name>
+      <npc_text>The sapper examines the entrance with an air of self-importance. He measures something, whistling a tune, then sets up the charges. He admires his work for a moment, lights up the fuse and yells, “Fire in the hole!”</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Run!</text>
+          <def_link>5</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>4</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The explosion shakes the ground like an earthquake, sending a geyser of bricks and sand into the air. The pyramid sinks deeper into the ground, permanently skewed to one side.
+
+Looks like your work here is done.</npc_text>
+      <onLoadScripts>
+        <string>aod.alakia_destroyed = true;</string>
+        <string>setAchievement("ACH_ALK_DESTROYED");</string>
+        <string>aod.jnl_HD_AlAkiaFate = 5;</string>
+        <string>addQuest(Antidas_Temple);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Return to Teron.</text>
+          <def_link>6</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>5</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>ENDING - HD</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>aod.gnz_ending_HDblewAlAkia = 1;</string>
+        <string>aod.ending_GNZ_faction_HD = 2;</string>
+        <string>SS_start("gnz_ending", "switchMission(\"Teron_MG.mis\");");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>6</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"We must return to Ganezzar immediately!" says the loremaster.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>7</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You have a feeling that you must return to Ganezzar immediately.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>1</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgFinish();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

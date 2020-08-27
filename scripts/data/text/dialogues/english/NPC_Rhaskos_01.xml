@@ -1,0 +1,726 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>(aod.quest_teronMine_complete || aod.quest_teronMine_fight) &amp;&amp; aod.npc_rhaskos_met</string>
+      <string>aod.quest_teronMine_complete || aod.quest_teronMine_fight</string>
+      <string>aod.quest_teronMine_poisoned</string>
+      <string>aod.npc_rhaskos_met</string>
+    </conditions>
+    <links>
+      <int>2620</int>
+      <int>2621</int>
+      <int>2619</int>
+      <int>2611</int>
+    </links>
+    <dlg_name>NPC_Rhaskos_01</dlg_name>
+    <def_link>2594</def_link>
+    <def_speaker_name>Rhaskos</def_speaker_name>
+    <def_portrait>none</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What do you want?" asks Rhaskos - a scrawny man with a sharp nose and deep-set eyes.</npc_text>
+      <onLoadScripts>
+        <string>aod.npc_rhaskos_met = true;</string>
+        <string>useCameraBookmark(NPC_Rhaskos_cam_01);</string>
+        <string>dlgTeleportTo(134, 21, 0, N);</string>
+        <string>dlgRotateToChar(2088);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I hear you've been trading with the Aurelians down at the mine."</text>
+          <def_link>2595</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2594</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What's it to you?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[praetor]"Are you blind? Can't see whom you're talking to?"</text>
+          <def_link>2596</def_link>
+          <checkOnAppear>aod.pc_member_daratan</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"House Daratan is about to reclaim the mine, so your business venture is done one way or another. You can still make a few coins though."</text>
+          <def_link>2598</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2595</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"My apologies, praetor. The sun was in my eyes. I was prospecting there when they showed up. Figured I can make a few coins. I bring them meat, wine, fresh bread. No harm in that."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mineWine_intimidatedRhaskos = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Yet. Spike the wine before you make your next delivery."</text>
+          <def_link>2597</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2596</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I don't have any poison, praetor. Never had any need for it, to be honest."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mineWine_getPoison = true;</string>
+        <string>aod.quest_mineWine_phase2 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"I'll be back." Leave.</text>
+          <def_link>2608</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2597</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What do I have to do?" asks Rhaskos cautiously.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"Spike the wine."</text>
+          <def_link>2599</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2598</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Spike the wine? No way! I'm not getting involved in it."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[body count]"You're already involved, but you can still get out alive."</text>
+          <def_link>2600</def_link>
+          <checkOnAppear>dlgGetRep(bodycount) &gt;= 1</checkOnAppear>
+          <checksOnClick>
+            <string>dlgGetRep(bodycount) &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2601</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"How much do you want?"</text>
+          <def_link>2602</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Then what do I need you for?" Kill him.</text>
+          <def_link>2607</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2599</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"Fuck you!"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"How much do you want?"</text>
+          <def_link>2602</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Have it your way." Kill him and deliver the wine yourself.</text>
+          <def_link>2607</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2600</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Alright, get me some poison and I'll do it."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mineWine_getPoison = true;</string>
+        <string>aod.quest_mineWine_phase2 = true;</string>
+        <string>aod.quest_mineWine_intimidatedRhaskos = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Don't go anywhere." Leave.</text>
+          <def_link>2608</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2601</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"A hundred imperials!"</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mineWine_Rhaskos100 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Fine." Pay him 100 imperials.</text>
+          <def_link>2605</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 100</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[trading]"Twenty imperials. Or you will have to explain Dellar why you're consorting with the enemy."</text>
+          <def_link>2603</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 20</checkOnAppear>
+          <checksOnClick>
+            <string>aod.trading &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2604</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2608</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2602</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"I ain't doing it for twenty."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Kill him and deliver the wine yourself.</text>
+          <def_link>2607</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Fine." Pay him 100 imperials.</text>
+          <def_link>2605</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 100</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2608</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2603</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"Alright. Twenty it is."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_mineWine_Rhaskos100 = false;</string>
+        <string>aod.quest_mineWine_Rhaskos20 = true;</string>
+        <string>aod.quest_mineWine_phase2 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Pay him 20 imperials.</text>
+          <def_link>2605</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 20</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2608</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2604</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Rhaskos counts the money and nods. "Do you have the poison?"</npc_text>
+      <onLoadScripts>
+        <string>if(aod.quest_mineWine_Rhaskos20) dlgChangeMoney(-20);</string>
+        <string>if(aod.quest_mineWine_Rhaskos100) dlgChangeMoney(-100);</string>
+        <string>aod.quest_mineWine_paidRhaskos = true;</string>
+        <string>aod.quest_mineWine_getPoison = true;</string>
+        <string>aod.quest_mineWine_phase2 = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Give him Coltan's poison. "Here is the poison. Spike the wine and make your deliveries."</text>
+          <def_link>2618</def_link>
+          <checkOnAppear>aod.quest_mineWine_hasHighPoison</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>removePoison();</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Give him the poison. "Here is the poison. Spike the wine and make your deliveries."</text>
+          <def_link>2617</def_link>
+          <checkOnAppear>aod.quest_mineWine_hasMediumPoison</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>removePoison();</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Give him the rat poison. "Here is the poison. Spike the wine and make your deliveries."</text>
+          <def_link>2610</def_link>
+          <checkOnAppear>aod.quest_mineWine_hasLowPoison</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>removePoison();</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"No. I'll be back." Leave.</text>
+          <def_link>2608</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2605</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>dlgSetAttitude(2088, 1, -10);</string>
+        <string>setRtsCam();</string>
+        <string>aod.fight_rhaskos_01 = true;</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2607</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Rhaskos waiting</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>setRtsCam();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2608</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Rhaskos gone</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>setRtsCam();</string>
+        <string>sayPhrase(2088, "It is done.");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2609</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - outpost attack</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>switchMission("Mining Outpost.mis");</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2612</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Alright, alright."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_teronMine_lowPoison = true;</string>
+        <string>aod.quest_mineWine_phase5 = true;</string>
+        <string>aod.quest_teronMine_poisoned = true;</string>
+        <string>rwd_quest(TRN_MineWine_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait for an hour and go to the outpost.</text>
+          <def_link>2612</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2609</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2610</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Alright, alright."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_teronMine_mediumPoison = true;</string>
+        <string>aod.quest_mineWine_phase5 = true;</string>
+        <string>aod.quest_teronMine_poisoned = true;</string>
+        <string>rwd_quest(TRN_MineWine_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait for an hour and go to the outpost.</text>
+          <def_link>2612</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2609</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2617</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Alright, alright."</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_teronMine_highPoison = true;</string>
+        <string>aod.quest_mineWine_phase5 = true;</string>
+        <string>aod.quest_teronMine_poisoned = true;</string>
+        <string>rwd_quest(TRN_MineWine_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Wait for an hour and go to the outpost.</text>
+          <def_link>2612</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2609</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2618</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"You're back," says Rhaskos, stating the obvious. His tone implies that he hoped he wouldn't have to see you again.</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Rhaskos_cam_01);</string>
+        <string>dlgTeleportTo(134, 21, 0, N);</string>
+        <string>dlgRotateToChar(2088);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Here is the money." Pay him 20 imperials.</text>
+          <def_link>2605</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 20 &amp;&amp; aod.quest_mineWine_Rhaskos20 &amp;&amp; aod.quest_mineWine_paidRhaskos == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Here is the money." Pay him 100 imperials.</text>
+          <def_link>2605</def_link>
+          <checkOnAppear>dlgGetMoney() &gt;= 100 &amp;&amp; aod.quest_mineWine_Rhaskos100 &amp;&amp; aod.quest_mineWine_paidRhaskos == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Give him Coltan's poison. "Here is the poison. Spike the wine and make your deliveries."</text>
+          <def_link>2618</def_link>
+          <checkOnAppear>aod.quest_mineWine_hasHighPoison</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>removePoison();</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Give him the poison. "Here is the poison. Spike the wine and make your deliveries."</text>
+          <def_link>2617</def_link>
+          <checkOnAppear>aod.quest_mineWine_hasMediumPoison</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>removePoison();</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Give him the rat poison. "Here is the poison. Spike the wine and make your deliveries."</text>
+          <def_link>2610</def_link>
+          <checkOnAppear>aod.quest_mineWine_hasLowPoison</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>removePoison();</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]"The guards are looking for you! They'll be here any minute!"</text>
+          <def_link>2613</def_link>
+          <checkOnAppear>aod.quest_mineWine_street == false &amp;&amp; aod.quest_mineWine_paidRhaskos == false &amp;&amp; aod.quest_mineWine_intimidatedRhaskos == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2614</int>
+          </linksOnClick>
+          <scriptsOnClick>
+            <string>aod.quest_mineWine_street = 1;</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[alchemy]Distill your own poison and give it to him.</text>
+          <def_link>2610</def_link>
+          <checkOnAppear>aod.alchemy &gt;= 2 &amp;&amp; (dlgOwnsItem(810) || dlgOwnsItem(812) || dlgOwnsItem(1808)) &amp;&amp; aod.quest_mineWine_getPoison</checkOnAppear>
+          <checksOnClick>
+            <string>aod.alchemy &gt;= 6</string>
+            <string>aod.alchemy &gt;= 4</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>2618</int>
+            <int>2617</int>
+          </linksOnClick>
+          <scriptsOnClick>
+            <string>if((dlgOwnsItem(810) || dlgOwnsItem(812)) &amp;&amp; dlgOwnsItem(1808) == false) removePoison();</string>
+            <string>if(dlgOwnsItem(810) == false &amp;&amp; dlgOwnsItem(812) == false &amp;&amp; dlgOwnsItem(1808)) dlgRemoveItem(1808, 1);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2608</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2611</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"I did what you wanted. Now leave me alone."</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Rhaskos_cam_01);</string>
+        <string>dlgTeleportTo(134, 21, 0, N);</string>
+        <string>dlgRotateToChar(2088);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2608</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2619</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Look, we're done here. I don't want anyone to start talking and drawing connections, so I don't know you, you don't know me, alright?"</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Rhaskos_cam_01);</string>
+        <string>dlgTeleportTo(134, 21, 0, N);</string>
+        <string>dlgRotateToChar(2088);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2608</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2620</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"What do you want?"</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Rhaskos_cam_01);</string>
+        <string>dlgTeleportTo(134, 21, 0, N);</string>
+        <string>dlgRotateToChar(2088);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>"Nothing." Leave.</text>
+          <def_link>2608</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2621</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"I don't see any guards," says Rhaskos, looking at you suspiciously.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2608</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2613</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]Rhaskos shoots a look of fear toward the gates and quickly walks away, leaving you with his stash.</npc_text>
+      <onLoadScripts>
+        <string>VCO_RhaskosStash_01.setActive(true);</string>
+        <string>VCO_RhaskosStash_02.setActive(true);</string>
+        <string>dlgTeleportTo(127, 81, 0, N, 2088);</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Examine.</text>
+          <def_link>2615</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>2608</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>2614</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - examine</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgTeleportTo(133, 23, 0, NW);</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>apmsStartDialogue(quest_mineWine_01);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>2615</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

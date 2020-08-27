@@ -1,0 +1,918 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions />
+    <links />
+    <dlg_name>Cassius_01</dlg_name>
+    <def_link>81</def_link>
+    <def_speaker_name>カシウス</def_speaker_name>
+    <def_portrait>Cassius</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>４２歳の考古学者であるカシウスは、白髪交じりの同僚達から侮蔑的に「若造のカシウス」と呼ばれていた。彼は土や遺跡をネズミのように掘り返すことに全く魅力を感じていなかった。その代わり、きちんと保存された巻物の中で時間を過ごす事を好み、古代の多くの著名な考古学者の仕事と、彼が不可欠であると考えている何百もの付随論評の研究していた。カシウスが彼の二つ目の論文で４０５２年の神の意志の顕現について分析していたところに、アンティダスの使者が彼をテロンに招いたのだった。
+
+君が声をかけた時、カシウスは早めに到着していて待ちくたびれていた様子だった。
+
+「何かご用ですか？」</npc_text>
+      <onLoadScripts>
+        <string>aod.met_cassius = true;</string>
+        <string>aod.quest_kill_cassius_start = false;</string>
+        <string>useCameraBookmark(quest_cassius_01);</string>
+        <string>dlgTeleportTo(184, 93, 0, W);</string>
+        <string>dlgTeleportTo(183, 93, 0, E, 1010);</string>
+        <string>addJournalChar(cassius);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「アンティダス卿が&lt;omae/anata&gt;を連れてこいと仰せ&lt;da/yo&gt;。ついてきなさい」［空き家に誘い込む］</text>
+          <def_link>82</def_link>
+          <checkOnAppear>aod.quest_hd0_acceptedFeng || aod.professionID != 2</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>「アンティダス卿が&lt;omae/anata&gt;を連れてこいと仰せ&lt;da/yo&gt;。ついてきなさい」［アンティダス卿の元へ連れて行く］</text>
+          <def_link>92</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.professionID == 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>128</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>「邪魔をした」立ち去る。</text>
+          <def_link>113</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>81</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>113</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>カシウスは混乱しながら辺りを見回す。「何ですか、このあばら屋は？　早く説明してください！」</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(20, 236, 0, S);</string>
+        <string>dlgTeleportTo(20, 235, 0, N, 1010);</string>
+        <string>useCameraBookmark(quest_cassius_02);</string>
+        <string>aod.npc_cassius_hovel = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「フォン博士は&lt;omae/anata&gt;がアンティダス様の招待を受けたのが間違いだと思っている…軽率だったと。彼はそれを正すようにと頼んできた」</text>
+          <def_link>83</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[streetwise]「&lt;omae/anata&gt;がここに来たのは間違いだった。命が惜しいなら今すぐ出て行って二度と戻ってこないように」</text>
+          <def_link>117</def_link>
+          <checkOnAppear>aod.quest_hd0_acceptedFeng == false</checkOnAppear>
+          <checksOnClick>
+            <string>aod.streetwise &gt;= 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>118</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[persuasion success]「わかってないみたい&lt;dana/ne&gt;。ここにいたら、&lt;omae/anata&gt; は死ぬ。毎日目を覚まして、今日がその日なのかと怯えて暮らしたい&lt;ka/no&gt;？　暗殺者がいつ来るのかわからない恐怖の中で生きたいの&lt;ka/mu&gt;？」</text>
+          <def_link>122</def_link>
+          <checkOnAppear>(aod.persuasion &gt;= 3) &amp;&amp; aod.quest_HD0_acceptedFeng == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[intimidate success]「生きたい&lt;ka/mu&gt;？」</text>
+          <def_link>123</def_link>
+          <checkOnAppear>dlgGetRep(bodycount) &gt;= 6 &amp;&amp; aod.quest_HD0_acceptedFeng == false || (aod.str + aod.con) &gt;= 13</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>82</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>カシウスは一分近く時間をかけて、ようやく理解したようだった。 「待ってくれ！　話し合おう。…私は考古学者なんだ」</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>「フォンもそう&lt;da/yo&gt;」</text>
+          <def_link>84</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>83</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>「フォン？」カシウスは初めて笑った。「フォンはペテン師だ。あいつは物語で子供達を楽しませることができるだろうが、私ならフォンがあんたに約束したものよりはるかに価値のあるものを提供できる」</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>「聞いてやる&lt;mu/wa&gt;」</text>
+          <def_link>85</def_link>
+          <checkOnAppear>aod.quest_HD0_acceptedFeng == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[critical strike]「フォンはペテン師かもしれない&lt;ga/kedo&gt;、私は彼に約束した&lt;nda/no&gt;。&lt;omae/anata&gt;の人生はここで終わり&lt;da/yo&gt;、カシウス」</text>
+          <def_link>112</def_link>
+          <checkOnAppear>aod.quest_HD0_acceptedFeng == false</checkOnAppear>
+          <checksOnClick>
+            <string>ownsSmallDagger() &amp;&amp; aod.critical_strike &gt;= 3</string>
+            <string>ownsSmallDagger() &amp;&amp; aod.critical_strike &lt; 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>89</int>
+            <int>91</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[critical strike]「フォンはペテン師かもしれない&lt;ga/kedo&gt;、彼には利用価値がある&lt;mu/no&gt;。個人的な事情ではない&lt;mu/wa&gt;、カシウス」彼を殺す。</text>
+          <def_link>112</def_link>
+          <checkOnAppear>aod.quest_HD0_acceptedFeng</checkOnAppear>
+          <checksOnClick>
+            <string>ownsSmallDagger() &amp;&amp; aod.critical_strike &gt;= 3</string>
+            <string>ownsSmallDagger() &amp;&amp; aod.critical_strike &lt; 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>89</int>
+            <int>91</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>「面白いことになりそう&lt;dana/ne&gt;」攻撃する。</text>
+          <def_link>88</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>84</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>「金属を変成させる方法を教えてやる」カシウスは尊大に言ってみせる。「私は神聖な写本を研究し、そこにある知恵を理解しようと必死に勉強してきた。私が学んできたことは砂漠の中の砂の一粒に過ぎないが、この粒だけでも私たちが今知っていることの１００倍以上の価値がある」</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>「人は自分の死を逃れるためなら何だって約束する。&lt;omae/anata&gt;の言ったことをまず証明してみ&lt;ro/nasai&gt;」</text>
+          <def_link>17</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>85</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Very well. All weapon metals are what's called aleiers - several substances forged together in such a manner that they become a new substance. Bronze, for example, is an aleier of copper and tin. Iron is an aleier of iron ore and charcoal. Steel is iron without impurities. To remove impurities, you must add limestone or glass. They will float to the surface and attract all impurities. Blue steel is an aleier of steel and kobald ore, which is what gives it the blue hue. And finally, the sky metal is an aleier of iron and several rare metals. The trick, as I understand it, is not the rarity of the metals though, but the extreme cold of the void and the heat of the fall."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Continue.</text>
+          <def_link>86</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>17</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"There are two important aspects here. First, you need to have the step-by-step instructions, ratios, and proportions, which I'll give you as soon as I see Lord Antidas. Transmutation is an exact science and there isn't a lot of margin for error there. The second aspect is the ability of a smith to create and maintain the required level of heat. Any idiot can melt copper and tin to make some bronze. Only a true master, who can get the winds to do his biddings, can get enough heat to soften blue steel. Knowing how to do it won't be enough. Mastering it will require a lot of dedication.
+
+"That should be enough, I think. Have you made your decision yet?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"We have a deal, master Cassius. Your life in exchange for the secrets of metal transmutation. Follow me." [take him to Lord Antidas].</text>
+          <def_link>92</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[critical strike]"Your life ends here, Cassius."</text>
+          <def_link>112</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>ownsSmallDagger() &amp;&amp; aod.critical_strike &gt;= 3</string>
+            <string>ownsSmallDagger() &amp;&amp; aod.critical_strike &lt; 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>89</int>
+            <int>91</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"This is going to be fun." Attack.</text>
+          <def_link>88</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>86</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>Good idea, too bad you don't have a small dagger.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"This is going to be fun." Attack.</text>
+          <def_link>88</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>112</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]君の攻撃は素早く致命的だった。 カシウスは君の側に立ち尽くし、我に返って傷を抑え、まるで何が起こったのか分からないかのように見える。いずれにせよ、彼は１分もしないうちに死んでしまった。</npc_text>
+      <onLoadScripts>
+        <string>equipDaggerCS();</string>
+        <string>aod.quest_kill_cassius_dead = true;</string>
+        <string>aod.quest_kill_cassius_hovel = false;</string>
+        <string>dlgSetAnimation(anim_death_back03, 0.65, 1010);</string>
+        <string>dlgKillCharacter(1010);</string>
+        <string>if(aod.professionID != 2) aod.jnl_cassius = 3;</string>
+        <string>if(aod.professionID != 2) aod.quest_kill_cassius_solved = true;</string>
+        <string>aod.ending_character_feng_02 = true;</string>
+        <string>aod.ending_loremaster = true;</string>
+        <string>rwd_reputation(Cassius_05);</string>
+        <string>if(aod.professionID == 2) aod.jnl_hd0 = 4;</string>
+        <string>if(aod.professionID == 2) aod.quest_kill_cassius_solved = true;</string>
+        <string>sfxPlayOnce(csSuccessBody01);</string>
+        <string>dlgCsRepTrain(1);</string>
+        <string>dlgSetCombatAnimation();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>彼の死体を調べる。</text>
+          <def_link>90</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>89</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]君の一撃はぎこちなく、出血をさせたものの、急所は外れていた。カシウスは短剣を抜き、死に物狂いで最後の抵抗を始める。</npc_text>
+      <onLoadScripts>
+        <string>equipDaggerCS();</string>
+        <string>dlgChangeCharacterHP(-15, 1010);</string>
+        <string>dlgEquipItem(101, 0, 1010);</string>
+        <string>dlgSetCombatAnimation();</string>
+        <string>dlgSetCombatAnimation(1010);</string>
+        <string>sfxPlayOnce(csSuccessSilence01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>戦う。</text>
+          <def_link>88</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>91</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>FIGHT - Cassius</npc_text>
+      <onLoadScripts>
+        <string>aod.quest_kill_cassius_hovel = false;</string>
+        <string>dlgEquipItem(101, 0, 1010);</string>
+        <string>dlgFinish();</string>
+        <string>dlgSetAttitude(1010, 1, -10);</string>
+        <string>if(aod.professionID != 2) aod.jnl_cassius = 3;</string>
+        <string>if(aod.professionID != 2) aod.quest_kill_cassius_solved = true;</string>
+        <string>aod.ending_character_feng_02 = true;</string>
+        <string>aod.ending_loremaster = true;</string>
+        <string>if(aod.professionID == 2) aod.jnl_hd0 = 4;</string>
+        <string>if(aod.professionID == 2) aod.quest_kill_cassius_solved = true;</string>
+        <string>aod.fight_cassius_01 = true;</string>
+        <string>dlgShowWeapons();</string>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>schedule(100, 0, dlgStartCombat);</string>
+        <string>dlgCam(115, 45, 10, 1010);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>88</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - hovel</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgSetAnimation(anim_death_back03, 1, 1010);</string>
+        <string>dlgShowWeapons();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>90</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>「何の用だ？」</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Dellar_Cam_01);</string>
+        <string>aod.quest_kill_cassius_alive = true;</string>
+        <string>aod.npc_cassius_daratan = true;</string>
+        <string>assignDialogue(Cassius_02, 1010);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(170, 187, 0, N);</string>
+        <string>dlgTeleportTo(169, 188, 0, NE, 1010);</string>
+        <string>aod.npc_dellar_met = true;</string>
+        <string>dlgDeleteCharacter(1000);</string>
+        <string>dlgDeleteCharacter(1330);</string>
+        <string>aod.npc_feng_fledTeron = true;</string>
+        <string>tbd_loremaster_door_02.unlock();</string>
+        <string>tbd_loremaster_door_02.open();</string>
+        <string>aod.exploration_fengHatchOpen = true;</string>
+        <string>aod.ending_character_cassius_01 = true;</string>
+        <string>aod.ending_character_feng_01 = true;</string>
+        <string>aod.ending_loremaster = true;</string>
+        <string>if(aod.npc_cassius_hovel == false) aod.jnl_cassius = 8;</string>
+        <string>if(aod.npc_cassius_hovel) aod.jnl_cassius = 5;</string>
+        <string>if(aod.npc_cassius_hovel) aod.npc_cassius_scroll = true;</string>
+        <string>if(aod.quest_map_phase4a == false &amp;&amp; aod.quest_map_phase4b == false &amp;&amp; aod.quest_map_phase4c == false &amp;&amp; aod.quest_map_phase5 == false) aod.quest_map_phase4a = true;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「アンティダス卿の個人的な客人であるカシウス博士を紹介&lt;si/&gt;&lt;yo/&gt;&lt;u/&gt;&lt;/su&gt;&lt;/ru&gt;&lt;mu/wa&gt;。フォン博士は彼を殺すよう言った&lt;ga/kedo&gt;、アンティダス卿に招かれたとあれば、&lt;ore/watashi&gt;は……」</text>
+          <def_link>93</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.pc_background_loremaster</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>126</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>92</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>「カシウス博士」とデラーは言う。「テロンへようこそ。すぐにアンティダス卿の所へご案内します」</npc_text>
+      <onLoadScripts>
+        <string>useCameraBookmark(NPC_Dellar_Cam_01);</string>
+        <string>aod.quest_kill_cassius_alive = true;</string>
+        <string>aod.npc_cassius_daratan = true;</string>
+        <string>assignDialogue(Cassius_02, 1010);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(170, 187, 0, N);</string>
+        <string>dlgTeleportTo(169, 188, 0, NE, 1010);</string>
+        <string>aod.npc_dellar_met = true;</string>
+        <string>dlgDeleteCharacter(1000);</string>
+        <string>dlgDeleteCharacter(1330);</string>
+        <string>aod.npc_feng_fledTeron = true;</string>
+        <string>tbd_loremaster_door_02.unlock();</string>
+        <string>tbd_loremaster_door_02.open();</string>
+        <string>aod.exploration_fengHatchOpen = true;</string>
+        <string>aod.ending_character_cassius_03 = true;</string>
+        <string>aod.ending_character_feng_03 = true;</string>
+        <string>aod.ending_loremaster = true;</string>
+        <string>aod.jnl_hd0 = 6;</string>
+        <string>rwd_quest(HD0_01);</string>
+        <string>rwd_reputation(HD0_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>待つ。</text>
+          <def_link>129</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.pc_background_loremaster</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>126</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>128</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>「カシウスを生きて連れてくれば、アンティダス卿がお前に金を払うとでも思ったんだろう」</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(Cassius_01);</string>
+        <string>rwd_reputation(Cassius_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「アンティダス卿と話をさせてくれない&lt;ka/mu&gt;？」</text>
+          <def_link>94</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_antidas_met</string>
+            <string>aod.npc_dellar_questsGiven</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>115</int>
+            <int>116</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>93</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>「お前の忠誠心には恐れ入ったよ、&lt;charname&gt;」</npc_text>
+      <onLoadScripts>
+        <string>rwd_quest(Cassius_01);</string>
+        <string>rwd_reputation(Cassius_01);</string>
+        <string>PC_Traitor();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>「アンティダス卿と話をさせてくれない&lt;ka/mu&gt;？」</text>
+          <def_link>94</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_antidas_met</string>
+            <string>aod.npc_dellar_questsGiven</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>115</int>
+            <int>116</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>126</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>「いいぞ。お前が自分の価値を証明できたらな」</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>「何をすればいい&lt;mu/no&gt;？」</text>
+          <def_link>99</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"I thought I've already proven my value." Nod at Cassius.</text>
+          <def_link>96</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>94</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"Didn't we talk about it already?"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"I thought I've already proven my value." Nod at Cassius.</text>
+          <def_link>96</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>116</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"You've proven that you have enough common sense to know what's good for you. Nothing more."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[persuasion][charisma]"Common sense is a rare commodity these days. You're lucky Feng asked me and not some thug who would have slit Cassius' throat without thinking. All I'm asking for is two minutes of your Lord's time."</text>
+          <def_link>97</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.persuasion + aod.cha) &gt;= 13</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>98</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>96</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"Go in."</npc_text>
+      <onLoadScripts>
+        <string>rwd_reputation(Cassius_03);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Go see Lord Antidas.</text>
+          <def_link>95</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"On the second thought, maybe later." Leave.</text>
+          <def_link>102</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>115</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>[failure]"Prove your value and I'll give you ten minutes."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"What do I need to do?"</text>
+          <def_link>99</def_link>
+          <checkOnAppear>aod.npc_dellar_questsGiven == false</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"Alright." Leave.</text>
+          <def_link>102</def_link>
+          <checkOnAppear>aod.npc_dellar_questsGiven</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>97</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>[success]"Two minutes."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Go inside.</text>
+          <def_link>95</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>98</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start Antidas dialogue</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(170, 229, 0, N);</string>
+        <string>useCameraBookmark(NPC_Antidas_Cam_01);</string>
+        <string>apmsstartdialogue(antidas_02);</string>
+        <string>dlgTeleportTo(183, 209, 1, W, 1010);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>95</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait>Dellar</portrait>
+      <speaker_name>デラー</speaker_name>
+      <npc_text>"Wait here while I escort Master Cassius inside."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Wait.</text>
+          <def_link>111</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>99</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start Dellar quests</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgTeleportTo(183, 209, 1, W, 1010);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.quest_cassius_startDellarQuest = true;</string>
+        <string>apmsStartDialogue(Dellar_01);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>111</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - start HD1</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>aod.quest_hd1_fromCassius = true;</string>
+        <string>dlgTeleportTo(183, 209, 1, W, 1010);</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>addQuest(HD1);</string>
+        <string>aod.quest_hd1_phase1 = true;</string>
+        <string>apmsStartDialogue(dellar_01);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>129</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - dialogue</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(167, 163, 0, S);</string>
+        <string>dlgTeleportTo(183, 209, 1, W, 1010);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>102</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]"I refuse to be intimidated," says Cassius with disdain. "I'm Lord Antidas' personal guest. You wouldn't dare!"</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>"You give me no choice." Attack.</text>
+          <def_link>88</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>[critical strike]"Your life ends here, Cassius."</text>
+          <def_link>112</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>ownsSmallDagger() &amp;&amp; aod.critical_strike &gt;= 3</string>
+            <string>ownsSmallDagger() &amp;&amp; aod.critical_strike &lt; 3</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>89</int>
+            <int>91</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>"And if I take you to Lord Antidas?"</text>
+          <def_link>85</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>117</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]"I'll leave," says Cassius quickly. It's clear that he took your threat seriously. "You will never see me again."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>121</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>120</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>118</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Cassius goes to Antidas</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>dlgTeleportTo(183, 209, 1, W, 1010);</string>
+        <string>aod.quest_killCassius_doesntLeave = true;</string>
+        <string>aod.jnl_cassius = 4;</string>
+        <string>aod.quest_kill_cassius_solved = true;</string>
+        <string>aod.npc_cassius_cheat = true;</string>
+        <string>aod.npc_cassius_threatened = true;</string>
+        <string>rwd_reputation(Cassius_07);</string>
+      </onLoadScripts>
+      <answers />
+      <UID>121</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Cassius leaves</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>setRtsCam();</string>
+        <string>dlgFadeToThisPart();</string>
+        <string>aod.jnl_cassius = 4;</string>
+        <string>dlgDeleteCharacter(1010);</string>
+        <string>aod.quest_killCassius_gone = true;</string>
+        <string>aod.quest_kill_cassius_solved = true;</string>
+        <string>aod.ending_character_feng_02 = true;</string>
+        <string>aod.ending_loremaster = true;</string>
+        <string>rwd_reputation(Cassius_06);</string>
+        <string>if(aod.professionID == 2) aod.jnl_hd0 = 5;</string>
+      </onLoadScripts>
+      <answers />
+      <UID>125</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[perception success]There is eagerness in Cassius' eyes, but it's not the eagerness to leave. He thinks that he's outsmarted you, so he'll probably go to Antidas the moment you leave him alone, even if you drag him through the gate kicking and screaming. He's too close to the prize to just leave.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[critical strike]Kill him while he least expects it.</text>
+          <def_link>112</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>ownsSmallDagger() &amp;&amp; aod.critical_strike &gt;= 2</string>
+            <string>ownsSmallDagger() &amp;&amp; aod.critical_strike &lt; 2</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>89</int>
+            <int>91</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave him alone.</text>
+          <def_link>121</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>120</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"No," says Cassius quietly, "I don't.
+
+"I'll leave," he says after a long pause. "You don't have to worry about me anymore."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>121</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.per &gt;= 8</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>120</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>122</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>"Yes, of course, I do. If you let me go..."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Scare him.</text>
+          <def_link>124</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>123</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You step closer to Cassius and let him see you for what you are – a remorseless killer. You look at him until you can feel his fear, until Cassius understands how close he came to dying and that no money in the world is worth decades of his unlived life. Then you start talking.
+
+"If I let you go, you'll probably do something stupid. Now, I know what you're thinking. You're thinking there's some way around this. That if you can get away, get to your people, they can protect you. Everyone thinks that. Right up to the end, when they're looking up at me, choking on their own blood, they still think someone's going to come and save them. But no one does. And no one will save you, if you cross me, do you understand?"
+
+"I do," says Cassius quietly, "I understand. I'll leave, I promise."</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>125</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>124</UID>
+    </dlgPart>
+  </parts>
+</dlgData>

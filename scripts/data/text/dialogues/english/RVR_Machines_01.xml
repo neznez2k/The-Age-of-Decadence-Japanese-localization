@@ -1,0 +1,403 @@
+﻿<?xml version="1.0"?>
+<dlgData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <header>
+    <conditions>
+      <string>aod.rvr_machine_status == 1</string>
+      <string>aod.rvr_machine_status == 2</string>
+      <string>aod.rvr_machine_status == 3</string>
+    </conditions>
+    <links>
+      <int>8734</int>
+      <int>8719</int>
+      <int>8724</int>
+    </links>
+    <dlg_name>RVR_Machines_01</dlg_name>
+    <def_link>8730</def_link>
+    <def_speaker_name>None</def_speaker_name>
+    <def_portrait>None</def_portrait>
+  </header>
+  <parts>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You're standing in front of a makeshift altar covered with candles.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[lore]Examine it.</text>
+          <def_link>8733</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lore &gt;= 5</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8715</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8721</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8730</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You have absolutely no idea what it is.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8721</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8733</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]By sorting through a tangled disarray of cables you determine the machine was once connected to a bank of power generators. The generators themselves were gutted long ago and their shells converted by some ancient devotee into small shrines. That is problem number one.</npc_text>
+      <onLoadScripts>
+        <string>aod.rvr_machine_status = 1;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lore][crafting]Restore power.</text>
+          <def_link>8716</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.lore + aod.crafting) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8717</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8715</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>By sorting through a tangled disarray of cables you determine the machine was once connected to a bank of power generators. The generators themselves were gutted long ago and their shells converted by some ancient devotee into small shrines. That is problem number one.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[lore][crafting]Restore power.</text>
+          <def_link>8716</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>(aod.lore + aod.crafting) &gt;= 10</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8717</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8721</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8734</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]You feel like you're trying to repair the ruptured hull of a galley with a handful of twigs and some glue. It cannot be done.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8721</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8716</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]By kicking apart the mechanical abominations left by the locals and rifling through the detritus, you manage to scrabble together enough to repair one generator. It's less than you need but it will have to do.
+
+Sweeping the candle stubs and mouse skulls aside, you start rebuilding the generator. It is not your best work. In fact, from a distance of five paces your creation is indistinguishable from its mutilated brethren, but when you throw the lever, it gives an almost human wheeze and reluctantly comes to life.
+
+The elder gasps as a dull glow heralds the generator’s return to basic function. The machine is working at no more than thirty percent capacity, but it's the best you can do.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>rwd_civil(RVR_01);</string>
+        <string>aod.rvr_machine_status = 2;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>[lore][crafting]Fix the ‘bridge’ machine.</text>
+          <def_link>8718</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lore &lt; 8</string>
+            <string>(aod.lore + aod.crafting) &gt;= 14</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8735</int>
+            <int>8720</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8717</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[lore failure]Easier said than done.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8721</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8735</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[failure]Perhaps if you could locate the manual...</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8721</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8718</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>The flickering lights suggest the generator is still alive. Whether or not it can power up the 'bridge' machine remains to be seen.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>[lore][crafting]Fix the ‘bridge’ machine.</text>
+          <def_link>8718</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.lore &lt; 8</string>
+            <string>(aod.lore + aod.crafting) &gt;= 14</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8735</int>
+            <int>8720</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8719</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>[success]The coil is busted, but as this particular part enjoyed a celebrated second life as a candlestick, there are plenty to choose from.
+
+At some point, another technician did a passable job of mending the amplifier. Thank the Gods for these minor mercies. The crystals are darkened from hard use but nevertheless are functional, all but one that is.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Use the crystal from the Eye of Thor-Agoth.</text>
+          <def_link>8722</def_link>
+          <checkOnAppear>dlgGetItemsCount(900) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgRemoveItem(900, 1, 0);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Use the crystal you acquired in Maadoran.</text>
+          <def_link>8722</def_link>
+          <checkOnAppear>dlgGetItemsCount(2007) &gt;= 1</checkOnAppear>
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick>
+            <string>dlgRemoveItem(2007, 1, 0);</string>
+          </scriptsOnClick>
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Leave.</text>
+          <def_link>8721</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8720</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeShortToThisPart();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8721</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You insert the crystal and the machine comes to life with a rolling, bone-deep vibration. A coughing sound soon follows from the overtaxed generator. Not enough power.</npc_text>
+      <onLoadScripts>
+        <string>dlgFadeShortToThisPart();</string>
+        <string>rwd_civil(RVR_02);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Quite a predicament.</text>
+          <def_link>8724</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8722</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You could overload the generator, which would increase the power output, but only briefly. The generator won’t survive this process. It is reasonable to assume this entire area also won’t survive. Your own survival is not entirely guaranteed either, but when have you ever let that slow you down?</npc_text>
+      <onLoadScripts>
+        <string>aod.rvr_machine_status = 3;</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>Overload the generator and go outside.</text>
+          <def_link>8725</def_link>
+          <checkOnAppear />
+          <checksOnClick>
+            <string>aod.npc_demon_met</string>
+          </checksOnClick>
+          <linksOnClick>
+            <int>8728</int>
+          </linksOnClick>
+          <scriptsOnClick />
+        </dlgAnsw>
+        <dlgAnsw>
+          <text>Walk away.</text>
+          <def_link>8721</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8724</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>With a worrying metallic whine the power supply rises and a broad rectangle of light extends over the chasm. The beam is focused and does not spread, as if the Ancients were funneling sunlight. You watch incredulous as the light brightens, then thickens as if forming a physical surface, and at last subsides to a gentle glow.
+
+Tentatively you tap with one foot at the place where the bridge meets the edge. It is no illusion. You step out onto the parapet and a deep, not unpleasant humming sound envelops you. Walking out onto the bridge you feel the air resist you, as if you moved underwater.</npc_text>
+      <onLoadScripts>
+        <string>aod.rvr_machine_overloaded = true;</string>
+        <string>setWindowImage(rvr_bridge_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>The generator can blow up at any moment, so keep walking.</text>
+          <def_link>8726</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8725</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>With a worrying metallic whine the power supply rises and a broad rectangle of light extends over the chasm. The beam is focused and does not spread, as if the Ancients were funneling sunlight. You watch incredulous as the light brightens, then thickens as if forming a physical surface, and at last subsides to a gentle glow.
+
+Tentatively you tap with one foot at the place where the bridge meets the edge. It is no illusion. You step out onto the parapet and a deep, not unpleasant humming sound envelops you. Walking out onto the bridge you feel the air resist you, as if you moved underwater, just as when you walked through the glow barring the entrance to the Tower of Zamedi.</npc_text>
+      <onLoadScripts>
+        <string>aod.rvr_machine_overloaded = true;</string>
+        <string>setWindowImage(rvr_bridge_01);</string>
+      </onLoadScripts>
+      <answers>
+        <dlgAnsw>
+          <text>The generator can blow up at any moment, so keep walking.</text>
+          <def_link>8726</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8728</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>You are more than halfway to the other side when your stomach drops, along with the rest of your body. In time with a rattling explosion behind you, the bridge has winked out of sight, leaving you at the mercy of gravity.
+
+Fortunately for you, the nice hard carapace of a giant scorpion breaks your fall. Rolling to your feet you start running, and climb up the steep bank.</npc_text>
+      <onLoadScripts />
+      <answers>
+        <dlgAnsw>
+          <text>Climb up.</text>
+          <def_link>8729</def_link>
+          <checkOnAppear />
+          <checksOnClick />
+          <linksOnClick />
+          <scriptsOnClick />
+        </dlgAnsw>
+      </answers>
+      <UID>8726</UID>
+    </dlgPart>
+    <dlgPart>
+      <portrait />
+      <speaker_name />
+      <npc_text>END - Temple</npc_text>
+      <onLoadScripts>
+        <string>dlgFinish();</string>
+        <string>dlgFadeLongToThisPart();</string>
+        <string>if(aod.gnz_finished) switchMission("The Temple.mis");</string>
+        <string>if(aod.gnz_finished == false) leaveGanezzar();</string>
+      </onLoadScripts>
+      <answers />
+      <UID>8729</UID>
+    </dlgPart>
+  </parts>
+</dlgData>
