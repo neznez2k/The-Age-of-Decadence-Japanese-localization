@@ -1,8 +1,8 @@
 function Character_Antidas()
 {
-   jsSetCharName("アンティダス ");
+   jsSetCharName("Antidas");
    jsSetCharPortrait("art/gui/journal/characters/antidas.png");
-   jsSetCharDesc("アンティダス卿は現在の、そしておそらくは最後のダラタン家の当主である。彼はかつての栄光をダラタンに取り戻す指導者になると予言され、彼自身もその予言に揺るぎない信を置き、ダラタンの敵に対して何度となく果敢な攻撃を加えた。しかしアンティダスと彼の家の双方にとって残念なことに、その予言が果たされることはなく、ダラタン家に悲惨な結果がもたらされた。砦を一つと軍団を二つ失い、アンティダスの領地は崩れ落ちた町と小さな衛兵の連隊にまで減少し、栄光への希望はゆっくりと消え去っていった。 ");
+   jsSetCharDesc("Lord Antidas is the current and most likely the last Lord of House Daratan. It was prophesied that he would be the leader to restore Daratan to its original glory, and unwavering in his faith in the prophecy, Antidas undertook many daring attacks against Daratan\'s enemies. Unfortunately for both Antidas and his House, the prophecy failed to live up to its end of the bargain with disastrous consequences for House Daratan. With the loss of a fort and two entire legions, Antidas\' domain was reduced to a crumbling town and a small regiment of guards, while the prospects of glory slowly faded away.");
 }
 
 function Character_Bass()
@@ -42,7 +42,7 @@ function Character_Carrinas()
 
 function Character_Cassius()
 {
-   jsSetCharName("カシウス ");
+   jsSetCharName("Cassius");
    jsSetCharPortrait("art/gui/journal/characters/cassius.png");
    jsSetCharDesc("Forty two year old loremaster Cassius, contemptuously called \"young Cassius\" by his gray haired colleagues, has never understood the appeal of digging through dirt and ruins like a rat. Instead, he preferred to spend his time among neatly preserved scrolls, studying the work of many prominent loremasters of the antiquity and hundreds of accompanying commentaries he considered indispensable. Master Cassius was working on his second tractate, analyzing manifestations of the divine will in year 4052, when Antidas' emissaries invited him to Teron.");
 }
@@ -56,7 +56,7 @@ function Character_Darista()
 
 function Character_Dellar()
 {
-   jsSetCharName("デラー ");
+   jsSetCharName("Dellar");
    jsSetCharPortrait("art/gui/journal/characters/dellar.png");
    jsSetCharDesc("Dellar looks like a tired, old scribe, proving that appearances are often misleading. At seventeen he signed up as a caravan guard. It took him three years to realize that his father was wrong about honest work, then he switched sides and started raiding the same caravans he guarded yesterday. Four years later the Commercium finally paid the Imperial Guards a king's ransom, which quickly solved the \"raiders problem\". Hundreds of dead raiders were nailed to Maadoran walls, a few lucky survivors sent to the mines to work off their debt to the guild. For almost a decade Dellar mined iron ore, fighting for food scraps and his life, until he managed to escape to Teron, where Antidas took him under his wing.");
 }
@@ -85,9 +85,9 @@ function Character_Esbenus()
 
 function Character_Feng()
 {
-   jsSetCharName("フォン ");
+   jsSetCharName("Feng");
    jsSetCharPortrait("art/gui/journal/characters/feng.png");
-   jsSetCharDesc("フォンは２０年前にキャラバンでテロンにやってきた。彼がどこから、そしてなぜここへ来たのかは誰も知らないが、失われた人生の記憶によって捻くれた男のような辛辣さがあった。彼は言語や古代の遺物に精通していたが、この町には既に考古学者がいた。フォンにとって幸いなことに、その考古学者は彼の症状に悩まされた錬金術士による最善の努力にもかかわらず、ほどなくして病気で亡くなった。その後すぐにフォンは新たな考古学者となり、多くのダラタンの遺物を発見した後はアンティダス卿の恩寵も得るようになった。 ");
+   jsSetCharDesc("Feng came to Teron with a caravan two decades ago. Nobody knew where he came from or why, but he had the bitterness of a man soured by the memory of the life he lost. He was well-versed in languages and the antiquities, but the town already had a loremaster. Fortunately for Feng, this loremaster soon fell sick and passed away, despite the best efforts of the local alchemist who was quite puzzled by his symptoms. Shortly thereafter, Feng became the new loremaster and even earned the favor of Lord Antidas after discovering a number of Daratan relics.");
 }   
 
 function Character_Gaelius()
