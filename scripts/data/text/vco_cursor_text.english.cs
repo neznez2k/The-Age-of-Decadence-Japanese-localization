@@ -1,6 +1,6 @@
 $vco_cursor_text[0] = "<default>"; // default value. DON'T TOUCH!
-$vco_cursor_text[1] = "Leave the room.";
-$vco_cursor_text[2] = "Enter the room.";
+$vco_cursor_text[1] = "部屋を出る。";
+$vco_cursor_text[2] = "部屋に入る。";
 $vco_cursor_text[3] = "Remove the power tube.";
 $vco_cursor_text[4] = "Place a power tube.";
 $vco_cursor_text[5] = "Go inside.";

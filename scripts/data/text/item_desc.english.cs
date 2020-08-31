@@ -41,18 +41,18 @@ $item_desc[39] = "Heals stat penalties for <amount> point(s)";
 $item_desc[40] = "Weap. Class:";
 loadStringCollection("Item Description Strings", "item_desc");
 
-$weap_class[0] = "Dagger";
-$weap_class[1] = "Sword";
-$weap_class[2] = "Axe";
-$weap_class[3] = "Hammer";
-$weap_class[4] = "Spear";
-$weap_class[5] = "Bow";
-$weap_class[6] = "Crossbow";
-$weap_class[7] = "Throwing";
+$weap_class[0] = "短剣";
+$weap_class[1] = "剣";
+$weap_class[2] = "斧";
+$weap_class[3] = "ハンマー";
+$weap_class[4] = "槍";
+$weap_class[5] = "弓";
+$weap_class[6] = "クロスボウ";
+$weap_class[7] = "投擲";
 loadStringCollection("Weap Class Strings", "weap_class");
 
-$weap_type_1h = "One-handed";
-$weap_type_2h = "Two-handed";
+$weap_type_1h = "片手用";
+$weap_type_2h = "両手用";
 
 $item_desc_upgrades = "Upgrades:";
 $item_desc_skill_bonuses = "Skill bonuses:";

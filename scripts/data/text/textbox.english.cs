@@ -63,7 +63,7 @@ $msg_attack_2_pc_npc0 = "\c1君の力強い攻撃で <victim>に\c4<amount>\c1�
 $msg_attack_2_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与え、主要な臓器を破壊する。 鎧が\c5<DR>\c1ポイントを吸収した。.";
 $msg_attack_2_npc_pc0 = "\c2<attacker_s>の力強い攻撃で君は\c4<amount>\c2ポイントのダメージを受ける。鎧が \c5<DR>\c2ポイントを吸収した。";
 $msg_attack_2_crit_npc_pc0 = "\c2クリティカル！<attacker>の攻撃で君は\c4<amount>\c2ポイントのダメージを与え、主要な臓器を破壊する。 鎧が \c5<DR>\c2ポイントを吸収した。";
-$msg_attack_2_npc_npc0 = "\c3<attacker_s> powerful attack hits <victim> for \c4<amount>\c3ポイントのダメージを与える。 鎧が \c5<DR>\c3ポイントを吸収した。";
+$msg_attack_2_npc_npc0 = "\c3<attacker>のpowerful attack hits <victim> for \c4<amount>\c3ポイントのダメージを与える。 鎧が \c5<DR>\c3ポイントを吸収した。";
 $msg_attack_2_crit_npc_npc0 = "\c3クリティカル！<attacker>は<victim>を攻撃し、\c4<amount>\c3ポイントのダメージを与え、主要な臓器を破壊する。 鎧が \c5<DR>\c3ポイントを吸収した。";
 $msg_attack_2_SpecterBlock_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与え、装備を貫通する。 鎧が\c5<DR>\c1ポイントを吸収した。";
 $msg_attack_2_StoneGuardianBlock_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与え、石の塊があちこちへと飛び散る。 鎧が \c5<DR>\c1ポイントを吸収した。";
@@ -127,11 +127,11 @@ $msg_attack_7_BrokenStoneGuardianBlock_crit_pc_npc0 = "\c1クリティカル！ 
 
 //AIMED: ARMS
 $msg_attack_8_pc_npc0 = "\c1君は<victim>の腕を攻撃し、\c4<amount>\c1ポイントのダメージを与え、 slightly reducing <victim_hisher> accuracy by <eff_val1_2>ポイント減少させる。（<eff_val1_1>ターン）鎧が \c5<DR>\c1ポイントを吸収した。";
-$msg_attack_8_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>の腕を攻撃し、\c4<amount>\c1ポイントのダメージを与え、 disarming <victim_himher> and reducing <victim_hisher> accuracy by <eff_val1_2>ポイント減少させる。（<eff_val1_1>ターン）鎧が\c5<DR>\c1ポイントを吸収した。<victim_s> Strength is reduced by \c41\c1.";
+$msg_attack_8_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>の腕を攻撃し、\c4<amount>\c1ポイントのダメージを与え、 disarming <victim_himher> and reducing <victim_hisher> accuracy by <eff_val1_2>ポイント減少させる。（<eff_val1_1>ターン）鎧が\c5<DR>\c1ポイントを吸収した。<victim>のStrength is reduced by \c41\c1.";
 $msg_attack_8_npc_pc0 = "\c2<attacker>hits your arm for \c4<amount>\c2ポイントのダメージを与え、 slightly reducing your accuracy by <eff_val1_2>ポイント減少させる。（<eff_val1_1>ターン）鎧が \c5<DR>\c2ポイントを吸収した。";
 $msg_attack_8_crit_npc_pc0 = "\c2クリティカル！<attacker>hits your arm for \c4<amount>\c2ポイントのダメージを与え、 disarming you and reducing your accuracy by <eff_val1_2>ポイント減少させる。（<eff_val1_1>ターン）鎧が \c5<DR>\c2 ポイントを吸収した。Your Strength is reduced by \c41\c2.";
-$msg_attack_8_npc_npc0 = "\c3<attacker>hits <victim_s> arm for \c4<amount>\c3ポイントのダメージを与え、 slightly reducing <victim_hisher> accuracy by <eff_val1_2>ポイント減少させる。（<eff_val1_1>ターン）鎧が \c5<DR>\c3ポイントを吸収した。";
-$msg_attack_8_crit_npc_npc0 = "\c3クリティカル！<attacker>hits <victim_s> arm for \c4<amount>\c3ポイントのダメージを与え、 disarming <victim_himher> and reducing <victim_hisher> accuracy by <eff_val1_2>ポイント減少させる。（<eff_val1_1>ターン）鎧が \c5<DR>\c3 ポイントを吸収した。<victim_s> Strength is reduced by \c41\c3.";
+$msg_attack_8_npc_npc0 = "\c3<attacker>hits <victim>のarm for \c4<amount>\c3ポイントのダメージを与え、 slightly reducing <victim_hisher> accuracy by <eff_val1_2>ポイント減少させる。（<eff_val1_1>ターン）鎧が \c5<DR>\c3ポイントを吸収した。";
+$msg_attack_8_crit_npc_npc0 = "\c3クリティカル！<attacker>hits <victim>のarm for \c4<amount>\c3ポイントのダメージを与え、 disarming <victim_himher> and reducing <victim_hisher> accuracy by <eff_val1_2>ポイント減少させる。（<eff_val1_1>ターン）鎧が \c5<DR>\c3 ポイントを吸収した。<victim>のStrength is reduced by \c41\c3.";
 $msg_attack_8_SpecterBlock_pc_npc0 = "\c1君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が \c5<DR>\c1ポイントを吸収した。";
 $msg_attack_8_SpecterBlock_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与え、装備を貫通する。 鎧が \c5<DR>\c1ポイントを吸収した。";
 $msg_attack_8_StoneGuardianBlock_pc_npc0 = "\c1君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が \c5<DR>\c1ポイントを吸収した。";
@@ -144,8 +144,8 @@ $msg_attack_9_pc_npc0 = "\c1君は<victim>の脚を攻撃し\c4<amount>\c1ポイ
 $msg_attack_9_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>の脚を攻撃し\c4<amount>\c1ポイントのダメージを与え、 相手の回避能力を<eff_val1_2>ポイント減少させる。（<eff_val1_1> ターン） 鎧が\c5<DR>\c1ポイントを吸収した。<victim>のDexterityを\c41\c1.";
 $msg_attack_9_npc_pc0 = "\c2<attacker>hits your leg for \c4<amount>\c2ポイントのダメージを与え、 slightly reducing your ability to dodge attacks by <eff_val1_2>ポイント減少させる。（<eff_val1_1> ターン） 鎧が \c5<DR>\c2ポイントを吸収した。";
 $msg_attack_9_crit_npc_pc0 = "\c2クリティカル！<attacker>hits your leg for \c4<amount>\c2ポイントのダメージを与え、 crippling your ability to dodge attacks by <eff_val1_2>ポイント減少させる。（<eff_val1_1> ターン） 鎧が \c5<DR>\c2 ポイントを吸収した。Your Dexterity is reduced by \c41\c2.";
-$msg_attack_9_npc_npc0 = "\c3<attacker>hits <victim_s> leg for \c4<amount>\c3ポイントのダメージを与え、相手の回避能力をわずかに<eff_val1_2>ポイント減少させる。（<eff_val1_1> ターン） 鎧が \c5<DR>\c3ポイントを吸収した。";
-$msg_attack_9_crit_npc_npc0 = "\c3クリティカル！<attacker>hits <victim_s> leg for \c4<amount>\c3ポイントのダメージを与え、 相手の回避能力を<eff_val1_2>ポイント減少させる。（<eff_val1_1> ターン） 鎧が \c5<DR>\c3 ポイントを吸収した。<victim>のDexterityを\c41\c3.";
+$msg_attack_9_npc_npc0 = "\c3<attacker>hits <victim>のleg for \c4<amount>\c3ポイントのダメージを与え、相手の回避能力をわずかに<eff_val1_2>ポイント減少させる。（<eff_val1_1> ターン） 鎧が \c5<DR>\c3ポイントを吸収した。";
+$msg_attack_9_crit_npc_npc0 = "\c3クリティカル！<attacker>hits <victim>のleg for \c4<amount>\c3ポイントのダメージを与え、 相手の回避能力を<eff_val1_2>ポイント減少させる。（<eff_val1_1> ターン） 鎧が \c5<DR>\c3 ポイントを吸収した。<victim>のDexterityを\c41\c3.";
 $msg_attack_9_SpecterBlock_pc_npc0 = "\c1君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が \c5<DR>\c1ポイントを吸収した。";
 $msg_attack_9_SpecterBlock_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与え、装備を貫通する。 鎧が \c5<DR>\c1ポイントを吸収した。";
 $msg_attack_9_StoneGuardianBlock_pc_npc0 = "\c1君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が \c5<DR>\c1ポイントを吸収した。";
@@ -155,11 +155,11 @@ $msg_attack_9_BrokenStoneGuardianBlock_crit_pc_npc0 = "\c1クリティカル！ 
 
 //AIMED: ARMS RANGED
 $msg_attack_10_pc_npc0 = "\c1君は<victim>の腕を攻撃し、\c4<amount>\c1ポイントのダメージを与え、 slightly reducing <victim_hisher> accuracy by <eff_val1_2>ポイント減少させる。（<eff_val1_1> ターン） 鎧が \c5<DR>\c1ポイントを吸収した。";
-$msg_attack_10_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>の腕を攻撃し、\c4<amount>\c1ポイントのダメージを与え、 disarming <victim_himher> and reducing <victim_hisher> accuracy by <eff_val1_2>ポイント減少させる。（<eff_val1_1> ターン） 鎧が\c5<DR>\c1ポイントを吸収した。<victim_s> Strength is reduced by \c41\c1.";
+$msg_attack_10_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>の腕を攻撃し、\c4<amount>\c1ポイントのダメージを与え、 disarming <victim_himher> and reducing <victim_hisher> accuracy by <eff_val1_2>ポイント減少させる。（<eff_val1_1> ターン） 鎧が\c5<DR>\c1ポイントを吸収した。<victim>のStrength is reduced by \c41\c1.";
 $msg_attack_10_npc_pc0 = "\c2<attacker>hits your arm for \c4<amount>\c2ポイントのダメージを与え、 slightly reducing your accuracy by <eff_val1_2>ポイント減少させる。（<eff_val1_1> ターン） 鎧が \c5<DR>\c2ポイントを吸収した。";
 $msg_attack_10_crit_npc_pc0 = "\c2クリティカル！<attacker>hits your arm for \c4<amount>\c2ポイントのダメージを与え、 disarming you and reducing your accuracy by <eff_val1_2>ポイント減少させる。（<eff_val1_1> ターン） 鎧が \c5<DR>\c2 ポイントを吸収した。Your Strength is reduced by \c41\c2.";
-$msg_attack_10_npc_npc0 = "\c3<attacker>hits <victim_s> arm for \c4<amount>\c3ポイントのダメージを与え、 slightly reducing <victim_hisher> accuracy by <eff_val1_2>ポイント減少させる。（<eff_val1_1> ターン） 鎧が \c5<DR>\c3ポイントを吸収した。";
-$msg_attack_10_crit_npc_npc0 = "\c3クリティカル！<attacker>hits <victim_s> arm for \c4<amount>\c3ポイントのダメージを与え、 disarming <victim_himher> and reducing <victim_hisher> accuracy by <eff_val1_2>ポイント減少させる。（<eff_val1_1> ターン） 鎧が \c5<DR>\c3 ポイントを吸収した。<victim_s> Strength is reduced by \c41\c3.";
+$msg_attack_10_npc_npc0 = "\c3<attacker>hits <victim>のarm for \c4<amount>\c3ポイントのダメージを与え、 slightly reducing <victim_hisher> accuracy by <eff_val1_2>ポイント減少させる。（<eff_val1_1> ターン） 鎧が \c5<DR>\c3ポイントを吸収した。";
+$msg_attack_10_crit_npc_npc0 = "\c3クリティカル！<attacker>hits <victim>のarm for \c4<amount>\c3ポイントのダメージを与え、 disarming <victim_himher> and reducing <victim_hisher> accuracy by <eff_val1_2>ポイント減少させる。（<eff_val1_1> ターン） 鎧が \c5<DR>\c3 ポイントを吸収した。<victim>のStrength is reduced by \c41\c3.";
 $msg_attack_10_SpecterBlock_pc_npc0 = "\c1君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が \c5<DR>\c1ポイントを吸収した。";
 $msg_attack_10_SpecterBlock_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与え、装備を貫通する。 鎧が \c5<DR>\c1ポイントを吸収した。";
 $msg_attack_10_StoneGuardianBlock_pc_npc0 = "\c1君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が \c5<DR>\c1ポイントを吸収した。";
@@ -213,11 +213,11 @@ $msg_attack_14_BrokenStoneGuardianBlock_crit_pc_npc0 = "\c1クリティカル！
 
 //IMPALE
 $msg_attack_15_pc_npc0 = "\c1君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が \c5<DR>\c1ポイントを吸収した。";
-$msg_attack_15_crit_pc_npc0 = "\c1クリティカル！ You drive your spear through <victim>, impaling <victim_himher> and rupturing vital organs in the process. <victim> goes down, taking the spear with <victim_himher>. 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が\c5<DR>\c1ポイントを吸収した。<victim_s> Constitution is reduced by \c41\c1.";
+$msg_attack_15_crit_pc_npc0 = "\c1クリティカル！ You drive your spear through <victim>, impaling <victim_himher> and rupturing vital organs in the process. <victim> goes down, taking the spear with <victim_himher>. 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が\c5<DR>\c1ポイントを吸収した。<victim>のConstitution is reduced by \c41\c1.";
 $msg_attack_15_npc_pc0 = "\c2<attacker>の攻撃で君は\c4<amount>\c2 ポイントのダメージを与える。鎧が \c5<DR>\c2ポイントを吸収した。";
 $msg_attack_15_crit_npc_pc0 = "\c2クリティカル！<attacker>drives <attacker_hisher> spear through you, impaling you and rupturing vital organs in the process. You go down taking the spear with you.<attacker>の攻撃で君は\c4<amount>\c2 ポイントのダメージを与える。鎧が \c5<DR>\c2 ポイントを吸収した。Your Constitution is reduced by \c41\c2.";
 $msg_attack_15_npc_npc0 = "\c3<attacker>は<victim>を攻撃し、\c4<amount>\c3 ポイントのダメージを与える。鎧が \c5<DR>\c3ポイントを吸収した。";
-$msg_attack_15_crit_npc_npc0 = "\c3クリティカル！<attacker>drives <attacker_hisher> spear through <victim>, impaling <victim_himher> and rupturing vital organs in the process. <victim> goes down, taking the spear with <victim_himher>.<attacker>は<victim>を攻撃し、\c4<amount>\c3 ポイントのダメージを与える。鎧が \c5<DR>\c3 ポイントを吸収した。<victim_s> Constitution is reduced by \c41\c3.";
+$msg_attack_15_crit_npc_npc0 = "\c3クリティカル！<attacker>drives <attacker_hisher> spear through <victim>, impaling <victim_himher> and rupturing vital organs in the process. <victim> goes down, taking the spear with <victim_himher>.<attacker>は<victim>を攻撃し、\c4<amount>\c3 ポイントのダメージを与える。鎧が \c5<DR>\c3 ポイントを吸収した。<victim>のConstitution is reduced by \c41\c3.";
 
 //WHIRLWIND
 $msg_attack_16_pc_npc0 = "\c1君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が \c5<DR>\c1ポイントを吸収した。";
@@ -489,20 +489,20 @@ $msg_ae_CS_Coef0 = "CS_Coef <eff_val1> <eff_val2>";
 $msg_ae_knockdown0 = "Weapon mastery! <victim> is knocked down!"; // Crossbow passive.
 $msg_ae_noKnockdown0 = "noKnockdown <eff_val1> <eff_val2>";
 $msg_ae_blockPenalty_Coef0 = "blockPenalty_Coef <eff_val1> <eff_val2>";
-$msg_ae_dodgePenalty_Coef0 = "Leg hurt! <victim_s> ability to dodge attacks is lowered by <eff_val2> for <eff_val1> turns."; // {TEMP}
+$msg_ae_dodgePenalty_Coef0 = "Leg hurt! <victim>のability to dodge attacks is lowered by <eff_val2> for <eff_val1> turns."; // {TEMP}
 $msg_ae_thcPenalty_Coef0 = "thcPenalty_Coef <eff_val1> <eff_val2>";
-$msg_ae_statPenalty0 = "<victim_s> Strength is reduced by 1.";
+$msg_ae_statPenalty0 = "<victim>のStrength is reduced by 1.";
 $msg_ae_criticalDamage0 = "criticalDamage <eff_val1> <eff_val2>";
-$msg_ae_cripple0 = "Crippled! <victim_s> movement cost is doubled for <eff_val1> turns."; // Bow passive
+$msg_ae_cripple0 = "Crippled! <victim>のmovement cost is doubled for <eff_val1> turns."; // Bow passive
 $msg_ae_disarm0 = "disarm <eff_val1> <eff_val2>";
 $msg_ae_splitShield0 = "splitShield <eff_val1> <eff_val2>";
 $msg_ae_impale0 = "impale <eff_val1> <eff_val2>";
 $msg_ae_immobilize0 = "immobilize <eff_val1> <eff_val2>";
 $msg_ae_choking0 = "choking <eff_val1> <eff_val2>";
 $msg_ae_passiveChance_Mod0 = "passiveChance_Mod <eff_val1> <eff_val2>";
-$msg_ae_damage_Coef0 = "Savage blow! <victim_s> Strength is reduced by 1."; //New Axe passive. damage_Coef <eff_val1> <eff_val2>
+$msg_ae_damage_Coef0 = "Savage blow! <victim>のStrength is reduced by 1."; //New Axe passive. damage_Coef <eff_val1> <eff_val2>
 $msg_ae_damage_Extra0 = "damage_Extra <eff_val1> <eff_val2>";
-$msg_ae_slowdown0 = "Slowdown! <victim_s> movement cost is doubled for <eff_val1> turns."; // Bow passive
+$msg_ae_slowdown0 = "Slowdown! <victim>のmovement cost is doubled for <eff_val1> turns."; // Bow passive
 $msg_ae_bleeding0 = "Weapon mastery! The attack causes bleeding, dealing \c4<eff_val2>\c1 points of damage for <eff_val1> turns."; // New sword passive.
 $msg_ae_apPenalty0 = "The <victim> is staggered; AP reduced by <eff_val1>."; // xBow passive
 //---------------
@@ -527,12 +527,12 @@ $msg_eg_dodges_npc0 = "\c3<victim> dodges <attacker> attack.";
 //---------------
 
 // Blocks
-$msg_pc_blocks_npc0 = "\c2You block <attacker_s> attack, reducing its damage to \c4<amount>\c2 points; the armor and shield absorb \c5<DR>\c2ポイントを吸収した。";
-$msg_pc_exp_blocks_npc0 = "\c2You expertly block <attacker_s> attack and it glances off your shield harmlessly.";
+$msg_pc_blocks_npc0 = "\c2You block <attacker>のattack, reducing its damage to \c4<amount>\c2 points; the armor and shield absorb \c5<DR>\c2ポイントを吸収した。";
+$msg_pc_exp_blocks_npc0 = "\c2You expertly block <attacker>のattack and it glances off your shield harmlessly.";
 $msg_npc_blocks_pc0 = "\c1<victim> blocks your attack, reducing its damage to\c4<amount>\c1points; the armor and shield absorb \c5<DR>\c1ポイントを吸収した。";
 $msg_npc_exp_blocks_pc0 = "\c1<victim> expertly blocks your attack and it glances off <victim_hisher> shield harmlessly.";
-$msg_npc_blocks_npc0 = "\c3<victim> blocks <attacker_s> attack, reducing its damage to \c4<amount>\c3 points; the armor and shield absorb \c5<DR>\c3ポイントを吸収した。";
-$msg_npc_exp_blocks_npc0 = "\c3<victim> expertly blocks <attacker_s> attack and it glances off <victim_hisher> shield harmlessly.";
+$msg_npc_blocks_npc0 = "\c3<victim> blocks <attacker>のattack, reducing its damage to \c4<amount>\c3 points; the armor and shield absorb \c5<DR>\c3ポイントを吸収した。";
+$msg_npc_exp_blocks_npc0 = "\c3<victim> expertly blocks <attacker>のattack and it glances off <victim_hisher> shield harmlessly.";
 //---------------
 
 // Misses
@@ -550,9 +550,9 @@ $msg_npc_aoo_pc0 = "\c2You try to disengage from combat, but<attacker>uses this 
 $msg_npc_aoo_npc0 = "\c3<victim> tries to disengage from combat, but<attacker>uses this opportunity to attack, forcing <victim> to stay and fight.";
 
 // Interrupts
-$msg_pc_interrupts_npc0 = "\c1A quick spear jab interrupts <victim_s> attempt to get closer, reminding <victim_himher> that cautious people tend to live longer.";
+$msg_pc_interrupts_npc0 = "\c1A quick spear jab interrupts <victim>のattempt to get closer, reminding <victim_himher> that cautious people tend to live longer.";
 $msg_npc_interrupts_pc0 = "\c2A quick spear jab interrupts your attempt to get closer, reminding you that cautious people tend to live longer.";
-$msg_npc_interrupts_npc0 = "\c3A quick spear jab interrupts <victim_s> attempt to get closer, reminding <victim_himher> that cautious people tend to live longer.";
+$msg_npc_interrupts_npc0 = "\c3A quick spear jab interrupts <victim>のattempt to get closer, reminding <victim_himher> that cautious people tend to live longer.";
 
 //---------------
 
@@ -564,46 +564,46 @@ $msg_npc_potion0 = "\c2<npc> drinks a <type>.";
 $msg_pc_potion_berserk_damage0 = "\c1Suddenly, the rage disappears, leaving you nothing but pain. The potion\'s effects wear off and blood starts flowing from your wounds, no longer kept closed by the alchemical forces. You lose <amount> hit points.";
 $msg_npc_potion_berserk_damage0 = "\c2Suddenly, <victim> stops and looks around wildly. The potion\'s effects must have finally worn off. <victim> winces in pain as blood starts flowing from the wounds, no longer kept closed by the alchemical forces. <victim> loses <amount> hit points.";
 $msg_pc_potion_berserk_death0 = "\c1It\'s more than your battered body can handle and you collapse, twitch a few times, then lie still.";
-$msg_npc_potion_berserk_death0 = "\c2It\'s more than <victim_s> body can handle and <victim_heshe> collapses, twitches a few times, then lies still."; 
+$msg_npc_potion_berserk_death0 = "\c2It\'s more than <victim>のbody can handle and <victim_heshe> collapses, twitches a few times, then lies still."; 
 
 // Poison
 $msg_pc_potion_poison_damage0 = "\c1You spasm in pain as poison spreads through your body, dealing\c4<amount>\c1points of damage.";
 $msg_npc_potion_poison_damage0 = "\c2<victim> spasms in pain as poison spreads through <victim_hisher> body, dealing \c4<amount>\c2 points of damage.";
 $msg_pc_potion_poison_death0 = "\c1You spasm violently again and fall down, convulsing uncontrollably. Finally, your heart stops and you lie still.";
-$msg_npc_potion_poison_death0 = "\c2<victim> spasms violently again and falls down, convulsing uncontrollably. Finally, <victim_s> heart stops and <victim_heshe> lies still.";
+$msg_npc_potion_poison_death0 = "\c2<victim> spasms violently again and falls down, convulsing uncontrollably. Finally, <victim>のheart stops and <victim_heshe> lies still.";
 
 // Nets
 $msg_pc_net_npc0 = "\c1Your net entangles <victim>, greatly reducing <victim_hisher> combat abilites for <eff_val1_1> turns.";
-$msg_npc_net_pc0 = "\c2<attacker_s> net entangles you, greatly reducing your combat abilites for <eff_val1_1> turns.";
-$msg_npc_net_npc0 = "\c3<attacker_s> net entangles <victim>, greatly reducing <victim_hisher> combat abilites for <eff_val1_1> turns.";
+$msg_npc_net_pc0 = "\c2<attacker>のnet entangles you, greatly reducing your combat abilites for <eff_val1_1> turns.";
+$msg_npc_net_npc0 = "\c3<attacker>のnet entangles <victim>, greatly reducing <victim_hisher> combat abilites for <eff_val1_1> turns.";
 
 // Bolas
-$msg_pc_bolas_head_npc0 = "\c1Your bolas wrap around <victim_s> neck, choking <victim_himher>, and loses 8 AP for the next turn.";
-$msg_npc_bolas_head_pc0 = "\c2<attacker_s> bolas wrap around your neck, chocking you, and lose 8 AP for the next turn.";
-$msg_npc_bolas_head_npc0 = "\c3<attacker_s> bolas wrap around <victim_s> neck, choking <victim_himher>, and loses 8 AP for the next turn.";
-$msg_pc_bolas_legs_npc0 = "\c1Your bolas wrap around <victim_s> legs. <victim> is unable to move or dodge, and loses 6 AP for the next turn.";
-$msg_npc_bolas_legs_pc0 = "\c2<attacker_s> bolas wrap around your legs. You are unable to move or dodge, and lose 6 AP for the next turn.";
-$msg_npc_bolas_legs_npc0 = "\c3<attacker_s> bolas wrap around <victim_s> legs. <victim> is unable to move or dodge, and loses 6 AP for the next turn.";
+$msg_pc_bolas_head_npc0 = "\c1Your bolas wrap around <victim>のneck, choking <victim_himher>, and loses 8 AP for the next turn.";
+$msg_npc_bolas_head_pc0 = "\c2<attacker>のbolas wrap around your neck, chocking you, and lose 8 AP for the next turn.";
+$msg_npc_bolas_head_npc0 = "\c3<attacker>のbolas wrap around <victim>のneck, choking <victim_himher>, and loses 8 AP for the next turn.";
+$msg_pc_bolas_legs_npc0 = "\c1Your bolas wrap around <victim>のlegs. <victim> is unable to move or dodge, and loses 6 AP for the next turn.";
+$msg_npc_bolas_legs_pc0 = "\c2<attacker>のbolas wrap around your legs. You are unable to move or dodge, and lose 6 AP for the next turn.";
+$msg_npc_bolas_legs_npc0 = "\c3<attacker>のbolas wrap around <victim>のlegs. <victim> is unable to move or dodge, and loses 6 AP for the next turn.";
 
 // Acid
 $msg_pc_acid_npc0 = "\c1Your acid vial hits <victim> and breaks. Acid is eating through the armor, reducing its DR by \c4<amount>\c1.";
-$msg_npc_acid_pc0 = "\c2<attacker_s> acid vial hits you and breaks. Acid is eating through the armor, reducing its DR by \c4<amount>\c2.";
-$msg_npc_acid_npc0 = "\c3<attacker_s> acid vial hits <victim> and breaks. Acid is eating through the armor, reducing its DR by \c4<amount>\c3.";
+$msg_npc_acid_pc0 = "\c2<attacker>のacid vial hits you and breaks. Acid is eating through the armor, reducing its DR by \c4<amount>\c2.";
+$msg_npc_acid_npc0 = "\c3<attacker>のacid vial hits <victim> and breaks. Acid is eating through the armor, reducing its DR by \c4<amount>\c3.";
 $msg_pc_acid_damage0 = "\c1The acid burns through your skin, doing\c4<amount>\c1points of damage.";
-$msg_npc_acid_damage0 = "\c2The acid burns through <victim_s> skin, doing \c4<amount>\c2 points of damage.";
+$msg_npc_acid_damage0 = "\c2The acid burns through <victim>のskin, doing \c4<amount>\c2 points of damage.";
 $msg_pc_acid_death0 = "\c1It\'s more than your burned body can handle and you collapse, twitch a few times, then lie still.";
-$msg_npc_acid_death0 = "\c2It\'s more than <victim_s> burned body can handle and <victim_heshe> collapses, twitches a few times, then lies still.";
+$msg_npc_acid_death0 = "\c2It\'s more than <victim>のburned body can handle and <victim_heshe> collapses, twitches a few times, then lies still.";
 
 // Acid -> Shield
-$msg_pc_acid_shield_npc0 = "\c1Your acid vial hits <victim_s> shield and melts it.";
-$msg_npc_acid_shield_pc0 = "\c2<attacker_s> acid vial hits your shield and melts it.";
-$msg_npc_acid_shield_npc0 = "\c3<attacker_s> acid vial hits <victim_s> shield and melts it.";
+$msg_pc_acid_shield_npc0 = "\c1Your acid vial hits <victim>のshield and melts it.";
+$msg_npc_acid_shield_pc0 = "\c2<attacker>のacid vial hits your shield and melts it.";
+$msg_npc_acid_shield_npc0 = "\c3<attacker>のacid vial hits <victim>のshield and melts it.";
 
 // Liquid Fire
 $msg_pc_fire_damage0 = "\c1The fire burns you for\c4<amount>\c1points of damage.";
 $msg_npc_fire_damage0 = "\c2The fire burns <victim> for \c4<amount>\c2 points of damage.";
 $msg_pc_fire_death0 = "\c1It\'s more than your burned body can handle and you collapse, twitch a few times, then lie still.";
-$msg_npc_fire_death0 = "\c2It\'s more than <victim_s> burned body can handle and <victim_heshe> collapses, twitches a few times, then lies still.";
+$msg_npc_fire_death0 = "\c2It\'s more than <victim>のburned body can handle and <victim_heshe> collapses, twitches a few times, then lies still.";
 
 //---------------
 
@@ -632,15 +632,15 @@ $msg_death_sp0 = "\c1The construct freezes, its gears damaged beyond repair, the
 $msg_death_eg0 = "\c1The God\'s mortal vessel takes more damage than it can handle. Slowly, the God topples forward, landing at your feet. It\'s over.";
 
 // DR damage
-$msg_pc_armour_dmg_npc0 = "\c1You dent <victim_s> armor, reducing its DR by \c4<amount>\c1.";
+$msg_pc_armour_dmg_npc0 = "\c1You dent <victim>のarmor, reducing its DR by \c4<amount>\c1.";
 $msg_npc_armour_dmg_pc0 = "\c2<attacker>dents your armor, reducing its DR by \c4<amount>\c2.";
-$msg_npc_armour_dmg_npc0 = "\c3<attacker>dents <victim_s> armor, reducing its DR by \c4<amount>\c3.";
-$msg_pc_helmet_dmg_npc0 = "\c1You dent <victim_s> helmet, reducing its DR by \c4<amount>\c1.";
+$msg_npc_armour_dmg_npc0 = "\c3<attacker>dents <victim>のarmor, reducing its DR by \c4<amount>\c3.";
+$msg_pc_helmet_dmg_npc0 = "\c1You dent <victim>のhelmet, reducing its DR by \c4<amount>\c1.";
 $msg_npc_helmet_dmg_pc0 = "\c2<attacker>dents your helmet, reducing its DR by \c4<amount>\c2.";
-$msg_npc_helmet_dmg_npc0 = "\c3<attacker>dents <victim_s> helmet, reducing its DR by \c4<amount>\c3.";
-$msg_pc_shield_dmg_npc0 = "\c1You dent <victim_s> shield, reducing its DR by \c4<amount>\c1.";
+$msg_npc_helmet_dmg_npc0 = "\c3<attacker>dents <victim>のhelmet, reducing its DR by \c4<amount>\c3.";
+$msg_pc_shield_dmg_npc0 = "\c1You dent <victim>のshield, reducing its DR by \c4<amount>\c1.";
 $msg_npc_shield_dmg_pc0 = "\c2<attacker>dents your shield, reducing its DR by \c4<amount>\c2.";
-$msg_npc_shield_dmg_npc0 = "\c3<attacker>dents <victim_s> shield, reducing its DR by \c4<amount>\c3.";
+$msg_npc_shield_dmg_npc0 = "\c3<attacker>dents <victim>のshield, reducing its DR by \c4<amount>\c3.";
 
 // Regen HP
 $msg_pc_regens_hp0 = "You regenerate <amount> HP.";

@@ -1,5 +1,5 @@
 ﻿$phrase_DamageLine_CS = "クリティカル！";
-$phrase_DamageLine_bleeding = "Bleeding!";
+$phrase_DamageLine_bleeding = "出血！";
 $phrase_DamageLine_poisoned = "Poisoned!";
 $phrase_DamageLine_crippled = "Crippled!";
 $phrase_DamageLine_burned = "On Fire!";
@@ -24,8 +24,8 @@ $phrase_DamageLine_bolas_legs = "Immobilized!";
 $phrase_DamageLine_SP = "+<amount> SP";
 
 //neutral greetings
-$phrase_CharacterBlock_neutral_greeting0 = "Hello.";
-$phrase_CharacterBlock_neutral_greeting1 = "Greetings, <charname>.";
+$phrase_CharacterBlock_neutral_greeting0 = "やあ。";
+$phrase_CharacterBlock_neutral_greeting1 = "こんにちは、 <charname>。";
 
 //friendly greetings
 $phrase_CharacterBlock_friendly_greeting0 = "Glad to see you, <charname>!";
