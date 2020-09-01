@@ -13,8 +13,8 @@ loadStringCollection("Cursor Strings", "cursor_string");
 
 // Cursor hint
 $cursor_hint[0] = "HP";
-$cursor_hint[1] = "THC";
-$cursor_hint[2] = "CS";
+$cursor_hint[1] = "THC（命中率）";
+$cursor_hint[2] = "CS（クリティカル率）";
 $cursor_hint[3] = "ADC";
 loadStringCollection("Cursor Hints", "cursor_hint");
 
@@ -41,9 +41,9 @@ $usage_string_pa_horus = "HORUS";
 $usage_string_pa_anubis = "ANUBIS";
 $usage_string_pa_ra = "RA";
 
-$ammo_desc[0] = "Regular";
-$ammo_desc[1] = "Barbed";
-$ammo_desc[2] = "Piercing";
+$ammo_desc[0] = "通常";
+$ammo_desc[1] = "逆鉤";
+$ammo_desc[2] = "貫通";
 loadStringCollection("Ammo Desc", "ammo_desc");
 $ammo_desc_short[0] = "REG";
 $ammo_desc_short[1] = "BARB";
@@ -73,9 +73,9 @@ $attack_string[16] = "旋風斬";
 $attack_string[17] = "マルチショット";
 $attack_string[18] = "バースト";
 $attack_string[19] = "エンタングル";
-$attack_string[20] = "投擲　酸";
-$attack_string[21] = "THROW: LEGS";
-$attack_string[22] = "THROW: HEAD";
+$attack_string[20] = "酸投げ";
+$attack_string[21] = "投げる：脚";
+$attack_string[22] = "投げる：頭";
 $attack_string[23] = "フェイント";
 $attack_string[24] = "シールドバッシュ";
 $attack_string[25] = "フラスコ投げ";
@@ -84,19 +84,19 @@ $attack_string[27] = "旋風斬";
 $attack_string[28] = "QUICK JAB";
 $attack_string[29] = "SNIPE";
 $attack_string[30] = "THROW OPPONENT";
-$attack_string[31] = "SLASH";
+$attack_string[31] = "スラッシュ";
 $attack_string[32] = "強攻撃";
-$attack_string[33] = "DOUBLE STRIKE";
+$attack_string[33] = "ダブルストライク";
 $attack_string[34] = "SCORPION CLAW REGULAR";
 $attack_string[35] = "SCORPION TAIL";
 $attack_string[36] = "強攻撃";
-$attack_string[37] = "TRIPLE STRIKE";
-$attack_string[38] = "PUSH";
+$attack_string[37] = "トリプルストライク";
+$attack_string[38] = "プッシュ";
 $attack_string[39] = "ELDER GOD HAND ATTACK";
 $attack_string[40] = "ELDER TENTACLE ATTACK";
 $attack_string[41] = "ELDER MIND ATTACK REGULAR";
 $attack_string[42] = "ELDER MIND ATTACK SHIELDED";
-$attack_string[43] = "THROW ACID";
+$attack_string[43] = "酸投げ";
 $attack_string[44] = "ノックダウン";
 $attack_string[45] = "ノックダウン";
 $attack_string[46] = "SCOLOPENDRA";
@@ -110,131 +110,131 @@ $playgui_item_tooltip_format =   "<font:Kinto Sans Bold:25>" @
                                  "<font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル効果<spop><br>" @
                                  "<font:Kinto Sans:25><spush><color:AB9661><critical_effect><spop><br>";
 //Fast
-$attack_tooltip_effect[0] = " - 低ダメージ<br> - 命中率　＋15% <br> - クリティカル率  - 15% <br> - アーマーダメージ率　 - 15%";
-$attack_tooltip_critical_effect[0] = " - 装甲貫通 <br> - クリティカルダメージ";
+$attack_tooltip_effect[0] = "- 低ダメージ<br>- 命中率　＋15% <br>- クリティカル率  - 15% <br>- アーマーダメージ率　 - 15%";
+$attack_tooltip_critical_effect[0] = " - 装甲貫通 <br>- クリティカルダメージ";
 //Regular
-$attack_tooltip_effect[1] = " - 通常ダメージ";
-$attack_tooltip_critical_effect[1] = " - 装甲貫通 <br> - クリティカルダメージ";
+$attack_tooltip_effect[1] = "- 通常ダメージ";
+$attack_tooltip_critical_effect[1] = " - 装甲貫通 <br>- クリティカルダメージ";
 //Power
-$attack_tooltip_effect[2] = " - 高ダメージ <br> - 命中率　 - 15% <br> - クリティカル率 　＋15% <br> - アーマーダメージ率　＋15%";
-$attack_tooltip_critical_effect[2] = " - 装甲貫通 <br> - クリティカルダメージ";
+$attack_tooltip_effect[2] = "- 高ダメージ <br>- 命中率　 - 15% <br>- クリティカル率 　＋15% <br>- アーマーダメージ率　＋15%";
+$attack_tooltip_critical_effect[2] = " - 装甲貫通 <br>- クリティカルダメージ";
 //Throw
-$attack_tooltip_effect[3] = " - 高ダメージ <br> - 命中率　-10% <br> - クリティカル率 　+10% <br> - アーマーダメージ率　+15% <br>- Passive chance +5%";
+$attack_tooltip_effect[3] = "- 高ダメージ <br>- 命中率　-10% <br>- クリティカル率 　+10% <br>- アーマーダメージ率　+15% <br>- パッシブ率 +5%";
 $attack_tooltip_critical_effect[3] = " - クリティカルダメージ";
 //Aimed: Head
-$attack_tooltip_effect[4] = " - 高ダメージ <br> - 命中率　  - 25%<br> - クリティカル率 　 - 15%<br>- Penalty to Attack (THC)<br>- Amount: 5% + (Weapon AP-3) x2% for 3 turns";
-$attack_tooltip_critical_effect[4] = "- Knockdown 2 turns, thrown 1 tile<br>- Reduces Perception by 1 <br>- Minimal Damage 1 point<br> - クリティカルダメージ<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>Critical Chance Formula<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>(CS - VsCS) + (STR-7) x10";
+$attack_tooltip_effect[4] = "- 高ダメージ <br>- 命中率　  - 25%<br>- クリティカル率 　 - 15%<br>- アタックペナルティ(THC)<br>- 合計： 5% + （武器AP-3） x2% （3ターンの間）";
+$attack_tooltip_critical_effect[4] = "- 2ターンの間ノックダウン、1タイル分投げ出される<br>- 知覚が1減少 <br>- 最小で1ポイントのダメージ<br>- クリティカルダメージ<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（クリティカル率-クリティカル抵抗） + （筋力-7） x10";
 //Arterial Strike
-$attack_tooltip_effect[5] = " - 高ダメージ <br> - 命中率　 -25% <br> - アーマーダメージ率　-25%<br> - クリティカル率 　-25%";
-$attack_tooltip_critical_effect[5] = " - 装甲貫通 <br> - クリティカルダメージ <br>- Bleeding: 4 damage for 3 turns<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>Critical Chance Formula<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>(CS - VsCS) + (PER-7) x10";
+$attack_tooltip_effect[5] = "- 高ダメージ <br>- 命中率　 -25% <br>- アーマーダメージ率　-25%<br>- クリティカル率 　-25%";
+$attack_tooltip_critical_effect[5] = " - 装甲貫通 <br>- クリティカルダメージ <br>- 出血：4ダメージ （3ターンの間）<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（クリティカル率-クリティカル抵抗） + （知覚-7） x10";
 //Aimed: Torso
-$attack_tooltip_effect[6] = "- Normal Damage <br> - 命中率　 -10% <br> - 装甲貫通 by 30%";
-$attack_tooltip_critical_effect[6] = " - 装甲貫通 by 70% <br>- Reduces armor DR by 2 <br> - クリティカルダメージ <br>- Reduces Constitution by 1<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>Critical Chance Formula<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>(CS - VsCS) + (PER-7) x10";
+$attack_tooltip_effect[6] = "- 通常ダメージ <br>- 命中率　 -10% <br>- 30%の装甲貫通 ";
+$attack_tooltip_critical_effect[6] = " - 70%の装甲貫通 <br>- 鎧の装甲が2減少 <br>- クリティカルダメージ <br>- 体力が1減少<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（クリティカル率-クリティカル抵抗） + （知覚-7） x10";
 //Aimed: Legs
-$attack_tooltip_effect[7] = "- Low Damage <br> - 命中率　 -10% <br> - アーマーダメージ率　-50% <br>- Penalty to Dodge<br>- Amount: 5% + (Weapon AP-3) x5% for 3 turns";
-$attack_tooltip_critical_effect[7] = "- Double Penalty to Dodge<br>- Reduces Dexterity by 1<br>- Cripple 2 turns (doubles movement cost)<br>- Minimal Damage 1 point<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>Critical Chance Formula<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>(CS - VsCS) + (STR-7) x10";
+$attack_tooltip_effect[7] = "- 低ダメージ <br>- 命中率　 -10% <br>- アーマーダメージ率　-50% <br>- 回避にペナルティ<br>- 合計： 5% + （武器AP-3） x5% （3ターンの間）";
+$attack_tooltip_critical_effect[7] = "- 回避に2倍のペナルティ<br>- 巧緻が1減少<br>- 2ターンの間無力化 （移動コスト2倍）<br>- 最小で1ポイントのダメージ<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（クリティカル率-クリティカル抵抗） + （筋力-7） x10";
 //Aimed: Arms
-$attack_tooltip_effect[8] = "- Low Damage <br> - 命中率　 -10% <br> - アーマーダメージ率　-50% <br>- Penalty to Attack (THC)<br>- Amount: 5% + (Weapon AP-3) x5% for 3 turns";
-$attack_tooltip_critical_effect[8] = "- Double Penalty to Attack (THC)<br>- Reduces Strength by 1<br>- Disarm (weapon removed from hand slot)<br>- Minimal Damage 1 point<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>Critical Chance Formula<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>(CS - VsCS) + (STR-7) x10";
+$attack_tooltip_effect[8] = "- 低ダメージ <br>- 命中率　 -10% <br>- アーマーダメージ率　-50% <br>- アタックペナルティ(THC)<br>- 合計： 5% + （武器AP-3） x5% （3ターンの間）";
+$attack_tooltip_critical_effect[8] = "- アタックに2倍のペナルティ(THC)<br>- 筋力が1減少<br>- 武装解除（ハンドスロットから武器を取り除く）<br>- 最小で1ポイントのダメージ<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（クリティカル率-クリティカル抵抗） + （筋力-7） x10";
 //Aimed: Legs - Ranged
-$attack_tooltip_effect[9] = "- Low Damage <br> - 命中率　 -10% <br> - アーマーダメージ率　-50% <br>- Penalty to Dodge<br>- Amount: 5% + (Weapon AP-3) x5% for 3 turns";
-$attack_tooltip_critical_effect[9] = "- Double Penalty to Dodge<br>- Reduces Dexterity by 1<br>- Cripple 2 turns (doubles movement cost)<br>- Minimal Damage 1 point<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>Critical Chance Formula<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>(CS - VsCS) + (PER-7) x10";
+$attack_tooltip_effect[9] = "- 低ダメージ <br>- 命中率　 -10% <br>- アーマーダメージ率　-50% <br>- 回避にペナルティ<br>- 合計： 5% + （武器AP-3） x5% （3ターンの間）";
+$attack_tooltip_critical_effect[9] = "- 回避に2倍のペナルティ<br>- 巧緻が1減少<br>- 2ターンの間無力化 （移動コスト2倍）<br>- 最小で1ポイントのダメージ<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（クリティカル率-クリティカル抵抗） + （知覚-7） x10";
 //Aimed: Arms - Ranged
-$attack_tooltip_effect[10] = "- Low Damage <br> - 命中率　 -10% <br> - アーマーダメージ率　-50% <br>- Penalty to Attack (THC)<br>- Amount: 5% + (Weapon AP-3) x5% for 3 turns";
-$attack_tooltip_critical_effect[10] = "- Double Penalty to Attack (THC)<br>- Reduces Strength by 1<br>- Disarm (weapon removed from hand slot)<br>- Minimal Damage 1 point<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>Critical Chance Formula<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>(CS - VsCS) + (PER-7) x10";
+$attack_tooltip_effect[10] = "- 低ダメージ <br>- 命中率　 -10% <br>- アーマーダメージ率　-50% <br>- アタックペナルティ(THC)<br>- 合計： 5% + （武器AP-3） x5% （3ターンの間）";
+$attack_tooltip_critical_effect[10] = "- アタックに2倍のペナルティ(THC)<br>- 筋力が1減少<br>- 武装解除（ハンドスロットから武器を取り除く）<br>- 最小で1ポイントのダメージ<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（クリティカル率-クリティカル抵抗） + （知覚-7） x10";
 //Swing
-$attack_tooltip_effect[11] = "- Normal Damage <br> - 命中率　 -10%<br> - アーマーダメージ率　-10%<br>- Covers the three tiles in front of the character";
-$attack_tooltip_critical_effect[11] = " - クリティカルダメージ <br>- Knockdown 1 turn, thrown 2 tiles<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>Critical Chance Formula<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>(CS - VsCS) + (STR-7) x10";
+$attack_tooltip_effect[11] = "- 通常ダメージ <br>- 命中率　 -10%<br>- アーマーダメージ率　-10%<br>- キャラクターの前方の3タイルに及ぶ";
+$attack_tooltip_critical_effect[11] = " - クリティカルダメージ <br>- 1ターンの間ノックダウン、 2タイル分投げ出される<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（クリティカル率-クリティカル抵抗） + （筋力-7） x10";
 //Cleave
-$attack_tooltip_effect[12] = " - 高ダメージ <br> - 命中率　 -20% <br> - クリティカル率 　+35% <br> - アーマーダメージ率　+25%";
-$attack_tooltip_critical_effect[12] = " - 装甲貫通 <br> - クリティカルダメージ<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>Critical Chance Formula<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>(CS - VsCS) + (STR-7) x10";
+$attack_tooltip_effect[12] = "- 高ダメージ <br>- 命中率　 -20% <br>- クリティカル率 　+35% <br>- アーマーダメージ率　+25%";
+$attack_tooltip_critical_effect[12] = " - 装甲貫通 <br>- クリティカルダメージ<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（クリティカル率-クリティカル抵抗） + （筋力-7） x10";
 //Double Tap
-$attack_tooltip_effect[13] = "- Two Attacks <br>- Low Damage minus 2 points (all attacks)<br> - 命中率　 +15% <br> - クリティカル率 　-15%<br> - アーマーダメージ率　-15%";
-$attack_tooltip_critical_effect[13] = " - 装甲貫通 <br> - クリティカルダメージ";
+$attack_tooltip_effect[13] = "- 2回攻撃 <br>- 低ダメージ 全ての攻撃でマイナス2ポイント<br>- 命中率　 +15% <br>- クリティカル率 　-15%<br>- アーマーダメージ率　-15%";
+$attack_tooltip_critical_effect[13] = " - 装甲貫通 <br>- クリティカルダメージ";
 //Flurry
-$attack_tooltip_effect[14] = "- Three Attacks <br>- Low Damage minus 1 point (all attacks)<br> - 命中率　 +15% <br> - クリティカル率 　-15%<br> - アーマーダメージ率　-25%";
-$attack_tooltip_critical_effect[14] = " - 装甲貫通 <br> - クリティカルダメージ";
+$attack_tooltip_effect[14] = "- 3回攻撃 <br>- 低ダメージ 全ての攻撃でマイナス1ポイント<br>- 命中率　 +15% <br>- クリティカル率 　-15%<br>- アーマーダメージ率　-25%";
+$attack_tooltip_critical_effect[14] = " - 装甲貫通 <br>- クリティカルダメージ";
 //Impale
-$attack_tooltip_effect[15] = " - 高ダメージ <br> - 命中率　 -10%";
-$attack_tooltip_critical_effect[15] = " - 装甲貫通 <br> - クリティカルダメージ <br>- Impales Opponent for 2 turns <br>- Damages Constitution for 1 point<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>Critical Chance Formula<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>(CS - VsCS) + (STR-7) x10";
+$attack_tooltip_effect[15] = "- 高ダメージ <br>- 命中率　 -10%";
+$attack_tooltip_critical_effect[15] = " - 装甲貫通 <br>- クリティカルダメージ <br>- 2ターンの間敵の動きを止める <br>- 体力に1ポイントのダメージ<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（クリティカル率-クリティカル抵抗） + （筋力-7） x10";
 //Whirlwind
-$attack_tooltip_effect[16] = "- Low Damage <br> - 命中率　 -20%<br> - アーマーダメージ率　-20%<br> - クリティカル率 　-20%<br>- Can hit every opponent on 8 squares surrounding your character";
-$attack_tooltip_critical_effect[16] = " - クリティカルダメージ <br>- Knockdown 1 turn, thrown 1 tile<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>Critical Chance Formula<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>(CS - VsCS) + (STR-7) x10";
+$attack_tooltip_effect[16] = "- 低ダメージ <br>- 命中率　 -20%<br>- アーマーダメージ率　-20%<br>- クリティカル率 　-20%<br>- 周囲の8マス全ての敵に同時に攻撃可能";
+$attack_tooltip_critical_effect[16] = " - クリティカルダメージ <br>- 1ターンの間ノックダウン、1タイル分投げ出される<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（クリティカル率-クリティカル抵抗） + （筋力-7） x10";
 //Multishot
-$attack_tooltip_effect[17] = "- Low Damage <br> - 命中率　 +10% <br>- Fires 3 arrows in a arc";
+$attack_tooltip_effect[17] = "- 低ダメージ <br>- 命中率　 +10% <br>- 扇状に3本の矢を放つ";
 $attack_tooltip_critical_effect[17] = " - クリティカルダメージ";
 //Burst
-$attack_tooltip_effect[18] = "- Normal Damage <br> - 命中率　 +10% <br>- Fires 5 bolts in a row";
+$attack_tooltip_effect[18] = "- 通常ダメージ <br>- 命中率　 +10% <br>- 連続で5本のボルトを放つ";
 $attack_tooltip_critical_effect[18] = " - クリティカルダメージ";
 //Entangle
-$attack_tooltip_effect[19] = "- No Damage <br>- Lowers opponent's THC and Dodge Defense by 20 points for 1 turn<br>- Loses 6 AP for the next turn";
-$attack_tooltip_critical_effect[19] = "- Lowers opponent's THC and Dodge Defense by 20 points for 2 turns <br>- Loses 6 AP for the next turn<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>Critical Chance Formula<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>(Throwing - (Victim DEX-7)) x10";
+$attack_tooltip_effect[19] = "- ダメージなし <br>- 相手のTHC（命中率）と回避を20ポイント下げる（1ターンの間）<br>- 次のターンで6AP失う";
+$attack_tooltip_critical_effect[19] = "- 相手のTHC（命中率）と回避を20ポイント下げる（2ターンの間） <br>- 次のターンで6AP失う<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（投擲 -（相手の巧緻 - 7）） x10";
 //Throw Acid
-$attack_tooltip_effect[20] = "- Damages opponent's armor";
-$attack_tooltip_critical_effect[20] = "- None";
+$attack_tooltip_effect[20] = "- 相手の鎧にダメージ";
+$attack_tooltip_critical_effect[20] = "- なし";
 //Throw Bolas: Legs
-$attack_tooltip_effect[21] = "- No Damage <br>- Immobilizes opponent for 1 turn<br>- Loses 6 AP for the next turn<br>- Penalty to Dodge Defense 100% for 1 turn";
-$attack_tooltip_critical_effect[21] = "- Immobilizes opponent for 2 turns<br>- Loses 6 AP for the next turn<br>- Penalty to Dodge Defense 100% for 2 turns<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>Critical Chance Formula<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>(Throwing - (Victim DEX-7)) x10";
+$attack_tooltip_effect[21] = "- ダメージなし <br>- 相手を移動不能にする（1ターンの間）<br>- 次のターンで6AP失う<br>- 回避にペナルティ 100%（1ターンの間）";
+$attack_tooltip_critical_effect[21] = "- 相手を移動不能にする（2ターンの間）<br>- 次のターンで6AP失う<br>- 回避にペナルティ 100%（2ターンの間）<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（投擲 -（相手の巧緻 - 7）） x10";
 //Throw Bolas: Head
-$attack_tooltip_effect[22] = "- No Damage <br>- Chokes opponent for 1 turn<br>- Loses 8 AP for the next turn<br>- Penalty to Block and Dodge Defense 100% for 2 turns";
-$attack_tooltip_critical_effect[22] = "- Chokes opponent for 2 turns<br>- Loses 8 AP for the next turn<br>- Penalty to Block and Dodge Defense 100% for 3 turns<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>Critical Chance Formula<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>(Throwing - (Victim DEX-7)) x10";
+$attack_tooltip_effect[22] = "- ダメージなし <br>- 相手を窒息させる（1ターンの間）<br>- 次のターンで8AP失う<br>- ブロックと回避にペナルティ 100%（2ターンの間）";
+$attack_tooltip_critical_effect[22] = "- 相手を窒息させる（2ターンの間）<br>- 次のターンで8AP失う<br>- ブロックと回避にペナルティ 100% （3ターンの間）<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（投擲 -（相手の巧緻 - 7）） x10";
 //Feint
-$attack_tooltip_effect[23] = "- No Damage <br>- Switch places with the opponent<br> - アーマーダメージ率　-100%<br>- Attack chance is Dodge x10";
-$attack_tooltip_critical_effect[23] = "- Switch places with the opponent, knockdown<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>Critical Chance Formula<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>((STR-7) - (Victim CON-7)) x5";
+$attack_tooltip_effect[23] = "- ダメージなし <br>- 敵と場所を入れ替える<br>- アーマーダメージ率　-100%<br>- 命中率は回避 x10";
+$attack_tooltip_critical_effect[23] = "- 敵と場所を入れ替える、ノックダウン<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（（筋力-7） - （相手の体力-7）） x5";
 //Shield Bash
-$attack_tooltip_effect[24] = "- No Damage <br>- Pushes opponent away one tile";
-$attack_tooltip_critical_effect[24] = "- Knockdown 1 turn, thrown 1 tile<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>Critical Chance Formula<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>((STR-7) - (Victim CON-7)) x5";
+$attack_tooltip_effect[24] = "- ダメージなし <br>- 敵を1タイル押し出す";
+$attack_tooltip_critical_effect[24] = "- 1ターンの間ノックダウン、1タイル分投げ出される<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（（筋力-7） - （相手の体力-7）） x5";
 //Throw Liquid Fire
-$attack_tooltip_effect[25] = "- Damages opponent with fire, ignores DR<br>- Set tiles on fire<br>- Cross shaped area of attack";
-$attack_tooltip_critical_effect[25] = "- None";
+$attack_tooltip_effect[25] = "- 炎で相手を攻撃し、装甲を無視する<br>- タイルに火がつく<br>- 十字型の攻撃範囲";
+$attack_tooltip_critical_effect[25] = "- なし";
 //Throw Bomb
-$attack_tooltip_effect[26] = "- Damages opponent with blast";
-$attack_tooltip_critical_effect[26] = "- Knockdown 1 turn, thrown 2-3 tiles<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>Critical Chance Formula<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>- Base: 25 + Center of Explosion Bonus - (Victim CON-6) x25<br>- Center of explosion adds 50% to CS chance. Distance from center of explosion lowers this value.";
+$attack_tooltip_effect[26] = "- 爆風で相手を攻撃";
+$attack_tooltip_critical_effect[26] = "- 1ターンの間ノックダウン、2-3タイル分投げ出される<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>- 基礎ポイント: 25 + 爆心地ボーナス - （相手の体力-6） x25<br>- 爆心地ならクリティカル率 50%アップ。 爆心地から離れるとこの値は低くなる。";
 //Whirlwind - Blades
-$attack_tooltip_effect[27] = "- Low Damage <br> - 命中率　 -15%<br> - アーマーダメージ率　-25%<br> - クリティカル率 　-25%<br>- Can hit every opponent on 8 squares surrounding your character";
-$attack_tooltip_critical_effect[27] = " - クリティカルダメージ <br><font:Kinto Sans Bold:25><spush><color:FFFFFF>Critical Chance Formula<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>(CS - VsCS) + (PER-7) x10";
+$attack_tooltip_effect[27] = "- 低ダメージ <br>- 命中率　 -15%<br>- アーマーダメージ率　-25%<br>- クリティカル率 　-25%<br>- 周囲の8マス全ての敵に同時に攻撃可能";
+$attack_tooltip_critical_effect[27] = " - クリティカルダメージ <br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（クリティカル率-クリティカル抵抗） + （知覚-7） x10";
 //Quick Jab
-$attack_tooltip_effect[28] = "- Low Damage, 25%<br> - 命中率　 +15%<br> - アーマーダメージ率　-50%";
-$attack_tooltip_critical_effect[28] = "Not Used";
+$attack_tooltip_effect[28] = "- 低ダメージ、 25%<br>- 命中率　 +15%<br>- アーマーダメージ率　-50%";
+$attack_tooltip_critical_effect[28] = "使わない";
 //Snipe
-$attack_tooltip_effect[29] = " - 高ダメージ <br> - 命中率　 -10%<br> - クリティカル率 　+50% <br>- THC increases the farther the opponent is";
-$attack_tooltip_critical_effect[29] = " - 装甲貫通 <br> - クリティカルダメージ";
+$attack_tooltip_effect[29] = "- 高ダメージ <br>- 命中率　 -10%<br>- クリティカル率 　+50% <br>- 相手が遠くなるほどTHC（命中率）が増加";
+$attack_tooltip_critical_effect[29] = " - 装甲貫通 <br>- クリティカルダメージ";
 //Feint - Throw Opponent
-//$attack_tooltip_effect[30] = "- No Damage <br>- Switch places with the opponent, knockdown<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>Critical Chance Formula<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>(CS - VsCS) + ((Weapon AP-3) x2 + (STR-6) - (Victim CON-6)) x5";
-//$attack_tooltip_critical_effect[30] = "- None";
+//$attack_tooltip_effect[30] = "- ダメージなし <br>- 敵と場所を入れ替える, knockdown<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（クリティカル率-クリティカル抵抗） + (（武器AP-3） x2 + (STR-6) - (Victim CON-6)) x5";
+//$attack_tooltip_critical_effect[30] = "- なし";
 //Stone Guardian - Slash
-$attack_tooltip_effect[31] = "- Normal Damage";
-$attack_tooltip_critical_effect[31] = " - 装甲貫通 <br> - クリティカルダメージ<br>- Knockdown 1 turn, thrown 1 tile";
+$attack_tooltip_effect[31] = "- 通常ダメージ";
+$attack_tooltip_critical_effect[31] = " - 装甲貫通 <br>- クリティカルダメージ<br>- 1ターンの間ノックダウン、1タイル分投げ出される";
 //Stone Guardian - Power
-$attack_tooltip_effect[32] = " - 高ダメージ <br> - 命中率　 -15% <br> - クリティカル率 　+15% <br> - アーマーダメージ率　+15%";
-$attack_tooltip_critical_effect[32] = " - 装甲貫通 <br> - クリティカルダメージ<br>- Reduces armor DR by 2";
+$attack_tooltip_effect[32] = "- 高ダメージ <br>- 命中率　 -15% <br>- クリティカル率 　+15% <br>- アーマーダメージ率　+15%";
+$attack_tooltip_critical_effect[32] = " - 装甲貫通 <br>- クリティカルダメージ<br>- 鎧の装甲が2減少";
 //Stone Guardian - Double Strike
-$attack_tooltip_effect[33] = "- Two Attacks <br>- Low Damage minus 2 points (all attacks)<br> - 命中率　 +15% <br> - クリティカル率 　-15%<br> - アーマーダメージ率　-15%";
-$attack_tooltip_critical_effect[33] = " - 装甲貫通 <br> - クリティカルダメージ";
+$attack_tooltip_effect[33] = "- 2回攻撃 <br>- 低ダメージ 全ての攻撃でマイナス2ポイント<br>- 命中率　 +15% <br>- クリティカル率 　-15%<br>- アーマーダメージ率　-15%";
+$attack_tooltip_critical_effect[33] = " - 装甲貫通 <br>- クリティカルダメージ";
 //Construct - Leg Attack
-$attack_tooltip_effect[36] = " - 高ダメージ <br> - 命中率　 -15% <br> - クリティカル率 　+15% <br> - アーマーダメージ率　+15%";
-$attack_tooltip_critical_effect[36] = " - 装甲貫通 <br> - クリティカルダメージ<br>- Reduces armor DR by 2";
+$attack_tooltip_effect[36] = "- 高ダメージ <br>- 命中率　 -15% <br>- クリティカル率 　+15% <br>- アーマーダメージ率　+15%";
+$attack_tooltip_critical_effect[36] = " - 装甲貫通 <br>- クリティカルダメージ<br>- 鎧の装甲が2減少";
 //Construct - Triple Strike
-$attack_tooltip_effect[37] = "- Three Attacks <br>- Low Damage <br> - 命中率　 +15% <br> - クリティカル率 　-15%<br> - アーマーダメージ率　-15%";
-$attack_tooltip_critical_effect[37] = " - 装甲貫通 <br> - クリティカルダメージ";
+$attack_tooltip_effect[37] = "- 3回攻撃 <br>- 低ダメージ <br>- 命中率　 +15% <br>- クリティカル率 　-15%<br>- アーマーダメージ率　-15%";
+$attack_tooltip_critical_effect[37] = " - 装甲貫通 <br>- クリティカルダメージ";
 //Push
-$attack_tooltip_effect[38] = "- No Damage <br>- Pushes opponent away one tile<br>- Attack chance is Strength x10";
-$attack_tooltip_critical_effect[38] = "- None";
+$attack_tooltip_effect[38] = "- ダメージなし <br>- 敵を1タイル押し出す<br>- 命中率は筋力 x10";
+$attack_tooltip_critical_effect[38] = "- なし";
 //Throw Acid - Splash
-$attack_tooltip_effect[43] = "- Damages opponent's armor<br>- Cross shaped area of attack";
-$attack_tooltip_critical_effect[43] = "- None";
+$attack_tooltip_effect[43] = "- 相手の鎧にダメージ<br>- 十字型の攻撃範囲";
+$attack_tooltip_critical_effect[43] = "- なし";
 //Hammer Knockdown
-$attack_tooltip_effect[44] = "- Low Damage <br>- Knockdown 1 turn, thrown 1 tile <br> - 命中率　 -10%";
-$attack_tooltip_critical_effect[44] = "- Knockdown 2 turns, thrown 1 tile <br><font:Kinto Sans Bold:25><spush><color:FFFFFF>Critical Chance Formula<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>(CS - VsCS) + (STR-7) x10";
+$attack_tooltip_effect[44] = "- 低ダメージ <br>- 1ターンの間ノックダウン、1タイル分投げ出される <br>- 命中率　 -10%";
+$attack_tooltip_critical_effect[44] = "- 2ターンの間ノックダウン、1タイル分投げ出される <br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（クリティカル率-クリティカル抵抗） + （筋力-7） x10";
 //Strong Hammer Knockdown
-$attack_tooltip_effect[45] = "- Low Damage <br>- Knockdown 1 turn, thrown 1 tile <br> - 命中率　 -10% <br> - クリティカル率 　+25%";
-$attack_tooltip_critical_effect[45] = "- Knockdown 2 turns, thrown 1 tile <br><font:Kinto Sans Bold:25><spush><color:FFFFFF>Critical Chance Formula<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>(CS - VsCS) + (STR-7) x10";
+$attack_tooltip_effect[45] = "- 低ダメージ <br>- 1ターンの間ノックダウン、1タイル分投げ出される <br>- 命中率　 -10% <br>- クリティカル率 　+25%";
+$attack_tooltip_critical_effect[45] = "- 2ターンの間ノックダウン、1タイル分投げ出される <br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（クリティカル率-クリティカル抵抗） + （筋力-7） x10";
 //Whirlwind - 1H
-$attack_tooltip_effect[47] = "- Low Damage <br> - 命中率　 -20%<br> - アーマーダメージ率　-20%<br> - クリティカル率 　-20%<br>- Can hit every opponent on 4 squares surrounding your character";
-$attack_tooltip_critical_effect[47] = " - クリティカルダメージ <br>- Knockdown 1 turn, thrown 1 tile<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>Critical Chance Formula<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>(CS - VsCS) + (STR-7) x10";
+$attack_tooltip_effect[47] = "- 低ダメージ <br>- 命中率　 -20%<br>- アーマーダメージ率　-20%<br>- クリティカル率 　-20%<br>- キャラクターの周囲4マス全てに同時に攻撃可能";
+$attack_tooltip_critical_effect[47] = " - クリティカルダメージ <br>- 1ターンの間ノックダウン、1タイル分投げ出される<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（クリティカル率-クリティカル抵抗） + （筋力-7） x10";
 //Whirlwind - Blades 1H
-$attack_tooltip_effect[48] = "- Low Damage <br> - 命中率　 -15%<br> - アーマーダメージ率　-25%<br> - クリティカル率 　-25%<br>- Can hit every opponent on 4 squares surrounding your character";
-$attack_tooltip_critical_effect[48] = " - クリティカルダメージ <br><font:Kinto Sans Bold:25><spush><color:FFFFFF>Critical Chance Formula<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>(CS - VsCS) + (PER-7) x10";
+$attack_tooltip_effect[48] = "- 低ダメージ <br>- 命中率　 -15%<br>- アーマーダメージ率　-25%<br>- クリティカル率 　-25%<br>- キャラクターの周囲4マス全てに同時に攻撃可能";
+$attack_tooltip_critical_effect[48] = " - クリティカルダメージ <br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（クリティカル率-クリティカル抵抗） + （知覚-7） x10";
 
 $combatHint_conditionalMod_header = "<b>Conditional Modifiers</b>";
 
@@ -259,18 +259,18 @@ $combatHint_con = "CON bonus";
 
 // THC Hint
 $combatHint_baseThc = "Base";
-$combatHint_pureAtt = "Attack";
-$combatHint_pureDef = "Defense";
+$combatHint_pureAtt = "攻撃";
+$combatHint_pureDef = "防御";
 $combatHint_rangePenalty = "Range penalty";
 $combatHint_attackThcMod = "Attack THC Modifier";
 $combatHint_facingBonus = "Facing bonus";
-$combatHint_isKnockedDown = "Knockdown";
+$combatHint_isKnockedDown = "ノックダウン";
 $combatHint_netted = "Netted";
 $combatHint_dexBonus = "Dexterity Bonus";
 $combatHint_skillBlock = "Block Skill Value";
 $combatHint_skillDodge = "Dodge Skill Value";
-$combatHint_immobilized = "Immobilized";
-$combatHint_chocking = "Chocking";
+$combatHint_immobilized = "移動不能";
+$combatHint_chocking = "窒息";
 
 function getEffectCursorString(%effect_name, %val1, %val2)
 {
@@ -347,10 +347,10 @@ $SL_old_save_msg = "DO NOT LOAD THIS FILE if you want to play the game without i
 $SL_prerelease_save_title = "Warning";
 $SL_prerelease_save_msg = "This is a pre-release save, it may be missing some data. We recommend to start a new game.<br><br>Are you sure you want to load this game?";
 
-$SL_overwrite_title = "Overwrite?";
-$SL_overwrite_msg = "Are you sure want to overwrite this saved game?";
-$SL_delete_title = "Delete?";
-$SL_delete_msg = "Are you sure want to delete this saved game?";
+$SL_overwrite_title = "上書きしますか？";
+$SL_overwrite_msg = "本当にこのデータに上書きしますか？";
+$SL_delete_title = "削除しますか？";
+$SL_delete_msg = "本当にこのデータを削除しますか？";
 
 // Gameplay messages
 $gameplay_msg_ambush_title = "Ambush";
