@@ -213,12 +213,12 @@ addConditionalVar("[intimidate]", "$pref::AoD::hideDlgTags", "", "<spush><color:
 addConditionalVar("[word of honor]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[word of honor]<spop> ");
 addConditionalVar("[black powder]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[black powder]<spop> ");
 
-addConditionalVar("[strength]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[strength]<spop> ");
-addConditionalVar("[dexterity]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[dexterity]<spop> ");
-addConditionalVar("[constitution]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[constitution]<spop> ");
-addConditionalVar("[perception]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[perception]<spop> ");
-addConditionalVar("[intelligence]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[intelligence]<spop> ");
-addConditionalVar("[charisma]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[charisma]<spop> ");
+addConditionalVar("[strength]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[筋力]<spop> ");
+addConditionalVar("[dexterity]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[巧緻]<spop> ");
+addConditionalVar("[constitution]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[体力]<spop> ");
+addConditionalVar("[perception]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[知覚]<spop> ");
+addConditionalVar("[intelligence]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[知力]<spop> ");
+addConditionalVar("[charisma]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[魅力]<spop> ");
 
 addConditionalVar("[assassin]", "$pref::AoD::hideDlgTags", "", "<spush><color:ffc62c>[暗殺者]<spop> ");
 addConditionalVar("[praetor]", "$pref::AoD::hideDlgTags", "", "<spush><color:ffc62c>[執政官]<spop> ");
@@ -226,7 +226,7 @@ addConditionalVar("[thief]", "$pref::AoD::hideDlgTags", "", "<spush><color:ffc62
 addConditionalVar("[guard]", "$pref::AoD::hideDlgTags", "", "<spush><color:ffc62c>[衛兵]<spop> ");
 addConditionalVar("[merchant]", "$pref::AoD::hideDlgTags", "", "<spush><color:ffc62c>[商人]<spop> ");
 addConditionalVar("[grifter]", "$pref::AoD::hideDlgTags", "", "<spush><color:ffc62c>[詐欺師]<spop> ");
-addConditionalVar("[chosen one]", "$pref::AoD::hideDlgTags", "", "<spush><color:ffc62c>[chosen one]<spop> ");
+addConditionalVar("[chosen one]", "$pref::AoD::hideDlgTags", "", "<spush><color:ffc62c>[選ばれし者]<spop> ");
 addConditionalVar("[Mind Shield]", "$pref::AoD::hideDlgTags", "", "<spush><color:ffc62c>[Mind Shield]<spop> ");
 addConditionalVar("[stat damage]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[stat damage]<spop> ");
 addConditionalVar("{TEMP}", "aod.none", "", "");

@@ -1,6 +1,6 @@
 ﻿//hints
 $CS_defaultHint = "画面のさまざまな部分にカーソルを合わせると、詳細な情報が表示されます。";
-$CS_costHint = "このスキルを上げるためのスキルポイント（ＳＰ）の現在のコスト。ＳＰは、まずespecialized poolから消費され、次にgeneral poolから消費されます。";
+$CS_costHint = "このスキルを上げるためのスキルポイント（ＳＰ）の現在のコスト。ＳＰは、まず専用ポイントから消費され、次に汎用ポイントが消費されます。";
 $CS_generalSpHint = "General SP is earned by completing quests and advancing the story. Can be spent on any skill once the especialized pool is drained.";
 $CS_combatSpHint = "Combat SP is earned by surviving fights and in some occasions by especial training. Can only be spent on combat skills.";
 $CS_civilSpHint = "Civil SP is earned by finding non-combat solutions to problems, achieving important peaceful feats, and in some occasions by especial training. Can only be spent on non-combat skills.";
@@ -13,26 +13,26 @@ $char_scr_no_civil_sp   = "<spush><color:ff0000>Remove <value> civil skill point
 
 $char_scr_hl_green = "<spush><color:45a053>";
 $char_scr_hl_red = "<spush><color:f12d45>";
-$char_scr_THC_breakdown = "<spush><color:e2cc67>Base THC (To-Hit Chance) formula is (Attack - Defense + 50%)<spop>";
-$char_scr_CSC_breakdown = "<spush><color:e2cc67>Base CSC (Critical Strike Chance) formula is (CS - vsCS)<spop>";
+$char_scr_THC_breakdown = "<spush><color:e2cc67>基本THC（命中率）の計算式：攻撃－防御＋50%<spop>";
+$char_scr_CSC_breakdown = "<spush><color:e2cc67>基本CSC（クリティカル率）の計算式：クリティカル率－クリティカル抵抗<spop>";
 
 //attack rating hint
-$char_scr_attack_type = "<spush><color:ffffff>Current Attack:<spop> ";
-$char_scr_attack_stat = "<spush><color:ffffff>Preferred Stat:<spop> ";
-$char_scr_attack_breakdown = "<spush><color:ffffff>Attack Rating Breakdown:  <att_total>  (Skill Level x 10:  <att_skill>  + Stat Bonus:  <att_stat>  + Training:  <att_training>  + Synergy:  <att_synergy>  + Perception:  <att_per>  + Weapon:  <att_weap_thc>  + Helmet:  <att_helmet>  + Shield:  <att_shield>  + Penalty:  <att_penalty> )";
+$char_scr_attack_type = "<spush><color:ffffff>現在の攻撃：　<spop> ";
+$char_scr_attack_stat = "<spush><color:ffffff>推奨ステータス：　<spop> ";
+$char_scr_attack_breakdown = "<spush><color:ffffff>攻撃点数の内訳：　<att_total>  （スキルレベル×10： <att_skill>  ＋ステータスボーナス： <att_stat>  ＋訓練： <att_training>  ＋シナジー： <att_synergy>  ＋知覚： <att_per>  ＋武器： <att_weap_thc>  ＋ヘルメット： <att_helmet>  ＋盾： <att_shield>  ＋ペナルティー： <att_penalty> ）";
 $char_scr_attack_tags = "<att_total> <att_skill> <att_stat> <att_training> <att_synergy> <att_per> <att_weap_thc> <att_helmet> <att_shield> <att_penalty>";
 $char_scr_attack_positive_is_good = "1 1 1 1 1 1 1 0 0 0";
 
 //defense rating hint
-$char_scr_defense_type = "<spush><color:ffffff>Current Defense:<spop> ";
-$char_scr_defense_stat = "<spush><color:ffffff>Preferred Stat:<spop> ";
+$char_scr_defense_type = "<spush><color:ffffff>現在の防御：　<spop> ";
+$char_scr_defense_stat = "<spush><color:ffffff>推奨ステータス：　<spop> ";
 $char_scr_defense_tags = "<def_total> <def_base> <def_skill> <def_stat> <def_con> <def_training> <def_armor> <def_penalty>";
-$char_scr_defense_breakdown = "<spush><color:ffffff>Defense Rating Breakdown:  <def_total>  (Base:  <def_base>  + Skill Level x 10:  <def_skill>  + Stat Bonus:  <def_stat>  + Constitution Bonus:  <def_con>  + Training:  <def_training>  + Armor Penalty:  <def_armor>  + Other Penalty:  <def_penalty> )";
+$char_scr_defense_breakdown = "<spush><color:ffffff>防御点数の内訳：　<def_total>  （基本ポイント： <def_base>  ＋スキルレベル×10： <def_skill>  ＋ステータスボーナス： <def_stat>  ＋体力ボーナス： <def_con>  ＋訓練： <def_training>  ＋アーマーペナルティ： <def_armor>  ＋その他ペナルティ： <def_penalty> ）";
 $char_scr_defense_positive_is_good = "1 1 1 1 1 1 0 0";
 
 //critical rating hit
 $char_scr_CS_tags = "<cs_total> <cs_skill> <cs_training> <cs_weap_upg> <cs_weap_bonus>";
-$char_scr_CS_breakdown = "<spush><color:ffffff> Critical Strike Rating Breakdown:  <cs_total>  (Skill Level x 15:  <cs_skill>  + Training:  <cs_training>  + Weapon Upgrades:  <cs_weap_upg>  + CS Weapon Bonus:  <cs_weap_bonus>)";
+$char_scr_CS_breakdown = "<spush><color:ffffff> クリティカル点数の内訳：　<cs_total>  (スキルレベル×15： <cs_skill>  ＋訓練： <cs_training>  ＋武器のアップグレード： <cs_weap_upg>  ＋CS武器ボーナス： <cs_weap_bonus> ）";
 $char_scr_CS_positive_is_good = "1 1 1 1 1";
 
 //hints
