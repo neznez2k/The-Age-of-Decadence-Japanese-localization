@@ -14,7 +14,7 @@ singleton GizmoProfile(PlaceholderGizmoProfile)
 
 singleton GuiControlProfile (GuiRTSContentProfile)
 {
-   fontType = "源ノ明朝";
+   fontType = "Noto Serif CJK JP";
    
    fontColor = "225 225 225";
    fontColorHL = "255 255 255";
@@ -37,7 +37,7 @@ singleton GuiControlProfile (GuiRTSContentProfile)
 
 singleton GuiControlProfile (GuiRTSContentProfile_1080)
 {
-   fontType = "源ノ明朝";
+   fontType = "Noto Serif CJK JP";
    
    fontColor = "225 225 225";
    fontColorHL = "255 255 255";
@@ -60,7 +60,7 @@ singleton GuiControlProfile (GuiRTSContentProfile_1080)
 
 singleton GuiControlProfile (GuiRTSContentProfile_1440)
 {
-   fontType = "源ノ明朝";
+   fontType = "Noto Serif CJK JP";
    
    fontColor = "225 225 225";
    fontColorHL = "255 255 255";
@@ -88,7 +88,7 @@ singleton GuiControlProfile (GuiRTSContentProfile_1440)
 
 singleton GuiControlProfile (KokilaBase)
 {
-   fontType = "源ノ明朝";
+   fontType = "Noto Serif CJK JP";
    
    fontColor = "220 200 165";
    fontColorHL = "255 255 255";
@@ -106,7 +106,7 @@ singleton GuiControlProfile (KokilaBase)
 
 singleton GuiControlProfile (CandaraBase)
 {
-   fontType = "源ノ明朝";
+   fontType = "Noto Serif CJK JP";
    
    fontColor = "220 200 165";
    fontColorHL = "255 255 255";
@@ -122,7 +122,7 @@ singleton GuiControlProfile (CandaraBase)
 
 singleton GuiControlProfile (CandaraWhite)
 {
-   fontType = "源ノ明朝";
+   fontType = "Noto Serif CJK JP";
    
    fontColor = "255 255 255";
    fontColorHL = "255 255 255";
@@ -463,7 +463,7 @@ singleton GuiControlProfile (KaratMediumBase)
 
 singleton GuiControlProfile (KaratMediumDark)
 {
-   fontType = "源ノ明朝";
+   fontType = "Noto Serif CJK JP";
    
    fontColor = "171 150 97";
    fontColorHL = "255 225 154";
@@ -721,7 +721,7 @@ singleton GuiControlProfile(GuiMLTextProfile_CM18 : CharlemagneBase)
 
 singleton GuiControlProfile (CharlemagneDark)
 {
-   fontType = "源ノ明朝";
+   fontType = "Noto Serif CJK JP";
    
    fontColor = "171 150 97";
    fontColorHL = "255 225 154";
@@ -1120,7 +1120,7 @@ singleton GuiControlProfile (fbBitmapFrameProfile)
 
 singleton GuiControlProfile(fbTabBook_15)
 {
-	fontType = "源ノ明朝";
+	fontType = "Noto Serif CJK JP";
 	fontSize = 21;
 	fontColor = "173 156 100";
 	fontColorHL = "255 227 177";
@@ -1141,7 +1141,7 @@ singleton GuiControlProfile(fbPopUpMenuTechProfile : GuiPopUpMenuProfile)
 	bitmap = "art/gui/fbDropdownTech.png";
 	profileForChildren = fbPopUpMenuTechProfile;
    
-	fontType = "源ノ明朝";
+	fontType = "Noto Serif CJK JP";
 	fontSize = 20;
 	fontColor = "173 156 100";
 	fontColorHL = "255 227 177";
@@ -1246,7 +1246,7 @@ singleton GuiControlProfile(FbMapTextButtonProfile)
    canKeyFocus = false;
    hasBitmapArray = "0";
    category = "Core";
-   fontType = "源ノ明朝";
+   fontType = "Noto Serif CJK JP";
    fontSize = "37";
    fontColors[0] = "253 224 176 255";
    fontColors[1] = "245 241 233 255";
@@ -1297,7 +1297,7 @@ singleton GuiControlProfile( AoDGuiButtonProfile : GuiButtonProfile )
 {
    bitmap = "./aod_button";
 
-   fontType = "源ノ明朝"; 
+   fontType = "Noto Serif CJK JP"; 
    fontColor = "132 113 74";
    fontColorHL = "132 113 74";
 	fontColorNA = "200 200 200";
@@ -1311,7 +1311,7 @@ singleton GuiControlProfile( AoDGuiCheckBoxProfile : GuiCheckBoxProfile )
    fillColor = "232 232 232";   
    borderColor = "100 100 100";
    
-   fontType = "源ノ明朝";   
+   fontType = "Noto Serif CJK JP";   
    fontColor = "220 200 165";
    fontColorHL = "255 255 255";
    fontColorNA = "64 64 64";
@@ -1334,7 +1334,7 @@ singleton GuiControlProfile( AoDGuiPopUpMenuProfile : GuiPopUpMenuProfile )
    fillColorSEL   = "75 69 57";
    fillColorNA    = "85 80 73";
 
-   fontType = "源ノ明朝";   
+   fontType = "Noto Serif CJK JP";   
    fontColor = "220 200 165";
    fontColorHL = "255 255 255";
    fontColorNA = "220 200 165";
@@ -1358,7 +1358,7 @@ singleton GuiControlProfile( AoDGuiPopUpMenuBorderProfile : GuiPopupMenuItemBord
    fillColorSEL   = "75 69 57";
    fillColorNA    = "85 80 73";
 
-   fontType = "源ノ明朝";   
+   fontType = "Noto Serif CJK JP";   
    fontColor = "220 200 165";
    fontColorHL = "255 255 255";
    fontColorNA = "220 200 165";
@@ -1378,7 +1378,7 @@ singleton GuiControlProfile( AoDGuiNumericDropSliderTextProfile : GuiNumericDrop
    fillColorSEL   = "0 0 0 0";
    fillColorNA    = "0 0 0 0";
 
-   fontType = "源ノ明朝";   
+   fontType = "Noto Serif CJK JP";   
    fontColor = "220 200 165";
    fontColorHL = "255 255 255";
    fontColorNA = "220 200 165";
@@ -1413,7 +1413,7 @@ singleton GuiControlProfile( AoDTextListProfile : CharlemagneDark  )
 
 singleton GuiControlProfile(PGHelpProfile : GuiMLTextProfile)
 {
-   fontType = "源ノ明朝";
+   fontType = "Noto Serif CJK JP";
    fontSize = "21";
    fontColors[0] = "238 238 238 255";
    fontColor = "238 238 238 255";
