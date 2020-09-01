@@ -37,8 +37,8 @@ $msg_potion_equip_weapon = "\c4You have to equip a weapon to apply this potion.\
 // Hits
 
 //FAST
-$msg_attack_0_pc_npc0 = "\c1君は<victim>を素早く打ち、\c4<amount>\c1ポイントのダメージを与える。装甲に\c5<DR>\c1ポイントを吸収された。";
-$msg_attack_0_crit_pc_npc0 = "\c1クリティカル！　君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与え、主要な臓器を破壊する。装甲に\c5<DR>\c1ポイントを吸収された。";
+$msg_attack_0_pc_npc0 = "\c1君は<victim>を素早く打ち、\c4<amount>\c1ポイントのダメージを与える。鎧に\c5<DR>\c1ポイントを吸収された。";
+$msg_attack_0_crit_pc_npc0 = "\c1クリティカル！　君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与え、主要な臓器を破壊する。鎧に\c5<DR>\c1ポイントを吸収された。";
 $msg_attack_0_npc_pc0 = "\c2<attacker>は君を素早く打ち、\c4<amount>\c2ポイントのダメージを与える。鎧が\c5<DR>\c2ポイントを吸収した。";
 $msg_attack_0_crit_npc_pc0 = "\c2クリティカル！<attacker>は君を攻撃し、\c4<amount>\c2ポイントのダメージを与え、主要な臓器を破壊する。鎧が \c5<DR>\c2ポイントを吸収した。";
 $msg_attack_0_npc_npc0 = "\c3<attacker>は<victim>を素早く打ち、  \c4<amount>\c3ポイントのダメージを与える。鎧が \c5<DR>\c3ポイントを吸収した。";
@@ -98,18 +98,18 @@ $msg_attack_5_BrokenStoneGuardianBlock_pc_npc0 = "\c1君は<victim>を攻撃し�
 $msg_attack_5_BrokenStoneGuardianBlock_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与え、石の塊があちこちへと飛び散る。";
 
 //AIMED: TORSO
-$msg_attack_6_pc_npc0 = "\c1君の攻撃が<victim>の鎧の脆い箇所を突き、\c4<amount>\c1ポイントのダメージを与える。鎧の装甲が<eff_val1_1>%%まで減少し、\c5<DR>\c1ポイントを吸収した。";
-$msg_attack_6_crit_pc_npc0 = "\c1クリティカル！君の狙いすました攻撃が<victim>の鎧の脆い箇所を突き、\c4<amount>\c1ポイントのダメージを与え、主要な臓器を破壊する。 鎧の装甲が<eff_val1_1>%%まで減少し、\c5<DR>\c1ポイントを吸収した。<victim>のConstitutionが\c41\c1減少。";
-$msg_attack_6_npc_pc0 = "\c2<attacker>の攻撃が君の鎧の脆い箇所を突き、\c4<amount>\c2ポイントのダメージを与える。鎧の装甲が<eff_val1_1>%%まで減少し、 \c5<DR>\c2ポイントを吸収した。";
-$msg_attack_6_crit_npc_pc0 = "\c2クリティカル！ <attacker_s>狙いすました攻撃が君の鎧の脆い箇所を突き、\c4<amount>\c2ポイントのダメージを与え、主要な臓器を破壊する。鎧の装甲が<eff_val1_1>%%まで減少し、 \c5<DR>\c2ポイントを吸収した。君のConstitutionが\c41\c2減少。";
-$msg_attack_6_npc_npc0 = "\c3<attacker>の攻撃が<victim>の鎧の脆い箇所を突き、\c4<amount>\c3ポイントのダメージを与える。鎧の装甲が<eff_val1_1>%%まで減少し、 \c5<DR>\c3ポイントを吸収した。";
-$msg_attack_6_crit_npc_npc0 = "\c3クリティカル！attacker>の狙いすました攻撃が<victim>の鎧の脆い箇所を突き、\c4<amount>\c3ポイントのダメージを与え、主要な臓器を破壊する。 鎧の装甲が<eff_val1_1>%%まで減少し、 \c5<DR>\c3ポイントを吸収した。<victim>の Constitutionが\c41\c3減少。";
-$msg_attack_6_SpecterBlock_pc_npc0 = "\c1君の攻撃が<victim>の鎧の脆い箇所を突き、\c4<amount>\c1ポイントのダメージを与える。鎧の装甲が<eff_val1_1>%%まで減少し、 \c5<DR>\c1ポイントを吸収した。";
-$msg_attack_6_SpecterBlock_crit_pc_npc0 = "\c1クリティカル！君の狙いすました攻撃が<victim>の鎧の脆い箇所を突き、\c4<amount>\c1ポイントのダメージを与え、装備を貫通する。鎧の装甲が<eff_val1_1>%%まで減少し、\c5<DR>\c1ポイントを吸収した。<victim>のConstitutionが\c41\c1減少。";
-$msg_attack_6_StoneGuardianBlock_pc_npc0 = "\c1君の攻撃が<victim>の石造りの表面の脆い箇所を突き、\c4<amount>\c1ポイントのダメージを与える。鎧の装甲が<eff_val1_1>%%まで減少し、 \c5<DR>\c1ポイントを吸収した。";
-$msg_attack_6_StoneGuardianBlock_crit_pc_npc0 = "\c1クリティカル！君の狙いすました攻撃が<victim>の石造りの表面の脆い箇所を突き、\c4<amount>\c1ポイントのダメージを与え、石の塊があちこちへと飛び散る。 鎧の装甲が<eff_val1_1>%%まで減少し、\c5<DR>\c1ポイントを吸収した。<victim>のConstitutionが\c41\c1減少。";
-$msg_attack_6_BrokenStoneGuardianBlock_pc_npc0 = "\c1君の攻撃が<victim>の石造りの表面の脆い箇所を突き、\c4<amount>\c1ポイントのダメージを与える。鎧の装甲が<eff_val1_1>%%まで減少し、 \c5<DR>\c1ポイントを吸収した。";
-$msg_attack_6_BrokenStoneGuardianBlock_crit_pc_npc0 = "\c1クリティカル！君の狙いすました攻撃が<victim>の石造りの表面の脆い箇所を突き、\c4<amount>\c1ポイントのダメージを与え、石の塊があちこちへと飛び散る。 鎧の装甲が<eff_val1_1>%%まで減少し、\c5<DR>\c1ポイントを吸収した。 <victim>のConstitutionが\c41\c1減少。";
+$msg_attack_6_pc_npc0 = "\c1君の攻撃が<victim>の鎧の脆い箇所を突き、\c4<amount>\c1ポイントのダメージを与える。鎧の鎧が<eff_val1_1>%%まで減少し、\c5<DR>\c1ポイントを吸収した。";
+$msg_attack_6_crit_pc_npc0 = "\c1クリティカル！君の狙いすました攻撃が<victim>の鎧の脆い箇所を突き、\c4<amount>\c1ポイントのダメージを与え、主要な臓器を破壊する。 鎧の鎧が<eff_val1_1>%%まで減少し、\c5<DR>\c1ポイントを吸収した。<victim>のConstitutionが\c41\c1減少。";
+$msg_attack_6_npc_pc0 = "\c2<attacker>の攻撃が君の鎧の脆い箇所を突き、\c4<amount>\c2ポイントのダメージを与える。鎧の鎧が<eff_val1_1>%%まで減少し、 \c5<DR>\c2ポイントを吸収した。";
+$msg_attack_6_crit_npc_pc0 = "\c2クリティカル！ <attacker_s>狙いすました攻撃が君の鎧の脆い箇所を突き、\c4<amount>\c2ポイントのダメージを与え、主要な臓器を破壊する。鎧の鎧が<eff_val1_1>%%まで減少し、 \c5<DR>\c2ポイントを吸収した。君のConstitutionが\c41\c2減少。";
+$msg_attack_6_npc_npc0 = "\c3<attacker>の攻撃が<victim>の鎧の脆い箇所を突き、\c4<amount>\c3ポイントのダメージを与える。鎧の鎧が<eff_val1_1>%%まで減少し、 \c5<DR>\c3ポイントを吸収した。";
+$msg_attack_6_crit_npc_npc0 = "\c3クリティカル！attacker>の狙いすました攻撃が<victim>の鎧の脆い箇所を突き、\c4<amount>\c3ポイントのダメージを与え、主要な臓器を破壊する。 鎧の鎧が<eff_val1_1>%%まで減少し、 \c5<DR>\c3ポイントを吸収した。<victim>の Constitutionが\c41\c3減少。";
+$msg_attack_6_SpecterBlock_pc_npc0 = "\c1君の攻撃が<victim>の鎧の脆い箇所を突き、\c4<amount>\c1ポイントのダメージを与える。鎧の鎧が<eff_val1_1>%%まで減少し、 \c5<DR>\c1ポイントを吸収した。";
+$msg_attack_6_SpecterBlock_crit_pc_npc0 = "\c1クリティカル！君の狙いすました攻撃が<victim>の鎧の脆い箇所を突き、\c4<amount>\c1ポイントのダメージを与え、装備を貫通する。鎧の鎧が<eff_val1_1>%%まで減少し、\c5<DR>\c1ポイントを吸収した。<victim>のConstitutionが\c41\c1減少。";
+$msg_attack_6_StoneGuardianBlock_pc_npc0 = "\c1君の攻撃が<victim>の石造りの表面の脆い箇所を突き、\c4<amount>\c1ポイントのダメージを与える。鎧の鎧が<eff_val1_1>%%まで減少し、 \c5<DR>\c1ポイントを吸収した。";
+$msg_attack_6_StoneGuardianBlock_crit_pc_npc0 = "\c1クリティカル！君の狙いすました攻撃が<victim>の石造りの表面の脆い箇所を突き、\c4<amount>\c1ポイントのダメージを与え、石の塊があちこちへと飛び散る。 鎧の鎧が<eff_val1_1>%%まで減少し、\c5<DR>\c1ポイントを吸収した。<victim>のConstitutionが\c41\c1減少。";
+$msg_attack_6_BrokenStoneGuardianBlock_pc_npc0 = "\c1君の攻撃が<victim>の石造りの表面の脆い箇所を突き、\c4<amount>\c1ポイントのダメージを与える。鎧の鎧が<eff_val1_1>%%まで減少し、 \c5<DR>\c1ポイントを吸収した。";
+$msg_attack_6_BrokenStoneGuardianBlock_crit_pc_npc0 = "\c1クリティカル！君の狙いすました攻撃が<victim>の石造りの表面の脆い箇所を突き、\c4<amount>\c1ポイントのダメージを与え、石の塊があちこちへと飛び散る。 鎧の鎧が<eff_val1_1>%%まで減少し、\c5<DR>\c1ポイントを吸収した。 <victim>のConstitutionが\c41\c1減少。";
 
 //AIMED: LEGS
 $msg_attack_7_pc_npc0 = "\c1君は<victim>の脚を刻みつけ、\c4<amount>\c1ポイントのダメージを与え、相手の回避能力をわずかに<eff_val1_2>ポイント減少させる。（<eff_val1_1>ターン）鎧が \c5<DR>\c1ポイントを吸収した。";
