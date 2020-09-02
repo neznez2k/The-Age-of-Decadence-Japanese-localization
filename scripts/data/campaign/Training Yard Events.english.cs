@@ -67,7 +67,7 @@ package TrainingYardEvents
 			
 			if (aod.training_combat == 0)
 			{
-				MessageBoxOk("You won!", "It was not that hard, wasn't it? Leave the arena by clicking on the gate, spend your SP and get on to the next fight!", "");
+				MessageBoxOk("勝利！", "それほど難しくはなかっただろう？\n門をクリックしてアリーナを出て、\nSPを消費して次の戦いに臨もう！", "");
 				aod.training_combat = 1 ;
 			}
 			
@@ -85,7 +85,7 @@ package TrainingYardEvents
 			
 			if (aod.training_foughtFight03)
 			{
-				MessageBoxOk("Great Success!", "Your training is now complete, which gives you basic understanding of the combat system. We strongly recommend to play a combat specialist first to learn the system better before attempting to play a fighter/talker or other hybrid characters. Make sure your character has good physical attributes and well developed combat skills. Critical Strike, Crafting, and Alchemy can make quite a difference and increase your life expectancy. Fighter with some Crafting skills is a simple yet very reliable build. Experiment and find a build that works for you.", "StartNewGame();");
+				MessageBoxOk("大成功！", "訓練はこれで完了し、君は基本的な戦闘システムを理解できたことだろう。このゲームのシステムを学ぶために、まずは戦闘の専門家でプレイすることを強くお勧めする。その後、戦士/話し手や他のハイブリッドキャラを試すといい。君のキャラクターが優れた身体能力を持ち、よく練られた戦闘スキルであることを確認しよう。クリティカルストライクやクラフト、そして錬金術はかなりの効果をもたらし、君の寿命を延ばしてくれることだろう。クラフトスキルを持つ戦士はシンプルだが非常に信頼性の高いビルドだ。試行錯誤して、自分にあったビルドを見つけよう。", "StartNewGame();");
 			}
 			
 			apmsPlayMusic(custom, 1, 1);
@@ -103,7 +103,7 @@ package TrainingYardEvents
 	
 	function startTutorial_01()
 	{
-		MessageBoxOk("Welcome to the training area!", "Read the help on the top left corner for camera controls. Press C to go to the character screen and distribute SP on your combat skills. Focus on a single offensive and defensive skills. Get some equipment from the chest, save your game and click on the gate to start. Press F1 for more info.", "");
+		MessageBoxOk("トレーニングエリアへようこそ！", "カメラ操作は左上のヘルプを見てください。Cボタンを押してキャラクター画面に移動し、SPを戦闘スキルに配分します。攻撃・防御共に一つのスキルに絞ってください。チェストから装備品を入手し、ゲームをセーブしたら門をクリックして始めます。F1を押すと詳細が表示されます。", "");
 	}
 	
 	function VCO_Gate()
@@ -111,7 +111,7 @@ package TrainingYardEvents
 		if(aod.dagger == 1 && aod.sword == 1 && aod.axe == 1 && aod.hammer == 1 && aod.spear == 1 && aod.bow == 1 && aod.crossbow == 1 && aod.throwing == 1 && aod.training_msg_noSkill == 0)
 		{
 			aod.training_msg_noSkill = 1;
-			MessageBoxOk("Low combat skills!", "You haven't increased a weapon skill. Put some skill points into a weapon skill of your choice and click on the gate again. For now, focus on a single weapon and a single defensive skill (Dodge or Block).", "apmsToggleCharScreen();");
+			MessageBoxOk("戦闘スキルが低い！", "武器スキルを上げていない。好きな武器スキルにポイントを振ったら、もう一度門をクリックしよう。差しあたり、武器スキル1つと防御スキル（回避かブロック）1つに集中させよう。", "apmsToggleCharScreen();");
 		}
 		
 		else if(isInCombat() == false) 
@@ -122,7 +122,7 @@ package TrainingYardEvents
 		}
 
 		else
-			narratePhrase("Finish the fight first, coward!");
+			narratePhrase("この戦闘を終わらせてからだ、臆病者！");
 	}
 	
 	function startTutorial(%Number)
@@ -147,7 +147,7 @@ package TrainingYardEvents
 			dlgDeleteDeadCharacters();
 			if(aod.training_saveMessage == 0)
 			{
-				MessageBoxOk("","You've been healed.\nRemember to save, you are going to die soon.\nF5 for quicksave - F9 for quickload\nPress ESC to go to the main menu and select Save/Load.","");
+				MessageBoxOk("","君は回復した。\nセーブを忘れるな。すぐに死ぬんだ。\nF5でクイックセーブ-F9でクイックロード\nESCでメインメニューに移動し、Save/Loadを選択する。","");
 				aod.training_saveMessage = 1;
 			}
 		}
@@ -194,7 +194,7 @@ package TrainingYardEvents
 			}
 			
 			else
-				MessageBoxOk("Great Success!", "Your training is complete.", "");
+				MessageBoxOk("大成功！", "君の訓練は完了した。", "");
 		}
 	}	
 };

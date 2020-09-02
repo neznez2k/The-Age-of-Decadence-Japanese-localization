@@ -478,7 +478,7 @@
 				if(isAlive(1185))
 				{
 					assignDialogue(vardanis_01, 1185);
-					sayPhrase(1185, "We made it!");
+					sayPhrase(1185, "生き延びたな！");
 					rwd_fight(Vignette_Vardanis); // Fight SP
 				}
 				

@@ -7,15 +7,15 @@ $loading_objects = "LOADING OBJECTS";
 
 //Play GUI
 $cursor_string[0] = "AP";
-$cursor_string[1] = "IA";
-$cursor_string[2] = "AoO";
+$cursor_string[1] = "IA（割込攻撃）";
+$cursor_string[2] = "AoO（追撃率）";
 loadStringCollection("Cursor Strings", "cursor_string");
 
 // Cursor hint
 $cursor_hint[0] = "HP";
 $cursor_hint[1] = "THC（命中率）";
 $cursor_hint[2] = "CS（クリティカル率）";
-$cursor_hint[3] = "ADC";
+$cursor_hint[3] = "ADC（アーマーダメージ率）";
 loadStringCollection("Cursor Hints", "cursor_hint");
 
 $main_panel[0] = "HP";
@@ -43,7 +43,7 @@ $usage_string_pa_ra = "RA";
 
 $ammo_desc[0] = "通常";
 $ammo_desc[1] = "逆鉤";
-$ammo_desc[2] = "貫通";
+$ammo_desc[2] = "鋭刃";
 loadStringCollection("Ammo Desc", "ammo_desc");
 $ammo_desc_short[0] = "REG";
 $ammo_desc_short[1] = "BARB";
@@ -65,10 +65,10 @@ $attack_string[8] = "狙う：腕";
 $attack_string[9] = "狙う：脚";
 $attack_string[10] = "狙う：腕";
 $attack_string[11] = "スウィング";
-$attack_string[12] = "CLEAVE";
-$attack_string[13] = "DOUBLE TAP";
+$attack_string[12] = "唐竹割り";
+$attack_string[13] = "ダブルタップ";
 $attack_string[14] = "疾風突き";
-$attack_string[15] = "IMPALE";
+$attack_string[15] = "串刺し";
 $attack_string[16] = "旋風斬";
 $attack_string[17] = "マルチショット";
 $attack_string[18] = "バースト";
@@ -87,8 +87,8 @@ $attack_string[30] = "THROW OPPONENT";
 $attack_string[31] = "スラッシュ";
 $attack_string[32] = "強攻撃";
 $attack_string[33] = "ダブルストライク";
-$attack_string[34] = "SCORPION CLAW REGULAR";
-$attack_string[35] = "SCORPION TAIL";
+$attack_string[34] = "サソリの爪（通常）";
+$attack_string[35] = "サソリの尾";
 $attack_string[36] = "強攻撃";
 $attack_string[37] = "トリプルストライク";
 $attack_string[38] = "プッシュ";
@@ -99,7 +99,7 @@ $attack_string[42] = "ELDER MIND ATTACK SHIELDED";
 $attack_string[43] = "酸投げ";
 $attack_string[44] = "ノックダウン";
 $attack_string[45] = "ノックダウン";
-$attack_string[46] = "SCOLOPENDRA";
+$attack_string[46] = "オオムカデ";
 $attack_string[47] = "旋風斬";
 $attack_string[48] = "旋風斬";
 loadStringCollection("Usage Mode Strings", "attack_string");
@@ -236,39 +236,39 @@ $attack_tooltip_critical_effect[47] = " - クリティカルダメージ <br>- 1
 $attack_tooltip_effect[48] = "- 低ダメージ <br>- 命中率　 -15%<br>- アーマーダメージ率　-25%<br>- クリティカル率 　-25%<br>- キャラクターの周囲4マス全てに同時に攻撃可能";
 $attack_tooltip_critical_effect[48] = " - クリティカルダメージ <br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（クリティカル率-クリティカル抵抗） + （知覚-7） x10";
 
-$combatHint_conditionalMod_header = "<b>Conditional Modifiers</b>";
+$combatHint_conditionalMod_header = "<b>状態補正</b>";
 
-$combatHint_skill = "Base Skill Value";
-$combatHint_stat = "Stat modifier";
-$combatHint_weapTraining = "Training";
-$combatHint_weapSynergy = "Synergy";
-$combatHint_perceptionEffect = "Perception";
-$combatHint_weapThcMod = "Weapon Mod";
-$combatHint_thcPenalty = "Injury";
-$combatHint_shieldThcPenalty = "Shield";
-$combatHint_helmetThcPenalty = "Helmet";
-$combatHint_neurostimBonus = "Neurostim";
-$combatHint_berserkPenalty = "Berserk";
-$combatHint_netted = "Netted";
-$combatHint_armorPenalty = "Armor penalty";
-$combatHint_defPenalty = "Defence penalty";
-$combatHint_mobilityBonus = "Mobility Bonus";
-$combatHint_weapVsBlock = "Vs Block";
-$combatHint_vsRanged = "Vs Ranged";
-$combatHint_con = "CON bonus";
+$combatHint_skill = "基礎スキル値";
+$combatHint_stat = "ステータス補正";
+$combatHint_weapTraining = "訓練";
+$combatHint_weapSynergy = "シナジー";
+$combatHint_perceptionEffect = "知覚";
+$combatHint_weapThcMod = "武器補正";
+$combatHint_thcPenalty = "負傷";
+$combatHint_shieldThcPenalty = "盾";
+$combatHint_helmetThcPenalty = "ヘルメット";
+$combatHint_neurostimBonus = "神経刺激";
+$combatHint_berserkPenalty = "バーサーク";
+$combatHint_netted = "網にかかっている";
+$combatHint_armorPenalty = "アーマーペナルティ";
+$combatHint_defPenalty = "防御ペナルティ";
+$combatHint_mobilityBonus = "機動力ボーナス";
+$combatHint_weapVsBlock = "ブロック抵抗";
+$combatHint_vsRanged = "遠距離抵抗";
+$combatHint_con = "体力ボーナス";
 
 // THC Hint
-$combatHint_baseThc = "Base";
+$combatHint_baseThc = "基礎命中率";
 $combatHint_pureAtt = "攻撃";
 $combatHint_pureDef = "防御";
-$combatHint_rangePenalty = "Range penalty";
-$combatHint_attackThcMod = "Attack THC Modifier";
-$combatHint_facingBonus = "Facing bonus";
+$combatHint_rangePenalty = "遠距離ペナルティ";
+$combatHint_attackThcMod = "攻撃命中率補正";
+$combatHint_facingBonus = "方向ボーナス";
 $combatHint_isKnockedDown = "ノックダウン";
-$combatHint_netted = "Netted";
-$combatHint_dexBonus = "Dexterity Bonus";
-$combatHint_skillBlock = "Block Skill Value";
-$combatHint_skillDodge = "Dodge Skill Value";
+$combatHint_netted = "網にかかっている";
+$combatHint_dexBonus = "巧緻ボーナス";
+$combatHint_skillBlock = "ブロックスキル値";
+$combatHint_skillDodge = "回避スキル値";
 $combatHint_immobilized = "移動不能";
 $combatHint_chocking = "窒息";
 
@@ -333,7 +333,7 @@ $SL_msg_save = "セーブ完了。";
 $SL_msg_autosave = "オートセーブ完了。";
 
 $SL_prerelease_char = "Beta Savegames";
-$SL_unnamed_char = "Nameless Character";
+$SL_unnamed_char = "名前のないキャラクター";
 
 $SL_unreadable_save_title = "Error";
 $SL_unreadable_save_msg = "Incompatible (old format), or corrupted savegame.";

@@ -5,22 +5,22 @@ $phrase_DamageLine_crippled = "Crippled!";
 $phrase_DamageLine_burned = "On Fire!";
 $phrase_DamageLine_acid = "Acid!";
 $phrase_DamageLine_statpenalty = "Stat Damage!";
-$phrase_DamageLine_armorpenalty = "Armor Damage! Reduced by <amount> DR";
+$phrase_DamageLine_armorpenalty = "鎧にダメージ！　装甲が<amount>減少";
 $phrase_DamageLine_missed = "ミス！";
 $phrase_DamageLine_dodged = "回避！";
 $phrase_DamageLine_blocked = "ブロック！";
 $phrase_DamageLine_appenalty = "Staggered! AP reduced by <amount>";
 $phrase_DamageLine_shield_bash = "シールドバッシュ！";
-$phrase_DamageLine_push = "Pushed!";
+$phrase_DamageLine_push = "プッシュ！";
 $phrase_DamageLine_CA = "反撃！";
 $phrase_DamageLine_AoO = "追撃！";
 $phrase_DamageLine_IA = "Interrupt Attack!";
-$phrase_DamageLine_dodgepenalty = "回避減少！-<amount>（<turns>ターン）";
-$phrase_DamageLine_blockpenalty = "Block Penalty! -<amount> for <turns> turns.";
-$phrase_DamageLine_thcpenalty = "Attack Penalty! -<amount> for <turns> turns.";
+$phrase_DamageLine_dodgepenalty = "回避ペナルティ！-<amount>（<turns>ターン）";
+$phrase_DamageLine_blockpenalty = "ブロックペナルティ！-<amount>（<turns>ターン）";
+$phrase_DamageLine_thcpenalty = "アタックペナルティ！-<amount>（<turns>ターン）";
 $phrase_DamageLine_net = "Entangled!";
-$phrase_DamageLine_bolas_head = "Choked!";
-$phrase_DamageLine_bolas_legs = "Immobilized!";
+$phrase_DamageLine_bolas_head = "窒息！";
+$phrase_DamageLine_bolas_legs = "移動不能！";
 $phrase_DamageLine_SP = "+<amount> SP";
 
 //neutral greetings
@@ -229,7 +229,7 @@ $phrase_CharacterBlock_goaway0 = "Get out.";
 $phrase_CharacterBlock_goaway1 = "Go away.";
 
 //remove weapon!
-$phrase_CharacterBlock_remove_weapon0 = "Put down your weapon. Now!";
+$phrase_CharacterBlock_remove_weapon0 = "武器を捨てろ。すぐに！";
 
 //something spotted
 $phrase_CharacterBlock_something_spotted0 = "You!";
@@ -264,11 +264,11 @@ $phrase_CharacterBlock_combat_generic2 = "I'm gonna fuck you up.";
 $phrase_CharacterBlock_combat_generic3 = "Let's get it over with.";
 
 //character feels pain
-$phrase_CharacterBlock_combat_pain0 = "Fuck!";
+$phrase_CharacterBlock_combat_pain0 = "クソが！";
 $phrase_CharacterBlock_combat_pain1 = "Shit, I'm wounded!";
 $phrase_CharacterBlock_combat_pain2 = "You gonna pay for this!";
 $phrase_CharacterBlock_combat_pain3 = "Barely a scratch!";
-$phrase_CharacterBlock_combat_pain4 = "You got lucky!";
+$phrase_CharacterBlock_combat_pain4 = "運が良かったな！";
 $phrase_CharacterBlock_combat_pain5 = "Damn it!";
 
 //successful attack
