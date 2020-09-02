@@ -25,7 +25,7 @@ $msg_container_lockpick_combat = "\c4You can\'t unlock containers in combat.\c1"
 $msg_trap_discovered_traps = "\c6[traps success]\c1 You discover a trap.\c1";
 $msg_trap_discovered_per = "\c6[perception success]\c1 You discover a trap.\c1";
 $msg_trap_disarm_success = "\c6[success]\c1 You disarmed the trap.\c1";
-$msg_too_far = "\c4You\'re too far.\c1";
+$msg_too_far = "\c4距離が遠い。\c1";
 $msg_cant_use_item_in_combat = "\c4You can\'t use this item in combat.\c1";
 $msg_cant_use_item_out_combat = "\c4You can use this item only in combat.\c1";
 $msg_potion_no_effect = "\c4This potion won\'t have any effect now.\c1";
@@ -113,11 +113,11 @@ $msg_attack_6_BrokenStoneGuardianBlock_crit_pc_npc0 = "\c1クリティカル！�
 
 //AIMED: LEGS
 $msg_attack_7_pc_npc0 = "\c1君は<victim>の脚を刻みつけ、\c4<amount>\c1ポイントのダメージを与え、相手の回避能力をわずかに<eff_val1_2>ポイント減少させる。（<eff_val1_1>ターン）鎧が \c5<DR>\c1ポイントを吸収した。";
-$msg_attack_7_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>の脚を攻撃し、\c4<amount>\c1ポイントのダメージを与え、 相手の回避能力を<eff_val1_2>ポイント減少させる。（<eff_val1_1>ターン）鎧が\c5<DR>\c1ポイントを吸収した。<victim>のDexterityを\c41\c1減少。";
+$msg_attack_7_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>の脚を攻撃し、\c4<amount>\c1ポイントのダメージを与え、相手の回避能力を<eff_val1_2>ポイント減少させる。（<eff_val1_1>ターン）鎧が\c5<DR>\c1ポイントを吸収した。<victim>のDexterityを\c41\c1減少。";
 $msg_attack_7_npc_pc0 = "\c2<attacker>は君の脚を刻みつけ、\c4<amount>\c2ポイントのダメージを与え、君の回避能力をわずかに<eff_val1_2>ポイント減少させる。（<eff_val1_1>ターン）鎧が \c5<DR>\c2ポイントを吸収した。";
 $msg_attack_7_crit_npc_pc0 = "\c2クリティカル！<attacker>は君の脚を攻撃し、\c4<amount>\c2ポイントのダメージを与え、回避能力を<eff_val1_2>ポイント減少させる。（<eff_val1_1>ターン）鎧が \c5<DR>\c2 ポイントを吸収した。君のDexterityは\c41\c2減少する。";
 $msg_attack_7_npc_npc0 = "\c3<attacker>は<victim>の脚を刻みつけ、 \c4<amount>\c3ポイントのダメージを与え、相手の回避能力をわずかに<eff_val1_2>ポイント減少させる。（<eff_val1_1>ターン）鎧が \c5<DR>\c3ポイントを吸収した。";
-$msg_attack_7_crit_npc_npc0 = "\c3クリティカル！<attacker>は<victim>の脚を攻撃し、 \c4<amount>\c3ポイントのダメージを与え、 相手の回避能力を<eff_val1_2>ポイント減少させる。（<eff_val1_1>ターン）鎧が \c5<DR>\c3 ポイントを吸収した。<victim>のDexterityを\c41\c3減少。";
+$msg_attack_7_crit_npc_npc0 = "\c3クリティカル！<attacker>は<victim>の脚を攻撃し、 \c4<amount>\c3ポイントのダメージを与え、相手の回避能力を<eff_val1_2>ポイント減少させる。（<eff_val1_1>ターン）鎧が \c5<DR>\c3 ポイントを吸収した。<victim>のDexterityを\c41\c3減少。";
 $msg_attack_7_SpecterBlock_pc_npc0 = "\c1君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が \c5<DR>\c1ポイントを吸収した。";
 $msg_attack_7_SpecterBlock_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与え、装備を貫通する。 鎧が \c5<DR>\c1ポイントを吸収した。";
 $msg_attack_7_StoneGuardianBlock_pc_npc0 = "\c1君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が \c5<DR>\c1ポイントを吸収した。";
@@ -141,11 +141,11 @@ $msg_attack_8_BrokenStoneGuardianBlock_crit_pc_npc0 = "\c1クリティカル！ 
 
 //AIMED: LEGS RANGED
 $msg_attack_9_pc_npc0 = "\c1君は<victim>の脚を攻撃し\c4<amount>\c1ポイントのダメージを与え、相手の回避能力をわずかに<eff_val1_2>ポイント減少させる。（<eff_val1_1>ターン） 鎧が \c5<DR>\c1ポイントを吸収した。";
-$msg_attack_9_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>の脚を攻撃し\c4<amount>\c1ポイントのダメージを与え、 相手の回避能力を<eff_val1_2>ポイント減少させる。（<eff_val1_1> ターン） 鎧が\c5<DR>\c1ポイントを吸収した。<victim>のDexterityを\c41\c1.";
+$msg_attack_9_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>の脚を攻撃し\c4<amount>\c1ポイントのダメージを与え、相手の回避能力を<eff_val1_2>ポイント減少させる。（<eff_val1_1> ターン） 鎧が\c5<DR>\c1ポイントを吸収した。<victim>のDexterityを\c41\c1.";
 $msg_attack_9_npc_pc0 = "\c2<attacker>hits your leg for \c4<amount>\c2ポイントのダメージを与え、 slightly reducing your ability to dodge attacks by <eff_val1_2>ポイント減少させる。（<eff_val1_1> ターン） 鎧が \c5<DR>\c2ポイントを吸収した。";
 $msg_attack_9_crit_npc_pc0 = "\c2クリティカル！<attacker>hits your leg for \c4<amount>\c2ポイントのダメージを与え、 crippling your ability to dodge attacks by <eff_val1_2>ポイント減少させる。（<eff_val1_1> ターン） 鎧が \c5<DR>\c2 ポイントを吸収した。Your Dexterity is reduced by \c41\c2.";
 $msg_attack_9_npc_npc0 = "\c3<attacker>hits <victim>のleg for \c4<amount>\c3ポイントのダメージを与え、相手の回避能力をわずかに<eff_val1_2>ポイント減少させる。（<eff_val1_1> ターン） 鎧が \c5<DR>\c3ポイントを吸収した。";
-$msg_attack_9_crit_npc_npc0 = "\c3クリティカル！<attacker>hits <victim>のleg for \c4<amount>\c3ポイントのダメージを与え、 相手の回避能力を<eff_val1_2>ポイント減少させる。（<eff_val1_1> ターン） 鎧が \c5<DR>\c3 ポイントを吸収した。<victim>のDexterityを\c41\c3.";
+$msg_attack_9_crit_npc_npc0 = "\c3クリティカル！<attacker>hits <victim>のleg for \c4<amount>\c3ポイントのダメージを与え、相手の回避能力を<eff_val1_2>ポイント減少させる。（<eff_val1_1> ターン） 鎧が \c5<DR>\c3 ポイントを吸収した。<victim>のDexterityを\c41\c3.";
 $msg_attack_9_SpecterBlock_pc_npc0 = "\c1君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が \c5<DR>\c1ポイントを吸収した。";
 $msg_attack_9_SpecterBlock_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与え、装備を貫通する。 鎧が \c5<DR>\c1ポイントを吸収した。";
 $msg_attack_9_StoneGuardianBlock_pc_npc0 = "\c1君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が \c5<DR>\c1ポイントを吸収した。";
@@ -632,15 +632,15 @@ $msg_death_sp0 = "\c1The construct freezes, its gears damaged beyond repair, the
 $msg_death_eg0 = "\c1The God\'s mortal vessel takes more damage than it can handle. Slowly, the God topples forward, landing at your feet. It\'s over.";
 
 // DR damage
-$msg_pc_armour_dmg_npc0 = "\c1You dent <victim>のarmor, reducing its DR by \c4<amount>\c1.";
-$msg_npc_armour_dmg_pc0 = "\c2<attacker>dents your armor, reducing its DR by \c4<amount>\c2.";
-$msg_npc_armour_dmg_npc0 = "\c3<attacker>dents <victim>のarmor, reducing its DR by \c4<amount>\c3.";
-$msg_pc_helmet_dmg_npc0 = "\c1You dent <victim>のhelmet, reducing its DR by \c4<amount>\c1.";
-$msg_npc_helmet_dmg_pc0 = "\c2<attacker>dents your helmet, reducing its DR by \c4<amount>\c2.";
-$msg_npc_helmet_dmg_npc0 = "\c3<attacker>dents <victim>のhelmet, reducing its DR by \c4<amount>\c3.";
-$msg_pc_shield_dmg_npc0 = "\c1You dent <victim>のshield, reducing its DR by \c4<amount>\c1.";
-$msg_npc_shield_dmg_pc0 = "\c2<attacker>dents your shield, reducing its DR by \c4<amount>\c2.";
-$msg_npc_shield_dmg_npc0 = "\c3<attacker>dents <victim>のshield, reducing its DR by \c4<amount>\c3.";
+$msg_pc_armour_dmg_npc0 = "\c1君は<victim>の鎧を傷つけ、装甲を\c4<amount>\c1減少。";
+$msg_npc_armour_dmg_pc0 = "\c2<attacker>は君の鎧を傷つけ、装甲を\c4<amount>\c2減少。";
+$msg_npc_armour_dmg_npc0 = "\c3<attacker>は<victim>の鎧を傷つけ、装甲を\c4<amount>\c3減少。";
+$msg_pc_helmet_dmg_npc0 = "\c1君は<victim>のヘルメットを傷つけ、装甲を\c4<amount>\c1減少。";
+$msg_npc_helmet_dmg_pc0 = "\c2<attacker>は君のヘルメットを傷つけ、装甲を\c4<amount>\c2減少。";
+$msg_npc_helmet_dmg_npc0 = "\c3<attacker>は<victim>のヘルメットを傷つけ、装甲を\c4<amount>\c3減少。";
+$msg_pc_shield_dmg_npc0 = "\c1君は<victim>の盾を傷つけ、装甲を\c4<amount>\c1減少。";
+$msg_npc_shield_dmg_pc0 = "\c2<attacker>は君の盾を傷つけ、装甲を\c4<amount>\c2減少。";
+$msg_npc_shield_dmg_npc0 = "\c3<attacker>は<victim>の盾を傷つけ、装甲を\c4<amount>\c3減少。";
 
 // Regen HP
 $msg_pc_regens_hp0 = "You regenerate <amount> HP.";
@@ -717,7 +717,7 @@ $spec_msg_discovering_location_boost = "\c5Land Ahoy! Discovering a new location
 $spec_msg_combat_sp_reward = "\c5You offer yet another sacrifice to Death, who smiles upon you and rewards your dedication by whispering insights into your ear.\c1";
 $spec_msg_civil_sp_reward = "\c5You gain a new insight into the liberal arts and trades, which can be used to increase your non-combat skills.\c1";
 
-$spec_msg_fullCombat_training = "\c5There\'s no better training than hands-on combat experience. Your combat skills\' training has increased by 1.\c1";
+$spec_msg_fullCombat_training = "\c5実戦経験に勝る訓練はない。君の戦闘スキルの訓練量が1増加した。\c1";
 $spec_msg_Persuasion_increased = "\c5Your Persuasion has increased.\c1";
 $spec_msg_CS_increased = "\c5Your Critical Strike has increased.\c1";
 $spec_msg_Crossbow_increased = "\c5Your Crossbow skill has increased.\c1";
