@@ -1,9 +1,9 @@
 ﻿//hints
 $CS_defaultHint = "画面のさまざまな部分にカーソルを合わせると、詳細な情報が表示されます。";
 $CS_costHint = "このスキルを上げるためのスキルポイント（ＳＰ）の現在のコスト。ＳＰは、まず専用ポイントから消費され、次に汎用ポイントが消費されます。";
-$CS_generalSpHint = "General SP is earned by completing quests and advancing the story. Can be spent on any skill once the especialized pool is drained.";
-$CS_combatSpHint = "Combat SP is earned by surviving fights and in some occasions by especial training. Can only be spent on combat skills.";
-$CS_civilSpHint = "Civil SP is earned by finding non-combat solutions to problems, achieving important peaceful feats, and in some occasions by especial training. Can only be spent on non-combat skills.";
+$CS_generalSpHint = "汎用SPは、クエストをクリアしたり、ストーリーを進めることで獲得できます。全てのスキルに使用することができ、専用SPがなくなった後に消費されます。";
+$CS_combatSpHint = "戦闘SPは、戦いを生き抜くことで獲得でき、場合によっては特別な訓練を受けることでも獲得できます。戦闘スキルにのみ使用できます。";
+$CS_civilSpHint = "日常SPは、問題に対して非戦闘的な解決法を見つけたり、重要かつ平和的な偉業を成し遂げたり、場合によっては特別な訓練を受けることで獲得できます。非戦闘スキルにのみ使用できます。";
 
 //misc
 $char_scr_unspent_stat_points_title = "警告！";
@@ -46,7 +46,7 @@ $char_scr_tip6 = "<spush><color:ffffff>クロスボウ<spop>-弓と同じよう�
 $char_scr_tip7 = "<spush><color:ffffff>投擲<spop>-機構による支援のある同族に比べると、威力で見劣りするために見過ごされがちだが、投擲武器は射程の短さと威力の乏しさを、より優れたスピードと小回りの良さによって補っている。投擲武器に熟練した戦士は、ミサイルで敵に文字通りの集中攻撃をすることが可能だ。";
 $char_scr_tip8 = "<spush><color:ffffff>回避<spop>-戦士は、敵の攻撃を吸収するために様々な種類の鎧を身につけるが、多くの者は、そもそも攻撃を避けられるならその方がいいと考えている。残念ながら、この問題はちょっとしたトレードオフになっていて、装備しているのが頑丈な鎧であればあるほど、攻撃を避けるのは難しい。そしてもう一つ特筆すべきは、相手の攻撃をかわすことができれば、相手はバランスを崩し、反撃をしやすくなるということだ。各々の攻撃はブロックか回避で対処することができるが、両方を同時に行うことはできない。そのため、多くの戦士はこれらの防御スキルから一つに集中させることを選んでいる。";
 $char_scr_tip9 = "<spush><color:ffffff>ブロック<spop>-無知な者は、一般にブロックといえばただ自分と相手の武器の間に盾を置くことだと考えているが、真の達人は、ブロックとはつまりは攻撃をそらすことであり、盾の角度を変えて相手の武器をいなすことなのだと知っている。各々の攻撃はブロックか回避で対処することができるが、両方を同時に行うことはできない。そのため、多くの戦士はこれらの防御スキルから一つに集中させることを選んでいる。";
-$char_scr_tip10 = "<spush><color:ffffff>クリティカル<spop>-戦闘においては、他の多くのものと同様、量よりも質が重要である。一度、敵の急所によく狙いを定めた攻撃をすることは、十数回の表面的な傷を負わせる攻撃に匹敵する。賢い戦士は、一撃ごとの効力を最大化することを学ぶものだ。";
+$char_scr_tip10 = "<spush><color:ffffff>クリティカルストライク<spop>-戦闘においては、他の多くのものと同様、量よりも質が重要である。一度、敵の急所によく狙いを定めた攻撃をすることは、十数回の表面的な傷を負わせる攻撃に匹敵する。賢い戦士は、一撃ごとの効力を最大化することを学ぶものだ。";
 $char_scr_tip11 = "<spush><color:ffffff>隠密<spop>-誰にも気付かれずに移動する技術。一般に公開されていない場所へ行くには非常に便利で手間のかからない方法だ。このスキルはロックピックと併せることで最も効果的に機能する。 "; 
 $char_scr_tip12 = "<spush><color:ffffff>変装<spop>-仕草や外見を変えることで、異なる人格を作る技術。自分自身であるだけでは不十分な場合に便利だが、膨大な衣装のストックが必要になるかもしれない。"; 
 $char_scr_tip13 = "<spush><color:ffffff>窃盗<spop>-取引のようなものだが、相手に何かを与えなければならないというデメリットはない。盗賊ギルドの掟は、窃盗を防ぐためにある法律よりも寛容ではないということは忘れない方がいいだろう。";
@@ -354,11 +354,11 @@ $char_scr_next_lvl_abilities_color = "<spush><color:EBEB00>";
 $char_scr_skill0_abilities    = "<value>% 狙いを定めた攻撃のクリティカル率が高くなる<spop>";
 $char_scr_skill1_abilities    = "<value>% の確率で出血を起こす─２ターンの間３ダメージ<spop>";
 $char_scr_skill2_abilities    = "<value>% クリティカルダメージの増加<spop>";
-$char_scr_skill3_abilities    = "<value>% の確率で敵の装甲を２DR弱体化させる<spop>";
+$char_scr_skill3_abilities    = "<value>% の確率で敵のダメージ耐性を２DR弱体化させる<spop>";
 $char_scr_skill4_abilities    = "<value>% の確率で近接の間合いに入ろうとする敵を妨害する<spop>";
 $char_scr_skill5_abilities    = "<value>% の確率で速度低下─移動コストが増加する<spop>";
 $char_scr_skill6_abilities    = "<value>% の確率で相手をよろめかせる─３APのペナルティ<spop>";
-$char_scr_skill7_abilities    = "<value>% の確率で装甲を貫通する<spop>";
+$char_scr_skill7_abilities    = "<value>% の確率でダメージ耐性を貫通する<spop>";
 $char_scr_skill8_abilities    = "<value>% の確率で近接攻撃を回避した後に反撃する<spop>";
 $char_scr_skill9_abilities    = "<value>% の確率で攻撃を逸らし全てのダメージをブロック<spop>";
 $char_scr_skill10_abilities   = "<value>% の確率でクリティカル時に出血を起こす<spop>";
@@ -375,12 +375,12 @@ $char_scr_skill20_abilities   = "<value>% increase in CS<spop>";
 $char_scr_skill21_abilities   = "<value>% increase in CS<spop>";
 $char_scr_skill22_abilities   = "<value>% increase in CS<spop>";
 
-$char_scr_stat_tip0 = "<spush><color:ffffff>筋力<spop> - Influences the Combat skill points' pool during character generation and determines damage modifiers and maximum carry weight. It is checked in dialogues and interactions with the gameworld.";
-$char_scr_stat_tip1 = "<spush><color:ffffff>Dexterity<spop> - Influences the Combat skill points' pool during character generation and determines Action Points and sequence in combat. It is checked in dialogues and interactions with the gameworld.";
-$char_scr_stat_tip2 = "<spush><color:ffffff>Constitution<spop> - Influences the Combat skill points' pool during character generation and determines your character's Hit Points and resistance to 毒 and other harmful substances (which will affect your ability to explore certain locations). It is checked in dialogues and interactions with the gameworld.";
-$char_scr_stat_tip3 = "<spush><color:ffffff>Perception<spop> - Influences the Non-Combat skill points' pool during character generation, determines the accuracy modifiers for all weapons and range modifiers for ranged weapons, and helps you spot things which would remain hidden otherwise. It is checked in dialogues and interactions with the gameworld.";
-$char_scr_stat_tip4 = "<spush><color:ffffff>Intelligence<spop> - Influences the Non-Combat skill points' pool during character generation and determines bonus skill points. It is checked in dialogues and interactions with the gameworld. The bonus skill points are added only to points earned by completing quests, not to points earned for killing enemies and passerby.";
-$char_scr_stat_tip5 = "<spush><color:ffffff>Charisma<spop> - Influences the Non-Combat skill points' pool during character generation and determines reaction and reputation modifiers. It is frequently checked in dialogues.";
+$char_scr_stat_tip0 = "<spush><color:ffffff>筋力<spop> - キャラクター作成時の戦闘スキルポイント量に影響し、ダメージ補正と最大積載量を決定する。ゲーム内の会話とインタラトのチェックに使用される。";
+$char_scr_stat_tip1 = "<spush><color:ffffff>巧緻<spop> - キャラクター作成時の戦闘スキルポイント量に影響し、戦闘中のアクションポイントと順番を決定する。ゲーム内の会話とインタラトのチェックに使用される。";
+$char_scr_stat_tip2 = "<spush><color:ffffff>体力<spop> - キャラクター作成時の戦闘スキルポイント量に影響し、キャラクターのヒットポイントと毒やその他の有害な物質に対する耐性を決定する（特定の場所を探索する能力に影響）。ゲーム内の会話とインタラトのチェックに使用される。";
+$char_scr_stat_tip3 = "<spush><color:ffffff>知覚<spop> - キャラクター作成時の非戦闘スキルポイント量に影響し、 全ての武器と遠距離武器の精密さの補正を決定し、隠されたものを見つけるのに役立つ。 ゲーム内の会話とインタラトのチェックに使用される。";
+$char_scr_stat_tip4 = "<spush><color:ffffff>知力<spop> - キャラクター作成時の非戦闘スキルポイント量に影響し、ポーナススキルポイントを決定する。ゲーム内の会話とインタラトのチェックに使用される。このボーナススキルポイントは、クエストをクリアしたときのみ加算され、敵や通行人を殺したときには加算されない。";
+$char_scr_stat_tip5 = "<spush><color:ffffff>魅力<spop> - キャラクター作成時の非戦闘スキルポイント量に影響し、反応や評判の補正を決定する。会話中で頻繁にチェックがあるステータス。";
 
 $char_scr_rep_tip0 = "かつては７つの州と２０以上の軍団を支配し、最も規模の大きく影響力のあった貴族の家であるダラタン家は戦争中にほとんど破壊された。今日では、ダラタン家に仕える者は１００人にも満たず、疑いようもなく良き日を見てきたテロンという名の小さな町を支配している。内部の者の中には最後のあえぎを絞り出すかのように、いかなる犠牲を払ってでも権力のバランスを変えて高貴な家を復活させるために、最後の戦いに向けて備えている者もいる。";
 $char_scr_rep_tip1 = "アウレリアン家の主な軍隊は戦争の間、遠く離れた植民地で最も激しく血にまみれた戦場から離れ、秩序を維持していた。世界が壊滅し社会が混沌とする中で、ガエリウス将軍は最も戦略的な要塞や町を強固に支配するために迅速に動いた。今日、アウレリアン家は、古い要塞の周りに建てられた町マードランの残骸の７０％を支配し、彼らに有利なパワーバランスを保つためにあらゆる努力をしている。こうしたアウレリアン家の現在の地位に対して、他の家は恨みを抱いている。";
@@ -389,12 +389,12 @@ $char_scr_rep_tip3 = "帝国軍の残党から結成された帝国衛兵は、�
 $char_scr_rep_tip4 = "四十盗賊ギルドは盗賊と密輸業者、その他犯罪傾向のある市民たちの大規模で疲れを知らないように見える巨大なネットワークで、あらゆる町で活動しており、その起源を帝国初期にまでさかのぼる。かつては４０の大都市の４０の中心人物がそのネットワークをまとめていたとも言われている。往年の四十盗賊と現在の形の四十盗賊との関係や繋がりについては諸説あるが、その名は今も残っている。";
 $char_scr_rep_tip5 = "交易と商人のギルドは常に存在してきたが、剣の力によってもたらされた災厄の影で、金の力は国事に対してはるかに大きい影響力を持つようになった。主要な商人は今や全ての交易を総括し、管理している。キャラバン、関税、鉱山、そして市場はコンメルキウムの恩恵のみで運営されている。前哨地や辺境の村では独立している商人は今も存在しているが、町での交易に危険や問題がないわけではない。";
 $char_scr_rep_tip6 = "帝国の黎明期には、皇帝直属の衛兵がいた。彼らは皇帝を守るという本来の任務とは別に、潜入と暗殺のエキスパートとして訓練されていた。 多くの政治的、軍事的な敵対者たちが夜の狂喜の中の死や、説明のつかない不幸に遭遇し、帝国の長年にわたる安定を確保した。帝国の崩壊後、仕える主がいないため、衛兵たちは滅びた帝国の混沌へと散っていった。  外の世界に出ると、世界が荒廃していても、彼らの平和維持活動には大きな需要があった。 暗殺教団が設立され、後にその一群は誉れ高き名を帯びることになる。「ステュクスの漕手」と。";
-$char_scr_rep_tip7 = "<spush><color:ffffff>Body count<spop> - Tells everyone how many people that crossed your path ended up dead and shows that you aren't squeamish when it comes to killing.";
-$char_scr_rep_tip8 = "<spush><color:ffffff>Combat<spop> - It's not about how many lives you've taken, it's about how many times you've gone up against impossible odds and lived to tell the tale. It's the real deal.";
-$char_scr_rep_tip9 = "<spush><color:ffffff>Peacemaker<spop> - It tells people that you prefer to seek peaceful solutions. Some people may find it very reassuring.";
-$char_scr_rep_tip10 = "<spush><color:ffffff>Loyalty<spop> - Measures your loyalty and whether or not you're the type who goes down with the ship or jumps it like a rat. Then again, some opportunities simply can't be missed.";
-$char_scr_rep_tip11 = "<spush><color:ffffff>Prestige<spop> - Measures your fame and influence. Are you an adventurer of great renown? An ambitious up-and-comer? Do you command respect? This stat will tell you (and other people who might be paying attention).";
-$char_scr_rep_tip12 = "<spush><color:ffffff>Word of Honor<spop> - Measures how well you keep your word once it's given. Some people might trust you more if your word is your bond.";
+$char_scr_rep_tip7 = "<spush><color:ffffff>骸の数<spop> - 君と出会った人々の中でどれだけの人間が死んだのか、君の殺しに関しての抵抗のなさを示す。";
+$char_scr_rep_tip8 = "<spush><color:ffffff>戦闘<spop> - どれだけの命を奪ったかではなく、どれだけ不可能な状況に立ち向かい、生き延びてきたかだ。伊達じゃない。";
+$char_scr_rep_tip9 = "<spush><color:ffffff>仲裁者<spop> - 君が平和的に解決をしようと努めたことを示す。人によっては、とても心強いと感じるかもしれない。";
+$char_scr_rep_tip10 = "<spush><color:ffffff>忠誠<spop> - 忠誠心と、沈みゆく船と運命を共にするのか、それともネズミのように逃げ出すタイプなのかを測る。だがそれでも、見逃すことのできない機会というものはある。";
+$char_scr_rep_tip11 = "<spush><color:ffffff>名声<spop> - 君の評判と影響力を測る。君は名の知られた冒険者か？　野心的な新進気鋭か？　尊敬を集めているのか？　この項目が君に教えてくれるだろう（そして、注目しているであろう他の者たちにも）。";
+$char_scr_rep_tip12 = "<spush><color:ffffff>誓いの言葉<spop> - 一度した約束をどれだけ守っているかを測る。己の言葉を裏切ることがなければ、より信頼してくれる人もいるかもしれない。";
 
 $char_scr_bg_tip0 = "<spush><color:ffffff>暗殺者<spop>─外交が失敗すると、暗殺はしばしば唯一の手段となる。紛争を最小限の流血で解決する能力で名高く尊敬されている暗殺者は、社会のあらゆる階層で高い需要がある。流される原因が些細な争いであろうと国の問題であろうと、血は血である。";
 $char_scr_bg_tip1 = "<spush><color:ffffff>盗賊<spop>─社会の構造に関係なく、法の外で自らの行動規範に従って生きることを好む者は常に存在する。盗賊にとって、荒廃した世界はチャンスの世界である。権力を求める者たちが欺かれ財を奪われる一方で、盗賊たちは彼らが粗末に扱う富からかなりの利益を得ている。";
@@ -407,6 +407,6 @@ $char_scr_bg_tip7 = "<spush><color:ffffff>商人<spop>─あらゆる貴族の�
 
 $char_scr_misc_tip0 = "性別はステータスには影響しません。会話において異なる選択が可能になることがあります。";
 $char_scr_misc_tip1 = "初期のスキルポイント（ＳＰ）はステータスの配分によって異なります。STR、DEX、CONは戦闘ＳＰを増加させ、PER、INT、CHAは日常ＳＰを増加させます。ゲームを開始した後は、クエストを完了したり敵を倒したりすることでＳＰを得ることができます。INTが高いと得られるＳＰの量が多くなります。";
-$char_scr_misc_tip2 = "Stat points can only be distributed among attributes at character generation. Critical strikes may cause wounds that reduce your physical attribute stats; visiting a healer allows you to restore them to normal.";
+$char_scr_misc_tip2 = "ステータスポイントは、キャラクター生成時にのみ配分できます。クリティカルストライクは、物理属性のステータスを減少させる傷を負う可能性があります。ヒーラーの所へ行くことで通常の状態に戻ることができます。";
 $char_scr_misc_tip3 = "Your background is not a Character Class. It doesn't affect skill values or character progression. Your background affects your intial standing with various factions and will determine how your adventure begins. It is also checked in dialogues.";
 $char_scr_misc_tip4 = "<spush><color:ffffff>Weapon Synergy<spop>- Increasing one weapon skill gives various bonuses to all other weapon skills, reflecting your growing combat skills and experience. The numbers show the total amount of SP added to each skill through synergy effects.";
