@@ -49,7 +49,7 @@ $ammo_desc_short[0] = "REG";
 $ammo_desc_short[1] = "BARB";
 $ammo_desc_short[2] = "PRC";
 loadStringCollection("Ammo Desc Short", "ammo_desc_short");
-$ammo_none = "弾がない";
+$ammo_none = "矢がない";
 $ammo_poisoned = "POISONED";
 $ammo_sharpened = "SHARPENED";
 
@@ -72,7 +72,7 @@ $attack_string[15] = "串刺し";
 $attack_string[16] = "旋風斬";
 $attack_string[17] = "マルチショット";
 $attack_string[18] = "バースト";
-$attack_string[19] = "エンタングル";
+$attack_string[19] = "拘束する";
 $attack_string[20] = "酸投げ";
 $attack_string[21] = "投げる：脚";
 $attack_string[22] = "投げる：頭";

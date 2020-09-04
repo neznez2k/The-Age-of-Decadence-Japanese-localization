@@ -650,14 +650,14 @@ $msg_npc_regens_hp0 = "<charname> regenerates <amount> HP";
 
 // Passive weapon effect reports
 
-$msg_passive_weap_effect0 = "Bonus to your Critical Strike chance: <chance>%";
-$msg_passive_weap_effect1 = "Chance to inflict a bleeding wound: <chance>%";
-$msg_passive_weap_effect2 = "Bonus to your Critical Strike damage: <chance>%";
-$msg_passive_weap_effect3 = "Chance to damage opponent\'s armor: <chance>%";
-$msg_passive_weap_effect4 = "Chance to interrupt your opponent: <chance>%";
-$msg_passive_weap_effect5 = "Chance to cause slowdown: <chance>%";
-$msg_passive_weap_effect6 = "Chance to stagger your opponent: <chance>%";
-$msg_passive_weap_effect7 = "Chance to bypass armor: <chance>%";
+$msg_passive_weap_effect0 = "クリティカル率にボーナス：<chance>%";
+$msg_passive_weap_effect1 = "出血する傷を負わせる確率：<chance>%";
+$msg_passive_weap_effect2 = "クリティカルダメージにボーナス：<chance>%";
+$msg_passive_weap_effect3 = "敵の鎧にダメージを与える確率：<chance>%";
+$msg_passive_weap_effect4 = "敵に割り込める確率：<chance>%";
+$msg_passive_weap_effect5 = "スローダウンを与える確率：<chance>%";
+$msg_passive_weap_effect6 = "敵をよろめかせる確率：<chance>%";
+$msg_passive_weap_effect7 = "鎧を貫通する確率：<chance>%";
 
 // Alchemy Harvesting
 
@@ -688,47 +688,47 @@ $spec_msg_cs_training_4 = "\c5Your critical strike training is increased by 4\c1
 $spec_msg_dodge_block_training_5 = "Your Dodge and Block training has increased by 5 points.";
 $spec_msg_melee_training_5 = "All your melee skills training have increased by 5 points.";
 
-$spec_msg_reputation_daratan_increased = "\c5House Daratan 評判が増加した\c1";
-$spec_msg_reputation_daratan_decreased = "\c5House Daratan 評判がdecreased\c1";
+$spec_msg_reputation_daratan_increased = "\c5ダラタン家からの評判が増加した\c1";
+$spec_msg_reputation_daratan_decreased = "\c5ダラタン家からの評判が減少した\c1";
 $spec_msg_reputation_aurelian_increased = "\c5House Aurelian 評判が増加した\c1";
-$spec_msg_reputation_aurelian_decreased = "\c5House Aurelian 評判がdecreased\c1";
+$spec_msg_reputation_aurelian_decreased = "\c5House Aurelian 評判が減少した\c1";
 $spec_msg_reputation_crassus_increased = "\c5House Crassus 評判が増加した\c1";
-$spec_msg_reputation_crassus_decreased = "\c5House Crassus 評判がdecreased\c1";
-$spec_msg_reputation_guards_increased = "\c5Imperial Guards 評判が増加した\c1";
-$spec_msg_reputation_guards_decreased = "\c5Imperial Guards 評判がdecreased\c1";
-$spec_msg_reputation_thieves_increased = "\c5Forty Thieves 評判が増加した\c1";
-$spec_msg_reputation_thieves_decreased = "\c5Forty Thieves 評判がdecreased\c1";
-$spec_msg_reputation_commercium_increased = "\c5コンメルキウムの評判が増加した\c1";
-$spec_msg_reputation_commercium_decreased = "\c5コンメルキウムの評判がdecreased\c1";
-$spec_msg_reputation_boatmen_increased = "\c5漕手の評判が増加した\c1";
-$spec_msg_reputation_boatmen_decreased = "\c5漕手の評判がdecreased\c1";
-$spec_msg_reputation_bodycount_increased = "\c5骸の数が増加\c1";
+$spec_msg_reputation_crassus_decreased = "\c5House Crassus 評判が減少した\c1";
+$spec_msg_reputation_guards_increased = "\c5帝国衛兵からの評判が増加した\c1";
+$spec_msg_reputation_guards_decreased = "\c5帝国衛兵からの評判が減少した\c1";
+$spec_msg_reputation_thieves_increased = "\c5四十盗賊からの評判が増加した\c1";
+$spec_msg_reputation_thieves_decreased = "\c5四十盗賊からの評判が減少した\c1";
+$spec_msg_reputation_commercium_increased = "\c5コンメルキウムからの評判が増加した\c1";
+$spec_msg_reputation_commercium_decreased = "\c5コンメルキウムからの評判が減少した\c1";
+$spec_msg_reputation_boatmen_increased = "\c5漕手からの評判が増加した\c1";
+$spec_msg_reputation_boatmen_decreased = "\c5漕手からの評判が減少した\c1";
+$spec_msg_reputation_bodycount_increased = "\c5骸の数が増加した\c1";
 $spec_msg_rumors_of_your_combat_prowess = "\c5君の武勇伝がまた増えた。\c1";
-$spec_msg_reputation_peacemaker_increased = "\c5仲裁者の評判が増加\c1";
-$spec_msg_reputation_peacemaker_decreased = "\c5仲裁者の評判がdecreased\c1";
-$spec_msg_reputation_loyalty_increased = "\c5忠誠が増加\c1";
-$spec_msg_reputation_loyalty_decreased = "\c5忠誠が減少\c1";
-$spec_msg_reputation_prestige_increased = "\c5名声が増加\c1";
-$spec_msg_reputation_prestige_decreased = "\c5名声が減少\c1";
-$spec_msg_reputation_honor_increased = "\c5誓いの言葉が増加\c1";
-$spec_msg_reputation_honor_decreased = "\c5誓いの言葉が減少\c1";
-$spec_msg_you_gain_insight = "\c5君は新たな洞察を得て、スキルを高めることができる。\c1";
-$spec_msg_discovering_location_boost = "\c5Land Ahoy! Discovering a new location boosts your spirit.\c1";
-$spec_msg_combat_sp_reward = "\c5You offer yet another sacrifice to Death, who smiles upon you and rewards your dedication by whispering insights into your ear.\c1";
-$spec_msg_civil_sp_reward = "\c5You gain a new insight into the liberal arts and trades, which can be used to increase your non-combat skills.\c1";
+$spec_msg_reputation_peacemaker_increased = "\c5仲裁者の評判が増加した\c1";
+$spec_msg_reputation_peacemaker_decreased = "\c5仲裁者の評判が減少した\c1";
+$spec_msg_reputation_loyalty_increased = "\c5忠誠が増加した\c1";
+$spec_msg_reputation_loyalty_decreased = "\c5忠誠が減少した\c1";
+$spec_msg_reputation_prestige_increased = "\c5名声が増加した\c1";
+$spec_msg_reputation_prestige_decreased = "\c5名声が減少した\c1";
+$spec_msg_reputation_honor_increased = "\c5誓いの言葉が増加した\c1";
+$spec_msg_reputation_honor_decreased = "\c5誓いの言葉が減少した\c1";
+$spec_msg_you_gain_insight = "\c5君は新たな知見を得て、スキルを高めることができる。\c1";
+$spec_msg_discovering_location_boost = "\c5陸地だぞう！　新しい場所を発見し、君の精神が高まる。\c1";
+$spec_msg_combat_sp_reward = "\c5君は死へ新たな犠牲を捧げる。死は君に微笑み、君の耳に真理の一端を囁きかけることでその献身に報いた。\c1";
+$spec_msg_civil_sp_reward = "\c5君は教養と取引について新たな知見を得て、非戦闘スキルを向上させることができる。\c1";
 
 $spec_msg_fullCombat_training = "\c5実戦経験に勝る訓練はない。君の戦闘スキルの訓練量が1増加した。\c1";
-$spec_msg_Persuasion_increased = "\c5Your Persuasion has増加した。\c1";
-$spec_msg_CS_increased = "\c5Your Critical Strike has増加した。\c1";
-$spec_msg_Crossbow_increased = "\c5Your Crossbow skill has 増加した。\c1";
-$spec_msg_Streetwise_increased = "\c5Your Streetwise has 増加した。\c1";
-$spec_msg_Trading_increased = "\c5Your Trading has 増加した。\c1";
-$spec_msg_Etiquette_increased = "\c5Your Etiquette has 増加した。\c1";
-$spec_msg_Disguise_increased = "\c5Your Impersonate has 増加した。\c1";
-$spec_msg_Lore_increased = "\c5Your Lore has 増加した。\c1";
-$spec_msg_Crafting_increased = "\c5Your Crafting has 増加した。\c1";
-$spec_msg_Lockpick_increased = "\c5Your Lockpick has 増加した。\c1";
-$spec_msg_Traps_increased = "\c5Your Traps has 増加した。\c1";
+$spec_msg_Persuasion_increased = "\c5説得スキルが増加した。\c1";
+$spec_msg_CS_increased = "\c5クリティカルストライクの技能が増加した。\c1";
+$spec_msg_Crossbow_increased = "\c5クロスボウの技能が増加した。\c1";
+$spec_msg_Streetwise_increased = "\c5渡世術スキルが増加した。\c1";
+$spec_msg_Trading_increased = "\c5取引スキルが増加した。\c1";
+$spec_msg_Etiquette_increased = "\c5礼儀作法スキルが増加した。\c1";
+$spec_msg_Disguise_increased = "\c5変装スキルが増加した。\c1";
+$spec_msg_Lore_increased = "\c5考古学スキルが増加した。\c1";
+$spec_msg_Crafting_increased = "\c5クラフトの技能が増加した。\c1";
+$spec_msg_Lockpick_increased = "\c5ロックピックの技能が増加した。\c1";
+$spec_msg_Traps_increased = "\c5トラップの技能が増加した。\c1";
 
 $spec_msg_under_siege_title = "Under Siege";
 $spec_msg_under_siege_text = "With the city under siege, you can't \"fast-travel\" to distant locations. If you need to leave the city, exit it via the main gate and have your documents ready for inspection.";
@@ -751,14 +751,14 @@ function textboxSP(%Value, %Type)
 {
 	switch(%Type)
 	{
-		case 1: dlgAddTextBoxMessage("\c5君は新たな洞察を得て、スキルポイントを高めることができる。─ " @ %Value @ " スキルポイントを得た。\c1");
-		case 2: dlgAddTextBoxMessage("\c5君は死へ新たな犠牲を捧げる。死は君に微笑み、君の耳に洞察をささやきかけることでその献身に報いた。─" @ %Value @ " 戦闘スキルポイントを得た。\c1");
-		case 3: dlgAddTextBoxMessage("\c5You gain a new insight into the liberal arts and trades, which can be used to increase your non-combat skills - " @ %Value @ " civil skill points gained.\c1");
-		case 4: dlgAddTextBoxMessage("\c5Land Ahoy! Discovering a new location boosts your spirit - " @ %Value @ " skill points gained.\c1");
-		case 5: dlgAddTextBoxMessage("\c5You gain " @ %Value @ " civil skill point for successful lockpicking.\c1");
-		case 6: dlgAddTextBoxMessage("\c5You gain " @ %Value @ " civil skill point for disarming or arming a trap.\c1");
-		case 7: dlgAddTextBoxMessage("\c5You gain " @ %Value @ " civil skill point for sneaking.\c1");
-		case 8: dlgAddTextBoxMessage("\c5You gain " @ %Value @ " civil skill point for stealing.\c1");
+		case 1: dlgAddTextBoxMessage("\c5君は新たな知見を得て、スキルポイントを高めることができる。─ " @ %Value @ " スキルポイントを得た。\c1");
+		case 2: dlgAddTextBoxMessage("\c5君は死へ新たな犠牲を捧げる。死は君に微笑み、君の耳に真理の一端を囁きかけることでその献身に報いた。─" @ %Value @ " 戦闘スキルポイントを得た。\c1");
+		case 3: dlgAddTextBoxMessage("\c5君は教養と取引について新たな知見を得て、非戦闘スキルを向上させることができる - " @ %Value @ " 日常スキルポイントを得た。\c1");
+		case 4: dlgAddTextBoxMessage("\c5陸地だぞう！　新しい場所を発見し、君の精神が高まる - " @ %Value @ " スキルポイントを得た。\c1");
+		case 5: dlgAddTextBoxMessage("\c5ロックピックの成功で君は " @ %Value @ " 日常スキルポイントを得る。\c1");
+		case 6: dlgAddTextBoxMessage("\c5トラップの設置/解除で君は " @ %Value @ " 日常スキルポイントを得る。\c1");
+		case 7: dlgAddTextBoxMessage("\c5隠密により君は " @ %Value @ " 日常スキルポイントを得る。\c1");
+		case 8: dlgAddTextBoxMessage("\c5窃盗により君は" @ %Value @ " 日常スキルポイントを得る。\c1");
 	}
 }
 
