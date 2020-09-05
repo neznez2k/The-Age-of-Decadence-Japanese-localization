@@ -90,8 +90,8 @@ function stealFailure(%TM, %Type)
 {
 	switch(%Type)
 	{
-		case 1: $Phrase_StealFailure = "\c4[steal failure]\c1 Your clumsy attempt wakes up the guest, forcing you to retreat. ";
-		case 2: $Phrase_StealFailure = "\c4[steal failure]\c1 The merchant gets suspicious and keeps his eyes on you, making it impossible to steal anything.";
+		case 1: $Phrase_StealFailure = "\c4[窃盗 失敗]\c1 Your clumsy attempt wakes up the guest, forcing you to retreat. ";
+		case 2: $Phrase_StealFailure = "\c4[窃盗 失敗]\c1商人は君を不審に思い、目を離してくれない。何かを盗むのは不可能だろう。";
 	}
 	
 	if(%TM == 0)
@@ -110,8 +110,8 @@ function stealSuccess(%Type)
 {
 	switch(%Type)
 	{
-		case 1: narratePhrase("\c6[steal success]\c1 You go through the sleeping guest's belongings without disturbing his rest."); // For Inns, stealing from sleeping patrons
-		case 2: narratePhrase("\c6[steal success]\c1 The merchant is too distracted to pay any attention to what you're doing."); // For market stalls
+		case 1: narratePhrase("\c6[窃盗 成功]\c1 You go through the sleeping guest's belongings without disturbing his rest."); // For Inns, stealing from sleeping patrons
+		case 2: narratePhrase("\c6[窃盗 成功]\c1商人は気が逸れていて、君がしていることに気付かない。"); // For market stalls
 	}
 }
 

@@ -169,8 +169,8 @@ addConditionalVar("[dodge success]", "$pref::AoD::hideDlgTags", "", "<spush><col
 addConditionalVar("[dodge failure]", "$pref::AoD::hideDlgTags", "", "<spush><color:f12d45>[回避 失敗]<spop> ");
 addConditionalVar("[block success]", "$pref::AoD::hideDlgTags", "", "<spush><color:45a053>[ブロック 成功]<spop> ");
 addConditionalVar("[block failure]", "$pref::AoD::hideDlgTags", "", "<spush><color:45a053>[ブロック 失敗]<spop> ");
-addConditionalVar("[critical strike success]", "$pref::AoD::hideDlgTags", "", "<spush><color:45a053>[クリティカル 成功]<spop> ");
-addConditionalVar("[critical strike failure]", "$pref::AoD::hideDlgTags", "", "<spush><color:f12d45>[クリティカル 失敗]<spop> ");
+addConditionalVar("[critical strike success]", "$pref::AoD::hideDlgTags", "", "<spush><color:45a053>[クリティカルストライク成功]<spop> ");
+addConditionalVar("[critical strike failure]", "$pref::AoD::hideDlgTags", "", "<spush><color:f12d45>[クリティカルストライク失敗]<spop> ");
 
 addConditionalVar("[aurelian reputation success]", "$pref::AoD::hideDlgTags", "", "<spush><color:45a053>[aurelian reputation 成功]<spop> ");
 addConditionalVar("[aurelian reputation failure]", "$pref::AoD::hideDlgTags", "", "<spush><color:f12d45>[aurelian reputation 失敗]<spop> ");
@@ -178,13 +178,13 @@ addConditionalVar("[crassus reputation success]", "$pref::AoD::hideDlgTags", "",
 addConditionalVar("[crassus reputation failure]", "$pref::AoD::hideDlgTags", "", "<spush><color:f12d45>[crassus reputation 失敗]<spop> ");
 addConditionalVar("[commercium reputation success]", "$pref::AoD::hideDlgTags", "", "<spush><color:45a053>[commercium reputation 成功]<spop> ");
 addConditionalVar("[commercium reputation failure]", "$pref::AoD::hideDlgTags", "", "<spush><color:f12d45>[commercium reputation 失敗]<spop> ");
-addConditionalVar("[reputation success]", "$pref::AoD::hideDlgTags", "", "<spush><color:45a053>[reputation 成功]<spop> ");
-addConditionalVar("[reputation failure]", "$pref::AoD::hideDlgTags", "", "<spush><color:f12d45>[reputation 失敗]<spop> ");
-addConditionalVar("[reputation: Forty Thieves]", "$pref::AoD::hideDlgTags", "", "<spush><color:45a053>[reputation: Forty Thieves]<spop> ");
+addConditionalVar("[reputation success]", "$pref::AoD::hideDlgTags", "", "<spush><color:45a053>[評判 成功]<spop> ");
+addConditionalVar("[reputation failure]", "$pref::AoD::hideDlgTags", "", "<spush><color:f12d45>[評判 失敗]<spop> ");
+addConditionalVar("[reputation: Forty Thieves]", "$pref::AoD::hideDlgTags", "", "<spush><color:45a053>[評判：四十盗賊]<spop> ");
 
-addConditionalVar("[word of honor success]", "$pref::AoD::hideDlgTags", "", "<spush><color:45a053>[word of honor 成功]<spop> ");
-addConditionalVar("[word of honor failure]", "$pref::AoD::hideDlgTags", "", "<spush><color:f12d45>[word of honor 失敗]<spop> ");
-addConditionalVar("[intimidate success]", "$pref::AoD::hideDlgTags", "", "<spush><color:45a053>[intimidate 成功]<spop> ");
+addConditionalVar("[word of honor success]", "$pref::AoD::hideDlgTags", "", "<spush><color:45a053>[誓いの言葉 成功]<spop> ");
+addConditionalVar("[word of honor failure]", "$pref::AoD::hideDlgTags", "", "<spush><color:f12d45>[誓いの言葉 失敗]<spop> ");
+addConditionalVar("[intimidate success]", "$pref::AoD::hideDlgTags", "", "<spush><color:45a053>[脅迫 成功]<spop> ");
 
 addConditionalVar("[traps]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[トラップ]<spop> ");
 addConditionalVar("[sneak]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[隠密]<spop> ");
@@ -204,13 +204,13 @@ addConditionalVar("[crossbow]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0
 addConditionalVar("[throwing]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[投擲]<spop> ");
 addConditionalVar("[dodge]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[回避]<spop> ");
 addConditionalVar("[block]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[ブロック]<spop> ");
-addConditionalVar("[critical strike]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[クリティカル]<spop> ");
+addConditionalVar("[critical strike]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[クリティカルストライク]<spop> ");
 addConditionalVar("[melee]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[melee]<spop> ");
 addConditionalVar("[ranged]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[ranged]<spop> ");
 addConditionalVar("[defense]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[defense]<spop> ");
-addConditionalVar("[body count]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[body count]<spop> ");
-addConditionalVar("[intimidate]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[intimidate]<spop> ");
-addConditionalVar("[word of honor]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[word of honor]<spop> ");
+addConditionalVar("[body count]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[骸の数]<spop> ");
+addConditionalVar("[intimidate]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[脅迫]<spop> ");
+addConditionalVar("[word of honor]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[誓いの言葉]<spop> ");
 addConditionalVar("[black powder]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[black powder]<spop> ");
 
 addConditionalVar("[strength]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[筋力]<spop> ");
