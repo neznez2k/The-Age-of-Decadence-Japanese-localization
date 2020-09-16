@@ -1,5 +1,5 @@
 $stat_name[$statstr] = "筋力";
-$stat_name[$statdex] = "巧緻";
+$stat_name[$statdex] = "敏捷";
 $stat_name[$statcon] = "体力";
 $stat_name[$statper] = "知覚";
 $stat_name[$statint] = "知力";
