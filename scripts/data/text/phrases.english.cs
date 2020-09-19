@@ -237,21 +237,21 @@ $phrase_CharacterBlock_something_spotted1 = "Fresh meat!";
 $phrase_CharacterBlock_something_spotted2 = "Look who's here...";
 $phrase_CharacterBlock_something_spotted3 = "What do we have here?";
 
-$phrase_SpecterBlock_something_spotted0 = "Warning.";
+$phrase_SpecterBlock_something_spotted0 = "警告。";
 
-$phrase_BrokenStoneGuardianBlock_something_spotted0 = "Warning.";
+$phrase_BrokenStoneGuardianBlock_something_spotted0 = "警告。";
 
 //enemy spotted!
-$phrase_CharacterBlock_enemy_spotted0 = "This should be fun.";
-$phrase_CharacterBlock_enemy_spotted1 = "Prepare to die!";
+$phrase_CharacterBlock_enemy_spotted0 = "面白いことになりそうだ。";
+$phrase_CharacterBlock_enemy_spotted1 = "死ぬ覚悟をするんだな！";
 $phrase_CharacterBlock_enemy_spotted2 = "I'm gonna fuck you up!";
 $phrase_CharacterBlock_enemy_spotted3 = "Let's see how tough you are!";
 $phrase_CharacterBlock_enemy_spotted4 = "お前はここで終わりだ！";
 $phrase_CharacterBlock_enemy_spotted5 = "This looks simple.";
 
-$phrase_SpecterBlock_enemy_spotted0 = "Intruder detected.";
+$phrase_SpecterBlock_enemy_spotted0 = "侵入者を検知。";
 
-$phrase_BrokenStoneGuardianBlock_enemy_spotted0 = "Eliminate intruder.";
+$phrase_BrokenStoneGuardianBlock_enemy_spotted0 = "侵入者を排除。";
 
 //character is bored
 $phrase_CharacterBlock_bored0 = "Slow day...";
