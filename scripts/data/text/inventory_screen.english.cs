@@ -10,7 +10,7 @@ $inv_scr_armor_dr_positive_is_good = "1 1";
 
 //item drop
 $inv_screen_drop_message_title = "Confirm Drop";
-$inv_screen_drop_message_text = "Are you sure want to drop this item?";
+$inv_screen_drop_message_text = "本当にこのアイテムを捨てますか？";
 
 //actions journal
 $inv_action_journal[0] = "EQUIP";
