@@ -67,6 +67,7 @@ addGenderVar("<da/>", "だ", "");
 addGenderVar("<yo/>", "よ", "");
 addGenderVar("<ke/>", "け", "");
 addGenderVar("<re/>", "れ", "");
+addGenderVar("<ro/>", "ろ", "");
 addGenderVar("<na/>", "な", "");
 addGenderVar("<zo/>", "ぞ", "");
 
@@ -131,8 +132,8 @@ addConditionalVar("[great success!]", "$pref::AoD::hideDlgTags", "", "<spush><co
 
 addConditionalVar("[strength success]", "$pref::AoD::hideDlgTags", "", "<spush><color:45a053>[筋力 成功]<spop> ");
 addConditionalVar("[strength failure]", "$pref::AoD::hideDlgTags", "", "<spush><color:f12d45>[筋力 失敗]<spop> ");
-addConditionalVar("[dexterity success]", "$pref::AoD::hideDlgTags", "", "<spush><color:45a053>[巧緻 成功]<spop> ");
-addConditionalVar("[dexterity failure]", "$pref::AoD::hideDlgTags", "", "<spush><color:f12d45>[巧緻 失敗]<spop> ");
+addConditionalVar("[dexterity success]", "$pref::AoD::hideDlgTags", "", "<spush><color:45a053>[敏捷 成功]<spop> ");
+addConditionalVar("[dexterity failure]", "$pref::AoD::hideDlgTags", "", "<spush><color:f12d45>[敏捷 失敗]<spop> ");
 addConditionalVar("[constitution success]", "$pref::AoD::hideDlgTags", "", "<spush><color:45a053>[体力 成功]<spop> ");
 addConditionalVar("[constitution failure]", "$pref::AoD::hideDlgTags", "", "<spush><color:f12d45>[体力 失敗]<spop> ");
 addConditionalVar("[perception success]", "$pref::AoD::hideDlgTags", "", "<spush><color:45a053>[知覚 成功]<spop> ");
@@ -178,9 +179,9 @@ addConditionalVar("[crassus reputation success]", "$pref::AoD::hideDlgTags", "",
 addConditionalVar("[crassus reputation failure]", "$pref::AoD::hideDlgTags", "", "<spush><color:f12d45>[crassus reputation 失敗]<spop> ");
 addConditionalVar("[commercium reputation success]", "$pref::AoD::hideDlgTags", "", "<spush><color:45a053>[commercium reputation 成功]<spop> ");
 addConditionalVar("[commercium reputation failure]", "$pref::AoD::hideDlgTags", "", "<spush><color:f12d45>[commercium reputation 失敗]<spop> ");
-addConditionalVar("[reputation success]", "$pref::AoD::hideDlgTags", "", "<spush><color:45a053>[評判 成功]<spop> ");
-addConditionalVar("[reputation failure]", "$pref::AoD::hideDlgTags", "", "<spush><color:f12d45>[評判 失敗]<spop> ");
-addConditionalVar("[reputation: Forty Thieves]", "$pref::AoD::hideDlgTags", "", "<spush><color:45a053>[評判：四十盗賊]<spop> ");
+addConditionalVar("[reputation success]", "$pref::AoD::hideDlgTags", "", "<spush><color:45a053>[名声 成功]<spop> ");
+addConditionalVar("[reputation failure]", "$pref::AoD::hideDlgTags", "", "<spush><color:f12d45>[名声 失敗]<spop> ");
+addConditionalVar("[reputation: Forty Thieves]", "$pref::AoD::hideDlgTags", "", "<spush><color:45a053>[名声：四十盗賊]<spop> ");
 
 addConditionalVar("[word of honor success]", "$pref::AoD::hideDlgTags", "", "<spush><color:45a053>[誓いの言葉 成功]<spop> ");
 addConditionalVar("[word of honor failure]", "$pref::AoD::hideDlgTags", "", "<spush><color:f12d45>[誓いの言葉 失敗]<spop> ");
@@ -214,7 +215,7 @@ addConditionalVar("[word of honor]", "$pref::AoD::hideDlgTags", "", "<spush><col
 addConditionalVar("[black powder]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[black powder]<spop> ");
 
 addConditionalVar("[strength]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[筋力]<spop> ");
-addConditionalVar("[dexterity]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[巧緻]<spop> ");
+addConditionalVar("[dexterity]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[敏捷]<spop> ");
 addConditionalVar("[constitution]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[体力]<spop> ");
 addConditionalVar("[perception]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[知覚]<spop> ");
 addConditionalVar("[intelligence]", "$pref::AoD::hideDlgTags", "", "<spush><color:f0f0f0>[知力]<spop> ");

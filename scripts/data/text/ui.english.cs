@@ -27,7 +27,7 @@ $door_locked_key = "Unlock the door";
 $door_locked_lockpick = "[lockpick] Pick the door";
 $door_locked_none = "この扉は鍵がかかっている";
 $door_locked_barred = "The door is barred";
-$door_locked_key_needed = "You need a key to open it.";
+$door_locked_key_needed = "鍵がないと開かない。";
 $container_locked_key = "Unlock the container";
 $container_locked_lockpick = "[lockpick] Pick the container";
 $container_locked_none = "The container is locked";
@@ -132,13 +132,13 @@ $attack_tooltip_effect[6] = "- 通常ダメージ <br>- 命中率　 -10% <br>- 
 $attack_tooltip_critical_effect[6] = " - 70%のダメージ耐性貫通 <br>- 鎧のダメージ耐性が2減少 <br>- クリティカルダメージ <br>- 体力が1減少<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（クリティカル率-クリティカル抵抗） + （知覚-7） x10";
 //Aimed: Legs
 $attack_tooltip_effect[7] = "- 低ダメージ <br>- 命中率　 -10% <br>- アーマーダメージ率　-50% <br>- 回避にペナルティ<br>- 合計： 5% + （武器AP-3） x5% （3ターンの間）";
-$attack_tooltip_critical_effect[7] = "- 回避に2倍のペナルティ<br>- 巧緻が1減少<br>- 2ターンの間無力化 （移動コスト2倍）<br>- 最小で1ポイントのダメージ<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（クリティカル率-クリティカル抵抗） + （筋力-7） x10";
+$attack_tooltip_critical_effect[7] = "- 回避に2倍のペナルティ<br>- 敏捷が1減少<br>- 2ターンの間無力化 （移動コスト2倍）<br>- 最小で1ポイントのダメージ<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（クリティカル率-クリティカル抵抗） + （筋力-7） x10";
 //Aimed: Arms
 $attack_tooltip_effect[8] = "- 低ダメージ <br>- 命中率　 -10% <br>- アーマーダメージ率　-50% <br>- アタックペナルティ(THC)<br>- 合計： 5% + （武器AP-3） x5% （3ターンの間）";
 $attack_tooltip_critical_effect[8] = "- アタックに2倍のペナルティ(THC)<br>- 筋力が1減少<br>- 武装解除（ハンドスロットから武器を取り除く）<br>- 最小で1ポイントのダメージ<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（クリティカル率-クリティカル抵抗） + （筋力-7） x10";
 //Aimed: Legs - Ranged
 $attack_tooltip_effect[9] = "- 低ダメージ <br>- 命中率　 -10% <br>- アーマーダメージ率　-50% <br>- 回避にペナルティ<br>- 合計： 5% + （武器AP-3） x5% （3ターンの間）";
-$attack_tooltip_critical_effect[9] = "- 回避に2倍のペナルティ<br>- 巧緻が1減少<br>- 2ターンの間無力化 （移動コスト2倍）<br>- 最小で1ポイントのダメージ<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（クリティカル率-クリティカル抵抗） + （知覚-7） x10";
+$attack_tooltip_critical_effect[9] = "- 回避に2倍のペナルティ<br>- 敏捷が1減少<br>- 2ターンの間無力化 （移動コスト2倍）<br>- 最小で1ポイントのダメージ<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（クリティカル率-クリティカル抵抗） + （知覚-7） x10";
 //Aimed: Arms - Ranged
 $attack_tooltip_effect[10] = "- 低ダメージ <br>- 命中率　 -10% <br>- アーマーダメージ率　-50% <br>- アタックペナルティ(THC)<br>- 合計： 5% + （武器AP-3） x5% （3ターンの間）";
 $attack_tooltip_critical_effect[10] = "- アタックに2倍のペナルティ(THC)<br>- 筋力が1減少<br>- 武装解除（ハンドスロットから武器を取り除く）<br>- 最小で1ポイントのダメージ<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（クリティカル率-クリティカル抵抗） + （知覚-7） x10";
@@ -168,16 +168,16 @@ $attack_tooltip_effect[18] = "- 通常ダメージ <br>- 命中率　 +10% <br>-
 $attack_tooltip_critical_effect[18] = " - クリティカルダメージ";
 //Entangle
 $attack_tooltip_effect[19] = "- ダメージなし <br>- 相手のTHC（命中率）と回避を20ポイント下げる（1ターンの間）<br>- 次のターンで6AP失う";
-$attack_tooltip_critical_effect[19] = "- 相手のTHC（命中率）と回避を20ポイント下げる（2ターンの間） <br>- 次のターンで6AP失う<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（投擲 -（相手の巧緻 - 7）） x10";
+$attack_tooltip_critical_effect[19] = "- 相手のTHC（命中率）と回避を20ポイント下げる（2ターンの間） <br>- 次のターンで6AP失う<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（投擲 -（相手の敏捷 - 7）） x10";
 //Throw Acid
 $attack_tooltip_effect[20] = "- 相手の鎧にダメージ";
 $attack_tooltip_critical_effect[20] = "- なし";
 //Throw Bolas: Legs
 $attack_tooltip_effect[21] = "- ダメージなし <br>- 相手を移動不能にする（1ターンの間）<br>- 次のターンで6AP失う<br>- 回避にペナルティ 100%（1ターンの間）";
-$attack_tooltip_critical_effect[21] = "- 相手を移動不能にする（2ターンの間）<br>- 次のターンで6AP失う<br>- 回避にペナルティ 100%（2ターンの間）<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（投擲 -（相手の巧緻 - 7）） x10";
+$attack_tooltip_critical_effect[21] = "- 相手を移動不能にする（2ターンの間）<br>- 次のターンで6AP失う<br>- 回避にペナルティ 100%（2ターンの間）<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（投擲 -（相手の敏捷 - 7）） x10";
 //Throw Bolas: Head
 $attack_tooltip_effect[22] = "- ダメージなし <br>- 相手を窒息させる（1ターンの間）<br>- 次のターンで8AP失う<br>- ブロックと回避にペナルティ 100%（2ターンの間）";
-$attack_tooltip_critical_effect[22] = "- 相手を窒息させる（2ターンの間）<br>- 次のターンで8AP失う<br>- ブロックと回避にペナルティ 100% （3ターンの間）<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（投擲 -（相手の巧緻 - 7）） x10";
+$attack_tooltip_critical_effect[22] = "- 相手を窒息させる（2ターンの間）<br>- 次のターンで8AP失う<br>- ブロックと回避にペナルティ 100% （3ターンの間）<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（投擲 -（相手の敏捷 - 7）） x10";
 //Feint
 $attack_tooltip_effect[23] = "- ダメージなし <br>- 敵と場所を入れ替える<br>- アーマーダメージ率　-100%<br>- 命中率は回避 x10";
 $attack_tooltip_critical_effect[23] = "- 敵と場所を入れ替える、ノックダウン<br><font:Kinto Sans Bold:25><spush><color:FFFFFF>クリティカル率の計算式<spop><br><font:Kinto Sans Bold:25><spush><color:AB9661>（（筋力-7） - （相手の体力-7）） x5";
@@ -266,7 +266,7 @@ $combatHint_attackThcMod = "攻撃命中率補正";
 $combatHint_facingBonus = "方向ボーナス";
 $combatHint_isKnockedDown = "ノックダウン";
 $combatHint_netted = "網にかかっている";
-$combatHint_dexBonus = "巧緻ボーナス";
+$combatHint_dexBonus = "敏捷ボーナス";
 $combatHint_skillBlock = "ブロックスキル値";
 $combatHint_skillDodge = "回避スキル値";
 $combatHint_immobilized = "移動不能";

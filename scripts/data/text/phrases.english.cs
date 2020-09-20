@@ -237,21 +237,21 @@ $phrase_CharacterBlock_something_spotted1 = "Fresh meat!";
 $phrase_CharacterBlock_something_spotted2 = "Look who's here...";
 $phrase_CharacterBlock_something_spotted3 = "What do we have here?";
 
-$phrase_SpecterBlock_something_spotted0 = "Warning.";
+$phrase_SpecterBlock_something_spotted0 = "警告。";
 
-$phrase_BrokenStoneGuardianBlock_something_spotted0 = "Warning.";
+$phrase_BrokenStoneGuardianBlock_something_spotted0 = "警告。";
 
 //enemy spotted!
-$phrase_CharacterBlock_enemy_spotted0 = "This should be fun.";
-$phrase_CharacterBlock_enemy_spotted1 = "Prepare to die!";
+$phrase_CharacterBlock_enemy_spotted0 = "面白いことになりそうだ。";
+$phrase_CharacterBlock_enemy_spotted1 = "死ぬ覚悟をするんだな！";
 $phrase_CharacterBlock_enemy_spotted2 = "I'm gonna fuck you up!";
 $phrase_CharacterBlock_enemy_spotted3 = "Let's see how tough you are!";
 $phrase_CharacterBlock_enemy_spotted4 = "お前はここで終わりだ！";
 $phrase_CharacterBlock_enemy_spotted5 = "This looks simple.";
 
-$phrase_SpecterBlock_enemy_spotted0 = "Intruder detected.";
+$phrase_SpecterBlock_enemy_spotted0 = "侵入者を検知。";
 
-$phrase_BrokenStoneGuardianBlock_enemy_spotted0 = "Eliminate intruder.";
+$phrase_BrokenStoneGuardianBlock_enemy_spotted0 = "侵入者を排除。";
 
 //character is bored
 $phrase_CharacterBlock_bored0 = "Slow day...";
@@ -285,7 +285,7 @@ $phrase_CharacterBlock_combat_good_attack9 = "Go back to herding sheep!";
 
 //vignettes
 $phrase_vignettes_prof0 = "君はステュクスの漕手ギルドに足を踏み入れる。<nlo>この組織の合理的な性質はとてもわかりやすい。この部屋のどこにも警備の者はいないようだ。";
-$phrase_vignettes_prof1 = "Two ape-looking thugs posted outside nod and step aside, letting you in.<nlo>As usual, the tavern is full of people laughing, arguing, and drinking.<nlo>At the back of the tavern, piles of loot sit atop tables waiting to be counted and divvied up.<nlo>At the far end of the room, Cado conducts his business while keeping an eye on the guests.";
+$phrase_vignettes_prof1 = "外には2人の盗賊が見張りに立っており、猿のような見た目をしていた。彼らは脇に寄り、君を中に招き入れる。<nlo>いつものように、この酒場は、笑ったり、言い争ったり、酒を飲む人で賑わっていた。<nlo>裏では戦利品がテーブルに山積みになっており、数えられたり、分けられたりするのを待っていた。<nlo>その部屋の一番奥で、カドは客を見張りながら仕事をしている。";
 $phrase_vignettes_prof2 = "君はアンティダスの広間に立ち、富と権力の印に囲まれていた。<nlo>どちらを向いてもエキゾチックなタペストリーや絵画、珍しい花瓶や煌めく彫像を見ることができる。<nlo>そして絢爛とした柱が広間に建ち並び、アンティダス卿の座する玉座へと至る。";
 $phrase_vignettes_prof3 = "こっちに来い、見習い。";
 $phrase_vignettes_prof4 = "宿は客でいっぱいだ。何週間も、時には何ヶ月も旅をしてきた彼らは、不健康なほどの欲求を抱いていた。<nlo>彼らは安物のワインやストーブで調理された食事、そしてわずかな金でベッドを共にしてくれる女性を病的に求めている。";
