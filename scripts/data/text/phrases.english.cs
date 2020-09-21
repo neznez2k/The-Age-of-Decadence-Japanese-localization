@@ -244,10 +244,10 @@ $phrase_BrokenStoneGuardianBlock_something_spotted0 = "警告。";
 //enemy spotted!
 $phrase_CharacterBlock_enemy_spotted0 = "面白いことになりそうだ。";
 $phrase_CharacterBlock_enemy_spotted1 = "死ぬ覚悟をするんだな！";
-$phrase_CharacterBlock_enemy_spotted2 = "I'm gonna fuck you up!";
-$phrase_CharacterBlock_enemy_spotted3 = "Let's see how tough you are!";
+$phrase_CharacterBlock_enemy_spotted2 = "痛めつけてやる！";
+$phrase_CharacterBlock_enemy_spotted3 = "お前がどれだけ頑丈なのか見てやる！";
 $phrase_CharacterBlock_enemy_spotted4 = "お前はここで終わりだ！";
-$phrase_CharacterBlock_enemy_spotted5 = "This looks simple.";
+$phrase_CharacterBlock_enemy_spotted5 = "簡単そうだな。";
 
 $phrase_SpecterBlock_enemy_spotted0 = "侵入者を検知。";
 
@@ -258,30 +258,30 @@ $phrase_CharacterBlock_bored0 = "Slow day...";
 
 //Combat
 //threats
-$phrase_CharacterBlock_combat_generic0 = "早くしろ。お前に付き合ってる時間はない。";
-$phrase_CharacterBlock_combat_generic1 = "You don't look like much.";
-$phrase_CharacterBlock_combat_generic2 = "I'm gonna fuck you up.";
-$phrase_CharacterBlock_combat_generic3 = "Let's get it over with.";
+$phrase_CharacterBlock_combat_generic0 = "おい、モタモタするな。";
+$phrase_CharacterBlock_combat_generic1 = "お前は大したことなさそうだ。";
+$phrase_CharacterBlock_combat_generic2 = "痛めつけてやる。";
+$phrase_CharacterBlock_combat_generic3 = "さっさと終わらせてやる。";
 
 //character feels pain
 $phrase_CharacterBlock_combat_pain0 = "クソが！";
-$phrase_CharacterBlock_combat_pain1 = "Shit, I'm wounded!";
-$phrase_CharacterBlock_combat_pain2 = "You gonna pay for this!";
-$phrase_CharacterBlock_combat_pain3 = "Barely a scratch!";
+$phrase_CharacterBlock_combat_pain1 = "くそっ、負傷した！";
+$phrase_CharacterBlock_combat_pain2 = "覚えてろよ！";
+$phrase_CharacterBlock_combat_pain3 = "かすり傷だ！";
 $phrase_CharacterBlock_combat_pain4 = "運が良かったな！";
-$phrase_CharacterBlock_combat_pain5 = "Damn it!";
+$phrase_CharacterBlock_combat_pain5 = "ちくしょう！";
 
 //successful attack
-$phrase_CharacterBlock_combat_good_attack0 = "Damn, you're slow!";
-$phrase_CharacterBlock_combat_good_attack1 = "This will be over soon.";
-$phrase_CharacterBlock_combat_good_attack2 = "You're as good as dead now!";
+$phrase_CharacterBlock_combat_good_attack0 = "このッ、のろまが！";
+$phrase_CharacterBlock_combat_good_attack1 = "すぐに終わらせてやる。";
+$phrase_CharacterBlock_combat_good_attack2 = "お前は死んだも同然だ！";
 $phrase_CharacterBlock_combat_good_attack3 = "That's gotta hurt!";
-$phrase_CharacterBlock_combat_good_attack4 = "You're bleeding like a pig!";
-$phrase_CharacterBlock_combat_good_attack5 = "Just die already!";
-$phrase_CharacterBlock_combat_good_attack6 = "Ha!";
-$phrase_CharacterBlock_combat_good_attack7 = "This won't take long.";
-$phrase_CharacterBlock_combat_good_attack8 = "That was easier than I expected.";
-$phrase_CharacterBlock_combat_good_attack9 = "Go back to herding sheep!";
+$phrase_CharacterBlock_combat_good_attack4 = "豚みたいに血が出てやがる！";
+$phrase_CharacterBlock_combat_good_attack5 = "もう死ね！";
+$phrase_CharacterBlock_combat_good_attack6 = "ハッ！";
+$phrase_CharacterBlock_combat_good_attack7 = "長くはかからんよ。";
+$phrase_CharacterBlock_combat_good_attack8 = "思ったより簡単だったな。";
+$phrase_CharacterBlock_combat_good_attack9 = "羊の群れにでも戻れ！";
 
 //vignettes
 $phrase_vignettes_prof0 = "君はステュクスの漕手ギルドに足を踏み入れる。<nlo>この組織の合理的な性質はとてもわかりやすい。この部屋のどこにも警備の者はいないようだ。";
@@ -291,7 +291,7 @@ $phrase_vignettes_prof3 = "こっちに来い、見習い。";
 $phrase_vignettes_prof4 = "宿は客でいっぱいだ。何週間も、時には何ヶ月も旅をしてきた彼らは、不健康なほどの欲求を抱いていた。<nlo>彼らは安物のワインやストーブで調理された食事、そしてわずかな金でベッドを共にしてくれる女性を病的に求めている。";
 $phrase_vignettes_prof5 = "隣の部屋の喧噪で、君は目を覚ます。";
 $phrase_vignettes_prof6 = "宿は客でいっぱいだ。何週間も、時には何ヶ月も旅をしてきた彼らは、不健康なほどの欲求を抱いていた。<nlo>彼らは安物のワインやストーブで調理された食事、そしてわずかな金でベッドを共にしてくれる女性を病的に求めている。";
-$phrase_vignettes_prof7 = "You are standing in the richly decorated halls of the Commercium.<nlo>Everywhere you look you see signs of wealth, from the silk and gold woven tapestries lining the walls to the gilded vases and intricately carved stonework.<nlo>If money is power, then the interiors are designed to convey the message that the Commercium is a very powerful guild.";
+$phrase_vignettes_prof7 = "君は豪華に飾り付けられたコンメルキウムのホールに立っている。<nlo>壁にかけられた質の良いタペストリーから金箔の花瓶に複雑に彫られた石細工に至るまで、どこを見ても富の証を見て取れた。<nlo>金が力であるとすれば、このインテリアはコンメルキウムが非常に力をもったギルドであるというメッセージを伝えるようにデザインされていた。";
 
 //Map Warnings
 $phrase_map_leave_teron_01 = "テロンを出ますか？";
