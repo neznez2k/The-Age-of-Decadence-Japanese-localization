@@ -291,7 +291,7 @@ $phrase_vignettes_prof3 = "こっちに来い、見習い。";
 $phrase_vignettes_prof4 = "宿は客でいっぱいだ。何週間も、時には何ヶ月も旅をしてきた彼らは、不健康なほどの欲求を抱いていた。<nlo>彼らは安物のワインやストーブで調理された食事、そしてわずかな金でベッドを共にしてくれる女性を病的に求めている。";
 $phrase_vignettes_prof5 = "隣の部屋の喧噪で、君は目を覚ます。";
 $phrase_vignettes_prof6 = "宿は客でいっぱいだ。何週間も、時には何ヶ月も旅をしてきた彼らは、不健康なほどの欲求を抱いていた。<nlo>彼らは安物のワインやストーブで調理された食事、そしてわずかな金でベッドを共にしてくれる女性を病的に求めている。";
-$phrase_vignettes_prof7 = "You are standing in the richly decorated halls of the Commercium.<nlo>Everywhere you look you see signs of wealth, from the silk and gold woven tapestries lining the walls to the gilded vases and intricately carved stonework.<nlo>If money is power, then the interiors are designed to convey the message that the Commercium is a very powerful guild.";
+$phrase_vignettes_prof7 = "君は豪華に飾り付けられたコンメルキウムのホールに立っている。<nlo>壁にかけられた質の良いタペストリーから金箔の花瓶に複雑に彫られた石細工に至るまで、どこを見ても富の証を見て取れた。<nlo>金が力であるとすれば、このインテリアはコンメルキウムが非常に力をもったギルドであるというメッセージを伝えるようにデザインされていた。";
 
 //Map Warnings
 $phrase_map_leave_teron_01 = "テロンを出ますか？";

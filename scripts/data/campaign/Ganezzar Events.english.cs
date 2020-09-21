@@ -1056,10 +1056,10 @@
 	
 	function GNZ_createThroneGuards()
 	{
-		dlgCreateCharacter("Guard", 8253, 82531, 152, 181, 0, S);
-		dlgCreateCharacter("Guard", 8253, 82532, 146, 181, 0, S);
-		dlgCreateCharacter("Guard", 8253, 82533, 153, 170, 0, W);
-		dlgCreateCharacter("Guard", 8253, 82534, 145, 170, 0, E);
+		dlgCreateCharacter("衛兵", 8253, 82531, 152, 181, 0, S);
+		dlgCreateCharacter("衛兵", 8253, 82532, 146, 181, 0, S);
+		dlgCreateCharacter("衛兵", 8253, 82533, 153, 170, 0, W);
+		dlgCreateCharacter("衛兵", 8253, 82534, 145, 170, 0, E);
 	}
 	
 	function GNZ_deleteThroneGuards()
