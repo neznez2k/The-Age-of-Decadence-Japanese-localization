@@ -1,7 +1,7 @@
 ﻿$phrase_DamageLine_CS = "クリティカル！";
 $phrase_DamageLine_bleeding = "出血！";
 $phrase_DamageLine_poisoned = "Poisoned!";
-$phrase_DamageLine_crippled = "Crippled!";
+$phrase_DamageLine_crippled = "損傷！";
 $phrase_DamageLine_burned = "On Fire!";
 $phrase_DamageLine_acid = "Acid!";
 $phrase_DamageLine_statpenalty = "ステータスダメージ！";

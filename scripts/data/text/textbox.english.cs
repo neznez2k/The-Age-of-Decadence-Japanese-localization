@@ -22,8 +22,8 @@ $msg_container_unlocked_key = "\c1The container is unlocked.\c1";
 $msg_container_lockpick_success = "\c6[success]\c1 You picked the lock.\c1";
 $msg_container_lockpick_failure = "\c4[failure]\c1 You failed to pick the lock.";
 $msg_container_lockpick_combat = "\c4戦闘中に入れ物を開けることはできない。\c1";
-$msg_trap_discovered_traps = "\c6[トラップ 成功]\c1 君はトラップを見つけた。\c1";
-$msg_trap_discovered_per = "\c6[知覚 成功]\c1 君はトラップを見つけた。\c1";
+$msg_trap_discovered_traps = "\c6[トラップ　成功]\c1 君はトラップを見つけた。\c1";
+$msg_trap_discovered_per = "\c6[知覚　成功]\c1 君はトラップを見つけた。\c1";
 $msg_trap_disarm_success = "\c6[成功]\c1 君はトラップを解除した。\c1";
 $msg_too_far = "\c4距離が遠い。\c1";
 $msg_cant_use_item_in_combat = "\c4You can\'t use this item in combat.\c1";
@@ -493,7 +493,7 @@ $msg_ae_dodgePenalty_Coef0 = "脚が痛む！　<victim>の回避能力が<eff_v
 $msg_ae_thcPenalty_Coef0 = "thcPenalty_Coef <eff_val1> <eff_val2>";
 $msg_ae_statPenalty0 = "<victim>の筋力が1減少。";
 $msg_ae_criticalDamage0 = "criticalDamage <eff_val1> <eff_val2>";
-$msg_ae_cripple0 = "Crippled! <victim>のmovement cost is doubled for <eff_val1> turns."; // Bow passive
+$msg_ae_cripple0 = "損傷！　<victim>の移動コストが<eff_val1>の間2倍になる。"; // Bow passive
 $msg_ae_disarm0 = "disarm <eff_val1> <eff_val2>";
 $msg_ae_splitShield0 = "splitShield <eff_val1> <eff_val2>";
 $msg_ae_impale0 = "impale <eff_val1> <eff_val2>";
@@ -502,9 +502,9 @@ $msg_ae_choking0 = "choking <eff_val1> <eff_val2>";
 $msg_ae_passiveChance_Mod0 = "passiveChance_Mod <eff_val1> <eff_val2>";
 $msg_ae_damage_Coef0 = "獰猛な一撃！　<victim>の筋力が1減少。"; //New Axe passive. damage_Coef <eff_val1> <eff_val2>
 $msg_ae_damage_Extra0 = "damage_Extra <eff_val1> <eff_val2>";
-$msg_ae_slowdown0 = "Slowdown! <victim>のmovement cost is doubled for <eff_val1> turns."; // Bow passive
+$msg_ae_slowdown0 = "速度低下！　<victim>の移動コストが<eff_val1>ターンの間2倍になる。"; // Bow passive
 $msg_ae_bleeding0 = "武器マスタリー！　出血を起こし、\c4<eff_val2>\c1ポイントのダメージを与える。（<eff_val1>ターン）"; // New sword passive.
-$msg_ae_apPenalty0 = "The <victim> is staggered; AP reduced by <eff_val1>."; // xBow passive
+$msg_ae_apPenalty0 = "<victim>をよろめかせた。APが<eff_val1>減少。"; // xBow passive
 //---------------
 
 // Dodges

@@ -89,6 +89,7 @@ addGenderVar("<ndana/none>", "んだな", "のね");
 addGenderVar("<runa/naide>", "るな", "ないで");
 addGenderVar("<aa/ee>", "ああ", "ええ");
 addGenderVar("<gaii/>", "がいい", "");
+addGenderVar("<dato/desutte>", "だと", "ですって");
 
 
 
