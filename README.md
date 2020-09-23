@@ -40,8 +40,6 @@ https://synctamdiary.blogspot.com/2020/02/the-age-of-decadence.html
 公式フォーラム（日本語化スレッド）：  
 http://www.irontowerstudio.com/forum/index.php/topic,3181.0.html
 
-#### Readme更新履歴
-2020/xx/xx ver0.01 公開
 
 #### 連絡先
 Twitter：  
