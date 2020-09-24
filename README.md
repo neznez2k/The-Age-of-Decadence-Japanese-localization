@@ -38,9 +38,6 @@ http://www.irontowerstudio.com/forum/index.php/topic,7825.msg157573.html#msg1575
 日本語化方法：  
 https://synctamdiary.blogspot.com/2020/02/the-age-of-decadence.html
 
-公式フォーラム（日本語化スレッド）：  
-http://www.irontowerstudio.com/forum/index.php/topic,3181.0.html
-
 
 #### 連絡先
 Twitter：  
