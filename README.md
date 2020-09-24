@@ -31,13 +31,6 @@ https://github.com/neznez2k/The-Age-of-Decadence-Japanese-localization/wiki
 ローカルで個人利用のみ可。  
 再配布などはご遠慮ください。
 
-### 参考元
-AoD translation pack：  
-http://www.irontowerstudio.com/forum/index.php/topic,7825.msg157573.html#msg157573
-
-日本語化方法：  
-https://synctamdiary.blogspot.com/2020/02/the-age-of-decadence.html
-
 
 #### 連絡先
 Twitter：  
