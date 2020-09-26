@@ -379,7 +379,7 @@ $phrase_temple_desc7 = "The shelves are nearly empty. The few remaining scrolls 
 
 $phrase_innkeepers_rentRoom = "お部屋を利用されるなら、まずお支払いをお願いします！";
 $phrase_innPlayer_rentRoom = "Talk to the innkeeper if you need a room to store your things.";
-$phrase_graciusRoom = "グラシアスが殺された部屋だ。まだ誰も借りたがらない。";
+$phrase_graciusRoom = "グラキアスが殺された部屋だ。まだ誰も借りたがらない。";
 $phrase_innExploration_oldClothes = "Old, washed out clothes and dead insects. If you had to pick one, you'd go with the insects.";
 $phrase_shelvesExploration_scrolls = "Fashionable scrolls: popular philosophers, questionable poetry, erotic tales.";
 $phrase_stallExploration_food1 = "Compost-grown fruits and vegetables. The smell alone can stop any thief.";
