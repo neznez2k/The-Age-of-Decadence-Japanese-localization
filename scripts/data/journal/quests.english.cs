@@ -4,140 +4,140 @@
 
 function Quest_VignetteLoremaster()
 {
-	$js_quest_text[0] = "Master Feng is looking for you.";
+	$js_quest_text[0] = "フォン博士が君を待っている。";
 	
-	jsSetQuestName("Vignette");
+	jsSetQuestName("序幕");
 
-	jsSetQuestStatus("Talk to Feng");
+	jsSetQuestStatus("フォンと話す");
 	jsAddQuestDesc(0);
 }
 
 function Quest_VignetteMerchant()
 {
-	$js_quest_text[0] = "Guildmaster Linos has a job for you. Don't make him wait.";
+	$js_quest_text[0] = "ギルドマスターのリノスが君にしてもらいたい仕事があるようだ。彼を待たせてはいけない。";
 
-	jsSetQuestName("Vignette");
+	jsSetQuestName("序幕");
 
-	jsSetQuestStatus("Talk to Linos");
+	jsSetQuestStatus("リノスと話す");
 	jsAddQuestDesc(0);
 }
 
 function Quest_VignettePraetor()
 {
-	$js_quest_text[0] = "Lord Antidas requires your services. You\'re his only hope.";
+	$js_quest_text[0] = "アンティダス卿が君の働きを必要としている。君は彼の唯一の希望だ。";
 	
-	jsSetQuestName("Vignette");
+	jsSetQuestName("序幕");
 	
-	jsSetQuestStatus("Talk to Lord Antidas");
+	jsSetQuestStatus("アンティダスと話す");
 	jsAddQuestDesc(0);
 }
 
 function Quest_VignetteGrifter()
 {
-	$js_quest_text[0] = "A fellow con-artist Petras asked you to meet him at the inn.";
+	$js_quest_text[0] = "詐欺師仲間のペトラスが宿で会おうと言ってきた。";
 	
-	jsSetQuestName("Vignette");
+	jsSetQuestName("序幕");
 	
-	jsSetQuestStatus("Talk to Petras");
+	jsSetQuestStatus("ペトラスと話す");
 	jsAddQuestDesc(0);
 }
 
 function Quest_VignetteAssassin()
 {
-	$js_quest_text[0] = "Guildmaster Neleos has some work for you.";
-	$js_quest_text[1] = "Buy some supplies, then go to the inn.";
-	$js_quest_text[2] = "Leave the room when you're ready.";
+	$js_quest_text[0] = "ギルドマスターのネレオスが君にしてもらいたい仕事があるようだ。";
+	$js_quest_text[1] = "物資を買ったら、宿へ行く。";
+	$js_quest_text[2] = "準備ができたら部屋を出る。";
 	
-	jsSetQuestName("Vignette");
+	jsSetQuestName("序幕");
 	
 	if(aod.jnl_vignette_assassin == 2)
 	{
-		jsSetQuestStatus("Return to the guild");
+		jsSetQuestStatus("ギルドへ戻る");
 		jsAddQuestDesc(2);
 	}
 	else if(aod.jnl_vignette_assassin == 1)
 	{
-		jsSetQuestStatus("Go to the inn");
+		jsSetQuestStatus("宿へ行く");
 		jsAddQuestDesc(1);
 	}
 	else if(aod.jnl_vignette_assassin == 0)
 	{
-		jsSetQuestStatus("Talk to Neleos");
+		jsSetQuestStatus("ネレオスと話す");
 		jsAddQuestDesc(0);
 	}
 }
 
 function Quest_VignetteThief()
 {
-	$js_quest_text[0] = "Guildmaster Cado has some work for you.";
-	$js_quest_text[1] = "Leave the room when you're ready.";
+	$js_quest_text[0] = "ギルドマスターのカドが君にしてもらいたい仕事があるようだ。";
+	$js_quest_text[1] = "準備ができたら部屋を出る。";
 	
-	jsSetQuestName("Vignette");
+	jsSetQuestName("序幕");
 	
 	if(aod.jnl_vignette_thief == 1)
 	{
-		jsSetQuestStatus("Return to the guild");
+		jsSetQuestStatus("ギルドへ戻る");
 		jsAddQuestDesc(1);
 	}
 	else if(aod.jnl_vignette_thief == 0)
 	{
-		jsSetQuestStatus("Talk to Cado");
+		jsSetQuestStatus("カドと話す");
 		jsAddQuestDesc(0);
 	}
 }
 
 function Quest_VignetteMercenary()
 {
-	$js_quest_text[0] = "The innkeeper is looking for you.";
-	$js_quest_text[1] = "Buy some supplies, then return to the inn.";
-	$js_quest_text[2] = "Leave the room when you're done there.";
-	$js_quest_text[3] = "Go back to the inn when you're ready.";
+	$js_quest_text[0] = "宿の主人が君を探している。";
+	$js_quest_text[1] = "物資を買ったら、宿へ戻る。";
+	$js_quest_text[2] = "準備ができたら部屋を出る。";
+	$js_quest_text[3] = "準備ができたら宿へ戻る。";
 	
-	jsSetQuestName("Vignette");
+	jsSetQuestName("序幕");
 	
 	if(aod.jnl_vignette_merc == 3)
 	{
-		jsSetQuestStatus("Return to the inn");
+		jsSetQuestStatus("宿へ戻る");
 		jsAddQuestDesc(3);
 	}
 	else if(aod.jnl_vignette_merc == 2)
 	{
-		jsSetQuestStatus("Leave the room");
+		jsSetQuestStatus("部屋を出る");
 		jsAddQuestDesc(2);
 	}
 	else if(aod.jnl_vignette_merc == 1)
 	{
-		jsSetQuestStatus("Go to the inn");
+		jsSetQuestStatus("宿へ行く");
 		jsAddQuestDesc(1);
 	}
 	else if(aod.jnl_vignette_merc == 0)
 	{
-		jsSetQuestStatus("Talk to the innkeeper");
+		jsSetQuestStatus("宿の主人と話す");
 		jsAddQuestDesc(0);
 	}
 }
 
 function Quest_VignetteDrifter()
 {
-	$js_quest_text[0] = "A fight in a room next door wakes you up. Perhaps you should investigate.";
-	$js_quest_text[1] = "Trader Vardanis offered you a shady opportunity of a lifetime. You can still say \'no\' though.";
-	$js_quest_text[2] = "Return to the inn when you're ready.";
+	$js_quest_text[0] = "隣の部屋の喧噪で君は目を覚ます。調査した方がいいかもしれない。";
+	$js_quest_text[1] = "商人のヴァルダニスが、またとない怪しい依頼をしてきた。断ることもできるが。";
+	$js_quest_text[2] = "準備ができたら宿へ戻る。";
 	
-	jsSetQuestName("Vignette");
+	jsSetQuestName("序幕");
 	
 	if(aod.jnl_vignette_drifter == 2)
 	{
-		jsSetQuestStatus("Return to the Inn");
+		jsSetQuestStatus("宿へ戻る");
 		jsAddQuestDesc(2);
 	}
 	else if(aod.jnl_vignette_drifter == 1)
 	{
-		jsSetQuestStatus("Talk to Vardanis");
+		jsSetQuestStatus("ヴァルダニスと話す");
 		jsAddQuestDesc(1);
 	}
 	else if(aod.jnl_vignette_drifter == 0)
 	{
-		jsSetQuestStatus("Go take a look");
+		jsSetQuestStatus("見てくる");
 		jsAddQuestDesc(0);
 	}
 }
@@ -269,15 +269,15 @@ function Quest_Map()
 
 function Quest_Guildless()
 {
-	$js_quest_text[0] = "You aren't working for any guild at the moment. If you fail to find gainful employment in Teron, talk to Maadoran's guildmasters.";
+	$js_quest_text[0] = "君は今のところ、どのギルドにも属していない。もしテロンで儲かる仕事にありつけなかったら、マードランのギルドマスターに相談しよう。";
 	$js_quest_text[1] = "You aren't working for any guild at the moment. If you fail to find gainful employment in Maadoran, talk to Ganezzar's guildmasters.";
 	$js_quest_text[2] = "You aren't working for any guild at the moment. Talk to Ganezzar's guildmasters if you're looking for a job.";
 	
-	jsSetQuestName("Guildless");
+	jsSetQuestName("ギルドレス");
 	
 	if(aod.mdn_finished)
 	{
-		jsSetQuestStatus("Try your luck in another guild");
+		jsSetQuestStatus("他のギルドで運試しをする");
 		jsAddQuestDesc(2);
 	}
 	else if(aod.trn_finished)

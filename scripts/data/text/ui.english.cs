@@ -7,7 +7,7 @@ $loading_objects = "LOADING OBJECTS";
 
 //Play GUI
 $cursor_string[0] = "AP";
-$cursor_string[1] = "IA（割込攻撃）";
+$cursor_string[1] = "IA（妨害攻撃）";
 $cursor_string[2] = "AoO（追撃率）";
 loadStringCollection("Cursor Strings", "cursor_string");
 
@@ -43,7 +43,7 @@ $usage_string_pa_ra = "RA";
 
 $ammo_desc[0] = "通常";
 $ammo_desc[1] = "逆鉤";
-$ammo_desc[2] = "鋭刃";
+$ammo_desc[2] = "貫通";
 loadStringCollection("Ammo Desc", "ammo_desc");
 $ammo_desc_short[0] = "REG";
 $ammo_desc_short[1] = "BARB";

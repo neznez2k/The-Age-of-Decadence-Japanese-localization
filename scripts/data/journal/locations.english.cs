@@ -7,9 +7,9 @@
 
 function Location_Teron()
 {
-   jsSetLocationName("Teron");
+   jsSetLocationName("テロン");
    jsSetLocationImage("art/gui/journal/locations/teron.png");
-   jsSetLocationDesc("Your adventure begins in Teron, a small crumbling town far away from the main tracks of travelers and caravans. It\'s been dying for the last hundred years or so, kept alive only by the combined efforts of its inhabitants.");
+   jsSetLocationDesc("君の冒険はテロンから始まる。旅人や隊商の主な行路からは遠く離れた、崩れかけた小さな町だ。この町はもう１００年ほど前から滅びかけており、住民の努力によってのみ生かされている。");
 }
 
 function Location_RaidersCamp()
