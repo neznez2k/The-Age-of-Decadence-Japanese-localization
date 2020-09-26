@@ -7,7 +7,7 @@ $loading_objects = "LOADING OBJECTS";
 
 //Play GUI
 $cursor_string[0] = "AP";
-$cursor_string[1] = "IA（割込攻撃）";
+$cursor_string[1] = "IA（妨害攻撃）";
 $cursor_string[2] = "AoO（追撃率）";
 loadStringCollection("Cursor Strings", "cursor_string");
 
