@@ -1102,7 +1102,7 @@ function vignette_drifter_start()
 	TeronPropInteriorNight();
 	aod.exploration_location_TeronInn = true;
 	dlgTeleportTo(29, 223, 0, S);
-	dlgCreateCharacter("グラキアス", 1170, 1170, 6, 247, 0, S);
+	dlgCreateCharacter("グラキウス", 1170, 1170, 6, 247, 0, S);
 	dlgCreateCharacter("護衛", 1190, 1190, 5, 248, 0, SE);
 	dlgCreateCharacter("暗殺者", 1200, 1200, 5, 245, 0, N);
 	aod.pc_background_drifter = true;
