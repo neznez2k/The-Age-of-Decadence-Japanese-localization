@@ -780,8 +780,8 @@ function textboxTrainingSkills(%Type, %Value)
 {
 	switch(%Type)
 	{
-		case 1: dlgAddTextBoxMessage("\c5You receive much needed combat training, increasing your efficiency with melee weapons by " @ %Value @ ".\c1");
-		case 2: dlgAddTextBoxMessage("\c5You receive much needed combat training, increasing your efficiency with ranged weapons by " @ %Value @ ".\c1");
-		case 3: dlgAddTextBoxMessage("\c5You receive much needed combat training, increasing your chance to block and dodge enemy\'s attacks by " @ %Value @ ".\c1");
+		case 1: dlgAddTextBoxMessage("\c5君は素晴らしく役に立つ戦闘訓練を受け、近接武器の効率を" @ %Value @ "向上させる。\c1");
+		case 2: dlgAddTextBoxMessage("\c5君は素晴らしく役に立つ戦闘訓練を受け、遠距離攻撃の効率を" @ %Value @ "向上させる。\c1");
+		case 3: dlgAddTextBoxMessage("\c5君は素晴らしく役に立つ戦闘訓練を受け、ブロックと回避の効率を" @ %Value @ "向上させる。\c1");
 	}
 }
