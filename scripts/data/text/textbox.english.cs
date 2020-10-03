@@ -715,7 +715,7 @@ $spec_msg_reputation_honor_decreased = "\c5誓いの言葉が減少した\c1";
 $spec_msg_you_gain_insight = "\c5君は新たな知見を得て、スキルを高めることができる。\c1";
 $spec_msg_discovering_location_boost = "\c5陸地だぞう！　新しい場所を発見し、君の精神が高まる。\c1";
 $spec_msg_combat_sp_reward = "\c5君は死へ新たな犠牲を捧げる。死は微笑み、君の耳に真理の一端を囁きかけることでその献身に報いた。\c1";
-$spec_msg_civil_sp_reward = "\c5君は教養と取引について新たな知見を得て、非戦闘スキルを向上させることができる。\c1";
+$spec_msg_civil_sp_reward = "\c5君は教養や取引について新たな知見を得て、非戦闘スキルを向上させることができる。\c1";
 
 $spec_msg_fullCombat_training = "\c5実戦経験に勝る訓練はない。君の戦闘スキルの訓練量が1増加した。\c1";
 $spec_msg_Persuasion_increased = "\c5説得スキルが増加した。\c1";
@@ -753,7 +753,7 @@ function textboxSP(%Value, %Type)
 	{
 		case 1: dlgAddTextBoxMessage("\c5君は新たな知見を得て、スキルポイントを高めることができる。─" @ %Value @ "スキルポイントを得た。\c1");
 		case 2: dlgAddTextBoxMessage("\c5君は死へ新たな犠牲を捧げる。死は君に微笑み、君の耳に真理の一端を囁きかけることで、その献身に報いた。─" @ %Value @ "戦闘スキルポイントを得た。\c1");
-		case 3: dlgAddTextBoxMessage("\c5君は教養と取引について新たな知見を得て、非戦闘スキルを向上させることができる -" @ %Value @ "日常スキルポイントを得た。\c1");
+		case 3: dlgAddTextBoxMessage("\c5君は教養や取引について新たな知見を得て、非戦闘スキルを向上させることができる -" @ %Value @ "日常スキルポイントを得た。\c1");
 		case 4: dlgAddTextBoxMessage("\c5陸地だぞう！　新しい場所を発見し、君の精神が高まる -" @ %Value @ "スキルポイントを得た。\c1");
 		case 5: dlgAddTextBoxMessage("\c5ロックピックの成功で君は" @ %Value @ "日常スキルポイントを得る。\c1");
 		case 6: dlgAddTextBoxMessage("\c5トラップの設置/解除で君は" @ %Value @ "日常スキルポイントを得る。\c1");
