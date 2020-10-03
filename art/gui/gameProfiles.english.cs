@@ -1247,7 +1247,7 @@ singleton GuiControlProfile(FbMapTextButtonProfile)
    hasBitmapArray = "0";
    category = "Core";
    fontType = "Noto Serif CJK JP";
-   fontSize = "37";
+   fontSize = "25";
    fontColors[0] = "253 224 176 255";
    fontColors[1] = "245 241 233 255";
    fontColors[2] = "101 101 101 255";
