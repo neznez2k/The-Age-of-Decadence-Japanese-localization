@@ -1,15 +1,15 @@
 ﻿$phrase_DamageLine_CS = "クリティカル！";
 $phrase_DamageLine_bleeding = "出血！";
-$phrase_DamageLine_poisoned = "Poisoned!";
+$phrase_DamageLine_poisoned = "毒！";
 $phrase_DamageLine_crippled = "損傷！";
-$phrase_DamageLine_burned = "On Fire!";
-$phrase_DamageLine_acid = "Acid!";
+$phrase_DamageLine_burned = "燃焼！";
+$phrase_DamageLine_acid = "酸！";
 $phrase_DamageLine_statpenalty = "ステータスダメージ！";
 $phrase_DamageLine_armorpenalty = "鎧にダメージ！　ダメージ耐性が<amount>減少";
 $phrase_DamageLine_missed = "ミス！";
 $phrase_DamageLine_dodged = "回避！";
 $phrase_DamageLine_blocked = "ブロック！";
-$phrase_DamageLine_appenalty = "Staggered! AP reduced by <amount>";
+$phrase_DamageLine_appenalty = "よろめいた！　APが<amount>減少";
 $phrase_DamageLine_shield_bash = "シールドバッシュ！";
 $phrase_DamageLine_push = "プッシュ！";
 $phrase_DamageLine_CA = "反撃！";
@@ -254,7 +254,7 @@ $phrase_SpecterBlock_enemy_spotted0 = "侵入者を検知。";
 $phrase_BrokenStoneGuardianBlock_enemy_spotted0 = "侵入者を排除。";
 
 //character is bored
-$phrase_CharacterBlock_bored0 = "Slow day...";
+$phrase_CharacterBlock_bored0 = "暇だ…";
 
 //Combat
 //threats
@@ -275,7 +275,7 @@ $phrase_CharacterBlock_combat_pain5 = "ちくしょう！";
 $phrase_CharacterBlock_combat_good_attack0 = "このッ、のろまが！";
 $phrase_CharacterBlock_combat_good_attack1 = "すぐに終わらせてやる。";
 $phrase_CharacterBlock_combat_good_attack2 = "お前は死んだも同然だ！";
-$phrase_CharacterBlock_combat_good_attack3 = "That's gotta hurt!";
+$phrase_CharacterBlock_combat_good_attack3 = "痛いだろ！";
 $phrase_CharacterBlock_combat_good_attack4 = "豚みたいに血が出てやがる！";
 $phrase_CharacterBlock_combat_good_attack5 = "もう死ね！";
 $phrase_CharacterBlock_combat_good_attack6 = "ハッ！";

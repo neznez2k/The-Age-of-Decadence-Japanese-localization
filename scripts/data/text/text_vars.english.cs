@@ -35,6 +35,7 @@ addGenderVar("<God/Goddess>", "God", "Goddess");
 //日本語実装用
 addGenderVar("<ore/watashi>", "俺", "私");
 addGenderVar("<kare/kanozyo>", "彼", "彼女");
+addGenderVar("<boya/zyochan>", "坊や", "嬢ちゃん");
 addGenderVar("<omae/anata>", "お前", "あなた");
 addGenderVar("<da/yo>", "だ", "よ");
 addGenderVar("<da/no>", "だ", "の");
