@@ -531,7 +531,7 @@ $msg_pc_blocks_npc0 = "\c2君は<attacker>の攻撃をブロックし、ダメ�
 $msg_pc_exp_blocks_npc0 = "\c2君は<attacker>の攻撃を巧みにブロックし、その攻撃は何事もなく君の盾をかすめていく。";
 $msg_npc_blocks_pc0 = "\c1<victim>は君の攻撃をブロックし、ダメージを\c4<amount>\c1ポイントに軽減する。鎧と盾が\c5<DR>\c1ポイントを吸収した。";
 $msg_npc_exp_blocks_pc0 = "\c1<victim>は君の攻撃を巧みにブロックし、君の攻撃は何事もなく相手の盾をかすめていく。";
-$msg_npc_blocks_npc0 = "\c3<victim>は<attacker>攻撃をブロックし、ダメージを\c4<amount>\c3ポイントに軽減する。鎧と盾が\c5<DR>\c3ポイントを吸収した。";
+$msg_npc_blocks_npc0 = "\c3<victim>は<attacker>の攻撃をブロックし、ダメージを\c4<amount>\c3ポイントに軽減する。鎧と盾が\c5<DR>\c3ポイントを吸収した。";
 $msg_npc_exp_blocks_npc0 = "\c3<victim>は巧みに<attacker>の攻撃をブロックし、その攻撃は何事もなく盾をかすめていく。";
 //---------------
 
