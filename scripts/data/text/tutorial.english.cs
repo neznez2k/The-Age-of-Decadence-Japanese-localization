@@ -113,7 +113,7 @@ $tutorial_loot_text[2] = "Take　Allは箱の中や死体が持っているア�
 
 $tutorial_crafting_text[0] = "<spush><font:Kinto Sans:20><color:FEFEFEFF>クラフト入門<spop>\nクラフトシステムでは、設計図（鍛冶屋から入手可能）と様々な素材（金属のインゴット、木材、革）を使用して、武器や鎧を作成することができます。武器、鎧、ヘルメット、盾は、クラフトによって、それぞれの数値を増加させたりペナルティを少なくすることができます。";
 $tutorial_crafting_text[1] = "<spush><font:Kinto Sans:20><color:FEFEFEFF>テクニック<spop>\nゲーム全編で使用可能なテクニックのリストはジャーナルで確認できます。アイテムに適用できるテクニックの威力と数は、クラフトスキルに応じて成長していきます。";
-$tutorial_crafting_text[2] = "<spush><font:Kinto Sans:20><color:FEFEFEFF>素材<spop>\n金属には、ブロンズ、鉄、鋼、青鋼、スカイメタルの5種類があります。それぞれの”より上位の”金属は、ダメージ範囲やダメージ体制が1増加します。革は普通のものと硬いタイプの2種類、木材は1種類あります。";
+$tutorial_crafting_text[2] = "<spush><font:Kinto Sans:20><color:FEFEFEFF>素材<spop>\n金属には、ブロンズ、鉄、鋼、青鋼、スカイメタルの5種類があります。それぞれの”より上位の”金属は、ダメージ範囲やダメージ耐性が1増加します。革は普通のものと硬いタイプの2種類、木材は1種類あります。";
 $tutorial_crafting_text[3] = "<spush><font:Kinto Sans:20><color:FEFEFEFF>クラフト<spop>\nアイテムを作成するには、利用可能な設計図のリストから選択し、使うことができるテクニックを適用し、金属の種類あるいは構成要素を選択し、Forgeをクリックします。アイテムの準備ができたら、インベントリへドラッグしてください。";
 $tutorial_crafting_text[4] = "<spush><font:Kinto Sans:20><color:FEFEFEFF>DECOMPOSING<spop>\nYou can also decompose (melt) weapons and armor to get metal ingots or components. There is a material loss when you decompose, the higher the skill the less metal you lose.";
 $tutorial_crafting_text[5] = "For example, if you find a steel armor that weighs 35 pounds, but you would rather forge yourself a steel sword and a lighter armor, you can melt the heavy armor, losing 20% of the metal and getting 28 pounds of steel ingots, which you can use to craft yourself a broadsword (handar) - 3.5 pounds - and a cuirass (lorica musculata) - 20 pounds.";

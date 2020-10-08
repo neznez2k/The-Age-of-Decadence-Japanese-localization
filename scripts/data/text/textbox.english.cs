@@ -41,7 +41,7 @@ $msg_attack_0_pc_npc0 = "\c1君は<victim>を素早く打ち、\c4<amount>\c1ポ
 $msg_attack_0_crit_pc_npc0 = "\c1クリティカル！　君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与え、主要な臓器を破壊する。鎧に\c5<DR>\c1ポイントを吸収された。";
 $msg_attack_0_npc_pc0 = "\c2<attacker>は君を素早く打ち、\c4<amount>\c2ポイントのダメージを与える。鎧が\c5<DR>\c2ポイントを吸収した。";
 $msg_attack_0_crit_npc_pc0 = "\c2クリティカル！<attacker>は君を攻撃し、\c4<amount>\c2ポイントのダメージを与え、主要な臓器を破壊する。鎧が\c5<DR>\c2ポイントを吸収した。";
-$msg_attack_0_npc_npc0 = "\c3<attacker>は<victim>を素早く打ち、  \c4<amount>\c3ポイントのダメージを与える。鎧が\c5<DR>\c3ポイントを吸収した。";
+$msg_attack_0_npc_npc0 = "\c3<attacker>は<victim>を素早く打ち、\c4<amount>\c3ポイントのダメージを与える。鎧が\c5<DR>\c3ポイントを吸収した。";
 $msg_attack_0_crit_npc_npc0 = "\c3クリティカル！<attacker>は<victim>を攻撃し、\c4<amount>\c3ポイントのダメージを与え、主要な臓器を破壊する。 鎧が\c5<DR>\c3ポイントを吸収した。";
 $msg_attack_0_SpecterBlock_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与え、装備を貫通する。 鎧が\c5<DR>\c1ポイントを吸収した。";
 $msg_attack_0_StoneGuardianBlock_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与え、石の塊があちこちへと飛び散る。 鎧が\c5<DR>\c1ポイントを吸収した。";
@@ -70,12 +70,12 @@ $msg_attack_2_StoneGuardianBlock_crit_pc_npc0 = "\c1クリティカル！ 君は
 $msg_attack_2_BrokenStoneGuardianBlock_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与え、石の塊があちこちへと飛び散る。 鎧が\c5<DR>\c1ポイントを吸収した。";
 
 //AIMED: HEAD
-$msg_attack_4_pc_npc0 = "\c1君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与え、 軽い脳震盪を与える。正確さが<eff_val1_2>ポイント減少（<eff_val1_1>ターン）。ヘルメットが\c5<DR>\c1ポイントを吸収した。";
+$msg_attack_4_pc_npc0 = "\c1君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与え、軽い脳震盪を与える。正確さが<eff_val1_2>ポイント減少（<eff_val1_1>ターン）。ヘルメットが\c5<DR>\c1ポイントを吸収した。";
 $msg_attack_4_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与え、ノックアウトさせて視界をぼやけさせる。ヘルメットが\c5<DR>\c1ポイントを吸収した。 <victim>の知覚が\c41\c1減少。";
-$msg_attack_4_npc_pc0 = "\c2<attacker>の攻撃で君は\c4<amount>\c2ポイントのダメージを受け、 軽い脳震盪を受ける。君の正確さが<eff_val1_2>ポイント減少（<eff_val1_1>ターン）。ヘルメットが\c5<DR>\c2ポイントを吸収した。";
-$msg_attack_4_crit_npc_pc0 = "\c2クリティカル！<attacker>の攻撃で君は\c4<amount>\c2ポイントのダメージを受け、 ノックアウトして視界がぼやける。ヘルメットが\c5<DR>\c2ポイントを吸収した。君の知覚が\c41\c2減少。";
-$msg_attack_4_npc_npc0 = "\c3<attacker>は<victim>を攻撃し、\c4<amount>\c3ポイントのダメージを与え、 軽い脳震盪を与える。正確さが<eff_val1_2>ポイント減少（ <eff_val1_1>ターン）。ヘルメットが\c5<DR>\c3ポイントを吸収した。";
-$msg_attack_4_crit_npc_npc0 = "\c3クリティカル！<attacker>は<victim>を攻撃し、\c4<amount>\c3ポイントのダメージを与え、 ノックアウトさせて視界をぼやけさせる。ヘルメットが\c5<DR>\c3ポイントを吸収した。 <victim>の知覚が\c41\c3減少。";
+$msg_attack_4_npc_pc0 = "\c2<attacker>の攻撃で君は\c4<amount>\c2ポイントのダメージを受け、軽い脳震盪を受ける。君の正確さが<eff_val1_2>ポイント減少（<eff_val1_1>ターン）。ヘルメットが\c5<DR>\c2ポイントを吸収した。";
+$msg_attack_4_crit_npc_pc0 = "\c2クリティカル！<attacker>の攻撃で君は\c4<amount>\c2ポイントのダメージを受け、ノックアウトして視界がぼやける。ヘルメットが\c5<DR>\c2ポイントを吸収した。君の知覚が\c41\c2減少。";
+$msg_attack_4_npc_npc0 = "\c3<attacker>は<victim>を攻撃し、\c4<amount>\c3ポイントのダメージを与え、軽い脳震盪を与える。正確さが<eff_val1_2>ポイント減少（ <eff_val1_1>ターン）。ヘルメットが\c5<DR>\c3ポイントを吸収した。";
+$msg_attack_4_crit_npc_npc0 = "\c3クリティカル！<attacker>は<victim>を攻撃し、\c4<amount>\c3ポイントのダメージを与え、ノックアウトさせて視界をぼやけさせる。ヘルメットが\c5<DR>\c3ポイントを吸収した。 <victim>の知覚が\c41\c3減少。";
 $msg_attack_4_SpecterBlock_pc_npc0 = "\c1君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が\c5<DR>\c1ポイントを吸収した。";
 $msg_attack_4_SpecterBlock_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与え、装備を貫通する。 鎧が\c5<DR>\c1ポイントを吸収した。";
 $msg_attack_4_StoneGuardianBlock_pc_npc0 = "\c1君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が\c5<DR>\c1ポイントを吸収した。";
@@ -100,15 +100,15 @@ $msg_attack_5_BrokenStoneGuardianBlock_crit_pc_npc0 = "\c1クリティカル！ 
 //AIMED: TORSO
 $msg_attack_6_pc_npc0 = "\c1君の攻撃が<victim>の鎧の脆い箇所を突き、\c4<amount>\c1ポイントのダメージを与える。鎧のダメージ耐性が<eff_val1_1>%%まで減少し、\c5<DR>\c1ポイントを吸収した。";
 $msg_attack_6_crit_pc_npc0 = "\c1クリティカル！君の狙いすました攻撃が<victim>の鎧の脆い箇所を突き、\c4<amount>\c1ポイントのダメージを与え、主要な臓器を破壊する。 鎧のダメージ耐性が<eff_val1_1>%%まで減少し、\c5<DR>\c1ポイントを吸収した。<victim>の体力が\c41\c1減少。";
-$msg_attack_6_npc_pc0 = "\c2<attacker>の攻撃が君の鎧の脆い箇所を突き、\c4<amount>\c2ポイントのダメージを与える。鎧のダメージ耐性が<eff_val1_1>%%まで減少し、 \c5<DR>\c2ポイントを吸収した。";
-$msg_attack_6_crit_npc_pc0 = "\c2クリティカル！ <attacker_s>狙いすました攻撃が君の鎧の脆い箇所を突き、\c4<amount>\c2ポイントのダメージを与え、主要な臓器を破壊する。鎧のダメージ耐性が<eff_val1_1>%%まで減少し、 \c5<DR>\c2ポイントを吸収した。君の体力が\c41\c2減少。";
-$msg_attack_6_npc_npc0 = "\c3<attacker>の攻撃が<victim>の鎧の脆い箇所を突き、\c4<amount>\c3ポイントのダメージを与える。鎧のダメージ耐性が<eff_val1_1>%%まで減少し、 \c5<DR>\c3ポイントを吸収した。";
-$msg_attack_6_crit_npc_npc0 = "\c3クリティカル！attacker>の狙いすました攻撃が<victim>の鎧の脆い箇所を突き、\c4<amount>\c3ポイントのダメージを与え、主要な臓器を破壊する。 鎧のダメージ耐性が<eff_val1_1>%%まで減少し、 \c5<DR>\c3ポイントを吸収した。<victim>の 体力が\c41\c3減少。";
-$msg_attack_6_SpecterBlock_pc_npc0 = "\c1君の攻撃が<victim>の鎧の脆い箇所を突き、\c4<amount>\c1ポイントのダメージを与える。鎧のダメージ耐性が<eff_val1_1>%%まで減少し、 \c5<DR>\c1ポイントを吸収した。";
+$msg_attack_6_npc_pc0 = "\c2<attacker>の攻撃が君の鎧の脆い箇所を突き、\c4<amount>\c2ポイントのダメージを与える。鎧のダメージ耐性が<eff_val1_1>%%まで減少し、\c5<DR>\c2ポイントを吸収した。";
+$msg_attack_6_crit_npc_pc0 = "\c2クリティカル！ <attacker_s>狙いすました攻撃が君の鎧の脆い箇所を突き、\c4<amount>\c2ポイントのダメージを与え、主要な臓器を破壊する。鎧のダメージ耐性が<eff_val1_1>%%まで減少し、\c5<DR>\c2ポイントを吸収した。君の体力が\c41\c2減少。";
+$msg_attack_6_npc_npc0 = "\c3<attacker>の攻撃が<victim>の鎧の脆い箇所を突き、\c4<amount>\c3ポイントのダメージを与える。鎧のダメージ耐性が<eff_val1_1>%%まで減少し、\c5<DR>\c3ポイントを吸収した。";
+$msg_attack_6_crit_npc_npc0 = "\c3クリティカル！attacker>の狙いすました攻撃が<victim>の鎧の脆い箇所を突き、\c4<amount>\c3ポイントのダメージを与え、主要な臓器を破壊する。 鎧のダメージ耐性が<eff_val1_1>%%まで減少し、\c5<DR>\c3ポイントを吸収した。<victim>の 体力が\c41\c3減少。";
+$msg_attack_6_SpecterBlock_pc_npc0 = "\c1君の攻撃が<victim>の鎧の脆い箇所を突き、\c4<amount>\c1ポイントのダメージを与える。鎧のダメージ耐性が<eff_val1_1>%%まで減少し、\c5<DR>\c1ポイントを吸収した。";
 $msg_attack_6_SpecterBlock_crit_pc_npc0 = "\c1クリティカル！君の狙いすました攻撃が<victim>の鎧の脆い箇所を突き、\c4<amount>\c1ポイントのダメージを与え、装備を貫通する。鎧のダメージ耐性が<eff_val1_1>%%まで減少し、\c5<DR>\c1ポイントを吸収した。<victim>の体力が\c41\c1減少。";
-$msg_attack_6_StoneGuardianBlock_pc_npc0 = "\c1君の攻撃が<victim>の石造りの表面の脆い箇所を突き、\c4<amount>\c1ポイントのダメージを与える。鎧のダメージ耐性が<eff_val1_1>%%まで減少し、 \c5<DR>\c1ポイントを吸収した。";
+$msg_attack_6_StoneGuardianBlock_pc_npc0 = "\c1君の攻撃が<victim>の石造りの表面の脆い箇所を突き、\c4<amount>\c1ポイントのダメージを与える。鎧のダメージ耐性が<eff_val1_1>%%まで減少し、\c5<DR>\c1ポイントを吸収した。";
 $msg_attack_6_StoneGuardianBlock_crit_pc_npc0 = "\c1クリティカル！君の狙いすました攻撃が<victim>の石造りの表面の脆い箇所を突き、\c4<amount>\c1ポイントのダメージを与え、石の塊があちこちへと飛び散る。 鎧のダメージ耐性が<eff_val1_1>%%まで減少し、\c5<DR>\c1ポイントを吸収した。<victim>の体力が\c41\c1減少。";
-$msg_attack_6_BrokenStoneGuardianBlock_pc_npc0 = "\c1君の攻撃が<victim>の石造りの表面の脆い箇所を突き、\c4<amount>\c1ポイントのダメージを与える。鎧のダメージ耐性が<eff_val1_1>%%まで減少し、 \c5<DR>\c1ポイントを吸収した。";
+$msg_attack_6_BrokenStoneGuardianBlock_pc_npc0 = "\c1君の攻撃が<victim>の石造りの表面の脆い箇所を突き、\c4<amount>\c1ポイントのダメージを与える。鎧のダメージ耐性が<eff_val1_1>%%まで減少し、\c5<DR>\c1ポイントを吸収した。";
 $msg_attack_6_BrokenStoneGuardianBlock_crit_pc_npc0 = "\c1クリティカル！君の狙いすました攻撃が<victim>の石造りの表面の脆い箇所を突き、\c4<amount>\c1ポイントのダメージを与え、石の塊があちこちへと飛び散る。 鎧のダメージ耐性が<eff_val1_1>%%まで減少し、\c5<DR>\c1ポイントを吸収した。 <victim>の体力が\c41\c1減少。";
 
 //AIMED: LEGS
@@ -116,8 +116,8 @@ $msg_attack_7_pc_npc0 = "\c1君は<victim>の脚を刻みつけ、\c4<amount>\c1
 $msg_attack_7_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>の脚を攻撃し、\c4<amount>\c1ポイントのダメージを与え、相手の回避能力を<eff_val1_2>ポイント減少させる。（<eff_val1_1>ターン）鎧が\c5<DR>\c1ポイントを吸収した。<victim>の敏捷を\c41\c1減少。";
 $msg_attack_7_npc_pc0 = "\c2<attacker>は君の脚を刻みつけ、\c4<amount>\c2ポイントのダメージを与え、君の回避能力をわずかに<eff_val1_2>ポイント減少させる。（<eff_val1_1>ターン）鎧が\c5<DR>\c2ポイントを吸収した。";
 $msg_attack_7_crit_npc_pc0 = "\c2クリティカル！<attacker>は君の脚を攻撃し、\c4<amount>\c2ポイントのダメージを与え、回避能力を<eff_val1_2>ポイント減少させる。（<eff_val1_1>ターン）鎧が\c5<DR>\c2ポイントを吸収した。君の敏捷は\c41\c2減少する。";
-$msg_attack_7_npc_npc0 = "\c3<attacker>は<victim>の脚を刻みつけ、 \c4<amount>\c3ポイントのダメージを与え、相手の回避能力をわずかに<eff_val1_2>ポイント減少させる。（<eff_val1_1>ターン）鎧が\c5<DR>\c3ポイントを吸収した。";
-$msg_attack_7_crit_npc_npc0 = "\c3クリティカル！<attacker>は<victim>の脚を攻撃し、 \c4<amount>\c3ポイントのダメージを与え、相手の回避能力を<eff_val1_2>ポイント減少させる。（<eff_val1_1>ターン）鎧が\c5<DR>\c3ポイントを吸収した。<victim>の敏捷を\c41\c3減少。";
+$msg_attack_7_npc_npc0 = "\c3<attacker>は<victim>の脚を刻みつけ、\c4<amount>\c3ポイントのダメージを与え、相手の回避能力をわずかに<eff_val1_2>ポイント減少させる。（<eff_val1_1>ターン）鎧が\c5<DR>\c3ポイントを吸収した。";
+$msg_attack_7_crit_npc_npc0 = "\c3クリティカル！<attacker>は<victim>の脚を攻撃し、\c4<amount>\c3ポイントのダメージを与え、相手の回避能力を<eff_val1_2>ポイント減少させる。（<eff_val1_1>ターン）鎧が\c5<DR>\c3ポイントを吸収した。<victim>の敏捷を\c41\c3減少。";
 $msg_attack_7_SpecterBlock_pc_npc0 = "\c1君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が\c5<DR>\c1ポイントを吸収した。";
 $msg_attack_7_SpecterBlock_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与え、装備を貫通する。 鎧が\c5<DR>\c1ポイントを吸収した。";
 $msg_attack_7_StoneGuardianBlock_pc_npc0 = "\c1君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が\c5<DR>\c1ポイントを吸収した。";
@@ -171,7 +171,7 @@ $msg_attack_10_BrokenStoneGuardianBlock_crit_pc_npc0 = "\c1クリティカル！
 $msg_attack_11_pc_npc0 = "\c1君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が\c5<DR>\c1ポイントを吸収した。";
 $msg_attack_11_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与え、主要な臓器を破壊しノックダウンさせる。鎧が\c5<DR>\c1ポイントを吸収した。";
 $msg_attack_11_npc_pc0 = "\c2<attacker>の攻撃で君は\c4<amount>\c2ポイントのダメージを受ける。鎧が\c5<DR>\c2ポイントを吸収した。";
-$msg_attack_11_crit_npc_pc0 = "\c2クリティカル！<attacker>の攻撃で君は\c4<amount>\c2ポイントのダメージを受け、 rupturing vital organs and knocking you down. 鎧が\c5<DR>\c2ポイントを吸収した。";
+$msg_attack_11_crit_npc_pc0 = "\c2クリティカル！<attacker>の攻撃で君は\c4<amount>\c2ポイントのダメージを受け、rupturing vital organs and knocking you down. 鎧が\c5<DR>\c2ポイントを吸収した。";
 $msg_attack_11_npc_npc0 = "\c3<attacker>は<victim>を攻撃し、\c4<amount>\c3ポイントのダメージを与える。鎧が\c5<DR>\c3ポイントを吸収した。";
 $msg_attack_11_crit_npc_npc0 = "\c3クリティカル！<attacker>は<victim>を攻撃し、\c4<amount>\c3ポイントのダメージを与え、主要な臓器を破壊しノックダウンさせる。鎧が\c5<DR>\c3ポイントを吸収した。";
 $msg_attack_11_SpecterBlock_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与え、装備を貫通する。 鎧が\c5<DR>\c1ポイントを吸収した。";
@@ -278,7 +278,7 @@ $msg_attack_24_crit_pc_npc0 = "\c1クリティカル！　君は<victim>をシ�
 $msg_attack_24_npc_pc0 = "\c2<attacker>は君をシールドで打ち、君を押し出す。";
 $msg_attack_24_crit_npc_pc0 = "\c2クリティカル！　<attacker>は君をシールドで打ち、ノックダウンさせる。";
 $msg_attack_24_npc_npc0 = "\c3<attacker>は<victim>をシールドで打ち、相手を押し戻す。";
-$msg_attack_24_crit_npc_npc0 = "\c3クリティカル！　<attacker>は<victim>をシールドで打ち、 相手をノックダウンさせる。";
+$msg_attack_24_crit_npc_npc0 = "\c3クリティカル！　<attacker>は<victim>をシールドで打ち、相手をノックダウンさせる。";
 $msg_attack_24_SpecterBlock_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が\c5<DR>\c1ポイントを吸収した。";
 $msg_attack_24_StoneGuardianBlock_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が\c5<DR>\c1ポイントを吸収した。";
 $msg_attack_24_BrokenStoneGuardianBlock_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が\c5<DR>\c1ポイントを吸収した。";
@@ -389,7 +389,7 @@ $msg_attack_38_crit_pc_npc0 = "\c1クリティカル！　君は自分の武器�
 $msg_attack_38_npc_pc0 = "\c2<attacker>は自分の武器で君を打ち、君を押し出す。";
 $msg_attack_38_crit_npc_pc0 = "\c2クリティカル！<attacker>は自分の武器で君を打ち、君をノックダウンさせる。";
 $msg_attack_38_npc_npc0 = "\c3<attacker>は<victim>を自分の武器で打ち、相手を押し戻す。";
-$msg_attack_38_crit_npc_npc0 = "\c3クリティカル！<attacker>は<victim>を自分の武器で打ち、 相手をノックダウンさせる。";
+$msg_attack_38_crit_npc_npc0 = "\c3クリティカル！<attacker>は<victim>を自分の武器で打ち、相手をノックダウンさせる。";
 $msg_attack_38_SpecterBlock_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が\c5<DR>\c1ポイントを吸収した。";
 $msg_attack_38_StoneGuardianBlock_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が\c5<DR>\c1ポイントを吸収した。";
 $msg_attack_38_BrokenStoneGuardianBlock_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が\c5<DR>\c1ポイントを吸収した。";
@@ -397,8 +397,8 @@ $msg_attack_38_BrokenStoneGuardianBlock_crit_pc_npc0 = "\c1クリティカル！
 //ELDER GOD HAND ATTACK
 $msg_attack_39_pc_npc0 = "\c1君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が\c5<DR>\c1ポイントを吸収した。";
 $msg_attack_39_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与え、主要な臓器を破壊する。 鎧が\c5<DR>\c1ポイントを吸収した。";
-$msg_attack_39_npc_pc0 = "\c2Agathoth strikes you for \c4<amount>\c2ポイントのダメージを与え、 throwing you backwards. 鎧が\c5<DR>\c2ポイントを吸収した。";
-$msg_attack_39_crit_npc_pc0 = "\c2クリティカル！ Agathoth hits you for \c4<amount>\c2ポイントのダメージを与え、 throwing you backwards and rupturing vital organs. 鎧が\c5<DR>\c2ポイントを吸収した。";
+$msg_attack_39_npc_pc0 = "\c2Agathoth strikes you for \c4<amount>\c2ポイントのダメージを与え、throwing you backwards. 鎧が\c5<DR>\c2ポイントを吸収した。";
+$msg_attack_39_crit_npc_pc0 = "\c2クリティカル！ Agathoth hits you for \c4<amount>\c2ポイントのダメージを与え、throwing you backwards and rupturing vital organs. 鎧が\c5<DR>\c2ポイントを吸収した。";
 $msg_attack_39_npc_npc0 = "\c3<attacker>は<victim>を攻撃し、\c4<amount>\c3ポイントのダメージを与える。鎧が\c5<DR>\c3ポイントを吸収した。";
 $msg_attack_39_crit_npc_npc0 = "\c3クリティカル！<attacker>は<victim>を攻撃し、\c4<amount>\c3ポイントのダメージを与え、主要な臓器を破壊する。 鎧が\c5<DR>\c3ポイントを吸収した。";
 
@@ -428,22 +428,22 @@ $msg_attack_42_crit_npc_npc0 = "\c3クリティカル！<attacker>は<victim>を
 
 //KNOCKDOWN
 $msg_attack_44_pc_npc0 = "\c1君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が\c5<DR>\c1ポイントを吸収した。";
-$msg_attack_44_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与え、 sending <victim_himher> flying. 鎧が\c5<DR>\c1ポイントを吸収した。";
+$msg_attack_44_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与え、sending <victim_himher> flying. 鎧が\c5<DR>\c1ポイントを吸収した。";
 $msg_attack_44_npc_pc0 = "\c2<attacker>の攻撃で君は\c4<amount>\c2ポイントのダメージを受ける。鎧が\c5<DR>\c2ポイントを吸収した。";
-$msg_attack_44_crit_npc_pc0 = "\c2クリティカル！<attacker>の攻撃で君は\c4<amount>\c2ポイントのダメージを受け、 sending you flying. 鎧が\c5<DR>\c2ポイントを吸収した。";
+$msg_attack_44_crit_npc_pc0 = "\c2クリティカル！<attacker>の攻撃で君は\c4<amount>\c2ポイントのダメージを受け、sending you flying. 鎧が\c5<DR>\c2ポイントを吸収した。";
 $msg_attack_44_npc_npc0 = "\c3<attacker>は<victim>を攻撃し、\c4<amount>\c3ポイントのダメージを与える。鎧が\c5<DR>\c3ポイントを吸収した。";
-$msg_attack_44_crit_npc_npc0 = "\c3クリティカル！<attacker>は<victim>を攻撃し、\c4<amount>\c3ポイントのダメージを与え、 sending <victim_himher> flying. 鎧が\c5<DR>\c3ポイントを吸収した。";
+$msg_attack_44_crit_npc_npc0 = "\c3クリティカル！<attacker>は<victim>を攻撃し、\c4<amount>\c3ポイントのダメージを与え、sending <victim_himher> flying. 鎧が\c5<DR>\c3ポイントを吸収した。";
 $msg_attack_44_SpecterBlock_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が\c5<DR>\c1ポイントを吸収した。";
 $msg_attack_44_StoneGuardianBlock_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が\c5<DR>\c1ポイントを吸収した。";
 $msg_attack_44_BrokenStoneGuardianBlock_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が\c5<DR>\c1ポイントを吸収した。";
 
 //STRONG KNOCKDOWN
 $msg_attack_45_pc_npc0 = "\c1君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が\c5<DR>\c1ポイントを吸収した。";
-$msg_attack_45_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与え、 sending <victim_himher> flying. 鎧が\c5<DR>\c1ポイントを吸収した。";
+$msg_attack_45_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与え、sending <victim_himher> flying. 鎧が\c5<DR>\c1ポイントを吸収した。";
 $msg_attack_45_npc_pc0 = "\c2<attacker>の攻撃で君は\c4<amount>\c2ポイントのダメージを受ける。鎧が\c5<DR>\c2ポイントを吸収した。";
-$msg_attack_45_crit_npc_pc0 = "\c2クリティカル！<attacker>の攻撃で君は\c4<amount>\c2ポイントのダメージを受け、 sending you flying. 鎧が\c5<DR>\c2ポイントを吸収した。";
+$msg_attack_45_crit_npc_pc0 = "\c2クリティカル！<attacker>の攻撃で君は\c4<amount>\c2ポイントのダメージを受け、sending you flying. 鎧が\c5<DR>\c2ポイントを吸収した。";
 $msg_attack_45_npc_npc0 = "\c3<attacker>は<victim>を攻撃し、\c4<amount>\c3ポイントのダメージを与える。鎧が\c5<DR>\c3ポイントを吸収した。";
-$msg_attack_45_crit_npc_npc0 = "\c3クリティカル！<attacker>は<victim>を攻撃し、\c4<amount>\c3ポイントのダメージを与え、 sending <victim_himher> flying. 鎧が\c5<DR>\c3ポイントを吸収した。";
+$msg_attack_45_crit_npc_npc0 = "\c3クリティカル！<attacker>は<victim>を攻撃し、\c4<amount>\c3ポイントのダメージを与え、sending <victim_himher> flying. 鎧が\c5<DR>\c3ポイントを吸収した。";
 $msg_attack_45_SpecterBlock_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が\c5<DR>\c1ポイントを吸収した。";
 $msg_attack_45_StoneGuardianBlock_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が\c5<DR>\c1ポイントを吸収した。";
 $msg_attack_45_BrokenStoneGuardianBlock_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与える。鎧が\c5<DR>\c1ポイントを吸収した。";
@@ -479,7 +479,7 @@ $msg_attack_48_StoneGuardianBlock_crit_pc_npc0 = "\c1クリティカル！ 君�
 $msg_attack_48_BrokenStoneGuardianBlock_crit_pc_npc0 = "\c1クリティカル！ 君は<victim>を攻撃し、\c4<amount>\c1ポイントのダメージを与え、石の塊があちこちへと飛び散る。 鎧が\c5<DR>\c1ポイントを吸収した。";
 
 // Bleeding
-$msg_bleeding = "\c1<victim>の傷は出血を続け、 \c4<amount>\c1ポイントのダメージ。";
+$msg_bleeding = "\c1<victim>の傷は出血を続け、\c4<amount>\c1ポイントのダメージ。";
 $msg_bleeding_death = "\c1あまりにも多くの血を失い、<victim>は崩れ落ちた。";
 
 // Separate effect descriptions for appending as passive effect decriptions
@@ -493,7 +493,7 @@ $msg_ae_dodgePenalty_Coef0 = "脚が痛む！　<victim>の回避能力が<eff_v
 $msg_ae_thcPenalty_Coef0 = "thcPenalty_Coef <eff_val1> <eff_val2>";
 $msg_ae_statPenalty0 = "<victim>の筋力が1減少。";
 $msg_ae_criticalDamage0 = "criticalDamage <eff_val1> <eff_val2>";
-$msg_ae_cripple0 = "損傷！　<victim>の移動コストが<eff_val1>の間2倍になる。"; // Bow passive
+$msg_ae_cripple0 = "損傷！　<victim>の移動コストが<eff_val1>ターンの間2倍になる。"; // Bow passive
 $msg_ae_disarm0 = "disarm <eff_val1> <eff_val2>";
 $msg_ae_splitShield0 = "splitShield <eff_val1> <eff_val2>";
 $msg_ae_impale0 = "impale <eff_val1> <eff_val2>";
