@@ -751,10 +751,10 @@ function textboxSP(%Value, %Type)
 {
 	switch(%Type)
 	{
-		case 1: dlgAddTextBoxMessage("\c5君は新たな知見を得て、スキルポイントを高めることができる。─" @ %Value @ "スキルポイントを得た。\c1");
-		case 2: dlgAddTextBoxMessage("\c5君は死へ新たな犠牲を捧げる。死は君に微笑み、君の耳に真理の一端を囁きかけることで、その献身に報いた。─" @ %Value @ "戦闘スキルポイントを得た。\c1");
-		case 3: dlgAddTextBoxMessage("\c5君は教養や取引について新たな知見を得て、非戦闘スキルを向上させることができる -" @ %Value @ "日常スキルポイントを得た。\c1");
-		case 4: dlgAddTextBoxMessage("\c5陸地だぞう！　新しい場所を発見し、君の精神が高まる -" @ %Value @ "スキルポイントを得た。\c1");
+		case 1: dlgAddTextBoxMessage("\c5君は新たな知見を得て、スキルポイントを高めることができる。──" @ %Value @ "スキルポイントを得た。\c1");
+		case 2: dlgAddTextBoxMessage("\c5君は死へ新たな犠牲を捧げる。死は君に微笑み、君の耳に真理の一端を囁きかけることで、その献身に報いた。──" @ %Value @ "戦闘スキルポイントを得た。\c1");
+		case 3: dlgAddTextBoxMessage("\c5君は教養や取引について新たな知見を得て、非戦闘スキルを向上させることができる ──" @ %Value @ "日常スキルポイントを得た。\c1");
+		case 4: dlgAddTextBoxMessage("\c5陸地だぞう！　新しい場所を発見し、君の精神が高まる ──" @ %Value @ "スキルポイントを得た。\c1");
 		case 5: dlgAddTextBoxMessage("\c5ロックピックの成功で君は" @ %Value @ "日常スキルポイントを得る。\c1");
 		case 6: dlgAddTextBoxMessage("\c5トラップの設置/解除で君は" @ %Value @ "日常スキルポイントを得る。\c1");
 		case 7: dlgAddTextBoxMessage("\c5隠密により君は" @ %Value @ "日常スキルポイントを得る。\c1");
