@@ -34,4 +34,4 @@ https://github.com/neznez2k/The-Age-of-Decadence-Japanese-localization/wiki
 
 #### 連絡先
 Twitter：@neznez74195382  
-Discord：neznez#9453
+Discord：https://discord.gg/VuanMAd
