@@ -91,7 +91,9 @@ addGenderVar("<runa/naide>", "るな", "ないで");
 addGenderVar("<aa/ee>", "ああ", "ええ");
 addGenderVar("<gaii/>", "がいい", "");
 addGenderVar("<dato/desutte>", "だと", "ですって");
-
+addGenderVar("<kana/kasira>", "かな", "かしら");
+addGenderVar("<sumanai/gomennasai>", "すまない", "ごめんなさい");
+addGenderVar("<yaru/ageru>", "やる", "あげる");
 
 
 //to add a conditional text var, use:
