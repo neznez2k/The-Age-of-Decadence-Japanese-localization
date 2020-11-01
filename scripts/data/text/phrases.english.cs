@@ -15,9 +15,9 @@ $phrase_DamageLine_push = "プッシュ！";
 $phrase_DamageLine_CA = "反撃！";
 $phrase_DamageLine_AoO = "追撃！";
 $phrase_DamageLine_IA = "妨害攻撃！";
-$phrase_DamageLine_dodgepenalty = "回避ペナルティ！-<amount>（<turns>ターン）";
-$phrase_DamageLine_blockpenalty = "ブロックペナルティ！-<amount>（<turns>ターン）";
-$phrase_DamageLine_thcpenalty = "アタックペナルティ！-<amount>（<turns>ターン）";
+$phrase_DamageLine_dodgepenalty = "回避ペナルティ！─<amount>（<turns>ターン）";
+$phrase_DamageLine_blockpenalty = "ブロックペナルティ！─<amount>（<turns>ターン）";
+$phrase_DamageLine_thcpenalty = "アタックペナルティ！─<amount>（<turns>ターン）";
 $phrase_DamageLine_net = "拘束された！";
 $phrase_DamageLine_bolas_head = "窒息！";
 $phrase_DamageLine_bolas_legs = "移動不能！";
@@ -229,10 +229,10 @@ $phrase_CharacterBlock_goaway0 = "Get out.";
 $phrase_CharacterBlock_goaway1 = "Go away.";
 
 //remove weapon!
-$phrase_CharacterBlock_remove_weapon0 = "武器を捨てろ。すぐに！";
+$phrase_CharacterBlock_remove_weapon0 = "武器を捨てろ。すぐにだ！";
 
 //something spotted
-$phrase_CharacterBlock_something_spotted0 = "You!";
+$phrase_CharacterBlock_something_spotted0 = "貴様！";
 $phrase_CharacterBlock_something_spotted1 = "Fresh meat!";
 $phrase_CharacterBlock_something_spotted2 = "Look who's here...";
 $phrase_CharacterBlock_something_spotted3 = "What do we have here?";
@@ -277,7 +277,7 @@ $phrase_CharacterBlock_combat_good_attack1 = "すぐに終わらせてやる。"
 $phrase_CharacterBlock_combat_good_attack2 = "お前は死んだも同然だ！";
 $phrase_CharacterBlock_combat_good_attack3 = "痛いだろ！";
 $phrase_CharacterBlock_combat_good_attack4 = "豚みたいに血が出てやがる！";
-$phrase_CharacterBlock_combat_good_attack5 = "もう死ね！";
+$phrase_CharacterBlock_combat_good_attack5 = "早く死ね！";
 $phrase_CharacterBlock_combat_good_attack6 = "ハッ！";
 $phrase_CharacterBlock_combat_good_attack7 = "長くはかからんよ。";
 $phrase_CharacterBlock_combat_good_attack8 = "思ったより簡単だったな。";
