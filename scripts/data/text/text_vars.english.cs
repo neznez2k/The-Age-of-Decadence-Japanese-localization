@@ -37,6 +37,7 @@ addGenderVar("<ore/watashi>", "俺", "私");
 addGenderVar("<kare/kanozyo>", "彼", "彼女");
 addGenderVar("<boya/zyochan>", "坊や", "嬢ちゃん");
 addGenderVar("<omae/anata>", "お前", "あなた");
+addGenderVar("<otoko/onna>", "男", "女");
 addGenderVar("<da/yo>", "だ", "よ");
 addGenderVar("<da/no>", "だ", "の");
 addGenderVar("<ka/no>", "か", "の");
