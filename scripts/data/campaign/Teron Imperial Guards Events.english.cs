@@ -29,7 +29,7 @@
 		{
 			FengSign.isRenderEnabled = 0;
 			CassiusSign.isRenderEnabled = 1;
-			dlgCreateCharacter("カシウス", 1010, 1010, 70, 94, 0, E);
+			dlgCreateCharacter("カッシウス", 1010, 1010, 70, 94, 0, E);
 			assignDialogue(Cassius_02, 1010);
 		}
 	}
