@@ -9,7 +9,7 @@ new SimGroup(SE_slides_group) {
          script = "$SS_text = 3;";
          sid = "0";
          sname = "Slide 0";
-         text0 = "<spush><font:コーポレート明朝:20><color:FEFEFEFF>ようこそ　The Age of Decadence　へ！<spop>\n\n初めてゲームをプレイする場合は、まず戦闘のチュートリアルを試して、様々な攻撃タイプやステータス・スキルの効果に慣れるのが良いでしょう。\n\n戦闘は非常に難しいです。特に、逃げることができる戦闘に関しては。最初のプレイではスキルポイントをあまり広範に取らないことをお勧めします。ファイターでプレイしている場合は、システムをよく理解し、少ないリソースでプレイする方法を理解するまでは、２～３個の戦闘スキルに留めてください。\n\n勝ち目は常に薄く、チャンスをつかむには最善手を打たなければならないように感じるかもしれませんが、ゲームが提供する様々なツールを使うことで簡単に優位に立つことができます。\n\n以下のガイドでは、The Age of Decadenceのキャラクター、戦闘、クラフト、錬金術のシステムの最も重要な概念を簡単に説明しています。\n\n\n\n* * *\n\n<spush><font:Kinto Sans:16><color:FEFEFEFF>カメラはQとEか、真ん中のボタンを押してマウスを動かすことで回転できることに注意してください。<spop>";
+         text0 = "<spush><font:コーポレート明朝:20><color:FEFEFEFF>ようこそ　The Age of Decadence　へ！<spop>\n\n初めてゲームをプレイする場合は、まず戦闘のチュートリアルを試して、様々な攻撃タイプやステータス・スキルの効果に慣れるのが良いでしょう。\n\n戦闘は非常に難しいです。特に、逃げることができる戦闘に関しては。最初のプレイではスキルポイントをあまり広範に取らないことをお勧めします。ファイターでプレイしている場合は、システムをよく理解し、少ないリソースでプレイする方法を理解するまでは、２～３個の戦闘スキルに留めてください。\n\n勝ち目は常に薄く、チャンスをつかむには最善手を打たなければならないように感じるかもしれませんが、ゲームが提供する様々なツールを使うことで簡単に優位に立つことができます。\n\n以下のガイドでは、The Age of Decadenceのキャラクター、戦闘、クラフト、錬金術のシステムの最も重要な概念を簡単に説明しています。\n\n\n\n* * *\n\n<spush><font:コーポレート明朝:16><color:FEFEFEFF>カメラはQとEか、真ん中のボタンを押してマウスを動かすことで回転できることに注意してください。<spop>";
          text_id0 = "3";
          type = "4";
    };
@@ -99,7 +99,7 @@ new SimGroup(SE_slides_group) {
          script = "$SS_text = 1;";
          sid = "9";
          sname = "Slide 9";
-         text0 = "<spush><font:Kinto Sans:20><color:FEFEFEFF>9. AMMUNITION<spop>\n\nFor the sake of convenience, all arrows and bolts have been combined into \'universal ammo\'. Originally, the game had arrows and bolts, but 3 different types times 5 different metals times various alchemy upgrades times 2 (arrows/bolts) was too much to manage and one universal ammo was forged by the Elven Council.\n\nAmmunition types:\n\nRegular - standard ammunition.\n\nArmor piercing - causes less damage, but penetrates through armor better. DR is divided by 2 to determine the effective value, i.e. a DR8 armor will absorb 8 points of damage if shot at by regular ammo and only 4 points (8/2) if hit by armor-piercing ammo.\n\nJagged - causes more damage, but is easily stopped by armor. DR is multiplied by 2 to determine the effective value, i.e. a DR1 armor will absorb 2 points of damage, but a DR4 armor will absorb 8 points of damage.";
+         text0 = "<spush><font:コーポレート明朝:20><color:FEFEFEFF>9. AMMUNITION<spop>\n\nFor the sake of convenience, all arrows and bolts have been combined into \'universal ammo\'. Originally, the game had arrows and bolts, but 3 different types times 5 different metals times various alchemy upgrades times 2 (arrows/bolts) was too much to manage and one universal ammo was forged by the Elven Council.\n\nAmmunition types:\n\nRegular - standard ammunition.\n\nArmor piercing - causes less damage, but penetrates through armor better. DR is divided by 2 to determine the effective value, i.e. a DR8 armor will absorb 8 points of damage if shot at by regular ammo and only 4 points (8/2) if hit by armor-piercing ammo.\n\nJagged - causes more damage, but is easily stopped by armor. DR is multiplied by 2 to determine the effective value, i.e. a DR1 armor will absorb 2 points of damage, but a DR4 armor will absorb 8 points of damage.";
          text_id0 = "1";
          type = "4";
    };

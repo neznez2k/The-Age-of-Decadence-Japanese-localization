@@ -449,7 +449,7 @@ singleton GuiControlProfile (Candara_Autosize_32_White : CandaraWhite) // 1440 P
 //
 singleton GuiControlProfile (KaratMediumBase)
 {
-   fontType = "Kinto Sans";
+   fontType = "M+ 1mn medium";
    
    fontColor = "236 214 175";
    fontColorHL = "255 255 255";
@@ -463,7 +463,7 @@ singleton GuiControlProfile (KaratMediumBase)
 
 singleton GuiControlProfile (KaratMediumDark)
 {
-   fontType = "Noto Serif CJK JP";
+   fontType = "M+ 1mn medium";
    
    fontColor = "171 150 97";
    fontColorHL = "255 225 154";
@@ -1120,7 +1120,7 @@ singleton GuiControlProfile (fbBitmapFrameProfile)
 
 singleton GuiControlProfile(fbTabBook_15)
 {
-	fontType = "Noto Serif CJK JP";
+	fontType = "M+ 1mn medium";
 	fontSize = 21;
 	fontColor = "173 156 100";
 	fontColorHL = "255 227 177";

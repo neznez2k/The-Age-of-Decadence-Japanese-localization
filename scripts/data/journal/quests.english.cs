@@ -282,12 +282,12 @@ function Quest_Guildless()
 	}
 	else if(aod.trn_finished)
 	{
-		jsSetQuestStatus("Try your luck in another guild");
+		jsSetQuestStatus("他のギルドで運試しをする");
 		jsAddQuestDesc(1);
 	}
 	else if(aod.trn_finished == false)
 	{
-		jsSetQuestStatus("Try your luck in another guild");
+		jsSetQuestStatus("他のギルドで運試しをする");
 		jsAddQuestDesc(0);
 	}
 }
