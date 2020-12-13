@@ -691,7 +691,7 @@ singleton GuiControlProfile(fbText_19_white : fbText_19)
 //
 singleton GuiControlProfile (CharlemagneBase)
 {
-   fontType = "Kinto Sans";
+   fontType = "コーポレート明朝";
    
    fontColor = "236 214 175";
    fontColorHL = "255 255 255";
@@ -721,7 +721,7 @@ singleton GuiControlProfile(GuiMLTextProfile_CM18 : CharlemagneBase)
 
 singleton GuiControlProfile (CharlemagneDark)
 {
-   fontType = "Noto Serif CJK JP";
+   fontType = "コーポレート明朝";
    
    fontColor = "171 150 97";
    fontColorHL = "255 225 154";
@@ -754,13 +754,13 @@ singleton GuiControlProfile(CharlemagneDark_Left_20 : CharlemagneDark)
 
 singleton GuiControlProfile(CharlemagneDark_Left_25 : CharlemagneDark)
 {
-   fontSize = "31";
+   fontSize = "28";
    justify = "Left";
 };
 
 singleton GuiControlProfile(CharlemagneDark_Left_30 : CharlemagneDark)
 {
-   fontSize = "37";
+   fontSize = "33";
    justify = "Left";
 };
 
@@ -842,7 +842,7 @@ singleton GuiControlProfile(Charlemagne_Center_25 : CharlemagneBase)
 
 singleton GuiControlProfile(Charlemagne_Center_29 : CharlemagneBase)
 {
-   fontSize = "36";
+   fontSize = "29";
    justify = "Center";
    bevelColorHL = "255 0 255 255";
    bevelColorLL = "255 0 255 255";
@@ -851,7 +851,7 @@ singleton GuiControlProfile(Charlemagne_Center_29 : CharlemagneBase)
 
 singleton GuiControlProfile(Charlemagne_Center_32 : CharlemagneBase)
 {
-   fontSize = "40";
+   fontSize = "32";
    justify = "Center";
    bevelColorHL = "255 0 255 255";
    bevelColorLL = "255 0 255 255";
@@ -860,26 +860,26 @@ singleton GuiControlProfile(Charlemagne_Center_32 : CharlemagneBase)
 
 singleton GuiControlProfile(Charlemagne_Center_35 : CharlemagneBase)
 {
-   fontSize = "43";
+   fontSize = "35";
    justify = "Center";
    fontColors[6] = "255 18 0 255";
 };
 
 singleton GuiControlProfile(Charlemagne_Center_35 : CharlemagneBase)
 {
-   fontSize = "43";
+   fontSize = "35";
    justify = "Center";
 };
 
 singleton GuiControlProfile(Charlemagne_Center_38 : CharlemagneBase)
 {
-   fontSize = "47";
+   fontSize = "38";
    justify = "Center";
 };
 
 singleton GuiControlProfile(Charlemagne_Center_40 : CharlemagneBase)
 {
-   fontSize = "50";
+   fontSize = "40";
    justify = "Center";
 };
 
